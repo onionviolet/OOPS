@@ -9,6 +9,7 @@ import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BENCH_STOCK,STOCK_REV_KEY,LOTM_CHARACTERISTIC as CORE} from './book_world_lotm_bench.js';
 import {LOTM_BENCH_ITEMS,FORMULA_ROWS_REVISION} from './lotm_formula_rows.js';
 import {RITE_ITEMS} from './book_world_lotm_ritual.js';
+import {HOUSEHOLD_MEAL_ITEMS} from './household_meal_items.js';
 export {LOTM_IDS,LOTM_LOCATIONS,LOTM_KEYS,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT} from './book_world_lotm_ids.js';
 export {lotmSources};
 export const lotmWorlds=[{id:I.world,label:'Tingen · supervised probationer branch',publicName:'Tingen',continuityLabel:'Original early-Tingen probationer branch',
@@ -54,7 +55,7 @@ export const LOTM_ITEM_SPECIFICATIONS=[
   ,...LOTM_BENCH_ITEMS
   ,...RITE_ITEMS
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
-export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of LOTM_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
+export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of [...LOTM_ITEM_SPECIFICATIONS,...HOUSEHOLD_MEAL_ITEMS]){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
 // Pure enrollment of the original probationer branch (plan S2 prototype start).
 // The caller owns the publication; this changes only the passed state.
 export function enrollLotmBranch(state,profile='probationer'){

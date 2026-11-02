@@ -1,0 +1,19 @@
+# OW3 RI refinement/control follow-up
+
+Status: bounded source note, proposal only. Primary source is the prepared local English compilation; its provenance/translation remain qualified as recorded by the RI institutions owner. The three exact windows total 1,749 words. The early windows display chapter labels 14, 17, 18; the later window displays chapter 1000. These shard labels are compilation locators, not claims about a canonical published volume numbering.
+
+## Finding
+
+**S/T — depicted attempt and attributed estimates:** Early ch17 p1-p4 describes resistance from a held wild Gu, actual resource expenditure and a character's estimate comparing effort across targets. Ch18 p66-p70 reports extended work and partial progress rather than an automatic custody-to-control conversion. This is acquisition/refinement control of a held Gu, not manufacture from materials by following a recipe. Ch18 p50-p64 also depicts resource allocation and timing around another refiner; institution/family influence is distinct from direct control over the creature. Exact contextual figures and identities remain in the private payload, not universal duration rules.
+
+**S/T — distinct later use of the term:** ch1000 p24-p27 describes a contest over accumulated battle will, with an attributed comparative claim. The window does not explain the full process, custody, interruption, or whether it controls a Gu. It is insufficient to equate this use of refinement with acquiring a held creature's control or manufacturing one. Detailed participants/outcomes remain private.
+
+**I — inference/proposal:** These windows distinguish at least two meanings that a broad `refinement` label would collapse: (a) overcoming a Gu's will to establish control, and (b) processing/accumulating battle will. Manufacture from a recipe is not evidenced in this sample. The existing `GU_REFINING_KILLER_MOVES.md` owner already separates recipe/material refinement, reverse/parallel modes, imprint removal, and Gu ownership/refinement events; its broad synthesis should remain the candidate owner, with this case tagged as a distinct control-acquisition interaction. No inherited `gu_life` versus `making` decision is settled here: use the existing Gu-life owner for a held Gu's living will/control state and the making/refinement owner for recipe/material transformation, with explicit cross-link only if the engine contract needs it.
+
+**U — unknown:** No universal duration/ownership rule follows from this particular attempt and its partial-progress estimate. The later battle-will passage gives no fixed time or custody rule. The sample does not establish “owner controls it after N days”; one partial attempt also does not mathematically disprove every proposed fixed duration. Keep that distinction explicit and do not import the Reddit TTRPG day-count proposal.
+
+## Engine implication to test
+
+Group the player-facing action under the Gu's current custody and control state, with a separate recipe/material operation. Show the held Gu, current controller/refiner, progress/effort, and return/refusal outcome; do not make recipe knowledge imply ownership or control. Return/custody and control are separate fields. A save should retain Gu identity, holder, controller, resistance/imprint state, active attempt and paid inputs independently, so later evidence can refactor duration or success without rewriting ownership. The battle-will case should remain a separate resource/contest until its producer and consumer are sourced.
+
+Minimum counterexample: a Gu remains in one character's custody while another's attempted refinement advances only partially; stopping or losing access should not silently award control. Reopen the model if a sourced passage shows transfer/control without custody, fixed completion independent of Gu/refiner conditions, or a battle-will process that consumes/controls actual Gu. Highest state: source-backed research proposal; no runtime or human review.

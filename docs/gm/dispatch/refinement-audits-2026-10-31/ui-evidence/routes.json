@@ -1,0 +1,99 @@
+{
+  "viewport": "1920x1080",
+  "head": "43466ba23505c9f751317b4bd9e3ee161158105f",
+  "minified_bundle_sha256": "fc92f01b8b8b825926df198a14133f6362656990424a0173d3255caafe4baea8",
+  "fight": {
+    "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
+    "unminified_bundle_sha256": "e7ab05e83dd5c44df62498301e720519ec75a1d92c6531767442554d7e559226",
+    "after_moves": {
+      "hero": "60/60 hp",
+      "you": "You\n\n58.4/60 hp\n\nStrikes: bludgeoning 100%",
+      "log": [
+        "Both sides see each other at once.",
+        "Mara misses.",
+        "You hit Mara in the body for 0.7 bludgeoning.",
+        "You hit Mara in the head for 1.3 bludgeoning.",
+        "Mara hits you on the arm for 1.6 physical.",
+        "You hit Mara in the head for 1.3 bludgeoning.",
+        "Mara misses.",
+        "You hit Mara in the head for 1 bludgeoning."
+      ]
+    },
+    "reload_hero": "60/60 hp",
+    "reload_you": "You\n\n58.4/60 hp\n\nStrikes: bludgeoning 100%",
+    "import_hero": "60/60 hp",
+    "import_you": "You\n\n58.4/60 hp\n\nStrikes: bludgeoning 100%",
+    "reload_fight_equal_excluding_held": true,
+    "import_fight_equal_excluding_held": true,
+    "focus_before": "Quick strike button",
+    "focus_after": "body",
+    "withdraw_outcome": "cut off; a free blow occurred; fight remained active",
+    "withdraw_log": [
+      "You try to back away, but are cut off; the turn costs a free blow."
+    ],
+    "errors": []
+  },
+  "lead": {
+    "route": "fresh life, cross to Tingen, Be lead, Other known panels > Moretti flat, inspect desk, advance two minutes",
+    "before_now": "Right now\n\nNow: Mon, Summer, Day \u00b7 08:01 at Moretti flat",
+    "after_now": "Right now\n\nNow: Mon, Summer, Day \u00b7 08:03 at Moretti flat",
+    "later_source_step": {
+      "id": "place.act.lr.lotm.main.208304-2",
+      "disabled": false,
+      "text": "withheld to keep discovery sealed"
+    },
+    "desk_result": "A desk inspection receipt appeared in Reports after the timed action.",
+    "after_view": "Notebook visible in the sampled frame; cause of the navigation was not isolated.",
+    "errors": []
+  },
+  "school": {
+    "route": "fresh test-candidate school start, 30-minute lesson, three-minute practice, cast, reload, Export and literal file Import",
+    "states": [
+      {
+        "step": "1-fresh",
+        "size": "14px",
+        "effects": "reduced",
+        "levitation_row": "Feather levitation: Not learned yet. The charms lesson is open now: attend it with Mara."
+      },
+      {
+        "step": "2-taught",
+        "size": "14px",
+        "effects": "reduced",
+        "levitation_row": "Feather levitation: Taught by Mara. Practised 0 of 1 drills needed before you can cast it. Next: Practice (3 min, 1 stamina, needs your wand)."
+      },
+      {
+        "step": "3-practised",
+        "size": "14px",
+        "effects": "reduced",
+        "levitation_row": "Feather levitation: Ready to cast (practised 1 drill; 0 casts so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect."
+      },
+      {
+        "step": "4-cast",
+        "size": "14px",
+        "effects": "reduced",
+        "levitation_row": "Feather levitation: Ready to cast (practised 1 drill; 1 cast so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect."
+      },
+      {
+        "step": "4b-cast-21-effects-off",
+        "size": "21px",
+        "effects": "off",
+        "levitation_row": "Feather levitation: Ready to cast (practised 1 drill; 1 cast so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect."
+      },
+      {
+        "step": "5-after-reload",
+        "size": "21px",
+        "effects": "off",
+        "levitation_row": "Feather levitation: Ready to cast (practised 1 drill; 1 cast so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect."
+      },
+      {
+        "step": "6-after-import",
+        "size": "21px",
+        "effects": "off",
+        "levitation_row": "Feather levitation: Ready to cast (practised 1 drill; 1 cast so far). A cast uses 1 practice feather and 1 stamina; on success the feather rises to the high rack. It does not fizzle yet: a chance of about 40% is planned and not in effect."
+      }
+    ],
+    "effects_control": "The hidden Effects control was set through a scripted change event in the disposable context; observed root effects=off.",
+    "payment_quote": "4 local resource units, 4 local resource units",
+    "errors": []
+  }
+}

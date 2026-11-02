@@ -1,0 +1,1082 @@
+{
+  "route": "fresh native Village, direct nearby elder greeting, Escape; no synthetic save payload",
+  "viewport": "1920x1080",
+  "bundle": "bundle.js?version=v0.6-42c7fca179a5",
+  "cases": [
+    {
+      "size": 14,
+      "states": [
+        {
+          "stage": "opening",
+          "active": {
+            "tag": "BODY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "Stats\nCondition\nInventory\nTravelers\nProjects\nLedger\nOrganizations\nWorlds\nBeginni"
+          },
+          "elderSelected": "false",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 386
+            },
+            "focus": {
+              "x": 359,
+              "y": 39,
+              "width": 1033,
+              "height": 386
+            },
+            "inventory": {
+              "x": 17,
+              "y": 431,
+              "width": 336,
+              "height": 632
+            },
+            "actions": {
+              "x": 359,
+              "y": 431,
+              "width": 1033,
+              "height": 632
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "elder selected",
+          "active": {
+            "tag": "BUTTON",
+            "id": null,
+            "nearby": "villageElder",
+            "action": null,
+            "topic": null,
+            "text": "village elder\nVillage neighbor"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 496
+            },
+            "focus": {
+              "x": 359,
+              "y": 39,
+              "width": 1033,
+              "height": 496
+            },
+            "inventory": {
+              "x": 17,
+              "y": 541,
+              "width": 336,
+              "height": 522
+            },
+            "actions": {
+              "x": 359,
+              "y": 541,
+              "width": 1033,
+              "height": 522
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "conversation opened",
+          "active": {
+            "tag": "BODY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "Stats\nCondition\nInventory\nTravelers\nProjects\nLedger\nOrganizations\nWorlds\nBeginni"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 342,
+              "height": 713
+            },
+            "actions": {
+              "x": 365,
+              "y": 39,
+              "width": 1154,
+              "height": 1024
+            },
+            "log": {
+              "x": 1525,
+              "y": 39,
+              "width": 378,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "Tab after opening",
+          "active": {
+            "tag": "BUTTON",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": "hello",
+            "text": "Hello?"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 342,
+              "height": 713
+            },
+            "actions": {
+              "x": 365,
+              "y": 39,
+              "width": 1154,
+              "height": 1024
+            },
+            "log": {
+              "x": 1525,
+              "y": 39,
+              "width": 378,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "greeting answered",
+          "active": {
+            "tag": "BODY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "Stats\nCondition\nInventory\nJournal\nData\nKnows\nTravelers\nProjects\nLedger\nOrganizat"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 342,
+              "height": 713
+            },
+            "actions": {
+              "x": 365,
+              "y": 39,
+              "width": 1154,
+              "height": 1024
+            },
+            "log": {
+              "x": 1525,
+              "y": 39,
+              "width": 378,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "Tab after greeting",
+          "active": {
+            "tag": "SUMMARY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "✓ Hello?\nOpen to review"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 342,
+              "height": 713
+            },
+            "actions": {
+              "x": 365,
+              "y": 39,
+              "width": 1154,
+              "height": 1024
+            },
+            "log": {
+              "x": 1525,
+              "y": 39,
+              "width": 378,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "Escape returned",
+          "active": {
+            "tag": "DIV",
+            "id": "location_actions_div",
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": {
+              "x": 359,
+              "y": 39,
+              "width": 1033,
+              "height": 305
+            },
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 336,
+              "height": 713
+            },
+            "actions": {
+              "x": 359,
+              "y": 350,
+              "width": 1033,
+              "height": 713
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "return settled",
+          "active": {
+            "tag": "DIV",
+            "id": "location_actions_div",
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": {
+              "x": 359,
+              "y": 39,
+              "width": 1033,
+              "height": 305
+            },
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 336,
+              "height": 713
+            },
+            "actions": {
+              "x": 359,
+              "y": 350,
+              "width": 1033,
+              "height": 713
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "before resize",
+          "active": {
+            "tag": "DIV",
+            "id": "location_actions_div",
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 336,
+              "height": 305
+            },
+            "focus": {
+              "x": 359,
+              "y": 39,
+              "width": 1033,
+              "height": 305
+            },
+            "inventory": {
+              "x": 17,
+              "y": 350,
+              "width": 336,
+              "height": 713
+            },
+            "actions": {
+              "x": 359,
+              "y": 350,
+              "width": 1033,
+              "height": 713
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "after resize",
+          "active": {
+            "tag": "DIV",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": ""
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 416,
+              "height": 511
+            },
+            "focus": {
+              "x": 439,
+              "y": 39,
+              "width": 953,
+              "height": 511
+            },
+            "inventory": {
+              "x": 17,
+              "y": 556,
+              "width": 336,
+              "height": 507
+            },
+            "actions": {
+              "x": 359,
+              "y": 556,
+              "width": 1033,
+              "height": 507
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "after narrowing",
+          "active": {
+            "tag": "DIV",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": ""
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 14,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 284,
+              "height": 496
+            },
+            "focus": {
+              "x": 307,
+              "y": 39,
+              "width": 1085,
+              "height": 496
+            },
+            "inventory": {
+              "x": 17,
+              "y": 541,
+              "width": 348,
+              "height": 522
+            },
+            "actions": {
+              "x": 371,
+              "y": 541,
+              "width": 1021,
+              "height": 522
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        }
+      ],
+      "selectedDetail": "‹ Previous\nNext ›\nvillage elder\n\nVillage neighbor\n\nMeet traveler\n← Village overview",
+      "afterGreetingDetail": "‹ Previous\nNext ›\nvillage elder\n\nVillage neighbor\n\nTalk with village elder\n← Village overview",
+      "resizeAvailable": true,
+      "resizeDelta": {
+        "player": 80,
+        "inventory": 0,
+        "focus": -80
+      },
+      "narrowDelta": {
+        "player": -52,
+        "inventory": 12,
+        "focus": 52
+      }
+    },
+    {
+      "size": 21,
+      "states": [
+        {
+          "stage": "opening",
+          "active": {
+            "tag": "BODY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "Stats\nCondition\nInventory\nTravelers\nProjects\nLedger\nOrganizations\nWorlds\nBeginni"
+          },
+          "elderSelected": "false",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 415,
+              "height": 617
+            },
+            "focus": {
+              "x": 438,
+              "y": 39,
+              "width": 954,
+              "height": 617
+            },
+            "inventory": {
+              "x": 17,
+              "y": 662,
+              "width": 415,
+              "height": 401
+            },
+            "actions": {
+              "x": 438,
+              "y": 662,
+              "width": 954,
+              "height": 401
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "elder selected",
+          "active": {
+            "tag": "BUTTON",
+            "id": null,
+            "nearby": "villageElder",
+            "action": null,
+            "topic": null,
+            "text": "village elder\nVillage neighbor"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 415,
+              "height": 617
+            },
+            "focus": {
+              "x": 438,
+              "y": 39,
+              "width": 954,
+              "height": 617
+            },
+            "inventory": {
+              "x": 17,
+              "y": 662,
+              "width": 415,
+              "height": 401
+            },
+            "actions": {
+              "x": 438,
+              "y": 662,
+              "width": 954,
+              "height": 401
+            },
+            "log": {
+              "x": 1398,
+              "y": 39,
+              "width": 505,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "conversation opened",
+          "active": {
+            "tag": "BODY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "Stats\nCondition\nInventory\nTravelers\nProjects\nLedger\nOrganizations\nWorlds\nBeginni"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 415,
+              "height": 617
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 662,
+              "width": 421,
+              "height": 401
+            },
+            "actions": {
+              "x": 444,
+              "y": 39,
+              "width": 1038,
+              "height": 1024
+            },
+            "log": {
+              "x": 1488,
+              "y": 39,
+              "width": 415,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "Tab after opening",
+          "active": {
+            "tag": "BUTTON",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": "hello",
+            "text": "Hello?"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 415,
+              "height": 617
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 662,
+              "width": 421,
+              "height": 401
+            },
+            "actions": {
+              "x": 444,
+              "y": 39,
+              "width": 1038,
+              "height": 1024
+            },
+            "log": {
+              "x": 1488,
+              "y": 39,
+              "width": 415,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "greeting answered",
+          "active": {
+            "tag": "BODY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "Stats\nCondition\nInventory\nJournal\nData\nKnows\nTravelers\nProjects\nLedger\nOrganizat"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 415,
+              "height": 617
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 662,
+              "width": 421,
+              "height": 401
+            },
+            "actions": {
+              "x": 444,
+              "y": 39,
+              "width": 1038,
+              "height": 1024
+            },
+            "log": {
+              "x": 1488,
+              "y": 39,
+              "width": 415,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "Tab after greeting",
+          "active": {
+            "tag": "SUMMARY",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "✓ Hello?\nOpen to review"
+          },
+          "elderSelected": "true",
+          "elderVisible": false,
+          "lowerTalkVisible": false,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 39,
+              "width": 415,
+              "height": 617
+            },
+            "focus": null,
+            "inventory": {
+              "x": 17,
+              "y": 662,
+              "width": 421,
+              "height": 401
+            },
+            "actions": {
+              "x": 444,
+              "y": 39,
+              "width": 1038,
+              "height": 1024
+            },
+            "log": {
+              "x": 1488,
+              "y": 39,
+              "width": 415,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "stage": "Escape returned",
+          "active": {
+            "tag": "DIV",
+            "id": "location_actions_div",
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1114,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 90,
+              "width": 415,
+              "height": 617
+            },
+            "focus": {
+              "x": 438,
+              "y": 90,
+              "width": 954,
+              "height": 617
+            },
+            "inventory": {
+              "x": 17,
+              "y": 713,
+              "width": 415,
+              "height": 350
+            },
+            "actions": {
+              "x": 438,
+              "y": 713,
+              "width": 954,
+              "height": 350
+            },
+            "log": {
+              "x": 1398,
+              "y": 90,
+              "width": 505,
+              "height": 973
+            }
+          }
+        },
+        {
+          "stage": "return settled",
+          "active": {
+            "tag": "DIV",
+            "id": "location_actions_div",
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1114,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 90,
+              "width": 415,
+              "height": 617
+            },
+            "focus": {
+              "x": 438,
+              "y": 90,
+              "width": 954,
+              "height": 617
+            },
+            "inventory": {
+              "x": 17,
+              "y": 713,
+              "width": 415,
+              "height": 350
+            },
+            "actions": {
+              "x": 438,
+              "y": 713,
+              "width": 954,
+              "height": 350
+            },
+            "log": {
+              "x": 1398,
+              "y": 90,
+              "width": 505,
+              "height": 973
+            }
+          }
+        },
+        {
+          "stage": "before resize",
+          "active": {
+            "tag": "DIV",
+            "id": "location_actions_div",
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find"
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1114,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 90,
+              "width": 415,
+              "height": 617
+            },
+            "focus": {
+              "x": 438,
+              "y": 90,
+              "width": 954,
+              "height": 617
+            },
+            "inventory": {
+              "x": 17,
+              "y": 713,
+              "width": 415,
+              "height": 350
+            },
+            "actions": {
+              "x": 438,
+              "y": 713,
+              "width": 954,
+              "height": 350
+            },
+            "log": {
+              "x": 1398,
+              "y": 90,
+              "width": 505,
+              "height": 973
+            }
+          }
+        },
+        {
+          "stage": "after resize",
+          "active": {
+            "tag": "DIV",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": ""
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 90,
+              "width": 495,
+              "height": 573
+            },
+            "focus": {
+              "x": 518,
+              "y": 90,
+              "width": 874,
+              "height": 573
+            },
+            "inventory": {
+              "x": 17,
+              "y": 669,
+              "width": 415,
+              "height": 394
+            },
+            "actions": {
+              "x": 438,
+              "y": 669,
+              "width": 954,
+              "height": 394
+            },
+            "log": {
+              "x": 1398,
+              "y": 90,
+              "width": 505,
+              "height": 973
+            }
+          }
+        },
+        {
+          "stage": "after narrowing",
+          "active": {
+            "tag": "DIV",
+            "id": null,
+            "nearby": null,
+            "action": null,
+            "topic": null,
+            "text": ""
+          },
+          "elderSelected": "true",
+          "elderVisible": true,
+          "lowerTalkVisible": true,
+          "focusFont": 21,
+          "pageHeight": 1080,
+          "pageWidth": 1920,
+          "regions": {
+            "player": {
+              "x": 17,
+              "y": 90,
+              "width": 363,
+              "height": 573
+            },
+            "focus": {
+              "x": 386,
+              "y": 90,
+              "width": 1006,
+              "height": 573
+            },
+            "inventory": {
+              "x": 17,
+              "y": 669,
+              "width": 427,
+              "height": 394
+            },
+            "actions": {
+              "x": 450,
+              "y": 669,
+              "width": 942,
+              "height": 394
+            },
+            "log": {
+              "x": 1398,
+              "y": 90,
+              "width": 505,
+              "height": 973
+            }
+          }
+        }
+      ],
+      "selectedDetail": "‹ Previous\nNext ›\nvillage elder\n\nVillage neighbor\n\nMeet traveler\n← Village overview",
+      "afterGreetingDetail": "‹ Previous\nNext ›\nvillage elder\n\nVillage neighbor\n\nTalk with village elder\n← Village overview",
+      "resizeAvailable": true,
+      "resizeDelta": {
+        "player": 80,
+        "inventory": 0,
+        "focus": -80
+      },
+      "narrowDelta": {
+        "player": -52,
+        "inventory": 12,
+        "focus": 52
+      }
+    }
+  ],
+  "errors": []
+}

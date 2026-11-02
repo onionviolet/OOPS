@@ -38,7 +38,7 @@ export function categoryCounts(rows) {
 
 // UX13: tell apart nothing held, an empty category and a search with no matches.
 export function emptyHint({category, held, inCategory, search}) {
-    if (!held) return 'Nothing held yet. Gather, loot or buy items to fill your inventory.';
+    if (!held) return 'No items in this inventory. Gather, loot or buy items to add them here.';
     const c = categoryOf(category);
     if (!inCategory) return c.id === 'favorites' ? 'No starred items yet. Star an item to keep it here.' : `No ${c.noun} yet.`;
     if (search) return `No ${c.id === 'all' ? 'items' : c.noun} match "${search}". Clear the filter to see all.`;

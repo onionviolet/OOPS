@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {BE_PROFILE_ID, SEATS, seatOf} from '../src/seat_profiles.js';
 import {PERSPECTIVE_CONTROLS} from '../src/perspective_controls.js';
-import {CONTROLLED_ACTOR_ID, observerForProfile, observerView} from '../src/observer_view.js';
+import {CONTROLLED_ACTOR_ID, observerForProfile, observerView, registerCapability} from '../src/observer_view.js';
 
 // One fixture per seat. The unnamed "other" facts must never reach the observer.
 const base = {
@@ -152,4 +152,10 @@ test('the migrated sites read through the seam', () => {
     for (const file of ['src/book_world_lotm_ui.js', 'src/workspace_navigation.js', 'src/observation_ui.js', 'src/pocket_realm_ui.js']) {
         assert.match(fs.readFileSync(path.join(root, file), 'utf8'), /observer_view\.js/, file);
     }
+});
+
+test('local-task entry capability preserves the lead/beside distinction through the observer seam',()=>{
+ registerCapability({id:'lotm.local-task-entry',audience:'seat-only',panel:'lotm'});
+ assert.equal(observerForProfile(BE_PROFILE_ID).sees({capability:'lotm.local-task-entry'}),true);
+ assert.equal(observerForProfile('lotm.early_tingen.canon_beside@1').sees({capability:'lotm.local-task-entry'}),false);
 });

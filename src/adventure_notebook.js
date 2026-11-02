@@ -19,7 +19,12 @@ const panels = [
 ];
 const node = (tag, text = "", className = "") => {const n = document.createElement(tag); n.textContent = text; n.className = className; return n;};
 
-function attention(state, registry, battleRunning=false) {
+// A work owner may name its own panel. The Notebook keeps the status but does
+// not navigate away from that panel merely because its work began.
+const ownedWorkPanels=new Set();
+export function registerOwnedWorkPanel(read){if(typeof read!=='function')throw new TypeError('A work-panel reader is required.');ownedWorkPanels.add(read);return ()=>ownedWorkPanels.delete(read);}
+
+export function notebookAttention(state, registry, battleRunning=false) {
     const practice = activePractice(state.actors.player);
     if(practice) return {id: practice[1].practice.id, view: "practice", panel: "technique_panel", text: "Rat-step practice is waiting for your response."};
     if(state.chronicle?.session) return {id: "elder-encounter", view: "people", panel: "chronicle_panel", text: "The elder encounter is in progress."};
@@ -38,6 +43,8 @@ function attention(state, registry, battleRunning=false) {
     }
     const work = state.simulation?.jobs.find(j => j.actorId === "player");
     if(work){const group=registry.simulation.commands.get(work.commandId)?.group;
+        for(const read of ownedWorkPanels){let panel;try{panel=read(work,registry.simulation.commands.get(work.commandId),state);}catch{continue;}
+            if(typeof panel==='string'&&panel)return {id:work.id,view:'here',panel,ownPanel:true,text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
         if(group==='causal_story'||group==='causal_story_npc')return {id:work.id,view:'here',panel:'causal_story_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
         if(STEAM_ABSORPTION_GROUPS.includes(group))return {id:work.id,view:'here',panel:'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
         if(['feature_objects','feature_society','feature_powers','feature_battle','tidemark','repositories','subtlety_relay','nested_campaign','nested_chains','nested_life','book_paradise','book_mol','book_paradise_campaign','home_furnishings','proto23','factorio_retort','reference_gameplay','nethack_fieldcraft','contextual_balm','cooling_refinement','game_absorption_assay','audit_fixture','audit_lesson','artifact_collection','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(group))return {id:work.id,view:'here',panel:group==='repositories'?'repository_absorption_panel':'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
@@ -90,7 +97,7 @@ export function createAdventureNotebook({registry, read}) {
             const list = card.parentNode;
             if (list.children[index] !== card) list.insertBefore(card, list.children[index] || null);
         }
-        const active = attention(state,registry,snapshot.inCombat), familiar = knownPeople || state.chronicle || state.simulation || Object.keys(actor.techniques).length || actor.facts["town.joined"] || active;
+        const active = notebookAttention(state,registry,snapshot.inCombat), familiar = knownPeople || state.chronicle || state.simulation || Object.keys(actor.techniques).length || actor.facts["town.joined"] || active;
         root.hidden = !familiar;
         const host = document.getElementById("notebook_box_div"), control = document.getElementById("journal_show_notebook");
         if(!workspaceOwns(root) && root.parentElement !== host && host) host.append(root);
@@ -105,7 +112,7 @@ export function createAdventureNotebook({registry, read}) {
         wrappers.get("technique_panel").hidden = location !== "Village" && !Object.keys(actor.techniques).length && active?.panel !== "technique_panel";
         for(const [id] of panels) if((snapshot.inDialogue || snapshot.inCombat) && !active) wrappers.get(id).hidden = true;
         if(location !== lastLocation && !active && selected !== "people") selected="here";
-        if(active && active.id !== lastAttention) {
+        if(active && !active.ownPanel && active.id !== lastAttention) {
             selected=active.view; const panel=document.getElementById(active.panel); if(panel) panel.open=true;
             // A newly waiting response must remain reachable after moving away
             // from the location menu. User tab choices then survive later ticks.

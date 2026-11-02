@@ -1,0 +1,26 @@
+{
+  "viewport": "1920x1080",
+  "cases": [
+    {
+      "size": 14,
+      "panelFont": "14px",
+      "labelFont": "12px",
+      "svgWidth": 840,
+      "viewBoxWidth": 720,
+      "labelPixelHeight": 14,
+      "svgScaleX": 1.1666445974576272,
+      "svgScaleY": 1.1666445974576272
+    },
+    {
+      "size": 21,
+      "panelFont": "21px",
+      "labelFont": "12px",
+      "svgWidth": 968.1875,
+      "viewBoxWidth": 720,
+      "labelPixelHeight": 16,
+      "svgScaleX": 1.3446769067796611,
+      "svgScaleY": 1.3446769067796611
+    }
+  ],
+  "errors": []
+}

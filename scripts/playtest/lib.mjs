@@ -74,9 +74,12 @@ export class Session {
         page.on('console', m => {if(m.type() === 'error') this.errors.push({op:this.op, kind:'console', text:m.text().slice(0, 600)});});
         await page.goto(this.url);
         const play = page.locator('#loading_screen_play_button');
-        await play.waitFor({state:'visible', timeout:60000});
+        // Saved preferences may skip PLAY. Both paths must reach a live engine before acting.
+        await page.waitForFunction(() => !!window.simulationTestHooks &&
+            (document.getElementById('loading_screen_play_button')?.checkVisibility() ||
+             document.getElementById('loading_screen')?.style.visibility === 'hidden'), null, {timeout:60000});
         await page.evaluate(() => window.simulationTestHooks.pause());
-        await play.click();
+        if(await play.isVisible()) await play.click();
         const confirm = page.locator('#hero_creation_panel_confirmation');
         if(await confirm.isVisible().catch(() => false)) await confirm.click();
         await page.waitForTimeout(300);

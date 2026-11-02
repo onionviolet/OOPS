@@ -15,6 +15,19 @@ import {node, syncList, visibleRenderer, minutesText, plural} from './reference_
 const pad = n => String(n).padStart(2, '0');
 const hourText = h => `${pad(Math.floor(h))}:${pad(Math.round((h % 1) * 60))}`;
 
+// Worlds supply a read-only projection when they own a local clock. A missing
+// or inapplicable reader leaves the native calendar as the fallback.
+const localClockSources = new Set();
+export function registerLocalClockSource(read) {
+    if (typeof read !== 'function') throw new TypeError('A local clock reader is required.');
+    localClockSources.add(read);
+    return () => localClockSources.delete(read);
+}
+export function readLocalClock() {
+    for (const read of localClockSources) { try { const value = read(); if (value?.clock) return value; } catch { /* unavailable during load */ } }
+    return null;
+}
+
 // Pure: minutes of the day, an hours window, and whether the game says it is open now.
 export function activityHours(minuteOfDay, hours, openNow) {
     const text = `${hourText(hours.start)} to ${hourText(hours.end)}`;
@@ -37,18 +50,20 @@ export function runningCommitments(expansion) {
 
 function readToday() {
     const t = current_game_time, minute = t.hour * 60 + t.minute, rows = [];
+    const nativeClock = `${t.getDayOfTheWeek()}, ${t.getSeason()}, ${t.getTimeOfDay()} · ${pad(t.hour)}:${pad(t.minute)}`;
+    const local = readLocalClock();
     for (const [name, activity] of Object.entries(current_location?.activities || {})) {
         if (!activity.availability_time) continue;
         let unlocked = true; try { unlocked = activity.getAvailabilityComponent().getStatus().is_unlocked !== false; } catch { unlocked = true; }
         if (!unlocked) continue;
         const state = activityHours(minute, activity.availability_time, can_work(activity));
-        rows.push({key: `act:${name}`, name: String(activity.activity_name || name), detail: state.text, open: state.open});
+        rows.push({key: `act:${name}`, name: String(activity.activity_name || name), detail: local ? `${state.text} · separate activity clock` : state.text, open: state.open});
     }
     return {
-        clock: `${t.getDayOfTheWeek()}, ${t.getSeason()}, ${t.getTimeOfDay()} · ${pad(t.hour)}:${pad(t.minute)}`,
-        date: `Year ${t.year}, month ${t.month}, day ${t.day}`,
+        clock: local?.clock || nativeClock,
+        date: local ? (rows.length ? `These activity hours follow a separate clock: ${nativeClock}` : local.date) : `Year ${t.year}, month ${t.month}, day ${t.day}`,
         place: current_location?.name || '',
-        rows, work: runningCommitments(readPort('expansion')),
+        rows, usesLocalClock:!!local, work: runningCommitments(readPort('expansion')),
     };
 }
 
@@ -81,6 +96,7 @@ registerDomain({id: 'today', deps: [], initialState: () => null, refresh: () => 
 // COV11: the few lines the Reports column shows while the log is still short. Same readers as the Today tab.
 export function todayDigest() {
     if (!here()) return null;
-    const view = readToday();
-    return {clock: view.clock, place: view.place, open: view.rows.filter(r => r.open).map(r => r.name), running: view.work};
+    return todayDigestView(readToday());
 }
+export const todayDigestView = view => ({clock:view.clock,place:view.place,
+    open:view.usesLocalClock?[]:view.rows.filter(r=>r.open).map(r=>r.name),running:view.work});

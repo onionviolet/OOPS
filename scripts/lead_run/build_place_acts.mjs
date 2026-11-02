@@ -5,9 +5,31 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildPackJoin} from './build_crosswalk.mjs';
 import {compilePlaceActOperation} from '../../src/place_act_operations.js';
+import {validatePredicate} from '../../src/simulation_contracts.js';
 import {FAMILY_RULES} from './gap_census.mjs';
 
 const readJsonl = p => fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
+const REPO_ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+// The LOTM pack has private source-reviewed visibility annotations. Resolve
+// them by schema, never by source names or a list of story actions in code.
+// A missing annotation file is an error for that pack, so a regeneration
+// cannot silently discard its known disclosure corrections.
+export function readPlaceActAnnotations(pack,{root=REPO_ROOT,file}={}){
+ const selected=file||((pack?.schema==='lotm-cast/1')?path.join(root,'private_packs/lotm-cast/place-act-annotations.json'):null);
+ if(!selected)return null;
+ if(!fs.existsSync(selected))throw Error(`Place-act annotations missing: ${selected}`);
+ const data=JSON.parse(fs.readFileSync(selected,'utf8'));
+ if(data?.schema!==1||!data.acts||Array.isArray(data.acts)||typeof data.acts!=='object')throw Error('Invalid place-act annotations.');
+ for(const [id,annotation] of Object.entries(data.acts)){
+  if(!id||!annotation||Array.isArray(annotation)||typeof annotation!=='object'||Object.keys(annotation).some(k=>!['visibleWhen','publicReasons'].includes(k)))throw Error('Invalid place-act annotation.');
+  if(Object.hasOwn(annotation,'visibleWhen')){if(!annotation.visibleWhen)throw Error('Invalid visibility annotation.');validatePredicate(annotation.visibleWhen);}
+  if(Object.hasOwn(annotation,'publicReasons')&&typeof annotation.publicReasons!=='boolean')throw Error('Invalid public-reasons annotation.');
+ }
+ return data;
+}
+export function requireMatchedPlaceActAnnotations(result,{allowMissing=false}={}){
+ if(!allowMissing&&result.missingAnnotations.length)throw Error(`Unmatched place-act annotations: ${result.missingAnnotations.join(', ')}. Reconcile the rows or explicitly use --allow-missing-annotations for a reviewed partial candidate.`);
+}
 const safe = s => String(s).replace(/[^a-zA-Z0-9_.-]+/g, '-').replace(/^-|-$/g, '').toLowerCase();
 const human = s => typeof s === 'string' && s.trim() && !/^(unknown|unstated|unspecified|none|null|u|\?)$/i.test(s.trim());
 const TARGET_FAMILIES = new Set(['observe or listen','inspect or investigate','handle or move an item','read a text','rest or personal care','make or write an item','change or maintain state','reason or plan','agree or refuse a proposal','wait for a time or event']);
@@ -51,7 +73,7 @@ function classify(step) {
  const matched=FAMILY_RULES.find(rule=>rule.head.test(stripped)&&(!rule.object||rule.object.test(text)))?.family;
  return TARGET_FAMILIES.has(matched)?matched:null;
 }
-export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence={}}) {
+export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence={},annotations=null}) {
  const join=buildPackJoin({crosswalk,registry,pack});
  const baseObjects=pack.householdActs?.objects||[], baseActs=pack.householdActs?.acts||[];
  const objects=[...baseObjects], acts=[...baseActs], objectIds=new Map(), actByStep={}, rejectedRows=[],
@@ -107,7 +129,14 @@ export function buildPlaceActs({scenes,crosswalk,registry,pack,knowledgeEvidence
   rowsByFamily[family]=(rowsByFamily[family]||0)+1; rowsByVolume[volume]=(rowsByVolume[volume]||0)+1;
   rowsByFamilyAndVolume[family]||={}; rowsByFamilyAndVolume[family][volume]=(rowsByFamilyAndVolume[family][volume]||0)+1;
  }
- return {data:{objects,acts},actByStep,rejected,rejectedRows,familyStepsByVolume,rowsByFamily,rowsByVolume,rowsByFamilyAndVolume};
+ const annotatedIds=new Set();
+ const finalActs=acts.map(row=>{const extra=annotations?.acts?.[row.id];if(!extra)return row;annotatedIds.add(row.id);return {...row,...structuredClone(extra)};});
+ const missingAnnotations=Object.keys(annotations?.acts||{}).filter(id=>!annotatedIds.has(id));
+ const sequence=pack.householdActs?.sequence;
+ const sequences=pack.householdActs?.sequences, remoteSessions=pack.householdActs?.remoteSessions, stockViews=pack.householdActs?.stockViews,requiredPeople=pack.householdActs?.requiredPeople;
+ if((sequences||[sequence]).filter(Boolean).flatMap(s=>s.stages).some(s=>!finalActs.some(a=>a.id===s.commandId)))throw Error('Sequence stage lost during place-act regeneration.');
+ return {data:{objects,acts:finalActs,...(sequence?{sequence:structuredClone(sequence)}:{}),...(sequences?{sequences:structuredClone(sequences)}:{}),...(remoteSessions?{remoteSessions:structuredClone(remoteSessions)}:{}),...(stockViews?{stockViews:structuredClone(stockViews)}:{}),...(requiredPeople?{requiredPeople:structuredClone(requiredPeople)}:{})},actByStep,rejected,rejectedRows,familyStepsByVolume,rowsByFamily,rowsByVolume,rowsByFamilyAndVolume,
+  annotationsApplied:annotatedIds.size,missingAnnotations};
 }
 function main(args){
  const get=k=>{const i=args.indexOf(k);if(i<0||!args[i+1])throw Error(`Missing ${k}`);return args[i+1];};
@@ -115,11 +144,13 @@ function main(args){
  const crosswalk=JSON.parse(fs.readFileSync(get('--crosswalk'),'utf8'));
  const input=JSON.parse(fs.readFileSync(get('--pack'),'utf8'));
  const knowledgeEvidence=args.includes('--knowledge-evidence')?JSON.parse(fs.readFileSync(get('--knowledge-evidence'),'utf8')):{};
- const result=buildPlaceActs({scenes,crosswalk,registry,pack:input,knowledgeEvidence});
+ const annotations=readPlaceActAnnotations(input,{file:args.includes('--annotations')?get('--annotations'):undefined});
+ const result=buildPlaceActs({scenes,crosswalk,registry,pack:input,knowledgeEvidence,annotations});
+ requireMatchedPlaceActAnnotations(result,{allowMissing:args.includes('--allow-missing-annotations')});
  const candidate=structuredClone(input); candidate.householdActs=result.data;
  const out=get('--out'),report=get('--report');fs.mkdirSync(path.dirname(out),{recursive:true});
  fs.writeFileSync(out,JSON.stringify(candidate,null,2)+'\n');
- fs.writeFileSync(report,JSON.stringify({schema:'place-act-build-report/2',rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rowsByFamilyAndVolume:result.rowsByFamilyAndVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected,rejectedRows:result.rejectedRows},null,2)+'\n');
- console.log(JSON.stringify({rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rejected:result.rejected}));
+ fs.writeFileSync(report,JSON.stringify({schema:'place-act-build-report/2',rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rowsByFamilyAndVolume:result.rowsByFamilyAndVolume,familyStepsByVolume:result.familyStepsByVolume,rejected:result.rejected,rejectedRows:result.rejectedRows,annotationsApplied:result.annotationsApplied,missingAnnotations:result.missingAnnotations},null,2)+'\n');
+ console.log(JSON.stringify({rowsByFamily:result.rowsByFamily,rowsByVolume:result.rowsByVolume,rejected:result.rejected,annotationsApplied:result.annotationsApplied,missingAnnotations:result.missingAnnotations}));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main(process.argv.slice(2));

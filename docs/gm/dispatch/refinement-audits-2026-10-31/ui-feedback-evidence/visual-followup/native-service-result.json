@@ -1,0 +1,47 @@
+{
+  "route": "fresh native Village; inspect service; open herb verge from Around you; gather and try one batch",
+  "viewport": "1920x1080",
+  "cases": [
+    {
+      "size": 14,
+      "clerkDetail": "‹ Previous\nNext ›\nWaypost supply clerk\n\nSupply clerk\n\n← Village overview",
+      "clerkActionCount": 0,
+      "herbDetail": "‹ Previous\nNext ›\nVillage common herb verge\n\nGather common herbs and inspect your carried materials and preparations.\n\nOpen Village common herb verge\n← Village overview",
+      "craftFont": 14,
+      "gatherEnabled": true,
+      "glance": "✓\nReady: 1 attempt possible now\n\nNeeds\n✓\nSilver reed 2/1 · enough\nTime\nNot stated\nCost\nSpends 1 Silver reed per attempt\nPossible result\nUnidentified herbal preparation ×1\nQuality\nNot graded: it works or it does not\nViable preparation\nUnassessed\nAt\nVillage common bench",
+      "commitEnabled": true,
+      "afterText": "ed: costs 1 sample\n\nExamine\nSteep selected materials (level 1)\n\n✓\nReady: 1 attempt possible now\n\nNeeds\n✓\nSilver reed 1/1 · enough\nTime\nNot stated\nCost\nSpends 1 Silver reed per attempt\nPossible result\nUnidentified herbal preparation ×1\nQuality\nNot graded: it works or it does not\nViable preparation\nUnassessed\nAt\nVillage common bench\nInput stock\nAbout this recipe\n\nProposed up to 1 attempt (request: 1): 1 Silver reed. Native skill limits can stop earlier; this preview reserves nothing.\n\nCraft 1\nYour preparations\n\nUnidentified herbal vial\n\nUnidentified herbal vial [1*Silver reed@1 | steep#1] · 1 carried\n\nDrink one\nExperiment notebook\n\nThe exact materials became a preparation. Drink to observe it.",
+      "pageGeometry": {
+        "height": 1080,
+        "width": 1920
+      },
+      "visibleAfterEscape": false,
+      "focusAfterEscape": {
+        "tag": "BUTTON",
+        "id": null
+      }
+    },
+    {
+      "size": 21,
+      "clerkDetail": "‹ Previous\nNext ›\nWaypost supply clerk\n\nSupply clerk\n\n← Village overview",
+      "clerkActionCount": 0,
+      "herbDetail": "‹ Previous\nNext ›\nVillage common herb verge\n\nGather common herbs and inspect your carried materials and preparations.\n\nOpen Village common herb verge\n← Village overview",
+      "craftFont": 21,
+      "gatherEnabled": true,
+      "glance": "✓\nReady: 1 attempt possible now\n\nNeeds\n✓\nSilver bellleaf 1/1 · enough\nTime\nNot stated\nCost\nSpends 1 Silver bellleaf per attempt\nPossible result\nUnidentified herbal preparation ×1\nQuality\nNot graded: it works or it does not\nViable preparation\nUnassessed\nAt\nVillage common bench",
+      "commitEnabled": true,
+      "afterText": "ry.\n\nExamine a sample\n\nGather a material to examine it.\n\nSteep selected materials (level 1)\n\n✕\nSelect at least one carried material for an experiment.\n\nNeeds\nNothing\nTime\nNot stated\nCost\nSpends nothing listed per attempt\nPossible result\nUnidentified herbal preparation ×1\nQuality\nNot graded: it works or it does not\nViable preparation\nUnassessed\nAt\nVillage common bench\nInput stock\nAbout this recipe\n\nNo attempts are available. This preview reserves nothing.\n\nCraft 1\n\nThe verge keepers grumble about herbs wasted on thin steeps (1). It eases by one each season.\n\nYour preparations\nExperiment notebook\n\nThe steep came out too thin: too little sap or oil in the water to hold, so the lots were wasted.",
+      "pageGeometry": {
+        "height": 1080,
+        "width": 1920
+      },
+      "visibleAfterEscape": false,
+      "focusAfterEscape": {
+        "tag": "BUTTON",
+        "id": null
+      }
+    }
+  ],
+  "errors": []
+}

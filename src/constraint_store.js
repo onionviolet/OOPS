@@ -75,7 +75,7 @@ export function reservationDecision(store,{changes,at,through=at,settled=()=>fal
   }
  }
  // A timed action must leave the actor free for an upcoming constrained step.
- if(through>at&&store.select({from:at,to:through}).some(r=>r.provenance!=='fill'&&r.what==='beat'&&r.window.to<through&&!settled(r.id)&&changes.some(c=>c.actor===r.actor)))return {allowed:false,reason:'You need to leave time for what you have planned.'};
+ if(through>at&&store.select({from:at,to:through}).some(r=>r.provenance!=='fill'&&r.reserveTime!==false&&r.what==='beat'&&r.window.to<through&&!settled(r.id)&&changes.some(c=>c.actor===r.actor)))return {allowed:false,reason:'You need to leave time for what you have planned.'};
  return {allowed:true};
 }
 export function contradictedFills(store,fills){

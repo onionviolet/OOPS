@@ -1,0 +1,19 @@
+{
+  "name": "lotm_be_journey",
+  "note": "Be seat journey (T2 floor, needs the private cast pack): enroll, start a pack journey from the opening flat, let it arrive, then save/reload/Export/Import.",
+  "seed": 7,
+  "privatePacks": true,
+  "steps": [
+    {"op": "nav", "id": "lotm"},
+    {"op": "click", "ref": "lotm=pick_be"},
+    {"op": "click", "ref": "lotm=enroll_be", "reload": true},
+    {"op": "nav", "id": "lotm"},
+    {"op": "expect", "selector": "#lotm_panel [data-lotm-journeys]"},
+    {"op": "click", "ref": "lotm=journey.lr.lotm.main.103-1"},
+    {"op": "shot", "name": "journey-pending"},
+    {"op": "roundtrip"},
+    {"op": "step", "minutes": 5},
+    {"op": "shot", "name": "journey-arrived"},
+    {"op": "roundtrip"}
+  ]
+}

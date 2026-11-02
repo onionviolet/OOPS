@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),net=require('node:net'),{spawn}=require('node:child_process');
+const [root,out]=process.argv.slice(2),{launchChrome}=require(path.join(root,'scripts/ui_helpers.cjs'));
+const portOf=()=>new Promise((r,j)=>{let s=net.createServer();s.listen(0,'127.0.0.1',()=>{let p=s.address().port;s.close(()=>r(p));});s.on('error',j);});
+(async()=>{const port=await portOf(),srv=spawn('python3',['-u','-m','http.server',String(port),'--bind','127.0.0.1','--directory',path.join(root,'out')],{stdio:'ignore'}),res={route:'invented gallery fixtures, effects off, 1920x1080',cases:[],errors:[]};let browser;
+try{browser=await launchChrome();const c=await browser.newContext({viewport:{width:1920,height:1080}}),p=await c.newPage();p.on('pageerror',e=>res.errors.push(e.message));
+for(const size of [14,21])for(const id of ['ritual-low-lamp','craft-flow-blade']){
+ await p.goto(`http://127.0.0.1:${port}/figure-gallery.html?only=${id}&size=${size}&effects=off`);const cell=p.locator(`[data-fixture="${id}"] .fig-gallery-cell`).first();await cell.locator('svg.fig-svg').waitFor();
+ await cell.screenshot({path:path.join(out,`gallery-${id}-${size}.png`)});
+ const m=await cell.evaluate(c=>{const svg=c.querySelector('svg'),rect=svg.getBoundingClientRect(),view=svg.viewBox.baseVal;const labels=[...svg.querySelectorAll('.fig-label,.fig-edge-label,.fig-segment-label')].map(n=>{const r=n.getBoundingClientRect();return {text:n.textContent.trim().replace(/\s+/g,' ').slice(0,80),x:r.x,y:r.y,w:r.width,h:r.height};});let overlaps=[];for(let i=0;i<labels.length;i++)for(let j=i+1;j<labels.length;j++){let a=labels[i],b=labels[j],w=Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x),h=Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y);if(w>2&&h>2)overlaps.push([i,j,Math.round(w),Math.round(h)]);}return {svgWidth:rect.width,svgHeight:rect.height,viewBoxWidth:view.width,cssFont:getComputedStyle(c.querySelector('[data-theme-cell]')).getPropertyValue('--custom-size'),labels:labels.length,overlaps};});res.cases.push({size,id,...m});
+}await c.close();if(res.errors.length)process.exitCode=1;
+}catch(e){res.failure=e.message;process.exitCode=1;}finally{if(browser)await browser.close().catch(()=>{});srv.kill();fs.writeFileSync(path.join(out,'gallery-forms-result.json'),JSON.stringify(res,null,2)+'\n');console.log(JSON.stringify(res));}})();

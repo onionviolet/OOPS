@@ -15,6 +15,7 @@ export function constraintsFromPack(pack,{actor=id=>id,place=id=>id}={}){
   rows.push({id,actor:actor(r.actor),what,window:w,where:place(r.place),needs:r.needs||null,
    produces:(r.produces||r.effects||[]).map(e=>({...e,key:e.key||e.fact})),locator:r.locator,
    provenance:constraintProvenance(r),tier:people.get(r.actor)?.tier||'role',
+   ...(r.reserveTime===false?{reserveTime:false}:{}),
    ...(r.reason?{reason:r.reason}:{}),...(r.recurrence?{recurrence:r.recurrence}:{}),...(r.from!=null?{from:r.from,to:r.to}:{})});
  };
  for(const r of pack.bindings?.beats||pack.beats||[]){const d=days.get(r.scene);add(r,'beat',d?window(d.day,d.from,d.to):window(r.dayIndex),r.id);}

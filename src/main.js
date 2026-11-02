@@ -9151,13 +9151,18 @@ const checkTickCount = n => {
     if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
 };
 /** Advance the actual engine timers synchronously; never a second simulation. */
-function advanceTicks(n, {render = false} = {}) {
+function advanceTicks(n, {render = false, untilIdle = false} = {}) {
     checkTickCount(n);
     if(fastForwarding) throw new Error('Cannot nest advanceTicks.');
     if(n === 0) return {ticks:0, callbacks:0, autosaves:0};
     const close = openStepperBatch(render);
     let result;
-    try {result = runEngineTicks(n); return result;}
+    try {
+        result = {ticks:0,callbacks:0};
+        if(untilIdle) {while(result.ticks<n&&expansionState.simulation?.jobs?.some(j=>j.actorId==='player')) {const step=runEngineTicks(1);domainRegistry.command('skillRecords','observeProgress')?.();result.ticks+=step.ticks;result.callbacks+=step.callbacks;}}
+        else result = runEngineTicks(n);
+        return result;
+    }
     finally {
         const autosaves = close();
         if(result) result.autosaves = autosaves;
@@ -10058,7 +10063,7 @@ document.addEventListener('visibilitychange', () => {if(document.hidden) flushDu
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
     window.fastForward = fastForward;
-    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
+    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,clock:()=>expansionState.clock,workTicks:n=>advanceTicks(n,{untilIdle:true}),snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
 if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; },

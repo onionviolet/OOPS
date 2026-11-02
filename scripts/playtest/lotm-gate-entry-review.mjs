@@ -1,0 +1,14 @@
+// Native Be/Beside entry regression on an isolated rebuilt game, never a personal save.
+import assert from 'node:assert/strict';import fs from 'node:fs/promises';import {createHash} from 'node:crypto';import {resolve} from 'node:path';
+import {Session} from './lib.mjs';import {serve} from '../perf/lib.mjs';
+const root=resolve(process.argv[2]||'/tmp/lotm-gate-repair-accepted'),out=resolve('docs/research/novels/lord-of-mysteries/private/test-gate-repair-2026-11-01');await fs.mkdir(out,{recursive:true});
+const server=await serve(root),session=await new Session({url:server.url+'?test_hooks=1',seed:7,wall:Date.UTC(2026,10,1),opTimeout:15000}).start(),result={checks:[]};let p;
+try{
+ const seed=JSON.parse(await fs.readFile('docs/research/novels/lord-of-mysteries/private/kj2-preparation-2026-11-01/route-checkpoint-20.json','utf8'));await session.open(seed);p=session.page;
+ await p.locator('[data-lotm-local-entry="true"]').waitFor();const before=await p.evaluate(()=>simulationTestHooks.snapshot().expansion.clock);await p.locator('[data-lotm-local-entry="true"]').click();await p.locator('[data-lotm-arc]').waitFor();assert.equal(await p.evaluate(()=>simulationTestHooks.snapshot().expansion.clock),before);assert(await p.locator('[data-lotm-task-link]').isVisible());result.checks.push('earned lead entry remains reachable through capability gate; navigation advances no time');
+ await p.screenshot({path:out+'/lead-entry.png'});
+ await session.open();p=session.page;await p.locator('[data-lotm-door]').click();await p.locator('[data-lotm="pick_beside"]').click();await p.locator('[data-lotm="enroll_beside"]').click();let entered=false;
+ for(let i=0;i<300;i++){await p.waitForTimeout(100);if(await p.locator('#loading_screen_play_button').isVisible().catch(()=>false)){await p.evaluate(()=>simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click();}const v=await p.evaluate(()=>window.simulationTestHooks?.project('lotm')).catch(()=>null);if(v?.enrolled&&v.entryProfile==='lotm.early_tingen.canon_beside@1'){entered=true;assert.equal(await p.locator('[data-lotm-local-entry="true"]').count(),0);assert.equal(v.arc??null,null);break;}}
+ assert(entered,'normal Beside life did not finish entry');result.checks.push('actual separate Beside start does not gain lead local-entry or lead task arc');await p.screenshot({path:out+'/beside-entry.png'});
+ result.bundleSha256=createHash('sha256').update(await fs.readFile(root+'/dist/bundle.js')).digest('hex');result.pageErrors=session.errors.filter(e=>e.kind==='pageerror');assert.deepEqual(result.pageErrors,[]);result.review='agent-verified rebuilt desktop 1920x1080; native player entry routes, not human-reviewed';console.log(JSON.stringify(result));
+}catch(e){result.error=e.stack;console.error(e.stack);process.exitCode=1;}finally{await fs.writeFile(out+'/entry-review.json',JSON.stringify(result,null,2));await session.close();await server.close();}

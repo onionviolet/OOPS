@@ -39,3 +39,6 @@ export function observerView(state) {
 export function observerForProfile(profileId) {
     return observerView({lotm: {entryProfile: profileId}});
 }
+
+// Capability declaration stays available through the same observer API used by UI consumers.
+export {registerCapability} from './seat_profiles.js';

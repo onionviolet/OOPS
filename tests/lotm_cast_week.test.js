@@ -428,7 +428,7 @@ test('remote principals have no local talk or away disclosure; known ones get on
 });
 test('beside clock exposes relative day and band without inventing a civil month',()=>{
  const {host,box}=begin('beside');box.p.state.clock=1440+8*60;
- assert.equal(host.view().localClock,'Day 2, morning');
+ assert.equal(host.view().localClock,'Day 2, morning · 08:00');
 });
 test('cast boot path stays synchronous even when private fetch never resolves',async()=>{
  const {transform}=await import('esbuild');

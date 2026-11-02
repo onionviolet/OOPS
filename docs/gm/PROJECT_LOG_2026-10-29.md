@@ -2228,3 +2228,53 @@ Weibao selected the applicable PC54–PC60 lore details and their necessary conn
 ## Release state replaced, 2026-10-29
 
 Superseded PROJECT.md line: "Published master is runtime `6077f785a`; the normal app serves frozen `v0.6-948bd45d09cd`." The app had already moved to `v0.6-439dd061a3cb` on 2026-10-27 without the line changing; it now serves `v0.6-e7f0aa4029ca` from master `5dcd2240c` ([receipt](dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md)).
+
+
+### 2026-11-01: full Klein journey uptake
+
+Replaced the PROJECT current-focus summary with the newly authorized full-journey/first-arc plan. Prior summary retained here:
+
+1. **Cast lives, the lead's run first.** LOTM is the first implementation case for this work; use the [reconciled situation/UI coverage](docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md), the [UI/engine procedure](docs/LEAD_LIFE_GUIDE.md#10-lotm-first-ui-and-engine-implementation-procedure-2026-10-31) and staged [per-world plans](docs/gm/dispatch/refinement-audits-2026-10-31/PRIORITY_WORLD_UI_PLANNING.md). Design its engine/UI against the full known book trajectory before fixing early contracts, qualify unread gaps, and deliver bounded complete early loops ([direction](docs/USER_VISION.md#lead-world-engines-designed-top-down-across-the-known-book-trajectory-2026-10-31)). The "be the lead" playthrough is the main line: build every capability, panel and system the lead's life and world need, and choose non-lead depth later ([cast-lives card](docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md), [lead-life rules](docs/LEAD_LIFE_RULES.md), [guide](docs/LEAD_LIFE_GUIDE.md)). The LOTM "beside the lead" first slice meets the AD43 floor, agent-verified, not human-reviewed. The systems build plan P1-P8 (chance, memory, fights) and its status live in [guide section 6](docs/LEAD_LIFE_GUIDE.md#6-implementation-order-and-cost).
+
+### 2026-11-01: explicit top-down arc workflow and KJ2 implementation
+
+PROJECT previously said the shopping/ritual arc was next. It now records implementation in progress and links the preflight/acceptance contract workflow. The 16-stage KJ1 receipt remains historical evidence for its own inputs; KJ2 proof is separate.
+
+## 2026-11-01: pictured-home feedback supersedes selective-2D housing recommendation
+
+The DESIGN working recommendation formerly said: “Keep the current desktop panel composition and Luminous Gothic baseline while evaluating a bounded 2D home, locality, placement or spatial encounter where its representation helps.” It proposed a pictured room as inspection without walking, leaving exact aspects, art, locomotion and order open. That recommendation and the authorised experiment are historical. Weibao subsequently found the pictured home unhelpful and preferred an improved Proto23-style functional interface. Current wording lives in [DESIGN](../../DESIGN.md#selective-2d-exploration-2026-11-01), with his exact feedback in [USER_VISION](../USER_VISION.md#functional-proto23-style-ui-over-the-pictured-home-2026-11-01). The unfinished native-home experiment is retained as evidence, not an active build queue. Other aspects remain individually assessable; no general prohibition on 2D follows.
+
+### 2026-11-01: KJ2 checkpoint and player-entry distinction
+
+PROJECT’s shopping/ritual/gathering line moved from in implementation/not verified to bounded agent verification, with exact earned-route/build scope in KJ2_IMPLEMENTATION_RECEIPT. Be Klein is now a labelled developer entry, hidden from ordinary start menus. Random local, inherited dead-host, wilderness and later advanced/lore-danger starts remain saved direction/palettes in WORLD_ENTRY_RULES; their generation and ordinary-life loops are not implemented. Top-down preflight/acceptance is in the main lead-life workflow. Unrelated combat and other sessions’ direction remain unchanged.
+
+### 2026-11-01: five-failure repair is no longer the current campaign action
+
+The campaign volume/backward-design paragraph formerly said: “The current action is repairing the five test failures before the next situation; gate-repair receipt owns that work.” The [repair receipt](dispatch/refinement-audits-2026-10-31/LOTM_TEST_GATE_REPAIR_RECEIPT.md) subsequently recorded its final integrated gate and scoped browser evidence. The [campaign owner](dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md#concrete-build-order-for-klein-first-and-later-ordinary-lives-2026-11-01) now points to qualification of the next contiguous KJ3 situation. This documentation correction neither reruns the gate nor closes separate L2b combat or claims later arcs are built. Klein-first remains unchanged.
+
+### 2026-11-01: B1 qualification resolved and bounded KJ3A delivered
+
+The B0–B7 planning paragraph previously left the next exact KJ3.1 source window unqualified. B1 resolved it as displayed chapter 9; B2 delivered fifteen native recovery/food/notebook stages from the earned KJ2 return. The [receipt](dispatch/refinement-audits-2026-10-31/KJ3A_IMPLEMENTATION_RECEIPT.md) owns source, build, route/reuse, failure, desktop and persistence evidence. PROJECT/campaign/tracker now report the bounded agent-verified state, not complete Tingen or an ordinary-start rollout. The next visitor situation remains source work; L2b and later KJ3–KJ8 remain open. Earlier lower-bound cash and exact literary clock calibration remain named gaps, with no silent funds grant or fixed-clock rewrite.
+
+
+## 2026-11-02: KJ3 visitor continuation
+
+The prior campaign row said the next visitor interaction needed a source packet and deliberately left identity/dialogue outside KJ3A. Weibao authorized that next slice and asked for a continuity check in prior chapters. [KJ3B](dispatch/refinement-audits-2026-10-31/KJ3B_IMPLEMENTATION_RECEIPT.md) now qualifies ch10 and the preceding custody chain; agent-verified, not human-reviewed (AD43). It adds 18 selected stages after the prior 49, with native participants, conservation of the existing gun, notebook handling, attributed evidence and persistence. The unshown intervening storage is labelled inferred rather than silently written into an old save. Klein-first direction, deferred ordinary starts and the separate below-floor L2b queue are unchanged. No commit, push, install or new worker dispatch.
+
+Superseded current B1/B2 paragraph:
+
+> **B1/B2 complete for bounded KJ3A:** [receipt](dispatch/refinement-audits-2026-10-31/KJ3A_IMPLEMENTATION_RECEIPT.md) qualifies displayed chapter 9 and proves fifteen native recovery/household-food/notebook stages from KJ2’s earned return. Findings remain actor knowledge; the next interruption is heard without inventing an identity or dialogue. Current build, 1920×1080 14/21 px, native-item/sleep persistence and negative fixtures are recorded with exact reuse boundaries. The next contiguous visitor situation needs its own source packet. Remaining KJ3 and the first-novel target stay open; no ordinary-start rollout or L2b closure is implied.
+
+## Klein episode checkpoint reconciliation, 2026-11-02
+
+Superseded PROJECT current-focus line, preserved verbatim:
+
+1. **LOTM first through Klein’s full journey.** Use Klein’s developer playthrough to implement the first novel opening-to-ending as contiguous playable arcs, with full-trajectory contract checks before each arc and at acceptance ([workflow](docs/LEAD_LIFE_GUIDE.md)). The [campaign plan](docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md) owns sequence and first-arc scope; [coverage](docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md) retains evidence/gaps. The bounded 16-stage opening-household arc is agent-verified, not human-reviewed ([receipt](docs/gm/dispatch/refinement-audits-2026-10-31/FIRST_ARC_IMPLEMENTATION_RECEIPT.md)); the 18-stage shopping/ritual/gathering continuation is also agent-verified through earned checkpoints ([receipt](docs/gm/dispatch/refinement-audits-2026-10-31/KJ2_IMPLEMENTATION_RECEIPT.md)). KJ3A adds a 15-stage recovery/household-food/notebook continuation, agent-verified through earned continuation and current desktop/persistence proof ([receipt](docs/gm/dispatch/refinement-audits-2026-10-31/KJ3A_IMPLEMENTATION_RECEIPT.md)). KJ3B adds the 18-stage visitor interaction through displayed chapter 10, agent-verified, not human-reviewed (AD43) ([receipt](docs/gm/dispatch/refinement-audits-2026-10-31/KJ3B_IMPLEMENTATION_RECEIPT.md)). Existing combat L2b remains below floor in its own queue. Ordinary player starts are planned as lore-grounded and low-spoiler ([entry owner](docs/WORLD_ENTRY_RULES.md#developer-route-and-low-spoiler-player-starts-2026-11-01)); other worlds/alternate lives remain in the broader vision ([direction](docs/USER_VISION.md#lotm-first-through-kleins-full-journey-2026-11-01)).
+
+## KJ3D examination checkpoint, 2026-11-02
+
+Superseded PROJECT focus line preserved verbatim (paths are relative to PROJECT.md):
+
+```text
+1. **LOTM first through Klein’s full journey.** Use Klein’s developer playthrough to implement the first novel opening-to-ending as contiguous playable arcs ([workflow](docs/LEAD_LIFE_GUIDE.md)). The [campaign plan](docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md) owns sequence; [KJ3C receipt](docs/gm/dispatch/refinement-audits-2026-10-31/KJ3C_IMPLEMENTATION_RECEIPT.md) owns the new 27-stage, four-situation episode through English v1 ch13 and final verification. Five slices now contain 94 selected stages, not an exhaustive campaign denominator. Examination itself is next unqualified work. Existing combat L2b remains below floor in its own queue. Ordinary player starts remain lore-grounded and low-spoiler, after Klein’s route ([entry owner](docs/WORLD_ENTRY_RULES.md#developer-route-and-low-spoiler-player-starts-2026-11-01)); deeper systems, several paths and mechanically distinct worlds remain in the broader vision.
+```

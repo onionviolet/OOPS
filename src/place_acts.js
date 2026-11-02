@@ -1,21 +1,38 @@
+import {placeActStages,sequencePrerequisites,sequenceOffers} from './place_act_sequence.js';
 // Ordinary work on objects at a place, expressed through simulation commands.
 // Definitions carry world-specific facts/text; simulation owns time, cost and effects.
 import {compilePlaceActOperation} from './place_act_operations.js';
+import {evaluateRule} from './rules.js';
 const validId=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 export function definePlaceActs(data,{worldId,actorId='player',group,situationId,requires=null}={}){
  if(!validId(worldId)||!validId(actorId)||!validId(group)||!validId(situationId))throw Error('Invalid place act binding.');
  const ids=new Set();
+ const sequenceIds=new Set(placeActStages(data).map(s=>s.commandId));
  return (data?.acts||[]).map(row=>{
   if(!validId(row.id)||ids.has(row.id)||!validId(row.place)||
    !Number.isSafeInteger(row.minutes)||row.minutes<1||!row.label||!row.description||!row.report||!validId(row.knowledgeKey))throw Error('Invalid place act.');
   ids.add(row.id);
   const operation=compilePlaceActOperation(row,{data,worldId,actorId,situationId});
-  const guard={all:[...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...operation.requires]};
+  const remote=row.remoteSession;
+  const contact=row.contact;
+  if(contact&&(!row.targetId||remote||!validId(contact.place)))throw Error('Separate contact needs a target and supported place.');
+  if(row.participants&&(!Array.isArray(row.participants)||!row.participants.length||new Set(row.participants).size!==row.participants.length||!row.participants.every(validId)))throw Error('Invalid place act participants.');
+  if(remote&&row.participants)throw Error('Remote sessions own their participants.');
+  if(remote&&!(data.remoteSessions||[]).some(s=>s.id===remote&&s.anchor===row.place))throw Error('Unknown remote session anchor.');
+  const guard={all:[...(contact?[
+   {fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},
+   {fact:'target.location',op:'eq',value:contact.place,reason:'The required contact is no longer supported.'},
+   {fact:'target.body.ownerId',op:'eq',value:row.targetId},
+   {fact:'target.body.controllerId',op:'eq',value:row.targetId}]:[]),...(remote?[{fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},{fact:`remote.${remote}.ready`,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]:[]),...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...operation.requires,...sequencePrerequisites(data,row.id)]};
   return {id:row.id,revision:1,label:row.label,description:row.description,group,actorId,worldId,location:row.place,
-   once:false,duration:row.minutes,cancellation:'refund',requires:guard,
+   ...(remote&&!row.targetId?{participants:data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id),participantsCoLocated:false}:{}),
+   ...(row.targetId?{targetId:row.targetId,participants:remote?(data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id)):['$target'],coLocated:!remote&&!contact,participantsCoLocated:!remote&&!contact}:{}),
+   ...(row.participants?{participants:[...row.participants],participantsCoLocated:true}:{}),
+   once:sequenceIds.has(row.id),duration:row.minutes,cancellation:'refund',requires:guard,
+   ...(row.operation==='sleep'?{bodyCare:{kind:'sleep'}}:{}),
    // Keep a blocked local affordance visible, including missing means/order.
-   visibleWhen:requires||{fact:'actor.life',op:'eq',value:'alive'},
-   completionRequires:guard,completionCoLocated:true,completionFailure:'refund',
+   visibleWhen:{all:[requires||{fact:'actor.life',op:'eq',value:'alive'},...(row.visibleWhen?[row.visibleWhen]:[])]},
+   completionRequires:guard,completionCoLocated:!remote&&!contact,completionFailure:'refund',
    costs:structuredClone(row.costs||[]),effects:[...structuredClone(row.effects||[]),...operation.effects,
     {type:'knowledge',actor:actorId,key:row.knowledgeKey,stage:'seen',value:row.report,
      basis:{kind:'observation',attributedTo:actorId,situationId}}]};
@@ -47,14 +64,26 @@ export function objectNoticeability(state,worldId,object,{searching=false}={}){
  return {container:inside??null,exposure:typeof exposure==='number'?exposure:null,
   searchable:searching&&!!inside};
 }
-export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()=>({allowed:true})}={}){
+// A pack may expressly mark its ordinary, observable prerequisites as safe to
+// explain. Unknown facts and unmarked source requirements stay neutral.
+function disclosedReasons(rule,facts){
+ if(!rule||!facts)return [];
+ if(rule.all)return rule.all.flatMap(r=>disclosedReasons(r,facts));
+ if(rule.any||rule.not)return [];
+ const result=evaluateRule(rule,facts);
+ return result.known&&!result.met&&rule.reason?[rule.reason]:[];
+}
+export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()=>({allowed:true}),facts=()=>null}={}){
  const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
  const rows=new Map((data?.acts||[]).map(row=>[row.id,row]));
- return commands.filter(d=>d.location===place||pending.has(d.id)).map(d=>{
-  const row=rows.get(d.id),q=preview(d),decision=decide(d);
-  const reasons=[...(q.reasons||[]).map(r=>r.startsWith('Insufficient ')&&row.costReason?row.costReason:r),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
-  return {id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}`,
-   description:row.description,eligible:q.visible&&q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration};
+ return sequenceOffers(state,data,commands).filter(d=>d.location===place||pending.has(d.id)).flatMap(d=>{
+  const row=rows.get(d.id),q=preview(d);
+  if(!q.visible)return [];
+  const decision=decide(d);
+  const known=row.publicReasons?disclosedReasons(row.requires,facts(d)):[];
+  const reasons=[...(q.reasons||[]).flatMap(r=>r==='The required knowledge, means or circumstances are missing.'&&known.length?known:[r.startsWith('Insufficient ')&&row.costReason?row.costReason:r]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
+  return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}`,
+   description:row.description,eligible:q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration}];
  });
 }
 // Knowledge is written by command settlement. Publish its receipt once through
@@ -73,4 +102,28 @@ export function settlePlaceActReports(state,data,worldId){
   reports.push({text:k.value,at:k.at,kind:'events',actor:'player',place:row.place});
  }
  return reports;
+}
+
+// A disclosed stock view reads actual resource owners, without another inventory.
+export function placeStockViews(state,data,observer='player'){
+ const known=state.simulation?.knowledge?.[observer]||{};
+ return (data?.stockViews||[]).filter(v=>known[v.knowledge]&&(!v.untilKnowledge||!known[v.untilKnowledge])).map(v=>({title:v.title,rows:v.rows.map(r=>({label:r.label,amount:state.actors?.[r.actor]?.resources?.[r.key]??null}))}));
+}
+
+// Current retained observations, not reconstructed completion history or pack text.
+export function placeActRecords(state,data,observer='player'){
+ const known=state.simulation?.knowledge?.[observer]||{};
+ const keys=new Set((data?.acts||[]).flatMap(row=>[row.knowledgeKey,...(row.effects||[]).filter(e=>e.type==='knowledge'&&e.actor===observer).map(e=>e.key)]));
+ return [...keys].flatMap(id=>{const k=known[id];return k?[{id,text:k.value,at:k.at}]:[];});
+}
+
+// A settled arrival holds a cast itinerary until its settled departure. Keep
+// the actual body location authoritative: this never moves or recreates anyone.
+export function placeActVisitors(state,data,actorId='player'){
+ const completed=state.actors?.[actorId]?.completed||{},held=new Set();
+ for(const visit of data?.visits||[]){
+  if(!validId(visit.arrival)||!(validId(visit.departure)||visit.departure===null&&visit.continues===true)||!Array.isArray(visit.participants)||!visit.participants.length||!visit.participants.every(validId))throw Error('Invalid place visit.');
+  if(completed[visit.arrival]&&!completed[visit.departure])for(const id of visit.participants)held.add(id);
+ }
+ return held;
 }

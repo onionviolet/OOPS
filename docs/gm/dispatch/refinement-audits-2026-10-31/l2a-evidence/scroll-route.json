@@ -1,0 +1,47 @@
+{
+  "bundleHash": "b326e3262402",
+  "viewport": "1920x1080",
+  "before": {
+    "active": "withdraw",
+    "rect": [
+      820,
+      862
+    ],
+    "parents": [
+      {
+        "id": "center_mode_content",
+        "top": 753,
+        "clip": [
+          664.25,
+          1017.703125
+        ]
+      }
+    ]
+  },
+  "after": {
+    "active": "withdraw",
+    "rect": [
+      688,
+      730
+    ],
+    "parents": [
+      {
+        "id": "center_mode_content",
+        "top": 753,
+        "clip": [
+          664.25,
+          1017.703125
+        ]
+      }
+    ]
+  },
+  "notice": "You try to back away, but are cut off; the turn costs a free blow. Mara misses. Mara misses.",
+  "still": true,
+  "noticeBox": {
+    "x": 459.90625,
+    "y": 826,
+    "width": 450.34375,
+    "height": 94.5
+  },
+  "errors": []
+}

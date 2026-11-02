@@ -1,3 +1,4 @@
+import {localMoneyLabel} from './ui/local_money_label.js';
 import {keptShopKeys} from './shop_locks.js';
 import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
@@ -50,7 +51,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
-import {readPort} from './ui_ports.js';
+import {readPort,ports,whenPortsReady} from './ui_ports.js';
 import {mountTalkView} from './talk_dialogue_host.js';
 import {craftCue} from "./craft_cues.js";
 import {renderCraftingDetail, focusFirstBlocker, craftReceiptText, UNKNOWN_MATERIAL_LABEL} from "./crafting_detail.js";
@@ -1395,8 +1396,9 @@ function update_displayed_storage() {
 }
 
 function update_displayed_money() {
+    if(!ports()) whenPortsReady(update_displayed_money);
     if(deferSimulationRender(update_displayed_money, () => update_displayed_money(...arguments))) return;
-    set_HTML(document.getElementById("money_div"), `Your purse contains: ${denominationsKnown() ? format_money(character.money) : `${character.money} coins (denominations unfamiliar)`}`);
+    set_HTML(document.getElementById("money_div"), `Your purse contains: ${currentWorldId()==='book.lotm.tingen'||denominationsKnown() ? format_money(character.money) : `${character.money} coins (denominations unfamiliar)`}`);
 }
 
 function update_displayed_total_price(total_price) {
@@ -1821,6 +1823,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
 let inventory_display_revision = 0;
 export function inventoryDisplayRevision() {return inventory_display_revision;}
 function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {
+    if(!ports()) whenPortsReady(update_displayed_character_inventory);
     if(deferSimulationRender(update_displayed_character_inventory, () => update_displayed_character_inventory({character_sorting, sorting_direction, is_trade}))) return;
     inventory_display_revision++;
     if(document.getElementById("crafting_window").style.display === "block") apply_crafting_filter();
@@ -4765,6 +4768,7 @@ function create_temperature_tooltip() {
  * @param {Boolean} round if the value should be rounded a bit
  */
 function format_money(num) {
+    const local=localMoneyLabel(num,currentWorldId());if(local!==null)return local;
     if(!denominationsKnown())return `${num} coins`;
     let value;
     const sign = num >= 0 ? '' : '-';

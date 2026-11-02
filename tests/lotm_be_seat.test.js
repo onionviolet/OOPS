@@ -181,3 +181,11 @@ test('a detached probe refusal reaches the caller with the save-preserved reason
   await assert.rejects(pending,/Fixture refusal.*current save is kept/);
  }finally{globalThis.window=oldWindow;globalThis.document=oldDocument;}
 });
+
+
+test('the named lead is offered through developer starts, without changing existing saved lives',()=>{
+ const ordinary=hostOver(bare(),{developerStarts:()=>false}).host.view();
+ assert.equal(ordinary.profiles.some(p=>p.key==='be'),false);
+ const developer=hostOver(bare(),{developerStarts:()=>true}).host.view();
+ assert.ok(developer.profiles.some(p=>p.key==='be'&&p.label.startsWith('Developer playthrough:')));
+});

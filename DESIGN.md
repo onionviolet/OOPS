@@ -26,17 +26,18 @@ Target: desktop 1920x1080 first; mobile deferred ([standing priority](docs/USER_
 
 ## What every feature UI meets
 
-A feature is ready for the main surface when it has all six. Until then it lives
-in the Projects drawer (UR2). The contract card (UR76) is where a lane writes these down.
+DSG6–DSG11 are the six readiness checks below. Surface authorization belongs to
+UR2: existing direction can authorize a home, and AD42 makes human review optional.
+These checks do not promote an unaccepted proposal. The contract card (UR76,
+proposed) records their application; UI_RULES owns the interaction requirements.
 
 | Code | Requirement | Dial | Reason, and the rules behind it |
 | --- | --- | --- | --- |
-| DSG6 | **A home.** One declared surface type and place (UR1), registered through `definePanel` (UR8), with in-world logic: who runs it, where, when (UR4). | A throwaway lab view may skip it inside the Projects drawer. | Without a home every system drops a box into Local actions. |
-| DSG7 | **A compact glance form.** One row or chip that answers "how is it going" in the always-visible set or its home's header: a value, a meter or a status word, in the world's own form (AD46). | A world with no such system shows nothing (UR82). | The idle player reads at a glance; detail on demand (UR41, UR42). |
-| DSG8 | **Details one click away.** The glance form opens the full view through the shared controller with a bottom back bar and Esc (UR9, UR43); compact and full share state, selection and scroll. | Hover may preview; click pins (UR41). | A click never loses the player; one meaning across surfaces (UR74). |
-| DSG9 | **An empty state that says how to fill it.** Known-empty, filtered-empty, unavailable and unknown read differently (UR52). | A world may keep a layer hidden until something attaches (UR82). | Blank panels read as bugs. |
-| DSG10 | **A reason on anything greyed.** A disabled control shows what is missing inline or on focus, never only in a tooltip (UIV1, SUI5), in the observer's knowledge only. | How much of the cause shows follows what the observer knows; a sealed cause reads "not yet" without the truth. | A player may never hover, and a silent grey button teaches nothing. |
-
+| DSG6 | **A home.** Apply UR1/UR4/UR8 for surface, in-world operator and registration. | A throwaway lab view may skip it inside the Projects drawer. | Without a home every system drops a box into Local actions. |
+| DSG7 | **A compact glance form.** Apply UR26/UR41/UR42 in the world’s own form (AD46): value, meter or status in the home’s header or appropriate visible set. | A world with no such system shows nothing (UR82). | The idle player reads at a glance; detail on demand (UR41, UR42). |
+| DSG8 | **Details one click away.** Apply UR9/UR43 for controller, Back/Esc, selection and reading position; UR74 owns shared meaning. | Hover may preview; click pins (UR41). | A click never loses the player; one meaning across surfaces (UR74). |
+| DSG9 | **An empty state that says how to fill it.** Apply UR32/UR52 for distinct empty and unknown states. | A world may keep a layer hidden until something attaches (UR82). | Blank panels read as bugs. |
+| DSG10 | **A reason on anything greyed.** Apply UIV1 (proposed) and standing SUI5 for inline/focus reasons, limited to observer knowledge. | How much of the cause shows follows what the observer knows; a sealed cause reads "not yet" without the truth. | A player may never hover, and a silent grey button teaches nothing. |
 | DSG11 | **One home per fact.** Each player-facing fact (a health total, a hit chance, a threat, how many opponents are left) has one owning place on screen. Other places link to it or show a deliberately different view, a summary with a route to the owner (UR56, UR64), not a second copy. Every view reads the same read model. | A glance header may repeat a fact it needs, such as HP in a versus header, if it reads the same read model and refreshes with the owner. | Copies drift: a 2026-10-30 fight showed opponent health three times, two of them disagreeing (2016/2025 against 2025/2025). Weibao asked for this rule on 2026-10-30, relayed by the repository review session ([record](docs/USER_VISION.md#ui-identity-per-world-basics-and-combat-surfaces-2026-10-30)). |
 
 Descriptions inside any of these follow UR70-UR75 (meaning first, numbers second).
@@ -60,8 +61,52 @@ UI (round 13 FLA5). What a world changes:
 | DSG18 | **Diegetic UI (O3, later)** | A world-shaped surface (a newspaper, a status window, a sect jade slip) replaces a generic panel only after that world's basic kit (DSG19) is working, and keeps a plain text form. | Per world, one surface at a time. | Weibao: "we need the most basic Ui working for each world" first. |
 | DSG19 | **The basic kit** | Every playable world answers six questions on screen: where I am, what I can do, my progress in the world's form, who is here, what happened in the world's voice, and how a fight looks. The [kit census](docs/audits/WORLD_UI_KIT_CENSUS_2026-10-30.md) marks each world's cells working, generic or missing. | A world without fights marks the fight cell "none by design". | The O3 gate; also the checklist for a new world's first UI slice. |
 
+## Selective 2D exploration, 2026-11-01
+
+**Current resolution: improve the Proto23-style functional interface first.**
+Weibao found the pictured home unhelpful and preferred a better version of
+Proto23's representation ([his feedback](docs/USER_VISION.md#functional-proto23-style-ui-over-the-pictured-home-2026-11-01)).
+For housing, prioritise a readable home overview, meaningful furniture rows,
+active effects, storage and connected rest/work actions within the current
+shell. Stop expanding the pictured-home experiment. This is a preference for
+better interaction and information structure, not a requirement to preserve
+existing clutter or defects (DSG5, AD45).
+
+Assess other aspects by the decisions they serve (AD46). Routine fishing,
+gathering, trade and crafting can improve through their existing task forms;
+position, layout, reach or adjacency can justify spatial representation in a
+selected exploration, building or encounter task. These examples are proposals,
+not a dispatched feature list. Decorative scenery and a walkable conversion are
+not current defaults; no blanket ban on useful diagrams, maps or later 2D is made.
+Reuse existing observer-safe projections and native commands in any chosen form.
+
+Earlier selective-2D/hybrid ideas and the pictured-home request remain dated
+history in USER_VISION and [UI audit rounds 16-21](docs/audits/UI_DESIGN_CORE_AUDIT.md).
+[Round 22](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-22-2026-11-01-functional-home-first-after-prototype-feedback)
+records the feedback, unfinished experiment and aspect-by-aspect implications.
+Exact replacement layouts and other-aspect choices remain proposals under AD32.
+
+## Common actions and task automation, 2026-11-01
+
+Weibao: “Should wait and other buttons be placed seperately? so like shared/common cliocks and more? more to consider? ALso automate other tasks instead of just wait? more to conidr?” This is a design question; the arrangement below is proposed, not a shipped layout or a new accepted rule.
+
+**CA1 proposed default:** keep the scene/current task's choices first. Put common verbs such as Wait and available Rest/Sleep in a compact, consistently placed Common actions section after the task, with time targets under one disclosure. Keep the active work's status and Stop/Pause with that work through the existing work strip/ledger, rather than scattering duplicate controls among story choices. Navigation/Back remains navigation. A common renderer delegates actual verbs, costs, clock and eligibility to the current world/place; it does not give every place the same actions. Alternate arrangement: a persistent compact activity bar where a world needs frequent time/task switching. A global toolbar listing every verb is not the default because it hides the current decision among irrelevant actions.
+
+One wait target can have several known reasons, such as dawn and an appointment at the same time; show a single current quote or clearly grouped labels, not stale duplicate command controls. Keep focus, keyboard activation, current cost/reason and selected target stable while clocks update. Automation's state should read as intent, active job, result or paused reason, with a route back to its owning task. Its results stay in Reports; changed outcomes/discoveries remain distinguishable from routine repetition (UR43/UR44/UR64).
+
+This does not move KJ2's buttons or create a global automation panel. [CA2–CA5 automation uptake](docs/gm/dispatch/procgen-2026-10-13/cr3/AUTOMATION.md#common-actions-and-useful-task-automation-2026-11-01) owns task/queue mechanics and current evidence. Reopen this arrangement with the next selected activity/UI slice; prove one manual/automated task, its current-work/stop route and interruption at 1920×1080, actual 14/21 px. Mobile remains deferred.
+
 ## Where to look next
 
+- Populated LOTM UI: [UI audit round 27](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-27-2026-11-01-populated-lotm-journey-before-more-ui-infrastructure) implements the selected current-task/navigation/cost/consequence slice; its journey receipt distinguishes native verification from the remaining repository-wide gate.
+
+- Native equipment review and UI sequencing: [UI audit round 26](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-26-2026-11-01-native-equipment-reviews-and-ui-priority-check) tests real tool/gear adapters and recommends connected LOTM/general UI clarity before more comparison infrastructure. Proposal under AD32; housing benefits stay in HB4 of the home palette.
+
+- Furniture replacement experiment: [UI audit round 25](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-25-2026-11-01-native-furniture-replacement-and-reusable-review) records native staged packing/installation, costs and a reusable review component. Native tool reuse remains proposed under AD32.
+
+- Modular/swappable UI ideas: [UI audit round 24](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-24-2026-11-01-modular-possibilities-without-screen-overload) distinguishes presentation, implementation and in-world swaps, with an inspector-led default and task-specific alternatives. Proposed under AD32; existing AR/DSG owners retain authority.
+
+- Functional panel design ideas: [UI audit round 23](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-23-2026-11-01-functional-home-comparison-and-panel-design-ideas) compares a real-system home prototype with the current panel and proposes task-specific structures across newer panels. Ideas and the candidate remain unselected under AD32; common actions/automation stay with CA1-CA5 above.
 - Tokens, spacing, heights, layers and type roles: [UI rules](docs/UI_RULES.md#small-detail-tokens-2026-10-22) UR6, UR65-UR68.
 - Scenes, travel and Reports lines: [scene and report rules](docs/UI_RULES.md#scene-and-report-rules-sui-rpt).
 - The history behind these lines: [identity round](docs/UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md), [foundation round](docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md), [UI design core audit](docs/audits/UI_DESIGN_CORE_AUDIT.md) rounds 10-14.

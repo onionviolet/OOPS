@@ -1,7 +1,9 @@
+import {remotePresenceFacts} from './place_remote_presence.js';
+import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
 // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
 // and the panel mounts with the other domains. main.js makes one configureLotm call.
-import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace} from './book_world_lotm_cast_host.js';
+import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace,castLocalClock} from './book_world_lotm_cast_host.js';
 import {registerDomain} from './domain_registry.js';
 import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
@@ -10,7 +12,12 @@ import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
 import {createLotmPanel} from './book_world_lotm_ui.js';
 import {lotmPeople} from './book_world_lotm_content.js';
 import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
+import {registerLocalClockSource} from './today_strip.js';
+import {registerOwnedWorkPanel} from './adventure_notebook.js';
 let host=null,panel=null,ports=null;
+registerLocalClockSource(()=>{const state=ports?.state(),place=ports?.location();
+ return place&&place===state?.simulation?.people?.player?.location?castLocalClock(state):null;});
+registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_lotm'?'lotm_panel':null);
 // Definitions create locked placeholders only. The supervisor's stock is seeded once by enrollment (AR3).
 function register({NPC,NPCRegistry,SafeLocation,locations}){
  for(const p of lotmPeople){const npc=new NPC({id:p.id,name:p.label,levelable:structuredClone(p.vitals),is_unlocked:false,description:p.description});npc.reputation={};NPCRegistry.add(p.id,npc);}
@@ -37,5 +44,5 @@ function restoreMissingCast(envelope){
 registerUpcomingSource(()=>host?.upcoming()||[]);
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
- projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args)}:host?.view(),
+ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});

@@ -8,8 +8,13 @@ const plain=()=>({requires:[],effects:[]});
 function prepare(row,{data}){
  const seeded=(actor,key)=>(data.objects||[]).some(o=>(o.resources||[]).some(r=>r.actor===actor&&r.key===key&&Number.isFinite(r.amount)&&r.amount>=0));
  const costs=row.costs||[],effects=row.effects||[];
- if(!costs.length||costs.some(e=>e.type!=='resource'||e.native||!(e.amount<0)||!seeded(e.actor,e.key)))throw Error('Preparation needs costs from seeded resource stock.');
- if(!effects.some(e=>e.type==='fact'||e.type==='resource'&&e.amount>0)||effects.some(e=>e.type==='resource'&&(!seeded(e.actor,e.key)||e.native)))throw Error('Preparation needs a fact or seeded resource output.');
+ const input=e=>e.amount<0&&(e.type==='item'&&id(e.actor)&&typeof e.key==='string'&&e.key.length>0||e.type==='resource'&&!e.native&&seeded(e.actor,e.key));
+ if(!costs.length||costs.some(e=>!input(e)))throw Error('Preparation needs costs from held items or seeded resource stock.');
+ if(!effects.some(e=>e.type==='fact'||['resource','item'].includes(e.type)&&e.amount>0)||effects.some(e=>e.type==='resource'&&(!seeded(e.actor,e.key)||e.native)))throw Error('Preparation needs a fact, item or seeded resource output.');
+ return plain();
+}
+function sleep(_row,{actorId}){
+ if(actorId!=='player')throw Error('Another body needs its sleep owner.');
  return plain();
 }
 function secure(row,{actorId,data}){
@@ -32,7 +37,7 @@ const wake=(row,{actorId})=>{const key=requireId(row.awakeFact||'place.act.awake
 // fabricated stamina grant. Native sleep/recovery remains with its existing owner.
 const settle=(row,{actorId})=>({requires:[],effects:[fact('actor',requireId(row.restFact||'place.act.rested'),true,actorId)]});
 export const PLACE_ACT_OPERATIONS=Object.freeze({inspect:plain,pay:plain,use:plain,wash:plain,clean:plain,consume:plain,store:plain,take:plain,
- read:plain,prepare,wake,'check time':checkTime,sit:settle,settle,secure,'wait here':plain});
+ read:plain,prepare,sleep,wake,'check time':checkTime,sit:settle,settle,secure,'wait here':plain});
 export function compilePlaceActOperation(row,binding){
  const compile=Object.hasOwn(PLACE_ACT_OPERATIONS,row.operation)&&PLACE_ACT_OPERATIONS[row.operation];
  if(!compile)throw Error('Invalid place act operation.');

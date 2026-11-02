@@ -20,6 +20,15 @@ test('a reserved amount refuses spending, names its safe purpose, and aggregates
  assert.equal(reservationDecision(store,{at:21,changes:[{actor:'fixture.person',type:'resource',key:'coins',amount:-9}],read:()=>10}).allowed,true);
  assert.equal(reservationDecision(store,{at:0,settled:()=>true,changes:[{actor:'fixture.person',type:'resource',key:'coins',amount:-9}],read:()=>10}).allowed,true);
 });
+
+test('an explicitly approximate scene slot does not reserve time or weaken its state constraints',()=>{
+ const pack={people:[],bindings:{days:[{scene:'fixture.scene',day:1,from:10,to:20}],beats:[{id:'fixture.approximate',actor:'fixture.person',scene:'fixture.scene',reserveTime:false,needs:{type:'resource',key:'coins',op:'gte',value:8},effects:[]}]}};
+ const {store}=constraintsFromPack(pack),time={at:0,through:30,changes:[{actor:'fixture.person',type:'time',key:'busy'}]};
+ assert.equal(reservationDecision(store,time).allowed,true);
+ assert.equal(reservationDecision(store,{at:0,changes:[{actor:'fixture.person',type:'resource',key:'coins',amount:-3}],read:()=>10}).allowed,false,'resource obligations remain protected');
+ const exact=structuredClone(pack);delete exact.bindings.beats[0].reserveTime;
+ assert.equal(reservationDecision(constraintsFromPack(exact).store,time).allowed,false,'legacy or explicit timed commitments still reserve time');
+});
 test('1,000 conditioned keys remain consistent, stable under order and unmutating',()=>{
  const streams=createStreams(31),before=JSON.stringify(streams),outcomes=[{value:'permitted',weight:1e-12},{value:'inconsistent',weight:1}];
  const draw=subject=>conditionedDraw(streams,{world:'fixture.second',actor:'fixture.person',date:3,subject,revision:'r1',outcomes,consistent:r=>r.value==='permitted'});

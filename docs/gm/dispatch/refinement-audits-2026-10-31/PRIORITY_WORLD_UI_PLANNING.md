@@ -1,0 +1,35 @@
+# Priority-world UI/engine planning wave, 2026-10-31
+
+**Current LOTM coverage and cross-chat reconciliation:** [LOTM_SITUATION_UI_COVERAGE](LOTM_SITUATION_UI_COVERAGE.md). Initial planner-wave history below retains its original allowance/dispatch scope; current candidate assignments, source gaps and delivery status are reconciled there.
+
+Weibao requested LOTM first, reusable implementation rules and separate priority-world chats. This is a finite two-chat first planning wave: existing LOTM/shared-engine planner plus one Harry Potter planner. Current shared ceiling is 75% used after Weibao's explicit extension; the earlier first-wave start was 59% and its historical ceiling was 61%; no paid/API fallback, descendants or runtime dispatch. The current request authorizes the additional per-world planner; it does not extend the meter ceiling. At most two active planning chats. Check before further generation. D&D and MoL packets below are staged, not launched or implemented. Remaining priority-book families keep their order/readiness in existing owners; no comprehensive new ordering is invented.
+
+| Planner | Exclusive outputs and specific task | State |
+| --- | --- | --- |
+| LOTM/shared engine | ENGINE_UI_DEPENDENCY_MAP.md and LEAD_WORLD_ENGINE_SLICE_BRIEF.md: MC1–MC134 engine crosswalk and whole-known-source-informed LOTM early slice | Delivered by chat `01a193cc-7423-74c1-8779-5d31edf11604`, idle at reconciliation snapshot; document candidate source/scene/carrier qualification remains open |
+| Harry Potter | HP_UI_ENGINE_PLAN.md: school routine, spell learning/use, brewing, supplies, people/permission and changed-year/source requirements, with each element's engine contract | Delivered by local chat `01a193d2-9bac-7642-99e2-a1561e702ed6`; bounded school/repair plan, not complete seven-book coverage |
+| D&D | DND_UI_ENGINE_PLAN.md: source/edition-qualified actions/resources, preparation, concentration/conditions, gear/tools and social/exploration tasks; use existing W30 SRD 5.2.1/5.1 source contract, do not assume all editions match | Packet staged; launch after a slot frees and budget permits, not counted as delivered |
+| Mother of Learning | MOL_UI_ENGINE_PLAN.md: loop memory vs physical reset, study/research, current-cycle supplies, access/people/calendar and supported experiments; preserve current independent-visitor versus lead-life distinction | Packet staged; launch after earlier world work and budget/ownership reconciliation |
+
+Each planner reads the procedure in LEAD_LIFE_GUIDE section 10, current startup, source/agent rules and relevant world owners. Reuse the private round5/round6 source ledgers and prior cross-book notes; default new source qualification maximum 3,000 words for the selected world's one consequential seam. This is not bulk acquisition/rereading. A source gap is recorded with the needed paragraph/era, not filled from franchise memory. Preserve secrets and avoid raw prose in public docs.
+
+Required world output: one table per task family with player task, specific screen sections/control, selection scope and return, actual state supplier/export, observer and era, executable command/result consumer, persistence/revision/in-flight policy, current evidence and gap, shared-seam reuse with named exception, one failure/interrupt check, next bounded slice and done gate. Add a coarse early/middle/late coverage matrix; do not declare the whole world complete. Label source edits, tested leaves, host wiring, rebuilt-browser proof and installed state separately. Default host model; no override requested for new chats.
+
+Runtime changes are not owned by these planners. Existing L2b floor and runtime coordinator still govern build sequencing. No parallel shared docs/engine writes; integration requests are paragraphs in each world output. After each delivered plan the coordinator reconciles shared needs before generating another lane, rather than letting multiple worlds independently rebuild the same engine.
+
+HP dispatch: write HP_UI_ENGINE_PLAN.md and nothing else. Read installed HP school/brewing/access/ability hosts and the school audit evidence, distinguish current live consumers from the original before-the-letter candidate. Whole-known-source samples should include later requirements that change early state or resource assumptions, while exposing only era-appropriate knowledge. Compare with LOTM mechanisms without adopting its progression form. Produce one precise school or brewing slice brief; no runtime edit, test suite, browser capture, paid source work or descendants. Check shared usage first and stop/checkpoint at 61%. Return concise output path/evidence/gaps.
+
+
+## Ceiling checkpoint and standing rules, 2026-10-31
+
+Observed shared usage reached 61%. New investigation/generation stops under AU7; no D&D or MoL dispatch is authorized within remaining capacity. HP delivered HP_UI_ENGINE_PLAN.md, with its source/verification limits; LOTM planner was instructed to checkpoint existing work at the ceiling. Both chats were sent WA54–WA57's world-difference/integration requirements, with no additional investigation requested. Follow-up runtime still belongs to the coordinator. Any later continuation checks the current meter and explicit finite allowance rather than assuming a fresh chat resets this bound.
+
+
+## Renewed coordinator review, 2026-10-31
+
+Weibao: "Raise the ceiling to 75% and keep going. Review the LOTM and HP plans together for missed UI and engine needs, keep each world distinct, and save the findings and any useful long-term workflow rules." Live start 61%. This finite continuation is coordinator-only review: both delivered plans, selected existing code, the supplied Reddit thread and four related community pages, and two bounded primary-source cases. No new planner invocation/descendants, runtime or paid/API fallback. The old stop is historical; future dispatch still needs its finite scope/ownership under AU rules. Review output: LOTM_HP_LORE_AND_ENGINE_REVIEW.md; source details private. Stop at 75% or completed bounded review. No full-book or exhaustive internet claim.
+
+
+## Dedicated lore-exception follow-up, 2026-10-31
+
+User explicitly requested one specific research chat for new LOTM/HP debates and long-term implications. It is separate from the completed planners, under the existing 75% shared ceiling, no descendants/paid fallback. [Round-2 brief](LORE_EXCEPTION_RESEARCH_ROUND2_BRIEF.md) bounds six clusters, 20 substantive web opens and 6,000 new source words. Exclusive outputs LORE_EXCEPTION_RESEARCH_ROUND2.md and LORE_EXCEPTION_WORKFLOW_AMENDMENTS.md; coordinator owns integrations. No runtime or remaining-world dispatch. Dispatched local chat `01a193f6-fa13-7821-b1b5-de0a6318f4bf`; latest pre-dispatch shared usage 63%, ceiling 75%. LR2 report/workflow amendments delivered and integrated into LOTM/HP plans; LR3 and protection proposals also exist. The final compact snapshot found the chat idle; bounded OW1–OW4 followups and protection proposal are delivered. Their source qualification, unresolved gaps and proposed status remain as recorded.

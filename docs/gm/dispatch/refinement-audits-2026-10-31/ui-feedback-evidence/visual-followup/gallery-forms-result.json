@@ -1,0 +1,46 @@
+{
+  "route": "invented gallery fixtures, effects off, 1920x1080",
+  "cases": [
+    {
+      "size": 14,
+      "id": "ritual-low-lamp",
+      "svgWidth": 840,
+      "svgHeight": 1064,
+      "viewBoxWidth": 720,
+      "cssFont": "14px",
+      "labels": 19,
+      "overlaps": []
+    },
+    {
+      "size": 14,
+      "id": "craft-flow-blade",
+      "svgWidth": 840,
+      "svgHeight": 910,
+      "viewBoxWidth": 720,
+      "cssFont": "14px",
+      "labels": 13,
+      "overlaps": []
+    },
+    {
+      "size": 21,
+      "id": "ritual-low-lamp",
+      "svgWidth": 884,
+      "svgHeight": 1119.71875,
+      "viewBoxWidth": 720,
+      "cssFont": "21px",
+      "labels": 19,
+      "overlaps": []
+    },
+    {
+      "size": 21,
+      "id": "craft-flow-blade",
+      "svgWidth": 884,
+      "svgHeight": 957.65625,
+      "viewBoxWidth": 720,
+      "cssFont": "21px",
+      "labels": 13,
+      "overlaps": []
+    }
+  ],
+  "errors": []
+}

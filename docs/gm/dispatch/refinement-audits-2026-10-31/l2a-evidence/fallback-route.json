@@ -1,0 +1,30 @@
+{
+  "route": "DEV SEEDED field-workshop mid-fight fixture, hostile goals, 21 px; not earned",
+  "bundleHash": "ab182b8fb614",
+  "viewport": {
+    "w": 1920,
+    "h": 1080,
+    "overflow": false
+  },
+  "backBox": {
+    "x": 459.90625,
+    "y": 820,
+    "width": 450.34375,
+    "height": 42
+  },
+  "guard": {
+    "notice": "You brace. Mara misses.",
+    "active": "guard"
+  },
+  "yield": {
+    "notice": "You offer to yield, but it is refused. Mara misses.",
+    "active": "yield",
+    "still": true
+  },
+  "withdraw": {
+    "notice": "You try to back away, but are cut off; the turn costs a free blow. Mara misses. Mara misses.",
+    "active": "withdraw",
+    "still": true
+  },
+  "errors": []
+}

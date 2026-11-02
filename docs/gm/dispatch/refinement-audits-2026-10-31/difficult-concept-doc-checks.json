@@ -1,0 +1,12 @@
+{
+  "links_checked": 370,
+  "errors": [],
+  "checks": "local links/anchors, GC1-GC5 and HC1-HC10 IDs, trailing whitespace",
+  "runtime": "not run; design docs only",
+  "hashes": {
+    "docs/gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md": "5848a1acf03b77c807fd3be307ba14848b198cfad21c896a91cc7a9f90a0f05d",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md": "fff60b7649d29824fae67d3189dee768d5dc9cc8c817637f1d84e88a81df2e76",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md": "ee36c9ea6e78ce8aa2c7ff513c4df75e9dd141ee4e303e7b9661029ac402e241",
+    "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md": "0eaadc02a5bd85e568cccc050b88f235802a9d2370f621f1fce8abaca7b7674a"
+  }
+}

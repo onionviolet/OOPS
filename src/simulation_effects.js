@@ -166,6 +166,7 @@ function buildSimulationFacts(state, context, registry) {
     }
     facts["actor.busyOrder"] = !!a.facts["work.order"];
     for(const [k,v] of Object.entries(a.facts)) facts[`actor.${k}`] = v;
+    for(const [id,receipt] of Object.entries(a.completed || {})) if(receipt) facts[`completed.${id}`] = true;
     for(const [k,v] of Object.entries(a.resources)) facts[`resource.${k}`] = v;
     for(const [id,e] of Object.entries(s.energies?.[actor] || {})) {facts[`energy.${id}.known`] = true; facts[`energy.${id}.reserve`] = e.reserve; facts[`energy.${id}.strain`] = e.strain;}
     for(const [k,v] of Object.entries(s.people[actor]?.body || {})) facts[`body.${k}`] = v;

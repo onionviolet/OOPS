@@ -1,14 +1,35 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildPlaceActs} from '../scripts/lead_run/build_place_acts.mjs';
+import {buildPlaceActs,readPlaceActAnnotations,requireMatchedPlaceActAnnotations} from '../scripts/lead_run/build_place_acts.mjs';
 import {buildReplayMapping} from '../scripts/lead_run/build_replay_mapping.mjs';
 import {definePlaceActs} from '../src/place_acts.js';
 import {createSimulationRegistry} from '../src/simulation_contracts.js';
+import {mkdtempSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 
 const registry=[{id:'reader.place.room',kind:'place',label:'Study'}];
 const crosswalk={places:{}};
 const pack={leadLife:{actorId:'actor.lead'},places:[{id:'pack.place.room',indexId:'reader.place.room',name:'Study'}],
  householdActs:{objects:[{id:'old.object',place:'pack.place.room',label:'old',facts:{old:true}}],acts:[{id:'old.act',operation:'inspect',place:'pack.place.room',minutes:2,label:'Old',description:'Old act',report:'Old report',knowledgeKey:'old.knowledge'}]}};
+
+test('the world pack generator reapplies reviewed disclosure metadata and reports missing rows',t=>{
+ const dir=mkdtempSync(join(tmpdir(),'place-act-annotations-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
+ const input={...structuredClone(pack),schema:'lotm-cast/1'},folder=join(dir,'private_packs/lotm-cast');
+ assert.throws(()=>readPlaceActAnnotations(input,{root:dir}),/annotations missing/);
+ mkdirSync(folder,{recursive:true});
+ const annotations={schema:1,acts:{'old.act':{publicReasons:true},'place.act.sample-1':{visibleWhen:{fact:'knowledge.fixture.seen',op:'eq',value:true}},'missing.act':{publicReasons:true}}};
+ writeFileSync(join(folder,'place-act-annotations.json'),JSON.stringify(annotations));
+ const loaded=readPlaceActAnnotations(input,{root:dir});
+ const scenes=[{beat:'sample',pov:'lead',place:'reader.place.room',steps:[{verb:'inspect',object:'the key'}]}];
+ const before=structuredClone(input),result=buildPlaceActs({scenes,crosswalk,registry,pack:input,annotations:loaded});
+ assert.equal(result.annotationsApplied,2);assert.deepEqual(result.missingAnnotations,['missing.act']);
+ assert.throws(()=>requireMatchedPlaceActAnnotations(result),/Unmatched place-act annotations: missing\.act/);
+ assert.doesNotThrow(()=>requireMatchedPlaceActAnnotations(result,{allowMissing:true}));
+ assert.equal(result.data.acts.find(a=>a.id==='old.act').publicReasons,true);
+ assert.deepEqual(result.data.acts.find(a=>a.id==='place.act.sample-1').visibleWhen,annotations.acts['place.act.sample-1'].visibleWhen);
+ assert.deepEqual(input,before);assert.equal(readPlaceActAnnotations(pack,{root:dir}),null);
+});
 
 test('objectless knowledge acts require a reviewed cited paragraph and a resolved place',()=>{
  const scenes=[{beat:'thought',pov:'lead',place:'reader.place.room',evidence:[{label:'S',locator:'zh 第1章 p2'}],steps:[{verb:'recall',object:'a memory'}]}];
@@ -110,4 +131,28 @@ test('maps expanded operation families and retains missing mechanisms as explici
  assert.deepEqual(result.data.acts[0],pack.householdActs.acts[0]);
  assert.equal(createSimulationRegistry({commands:definePlaceActs(result.data,{worldId:'fixture.world',group:'fixture.group',situationId:'fixture.situation'})}).commands.size,8);
  assert.equal(JSON.stringify(seeded.householdActs.objects).includes('fixture.grain'),true);
+});
+
+test('regeneration preserves the reviewed source sequence and refuses a lost stage',()=>{
+ const input=structuredClone(pack);
+ input.householdActs.sequence={id:'fixture.arc',title:'Opening',stages:[{commandId:'old.act',label:'Old'}]};
+ const result=buildPlaceActs({scenes:[],crosswalk:{},registry:[],pack:input});
+ assert.deepEqual(result.data.sequence,input.householdActs.sequence);
+ input.householdActs.sequence.stages[0].commandId='fixture.missing';
+ assert.throws(()=>buildPlaceActs({scenes:[],crosswalk:{},registry:[],pack:input}),/Sequence stage lost/);
+});
+
+test('regeneration retains contiguous arcs and remote participant bindings',()=>{
+ const input=structuredClone(pack);
+ input.householdActs.sequences=[{id:'fixture.arc',title:'First',stages:[{commandId:'old.act',label:'Old',readyOffset:20}]}];
+ input.householdActs.remoteSessions=[{id:'fixture.session',anchor:'pack.place.room',seats:[]}];
+ input.householdActs.requiredPeople=['fixture.person.vendor'];
+ input.householdActs.stockViews=[{knowledge:'fixture.known',title:'Supplies',rows:[]}];
+ const result=buildPlaceActs({scenes:[],crosswalk:{},registry:[],pack:input});
+ assert.deepEqual(result.data.sequences,input.householdActs.sequences);
+ assert.deepEqual(result.data.remoteSessions,input.householdActs.remoteSessions);
+ assert.deepEqual(result.data.requiredPeople,input.householdActs.requiredPeople);
+ assert.deepEqual(result.data.stockViews,input.householdActs.stockViews);
+ input.householdActs.sequences[0].stages[0].commandId='fixture.missing';
+ assert.throws(()=>buildPlaceActs({scenes:[],crosswalk:{},registry:[],pack:input}),/Sequence stage lost/);
 });

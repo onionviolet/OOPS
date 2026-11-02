@@ -114,6 +114,7 @@ export function lotmFacts(state,ctx={}){
  f['lotm.officerAttention']=here?state.actors?.[here.officerId]?.resources?.['book.lotm.attention']??0:0;
  for(const d of LOTM_DISTRICTS)f[`lotm.district.${d.id}`]=here?.id===d.id;
  for(const [k,place] of Object.entries(L))f[`lotm.at.${k}`]=enrolled&&p.location===place;
+ f['lotm.elapsed']=Math.max(0,state.clock-(state.lotm?.initializedAt??state.clock));
  f['lotm.ready']=f['lotm.supervisorHere']&&flag('reportedIn');f['lotm.readyAtOfficer']=f['lotm.officerHere']&&flag('reportedIn');
  const src=state.actors?.player?.sources?.[I.source],fac=s.faculties?.player?.[I.source];
  f['lotm.sourceSupported']=enrolled&&!!src&&(src.expiresAt==null||src.expiresAt>state.clock)&&fac?.awakened===true&&fac.active===true&&!fac.suppressed;

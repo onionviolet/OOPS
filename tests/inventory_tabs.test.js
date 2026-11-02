@@ -27,7 +27,7 @@ test('counts overlap where the native filter does: a starred item counts in its 
 });
 
 test('empty states tell apart nothing held, an empty category and a search with no matches', () => {
-    assert.match(emptyHint({category: 'all', held: false, inCategory: false, search: ''}), /^Nothing held yet/);
+    assert.match(emptyHint({category: 'all', held: false, inCategory: false, search: ''}), /^No items in this inventory/);
     assert.equal(emptyHint({category: 'usable', held: true, inCategory: false, search: ''}), 'No usable items or books yet.');
     assert.match(emptyHint({category: 'favorites', held: true, inCategory: false, search: ''}), /^No starred items yet/);
     assert.equal(emptyHint({category: 'other', held: true, inCategory: true, search: 'rat'}), 'No materials, components or loot match "rat". Clear the filter to see all.');

@@ -1,0 +1,81 @@
+{
+  "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
+  "bundleHash": "b326e3262402",
+  "focusBefore": "<button type=\"button\" data-fight-option=\"jab\">Quick strike</button>",
+  "focusAfter": "<button type=\"button\" data-fight-option=\"jab\">Quick strike</button>",
+  "scrollBefore": [
+    {
+      "id": "center_mode_content",
+      "cls": "",
+      "top": 0
+    }
+  ],
+  "scrollAfter": [
+    {
+      "id": "center_mode_content",
+      "cls": "",
+      "top": 0
+    }
+  ],
+  "aim": [
+    [
+      "head"
+    ],
+    [
+      "head"
+    ],
+    [
+      "any"
+    ],
+    [
+      "any"
+    ]
+  ],
+  "reload": {
+    "identical": true,
+    "diff": [
+      "held"
+    ],
+    "held": [
+      5,
+      6
+    ]
+  },
+  "import": {
+    "identical": true,
+    "diff": [
+      "held"
+    ],
+    "held": [
+      5,
+      7
+    ]
+  },
+  "focusFinished": {
+    "tag": "P",
+    "text": "Fight ended: withdrawn.",
+    "role": "status",
+    "connected": true
+  },
+  "focusFinishedAfterTick": {
+    "tag": "P",
+    "text": "Fight ended: withdrawn.",
+    "visible": true
+  },
+  "finished": {
+    "result": "withdrawn",
+    "openSession": false
+  },
+  "refused": {
+    "focus": "yield",
+    "still": true,
+    "notice": "You offer to yield, but it is refused. Mara misses."
+  },
+  "failed": {
+    "offset": 0,
+    "focus": "withdraw",
+    "still": true,
+    "notice": "You try to back away, but are cut off; the turn costs a free blow. Mara misses. Mara misses."
+  },
+  "errors": []
+}

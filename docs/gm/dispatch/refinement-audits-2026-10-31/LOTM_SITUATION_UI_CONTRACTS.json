@@ -1,0 +1,925 @@
+{
+  "schema": "lotm-situation-ui-contracts/1",
+  "status": "planning proposals; not a runtime registry",
+  "targetViewport": "1920x1080; 14/21px",
+  "contractQualification": "Family assignment is triage, not scene-level UI completion. Exact subject/actor/method, producer and response need situation qualification.",
+  "contracts": [
+    {
+      "id": "LS01",
+      "title": "Local movement",
+      "families": [
+        "travel or move",
+        "needs mechanism review: travel"
+      ],
+      "proposal": true,
+      "operation": "Choose a supported destination and route; commit movement.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castWalkDefinition",
+        "src/book_world_lotm_cast_host.js:castJourneyOffers"
+      ],
+      "controls": [
+        "Known destination",
+        "Mode/route",
+        "Elapsed local time",
+        "Current access and blocker"
+      ],
+      "result_consumer": "New actual location and its admitted nearby actions.",
+      "screen_flow": [
+        "Nearby",
+        "Route quote",
+        "Active travel",
+        "Arrival",
+        "Nearby"
+      ],
+      "missing": "Resolve source origin/destination, actual actor, route and scene timing; a changed scene place is not a walk command.",
+      "failure_check": "Change an entrance permission between quote and departure; no free relocation or stale route acceptance.",
+      "later_pressure": "Remote movement, regional permissions and operation-specific reach cannot use one global range flag.",
+      "future_freedom": "Alternate supported route or transport can reach the same destination; canon-mode restrictions have their own reason."
+    },
+    {
+      "id": "LS02",
+      "title": "Paid and regional transport",
+      "families": [
+        "paid transport"
+      ],
+      "proposal": true,
+      "operation": "Reserve the selected actual service, attend it and arrive.",
+      "engine": [
+        "src/cast_journeys.js:defineJourneys",
+        "src/cast_journeys.js:quoteJourneys"
+      ],
+      "controls": [
+        "Service/provider",
+        "Departure",
+        "Fare and payer",
+        "Cargo/body terms",
+        "Missed-service outcome"
+      ],
+      "result_consumer": "Fare settlement and actual new location; commitments affected by arrival time.",
+      "screen_flow": [
+        "Map or Nearby",
+        "Service quote",
+        "Schedule/Work",
+        "Arrival report",
+        "Destination Nearby"
+      ],
+      "missing": "Qualify timetable, provider means, origin and fare; inherited guessed origins remain gaps.",
+      "failure_check": "Miss departure after reservation; apply the declared refund/loss once and return to the originating route.",
+      "later_pressure": "Different body/cargo and remote arrival methods may need different carrier admission.",
+      "future_freedom": "Walk, negotiate another supplier or use an acquired travel method when its mechanism supports it."
+    },
+    {
+      "id": "LS03",
+      "title": "Waiting and appointments",
+      "families": [
+        "wait for a time or event"
+      ],
+      "proposal": true,
+      "operation": "Select a named local deadline or interval supported by its clock.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castWaitOptions",
+        "src/book_world_lotm_cast_host.js:castLocalClock"
+      ],
+      "controls": [
+        "Wait until",
+        "Local elapsed time",
+        "Attendance needs",
+        "Interrupted/expired result"
+      ],
+      "result_consumer": "Due event/attendance and the next real task.",
+      "screen_flow": [
+        "Task or Nearby",
+        "Schedule",
+        "Wait preview",
+        "Due event",
+        "Origin task"
+      ],
+      "missing": "Source time bands do not supply exact minutes; bind actual scene/day/window.",
+      "failure_check": "Wait across an appointment boundary with another job active; preserve declared occupied time and distinguish missed attendance.",
+      "later_pressure": "Multiple bodies, institutions and maintained effects can consume different clocks.",
+      "future_freedom": "Choose another supported use of the interval without silently fast-forwarding harmful or unresolved decisions."
+    },
+    {
+      "id": "LS04",
+      "title": "Conversation and social approach",
+      "families": [
+        "speak or ask",
+        "needs mechanism review: socialize"
+      ],
+      "proposal": true,
+      "operation": "Choose an admitted topic and actual response to a present or reachable person.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castTopicOffers",
+        "src/cast_topic_talk.js:defineTopicTalks"
+      ],
+      "controls": [
+        "Person",
+        "Known topic",
+        "Offer/ask/refuse",
+        "Presence or channel reason"
+      ],
+      "result_consumer": "Attributed response and any actual consent, service or relationship effect.",
+      "screen_flow": [
+        "Nearby person",
+        "Conversation",
+        "Topic/terms",
+        "Response",
+        "Same person/task"
+      ],
+      "missing": "Greeting is not a topic-specific answer; qualify speakers, consent and result.",
+      "failure_check": "Person departs or refuses; topic history remains without inventing consent or another speaker.",
+      "later_pressure": "Aliases, remote bodies and public standing do not establish source/control identity.",
+      "future_freedom": "Different honest or deceptive approaches need actual NPC motives and means, not a lead-only success grant."
+    },
+    {
+      "id": "LS05",
+      "title": "Messages and received reports",
+      "families": [
+        "exchange a message"
+      ],
+      "proposal": true,
+      "operation": "Compose/send through an actual channel; separately receive and acknowledge.",
+      "engine": [
+        "src/cast_topic_talk.js:pendingTopicTalkReports",
+        "src/observer_view.js:observerView"
+      ],
+      "controls": [
+        "Recipient",
+        "Channel/provider",
+        "Message/attachment",
+        "Send",
+        "Last received receipt"
+      ],
+      "result_consumer": "Recipient-specific admitted knowledge and next inquiry/task.",
+      "screen_flow": [
+        "Person or task",
+        "Message quote",
+        "Sent/pending",
+        "Received report",
+        "Origin task"
+      ],
+      "missing": "A report renderer is not a delivery mechanism; qualify address, reach, sender, receiver and carrier.",
+      "failure_check": "Lose the channel after send; no delivery/knowledge merely because the original scene says the message was sent.",
+      "later_pressure": "LOTM addressed responder and delegated body remain distinct from HP disclosure authority and MoL channel technology.",
+      "future_freedom": "A physical courier, direct contact or acquired communication method can differ in cost, time and exposure."
+    },
+    {
+      "id": "LS06",
+      "title": "Inspection, investigation and appraisal",
+      "families": [
+        "inspect or investigate",
+        "needs mechanism review: appraise"
+      ],
+      "proposal": true,
+      "operation": "Select a subject, investigation method and evidence-producing operation.",
+      "engine": [
+        "src/place_acts.js:quotePlaceActs",
+        "src/cast_inference_adapter.js:quoteInferences"
+      ],
+      "controls": [
+        "Subject",
+        "Method",
+        "Known evidence",
+        "Cost/exposure",
+        "Inspect/test/ask"
+      ],
+      "result_consumer": "A sourced observation or inference used by another decision.",
+      "screen_flow": [
+        "Nearby or Inventory",
+        "Subject inspection",
+        "Method quote",
+        "Evidence/Reference",
+        "Origin subject/task"
+      ],
+      "missing": "Resolve physical subject, evidence kind and downstream consumer; a description is not an assay or proof.",
+      "failure_check": "Compare remembered appraisal to a changed object; do not display stale inference as current physical truth.",
+      "later_pressure": "Historical traces, hazardous information and proxy appearance require separate evidence admission.",
+      "future_freedom": "Other reasonable methods may establish different aspects with different uncertainty; no universal inspect button."
+    },
+    {
+      "id": "LS07",
+      "title": "Perception and observation",
+      "families": [
+        "observe or listen"
+      ],
+      "proposal": true,
+      "operation": "Admit an event through actual senses, channel or deliberate observation.",
+      "engine": [
+        "src/observer_view.js:observerView",
+        "src/book_world_lotm_cast_host.js:castObjectOffers"
+      ],
+      "controls": [
+        "Observed source/subject",
+        "Method where deliberate",
+        "Time and provenance",
+        "Follow-up"
+      ],
+      "result_consumer": "Witnessed or reported knowledge, with physical control still evaluated separately.",
+      "screen_flow": [
+        "Nearby/situation",
+        "Observation",
+        "Evidence/Reference",
+        "Follow-up task"
+      ],
+      "missing": "Classify passive occurrence versus paid/deliberate observation; a verb tag alone cannot choose a button.",
+      "failure_check": "Keep perception valid while control/acquisition fails; badge/search counts must reveal no hidden event.",
+      "later_pressure": "Operation-specific reach and observer tolerance; observing a result does not identify its hidden controller.",
+      "future_freedom": "Change vantage, use an actual instrument or seek an account through a supported channel."
+    },
+    {
+      "id": "LS08",
+      "title": "Documents, memory and writing references",
+      "families": [
+        "read a text"
+      ],
+      "proposal": true,
+      "operation": "Access the actual carrier, use a reading method and retain an attributed account.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castMakingOffers",
+        "src/place_acts.js:quotePlaceActs",
+        "src/observer_view.js:observerView"
+      ],
+      "controls": [
+        "Carrier/access",
+        "Read method",
+        "Known account",
+        "Copy/destroy only if supported"
+      ],
+      "result_consumer": "Retained account and physical carrier state consumed independently.",
+      "screen_flow": [
+        "Inventory/Nearby document",
+        "Read quote",
+        "Work/result",
+        "Reference",
+        "Original carrier/task"
+      ],
+      "missing": "JR1 selected source scene/carrier still needs qualification; destruction/copying need actual effects.",
+      "failure_check": "Destroy one carrier then reread remembered account; no global erasure or duplicated original after import.",
+      "later_pressure": "LR3-L2 exposure and KP proposal: ordinary reference redraw does not create a new acquisition or immunity.",
+      "future_freedom": "Copy, summarize, ask a reader or use acquired protection through real means; source access and safe comprehension remain distinct."
+    },
+    {
+      "id": "LS09",
+      "title": "Reasoning and planning",
+      "families": [
+        "reason or plan"
+      ],
+      "proposal": true,
+      "operation": "Select available evidence and record an inference or plan, distinct from execution.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castInferenceOffers",
+        "src/cast_inference_adapter.js:defineInferences"
+      ],
+      "controls": [
+        "Evidence selection",
+        "Claim/confidence",
+        "Plan steps",
+        "Start actual task"
+      ],
+      "result_consumer": "An attributed inference or draft consumed by the next real command.",
+      "screen_flow": [
+        "Reference/evidence",
+        "Inference/plan",
+        "Supported next action",
+        "Quote",
+        "Return to evidence/plan"
+      ],
+      "missing": "A thought may be narration, not a command; source result and missing evidence must be retained.",
+      "failure_check": "A contradictory report revises the inference while preserving earlier provenance; no changed world fact from drafting.",
+      "later_pressure": "Historical evidence, concealed identities and later hindsight cannot auto-complete an early deduction.",
+      "future_freedom": "Permit alternative plans whose steps have supported mechanisms; user notes are not authoritative character knowledge."
+    },
+    {
+      "id": "LS10",
+      "title": "Study and experimental research",
+      "families": [
+        "needs mechanism review: study",
+        "needs mechanism review: research",
+        "obtain or learn information"
+      ],
+      "proposal": true,
+      "operation": "Learn from an actual source or conduct a method-bound experiment.",
+      "engine": [
+        "src/cast_inference_adapter.js:quoteInferences",
+        "src/place_acts.js:definePlaceActs"
+      ],
+      "controls": [
+        "Question/source",
+        "Known method",
+        "Teacher/materials",
+        "Experiment quote",
+        "Observed result"
+      ],
+      "result_consumer": "Learned method or evidence with a usable next experiment/application.",
+      "screen_flow": [
+        "Reference or teacher",
+        "Study/research",
+        "Inputs/method",
+        "Work",
+        "Evidence",
+        "Application"
+      ],
+      "missing": "Separate observation, interpretation, learned execution and faculty; classify each reader row before assigning an operation.",
+      "failure_check": "A failed experiment consumes its declared inputs without granting the hoped-for method or erasing a valid negative result.",
+      "later_pressure": "Later knowledge hazards and source substitution require method/protection/provenance, not a global researched flag.",
+      "future_freedom": "Invent or combine techniques where mechanisms support them; unsupported simulation remains an explicit gap."
+    },
+    {
+      "id": "LS11",
+      "title": "Practice and ability use",
+      "families": [
+        "needs mechanism review: practice",
+        "use an ability"
+      ],
+      "proposal": true,
+      "operation": "Select a learned supported operation, actual source/tool, target and current quote.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castAbilityOffers",
+        "src/cast_ability_adapter.js:commitCastAbility"
+      ],
+      "controls": [
+        "Method",
+        "Target",
+        "Source/payer",
+        "Reach/support",
+        "Use/practice",
+        "Result"
+      ],
+      "result_consumer": "Actual effect and qualified practice evidence, independently.",
+      "screen_flow": [
+        "Abilities or situation",
+        "Operation/target quote",
+        "Commit",
+        "Result",
+        "Origin situation or practice record"
+      ],
+      "missing": "Source faculty, technique, target and lasting progress must have actual producers; no gain from reading a label.",
+      "failure_check": "Perception succeeds but reach fails; a stale target/source quote cannot spend or hit a replacement target.",
+      "later_pressure": "LR2-L1/L2 operation stages and borrowed support; old command definitions retain revision policy.",
+      "future_freedom": "An acquired equivalent means can work for a non-lead actor without hidden protagonist permission."
+    },
+    {
+      "id": "LS12",
+      "title": "Divination and rituals",
+      "families": [
+        "divination or ritual",
+        "needs mechanism review: ritual"
+      ],
+      "proposal": true,
+      "operation": "Ask a specific question or prepare and execute a qualified ritual method.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castDivinationOffers",
+        "src/cast_divination_adapter.js:defineDivinations"
+      ],
+      "controls": [
+        "Question/object",
+        "Method/participants",
+        "Inputs/conditions",
+        "Known risk",
+        "Commit",
+        "Interpreted report"
+      ],
+      "result_consumer": "Method-specific response/effect with evidence and an actual downstream decision.",
+      "screen_flow": [
+        "Question or progression task",
+        "Preparation",
+        "Quote",
+        "Work/response",
+        "Report",
+        "Origin task"
+      ],
+      "missing": "Separate divination, invocation, advancement and other rituals; authored fit/odds are not canon probabilities.",
+      "failure_check": "Condition or responder support changes after preparation; settle according to that method, not a universal refund.",
+      "later_pressure": "JR3–JR9: history, roles, substitutions and response support can change later; timer completion is not every ritual.",
+      "future_freedom": "Alternative material or procedure works when its causal role is satisfied with actual means and costs."
+    },
+    {
+      "id": "LS13",
+      "title": "Physical items and custody",
+      "families": [
+        "handle or move an item"
+      ],
+      "proposal": true,
+      "operation": "Take, give, store, equip or destroy the exact admitted physical carrier.",
+      "engine": [
+        "src/place_acts.js:definePlaceActs",
+        "src/simulation_effects.js:applySimulationEffects"
+      ],
+      "controls": [
+        "Item/lot",
+        "Holder/place",
+        "Quantity/condition",
+        "Allowed transfer/use quote"
+      ],
+      "result_consumer": "Actual custody and usability for work, trade or evidence.",
+      "screen_flow": [
+        "Inventory/Nearby object",
+        "Item operation",
+        "Terms/quote",
+        "Result",
+        "Item and origin task"
+      ],
+      "missing": "Resolve carrier/lot identity and current holder; an authored note does not transfer or consume stock.",
+      "failure_check": "Lose/sell reserved support before another action; its old preparation flag cannot recreate the item.",
+      "later_pressure": "Borrowed manifestations, characteristic provenance and delegated instruments need their own carrier laws.",
+      "future_freedom": "Use available substitute tools/materials when mechanisms permit; possession alone does not grant skill or allegiance."
+    },
+    {
+      "id": "LS14",
+      "title": "Trade, payment and household finance",
+      "families": [
+        "trade or pay",
+        "needs mechanism review: trade"
+      ],
+      "proposal": true,
+      "operation": "Choose actual counterpart, goods/claim, payer and terms; settle transfer.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castExchangeOffers",
+        "src/cast_exchange_adapter.js:defineCastExchanges"
+      ],
+      "controls": [
+        "Counterparty",
+        "Stock/lot",
+        "Price/debt/reward meaning",
+        "Payer",
+        "Confirm"
+      ],
+      "result_consumer": "Goods/funds/settled claim consumed by preparation or daily needs.",
+      "screen_flow": [
+        "Person/shop/task",
+        "Offer comparison",
+        "Quote",
+        "Settlement",
+        "Inventory/account",
+        "Origin task"
+      ],
+      "missing": "Bind real purse/stock/currency and consequence; paying one local act is not every payment in a book.",
+      "failure_check": "Quote exhausts stock or payer funds; no duplicate settlement on retry/import.",
+      "later_pressure": "Public standing, source identity and actual benefit destination are independent of payment receipts.",
+      "future_freedom": "Bargain, borrow, earn or find a different seller through real counterpart means; no forced price equalization."
+    },
+    {
+      "id": "LS15",
+      "title": "Making, potions and written artifacts",
+      "families": [
+        "make or write an item",
+        "needs mechanism review: craft"
+      ],
+      "proposal": true,
+      "operation": "Choose a source-qualified process and actual input lots, tools, site and maker.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castMakingOffers",
+        "src/cast_making_adapter.js:validateCastMakingConsumers"
+      ],
+      "controls": [
+        "Process/version",
+        "Input lots and substitute role",
+        "Work stages",
+        "Costs/failure spend",
+        "Result collection"
+      ],
+      "result_consumer": "Actual product/record used, equipped, taught, sold or applied by an existing consumer.",
+      "screen_flow": [
+        "Recipe/reference or need",
+        "Preparation",
+        "Missing-input shop/tool/person",
+        "Return to preparation",
+        "Work",
+        "Product",
+        "Use"
+      ],
+      "missing": "Distinguish handwriting, physical fabrication, potion preparation and sourced transformation; no shared recipe law by label.",
+      "failure_check": "Support loss after consumption retains its exact phase settlement; output text alone does not establish a product.",
+      "later_pressure": "Later projected inputs and lasting source carriers can require lifetime/provenance changes; HP and MoL making laws remain local.",
+      "future_freedom": "Experiment with alternative processes that satisfy causal needs; do not restrict outcomes to an allowed-product list."
+    },
+    {
+      "id": "LS16",
+      "title": "Daily life, rest and treatment",
+      "families": [
+        "rest or personal care",
+        "needs mechanism review: rest",
+        "needs mechanism review: care"
+      ],
+      "proposal": true,
+      "operation": "Meet a current bodily need or treat a qualified condition with actual means.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castBodyOffers",
+        "src/cast_body_adapter.js:defineBodyCare"
+      ],
+      "controls": [
+        "Need/condition",
+        "Meal/rest/care method",
+        "Supplies/provider",
+        "Time/support",
+        "Known result"
+      ],
+      "result_consumer": "Actual body/resource change and usable next activity.",
+      "screen_flow": [
+        "Body status or home",
+        "Care/meal/rest quote",
+        "Supplies/provider",
+        "Work",
+        "Body result",
+        "Origin activity"
+      ],
+      "missing": "Routine, harmful condition and treatment are distinct; exact gains/durations need qualified source or labelled authored dials.",
+      "failure_check": "Time passes without compatible care: do not clear injury or restore every source; expired help does not reverse completed treatment.",
+      "later_pressure": "Changed bodies/forms, protective support and nonphysical harm need carrier-specific care.",
+      "future_freedom": "Daily ordinary means remain useful where they causally work; alternate lives choose actual lodging/work/support."
+    },
+    {
+      "id": "LS17",
+      "title": "Agreements, access and obligations",
+      "families": [
+        "agree or refuse a proposal"
+      ],
+      "proposal": true,
+      "operation": "Inspect terms, establish actual assent/authority and commit the particular agreement.",
+      "engine": [
+        "src/cast_topic_talk.js:defineTopicTalks",
+        "src/simulation.js:previewSimulationCommand"
+      ],
+      "controls": [
+        "Parties",
+        "Instrument/terms",
+        "Offer/accept/refuse",
+        "Current access/expiry",
+        "Known consequences"
+      ],
+      "result_consumer": "Actual obligation/access state consumed by a real service or action.",
+      "screen_flow": [
+        "Conversation/institution",
+        "Terms",
+        "Commit",
+        "Obligation/access record",
+        "Service/action",
+        "Terms history"
+      ],
+      "missing": "Define authority, instrument, term revision and enforcement; a button or ledger projection is not supernatural binding.",
+      "failure_check": "Read terms without accepting, then lose institutional access; no automatic breach of an unrelated agreement.",
+      "later_pressure": "JR7/LR3-L1 delegation and support differ from public permission; HP binding law cannot be imported.",
+      "future_freedom": "Negotiate a different supported deal or refuse; consequences follow actual agents/mechanisms rather than global reputation."
+    },
+    {
+      "id": "LS18",
+      "title": "Work, institutions and service performance",
+      "families": [
+        "needs mechanism review: work"
+      ],
+      "proposal": true,
+      "operation": "Accept and perform a concrete staffed task with attendance, materials and settlement.",
+      "engine": [
+        "src/simulation.js:previewSimulationCommand",
+        "src/simulation_effects.js:applySimulationEffects"
+      ],
+      "controls": [
+        "Employer/provider",
+        "Task and shift",
+        "Means/attendance",
+        "Pay/review condition",
+        "Commit/decline"
+      ],
+      "result_consumer": "Completed service, earned wage/credential or explicit failure and useful next access.",
+      "screen_flow": [
+        "Person/institution",
+        "Task terms",
+        "Schedule/Work",
+        "Delivery/assessment",
+        "Account/access",
+        "Origin place"
+      ],
+      "missing": "Require actual staff, funds, knowledge and result consumer; institution template is not a source-complete employer.",
+      "failure_check": "Supervisor leaves after work but before assessment; completed labor and permission/payment follow their distinct terms.",
+      "later_pressure": "Changing city, identity and rank alter social access without defining a new magical faculty.",
+      "future_freedom": "Earn, apprentice, offer a new service or use a different institution with real willingness and resources."
+    },
+    {
+      "id": "LS19",
+      "title": "Combat, evasion and aftermath",
+      "families": [
+        "fight or evade",
+        "needs mechanism review: fight"
+      ],
+      "proposal": true,
+      "operation": "Respond to an actual opposed situation with the current actor, means and target.",
+      "engine": [
+        "src/tempo_fight_domain.js",
+        "src/book_world_lotm_cast_host.js:castAbilityOffers"
+      ],
+      "controls": [
+        "Participants/objective",
+        "Known threats",
+        "Target/means",
+        "Commit/brace/withdraw",
+        "Live body state"
+      ],
+      "result_consumer": "Actual opponent/body/aftermath state, attributed report and recovery task.",
+      "screen_flow": [
+        "Situation",
+        "Preparation or ability reference",
+        "Return to situation",
+        "Response",
+        "Aftermath",
+        "Treatment/report",
+        "Origin place"
+      ],
+      "missing": "L2b below-floor publication/persistence and L2c witness/interrupt remain; seeded card proof is not source-scene combat coverage.",
+      "failure_check": "Failed withdrawal applies its declared consequence and agrees with native health; no safe-exit promise or unwitnessed knowledge.",
+      "later_pressure": "Remote actuators, hidden controllers, harm carriers and later body forms do not fit one generic damage bar.",
+      "future_freedom": "Negotiation, preparation, escape and alternative supported methods use the same actual world means, not forced balance."
+    },
+    {
+      "id": "LS20",
+      "title": "Change state or maintain support",
+      "families": [
+        "change or maintain state"
+      ],
+      "proposal": true,
+      "operation": "Perform the particular supported transition or maintenance operation.",
+      "engine": [
+        "src/source_suppliers.js:liveSuppliers",
+        "src/simulation_effects.js:applySimulationEffects"
+      ],
+      "controls": [
+        "Current/target state",
+        "Method/support",
+        "Actual cost/clock",
+        "Commit/result"
+      ],
+      "result_consumer": "The changed state actually used by an ability, body or service.",
+      "screen_flow": [
+        "Current status",
+        "Transition/maintenance quote",
+        "Work",
+        "Result",
+        "Actual consuming task"
+      ],
+      "missing": "Class label alone does not identify progression, identity, source activation or upkeep; qualify the operation.",
+      "failure_check": "End one support source while another remains; no universal reset/refill or deletion of independent learning.",
+      "later_pressure": "Later-source state/provenance and body transitions may need versioned refactor.",
+      "future_freedom": "Other supported transition methods remain possible with their real in-world costs and aftermath."
+    },
+    {
+      "id": "LS21",
+      "title": "Delegation and indirect actors",
+      "families": [
+        "direct another actor"
+      ],
+      "proposal": true,
+      "operation": "Assign a task through an admitted order channel to an actual acting body/decision source.",
+      "engine": [
+        "src/book_world_lotm_cast_host.js:castTopicOffers",
+        "src/observer_view.js:observerView"
+      ],
+      "controls": [
+        "Acting body/worker",
+        "Admitted controller or responder",
+        "Order/task",
+        "Channel/support",
+        "Last reported result"
+      ],
+      "result_consumer": "Actual response and separately delivered task evidence.",
+      "screen_flow": [
+        "Task",
+        "Actor/order",
+        "Support/terms",
+        "Pending operation",
+        "Received result",
+        "Origin task"
+      ],
+      "missing": "Missing source-qualified actuator/controller/link/handover model; actor appearance is insufficient.",
+      "failure_check": "Change controller support while a command is pending; preserve observer ignorance and reject stale authority.",
+      "later_pressure": "LR2-L3/LR3-L1 delegated benefit destination; MoL shared fuel/report law is not LOTM agency law.",
+      "future_freedom": "Hire, request, delegate or directly act through supported means; do not require every worker to simulate a full protagonist life."
+    },
+    {
+      "id": "LS22",
+      "title": "Unresolved mechanism residue",
+      "families": [
+        "needs mechanism review: other",
+        "needs mechanism review: unknown"
+      ],
+      "proposal": true,
+      "operation": "Retain the source situation and explicitly identify the missing mechanism before assigning a control.",
+      "engine": [],
+      "controls": [
+        "Developer-only unresolved situation record"
+      ],
+      "result_consumer": "A resolved source/mechanism/UI contract later; no pretend player action.",
+      "screen_flow": [
+        "Existing coverage record",
+        "Source/actor/operation qualification",
+        "Named contract or retained gap"
+      ],
+      "missing": "No safe semantic match from the current tags.",
+      "failure_check": "Every residue row retains its source ID; no silent fallback to greeting, walk, wait or report.",
+      "later_pressure": "An unclassified late mechanism may change an early seam; do not force it into one of the existing adapters.",
+      "future_freedom": "A new causal mechanism can justify a new world-local owner or a shared seam with demonstrated consumers."
+    },
+    {
+      "id": "LS23",
+      "title": "Progression and source transitions",
+      "families": [],
+      "proposal": true,
+      "operation": "Qualify, prepare, attempt and settle a particular progression method.",
+      "engine": [
+        "src/book_world_lotm_domain.js:configureLotm",
+        "src/source_suppliers.js:grantSource"
+      ],
+      "controls": [
+        "Faculty/source history",
+        "Preparation evidence",
+        "Method/ritual conditions",
+        "Attempt result",
+        "Next usable ability"
+      ],
+      "result_consumer": "Acquired source/control and independent usable technique.",
+      "screen_flow": [
+        "Progress/status",
+        "Method",
+        "Inputs/people/site",
+        "Preparation",
+        "Attempt",
+        "Body/source result",
+        "Ability/use"
+      ],
+      "missing": "Probationer progression is not automatically the lead route; exact advanced methods and scarcity are not supplied by an inventory counter.",
+      "failure_check": "Prepared conditions without the final operation grant no promotion; partial result follows the qualified method.",
+      "later_pressure": "JR3–JR5 and lead plan trajectory: material provenance, accumulated support, identity and later exceptions.",
+      "future_freedom": "Reasonable substitutions or alternate progression routes depend on causal roles, costs and actual support, not a rank-only permission list."
+    },
+    {
+      "id": "LS24",
+      "title": "Operation-specific reach and remote links",
+      "families": [],
+      "proposal": true,
+      "operation": "Distinguish observation, initial acquisition, maintained control and movement.",
+      "engine": [
+        "src/cast_ability_adapter.js:quoteCastAbilities",
+        "src/book_world_lotm_cast_host.js:castAbilityOffers"
+      ],
+      "controls": [
+        "Selected operation",
+        "Last known target",
+        "Current body/position",
+        "Established link/support",
+        "Operation-specific quote"
+      ],
+      "result_consumer": "Actual control/movement effect rather than mere target discovery.",
+      "screen_flow": [
+        "Situation/target",
+        "Method",
+        "Link/position inspection",
+        "Return to selected operation",
+        "Commit/result"
+      ],
+      "missing": "Missing qualified per-stage link/range/position and interruption producers.",
+      "failure_check": "Perceived target cannot be newly acquired but a separately supported established link follows its own command rule.",
+      "later_pressure": "LR2-L1 exact stage/era boundaries and remaining maintenance limits.",
+      "future_freedom": "Another instrument, relay or body may change the route if sourced; no universal radius copied across worlds."
+    },
+    {
+      "id": "LS25",
+      "title": "Temporary, borrowed and historical means",
+      "families": [],
+      "proposal": true,
+      "operation": "Choose actual supplier, continuing payer and manifestation support.",
+      "engine": [
+        "src/source_suppliers.js:grantSource",
+        "src/source_suppliers.js:removeSource",
+        "src/source_suppliers.js:liveSuppliers"
+      ],
+      "controls": [
+        "Supplier/method",
+        "Available allocation",
+        "Payer/clock",
+        "End condition",
+        "Dependent task"
+      ],
+      "result_consumer": "Actual supported ability/product with qualified remaining carrier aftermath.",
+      "screen_flow": [
+        "Task",
+        "Means/supplier",
+        "Quote",
+        "Use/work",
+        "Support/result",
+        "Origin task"
+      ],
+      "missing": "Historical selector, allocation and projected-material aftermath are missing in selected paths; generic supplier functions are not that lore.",
+      "failure_check": "Expire one supplier during work; retain independent sources and settle consumed material by the chosen policy.",
+      "later_pressure": "LR2-L2 must map supplier state.clock to the selected world clock; memory/history does not refill reserves.",
+      "future_freedom": "Borrow, hire or use an independent held source through actual compatible suppliers."
+    },
+    {
+      "id": "LS26",
+      "title": "Belief, delegated instruments and benefit destination",
+      "families": [],
+      "proposal": true,
+      "operation": "Perform an admitted response/delegated operation while preserving the actual support recipient.",
+      "engine": [
+        "src/source_suppliers.js",
+        "src/book_world_lotm_cast_host.js:castTopicOffers"
+      ],
+      "controls": [
+        "Known request",
+        "Held instrument",
+        "Delegated operation",
+        "Received response",
+        "Public standing separately"
+      ],
+      "result_consumer": "Qualified support/benefit and attributed response.",
+      "screen_flow": [
+        "Institution/person/request",
+        "Instrument/operation",
+        "Response",
+        "Condition/support record",
+        "Origin task"
+      ],
+      "missing": "Missing belief/recipient/delegate relation and result; no numerical belief curve or automatic transfer through custody.",
+      "failure_check": "Transfer an instrument while the qualified benefit destination remains independently bound.",
+      "later_pressure": "LR3-L1 stabilizing/distorting belief and support identity; not reputation alone.",
+      "future_freedom": "Build support through different actual social/ritual means where qualified; no forced equal benefit for every world."
+    },
+    {
+      "id": "LS27",
+      "title": "Acquisition exposure and protective means",
+      "families": [],
+      "proposal": true,
+      "operation": "Acquire through a qualified channel with actual recipient and protective support.",
+      "engine": [
+        "src/observer_view.js:observerView",
+        "src/source_suppliers.js:liveSuppliers"
+      ],
+      "controls": [
+        "Known method",
+        "Supported mediation/protection",
+        "Deliberate deeper exposure where implemented",
+        "Received account",
+        "Actual consequence"
+      ],
+      "result_consumer": "Admitted knowledge and independently owned harm/condition.",
+      "screen_flow": [
+        "Source/task",
+        "Acquisition method",
+        "Support check",
+        "Result/reference",
+        "Care if needed",
+        "Origin task"
+      ],
+      "missing": "LR3-L2 hazard trigger/classification and KP protection capability remain gaps; KP1 is a recommendation, not accepted immunity.",
+      "failure_check": "Remove support before release; apply declared acquisition policy once, with no redraw/reload re-exposure or retrospective migration harm.",
+      "later_pressure": "Current recipient/body/channel/revision matters; recalling an account versus fresh external acquisition remains source-qualified.",
+      "future_freedom": "The cheat may be a real protective means if qualified; ordinary UI settings neither grant immunity nor imply death risk."
+    },
+    {
+      "id": "LS28",
+      "title": "Run modes, branches and continuation",
+      "families": [],
+      "proposal": true,
+      "operation": "Explain selected premise/constraints separately from world mechanism and implementation support.",
+      "engine": [
+        "src/constraint_store.js",
+        "src/constraint_pack.js",
+        "src/observer_view.js:observerView"
+      ],
+      "controls": [
+        "Current supported run premise",
+        "Known available actions",
+        "Non-spoiling mode reason",
+        "Actual return/continuation"
+      ],
+      "result_consumer": "Consistent branch, obligations and source-qualified alternatives.",
+      "screen_flow": [
+        "Situation/action",
+        "Known constraint or support explanation",
+        "Supported alternative task",
+        "Return"
+      ],
+      "missing": "Open-mode/pull behavior and many alternate-life consumers remain proposed; no nonfunctional mode selector.",
+      "failure_check": "An unavailable canon-run choice is not reported as a universal magical impossibility, and no future locked event is revealed.",
+      "later_pressure": "Later divergent histories must preserve receipts/source revisions rather than rewrite an early committed past.",
+      "future_freedom": "A future free/non-lead fixture uses the same supported mechanics without protagonist identity checks; new worlds retain their own premises."
+    }
+  ],
+  "reviewedOverrideContract": {
+    "schema": "lotm-situation-reviewed-override/1",
+    "owner": "docs/gm/dispatch/lotm-whole-life-2026-11-01/CHECKPOINT.md",
+    "location": "private whole-life-qualification-2026-11-01/reviewed-overrides.json",
+    "key": "existing scene beat + # + one-based historical step; never renumber after splitting source operations",
+    "required": [
+      "edition SHA256 and volume/chapter/paragraph spans",
+      "independent actor/body/controller/observer dispositions and uncertainty",
+      "operation/readout; occurrence versus disclosure",
+      "actual command/export or concrete proposed signature with named missing producer/consumer",
+      "task controls/input/current quote/commit/feedback and connected predecessor/result/return",
+      "failure/refusal/interruption; durable receipt and in-flight/save revision",
+      "later-source pressure and mechanism-grounded alternative distinct from canon-mode lock",
+      "independent source/actor/UI/engine/journey review states"
+    ],
+    "newSourceSituations": "separate source-linked candidate ledger; overlap and semantic deduplication before changing historical denominator",
+    "dailyLife": "DL1–DL16 supplement applies within finite source windows; no generic daily-life checkbox or universal needs/reputation/faction meter",
+    "sharing": "DL7; incumbent export + two demonstrated consumers or exact second-consumer gap; world-specific metaphysics/clock/support/knowledge laws remain separate",
+    "truthBoundary": "A reviewed UI proposal does not establish an installed command, current engine connection or journey proof."
+  }
+}

@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {definePlaceActs,seedPlaceObjects,objectNoticeability,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports} from '../src/place_acts.js';
+import {definePlaceActs,seedPlaceObjects,objectNoticeability,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports,placeStockViews,placeActRecords,placeActVisitors} from '../src/place_acts.js';
 import {fresh,ctx,wait,registry,I} from './lotm_helpers.js';
+import {castObjectCommands} from '../src/book_world_lotm_cast_host.js';
+import {validateLotmState} from '../src/book_world_lotm_state.js';
 import {createSimulationRegistry,validateSimulationState} from '../src/simulation_contracts.js';
 import {applySituationEffect} from '../src/causal_situations.js';
-import {previewSimulationCommand,commitSimulationCommand} from '../src/simulation.js';
+import {previewSimulationCommand,commitSimulationCommand,cancelSimulationJob,simulationFacts} from '../src/simulation.js';
 const room='fixture.room',sink='fixture.sink',stock=I.supervisor;
 const fact=(key,value)=>({type:'fact',scope:'world',key:`fixture.${key}`,value});
 const eq=(key,value)=>({fact:`world.fixture.${key}`,op:'eq',value,reason:`Check ${key} first.`});
@@ -60,6 +62,76 @@ test('lost support stops an accepted act without awarding effects or a receipt',
  let p=setup();p=perform(p,'pay');const plan=start(p,'use');p={...p,...plan};p.state.worlds[I.world].facts['fixture.paid']=false;
  p=wait(p,1);assert.equal(p.state.worlds[I.world].facts['fixture.lit'],false);assert.equal(p.state.simulation.knowledge.player['fixture.known.use'],undefined);
 });
+
+test('a place visit holds itineraries by settled history without moving bodies or restoring forgotten knowledge',()=>{
+ const p=setup(),visits={visits:[{arrival:'fixture.arrive',departure:'fixture.leave',participants:[stock]}]};
+ assert.deepEqual([...placeActVisitors(p.state,visits)],[]);
+ p.state.actors.player.completed['fixture.arrive']={cause:'fixture.arrived'};
+ const before=JSON.stringify(p);assert.deepEqual([...placeActVisitors(p.state,visits)],[stock]);assert.equal(JSON.stringify(p),before);
+ const restored=JSON.parse(before);assert.deepEqual([...placeActVisitors(restored.state,visits)],[stock]);
+ restored.state.actors.player.completed['fixture.leave']={cause:'fixture.left'};
+ assert.deepEqual([...placeActVisitors(restored.state,visits)],[]);
+ assert.deepEqual([...placeActVisitors(p.state,{visits:[{arrival:'fixture.arrive',departure:null,continues:true,participants:[stock]}]})],[stock]);
+ assert.deepEqual([...placeActVisitors(p.state,visits,stock)],[],'another actor does not inherit this visit');
+ assert.throws(()=>placeActVisitors(p.state,{visits:[{arrival:'bad id'}]}),/Invalid place visit/);
+});
+test('all local recipients must be present at admission and settlement before testimony is delivered',()=>{
+ let p=setup();p.state.simulation.people[stock].location=room;
+ const row={id:'fixture.testimony',operation:'use',place:room,minutes:2,label:'Give an account',description:'Speak to the people here.',report:'You gave an account.',knowledgeKey:'fixture.spoken',participants:[stock],effects:[{type:'knowledge',actor:stock,key:'fixture.heard',stage:'seen',value:'The visitor reports a gap in memory.'}]};
+ const d=definePlaceActs({acts:[row]},{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];registry.simulation.commands.set(d.id,d);
+ let before=JSON.stringify(p);assert.equal(preview(p,d).eligible,true);assert.equal(JSON.stringify(p),before);
+ p.state.simulation.people[stock].location=sink;before=JSON.stringify(p);assert.equal(preview(p,d).eligible,false);assert.throws(()=>commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence));assert.equal(JSON.stringify(p),before);
+ p.state.simulation.people[stock].location=room;
+ const started=commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence);
+ let interrupted={...p,...started};interrupted.state.simulation.people[stock].location=sink;interrupted=wait(interrupted,2);
+ assert.equal(interrupted.state.simulation.knowledge[stock]?.['fixture.heard'],undefined);assert.equal(interrupted.state.simulation.knowledge.player?.['fixture.spoken'],undefined);
+ p={...p,...commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence)};p=wait(p,2);
+ assert.equal(p.state.simulation.knowledge[stock]['fixture.heard'].value,'The visitor reports a gap in memory.');assert.equal(p.state.simulation.knowledge.player['fixture.spoken'].value,row.report);
+ assert.throws(()=>definePlaceActs({acts:[{...row,participants:[stock,stock]}]},{worldId:I.world,group:'book_lotm',situationId:I.situation}),/Invalid place act participants/);
+});
+
+test('native ingredient preparation conserves held inputs across completion, cancellation and lost support',()=>{
+ const raw=JSON.stringify({id:'Potato'}),cooked=JSON.stringify({id:'Cooked potato'});
+ const row={id:'fixture.cook',operation:'prepare',place:room,minutes:2,label:'Cook the potatoes',description:'Cook two held potatoes.',report:'Two cooked potatoes are ready.',knowledgeKey:'fixture.cooked',requires:eq('paid',true),
+  costs:[{type:'item',actor:'player',key:raw,amount:-2}],effects:[{type:'item',actor:'player',key:cooked,amount:2}]};
+ const local={...data,acts:[row]},d=definePlaceActs(local,{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];registry.simulation.commands.set(d.id,d);
+ const ready=()=>{const p=setup();p.state.worlds[I.world].facts['fixture.paid']=true;p.gameplay.player.inventory[raw]=2;return p;};
+ const begin=p=>({...p,...commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence)});
+ for(const mode of ['complete','cancel','unsupported']){
+  let p=begin(ready());assert.equal(p.gameplay.player.inventory[raw]||0,0);assert.equal(p.gameplay.player.inventory[cooked]||0,0);
+  if(mode==='cancel')p={...p,...cancelSimulationJob(p.state,registry,p.state.simulation.jobs.at(-1).id,ctx(p),p.state.sequence)};
+  else{if(mode==='unsupported')p.state.worlds[I.world].facts['fixture.paid']=false;p=wait(p,2);}
+  assert.equal(p.gameplay.player.inventory[raw]||0,mode==='complete'?0:2);
+  assert.equal(p.gameplay.player.inventory[cooked]||0,mode==='complete'?2:0);
+  assert.equal(!!p.state.simulation.knowledge.player?.['fixture.cooked'],mode==='complete');
+  const restored=JSON.parse(JSON.stringify(p));assert.equal(restored.gameplay.player.inventory[mode==='complete'?cooked:raw],2);
+ }
+ const missing=ready();missing.gameplay.player.inventory[raw]=1;const before=JSON.stringify(missing);
+ assert.equal(preview(missing,d).eligible,false);assert.throws(()=>begin(missing));assert.equal(JSON.stringify(missing),before);
+ assert.throws(()=>definePlaceActs({acts:[{...row,costs:[{type:'resource',actor:'player',key:'money',native:true,amount:-1}]}]},{worldId:I.world,group:'book_lotm',situationId:I.situation}),/held items or seeded/);
+});
+
+test('place sleep binds the player sleep owner and converted stock is not displayed twice',()=>{
+ const row={id:'fixture.sleep',operation:'sleep',place:room,minutes:180,label:'Sleep',description:'Sleep here.',report:'You wake.',knowledgeKey:'fixture.slept'};
+ const d=definePlaceActs({acts:[row]},{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];
+ assert.equal(d.bodyCare.kind,'sleep');assert.equal(d.duration,180);
+ assert.throws(()=>definePlaceActs({acts:[row]},{worldId:I.world,actorId:stock,group:'book_lotm',situationId:I.situation}),/sleep owner/);
+ const p=setup(),views={stockViews:[{title:'Allocated food',knowledge:'fixture.bought',untilKnowledge:'fixture.converted',rows:[{actor:stock,key:'fixture.portions',label:'Portions'}]}]};
+ assert.deepEqual(placeStockViews(p.state,views),[]);
+ p.state.simulation.knowledge.player={'fixture.bought':{stage:'seen'}};assert.equal(placeStockViews(p.state,views).length,1);
+ p.state.simulation.knowledge.player['fixture.converted']={stage:'seen'};assert.deepEqual(placeStockViews(p.state,views),[]);
+ assert.equal(p.state.actors[stock].resources['fixture.portions'],2,'display filtering mutates no stock');
+});
+
+test('activity records show retained observations without publishing future text or restoring forgotten findings',()=>{
+ const p=setup(),local={acts:[{id:'fixture.read',knowledgeKey:'fixture.finding',report:'A later edition rewrites this claim.'},{id:'fixture.future',knowledgeKey:'fixture.future',report:'Undiscovered content.'}]};
+ p.state.actors.player.completed['fixture.read']={cause:'fixture.completed'};
+ assert.deepEqual(placeActRecords(p.state,local),[],'completion is not current knowledge');
+ p.state.simulation.knowledge.player={'fixture.finding':{stage:'seen',value:'The attributed finding you retained.',at:7}};
+ const before=JSON.stringify(p);assert.deepEqual(placeActRecords(p.state,local),[{id:'fixture.finding',text:'The attributed finding you retained.',at:7}]);
+ assert.equal(JSON.stringify(p),before,'reading grants nothing and changes no receipt');assert.deepEqual(placeActRecords(p.state,local,stock),[],'another actor does not inherit the finding');
+ delete p.state.simulation.knowledge.player['fixture.finding'];assert.deepEqual(placeActRecords(p.state,local),[],'the source pack does not reconstruct forgotten content');
+});
 test('checking contents preserves the stock and records what this actor actually observed',()=>{
  const p=setup(),row={id:'fixture.count',operation:'inspect',place:room,minutes:2,label:'Empty, count and replace the pouch contents',description:'Empty the pouch, count the three seeds and replace them.',report:'You count three seeds in the pouch and put them back.',knowledgeKey:'fixture.counted',requires:eq('contents',3),effects:[{type:'observation',scope:'world',key:'fixture.contents',as:'fixture.counted.contents'}]};
  const d=definePlaceActs({acts:[row]},{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];registry.simulation.commands.set(d.id,d);
@@ -68,6 +140,28 @@ test('checking contents preserves the stock and records what this actor actually
  assert.equal(done.state.worlds[I.world].facts['fixture.contents'],3);assert.equal(done.state.actors.player.facts['fixture.counted.contents'],3);
  assert.equal(settlePlaceActReports(done.state,{acts:[row]},I.world)[0].text,row.report);
  done.state.worlds[I.world].facts['fixture.contents']=2;assert.equal(preview(done,d).eligible,false,'a changed stock cannot produce the old count');
+});
+
+test('unobserved source detail stays absent while a visible action can explain an ordinary blocker',()=>{
+ const p=setup(),hidden={id:'fixture.discovered',operation:'inspect',place:room,minutes:1,label:'Inspect an observed object',description:'A locally observed object.',report:'You inspect it.',knowledgeKey:'fixture.discovered.result',
+  visibleWhen:{all:[{fact:'knowledge.fixture.object.seen',op:'eq',value:true},eq('scene_visible',true)]},requires:{all:[eq('lit',true)]},publicReasons:true};
+ const local={acts:[hidden]},d=definePlaceActs(local,{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];
+ registry.simulation.commands.set(d.id,d);
+ const offers=()=>quotePlaceActs(p.state,[d],local,x=>preview(p,x),{facts:x=>simulationFacts(p.state,ctx(p),registry,[x.requires])});
+ p.state.worlds[I.world].facts['fixture.scene_visible']=true;
+ assert.deepEqual(offers(),[]);assert.equal(preview(p,d).visible,false);
+ assert.throws(()=>commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence));
+ p.state.simulation.knowledge.player||={};p.state.simulation.knowledge.player['fixture.object']={stage:'seen',value:'A remembered observation.',at:p.state.clock,cause:'fixture.observation'};
+ let offer=offers()[0];assert.ok(offer);assert.equal(offer.eligible,false);assert.deepEqual(offer.reasons,['Check lit first.']);
+ delete p.state.worlds[I.world].facts['fixture.lit'];offer=offers()[0];assert.ok(!offer.reasons.includes('Check lit first.'),'an unknown fact is not disclosed as a known failure');
+ p.state.worlds[I.world].facts['fixture.lit']=true;offer=offers()[0];assert.equal(offer.eligible,true);
+ const started=commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence);
+ started.state.worlds[I.world].facts['fixture.scene_visible']=false;
+ const done=wait({...p,...started},1);
+ assert.equal(done.state.simulation.knowledge.player['fixture.discovered.result'].value,'You inspect it.');
+ assert.equal(settlePlaceActReports(done.state,local,I.world)[0].text,'You inspect it.');
+ const reloaded=JSON.parse(JSON.stringify(done));assert.equal(reloaded.state.simulation.knowledge.player['fixture.discovered.result'].value,'You inspect it.');
+ p.state.worlds[I.world].facts['fixture.scene_visible']=false;assert.deepEqual(offers(),[]);
 });
 
 test('be-seat native pending and settled acts survive save, reload, export and import', {timeout:300000}, async t=>{
@@ -199,4 +293,28 @@ try {
 `);
  try{await exec(process.execPath,[worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});}
  catch(error){assert.fail(`Native save fixture failed: ${error.message}\n${error.stdout||''}\n${error.stderr||''}`);}
+});
+
+test('separate supported contact binds the actual guide and sleeping anchor without physical travel or private disclosure',t=>{
+ const guide=I.member;
+ const row={id:'fixture.guided_sleep',operation:'sleep',place:room,minutes:2,label:'Sleep until interrupted',description:'Sleep in this bed.',report:'You wake with a remembered experience.',knowledgeKey:'fixture.dream.wake',targetId:guide,contact:{place:sink},effects:[{type:'knowledge',actor:guide,key:'fixture.heard.account',stage:'seen',value:'The sleeper reports a gap in memory.'},{type:'knowledge',actor:'player',key:'fixture.dream.trace',stage:'seen',value:'In the experience, an apparent journey ended back at the bed.'}]};
+ const local={acts:[row]},d=definePlaceActs(local,{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];registry.simulation.commands.set(d.id,d);castObjectCommands.push(d);t.after(()=>castObjectCommands.splice(castObjectCommands.indexOf(d),1));
+ function ready(){const p=setup();p.state.simulation.people[guide].location=sink;p.state.simulation.people[guide].body={...p.state.simulation.people[guide].body,ownerId:guide,controllerId:guide};return p;}
+ const begin=p=>({...p,...commitSimulationCommand(p.state,registry,{id:d.id},ctx(p,guide),p.state.sequence)});
+ for(const mode of ['complete','lost-guide','lost-control','lost-anchor','cancel']){
+  let p=ready();assert.equal(previewSimulationCommand(p.state,registry,d.id,ctx(p,guide)).eligible,true);
+  const inv=structuredClone(p.gameplay);p=begin(p);assert.equal(validateLotmState(p.state),true);
+  if(mode==='cancel')p={...p,...cancelSimulationJob(p.state,registry,p.state.simulation.jobs.at(-1).id,ctx(p,guide),p.state.sequence)};
+  else{if(mode==='lost-guide')p.state.simulation.people[guide].location=room;if(mode==='lost-control')p.state.simulation.people[guide].body.controllerId='player';if(mode==='lost-anchor')p.state.simulation.people.player.location=sink;p=wait(p,2);}
+  assert.equal(!!p.state.simulation.knowledge.player?.['fixture.dream.trace'],mode==='complete');assert.equal(!!p.state.simulation.knowledge[guide]?.['fixture.heard.account'],mode==='complete');assert.deepEqual(p.gameplay,inv);
+  assert.equal(p.state.simulation.people.player.location,mode==='lost-anchor'?sink:room);assert.equal(p.state.simulation.knowledge[guide]?.['fixture.private'],undefined);
+ }
+ assert.throws(()=>definePlaceActs({acts:[{...row,targetId:null}]},{worldId:I.world,group:'book_lotm',situationId:I.situation}),/Separate contact/);
+});
+test('folded observations expose retained recipient-owned records, without materializing the current pack or another recipient’s account',()=>{
+ const p=setup(),local={acts:[{id:'fixture.fold',knowledgeKey:'fixture.fold.result',effects:[{type:'knowledge',actor:'player',key:'fixture.fold.detail'},{type:'knowledge',actor:stock,key:'fixture.fold.private'}]}]};
+ p.state.simulation.knowledge.player={'fixture.fold.detail':{value:'The remembered apparent event.',at:4}};p.state.simulation.knowledge[stock]={'fixture.fold.private':{value:'The actual recipient account.',at:4}};
+ assert.deepEqual(placeActRecords(p.state,local),[{id:'fixture.fold.detail',text:'The remembered apparent event.',at:4}]);
+ delete p.state.simulation.knowledge.player['fixture.fold.detail'];assert.deepEqual(placeActRecords(p.state,local),[]);
+ assert.deepEqual(placeActRecords(p.state,local,stock),[{id:'fixture.fold.private',text:'The actual recipient account.',at:4}]);
 });

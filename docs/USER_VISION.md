@@ -7023,3 +7023,172 @@ Weibao, 2026-10-30: "little details like the flavortext on the side of of report
 
 - **Every enterable world gets its own Reports voice:** flavour plus a useful line, at three grains (a place, the world in general, and other kinds such as titles and unlocks), varying by time of day and day. Owner: [DESIGN.md](../DESIGN.md) DSG13, code in `src/world_report_voice.js`.
 - **Standing rules:** RPT13 (a new world ships its voice in the same change; a test enforces it) and RPT14 (flavour is only what is seen; the useful half names a real control), in [UI rules](UI_RULES.md#scene-and-report-rules-sui-rpt).
+
+## Lead-world engines designed top down across the known book trajectory (2026-10-31)
+
+Weibao: "need to consider reuiqred engine stuff for each UI eleement too, can send out chat for that, to create stuff based on the stuff in the book? but also, for the main character world implementations, we must also work top to bottom, since stuff discovered in the future could change and force us to reimplement and stuff and more".
+
+- Design the lead-world engine and its UI from the full known book trajectory, including later mechanisms that change early assumptions; qualify unread or uncertain coverage rather than inventing it. Deliver bounded complete early loops within that design.
+- Every UI element must trace to its required engine producer, authoritative state, observer-safe readout, actual command/use where applicable and lifecycle/persistence. Presentation alone does not implement a book mechanism.
+- Later readings can require refactoring; retain AD45 and world-specific mechanisms under AD46. This changes design preparation, not the lead-first delivery priority or current runtime ownership. Detail: [lead-life rules](LEAD_LIFE_RULES.md), [engine/UI planning brief](gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_PLANNING_BRIEF.md).
+
+## LOTM first, reusable UI implementation procedure and per-world planning chats (2026-10-31)
+
+Weibao: "Keep looking for more UI stuff to be looked into too and more, consider things in the case that LOTM is first, but consider that we want to set up implementation rules to make things smoother sailing in the future? And then we need a seperate chat to look into each thing for each priority world and more? UI and stuff?"
+
+- LOTM is the first lead-world implementation case for this work. Other priority worlds receive their own source-qualified UI/engine planning, with feature sections within each world and explicit shared-owner boundaries.
+- Reuse the existing top-down/whole-source rules as a concrete repeatable procedure: later source requirements, engine contract per element, world-specific representations, bounded complete implementation and evidence. Existing shared seams are candidates, not an obligation to imitate LOTM.
+- Delivery remains bounded and staged under active allowance/ownership; this request does not imply one simultaneous runtime worker for every world or feature. [Procedure](LEAD_LIFE_GUIDE.md#10-lotm-first-ui-and-engine-implementation-procedure-2026-10-31); [world planning wave](gm/dispatch/refinement-audits-2026-10-31/PRIORITY_WORLD_UI_PLANNING.md).
+
+## Standing world UI and shared-engine implementation contracts (2026-10-31)
+
+Weibao: "More to consider? Keep looking for LOTM-specific UI and engine gaps, including later book stuff that could change early implementations. Make sure the world chats account for shared systems without losing each world’s distinctions. Make long term rules so that the workflow is more streamlined for every world".
+
+Standing defaults are recorded as WA54–WA57 in WORLD_ABSORPTION_RULES.md: engine-backed UI contracts, explicit shared mechanisms and per-world differences, later-source assumption/refactor tracking, and coordinator-owned cross-world integration. They refine AD44–AD46 and WA48–WA50; they do not accept unrelated earlier proposed rules or require implementing all late systems before an early slice. LOTM remains first for this work; current source and observer/era limits govern its interfaces. [Procedure](LEAD_LIFE_GUIDE.md#10-lotm-first-ui-and-engine-implementation-procedure-2026-10-31).
+
+## Community lore debates as qualified mechanism tests (2026-10-31)
+
+Weibao: "Raise the ceiling to 75% and keep going. Review the LOTM and HP plans together for missed UI and engine needs, keep each world distinct, and save the findings and any useful long-term workflow rules." He supplied a late-book ritual Reddit discussion and asked: "Consider lore debates and similar stuff if they exist, accross reddit or other places and more? And then the implicationation for our stuffs?"
+
+Standing workflow refinements WA58–WA60 record debate/source qualification, mechanism-specific discriminating tests and layered practical result/eligibility. Community arguments guide questions and tests; selected primary evidence, declared continuity and the project's actual mechanism decide implementation. No specific fan interpretation or probability is accepted by this request. [Joint review](gm/dispatch/refinement-audits-2026-10-31/LOTM_HP_LORE_AND_ENGINE_REVIEW.md).
+
+
+## Rule-owner reconciliation without direction changes (2026-10-31)
+
+Weibao: "Fix the remaining drift and checker gaps, and reconcile the overlapping rules in their proper owners without changing the accepted direction. More to consider? Save and update accordingly."
+
+This selects instruction/checker maintenance, preserving accepted direction under AD32. GROUND_RULES remains the startup authority/process digest, AD36 owns check selection and reuse, AD43 owns the common runtime floor, UI_RULES owns interaction requirements, DESIGN owns look/readiness, and SUI4 owns the canon-label rule applied to Reports. Stable codes and domain-specific additions remain. No gameplay, publishing or commit authorization is added. Evidence and remaining considerations live in the [reconciliation audit](audits/RULES_RECONCILIATION_AUDIT_2026-10-30.md#round-4-reconciliation-applied-2026-10-31).
+
+## Continuing lore-exception research as long-term world requirements (2026-10-31)
+
+Weibao: "More to consider? Look for other LOTM and HP lore debates that could change our UI or engine assumptions, especially later-book exceptions. Keep the worlds distinct, avoid repeats, and save the findings and useful rules. Send specific chat for that, make these considerations to be considered log term".
+
+- Use one bounded dedicated research chat under the current 75% shared ceiling. Findings become world/era-qualified long-term assumptions and refactor triggers, with evidence and affected engine/UI consumers. Do not reclassify speculation as canon or activate future mechanics merely from a debate.
+- Reuse WA48–WA60 and the existing world owners; integrate qualified amendments through the coordinator. This request creates no recurring monitoring automation or runtime worker. [Brief](gm/dispatch/refinement-audits-2026-10-31/LORE_EXCEPTION_RESEARCH_ROUND2_BRIEF.md).
+
+## MoL and D&D lore exceptions for future contracts (2026-10-31)
+
+> More to consider? Look for similar lore debates in Mother of Learning and D&D too, especially later exceptions that could change shared engine or UI assumptions. Keep each world distinct and save the findings and useful long-term rules.
+
+Recorded as source-qualified considerations in the [review](gm/dispatch/refinement-audits-2026-10-31/MOL_DND_LORE_EXCEPTION_REVIEW.md), linked from each world owner; reusable lessons extend the existing lead-life procedure under WA54–WA60. Findings and proposed feature contracts are not accepted individual implementation choices.
+
+
+## RI upkeep, combinations, refinement and economy research expansion (2026-10-31)
+
+Weibao:
+
+> More to consider, especially how Gu upkeep, combinations, refinement and the world economy interact? Expand the report without implementing anything yet. Record into relevant docs accordinly/reconcile everythign together?
+
+> Other games that could be used like this?
+
+This authorizes a research/documentation expansion and reconciliation. The [existing comparison, round 2](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md#round-2-the-gu-portfolio-and-the-world-economy-2026-10-31) owns the interaction model, further game references, source qualifications and proposed costs/trials. Relevant RI/economy owners link it. It selects no implementation, mechanic, new universal rule or change to LOTM-first delivery. No commit, push, installation or publication is authorized by this request.
+
+## LOTM situation coverage and cross-chat reconciliation (2026-10-31)
+
+> Then do that for LOTM first. Map the main character’s situations to engine actions, UI and how the screens connect, list what’s still missing, and save it. Consider later-book needs and future player freedom too.
+>
+> Reconcile all our findings and more across the chats into one place
+
+Current synthesis: [LOTM situation → engine → UI coverage](gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md). Original reports retain their detailed evidence, authority and source limits; mapping/planning does not authorize runtime work or accept each feature proposal.
+
+## LOTM daily life, connected screens and world-specific sharing (2026-11-01)
+
+> More to consider? Make sure the LOTM chat covers day-to-day life too, how situations and screens connect, and what engine/UI pieces other worlds can share without losing their distinctions. Save useful long-term rules too.
+
+[Qualification supplement](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md) makes this part of the existing whole-novel task. Reusable working procedure lives in LEAD_LIFE_GUIDE section10 under WA54–WA60; feature proposals remain source-qualified considerations, not new runtime authorization.
+
+## Connected LOTM daily, social, institutional and combat life (2026-11-01)
+
+> More to consider? Make sure the LOTM chat covers how daily life, relationships, institutions and combat affect each other, including later-book changes and alternate approaches. Keep the engine/UI needs specific and save it. Consider other subtle details too? Ideaboardong from reddit and stuff as well?
+
+[DL9–DL16 supplement](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md) supplies concrete proposed chains and bounded community leads for the existing qualification plan. Source findings, fan suggestions and proposed game behavior stay distinct. The existing guide retains the reusable procedure; no runtime work or allowance increase follows.
+
+## LOTM contextual daily choices, slow practice and longevity exploration (2026-11-01)
+
+> More to consider? Have the LOTM chat cover how different identities, locations and progression stages change daily life and available choices. Make the engine/UI flows specific, preserve alternate approaches, and save the findings.
+>
+> Also consider general gameplay/progression? it doesnt need to be fast, I can constantly grind? maybe to make implementation easier, just have the base cheat make us basically immortal too? in case I grind things for a long long time? More to consider?
+
+Slow, repeatable progression is welcomed by this request. [DL17–DL22 / GP1–GP2](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md) records contextual choices, repeatable practice, world/subjective time and the recommendation of agelessness for a future-player cheat branch. Immortality mechanism and breadth remain exploratory, not accepted invulnerability, revival, stopped world time or a changed canon-lead lifespan (AD32). No runtime work or budget expansion follows.
+
+## Years of practice, agelessness and returning to the world (2026-11-01)
+
+> More to consider? How would years of grinding and an ageless cheat affect relationships, institutions and world events? Have the LOTM chat map the specific engine/UI flows, interruptions and return, and save it. Consider how much easier it makes things and more? Consider implications and more? it would be alot easier but then there might be
+
+[DL23–DL28](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md) records the proposed advantage and concrete relationship/institution/event/return contracts for the existing LOTM task. Immortality remains exploratory; no automatic balancing penalties, paused calendar or new runtime capability is selected by saving the considerations (AD32).
+
+## Family, companions, teachers and individual longevity (2026-11-01)
+
+> More to consider? What about family, companions and teachers aging while we grind, and ways to extend their lives too? Have the LOTM chat map the specific engine/UI flows and save it, keeping world differences. Does it make sense to have our MC be ageless, like the original proto 23?
+>
+> Or should we implement aging, but just as stat drop and stuff, after a certain point unless pushed back? considering aspects like bloodlines, stuff and more?
+
+[GP3 / DL29–DL34](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md) records the recommended composition: actor-specific aging/body policy with an exploratory ageless-player capability, source/method-specific decline and ways to help other actors. Questions do not choose universal age penalties, inherited immortality, revival or a changed canon-lead body policy (AD32). Pinned Proto23's placeholder effect is qualified separately from any inferred biological rule.
+
+## General inherited-longevity and support-lifecycle rules (2026-11-01)
+
+> More to consider? Have the LOTM chat cover inherited longevity, rejuvenation, and what happens when life-extension support expires or fails. Consider skills, memories and relationships too, map the engine/UI flows, and save it.
+>
+> Create general rules too accordingly
+
+BHR31–BHR34 in [DOMAIN_RULES](DOMAIN_RULES.md#longevity-inheritance-and-support-lifecycle) implement this request as standing mechanism/procedure defaults, with world/body/method-specific dials and reasons. They do not choose biological aging thresholds, an immortal cheat, inheritance probability, automatic source-expiry death or universal memory retention after a genuinely memory-altering method. [DL35–DL40](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md) gives specific patient/source/UI flows and counterexamples for the existing LOTM qualification chat.
+
+## Continuing growth and optional restarts (2026-11-01)
+
+> Should base cheat encourage restarts and stuff, or just infinite grind, like proto23 or yair does? More to consider?
+>
+> Make sure everything here is written down proeprly for long term consideration too, more to consider?
+
+[GP4–GP9 in CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md#continuing-growth-and-optional-restarts-2026-11-01) records the recommendation of sustained useful progress with optional new-life/world/method opportunities, separate from particular regression/prestige mechanics. It consolidates links to the LOTM situation review, DL1–DL40, lifespan/companion proposals and standing BHR31–BHR34. Existing AD10–AD20 remain direction; this exploration selects no global reset multiplier, forced rebirth, ageless capability or universal retention formula (AD32).
+
+## Cheat development, companions and unfinished work across lives (2026-11-01)
+
+> More to consider? How should the base cheat grow in one long life versus across restarts, and what happens to companions, skills and unfinished obligations? Have the LOTM chat map the engine/UI flows and save it.
+
+[GP10–GP15](CHEAT_COSMOLOGY.md#growth-and-carryover-operations-gp10gp15-2026-11-01) records concrete proposed growth/carryover/transition flows under AD10–AD20. Companions remain actual actors with their own route/willingness/support; learned procedure, physical execution and source compatibility are distinct; duties keep actual terms and clocks. This requests mapping and saving, not a chosen universal reset bonus, free companion transport or runtime work (AD32).
+
+## Returning to an old life with new capabilities (2026-11-01)
+
+> Hand off to new chat accordingly, More to consider? What happens when we return to an old life with new skills or companions? Have the LOTM chat map how the old body, relationships and unfinished obligations reconcile, including the engine/UI flows, and save it.
+
+Requested scope: successor coordination, existing LOTM chat qualification and saved specific engine/UI flows. [GP16–GP20](CHEAT_COSMOLOGY.md#returning-to-an-old-life-gp16gp20-2026-11-01) records proposals under the existing continuation direction, with [DL43](gm/dispatch/lotm-whole-life-2026-11-01/DAILY_LIFE_AND_SHARED_CONTRACTS.md#returning-with-new-skills-or-companions-dl43-2026-11-01). This request does not select a new transport mechanism, retention formula or runtime implementation.
+
+### LOTM first through Klein's full journey (2026-11-01)
+
+Weibao: “make a plan to create LOTM first through Klein’s full journey. Fold this into the main plans, then start the first complete playable arc, accounting for the later mechanics we audited.”
+
+The [full-journey plan](gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md) implements this direction through contiguous playable arcs, beginning with the opening household. Later-source audits shape early contracts; no late powers are granted in the opening. This extends AD44's lead-first direction and preserves other worlds in the broader vision.
+
+## Top-down book-life workflow clarification (2026-11-01)
+
+Weibao: “Go ahead and fold that top down approach into the main plans and long term workflow, then continue implementing the arc through the first Tarot gathering. Consider any other future mechanics we need to account for now.” Apply AD44 through the [lead-life workflow](LEAD_LIFE_GUIDE.md): design from the full known trajectory, build complete arcs forward, check early contracts against later pressures, and retain source gaps/refactor triggers. [Current LOTM application](gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md#top-down-contract-review-and-kj2-reconciliation-2026-11-01).
+
+## Random local lives and earned employment (2026-11-01)
+
+Weibao: “For the starts, we can just start as a random person too, and have to apply and get a job at those places and stuff?” This clarifies the existing guided-random/local-life direction (AD13/AD23, WER8): offer ordinary local starts alongside named protagonist and already-employed starts. Local circumstances determine housing, money, qualifications and social ties; employment can be sought through applications, interviews, referrals or another in-world route. [World-entry uptake](WORLD_ENTRY_RULES.md#random-local-start-and-employment-clarification-2026-11-01). This is account-for-now direction, not a request to interrupt KJ2 and build all random careers.
+
+## Klein as developer route; lore-based player starts (2026-11-01)
+
+Weibao: “Be klein is a dev thing for now, for the starts, we can give lore based starts that dont spoil much? more to consider?” Clarification: the Klein journey is the development/verification route under AD44, not the intended default player start. Ordinary player entry should offer lore-grounded lives with limited observer knowledge and low-spoiler descriptions. Named protagonist/spoiler-heavy routes remain developer tools for now; explicit player options can be considered later. Keep the current first-gathering implementation running as that development route. [Entry requirements](WORLD_ENTRY_RULES.md#developer-route-and-low-spoiler-player-starts-2026-11-01).
+
+
+## Selective 2D representation exploration (2026-11-01)
+
+Weibao: “would it be better to have a more 2d representation for certain aspects, and keep everything else currentt shape? How does Proto23 handle housing again? Save and reconcile-project accordingly”
+
+Record this as a question and a request to save/reconcile the working recommendation, not blanket acceptance of the prior hybrid, art or walkable proposals (AD32). Current desktop composition and Luminous Gothic remain the baseline. Evaluate focused 2D representation for selected aspects where it helps; keep other task surfaces in their current shape, while retaining their improvement/refactor freedom under AD45. Which aspects, art, movement and build order remain open proposals. Per-world differences and shared mechanism owners remain under AD46/WA54-WA57. [Look owner](../DESIGN.md#selective-2d-exploration-2026-11-01); [bounded reconciliation and pinned Proto23 housing](audits/UI_DESIGN_CORE_AUDIT.md#round-21-2026-11-01-selective-2d-and-proto23-housing-reconciliation). No runtime conversion, purchase, commit or push is authorized by saving this note.
+
+## Inherited dead-host circumstances and advanced starts (2026-11-01)
+
+Weibao: “Or even start as a person who just died and more and inherit their starts and circumstance? Person who died in the wilderness? eventually higher level starts like someone who just died from "lore things" such as like corruption of knowledge and more? more to consider?” Preserve these as entry possibilities alongside ordinary local starts: the entry mechanism decides what revives, persists and transfers; advanced/lore-danger starts come later. Known-only previews must not expose a hidden death cause. [Owning start palette](WORLD_ENTRY_RULES.md#inherited-dead-host-and-advanced-start-palette-2026-11-01). This expands consideration without replacing the current developer arc.
+
+
+## Functional Proto23-style UI over the pictured home (2026-11-01)
+
+Weibao: “Meh, I feel like the 2d representation doesnt help, but instead if we had a better version of what proto23 had that would be better, consider if this would be different for the other oens”
+
+This supersedes the pictured-home experiment as the preferred housing direction: stop expanding that experiment and improve the Proto23-style functional home overview, furniture/effects, storage and connected actions within the existing UI. It does not accept an exact new layout, freeze current defects or prohibit useful spatial representation elsewhere. Assess other activities independently according to the decisions they serve (AD45-AD46). [Look owner](../DESIGN.md#selective-2d-exploration-2026-11-01); [reconciliation and experiment boundary](audits/UI_DESIGN_CORE_AUDIT.md#round-22-2026-11-01-functional-home-first-after-prototype-feedback). No further prototype expansion, implementation lane, purchase, commit or push is started by recording this feedback.
+
+## Common controls and useful task automation (2026-11-01)
+
+Weibao: “Should wait and other buttons be placed seperately? so like shared/common cliocks and more? more to consider? ALso automate other tasks instead of just wait? more to conidr?” Save this as a UI/automation exploration, not blanket acceptance of one arrangement. [CA1](../DESIGN.md#common-actions-and-task-automation-2026-11-01) proposes separating common controls from the current scene; [CA2–CA5](gm/dispatch/procgen-2026-10-13/cr3/AUTOMATION.md#common-actions-and-useful-task-automation-2026-11-01) broaden automation to real work, with actual costs, observations, clocks and recovery. Player routines remain distinct from the Klein developer replay.

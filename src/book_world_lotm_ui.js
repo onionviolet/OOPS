@@ -1,10 +1,11 @@
+import {renderLotmTaskSummary} from './ui/lotm_task_summary.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
 import {shortActionLabel} from './ui/action_label.js';
 import {decorateActionComponents} from './ui_components.js';
 import {PERSPECTIVE_CONTROLS} from './perspective_controls.js';
-import {observerForProfile} from './observer_view.js';
+import {observerForProfile,registerCapability} from './observer_view.js';
 import {renderFigure} from './ui/figure.js';
 import {ladderFigureSpec} from './ability_ladder_figure.js';
 import {lotmRungAbilities} from './book_world_lotm_path.js';
@@ -28,8 +29,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
  let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
+ registerCapability({id:'lotm.local-task-entry',audience:'seat-only',panel:'lotm'});
+ const currentObserver=()=>observerForProfile(read(selected)?.entryProfile);
  const applySeatFilter=()=>{
-  const observer=observerForProfile(read(selected)?.entryProfile);
+  const observer=currentObserver();
   for(const item of PERSPECTIVE_CONTROLS){
    if(item.kind!=='panel-block')continue;
    const selector=item.anchor.startsWith('#lotm_panel')?item.anchor.replace('#lotm_panel',':scope'):item.anchor;
@@ -38,7 +41,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
  };
  const seatObserver=new MutationObserver(applySeatFilter);seatObserver.observe(panel,{childList:true,subtree:true});
- const run=(fn,done)=>{try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();};
+ const run=(fn,done)=>{const focused=panel.contains(document.activeElement)?document.activeElement?.dataset?.lotm:null;try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();if(focused)restoreControl(focused);};
  // COV7 / UR42: a button reads as a short verb phrase. Cost and time ride in a chip after it, a bracketed risk note moves to
  // the hover text, and an over-long phrase is cut at eight words with the whole line kept in the title.
  const button=(label,token,onclick,disabled,reason)=>{const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;b.onclick=onclick;return b;};
@@ -47,7 +50,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const tabBlocks={actions,walks,path,work,bench,notebook};
  // A control on another workroom tab is brought into view first; focusing a tab-hidden row did nothing.
  const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
- const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
+ const findControl=(id,{focusAction=false}={})=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return false;for(let a=b.parentElement;a&&a!==panel;a=a.parentElement)if(a.tagName==='DETAILS')a.open=true;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;(focusAction&&!b.disabled?b:r).focus();r.scrollIntoView({block:'nearest'});return true;};
+ const restoreControl=id=>{if(findControl(id,{focusAction:true}))return;const next=id.startsWith('wait.until.')&&actions.querySelector('button[data-lotm^="wait.until."]');if(next)findControl(next.dataset.lotm,{focusAction:true});};
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
@@ -96,11 +100,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  }
  // In-world entrance (field_ui.js workshop-door pattern): a Village place action that only opens this panel; it commits nothing.
  const door=node('button');door.type='button';door.className='location_choice_dropdown choice_travel';door.dataset.lotmDoor='';
- {const icon=node('i','blur_on');icon.className='material-icons';icon.setAttribute('aria-hidden','true');door.append(icon,'Cross to another world: Tingen');}
+ const doorText=node('span','Cross to another world: Tingen');
+ {const icon=node('i','blur_on');icon.className='material-icons';icon.setAttribute('aria-hidden','true');door.append(icon,doorText);}
  // Choosing a new life is a large task, so it opens in the center with the shared Back (UR9, UR41), like Homes.
- door.addEventListener('click',()=>expandWorkspaceModule('lotm'));
+ door.addEventListener('click',()=>{const v=read(selected),first=currentObserver().sees({capability:'lotm.local-task-entry'})?v.objectActs?.find(a=>a.eligible):null;
+  if(expandWorkspaceModule('lotm')&&first){tabsUi.select('here');findControl(first.id,{focusAction:true});}});
  const localActions=()=>document.getElementById('location_actions_div');
- function syncDoor(v){const place=localActions();door.hidden=!!v.enrolled||!v.atVillage;if(place&&!door.isConnected)place.append(door);}
+ function syncDoor(v){const place=localActions(),local=v.resident&&currentObserver().sees({capability:'lotm.local-task-entry'}),first=local?v.objectActs?.find(a=>a.eligible):null;
+  door.hidden=!local&&(!!v.enrolled||!v.atVillage);door.dataset.lotmLocalEntry=local?'true':'false';
+  doorText.textContent=local?(first?`Nearby: ${first.label}`:'Open nearby actions'):'Cross to another world: Tingen';
+  if(place&&!door.isConnected)place.append(door);}
  let doorObserver=null;
  function render(){
   const v=read(selected);setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
@@ -110,6 +119,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   for(const a of v.waits||[]){const b=waitButtons.get(a.id);if(b&&b.textContent!==a.label)b.textContent=a.label;}
   const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
   const next=JSON.stringify([signatureView,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
+  const focused=document.activeElement,focusId=panel.contains(focused)?focused?.dataset?.lotm||(focused?.hasAttribute?.('data-panel-row')?focused.querySelector('[data-lotm]')?.dataset?.lotm:null):null;
   waitButtons.clear();
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
@@ -207,14 +217,35 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    work.append(box);}
   renderBench(v);
   }
-  for(const j of v.jobs)work.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[button(j.cancellation==='refund'?'Stop (reserved attention returned)':'Stop (cost not returned)','cancel',()=>run(()=>cancel(j.id),j.cancellation==='refund'?'You stopped. Reserved attention was returned.':'You stopped. What it cost is gone.'),false,j.cancellation==='refund'?'Stopping returns reserved attention; elapsed time stays spent.':'Stopping forfeits what this spent.')]:[])));
+  const jobsHome=resident?actions:work;
+  if(resident&&v.jobs.length)jobsHome.append(node('h3','In progress'));
+  for(const j of v.jobs){
+   const refund=j.cancellation==='refund',returns=refund&&j.refundsInputs;
+   const label=returns?'Stop (reserved inputs returned)':refund?'Stop work':'Stop (cost not returned)';
+   const consequence=returns?'Reserved inputs were returned; elapsed time stays spent.':refund?'The work stopped; elapsed time stays spent.':'What this work cost is gone.';
+   jobsHome.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[
+    button(label,'cancel',()=>run(()=>cancel(j.id),`You stopped. ${consequence}`),false,returns?'Stopping returns the reserved inputs; elapsed time stays spent.':refund?'Stopping ends this work; elapsed time stays spent.':'Stopping forfeits what this spent.'),
+    node('span',returns?'Stopping returns reserved inputs; elapsed time stays spent.':refund?'Stopping keeps elapsed time spent.':'Stopping keeps the paid cost spent.')]:[])));
+  }
+  const commonActions=node('section');commonActions.dataset.commonActions='lotm';
   if(v.waits?.length){
-   actions.append(node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
-   for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);actions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
+   commonActions.append(node('h3','Common actions'),node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
+   for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);commonActions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
+  }
+  if(v.arc)actions.prepend(renderLotmTaskSummary(v,{findControl}));
+  for(const stock of v.stockViews||[]){
+   const supplies=node('section');supplies.dataset.lotmStock='true';supplies.append(node('h3',stock.title));
+   for(const r of stock.rows)supplies.append(node('p',`${r.label}: ${r.amount??'unknown'}`));
+   actions.append(supplies);
+  }
+  for(const meeting of v.remoteMeetings||[]){
+   const room=node('section');room.dataset.remoteMeeting=meeting.id;room.append(node('h3',meeting.title),node('p',`Last familiar physical place: ${meeting.anchor}`));
+   for(const seat of meeting.seats)room.append(node('p',`${seat.label}: ${seat.connected?'connected':'connection lost'}`));
+   actions.append(room);
   }
   if(v.objectActs?.length){
    const objects=node('details');objects.open=true;objects.dataset.lotmObjectActs='';objects.append(node('summary','Things at hand'));
-   for(const a of v.objectActs)objects.append(row(node('p',a.description),button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
+   for(const a of v.objectActs)objects.append(row(node('p',a.description),button(a.label,a.id,()=>run(()=>act(a.id),()=>read(selected).jobs.length?`Started: ${shortActionLabel(a.label).text}. See In progress for time and stopping terms.`:'Action settled. See Last result for its consequence.'),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
    actions.append(objects);
   }
   if(v.inferences?.length){
@@ -256,6 +287,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    actions.append(care);
   }
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+  if(commonActions.childNodes.length)actions.append(commonActions);
   if(v.journeys?.length){
    const journeys=node('details');journeys.dataset.lotmJourneys='';journeys.dataset.perspective='player';journeys.append(node('summary','Journeys · Your journey'));
    for(const a of v.journeys)journeys.append(node('p',`${a.description} ${a.routeText}. ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
@@ -272,8 +304,13 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    if(mapOpen)walks.append(walkMapBlock({...v,legs},{open:true,ontoggle:o=>{if(!o){mapOpen=false;signature='';render();}},onPick:findControl}));
   }
   for(const m of v.moves.filter(m=>!walkIds.has(m.id)))walks.append(walkRow(m));
-  if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
+  if(v.records.length){
+   notebook.append(node('h3','What you know'));
+   const recent=v.records.slice(-6).reverse();for(const r of recent)notebook.append(node('p',r.text));
+   if(v.records.length>6){const earlier=node('details');earlier.append(node('summary',`Earlier notes (${v.records.length-6})`));for(const r of v.records.slice(0,-6))earlier.append(node('p',r.text));notebook.append(earlier);}
+  }
   tabsUi.update(v);
+  if(focusId&&!focused.isConnected)restoreControl(focusId);
  }
  definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};
