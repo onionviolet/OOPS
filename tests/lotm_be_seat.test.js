@@ -189,3 +189,34 @@ test('the named lead is offered through developer starts, without changing exist
  const developer=hostOver(bare(),{developerStarts:()=>true}).host.view();
  assert.ok(developer.profiles.some(p=>p.key==='be'&&p.label.startsWith('Developer playthrough:')));
 });
+
+test('the be seat drinks, steadies and holds a pool on its own source, round-tripping and leaving the Tingen path alone',async()=>{
+ const {beSeerDrinkEffects,beSeerSteadyEffects,beSeerCogitateEffects,beSeerUse,BE_SEER_SOURCE,BE_SEER_ENERGY_ID}=await import('../src/book_world_lotm_be_seer.js');
+ const {validateSimulationEffect}=await import('../src/simulation_contracts.js');
+ const o=hostOver(bare());o.host.enroll('be',{independent:true});
+ const plan=structuredClone(o.box.p),cause='fixture.be.seer';
+ const apply=effects=>applySimulationEffects(plan,effects,{actorId:'player'},registry,cause);
+ for(const e of [...beSeerDrinkEffects(),...beSeerSteadyEffects(),...beSeerCogitateEffects(),beSeerUse()])validateSimulationEffect(e);
+ assert.notEqual(BE_SEER_SOURCE,LOTM_IDS.source);assert.notEqual(BE_SEER_ENERGY_ID,LOTM_IDS.energy);
+ validateLotmState(plan.state);
+ apply(beSeerDrinkEffects());
+ let s=plan.state;
+ assert.ok(s.actors.player.sources[BE_SEER_SOURCE]);assert.equal(s.actors.player.sources[LOTM_IDS.source],undefined);
+ assert.ok(s.simulation.energies.player[BE_SEER_ENERGY_ID]);assert.equal(s.simulation.energies.player[LOTM_IDS.energy],undefined);
+ validateLotmState(s);validateSimulationState(s.simulation,s,registry.simulation);
+ apply(beSeerSteadyEffects());apply([beSeerUse()]);apply(beSeerCogitateEffects());
+ s=plan.state;validateLotmState(s);
+ const back=JSON.parse(JSON.stringify(s));validateLotmState(back);validateSimulationState(back.simulation,back,registry.simulation);
+ assert.equal(JSON.stringify(back),JSON.stringify(s));
+ // Refusals: pool without a source, steadiness without the drink, the Tingen source on a book life, a Tingen-free save holding the book pool.
+ const noSource=structuredClone(s);delete noSource.actors.player.sources[BE_SEER_SOURCE];assert.throws(()=>validateLotmState(noSource),/source and its recorded drink/);
+ const noDrink=structuredClone(s);delete noDrink.actors.player.facts['book.lotm.be.seer.ingested'];assert.throws(()=>validateLotmState(noDrink),/source and its recorded drink/);
+ const noPool=structuredClone(s);delete noPool.simulation.energies.player[BE_SEER_ENERGY_ID];assert.throws(()=>validateLotmState(noPool),/pool exists exactly/);
+ const early=structuredClone(plan.state);delete early.actors.player.facts['book.lotm.be.seer.ingested'];delete early.actors.player.facts['book.lotm.be.seer.stabilized'];delete early.actors.player.sources[BE_SEER_SOURCE];delete early.simulation.energies.player[BE_SEER_ENERGY_ID];
+ validateLotmState(early);early.actors.player.facts['book.lotm.be.seer.stabilized']=true;
+ assert.throws(()=>validateLotmState(early),/needs the drink first/);
+ // The Tingen path and its probationer saves are unchanged: a Tingen probationer holding the book chain is refused.
+ const {fresh}=await import('./lotm_helpers.js'),tp=structuredClone(fresh());validateLotmState(tp.state);
+ applySimulationEffects(tp,beSeerDrinkEffects(),{actorId:'player'},registry,'fixture.tingen.seer');
+ assert.throws(()=>validateLotmState(tp.state),/belongs to the book life/);
+});
