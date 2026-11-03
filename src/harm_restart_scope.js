@@ -27,7 +27,7 @@ const scoped={mode:'scoped',replace:['expansion.worlds[worldId]','expansion.acto
     retain:['expansion.worlds[other]','expansion[other owners]','expansion.clock','expansion.sequence',
         'expansion.simulation[shared records]','cross-world records','bound current time'],
     reason:'The connection replays this life; other lives and their worlds continue.'};
-export const RESTART_SCOPES=deepFreeze({default:{...scoped},'book.lotm.tingen':{...scoped},
+export const RESTART_SCOPES=deepFreeze({default:{...scoped},'book.lotm.tingen':{...scoped},'book.mol.cyoria#zorian':{...scoped},
     'base.frontier':{mode:'whole',replace:['save'],retain:['restore carries'],
         reason:'Frontier retains its existing whole-save intentional-loop semantics.'}});
 

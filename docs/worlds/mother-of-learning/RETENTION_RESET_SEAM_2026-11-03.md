@@ -77,3 +77,21 @@ Consumers: `loopPlan` (several triggers), `loopReadout` (adds budget, carriers, 
   lifted caps) and is Weibao's call, not an agent default; the shape supports both.
 - Persistence: a field addition to the saved row set is a persistence change and needs a migration note (AD45); no save today stores these rows.
 - A build. Per the [playthrough plan](ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md), nothing ships until a Zorian seat exists to read the row.
+
+## Built: M2 first cut (2026-11-03, proposal, AD32; implemented, below the AD43 floor until the seat reads it in a browser)
+
+- `src/harm_loops.js`: optional `triggers` (date, death, switch, player, exhaustion, each with an anchor and optional command), structured `carry`
+  entries {what, class, carrier, reason} (classes `soul-bound`, `carried`, `reset`, `multiplier`; legacy string entries still allowed), `budget`,
+  `witnesses` list (`since`, `lapses`), `staleness`, `exit` list. `validateLoopRows` and `loopPlan` changed together. The four existing rows are
+  untouched except that `loop.perfect-run` gained a `budget` field (`unit:'tries'`, no count: the world sets it) beside its prose in `cost`, which stays.
+- R1 built as `endingEvent` and `loopPlan({events})`: earliest `at` wins, a tie is a date end.
+- G2 built: key format `worldId#startId`, `loopKey` and `loopRule(worldId, startId)`; a start with no row falls back to the world row, then the default.
+  The visitor start (`book.mol.cyoria`) still reads the default, so it has no loop.
+- `loop_table.js` derives the readout for a start from the same row (resets, carries with carriers, triggers, budget, witnesses, staleness, exits);
+  only rows with structured carry derive, so `book_world_mol_access.js:36` and its visitor table are unchanged (no edit made there).
+- R2 not decided: the Zorian row names `soul-bound` for skill and reserve as the proposed first-slice default; `multiplier` is a valid class, so
+  swapping is a one-word edit. Budget `remaining:52` is the c55 stated figure (967 used), a world dial, not a global.
+- Open: Zorian's date end uses `cycle` (as the `loop.time-bound` archetype) while death and switch use `restart:initial`; whether `cycle` is a
+  whole-save rewind that should instead be the scoped restart for this seat is unverified and belongs with M1/M3.
+- AD45: no save stores these rows (checked: `LOOP_RESETS` is a module constant and no save writer reads it), so no migration.
+- Tests: `tests/harm_loops_v2.test.js` plus the existing `harm_engine` loop test as the LOTM regression.
