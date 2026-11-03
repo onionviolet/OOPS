@@ -2314,3 +2314,7 @@ Replaced in PROJECT.md item 1: the KJ3R endpoint (Divination Club reception with
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw10)
 
 Replaced in PROJECT.md item 1: the KJ3S endpoint (Monday evening after the Glacis reading and the fare talk, ch23 through ch39 P057; twenty-one slices, 275 intents; built through kjw9) with the KJ3T endpoint (Friday noon after Old Neil's lesson, Dunn's signature and the routine week, ch23 through ch41 P066; twenty-two slices, 292 intents; built through kjw10, kjw6-kjw10 native on the B10 bundle; kjw11 needs its own brief). Backlog row B12 (expense claim, proposed) added. Evidence: KJ3T receipt (the proof ran as two parts joined by a saved checkpoint).
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw11)
+
+Replaced in PROJECT.md item 1: the KJ3T endpoint (Friday noon after the routine week, ch23 through ch41 P066; twenty-two slices, 292 intents; built through kjw10) with the KJ3U endpoint (Friday afternoon on the third-floor landing after Leonard's commission and the search for the boy, ch23 through ch43 P084; twenty-three slices, 308 intents; built through kjw11, native on the B10 bundle, one 334 s run). kjw12 needs its own brief.
