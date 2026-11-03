@@ -9,6 +9,8 @@ import {BE_PROFILE_ID} from './seat_profiles.js';
 export const BE_SEER_SOURCE='book.lotm.be_seer',BE_SEER_ENERGY_ID='book.lotm.be_spirituality';
 // Proposal (WPR5): the Tingen pool's shape, carried by its own id.
 export const BE_SEER_ENERGY=Object.freeze({...LOTM_ENERGY,id:BE_SEER_ENERGY_ID});
+export const BE_SEER_EYES='book.lotm.be_seer_eyes';
+export const BE_SPIRIT_VISION='book.lotm.be_spirit_vision',BE_SPIRIT_EXHAUSTION='book.lotm.be_spirit_exhaustion';
 export const BE_SEER_FLAGS=Object.freeze(['be.seer.ingested','be.seer.stabilized']);
 const fact=(key,value=true)=>({type:'fact',scope:'actor',actor:'player',key:`book.lotm.${key}`,value});
 // The potion is taken: source and pool arrive together (the pool exists exactly when the source does).
@@ -19,7 +21,32 @@ export const beSeerDrinkEffects=()=>[
  fact('be.seer.ingested')];
 // Holding one familiar object calms the whispers; only after the drink.
 export const beSeerSteadyEffects=()=>[fact('be.seer.stabilized')];
-export const beSeerCogitateEffects=(amount=BE_SEER_ENERGY.capacity)=>[{type:'energy',energyId:BE_SEER_ENERGY_ID,operation:'recover',amount,cooling:BE_SEER_ENERGY.strainLimit}];
+// Dial: restoreEyes is off unless the text says the eyes returned. Neil gives the return as Cogitation plus power convergence (ch32 P041);
+// no paragraph through ch33 shows it happening, so a content act sets it only where one does.
+export const beSeerCogitateEffects=(amount=BE_SEER_ENERGY.capacity,{restoreEyes=false}={})=>[{type:'energy',energyId:BE_SEER_ENERGY_ID,operation:'recover',amount,cooling:BE_SEER_ENERGY.strainLimit},...(restoreEyes?beSeerEyesClearEffects():[])];
+// The darkened eyes (B2): a body sign of the drink, subtle (dark brown reads as black unless looked at closely, ch32 P040), so the look is
+// concealed and shows only to a Beyonder observer who looks (lotmReveal). No duration: the text gives none; clearing is Cogitation's.
+export const beSeerEyesDarkEffects=()=>[{type:'condition',actor:'player',id:BE_SEER_EYES,operation:'apply'}];
+export function beSeerEyesClearEffects(){return [{type:'condition',actor:'player',id:BE_SEER_EYES,operation:'remove'}];}
+// Spirit Vision switch and exhaustion (B3). The switch is a condition, on while held: two glabella knuckle taps start it and two more end it
+// (ch33 P034-P035); off is the absence (absence:'zero' keeps `condition.<id>` readable as 0). Cost is the B1 pool, spent by the content act
+// with beSeerUse() as for any use. Ending the vision leaves exhaustion (ch33 P036-P037: three sleepless nights); Neil says sleep is the cure
+// (P038). Proposal (WPR5, AD49): the text gives no length, so the fallback expiry below is assumed; sleep acts should end it with beSpiritRestEffects().
+export const BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES=720;
+export const beSpiritVisionOnEffects=()=>[{type:'condition',actor:'player',id:BE_SPIRIT_VISION,operation:'apply'}];
+export const beSpiritVisionOffEffects=()=>[{type:'condition',actor:'player',id:BE_SPIRIT_VISION,operation:'remove'},
+ {type:'condition',actor:'player',id:BE_SPIRIT_EXHAUSTION,operation:'apply',duration:BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES}];
+export const beSpiritRestEffects=()=>[{type:'condition',actor:'player',id:BE_SPIRIT_EXHAUSTION,operation:'remove'}];
+const cnd=(id,op,value)=>({fact:`condition.${id}`,op,value});
+// Predicates for place-act rows. On: a held source, switch off, not exhausted (a default; a world or a method may allow it). Off: switch on.
+// Seeing (aura observations): switch on, and the source held.
+export const beSpiritVisionOnRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true,reason:'You need the Seer potion in you.'},cnd(BE_SPIRIT_VISION,'eq',0),cnd(BE_SPIRIT_EXHAUSTION,'eq',0)]});
+export const beSpiritVisionOffRequires=()=>cnd(BE_SPIRIT_VISION,'gte',1);
+export const beSpiritVisionSeesRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true},cnd(BE_SPIRIT_VISION,'gte',1)]});
+export const beSeerConditions=[
+ {id:BE_SPIRIT_VISION,revision:1,label:'Spirit Vision on',stacking:'max',absence:'zero',bioVisible:true,bioDetail:'Auras show to you. It drains the spirit and the glabella; two knuckle taps there end it.'},
+ {id:BE_SPIRIT_EXHAUSTION,revision:1,label:'Spirit Vision exhaustion',stacking:'max',absence:'zero',bioVisible:true,bioDetail:'Your mind aches like three sleepless nights. Beyonders of this path are not Sleepless; sleep mends it.'},{id:BE_SEER_EYES,revision:1,label:'Darkened eyes',stacking:'max',bioVisible:true,bioDetail:'The drunk Seer potion darkened your eyes toward black; Cogitation and converged power bring them back.',
+ look:{slot:'eyes',rank:3,concealed:true,seenBy:['beyonder'],text:'Your eyes have gone dark, near black; dark brown passes for black unless someone looks closely.'}}];
 export const beSeerUse=()=>({type:'energy',energyId:BE_SEER_ENERGY_ID,operation:'use',output:BE_SEER_ENERGY.output,control:BE_SEER_ENERGY.control});
 export const beSeerSources=[{id:BE_SEER_SOURCE,revision:1,label:'Seer source (the lead\'s own drink)',kind:'trait',origin:'acquired',grants:[],bioDetail:'One drunk Seer potion in the book life. Source ownership is separate from steadiness and from any method; none follows from it alone.'}];
 export const beSeerFacts=(state,f,{enrolled,flag})=>{
@@ -34,5 +61,7 @@ export function beSeerAssertions(state,{a,has,assert}){
  assert(!!src===ing,'The book life\'s Seer source and its recorded drink go together.');
  assert(!stab||ing,'Steadying against the whispers needs the drink first.');
  assert(!!e===!!src,'The book life\'s spirituality pool exists exactly when its source does.');
+ assert(!state.simulation?.conditions?.player?.[BE_SEER_EYES]||src,'The darkened eyes follow the drink.');
+ for(const c of [BE_SPIRIT_VISION,BE_SPIRIT_EXHAUSTION])assert(!state.simulation?.conditions?.player?.[c]||src,'Spirit Vision and its exhaustion follow the drink.');
  assert(!src||!a.player.sources?.[I.source],'The book life holds its own Seer source, not the Tingen one.');
 }

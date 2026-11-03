@@ -77,8 +77,13 @@ export const abilityRows=ROWS;
 // observers by kind. A Beyonder (Hale, an officer, another Beyonder) sees a 'beyonder' look; the dead and spirits see an 'undead' look.
 export const LOTM_OBSERVERS=Object.freeze({[I.supervisor]:['beyonder'],[I.stormOfficer]:['beyonder'],[I.machineryOfficer]:['beyonder'],[I.seniorDeacon]:['beyonder'],[I.member]:['beyonder'],
  ...Object.fromEntries(LOTM_HOSTILES.map(h=>[h.id,['beyonder']])),'book.lotm.dead':['undead']});
-export function lotmReveal(observerId,registry,state){
- const kinds=LOTM_OBSERVERS[observerId]||[],out=[];if(!kinds.length)return out;
+// Cast observers (B2, 2026-11-03): pack people carry hashed ids, so the table keys the stable index id. Old Neil and Dunn Smith are
+// Nighthawk Beyonders (Neil names Klein a Seer and Beyonder, ch32 P041); Leonard Mitchell is a Nighthawk captain. A default, not a rule:
+// add a person here to let them read a concealed look; a look still shows only when its own seenBy matches.
+export const LOTM_CAST_OBSERVERS=Object.freeze({'lotm.person.old-neil':['beyonder'],'lotm.person.dunn-smith':['beyonder'],'lotm.person.leonard-mitchell':['beyonder']});
+// indexOf maps a pack person id to its index id (the cast reveal passes the loaded pack's map); a bare index id also works.
+export function lotmReveal(observerId,registry,state,indexOf=id=>id){
+ const kinds=LOTM_OBSERVERS[observerId]||LOTM_CAST_OBSERVERS[indexOf(observerId)]||[],out=[];if(!kinds.length)return out;
  const lookOf=d=>d?.look?.concealed&&(d.look.seenBy||[]).some(k=>kinds.includes(k));
  for(const id of Object.keys(state.actors.player.sources||{}))if(lookOf(registry.sources.get(id)))out.push(id);
  for(const [id,c] of Object.entries(state.simulation?.conditions?.player||{}))if(c.intensity>0&&lookOf(registry.simulation.conditions.get(id)))out.push(id);

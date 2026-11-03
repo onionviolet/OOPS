@@ -7,7 +7,7 @@ import {SORE_HANDS, SCRAPED_HANDS, PALM_MARK} from "./body_progression.js";
 export const BODY_STATS = {strength:"Strength", agility:"Agility", dexterity:"Dexterity", intuition:"Intuition",
     max_health:"Health", max_stamina:"Stamina", stamina_efficiency:"Stamina efficiency", cold_tolerance:"Cold tolerance"};
 
-const SLOT_LABELS={build:"Build",bearing:"Bearing",hands:"Hands",marks:"Marks",skin:"Skin"}, SLOT_ORDER=Object.keys(SLOT_LABELS);
+const SLOT_LABELS={build:"Build",bearing:"Bearing",hands:"Hands",eyes:"Eyes",marks:"Marks",skin:"Skin"}, SLOT_ORDER=Object.keys(SLOT_LABELS);
 // Biography explains already earned effects. It never applies a bonus, invents
 // a past life, reveals an unobserved technique or writes a second history owner.
 // reveal: ids of sources or conditions an observer could actually see; a look marked concealed shows only then.
