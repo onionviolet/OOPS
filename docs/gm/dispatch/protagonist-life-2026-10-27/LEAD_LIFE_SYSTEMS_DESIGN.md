@@ -1275,6 +1275,7 @@ Weibao: “The system lines up to the world through deterministic and rule based
 | LSD472 | **The gap loop sorts every canon miss into one of four kinds.** (1) An unchecked anchor: qualify the source first. (2) A parameter outside its band: calibrate it (WA33, LSD96). (3) A missing mechanism: a backlog row for the AD48 lane (a system is added when nothing the engine has can produce the result). (4) A pinned result hiding strain (LSD98): log the strain even when the result is pinned | LSD64, LSD96, AD48; ACCOUNT FOR NOW |
 | LSD473 | **Calibration guards.** Parameters live per world or pack, so fitting LOTM does not move another world; when a shared parameter changes, the other worlds' focused tests run. A minor character the text barely shows gets tier defaults, not fitted parameters (depth by tier). Seed keys stay stable across content changes, or in-flight outcomes reroll (VG3) | AR rules, VG3; ACCOUNT FOR NOW |
 | LSD474 | **Detectors, build later.** The fidelity-strain table (LSD64, "logged table is new") and the canon-fight calibration script (LSD96) are not built. What exists: `scripts/calibrate_fights.mjs` runs archetype fights across seeds and prints each rate beside its proposed band (P8, LSD350); slice runners assert exact money in pence. Everything else below is documented, not checked in code this pass | LATER/DELEGATE: strain table plus extend the P8 harness to the first canon fight (Sonnet high, medium); done when the road duel prints its strain beside the band. Not dispatched |
+| LSD475 | **The domain table is an open registry, not a closed list (Weibao 2026-11-03: it is not exhaustive).** A domain joins when a system in the [systems front door](../../../systems/README.md) (S1-S19, MIE, the rule families) holds a quantity or a choice the source states; the table is read against that front door, not kept by hand. A gap-loop miss in an unlisted domain opens a row with its anchor kind, owner lines and harness status. A row's status is the evidence row actually reached, never the documented one | systems README; LSD472; ACCOUNT FOR NOW |
 
 | Domain | What the source fixes | Owner lines | Harness today (evidence row) |
 | --- | --- | --- | --- |
@@ -1284,3 +1285,19 @@ Weibao: “The system lines up to the world through deterministic and rule based
 | Personality | Traits as dials on memory and choice | LSD393, `src/generated_people.js`, LSD318 | Documented only |
 | Tags | The families a mechanism reads | LSD201, WA51 (a tag needs a named supplier and a consumer) | Documented only |
 | Knowledge, time, presence | What he knows when; windows where people meet | LSD156, LSD157, LSD217, presence preflight | Presence preflight script runs on each slice (KJ3F-KJ3H) |
+| Abilities, Sequences, potions | Which powers, costs, limits, advancement steps | ABR1-ABR22, S3, GTR; B1 BE Seer | Focused tests for B1 (28 pass per its receipt); no strain harness |
+| Skills, XP, rust | Rates, thresholds, who can learn what | SLR1-SLR43, S4 | Documented only |
+| Rank, clearance, organization standing | Ranks, pay, access, merit | S5, S6, GTR, ORGANIZATIONS | Documented only (clearance is wired thin, one world) |
+| Body, health, conditions | Injuries, durations, recovery, lifespan and aging | BHR1-BHR34 | Documented only |
+| Making and crafting | Recipes, yields, quality, costs | MR1-MR36, S16 | Documented only |
+| Items, stock, equipment | What is owned and what it is worth | WA40 (canon layer, seeded layer, deltas), ITEMS | Slice runners assert stock and money (KJ3K) |
+| Trade, exchange, institution currencies | Rates by place and time, fees, separate purses (Merit) | ECR, ECC25, ECX6 | Documented only; one conversion checked by hand in ch56 reads |
+| Divination, rites, rolls with stated reliability | Success tiers, fees, costs | Backlog B4, B5, R1, R5 | Not built |
+| Places, travel, adjacency | Walk minutes, access, who can be where | SR1-SR24, LSD157 | Presence preflight on each slice; walking map in play |
+| Clocks and calendar | Day, week, windows, dates | S19, AD15-AD17, LSD156 | Pack clock claims; the civil clock for ch23 is still unresolved (workflow row C) |
+| Law, custody, danger | Who is looking, consequences, escalation | WA45, PIR | Documented only |
+| Reputation, influence, fame | Who knows what of whom, how far it spreads | WA33, S13 | Documented only |
+| Generated people, crowds | Density, ages, names, roles | GR1-GR17, S15 | Documented only |
+| Weather, environment | Seasons, exposure | Home-world weather option; world briefs | Documented only |
+| Events and chance | How often a thing happens, canon pull | LSD233, random events deck | Documented only |
+| Texts and names | Edition, glossary, aliases | LSD468-LSD470 | Chapter counts align by script (measured, LSD470) |
