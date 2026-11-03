@@ -19,6 +19,7 @@ import {packRevision} from './constraint_pack.js';
 import {PROVENANCE_CODES} from './constraint_store.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
+import {beSeerAssertions,BE_SEER_ENERGY_ID} from './book_world_lotm_be_seer.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -32,7 +33,7 @@ export function validateLotmState(state){
   assert(!state.worlds?.[I.world]&&!a[I.supervisor]&&!s?.people?.[I.supervisor]&&a.player?.worldId!==I.world,'Tingen presence needs its explicit optional owner.');
   assert(!(s?.jobs||[]).some(j=>prefix(j.commandId)||[...castBodyCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId)),'Tingen work cannot outlive its owner.');
   for(const actor of Object.values(a))assert(!Object.keys(actor.resources||{}).some(prefix)&&!Object.keys(actor.sources||{}).some(prefix)&&!Object.keys(actor.facts||{}).some(prefix)&&!Object.keys(actor.completed||{}).some(prefix),'Tingen means require the matching optional owner.');
-  assert(!s?.powers?.player?.[I.method]&&!s?.energies?.player?.[I.energy]&&!Object.keys(s?.knowledge?.player||{}).some(prefix)&&!Object.keys(s?.knowledge?.[I.supervisor]||{}).some(prefix),'Tingen knowledge and powers require the matching optional owner.');
+  assert(!s?.powers?.player?.[I.method]&&!s?.energies?.player?.[I.energy]&&!s?.energies?.player?.[BE_SEER_ENERGY_ID]&&!Object.keys(s?.knowledge?.player||{}).some(prefix)&&!Object.keys(s?.knowledge?.[I.supervisor]||{}).some(prefix),'Tingen knowledge and powers require the matching optional owner.');
   return true;
  }
  jsonData(d);
@@ -102,5 +103,7 @@ export function validateLotmState(state){
  causeAssertions({a,has,assert,natural});
  const e=s.energies?.player?.[I.energy];
  assert(!!e===!!src,'The spirituality pool exists exactly when the source does.');
+ // The book life's own Seer chain (B1): its own source, flags and pool, so the Tingen invariants above stay as they were.
+ beSeerAssertions(state,{a,has,assert});
  return true;
 }
