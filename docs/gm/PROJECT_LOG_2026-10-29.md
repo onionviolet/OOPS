@@ -2290,3 +2290,7 @@ Replaced in PROJECT.md item 1: "[KJ3K receipt] owns the current endpoint (the ca
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw4)
 
 Replaced in PROJECT.md item 1: "[KJ3M receipt] owns the current endpoint (the intruder, the Secret Order and the Seer offer night, English v1 ch23 through ch29 P016) ... Fifteen slices now contain 181 selected stages/intents ... ch24 P034 to ch29 P016 are built (kjw2, kjw3); the ch29 P017 to ch31 briefs (kjw4, kjw5) are content-only". Now: the KJ3N receipt owns the endpoint (English v1 ch23 through ch30 P065), sixteen slices contain 196 selected stages/intents, kjw2-kjw4 are built and kjw5 is next. No direction changed.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw5)
+
+Replaced in PROJECT.md item 1: "[KJ3N receipt] owns the current endpoint (Sunday, the housing company, 2 Daffodil Street and the move, English v1 ch23 through ch30 P065) ... Sixteen slices now contain 196 selected stages/intents ... ch24 P034 to ch30 P065 are built (kjw2-kjw4); the ch30 P066 to ch31 brief (kjw5)". Now: the KJ3O receipt owns the endpoint (English v1 ch23 through ch31 P077), seventeen slices contain 207 selected stages/intents, kjw2-kjw5 are built, and kjw6 needs its own brief. No direction changed.
