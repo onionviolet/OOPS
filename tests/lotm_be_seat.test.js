@@ -251,3 +251,43 @@ test('B2: the darkened eyes show to a cast Beyonder who looks, to nobody else, a
  assert.deepEqual(lotmCastReveal('fixture.person.hashed-neil',registry,plan.state,pack),[],'the eyes are restored and nothing is left to see');
  validateLotmState(plan.state);
 });
+
+test('B3: the Spirit Vision switch gates aura seeing, ending it leaves exhaustion, sleep or time clears it, and the pool pays',async()=>{
+ const B=await import('../src/book_world_lotm_be_seer.js');
+ const {simulationFacts}=await import('../src/simulation_effects.js');
+ const {meets,validateSimulationEffect}=await import('../src/simulation_contracts.js');
+ const {lotmFacts}=await import('../src/book_world_lotm_actions.js');
+ const {characterBioView}=await import('../src/character_bio.js');
+ const o=hostOver(bare());o.host.enroll('be',{independent:true});
+ const plan=structuredClone(o.box.p),apply=effects=>applySimulationEffects(plan,effects,{actorId:'player'},registry,'fixture.be.vision');
+ const facts=()=>{const ctx={actorId:'player',external:plan.external,gameplay:plan.gameplay,facts:{}};
+  return {...simulationFacts(plan.state,ctx,registry),...lotmFacts(plan.state,{...ctx,vitals:{player:{health:24,max_health:24,stamina:18,max_stamina:18}}})};};
+ const can=rule=>meets(rule,facts());
+ const bio=()=>characterBioView({state:plan.state,registry,context:{worldId:LOTM_IDS.world,actorId:'player'}}).conditions.map(r=>r.label);
+ for(const e of [...B.beSpiritVisionOnEffects(),...B.beSpiritVisionOffEffects(),...B.beSpiritRestEffects()])validateSimulationEffect(e);
+ // Failure scenario: aura observations offered with the switch off, or the switch worked without the potion.
+ assert.equal(can(B.beSpiritVisionSeesRequires()),false,'no potion, no seeing');
+ assert.equal(can(B.beSpiritVisionOnRequires()),false,'no potion, no switch');
+ apply(B.beSeerDrinkEffects());
+ assert.equal(can(B.beSpiritVisionOnRequires()),true);assert.equal(can(B.beSpiritVisionSeesRequires()),false,'switch off: no aura observation');
+ assert.equal(can(B.beSpiritVisionOffRequires()),false,'cannot switch off what is off');
+ const before=plan.state.simulation.energies.player[B.BE_SEER_ENERGY_ID].reserve;
+ apply([B.beSeerUse()]);apply(B.beSpiritVisionOnEffects());
+ assert.ok(plan.state.simulation.energies.player[B.BE_SEER_ENERGY_ID].reserve<before,'the B1 pool pays; no second pool');
+ assert.equal(can(B.beSpiritVisionSeesRequires()),true);assert.equal(can(B.beSpiritVisionOnRequires()),false,'already on');
+ assert.ok(bio().includes('Spirit Vision on'),'the existing condition view shows the switch');
+ validateLotmState(plan.state);
+ // Ending it leaves exhaustion, which blocks switching on again until sleep or the fallback expiry.
+ apply(B.beSpiritVisionOffEffects());
+ assert.equal(can(B.beSpiritVisionSeesRequires()),false);assert.equal(can(B.beSpiritVisionOnRequires()),false,'exhausted: cannot switch on');
+ assert.ok(bio().includes('Spirit Vision exhaustion')&&!bio().includes('Spirit Vision on'));
+ const exhausted=plan.state.simulation.conditions.player[B.BE_SPIRIT_EXHAUSTION];assert.equal(exhausted.expiresAt,plan.state.clock+B.BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES);
+ validateLotmState(plan.state);validateLotmState(JSON.parse(JSON.stringify(plan.state)));
+ const keep=plan.state;
+ apply(B.beSpiritRestEffects());assert.equal(can(B.beSpiritVisionOnRequires()),true,'sleep clears it');
+ // Time alone clears it too (the assumed fallback).
+ plan.state=keep;apply(B.beSpiritVisionOffEffects());plan.state.clock+=B.BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES+1;
+ assert.equal(can(B.beSpiritVisionOnRequires()),true,'the fallback expiry lapses');
+ // Refusal: the switch without the drink.
+ const orphan=structuredClone(keep);delete orphan.actors.player.sources[B.BE_SEER_SOURCE];assert.throws(()=>validateLotmState(orphan));
+});
