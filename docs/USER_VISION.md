@@ -7218,3 +7218,7 @@ Weibao, correcting the framing of the entry above: “NOt extactly proto23 style
 ## Daily-life granularity is a later, adjustable dial (2026-11-03)
 
 Weibao, after the daily-life gap table: “Sure, granularity and stuff can be decided long term? Wage and rent and stuff can be worked on accordingly in the future? We just need to absrtact a few levels?” Recorded as his direction: stop daily-life mechanism work after the read-only [gap table](gm/dispatch/refinement-audits-2026-10-31/DAILY_LIFE_GAP_TABLE.md); mechanism effort goes to the verbs; wage, rent and similar are built later at the level the book or the life needs; the design should abstract a few levels rather than fix one. It selects no level and builds nothing.
+
+## Match the lore's numbers by calibrating our systems (2026-11-03)
+
+Weibao, on the canon-run money guard: “we can retroactive adjsut the system so that the numbers match up in the lore? so like top down design, abstact thigs from lore to make it fit our system/we can build our system, make that a core rule accoridngly?” Then: “Yes, save these ideas accordingly.” Recorded as accepted direction: the lore's stated numbers are fixed points and our systems are adjusted until they reproduce them, top down; it is [AD49](RULES_INDEX.md) and extends the calibration already proposed for choices (WA45, LSD96) to quantities. The guards and wording are proposals under AD32 in the [depth dial proposal](gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md) Round 6. He also asked to merge the daily-life gap table branch.

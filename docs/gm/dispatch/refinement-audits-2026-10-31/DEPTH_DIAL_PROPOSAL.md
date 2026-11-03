@@ -246,3 +246,20 @@ Reading: the probe supports F2's worry in one respect. Idle days do not currentl
 Each level reads the same state (money, time, stock), so moving up or down later does not change saves. Wage and rent attach at L1 when a source states an amount (the Nighthawk wage is the one found so far); building them is deferred and unscheduled.
 
 **Disposition:** ACCOUNT FOR NOW, any new money or time mechanism names its level and the exact quantities it keeps. LATER / DELEGATE, not dispatched: L1 settlement line for the Nighthawk wage once a window needs it (small, Sonnet; done when a pay act or ledger row settles in a native run); deciding Klein's default level with the lead-life owners.
+
+
+## Round 6 (2026-11-03; proposals under AD32 except the AD49 principle; Weibao: adjust our systems retroactively so the lore's numbers match, make it a core rule; advisor pass improved both ideas; reconciled against the owners)
+
+**Reconciliation.** The idea mostly exists for choices: WA45 (proposed) designs choice systems top down and calibrates them, LSD4/LSD62/LSD64 measure fidelity strain, LSD96 says calibrate rather than tune by hand; LSD217 keeps money, prices and time exact. Classification: a compatible variant extending an existing owner, not a new family. The gap is quantities: no owner says how a wage, rent or period line reproduces a stated figure. Saved as [AD49](../../../RULES_INDEX.md) (accepted principle), with AD48 extended by the accepted "mechanism slices lead, windows follow" (2026-11-02).
+
+**F10, the chain, improved.** Anchor, parameter, reservation, native act, check.
+- **Anchor:** a figure the text states, at a checked paragraph locator in the pinned edition. Reader rows are not anchors until checked (the ch66 P037 income figure was invented). The anchor list is the workflow's `$` ledger table, not a new artifact.
+- **Parameter:** the system value derived from the anchor (a wage, a price, a conversion), with one authority per currency (ECC25, ECX6).
+- **Reservation:** the canon pack records it, so `canonActionDecision` accepts the native payment. This corrects round 4's reading: the gate is not a reason to avoid wages, only a requirement that the payment is reserved.
+- **Check:** at each batch gate every slice runner reruns in order on the current bundle (workflow row R). A miss means fix the parameter or the missing mechanism, not the anchor (LSD64 for quantities).
+
+**F11, guards.** Mechanisms, not totals: a gap the text does not explain stays unknown and flagged assumed, never zero, and is never closed by an unexplained balancing entry (AD38, LSD96). Canon run only: free play diverges under canon pull (LSD233). Saves do not reroll: a changed parameter applies going forward, with a migration when the state shape changes (VG3, AGENTS persistence rule). Write as default, dial and reason, never "always".
+
+**F12, one vocabulary.** Round 5's levels map onto LSD209: L0 = narration and cards, L2 = days, L3 = step grain. Only L1 (period settlement) is new, and it belongs in the LSD209 owner when a window first needs it.
+
+**LATER / DELEGATE, not dispatched:** add the one-line pointer from WA45 to AD49 (tiny, doc; WA45's file carries other sessions' edits, so hunk-only); list the first anchors (ch17 wage, ch23 change, ch27 prices) with checked locators in the arc `$` ledger (small, Sonnet; done when each cites a paragraph); the L1 line in LSD209 when needed.
