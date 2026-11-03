@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Lists every money amount a payload states, by locator, in pence, with no source text (AD49 anchor candidates).
 // A candidate is not an anchor until a person checks the paragraph. It parses digits and spelled numbers with
-// pound/soli/penny words; it does not follow derived sums, implied currencies or "a pound" with no number. Loen: 1 pound = 20 soli = 240 pence,
+// pound/soli/penny words; it does not follow derived sums, implied currencies or "a pound" with no number, and it reads a weight in pounds as money, sums separate terms of one price, and can flag a price as a rate (all seen in the kjw4 brief check: ch29 P017, P027, P033, P050). Loen: 1 pound = 20 soli = 240 pence,
 // 1 soli = 12 pence (stated at ch26 P079). Run: node scripts/lead_run/money_anchors.mjs <payload.txt> [--json]
 import {readFileSync} from 'node:fs';
 import {parsePayload} from './check_reader_rows.mjs';
