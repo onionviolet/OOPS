@@ -1,4 +1,4 @@
-# Daily-life gap table for the BE-seat Klein life (2026-11-03; source reading, not played; proposals under AD32)
+# Daily-life gap table for the BE-seat Klein life (2026-11-03; source reading, not played; reframed per the coordinator relay; proposals under AD32)
 
 Question: which loops of an ordinary day already run on native mechanisms in `src/`, and which are missing, for the BE seat (`beyonderTrack:false`, `book.lead.be@1`, canon run). Context: [Round 3 and the day-of-life probe](DEPTH_DIAL_PROPOSAL.md), [backlog](MECHANISM_BACKLOG.md), [B1 receipt](B1_IMPLEMENTATION_RECEIPT.md), LSD209/LSD217 in the lead-life systems design. Evidence class: source and pack reading plus the earlier agent-played probe. I did not step a day in this session (the pinned KJ3E bundle was not exercised; no game MCP run), so every "works" below means "code and authored rows exist", not "seen running". Reading of the private cast pack is from `kj3k-ch23-2026-11-02/cast-before.json`.
 
@@ -9,37 +9,28 @@ Question: which loops of an ordinary day already run on native mechanisms in `sr
 - **Canon-mode action gate.** `canonActionDecision` (cast_host line 435) checks every player action's resource/fact/item changes against the pack's reservation store when `runMode==='canon'`. A recurring income or bill therefore has to be a player-chosen act (checked against canon like any other) or an engine-owned event that does not pretend to be a canon claim; either way it must not change money on its own in a canon run, or KJ3K/kjw2 exact money figures (2760, 2744 pence) break.
 - **CA2-CA5.** I found no rulebook with those codes for ordinary-life automation. The matches in `docs/` are cheat-library and comic-world presentation codes, unrelated. The nearest native owners are listed in the table below (ambient events and controllers in the simulation contracts, `living_upkeep.js` diets, `agreed_duty_*`, Tingen's `weeksOwed`). Treat "CA2-CA5 supply routines" as unconfirmed; the user's brief may mean a different doc.
 
-## Table (works / partial / missing)
+## Reframe (coordinator relay, 2026-11-03): reuse the base game; idle time producing nothing is the default
 
-Locator column is the first chapter or window that needs the row, from the briefs and receipts I read; "unverified" means I did not find the chapter that first needs it.
+Weibao questioned whether daily life is getting too much effort, since YAIR and Proto23 have little of it. So this table asks, per routine element, which existing base-game system covers it, whether Klein's BE-seat life can reach it, and whether a book pressure needs exact settlement. It proposes no new chores. Idle time that produces nothing unless the player picks an activity is the normal default, not a defect; the earlier "Idle day producing events: missing" row is withdrawn as a gap. Phase 2 (build one mechanism) is on hold until the coordinator relays his answer.
 
-| Loop | Status | Owner file (what exists) | Consumer locator / first need | Note |
+Evidence limit: I read file headers and grep hits for the base-game owners, not their full behavior, and ran nothing. "Reachable" is from whether the BE host (`book_world_lotm_*`, cast pack) references the owner; a grep of `book_world_lotm_*.js` finds no use of `activities.js`.
+
+| Element | Base-game owner | What it does by default | Reachable from Klein's BE-seat life? | Book pressure needing exact settlement |
 | --- | --- | --- | --- | --- |
-| Clock, waiting, walking, timed acts | **Works** | `clock_owner.js`, `simulation_clock.js`; cast host `nextCastBeatTime` (waits split at authored scene starts) | every window | Probe: walks and "wait until evening" run. |
-| Scheduled people (where Benson, Melissa, others are) | **Works** | `cast_schedule.js`, `book_world_lotm_cast_days.js` (`lotmCastSchedule`) | ch1 onward | Canon slots only; background routines (82) mostly `usable:false`. |
-| Money in the purse, exact prices, change | **Works** | native `money` resource; `money()` kit effect; place-act costs | KJ3K ch23 (cane, change); kjw2 ch24 P035 fares | One-shot spends. Verified by KJ3K script asserts (money after each act). |
-| Buying at shops | **Works (as authored acts)** | pack place acts + `lotm_price_map.js`; exchange rows `defineCastExchanges` | ch23 cane; ch27 P021 market (kjw3) | Menus, no haggling mechanism needed for routine buys (LSD466). |
-| Meals | **Partial** | `bodyCare` meal acts (authored per scene); shared household stock `household.opening.bread.portions`; `household_meal_items.js`; `living_upkeep.js` diets (living items, not Klein) | ch3 bread; ch29 P017 breakfast (kjw4) | Eating is an act that spends a stock; nothing makes Klein hungry or sets a meal time. Hunger is off by default (probe). |
-| Household stock and bills | **Partial** | opening gas-meter act (`household_pay`, 1 penny, one fact) | ch2 P20 | A one-time fact, not a recurring bill. |
-| Rent | **Missing** | none (no landlord person, no rent fact or event in pack or src) | unverified; Klein's flat is the opening setting | Not needed by ch24-29 content I read; no canon amount found in the briefs. |
-| Job wage (Nighthawk contract, 2 pounds 10 soli + 10 soli weekly) | **Missing** | Tingen civil life has `weeksOwed` + `collect_pay` ([book_world_lotm_lives.js](../../../../src/book_world_lotm_lives.js)); the BE seat has no equivalent. KJ3F/KJ3G receipts: "no wage mechanism exists", terms recorded as knowledge, money unchanged | contract signed ch17 (KJ3F, fact `book.lotm.kj3f.contract.signed`); first payday chapter unverified | The only money-in loop the canon text promises. |
-| Siblings and family | **Partial** | cast people Melissa and Benson exist; scene acts (`kj3c.greet_sister`, `dinner`, `kj3k.errand`); knowledge keys | ch5-6 onward; kjw3 ch26-27 | Presence and talk are authored per scene; no household obligation, chore or allowance loop. |
-| Study/practice time | **Partial** | `kj3c.study` act; Seer chain B1 below floor (no pack row grants it) | ch32 P010 (B1) | |
-| Weekly rhythm (day names, day off) | **Partial** | `clockClaims` (weekly-meeting 'T' proposed Monday 15:00), `dayoff.unchosen` fact (KJ3G) | ch24 P034 Monday withdrawal visit | Day names are text claims; no weekday clock in src consumed by Klein's life. |
-| Monday gathering clock | **Missing** (for the BE seat) | `gathering_*.js` is resource gathering, not the Tarot meeting; remote-presence view exists (`place_remote_presence.js`); backlog R4/U2 | ch58 P018 (backlog R4) | Queued in the backlog; not a daily loop before ch58. |
-| Nighthawk duty shifts | **Missing** | `agreed_duty_*` is a home-agreement system for another pack; `book_world_lotm_districts.js` shifts belong to Tingen probationer lives; KJ3G: "no standing-duty scheduler" | duties named ch19-20 (KJ3G); Slate order | Investigation as a duty routine (Round 3 F2) has no owner. |
-| Idle day producing events (a "day of life") | **Missing** | engine has the pieces: ambient `events` with `interval`, `requires`, `effects` and `controllers` ([simulation_contracts.js](../../../../src/simulation_contracts.js) 154-160, 169-178; `simulation.js` `occur`); `living_upkeep.js` compiles meals/hunger into such rows | Round 3 F2 | Native route exists and is unused by any lead-life row. |
-| Day-rollover reporting | **Works** | `book_world_lotm_events.js` `settleLotmEvents` | all | Reports news and witnessed beats only. |
+| Work | `src/activities.js` (`Job` with `payment_type`; money and skill xp each tick) and the location "Find work" dropdown (`display.js:2506`) | Pick a job in a base location, time passes, money accrues | **No.** Klein's places are cast-pack places and place acts; the BE host does not use base `activities`/locations. The simulation layer's work sites are the other route (not checked) | The Nighthawk wage (contract signed ch17, 2 pounds 10 soli + 10 soli weekly; KJ3F/KJ3G say no wage mechanism). Whether a weekly figure must settle exactly before a book scene needs it is **unverified**: kjw2/kjw3 need no wage |
+| Pay | Job money per tick; place-act `money()` effects; Tingen civil life `weeksOwed`/`collect_pay` | Money moves when an activity or act says so | **Partly.** Place-act costs and gains work (KJ3K asserts exact pence). No BE pay act exists | Exact price/change scenes already settle through place acts (ch23, ch24 P035, ch27 P021) |
+| Rent | none in base game or src | nothing | n/a | **None found.** No rent amount or scene in the briefs read; no pressure, nothing to build |
+| Meals / hunger | `main.js` hunger efficiency with `getPacingState().hungerEnabled` (default off), Famine skill; eat-item actions; pack meal acts and shared stock | Hunger is an option, off by default | **Partly.** Meal acts reachable as authored scenes; hunger dial not checked for the BE host | Only where a scene prices food (ch27 P021 beef 6, fish 7 pence), already exact place-act costs |
+| Shops | base shop/trade screens; `lotm_price_map.js`, exchange rows `defineCastExchanges`, pack place acts | Menus at the book price (LSD466) | **Yes** (KJ3K cane, change) | Exact prices and change: already settled |
+| Waiting / time passing | `clock_owner.js` (`update_timer`, span splitting), `away_ledger.js` and `away_bank_domain.js` (real time banked as spendable game minutes, no free rewards), cast host `nextCastBeatTime` (waits stop at authored scene starts) | Time passes; nothing is produced unless an activity is chosen | **Yes** (probe: "Wait until evening 99 min" worked) | Deadlines: interview day, Monday meeting; the cast clock already stops waits at authored beats |
+| Household stock | pack stocks (bread portions), `household_meal_items.js` | shared stock spent by acts | **Yes** as authored acts | Only the stocks a scene counts |
+| Gathering clock (Monday) | `gathering_*.js` is resource gathering; remote-presence view | n/a | **No** for the Tarot meeting | Backlog R4 (ch58); the clock claim is text |
+| Duty shifts | none in base; `agreed_duty_*` is another pack's home agreement | nothing | **No** | No scene read before ch31 needs one; KJ3G: no standing-duty scheduler |
 
-## What the earliest unbuilt window needs
+## Reading
 
-kjw2 (ch24 P034-ch26) and kjw3 (ch26-ch29) need only one-shot money, fares, purchases, scenes and talk; the briefs give exact pence and name no wage, rent or duty mechanism. They are content-only and are not blocked by anything below. The first row the Klein life needs that the engine does not carry and the book promises is the weekly wage (contract signed at ch17, money unchanged since). Rent and meal-time pressure are unsupported by any figure in the text I read.
-
-## Proposed order (proposal, not accepted)
-
-1. **Weekly wage for the BE seat** (this lane's phase 2): pull model like Tingen's `weeksOwed`, so a canon run does not change money unless the player collects.
-2. Meals/hunger as an opt-in ambient row set, reusing `living_upkeep.js` `compileUpkeepEvents` for the lead.
-3. Weekday clock fact for the lead (day names), then duty-shift routines.
-4. Rent only when a figure or a scene needs it.
-
-Open questions: the first payday chapter and amount per week beyond the contract terms; whether the user's "CA2-CA5" refers to a doc I did not find.
+- The "canon run holds Klein" finding stands (one pull beat at day 3, above). It is not a missing daily loop.
+- Of the elements, only the Nighthawk wage is both promised by the book and unpaid by anything in the runtime. It is not needed by any window I read (kjw2/kjw3). If it needs exact settlement, the lowest-effort route is a single player-picked pay act in the existing place-act or Tingen `weeksOwed` pattern, not a scheduler; that is a proposal and waits on Weibao's answer.
+- Rent, duty shifts, hunger and idle-day events are not gaps under this reframe. Nothing new is proposed for them.
+- CA2-CA5: my earlier search was truncated and I never read `docs/LEAD_LIFE_RULES.md` in full; I found no routine-automation owner under those codes. Unresolved, not claimed absent.
+- Open: first payday chapter and amount; whether the SIM work-site route (`registry.sites`, capacity/provision) can carry a Klein job without new code.
