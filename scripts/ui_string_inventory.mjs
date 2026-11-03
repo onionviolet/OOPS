@@ -381,6 +381,20 @@ const synonymLines = SYNONYMS.map(set => {
 const caseCount = count(rows.filter(r => r.surface === 'label' || r.surface === 'name/heading'), r => caseStyle(r.text) || 'n/a');
 
 // Samples prefer rows with a known surface, spread across files.
+// Voice metrics over strings of four or more words, for comparison with the
+// reference voices measured in the copy style sheet (YAIR upstream, Proto23).
+// Rows from the upstream shell are left out so the numbers describe our text.
+const voiceRows = rows.filter(r => r.world !== 'upstream YAIR shell' && r.text.split(/\s+/).length >= 4);
+const sentenceLengths = voiceRows.flatMap(r => r.text.split(/(?<=[.!?])\s+/).map(x => x.split(/\s+/).filter(Boolean).length).filter(n => n > 0)).sort((a, b) => a - b);
+const share = f => `${(100 * voiceRows.filter(f).length / Math.max(1, voiceRows.length)).toFixed(1)}%`;
+const voice = {
+  'Median words per sentence': sentenceLengths[Math.floor(sentenceLengths.length / 2)] ?? 0,
+  'Says "you" or "your"': share(r => /\byou(r)?\b/i.test(r.text)),
+  'Uses a contraction': share(r => /\b\w+['’](s|t|re|ll|ve|m|d)\b/i.test(r.text)),
+  'Has a semicolon': share(r => r.text.includes(';')),
+  'Has a spec-voice word': share(r => SPEC_VOICE.test(r.text)),
+};
+
 const sample = (lead, n = 8) => {
   const hits = rows.filter(r => r.leads.includes(lead));
   const known = hits.filter(r => r.surface !== 'other text');
@@ -444,6 +458,14 @@ ${table(specBySurface, 'Surface')}
 ### Samples
 
 ${Object.keys(byLead).sort((a, b) => byLead[b] - byLead[a]).map(lead => `#### ${lead}\n\n${sample(lead)}`).join('\n\n')}
+
+## Voice metrics
+
+Strings of four or more words outside the upstream shell (${voiceRows.length}). The [copy style sheet](../ui/COPY_STYLE_SHEET.md#reference-voices-yair-and-proto23) gives the same measures for YAIR and Proto23; the pass aims toward them.
+
+| Measure | Ours |
+| --- | ---: |
+${Object.entries(voice).map(([k, v]) => `| ${k} | ${v} |`).join('\n')}
 
 ## Label verbs
 
