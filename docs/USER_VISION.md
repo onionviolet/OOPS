@@ -7197,3 +7197,8 @@ Weibao: “Should wait and other buttons be placed seperately? so like shared/co
 ## Spine-and-fill adoption trial (2026-11-02)
 
 Weibao, asked whether to accept the PF13 decision rule and queue the fold test: “Yes, queue it”. Then: “SO would things without much happening would just be abstracted? More to consider?” Recorded as accepted: the decision rule and queuing the fold test, under the [adoption path](gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md#pf13-adoption-path-d1-2026-11-02-proposal). His second question was answered with proposals only (fold by consequence, not eventfulness; the criteria are not accepted). Standing adoption waits for the decision rule to be met.
+
+## Runtime mechanism lane for the book absorption (2026-11-02)
+
+Weibao, on the book-absorption findings: “Runtime mechanism lane is fine, just make sure they can send seperate and capable implementators accordingly”. Recorded as accepted: the runtime mechanism lane, built by separate, capable implementers (fresh sessions, not the content builders). Model routing, brief shape and sequencing are proposals under [the workflow](gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md). The other findings in that round (depth dial, pack chunking, replay, clock, money ledger, review exports) stay proposals.
+
