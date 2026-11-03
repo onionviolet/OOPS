@@ -1,6 +1,6 @@
 # Depth dial per arc, LOTM volume 1 after Tingen (proposal, 2026-11-02; AD32, nothing here is accepted)
 
-**Status 2026-11-03:** read Rounds 3-6 first. Mechanisms lead and windows follow (accepted); the LSD209 grains apply; AD49 holds; ordinary-time levels and daily life are proposals; the per-arc stage tables in round 1 are a historical upper bound for authored beats, not a forecast.
+**Status 2026-11-03 (later):** Round 7 at the end carries the per-arc picks after ch54, priced from the measured ch32-54 windows; every pick there is proposed. Read Rounds 3-6 first. Mechanisms lead and windows follow (accepted); the LSD209 grains apply; AD49 holds; ordinary-time levels and daily life are proposals; the per-arc stage tables in round 1 are a historical upper bound for authored beats, not a forecast.
 
 Answers row D of [BOOK_ABSORPTION_WORKFLOW](BOOK_ABSORPTION_WORKFLOW.md): "Weibao sets depth per arc after Tingen." Through the Tingen/ch24 stretch the depth stays as built. This page offers a choice per arc; it writes no brief, builds no stage and dispatches nothing. Sources: private spine `kj-seams-2026-11-02/V1_SPINE.tsv` (words are deterministic), the seam reads (ch32-54), the arc-2 row reads (ch55-84), [MECHANISM_BACKLOG](MECHANISM_BACKLOG.md), AU rules in [AGENT_USAGE_RULES](../../../AGENT_USAGE_RULES.md).
 
@@ -265,3 +265,78 @@ Each level reads the same state (money, time, stock), so moving up or down later
 **F12, one vocabulary.** Round 5's levels map onto LSD209: L0 = narration and cards, L2 = days, L3 = step grain. Only L1 (period settlement) is new, and it belongs in the LSD209 owner when a window first needs it.
 
 **LATER / DELEGATE, not dispatched:** add the one-line pointer from WA45 to AD49 (tiny, doc; WA45's file carries other sessions' edits, so hunk-only); list the first anchors (ch17 wage, ch23 change, ch27 prices) with checked locators in the arc `$` ledger (small, Sonnet; done when each cites a paragraph); the L1 line in LSD209 when needed.
+
+
+## Round 7 (2026-11-03; proposals under AD32, none accepted; per-arc picks after ch54, priced from the measured ch32-54 sweep)
+
+Nothing here is a decision, a brief or a dispatch. Weibao's accepted lines stand (mechanisms lead and windows follow; AD47 reachability floor; AD49 money chain). USER_VISION and PROJECT.md are untouched. Agent-verified from the receipts [KJ3P](KJ3P_IMPLEMENTATION_RECEIPT.md) to [KJ3Z](KJ3Z_IMPLEMENTATION_RECEIPT.md), the [backlog](MECHANISM_BACKLOG.md) and the [workflow](BOOK_ABSORPTION_WORKFLOW.md); not human-reviewed.
+
+### What the sweep measured (verified from the receipts; supersedes round 1's rates)
+
+| Fact | Measured | Round 1 assumed |
+| --- | --- | --- |
+| Window size | 11 windows (kjw6-kjw16), about 2 chapters each (ch32 to ch54 P079), 16-25 acts each, 224 acts in all | about 1.8 chapters, 5-6 intents |
+| Acts per chapter at deep | about 8 early (kjw6-kjw11, 16-19 acts), about 12 from kjw12 on (25 acts per 2 chapters) | about 3 stages per 1,000 words, about 6 per chapter |
+| Window wall time | read 25-35 min, author 30-75 min (rising with acts), proof 268-829 s for a clean run, so about 1.5-2 h per window, one window at a time | about 20 min per 1.8 chapters |
+| Proof ceiling | 25 acts is the practical ceiling: kjw15's final boot timed out after 1,613 s of acts and persistence ran from the saved checkpoint; kjw10's browser closed twice and it ran in two parts | none |
+| Corrections | 1-3 per window, mostly over-length strings (about 35 in kjw16) and one runner rule | not counted |
+| Mechanisms | none of B2-B6, B8, B11, B12, R1-R9 built; all 11 windows still passed on facts and notes | windows wait for mechanisms |
+
+**F13, the deep cost was understated.** Round 1 priced the volume at about 35 serial hours. The measured deep rate is about 1.75 h per 2-chapter window, so the 159 chapters after ch54 are about 80 windows and about 140 h serial at all-deep. Treat round 1's hour figure as wrong; its stage counts stay an upper bound for authored beats.
+
+**F14, gated beats degrade gracefully, with one exception.** Every unbuilt mechanism fell back to a fact or note and the chain still ran (KJ3P-KJ3Z gated tables). The exception is money: the sweep ends with purse 787 as a ceiling because the 2,400-pence commission share and Neil's reward were never settled on screen (KJ3Z, money). Medium and light lean harder on settled quantities, and A2's diary and club income rows are the first place a ceiling stops being honest (see Q-W2).
+
+**F15, depth is cheapest to change at a window seam.** The sweep switched topic every window with a saved checkpoint and pinned fact keys as the only coupling, so a depth change at a window boundary costs nothing extra.
+
+### Grain, floor and the three depths (proposed mapping, one vocabulary)
+
+Deep = L2/L3 beats at step grain. Medium = L2 days with D rows at beat grain and one or two choices per day. Light = L0 cards and L1 period lines. Every pick below keeps the AD47 floor: each canon step stays reachable as a step, card or montage day, so "light" never means one stage for a whole sub-arc. Rows with a `withheld` entry, an unknown net or a plant a later scene reads stay at beat grain at any depth. Money, prices, time windows, rites and potion steps stay exact (LSD217, AD49).
+
+### Per-arc picks (all proposed)
+
+Costs use the measured deep window (about 2 chapters, 1.75 h). Medium assumes about 3.5 chapters per window and about 1.3 h (assumption: no medium window has run). Chapter counts come from the arc cuts above; cuts after ch84 are still title-based, so every number past A2 is provisional until that arc's seam read.
+
+| Arc (chapters) | Proposed pick | Grain and floor | Reason | Cost (windows, serial hours) | Gated mechanisms that fall back |
+| --- | --- | --- | --- | --- | --- |
+| A1 ch25-54 | done at deep (the round-1 recommendation was followed) | L2/L3 beats, floor met | built and natively proven end to end | 15 windows (kjw2-kjw16) | see F14 and the KJ3Z closing table |
+| A2a ch54 P080 to ch60: diary, club income, first services | **medium, with first uses deep** | L2 days, D rows at beats; the first halfpence sale, diary trade and service are beats | highest money density; sets the income loop later arcs spend from | about 4 windows, 5 h | R2 halfpence, R9 services: money facts only until R2 exists |
+| A2b ch61-66: symbols, Seer suggestions, aura line | **medium** | L2 days | repeats of mechanisms the sweep already ran on facts | about 2 windows, 3 h | R3/B3 aura and Spirit Vision stay facts (as in KJ3P-KJ3Z) |
+| A2c ch67-72: amulet, 2-049 | **medium, D rows deep** | L2 days; amulet and artifact beats at step grain | R5 and R8 are the large runtime work; saved builder time funds them | about 2 windows, 3 h | R5/U3 rites, R7 sealed artifact, R8 amulet decay: claims and clearance as facts |
+| A2d ch73-78: Ray Bieber battle and aftermath | **deep** | L3 beats for the fight, L2 for aftermath | danger and sacrifice rows are all D; the first battle is a progression beat | about 3 windows, 5 h | R5, harm engine seam for backlash: the fight runs on facts and existing combat only |
+| A2e ch79-84: banquet, herb store, carving, Elizabeth | **medium** | L2 days; cards for pure routine | mixed D and F; low runtime need | about 2 windows, 3 h | R9 referral, document clearance R6 |
+| A3 ch85-129: Daly's cases, Azik, Rampager (provisional) | **medium on rows with a spend, danger, new mechanism or appointment; L0 cards on pure investigation rows that have no `withheld`, no unknown net and no later plant** | each clue row stays a card or montage day, never one stage per sub-arc | investigation is low priority (Round 2) and likeliest to repeat beats; floor kept | about 11-13 windows, 15-17 h (about 23 windows, 40 h if deep) | R1 acting and mediumship, R4 gathering display, probe #3 not yet run |
+| A4 ch130-160: Backlund, gathering, deals (provisional) | **medium, deal and trade scenes deep** | L2 days; costed deals at step grain | decision-heavy and cost-heavy scenes carry the loop; study and waiting stretches are cards | about 9-10 windows, 12-13 h | R4 gathering trade, R7 sealed items, a non-Loen currency table (AD49 anchors needed first), B11-style text roles for new Backlund cast |
+| A5 ch161-185: Inverted Mausoleum to the Clown potion (provisional) | **deep** | L2/L3 beats; potion, acting and first abilities at step grain | the progression payoff the player earns; medium risks folding the acting method into prose | about 12-13 windows, 22 h | **a second potion chain**: B1 built the Seer chain for the BE seat, and the Clown drink, acting method and new abilities need an equivalent (large, unscoped); until it exists the drink and abilities are facts, as Spirit Vision was |
+| A6a ch186-204: the ball to the lead-up | **medium** | L2 days | lower stakes than the finale | about 5-6 windows, 7-8 h | R6/R7 sealed items, B8 firearms if infiltration needs them |
+| A6b ch205-213: finale to Another Look | **deep** | L3 beats | every danger and sacrifice is a D row; the part the player remembers | about 4-5 windows, 8 h | R5 rites, harm seam |
+| Light anywhere | **not offered** | below the AD47 floor for any stretch Klein can act in | see Q-W3 | none | none |
+
+**Totals (proposed, serial).** Mix above: about 56 windows and about 80 h. All medium: about 45 windows and about 60 h (assumes the medium rate holds). All deep: about 80 windows and about 140 h. The mix costs about 57% of all-deep, and its largest saving is A3.
+
+### Which picks are safe defaults and which need Weibao
+
+**Safe defaults (reasonable, reversible, no new direction; proceed unless he objects):**
+- S1 Depth changes only at window seams, with the depth recorded per window in the receipt.
+- S2 Novelty rule: first use of a mechanism deep, repeats medium (already a proposal in Round 2; it matches how A1 actually ran).
+- S3 Beats with an unbuilt gate ship as facts and notes, with the fallback named in the receipt (proven eleven times).
+- S4 Authored F-row merging only; any F row with `withheld` or an unknown net stays deep.
+- S5 Order: A2 next from the next boundary after ch54 P079, then a seam read of A3 before anything past A2 builds.
+- S6 Light is not offered for any actable stretch (matches the floor).
+- S7 One window at most 25 acts, split at a scene seam rather than past that.
+- S8 Deep keeps the A1 window pattern: one haiku reader, one Sonnet builder, native proof from the previous checkpoint.
+
+**Needs Weibao's choice (taste, scope or irreversible):**
+- Q-W1 **A5 deep (about 22 h, plus a second potion chain) versus medium (about 13 h).** Proposed deep. It is the largest single spend after A3 and depends on a runtime build that is not scoped.
+- Q-W2 **Whether A2 starts before R2 and an L1 Nighthawk wage line exist.** Proposed: build R2 (and the L1 line with its AD49 anchor) before A2a, otherwise the purse stays a ceiling through the whole income arc. This is a build-order and save-compatibility question.
+- Q-W3 **A3's "L0 cards on pure investigation rows" (about 23 windows down to about 12).** Proposed yes, but investigation is low priority by his own steer and he may want it deeper or thinner.
+- Q-W4 **A2d (the first battle) and A6b (the finale) at deep.** Proposed yes; he may prefer medium for the first battle if a fight system is not ready.
+- Q-W5 **The post-ch84 cuts.** Title-based only; accept them as seam-read targets or ask for a different split.
+- Q-W6 **Total budget.** The mix is about 80 serial hours; he may want a smaller or larger first slice (for example A2 only) before committing the rest.
+
+### Measurement before A3 (proposed, not dispatched)
+
+Run one A2 window at medium and record builder minutes, corrections, fold-style losses and acts per chapter against the deep numbers above (this was already a LATER item in Round 3). Done when those numbers sit in that window's receipt; A3's pick is re-priced from it.
+
+### Status
+
+Stage and hour figures: deep rates measured, medium assumed, chapter counts after ch84 provisional. No reader beyond those already run was started; no brief, code or pack edit was made by this round.
