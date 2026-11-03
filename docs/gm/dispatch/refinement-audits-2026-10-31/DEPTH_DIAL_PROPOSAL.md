@@ -394,3 +394,61 @@ Not worth a bar: a single scene with one decision (stays a beat) and any row wit
 
 **LATER / DELEGATE, not dispatched.** (1) Bar design check: can checks, programs and the away bank carry a case with anchors and a keyed draw (small, Sonnet, read-only; done when a gap list with locators and a state-shape sketch exists). (2) Downstream-reader list: which later states read each variance quantity (small, Sonnet; done when each variance has a named consumer or is dropped). (3) Window-runner band asserts for bar windows (small, Sonnet; done when a runner accepts a clock band and a fixed draw key). (4) Clown advancement scope-to-build after R1 (medium, Sonnet high; done when a focused test advances the BE seat from Seer to Clown and a native run drinks it). (5) Farming and slot palette (small, Sonnet; done when one doc extends LIFE_SIM_NORTH_STAR, only when a world needs it).
 
+
+## Round 10 (2026-11-03; proposals under AD32; reconcile pass on the depth-dial direction; advisor pass run; nothing accepted)
+
+Weibao's words: "Variance should only be for unstated, for non canon/parallel worlds of the same world, this is sort of a way to help us work on parallel worlds and variation stuff for long term." Then: investigation "would just be like an event like reading or something"; "anything that has to be repeated much should be abstracted? even with abstraction, we need to consider implementing variance, procedural stuff, and more accordingly even for abstraction?" His line is direction. The recording step (USER_VISION and the owning rule) is not done here, because this session was told not to touch those files; it is offered as a follow-up below.
+
+### Corrections to Rounds 8-9
+
+**F18, F16 is partly wrong: a bar can ride on an existing effect.** Read at the producer, state owner and one consumer path, not run:
+- `src/simulation_contracts.js:81` validates a `progress` effect (`track`, `field`, finite `amount`); place-act rows pass effects through (B1 receipt, "Supported route for content").
+- `src/simulation_effects.js:451-453` settles it into `simulation.progression[actor][track].values[field]` (never below zero), with `branches` and `receipts` beside it.
+- `src/simulation_effects.js:190-191` exposes every value as the fact `progress.<track>.<field>`, so a later place-act condition or a canon precondition can read the bar.
+So a filling bar needs no new state: a counter, acts that add to it, and conditions that read it. **What is still missing** is (a) a draw-driven amount, since rows carry fixed numbers, (b) a threshold report (a settled message when the bar crosses a mark), (c) anchors the bar cannot skip (the constraint store already windows canon beats, B9). `src/absorb_p23/reading/runtime.js` is Proto23's reading, a separate state (`current`, `receipts`) for another world, not a carrier for the BE seat. F16's "new state" claim stands only for (a)-(c), and the size of those is unknown until the design check.
+
+**F19, the draw helper exists; reuse it, add no RNG.** `src/keyed_generation.js` exports `keyedUnitFor(worldSeed, stream, key, draw)`, a pure draw with no cursor and no save field (shop stock uses it), over `seeded_streams.js` `unitDecision`; GR1-GR8 are the accepted contract (pure generate, addressed draws, freeze on reveal, constrain-retry-fallback, layered tables). Variance for a slot should be a GR2 addressed draw keyed by world seed, slot id and day, not a new random source.
+
+**F17 narrowed, not deleted.** Round 9 put wound, favour and time-band variance on the canon run. Weibao's line limits it. Proposed reading, his words beside it:
+- "only for unstated": variance touches only quantities the text does not state (LSD217, AD49). Unchanged.
+- "non canon, parallel worlds of the same world": **canon run** draws every unstated detail from one recorded root key (LSD107 conditioned draws), so the same canon run gives the same unstated values each time and the KJ window runners stay exact. **Parallel worlds of the same world** vary the root seed and set canon pull below 1 (LSD233), so unstated quantities diverge and stated anchors hold only as far as pull holds.
+- Round 9's runner band-asserts apply to parallel-world runs only. **Q-W7 is resolved by his words**, subject to him confirming this reading.
+- This is also the long-term parallel-worlds hook he named: the same slot primitive serves the canon key and a varied seed.
+
+### Reconcile ledger (original codes kept; evidence row reached stated)
+
+| ID | Claim and locator | Class | Owner and consumer | Evidence reached | Disposition |
+| --- | --- | --- | --- | --- | --- |
+| LSD217 / AD49 | Stated money, prices, windows stay exact; unstated may vary | duplicate of "only for unstated" | LEAD_LIFE_SYSTEMS_DESIGN line 582; RULES_INDEX AD49 | owner text read | cite, no new code |
+| LSD218 | Canon fixes the tier, play moves the cost | compatible variant (now scoped to the non-canon dial) | LSD design 24; consumers are the bar and combat | owner text read | read it as "tier pinned in the canon run; cost moves in parallel runs" |
+| LSD233, LSD244, LSD245 | Pull 1 canon pin, 0 free play; per-fact draw; pull derived, not saved | compatible variant: the dial is the parallel-world hook | LSD design 24 | owner text read | ACCOUNT FOR NOW; slot draws read pull, never store it |
+| LSD107 | "Constrained roll draws only canon-consistent outcomes, so details still vary" | **possible disagreement** with the new words if "vary" means per canon run | LSD design 313 | owner text read | flag to the LSD owner; not edited (file carries other sessions' edits). Compatible if the canon run keeps one recorded key |
+| TIMELINES_AND_DIVERGENCE, TIME_KEEPERS_AND_VARIANTS | Variants and divergence of a world | compatible variant, owner for parallel worlds | docs/ | header read only, not traced | cite; no new code |
+| GR1-GR17 (accepted contract), AD33 | Generators and draws accepted; procedural layouts still deferred (AD33) | compatible; scope limit | GENERATION_FOUNDATION_RULES; RULES_INDEX | owner text read | **This round does not reopen procedural layouts.** Variance in quantities and slot outcomes is in scope; layouts, maps and NPC-heavy generation stay deferred |
+| WA45 | Calibrated seeded runs: the book's option wins in most seeded runs; flipping the named input flips the choice | compatible, the existing verification | WORLD_ABSORPTION_RULES | owner text read | use it: canon key reproduces every anchor; other seeds diverge only in unstated quantities. No new gate |
+| S2 (novelty rule) | First use deep, repeats medium | owner of "repeated much is abstracted" | this file | proposal text | cite; no new rule |
+| F16 | Bar needs new state | **evidence correction** (F18) | `progress` effect and facts | source read, not run | narrowed to draw, report, anchors |
+
+**Unmapped residue (not traced):** whether place-act conditions can read `progress.*` facts for the BE seat; whether `unitDecision` streams are partitioned per world for a parallel run; the TIMELINES_AND_DIVERGENCE body; any existing canon-pull implementation in `src/` (LSD233 is a design line; I did not find or trace code); how parallel-world saves reference a root seed. All stay open.
+
+### One implementation recommendation (proposed; design check first, no build)
+
+**One slot primitive**, reused for investigation, repeat clients, gatherings, shifts, practice and later farming-style activities:
+- a **clock** (period or days) on the existing common clock;
+- an **effort input** (hours or choice per period), spent through native acts so costs and needs still apply;
+- a **bar** on the existing `progress` track (F18);
+- an **addressed draw** (`keyedUnitFor`, GR2) for the unstated outcome, with **canon pull applied** (LSD233, derived not saved: LSD245), so the canon key gives the recorded result and a varied seed gives a divergent one;
+- a **settled report** at thresholds, and **anchors** it cannot skip (canon beats from the constraint store, pinned fact keys);
+- per-world **tables as GR8 overlays**, outcomes **frozen once revealed** (GR3), so saves never reroll.
+Abstraction keeps stakes by the Round 8 test (visible pressure, effort choice, either-way outcome), and each slot names the downstream state that reads its variance or the variance is dropped (Round 9 F17). It adds no new rule family: S2 for "abstract what repeats", LSD217/AD49 for exact quantities, GR1-GR17 for draws, WA45 for calibration.
+
+### Open choices (continue the codes)
+
+- **Q-W10** Record Weibao's variance line (unstated only; parallel worlds of the same world; canon run on one recorded key) in USER_VISION and the owning rule line, and flag LSD107's wording. Needs him or the coordinator, because this session did not write those files.
+- **Q-W11** Confirm the reading that the canon run uses one recorded key (same unstated details every canon run) and only parallel runs vary (default yes).
+- **Q-W12** Whether the slot design check may start now (read-only; default yes), and whether canon-pull code exists to build on or only the design lines (to be traced).
+
+**LATER / DELEGATE, not dispatched.** (1) Slot design check: can `progress` plus place acts plus `keyedUnitFor` carry a case for the BE seat, and what is missing for a draw-driven amount, a threshold report and anchors (small, Sonnet, read-only; done when a gap list with locators and a state sketch exists, and the place-act condition path on `progress.*` facts is traced). (2) Trace whether canon-pull code exists and where parallel-world saves hold a root seed (small, Sonnet or haiku, read-only; done when locators or "not found" are listed). (3) Pointer from LSD107 to this reading (tiny, doc, hunk-only; done when the LSD owner accepts or rejects it). (4) Variance-consumer list per slot (small, Sonnet; done when each variance has a reader or is dropped).
+
+**Status.** Proposals; source read, not run; no code, tests or builds this round; the file edit is the only change.
+
