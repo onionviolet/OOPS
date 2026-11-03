@@ -2306,3 +2306,7 @@ Replaced in PROJECT.md item 1: "[KJ3O receipt] owns the current endpoint (Monday
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw8)
 
 Replaced in PROJECT.md item 1: the KJ3Q endpoint (second gathering live at the notebook news, ch23 through ch35 P083; nineteen slices, 243 intents; built through kjw7) with the KJ3R endpoint (the Divination Club reception with Glacis chosen, ch23 through ch38 P011; twenty slices, 259 intents; built through kjw8, kjw6-kjw8 native on the B10 bundle; kjw9 needs its own brief). Evidence: KJ3R receipt.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw9)
+
+Replaced in PROJECT.md item 1: the KJ3R endpoint (Divination Club reception with Glacis chosen, ch23 through ch38 P011; twenty slices, 259 intents; built through kjw8) with the KJ3S endpoint (Monday evening at home after the Glacis reading, Leonard, the armory and the fare talk, ch23 through ch39 P057; twenty-one slices, 275 intents; built through kjw9, kjw6-kjw9 native on the B10 bundle; kjw10 needs its own brief). Backlog row B11 (Glacis enrolment) added. Evidence: KJ3S receipt.
