@@ -5182,6 +5182,103 @@ export default {
      "completionCoLocated": true
     },
     {
+     "id": "book.mol.zorian.morning_home",
+     "revision": 1,
+     "label": "Wake, wash and eat breakfast at home · 3 min",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "costs": [],
+     "effects": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": 3
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.morning",
+       "stage": "seen",
+       "value": "A morning at home: you wake, wash, eat and look over the day's classes. Proposal row; the family house and its people arrive with the home content (G4).",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 3,
+     "claim": "book.mol.receipt.zorian_morning",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
      "id": "book.mol.zorian_talk",
      "revision": 1,
      "label": "Talk to Zorian about ordinary study, with his consent",

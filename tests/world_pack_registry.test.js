@@ -32,7 +32,7 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
     const loreItems = new Set(['Cyorian borrowed workshop packet', 'Cyorian single-cube tracing guide']);
     const loreKeys = new Set([...loreItems].map(id => JSON.stringify({id})));
     const original = value => Array.isArray(value)
-        ? value.filter(row => !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.')).map(original)
+        ? value.filter(row => !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.') && !row?.id?.startsWith?.('book.mol.zorian.')).map(original)
         : value && typeof value === 'object'
             ? Object.fromEntries(Object.entries(value).filter(([key]) => !loreKeys.has(key)).map(([key, child]) => [key, original(child)]))
             : value;

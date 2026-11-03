@@ -197,6 +197,10 @@ reading code on 2026-10-30; none is a decision.
 | G7 | Presentation keys outside the envelope | `yairpg.*` preference keys do not travel with Export (section 1a C). A player importing on a new browser loses layout, colors and hotkeys | Low priority; record any key that should travel |
 | G8 | Rule text still says "migration required" | AGENTS Safety, MR33 and AR6 read as strict while the 2026-10-17 decision relaxes them; lanes cite whichever they met first | This file is the reconciliation; cite section 4 |
 
+## 6a. Cyoria start marker (2026-11-03, proposal under AD32)
+
+`motherOfLearning.entryProfile` now accepts a second value, `book.mol.zorian@1`, beside `independent_nonmage_visitor`. An old save holds the old value and loads unchanged; a Zorian save (zero connections, zero visits, `book.mol.studentStatus` actor fact) is rejected by an older build's validator, which is the stated downgrade behavior. No migration is needed. The start owner is `src/book_world_mol_starts.js`; the Zorian resident record stays attached but inert (the native envelope requires every definition person).
+
 ## 7. Links
 
 - Code map: [S12](systems/PROGRESSION_WORLD_STATE.md#s12-persistence); world packs [S8](systems/PROGRESSION_WORLD_STATE.md).
