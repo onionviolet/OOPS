@@ -2318,3 +2318,7 @@ Replaced in PROJECT.md item 1: the KJ3S endpoint (Monday evening after the Glaci
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw11)
 
 Replaced in PROJECT.md item 1: the KJ3T endpoint (Friday noon after the routine week, ch23 through ch41 P066; twenty-two slices, 292 intents; built through kjw10) with the KJ3U endpoint (Friday afternoon on the third-floor landing after Leonard's commission and the search for the boy, ch23 through ch43 P084; twenty-three slices, 308 intents; built through kjw11, native on the B10 bundle, one 334 s run). kjw12 needs its own brief.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw12)
+
+Replaced in PROJECT.md item 1: the KJ3U endpoint (Friday afternoon on the third-floor landing, ch23 through ch43 P084; twenty-three slices, 308 intents; built through kjw11) with the KJ3V endpoint (Saturday dawn at the apartment door after the rescue, the night and the dream, ch23 through ch45 P080; twenty-four slices, 333 intents; built through kjw12, native on the B10 bundle, one 829 s run; the 430-minute sleep was accepted). kjw13 needs its own brief.
