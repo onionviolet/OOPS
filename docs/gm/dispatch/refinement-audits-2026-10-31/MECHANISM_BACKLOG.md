@@ -4,7 +4,7 @@ One board for what the story needs from the runtime, kept one arc ahead of the c
 
 | ID | Need | First consumer | Needs panel or display | Status | Owner and lane | Blocks |
 | --- | --- | --- | --- | --- | --- | --- |
-| B1 | BE-seat Seer chain: drink, stabilize, spirituality pool | ch32 P010 | potion and stabilization state on the existing character views | in progress (session `b1-be-seer`, own worktree) | Sonnet high; Opus only if the validator cannot be split | B2-B6, builds past ch31 |
+| B1 | BE-seat Seer chain: drink, stabilize, spirituality pool | ch32 P010 | potion and stabilization state on the existing character views | merged to master `3fda1c174`, implemented below floor ([receipt](B1_IMPLEMENTATION_RECEIPT.md)): no native run (no place-act row grants the source yet), four full-suite failures need an owner; content reaches it through place-act effects, not Seer commands | Sonnet high; Opus only if the validator cannot be split | B2-B6, builds past ch31 |
 | B2 | Darkened eyes visible to cast observers | ch32 P041 | none | queued after B1 | Sonnet high | none |
 | B3 | Spirit Vision switch and exhaustion condition | ch33 P034 | a visible on/off and exhaustion indicator | queued after B1 | Sonnet high | content M5 |
 | B4 | Energy as a legal cost in divination and ability steps | ch43 P063 | energy shown in the step cost line | queued after B1 | Sonnet high | Dowsing and divination content |
