@@ -30,3 +30,10 @@ test('verbatim run is hard, over-limit and unmatched money are soft', () => {
   assert.ok(money.some(p => p.type === 'money-figure-unmatched' && p.soft));
   assert.deepEqual(checkReader(row({summary: 'Klein pays 5 soli.'}), payload), []);
 });
+
+test('coarse rows and uncovered chapters are soft', () => {
+  const big = '## v1 ch5 Big\n' + Array.from({length: 60}, (_, i) => `P${String(i + 1).padStart(3, '0')} sentence number ${i} about nothing in particular here.`).join('\n') + '\n';
+  const r = checkReader({rows: [{id: 'x.1', loc: 'ch5 P001-P020', summary: 'whole stretch'}], seams: [], mechanisms: [], plants: []}, big, {spanLimit: 10});
+  assert.ok(r.some(p => p.type === 'coarse-row' && p.soft));
+  assert.ok(r.some(p => p.type === 'uncovered-paragraphs' && p.soft));
+});

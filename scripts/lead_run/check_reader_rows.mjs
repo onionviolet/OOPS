@@ -27,7 +27,7 @@ const strings = (v, path, out) => {
 };
 const MONEY = /\b(\d+(?:\.\d+)?)\s*(pounds?|soli|pence|penny|pennies|coppers?|halfpence)\b/gi;
 
-export function checkReader(out, payloadText, {limit = 30} = {}) {
+export function checkReader(out, payloadText, {limit = 30, spanLimit = 30} = {}) {
   const chapters = parsePayload(payloadText), problems = [];
   const norm = s => s.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ');
   const bodies = [...chapters.values()].flatMap(m => [...m.values()]).map(norm);
@@ -59,6 +59,22 @@ export function checkReader(out, payloadText, {limit = 30} = {}) {
       if (cited && !inCited) problems.push({id, type: 'money-figure-unmatched', soft: true, detail: `${m[0]} not found in the cited paragraphs (may be a derived sum or a spelled number; check the paragraph)`});
     }
   });
+  // Coverage: a row that spans most of a chapter hides the decisions inside it (ch32's drink and first Spirit Vision sat in one row).
+  const covered = new Map([...chapters.keys()].map(c => [c, new Set()]));
+  (out.rows || []).forEach((r, i) => locators(r.loc || '').forEach(l => {
+    let span = 0;
+    for (let c = l.ch; c <= l.toCh; c++) if (chapters.has(c)) span += (c === l.toCh ? l.to : Math.max(...chapters.get(c).keys())) - (c === l.ch ? l.from : 1) + 1;
+    if (span > spanLimit) problems.push({id: `rows[${i}] ${r.id || ''}`, type: 'coarse-row', soft: true, detail: `${r.loc} spans ${span} paragraphs`});
+    for (let c = l.ch; c <= l.toCh; c++) {
+      if (!covered.has(c)) continue;
+      const a = c === l.ch ? l.from : 1, b = c === l.toCh ? l.to : Math.max(...chapters.get(c).keys());
+      for (let n = a; n <= b; n++) covered.get(c).add(n);
+    }
+  }));
+  for (const [c, m] of chapters) {
+    const gap = m.size ? 1 - covered.get(c).size / m.size : 0;
+    if (m.size >= 40 && gap > .35) problems.push({id: `ch${c}`, type: 'uncovered-paragraphs', soft: true, detail: `${Math.round(gap * 100)}% of ${m.size} paragraphs sit in no row`});
+  }
   return problems;
 }
 
