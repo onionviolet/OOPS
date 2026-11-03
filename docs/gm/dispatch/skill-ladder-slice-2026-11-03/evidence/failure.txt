@@ -1,0 +1,2 @@
+AssertionError [ERR_ASSERTION]: Ladder gives max stamina +10: Sleeping 3 Easy rest +5; Patience 4 Waits it out +5. Sound Sleeper (granted day 1) recognizes the deed and adds nothing itself. | Ladder gives Meditation xp x1.05: Patience 2 Unhurried x1.05. | Ladder gives Patience xp x1.04: Sleeping 4 feeds Patience x1.04.
+    at file:///Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/agent-a99cafb056410fd34/scripts/playtest/skill-ladder.mjs:76:78

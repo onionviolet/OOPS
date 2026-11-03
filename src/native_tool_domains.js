@@ -27,6 +27,7 @@ import {configureStoryInsight} from './story_insight_domain.js';
 import {configurePledges} from './pledges_domain.js';
 import {configureLifeEvents} from './life_events_domain.js';
 import {configureSkillRecords} from './skill_records_domain.js';
+import {configureSkillLadder} from './skill_ladder_domain.js';
 import {configureReturnDigest} from './return_digest_domain.js';
 import {configureAwayBank} from './away_bank_domain.js';
 
@@ -49,6 +50,7 @@ export function configureNativeToolDomains(operations) {
     configureShopLocks({...operations,writable:operations.tradeWritable||operations.writable});
     configureStoryInsight(operations);
     configureSkillRecords({continuation:operations.continuation,root: operations.root, actor: operations.actor, world: operations.world, persist: operations.persist, skills: operations.skills});
+    configureSkillLadder({actor: operations.actor, skills: operations.skills, redrawSkill: operations.redrawSkill});
     configureReturnDigest({root: operations.root, persist: operations.persist, writable: operations.writable});
     configurePledges({...operations, clock: () => calendarMinutes(current_game_time)});
     configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});

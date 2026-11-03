@@ -28,6 +28,6 @@ export function simulationMethodLayers(state, registry, actorId = "player") {
     return {methods,sources};
 }
 
-export function skillInspectorView({state, registry, nativeSkills = [], actorId = "player"}) {
-    return {native:nativeSkills.map(({skill,progress})=>nativeSkillLayers(skill,progress)),...simulationMethodLayers(state,registry,actorId)};
+export function skillInspectorView({state, registry, nativeSkills = [], actorId = "player", why = []}) {
+    return {why, native:nativeSkills.map(({skill,progress})=>nativeSkillLayers(skill,progress)),...simulationMethodLayers(state,registry,actorId)};
 }
