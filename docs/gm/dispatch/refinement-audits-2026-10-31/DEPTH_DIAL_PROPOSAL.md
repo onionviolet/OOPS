@@ -679,3 +679,35 @@ Evidence, read from the cast pack and source, not played this round (`private_pa
 
 **Status.** Source and pack read; inspector row and test added; nothing played; no change to the pack.
 
+
+## Round 17 (2026-11-03; proposals under AD32; Weibao: other people's pathways will be needed too, in case they fight; Spirit Vision is tentatively an option-expander that may develop later, possibly into combat use)
+
+### F25, what exists for other people's abilities (read, not run)
+
+- **The cast carries no abilities.** `private_packs/lotm-cast/cast.json` has 1,502 people roles with `knows`, `relations`, `wants`, `tier`, `locator`; none holds a pathway, source, sequence or power (grep of their JSON). Only 51 are enrolled persistent people; the rest stay registry roles until a consumer wakes them (B11).
+- **A per-actor pattern exists, for original hostiles only.** `src/book_world_lotm_abilities.js` builds ability rows once per path stage and instantiates a command per actor (`ownerOf(actor,key)`; `definitionFor(['player', ...LOTM_HOSTILES])`); the three Tingen rogues hold sources `base` and `next`. So the same rows already serve the lead and an NPC. It covers the Gravedigger path, not Seer or the canon figures (Dunn, Old Neil, Leonard, Hanass).
+- **Granting is generic.** Source grants take any actor id (`src/source_suppliers.js`, `grantSource`; `simulation_effects.js:410`), and power copy/transfer already move techniques between actors. Unmapped: how the combat and encounter engines read an NPC's sources, powers and faculties (not traced; this decides how an NPC's Seer or Nightwatcher abilities would fire in a fight).
+
+### Proposal: one ability table per pathway, read by band for everyone (extends SLC114, LSD287, ABR1-ABR22; no new family)
+
+- **Seat-neutral rows.** Each pathway stage has one ability table (what it grants, costs, drawbacks, how it grows). The lead reads it by level; an NPC or canon figure reads the same table at the band their canon sequence names (SLC114 "everyone else reads the same table by band"). This is also the anchor-band column from Round 15 applied to people.
+- **Build on demand, not up front.** Only people a window or fight consumes get abilities: enroll and grant at their canon sequence on canon dates; everyone else stays a text role (B11 route B). First consumers to check: A2d (the Ray Bieber battle, ch73-78) and any Nighthawk fight in A3. Sequence-7 and above figures need only the rows their scenes show.
+- **Canon-stated feats are anchors** (AD49); everything unstated (how strong, how fast, how tired) is free to vary by the key and the world dial (Round 11), and the canon beat's outcome tier stays pinned. NPC variance in the canon run follows the same rule as the lead's.
+- **Cost of power creep (ACCOUNT FOR NOW):** an NPC who can use Spirit Vision or divination must pay the same pool and obey the same gates, or the lead's costs mean nothing; one pool owner per actor (B1's pattern per person), not per skill.
+- **Order:** Seer rows are the only chain built for the BE seat; the first NPC table to reuse is the one a consumer reaches first (likely Nightwatcher or Sleepless for Dunn and Old Neil in A2d), then the Seer table granted to Angelica and Hanass at their bands if a divination scene needs them.
+
+### Spirit Vision stays an option-expander, built to grow (tentative, as he said)
+
+- **Now (proposed default):** B3 grants it as a faculty with `development`, an on/off switch and exhaustion (Round 16 Q-W25); it expands options (aura reads, noticing lies, gating knowledge) and boosts no stats, because the text states none.
+- **Built so a combat use can arrive later without remodeling:** keep the faculty id and its `development` stable; add combat uses as new acts or power rows whose guards read `faculty.<id>.development` (and its active flag), not as a changed faculty. Thresholds (what unlocks at what development) live in content and are derived from the saved number, never saved as milestones (SLC112, SLC117), so a later ladder revision never rewrites a save.
+- **Likely future uses, as palette, not picks:** reading an opponent's aura for a weakness or its sequence band, seeing spirits and illusory forms in a fight, a short pre-combat read that lowers a surprise cost. Each is an option or an information gain first, then optionally a modifier, which keeps AD38 (works by its mechanism) and keeps the NPC rows symmetric (an enemy Seer sees the lead too).
+- **Development changes with play:** growth is authored use effects (and the option menu widening, IB5), so a Klein who uses it often gets more routes; the book's own stated progress is the anchor.
+
+**Open choices (five at most; codes continue).**
+- **Q-W27** Build NPC ability tables on demand, starting with the first fight consumer (default yes; avoid building tables for people no scene reaches).
+- **Q-W28** Confirm Spirit Vision's first form is option-only, with combat use added later as new rows reading `development` (default yes).
+
+**LATER / DELEGATE, not dispatched.** (1) Trace how the encounter and combat engines read an actor's sources, powers and faculties, and what an NPC needs to fire a Seer or Nightwatcher ability in a fight (small to medium, Sonnet, read-only; done when producer, owner and consumer have locators). (2) Pathway ability table for the first fight consumer, seat-neutral by band, with canon-stated anchors (medium, Sonnet high; AU13 plan and reading go-ahead first). (3) Spirit Vision as a faculty (B3, from Round 16) with a stable id and a development threshold table in content (medium).
+
+**Status.** Pack and source read; nothing run; no pack or source change; this file only.
+
