@@ -1,5 +1,7 @@
 # Depth dial per arc, LOTM volume 1 after Tingen (proposal, 2026-11-02; AD32, nothing here is accepted)
 
+**Status 2026-11-03:** read Rounds 3-6 first. Mechanisms lead and windows follow (accepted); the LSD209 grains apply; AD49 holds; ordinary-time levels and daily life are proposals; the per-arc stage tables in round 1 are a historical upper bound for authored beats, not a forecast.
+
 Answers row D of [BOOK_ABSORPTION_WORKFLOW](BOOK_ABSORPTION_WORKFLOW.md): "Weibao sets depth per arc after Tingen." Through the Tingen/ch24 stretch the depth stays as built. This page offers a choice per arc; it writes no brief, builds no stage and dispatches nothing. Sources: private spine `kj-seams-2026-11-02/V1_SPINE.tsv` (words are deterministic), the seam reads (ch32-54), the arc-2 row reads (ch55-84), [MECHANISM_BACKLOG](MECHANISM_BACKLOG.md), AU rules in [AGENT_USAGE_RULES](../../../AGENT_USAGE_RULES.md).
 
 ## What the three depths mean

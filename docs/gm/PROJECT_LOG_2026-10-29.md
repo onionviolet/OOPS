@@ -2278,3 +2278,7 @@ Superseded PROJECT focus line preserved verbatim (paths are relative to PROJECT.
 ```text
 1. **LOTM first through Klein’s full journey.** Use Klein’s developer playthrough to implement the first novel opening-to-ending as contiguous playable arcs ([workflow](docs/LEAD_LIFE_GUIDE.md)). The [campaign plan](docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md) owns sequence; [KJ3C receipt](docs/gm/dispatch/refinement-audits-2026-10-31/KJ3C_IMPLEMENTATION_RECEIPT.md) owns the new 27-stage, four-situation episode through English v1 ch13 and final verification. Five slices now contain 94 selected stages, not an exhaustive campaign denominator. Examination itself is next unqualified work. Existing combat L2b remains below floor in its own queue. Ordinary player starts remain lore-grounded and low-spoiler, after Klein’s route ([entry owner](docs/WORLD_ENTRY_RULES.md#developer-route-and-low-spoiler-player-starts-2026-11-01)); deeper systems, several paths and mechanically distinct worlds remain in the broader vision.
 ```
+
+## 2026-11-03: PROJECT.md next-step wording replaced
+
+Replaced in PROJECT.md item 1: "Ch24 P034 (the university withdrawal) is next; its brief and the following window's are written." Now: mechanism slices lead and book windows follow as consumers (Weibao 2026-11-02); the ch24 P034 to ch31 briefs are content-only on existing mechanisms and can build; the mechanism lane (B1-B6) gates ch32 onward.

@@ -1290,10 +1290,10 @@ Weibao: “The system lines up to the world through deterministic and rule based
 | Rank, clearance, organization standing | Ranks, pay, access, merit | S5, S6, GTR, ORGANIZATIONS | Documented only (clearance is wired thin, one world) |
 | Body, health, conditions | Injuries, durations, recovery, lifespan and aging | BHR1-BHR34 | Documented only |
 | Making and crafting | Recipes, yields, quality, costs | MR1-MR36, S16 | Documented only |
-| Items, stock, equipment | What is owned and what it is worth | WA40 (canon layer, seeded layer, deltas), ITEMS | Slice runners assert stock and money (KJ3K) |
+| Items, stock, equipment | What is owned and what it is worth | WA40 (canon layer, seeded layer, deltas), ITEMS | Slice runners assert money, position and facts (KJ3K receipt); stock not asserted in its runner |
 | Trade, exchange, institution currencies | Rates by place and time, fees, separate purses (Merit) | ECR, ECC25, ECX6 | Documented only; one conversion checked by hand in ch56 reads |
 | Divination, rites, rolls with stated reliability | Success tiers, fees, costs | Backlog B4, B5, R1, R5 | Not built |
-| Places, travel, adjacency | Walk minutes, access, who can be where | SR1-SR24, LSD157 | Presence preflight on each slice; walking map in play |
+| Places, travel, adjacency | Walk minutes, access, who can be where | SR1-SR24, LSD157 | Presence preflight ran on KJ3F-KJ3H; walking map in play |
 | Clocks and calendar | Day, week, windows, dates | S19, AD15-AD17, LSD156 | Pack clock claims; the civil clock for ch23 is still unresolved (workflow row C) |
 | Law, custody, danger | Who is looking, consequences, escalation | WA45, PIR | Documented only |
 | Reputation, influence, fame | Who knows what of whom, how far it spreads | WA33, S13 | Documented only |
