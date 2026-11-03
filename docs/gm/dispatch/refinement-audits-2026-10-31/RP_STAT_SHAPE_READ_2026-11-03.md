@@ -100,3 +100,19 @@ Each row says whether the RP evidence supports, bends or breaks the named LOTM l
 | Code edited | none |
 | Tests run | none (docs only); doc slip check run, no new hits |
 | Human-reviewed | no |
+
+## 6. More to consider (round 1, proposals)
+
+Question asked: should RP's stat system shape other worlds this deeply? Default: no. Use it as a source of mechanism shapes (WA33: each world keeps its own scale). A deep comparator read earns its cost only for worlds that publish their own panel (Solo Leveling, Shadow Slave and Second Life Ranker are the likely ones); read those panels directly and do not route them through RP.
+
+**ACT NOW (done in this file):** sections 2 to 4.
+
+**ACCOUNT FOR NOW** (fold into the LOTM build rows as notes, not as new code):
+- **RPM1. Two contest kinds.** An effect names its `contestKind`: a hard attribute comparison with a duration range, or the logistic for a whole exchange. Touches LCB1 tests and LCB4 gates.
+- **RPM2. A threshold ledger per world,** kept beside the smooth curve (LOTM 7, 4, 2; RP 50, 80, 100). One list per world, dial and reason on each entry.
+- **RPM3. An experience axis separate from raw stats.** RP's equal-stat loss to a high-level skill (RPF9) suggests checking that LOTM digestion and mastery (the L2 line) can beat a notch gap.
+- **RPM4. Fate scales magnitude** (RPF19); hit and miss stay on physical and ability axes.
+- **RPM5. Suppression paired with a named bypass and cost** (RPF16): any environment that damps powers ships its bypass.
+- **RPM6. Scale tags** added when a row or item first needs a second unit.
+
+**LATER / DELEGATE:** a one-page world scale card template (reference adult, unit, dials, threshold ledger, bypass list, evidence labels); a stated-outcome ledger for Reverend Insanity in the LCT style (haiku to extract, sonnet to review, effort M, done when each row has a locator and S/T/I label).
