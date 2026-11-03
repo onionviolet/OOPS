@@ -558,3 +558,58 @@ Interactions to watch: two skills reading one pool double-spend; a skill whose a
 
 **Status.** Source read this round: `simulation_effects.js` 183-191 and 410-432, `ability_skill_rows.js` header, RULES_INDEX router rows 65, 69, 121-122 and WER rows; nothing run, no code or tests.
 
+
+## Round 14 (2026-11-03; proposals under AD32; Weibao: extend the ideas and save each into the bank; how do future developments interface with and extend prior work; reconcile pass; nothing accepted)
+
+### F23, overlap found: another session's Skills round 6 already owns most of the skill ideas
+
+[SKILLS_AND_LEARNING_CONSIDERATIONS, Round 6](../../../SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-6-2026-11-03-milestone-ladders-titles-and-perks-in-a-leads-playthrough-more-skills-proposal-only) (SLC112-SLC122, registered in WRITEUP_REGISTER, uncommitted in the shared tree at read time) covers ladders, titles, cross-skill edges and four delegable deep dives. Round 12-13's skill lines are a **compatible variant** of it, not a second spec, so they map onto its codes instead of competing:
+
+| This file | Existing owner row | Classification | Disposition |
+| --- | --- | --- | --- |
+| R12 F21 "skill deep dives" (inputs, readers, bands, free variables) | SLC119 (source-game skill catalogue) and SLC120 (lead skill timeline per book, evidence bands LSD287, chapter-cited rows) | compatible variant; SLC120 is the same deliverable with locators | **Use SLC119/SLC120**; this file adds only the two columns they lack: the anchor band a canon beat needs and the list of unstated free variables |
+| R13 "skills share a pool; acting needs one owner" | SLC113 (a cross-skill edge is one owned row, shown on both ends; multiplies via `xp_multipliers`) | compatible; mine concerns shared energy pools and one growth owner | cite SLC113 for edges; the pool rule stays here |
+| R13 intake step 4 "freeze on reveal" and step 6 "display" | SLC112, SLC116, SLC117, SLC118 (perk derived from level, locked rows as promises, visible ladder edits, one inspector line) | duplicate of what they already cover | cite, do not restate |
+| R13 F22 growth owners (faculty development, power mastery) | SLC112/SLC114 read level through the bonus bucket and `skill_inspector.js`; my greps cover `faculty` and `power` in the simulation | **unresolved relation**: two skill-growth paths exist (the XP/skill ladder in the gameplay layer, and faculty/power in the simulation layer) | open Q-W21; not merged here |
+| R12 "carry with decay" | none | retired in Round 13 | none |
+
+Evidence row reached: owner text read (register row, SLC112-SLC122 headings), not traced through `skill_inspector.js` or `xp_multipliers`; nothing run.
+
+### The idea bank (each idea once; extends an owner; status proposed; next check)
+
+| ID | Idea | Extends | Next check (done = a locator or a test) |
+| --- | --- | --- | --- |
+| IB1 | Depth by arc: deep for progression and danger, medium for mixed, cards for pure routine; switch only at window seams (S1-S8) | AD47 floor, LSD209, WA45 | measure one medium window (R7 measurement) |
+| IB2 | Case bar: effort, wait, report, anchors it cannot skip | the `progress` effect (`simulation_effects.js:451`), place acts | slot slice with a native proof (R11 LATER 1) |
+| IB3 | Slot primitive: clock, effort input, keyed draw with canon pull, report, anchors; reused by clients, gatherings, shifts, practice, farming, journeys | GR1-GR17, `keyed_generation.js`, `canon_pull.js` | same slice |
+| IB4 | Variance only in unstated quantities; a key selects the variation; canon spine pinned by `fixed` beats; parallel worlds vary seed and dial | LSD107, LSD217, LSD218, LSD233, AD49 | trace where saves hold the world seed (R11 LATER 2) |
+| IB5 | Variable path, convergent outcome: skill-gated option menus and canon-pull agents, no decay curve | LSD218, WA45, place-act `requires` | gate on `faculty.*.development` for the BE seat (R13 LATER 2) |
+| IB6 | Anchor band: each canon beat states the skill band it needs, from the text | AD49 anchors, SLC120 | add the column to SLC120 rows |
+| IB7 | Source-world skill intake: classify once, name inputs and readers, gate by facts, state what carries per crossing | SLR1-SLR43, ABR1-ABR22, WER9, SLC112-SLC122 | two-skill walk-through (R13 LATER 1) |
+| IB8 | AD33 in tiers: quantities and slots now, schedules and encounters next, layout variants for parallel worlds later | AD33, GR1-GR17, procgen lanes P1-P4 | owner restates the line (hunk-only) |
+| IB9 | Investigation as a case bar, low priority; canon anchors fixed | AD47, B9 constraint store | slot slice |
+| IB10 | Abstractable life activities palette (garden, animal care, workshop queue, brewing, stalls, correspondence, journeys, upkeep) | LIFE_SIM_NORTH_STAR, SIMILAR_GAMES survey, `world_completion_crop_clock.js` | write only when a world needs it |
+| IB11 | Clown advancement as the next Sequence on the Seer source; R1 acting first | B1 (`book_world_lotm_be_seer.js`), R1 | confirm at the A5 seam read |
+| IB12 | L1 Nighthawk wage line and R2 halfpence before A2, anchored | AD49, ECC25, ECX6 | scope brief with paragraph anchors |
+
+### How future developments interface with and extend prior work (proposed method; no new rule family)
+
+The project already has the parts; the gap is that they are used inconsistently. Proposed default, for any new idea, round or session:
+1. **Search before writing:** the RULES_INDEX router row for the topic, the owner palettes it names, and the WRITEUP_REGISTER (it has the same-day overlap: this round found Skills round 6 only by reading the register diff). A grep of the codes for the topic and a `git status` of the docs folder are part of the search.
+2. **Classify the delta** (reconcile-project vocabulary): feature, exception, source question, workflow refinement, evidence correction, duplicate, compatible variant. A compatible variant cites the owner's code and adds only what is missing; a duplicate is dropped; a genuine disagreement is flagged to the owner, never edited around.
+3. **Name the extension point:** the owner code it extends, the producer, state owner and consumer it touches (a locator), and the distinguishing check. Without these it stays a note.
+4. **Register once:** one WRITEUP_REGISTER row (intake rule, section 2: file, topic, state, extends, open decisions, next action, done check); later rounds update that row's "latest round" cell. One IDEA_INDEX pointer line, not a copy. Ideas are listed by stable ID in the writeup itself (the bank table above).
+5. **Supersede by date:** a corrected line is marked corrected with a pointer (this file's F16, F17, F22), never deleted; old wording moves to the history surface.
+6. **Reuse before inventing:** a new code or gate only when no existing family covers it (the AGENTS rule "do not mint a competing specification"); depth, variance and skills here added no new family.
+7. **Record direction in one place:** Weibao's words go to USER_VISION and the owning rule line; rounds quote them and mark them proposals until then (Q-W10, still open).
+A cheap mechanical aid exists and needs no build: the register intake rule plus `check:rules` for the index. Whether to lint "a new round names an extended owner code" is a possible later check; not proposed as a gate.
+
+**Open choices (five at most).**
+- **Q-W10 (still open)** Record the variance line, the tiered AD33 reading and the intake path in USER_VISION and the owning lines (coordinator or Weibao; hunk-only).
+- **Q-W21** How the two skill-growth paths relate: the gameplay XP/skill ladder (SLC) and faculty/power in the simulation. Default: SLC owns learned skills and ladders; faculty/power own source-granted capabilities; a skill read by a canon anchor names which. To be traced.
+- **Q-W22** Start SLC119/SLC120 for LOTM first with the two extra columns (anchor band, free variables), or leave them for his SLC119-SLC122 pick (default: add the columns to whichever he picks).
+
+**LATER / DELEGATE, not dispatched.** (1) Trace the XP/skill ladder versus faculty/power split on one real skill (Spirit Vision) through `skill_inspector.js`, `xp_multipliers` and `faculty.*` facts (small, Sonnet, read-only; done when each path's producer, owner and consumer have locators). (2) Add anchor-band and free-variable columns to the SLC120 template (tiny, doc, hunk-only). (3) A lint that a new audit round names an extended owner code (small, Sonnet; only if the omission recurs).
+
+**Status.** Owner text read; nothing run; this file plus one WRITEUP_REGISTER row (hunk-only) are the only changes. The IDEA_INDEX pointer line was not added: its neighbouring lines carry another session's uncommitted edits and the hunk did not apply; offered as a follow-up (the line text is in the Round 14 reply).
+
