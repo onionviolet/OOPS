@@ -2334,3 +2334,7 @@ Replaced in PROJECT.md item 1: the KJ3W endpoint (Saturday noon on the streets, 
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw15)
 
 Replaced in PROJECT.md item 1: the KJ3X endpoint (Saturday evening at the family table, ch23 through ch50 P028; twenty-six slices, 383 intents; built through kjw14) with the KJ3Y endpoint (Sunday noon on Zouteland Street with the found wallet after Old Neil's ritual lesson, ch23 through ch52 P035; twenty-seven slices, 408 intents; built through kjw15, native on the B10 bundle in two parts joined by a checkpoint; the 695-minute night was accepted). Money holds 787 with the commission share still pending. kjw16 is the final window and needs its own brief.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw16, final window)
+
+Replaced in PROJECT.md item 1: the KJ3Y endpoint (Sunday noon on Zouteland Street, ch23 through ch52 P035; twenty-seven slices, 408 intents; built through kjw15) with the KJ3Z endpoint (Sunday 4:24 p.m. at the Divination Club with the first client, ch23 through ch54 P079; twenty-eight slices, 431 intents; built through kjw16, native on the B10 bundle in one 617 s run). Money holds 787 with the commission share still unsigned on screen; the pool is 0/3. The KJ3Z receipt carries the volume-1 closing section (end state, fact-key counts, gated beats by code, unbuilt mechanisms, native proof by window). This ends the ch32-54 sweep range; no kjw17.
