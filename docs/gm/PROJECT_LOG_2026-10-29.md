@@ -2326,3 +2326,7 @@ Replaced in PROJECT.md item 1: the KJ3U endpoint (Friday afternoon on the third-
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw13)
 
 Replaced in PROJECT.md item 1: the KJ3V endpoint (Saturday dawn at the apartment door, ch23 through ch45 P080; twenty-four slices, 333 intents; built through kjw12) with the KJ3W endpoint (Saturday noon on the streets after the apartment and the company morning, ch23 through ch47 P069; twenty-five slices, 358 intents; built through kjw13, native on the B10 bundle, one 597 s run). The commission share (2,400 pence) stays pending because the text does not show the signing; money holds 787. kjw14 needs its own brief.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw14)
+
+Replaced in PROJECT.md item 1: the KJ3W endpoint (Saturday noon on the streets, ch23 through ch47 P069; twenty-five slices, 358 intents; built through kjw13) with the KJ3X endpoint (Saturday evening at the family table after the Divination Club, ch23 through ch50 P028; twenty-six slices, 383 intents; built through kjw14, native on the B10 bundle, one 665 s run). Money holds 787 with the commission share still pending; the club fee and the note to Benson are text-shown facts, not debits. kjw15 needs its own brief.
