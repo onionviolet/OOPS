@@ -186,7 +186,7 @@ Weibao: “Yes, lead with them”. Accepted: mechanism slices lead, and book win
 
 **F1, this overlaps existing direction.** Mechanisms before bulk review was accepted by Weibao (LSD168); LSD201 and LSD156 are ACCOUNT FOR NOW lines. Three grains exist as a proposed default (LSD209: **beats** played step by step, **days** as montage, **narration** as journal and knowledge), with every canon step reachable as a step, card or montage day (AD47 floor; LSD167 card first, mechanism later upgrades it). So the depth dial should not run a second vocabulary. Mapping, proposed: **deep = beats at step grain; medium = days at montage grain with one or two choices; light = narration and cards.** Rows that fix money, prices, time windows, rites, potion steps or what Klein knows stay exact (LSD217). Round 1's "light = one stage per sub-arc" stays below the floor.
 
-**F2, "playing their own life" changes what a routine row is.** A routine (F) row is a day the native mechanisms produce (job shifts, wages, rent, siblings, study, clients, the Monday gathering), not a scene to author. Authoring cost moves to mechanisms; canon events (D rows) become anchored windows on the life clock (LSD156). Quiet time in an ordinary life is a chosen routine under CA2-CA5, not a scripted fold, so folding staying off is consistent. Investigation (your low-priority steer) becomes a duty routine of the Nighthawk job with canon beats only where the text has a decision, danger or spend.
+**F2, "playing their own life" changes what a routine row is. (Overweighted daily-life simulation; narrowed by Round 4 F6-F8.)** A routine (F) row is a day the native mechanisms produce (job shifts, wages, rent, siblings, study, clients, the Monday gathering), not a scene to author. Authoring cost moves to mechanisms; canon events (D rows) become anchored windows on the life clock (LSD156). Quiet time in an ordinary life is a chosen routine under CA2-CA5, not a scripted fold, so folding staying off is consistent. Investigation (your low-priority steer) becomes a duty routine of the Nighthawk job with canon beats only where the text has a decision, danger or spend.
 
 **F3, the stage counts above lose most of their meaning.** They price authored steps. Under F2 the cost is the mechanism list (B2-B6, R1-R9) plus beats. Read the per-arc stage columns as an upper bound for deep beats, not a forecast.
 
@@ -210,8 +210,27 @@ Run: headless `yairpg-game` MCP on the live repo bundle (`build.kind: live`, not
 | Move between places | **Works** | Six 2-minute walks from the flat; walking to Sline Bakery ran as timed work |
 | Wait with a purpose | **Works** | "Wait until evening, 99 min" and "Wait until the day of your interview, 459 min" offered |
 | Talk, rites, making, rest and meals | **Present, not exercised** | Menu groups listed at the flat; I did not use them |
-| Time passing with no action | **Missing as life** | One stepped day moved the clock only: no wage, rent, sibling or meal event appeared in the changed lines; hunger is off by default; the beat note read "restored (a coincidence carried the day to where you stood)", so the canon run holds Klein in place |
+| Time passing with no action | **Not a gap by default (see Round 4)**; originally read as "missing as life" | One stepped day moved the clock only: no wage, rent, sibling or meal event appeared in the changed lines; hunger is off by default; the beat note read "restored (a coincidence carried the day to where you stood)", so the canon run holds Klein in place |
 | Earn and spend loop | **Unverified, no income seen** | No wage or job action offered; money is in the inventory header (2,760 pence), not checked after the day |
 | Shop at the bakery or market | **Unverified** | Bakery arrival showed no local actions in the changed lines; I did not look at the full list |
 
 Reading: the probe supports F2's worry in one respect. Idle days do not currently produce a life (the wait and step commands pass time only), so routine rows still have to be authored or the daily-loop mechanisms (wage, rent, household, meals) have to exist. It does not show which of those exist, because no work or household action was reached. A real day-of-life trial needs a bounded list of the loops to try on the pinned bundle with the new BE Seer route. Limits: 1 stepped day took about 155 s wall; first replies are 15-25k characters; `game_load` only reads from the MCP temp folder. Reported once via `game_report_limit`.
+
+
+## Round 4 (2026-11-03; proposals under AD32, prompted by Weibao: "Are we putting too much effort into daily life? consider the proto23 and yair gameplay, they don't have much daily life, more to consider? ... How do other games handle these", with an advisor pass)
+
+**F5, yes, the plan overweighted daily life.** F2 and the day-of-life probe framing read "idle days produce nothing" as a defect. In YAIR and Proto23 style play, time passes through the activity the player chooses and idle time produces nothing; that is the default, not a gap. The fork already has a "Find work" location group (`src/display.js:2506`), `src/activities.js` jobs, an away bank ("plays the current routine forward at the normal pace and stops at any choice"), and "Wait until X" commands. Not yet checked: whether a BE-seat life can start a job, and the Blackthorn office was never visited in the probe. The session `klein-daily-life` was told to finish its read-only table on that question and to hold phase 2 (no code) until Weibao answers.
+
+**F6, how other games handle ordinary time (recall, not checked this session; the repo survey [SIMILAR_GAMES_BEYOND_PROTOLIKE](../../../research/SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md) F5, F9, F12-F14 is the sourced version).**
+- Persona: calendar slots with deadlines; a day is two or three choices.
+- Princess Maker: pick a weekly schedule, then read a report of results.
+- Fallen London: pressure as qualities (money, suspicion), no simulated day.
+- Crusader Kings and Football Manager: time runs until an event interrupts; no needs.
+- Arx (survey F5): a weekly ledger with one report line. Fabled Lands (F9): the whole campaign as a flag bag.
+- Pattern: ordinary time is coarse; pressure lives in a few exact quantities (money, debt, deadlines, suspicion); time advances until something interrupts; a report shows what changed. That is LSD209's day grain (schedule, costs, one or two choices, settled by outcome) and what the away bank already does. LSD217 keeps money, prices and time windows exact, so the book's money pressure survives coarse days.
+
+**F7, proposed default.** Daily life is pressure plus a chosen routine plus interrupts plus a report, built from existing systems. Book money settles in coarse periods (for example a weekly wage line) only where the source fixes it. Effort goes to verbs (B2-B6, R1-R9) and canon beats; no standalone wage, rent or meal mechanism is built before the gap table says an existing system cannot carry the book's pressure.
+
+**F8, sequencing.** B1's native proof needs a consumer: the ch32 P010 drink. The ch24 P034 to ch31 windows are content-only with briefs written (kjw2, kjw3), so building them toward ch32 unblocks the mechanism lane more than any daily-life build. They belong to the coordinator; named here, not started.
+
+**LATER / DELEGATE, not dispatched:** amend F2's stage-count discussion after the gap table lands (small, doc); decide whether the weekly wage line needs any new code or only a content row (done when the table names the owner).
