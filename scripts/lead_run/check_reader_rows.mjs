@@ -3,7 +3,7 @@
 // Catches what past reads got wrong: locators that do not exist or sit outside the window, fields over the word limit,
 // verbatim quotation, and money figures in a row that appear nowhere in the paragraphs it cites.
 // Hard problems (locators, verbatim runs) fail; soft ones (word limit, unmatched money) are listed for the checker. It cannot tell a locator that exists from one that points at the right paragraph; sample those against the text.
-// Run: node scripts/lead_run/check_reader_rows.mjs <out.json> <payload.txt> [--limit 30] [--json]
+// Run: node scripts/lead_run/check_reader_rows.mjs <out.json> <payload.txt> [--limit 30] [--json] [--sample N]
 import {readFileSync} from 'node:fs';
 
 export const parsePayload = text => {
@@ -79,11 +79,22 @@ export function checkReader(out, payloadText, {limit = 30, spanLimit = 30} = {})
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const [outPath, payloadPath] = process.argv.slice(2).filter(a => !a.startsWith('--'));
+  const [outPath, payloadPath] = process.argv.slice(2).filter((a, i, all) => !a.startsWith('--') && !/^--(limit|sample)$/.test(all[i - 1] || ''));
   const li = process.argv.indexOf('--limit'), limit = li > 0 ? +process.argv[li + 1] : 30;
   const problems = checkReader(JSON.parse(readFileSync(outPath, 'utf8')), readFileSync(payloadPath, 'utf8'), {limit});
   const byType = {}; for (const p of problems) byType[p.type] = (byType[p.type] || 0) + 1;
   const hard = problems.filter(p => !p.soft);
+  const si = process.argv.indexOf('--sample');
+  if (si > 0) {
+    // Prints N evenly spaced rows with the first words of the paragraph each locator starts at, so a person can judge
+    // whether the locator points at the described scene. The excerpt goes to the terminal only; nothing is stored.
+    const out = JSON.parse(readFileSync(outPath, 'utf8')), chapters = parsePayload(readFileSync(payloadPath, 'utf8')), n = +process.argv[si + 1] || 5;
+    const rows = out.rows || [], step = Math.max(1, Math.floor(rows.length / n));
+    for (let i = 0; i < rows.length && i < n * step; i += step) {
+      const l = locators(rows[i].loc || '')[0];
+      console.log(`${rows[i].id} ${rows[i].loc}\n  says : ${String(rows[i].summary).slice(0, 120)}\n  text : ${l ? (chapters.get(l.ch)?.get(l.from) || 'MISSING').slice(0, 140) : 'no locator'}`);
+    }
+  }
   if (process.argv.includes('--json')) console.log(JSON.stringify(problems, null, 1));
   else { for (const p of problems.slice(0, 40)) console.log(`${p.id}: ${p.type}${p.detail ? ' ' + p.detail : ''}`); if (problems.length > 40) console.log(`... ${problems.length - 40} more`); }
   console.log(problems.length ? `${hard.length} hard, ${problems.length - hard.length} soft: ${JSON.stringify(byType)}` : 'PASS reader rows');
