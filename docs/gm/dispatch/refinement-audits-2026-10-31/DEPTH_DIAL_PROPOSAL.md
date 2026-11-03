@@ -711,3 +711,101 @@ Evidence, read from the cast pack and source, not played this round (`private_pa
 
 **Status.** Pack and source read; nothing run; no pack or source change; this file only.
 
+
+## Round 18 (2026-11-03; proposals under AD32; Weibao: Spirit Vision should become a use with a cost rather than on/off, with clue-finding in investigation and other ways; more depth; reconcile pass in place of a recap; nothing accepted)
+
+His words: "rather than on and off, maybe it should be use (with certain cost?) more to consider? It finding clues in investigation and more? Other ways to consider? There is a lot more depth needed for the proposal".
+
+### Reconcile ledger of Rounds 1-17 (what stands, by original code; evidence row: owner text and source read, nothing played)
+
+| Codes | Where | State now |
+| --- | --- | --- |
+| Rounds 1-2 tables (stages per arc, Round 2 novelty rule S2) | R1-R2 | **historical upper bound**; hours corrected by F13 (R7); stage counts price authored steps only (F3) |
+| F1-F4 | R3 | current; F2's daily-life weight narrowed by F5-F8 (R4) |
+| F5-F8, F9 (levels L0-L3) | R4-R5 | current; recorded as his direction (USER_VISION 2026-11-02/03 daily-life lines) |
+| F10-F12 | R6 | current; AD49 accepted principle |
+| F13-F15 | R7 | current (measured costs; gated beats degrade gracefully; switch at window seams) |
+| F16 | R9 | **corrected by F18** (a bar can ride on `progress`; new work is the draw, report, anchors) |
+| F17 | R9 | **narrowed by F20** (a key selects the variation; canon spine pinned by `fixed` beats; variance only in unstated quantities) |
+| F18, F19 | R10 | current (`progress` carrier; reuse `keyedUnitFor`) |
+| F20 | R11 | current (replaces "same on every canon run") |
+| F21 | R12 | current, **overlaps SLC119/SLC120** (F23); its "progress track per skill" line **corrected by F22** |
+| F22 | R13 | current (faculty development and power mastery own growth; `progress` only bars) |
+| F23 | R14 | current (compatible variant of SLC112-SLC122) |
+| F24, F25 | R16-R17 | current (Spirit Vision today; NPC ability tables by band) |
+| Q-W1 A5 depth | R7 | his chat reply "A5 makes sense" (not recorded as accepted) |
+| Q-W2 R2 first | R7 | **answered** "Fix R2", recorded; build order still needs a brief |
+| Q-W3 A3 | R7 | **superseded** by the investigation bar (recorded) |
+| Q-W4 battle deep | R7 | answered in chat ("Battle is fine"), not separately recorded |
+| Q-W5 cuts after ch84 | R7 | **deferred by him** to later seam reads |
+| Q-W6 total budget | R7 | open |
+| Q-W7 | R9 | **resolved** by his words (recorded) |
+| Q-W8 order after R1; Q-W9 farming palette | R9 | open (defaults: bar check first; wait) |
+| Q-W10 | R10 | **done** for his direction only (R15) |
+| Q-W11, Q-W12 | R10 | **resolved** (key gives variance; design check run in R11) |
+| Q-W13 first slot consumer; Q-W14 Tier 3 start; Q-W15 parallel seed | R11 | open |
+| Q-W16 first dive; Q-W18 canon anchor failure | R12 | open |
+| Q-W17 carry with decay | R12 | **retired** (R13) |
+| Q-W19 intake path; Q-W20 acting classification | R13 | open |
+| Q-W21 | R14 | **resolved** by SLC37/SLC42 |
+| Q-W22, Q-W24 SLC120 columns | R14-R15 | blocked: the row is in another session's uncommitted Skills round 6 |
+| Q-W23 inspector row | R15 | **done** (`b91fcda26`, tests pass) |
+| Q-W25, Q-W26 | R16 | **re-shaped here** (below) |
+| Q-W27, Q-W28 | R17 | open |
+| IB1-IB12 | R14 | current bank; IB-additions below |
+| S1-S8 | R7 | safe defaults, not recorded as accepted |
+
+### F26, a use with a cost already exists in the content, and it collides with KJ3Z
+
+Read from the cast pack and the builder notes (not run): costed Spirit Vision acts already exist, because `costs` may carry an energy `use` and cost reservation refuses when means are short (`simulation_contracts.js:119`, `simulation_effects.js:277`, refund on cancel at line 489). `kj3p.switch`, `kj3q.body`, `kj3q.room` and `kj3q.aura` carry `energy use`. KJ3Z's two aura reads (Angelica, Anna) were built as **facts only** at a 0/3 pool, because no meter existed to refuse them. **Gate on any B3 change:** once a use is metered and refuses at an empty pool, replaying KJ3Z fails those two acts. That is an AD49 anchor question, not a detail: either the text implies recovery between the reads (unstated, so free to model and the replay must add that recovery), or the use costs less than a pool point, or the text shows no cost (as KJ3Z noted). Resolve it from the paragraph before the cost is chosen, and re-run the KJ3Z native proof after.
+
+### F27, the book's own shape is a started state with a drain, plus deliberate deep reads: model it as both
+
+The builder's notes for ch33 give the gesture as "two taps at the glabella begin it, two more end it" and an exhaustion afterward (build-episode notes, derived from the brief, **not re-read at ch33 P034 this round**; check the paragraph before building). That is a sustained mode, not a one-off. Proposed shape, replacing "on/off" (Round 16 Q-W25, re-shaped):
+- **Cost while active:** a metered drain per minute of use on the spirituality pool (B1's pool), so staying on costs more the longer it runs. The rate is unstated in the text, so it is a free variable with a keyed band (Round 11).
+- **Cost per deep read:** a costed `use` act for a specific look (read an aura, search a room, trace a presence), spending extra pool and time; the result is an `observation` (below).
+- **Exhaustion:** the condition that ends or penalises a long session; its onset is unstated and free to vary.
+- **Exposure:** B2 (darkened eyes seen by observers) makes a use visible; "who noticed" is an unstated, variable cost, and an enemy Seer reads the same tell (R17 symmetry).
+- **Development** (faculty `development`) lowers cost or widens what a read can show; it never raises a stat.
+This is the same state both models need: an `active` flag with a metered drain, and costed acts that require it. Whether the first build is per-use, sustained or both is Q-W29; default both, because the text supports the started state and the clue acts need the per-read cost.
+
+### F28, the clue chain (a worked case, not a new palette), using what exists
+
+Primitive (read): `observation` effect (`simulation_effects.js:307-310`) copies a world fact into the actor's facts as `as` with `as.observedAt` and **asserts the world fact exists** ("No supported observation is available"); place-act `row.facts` seed world facts (`place_acts.js:50`). So a clue is a world fact; reading it is an observation. Copy-at-time is GR3's freeze on reveal, with nothing new needed; seeding the clue is mandatory or the read fails.
+Worked case (illustrative; the stretch is real, the routes and numbers are proposals, **not run, not paragraph-checked**): the search for the missing boy (ch41-45, KJ3U-KJ3V; B4's first consumer is dowsing at ch43 P063):
+1. **Clue fact** seeded in the world (where the boy is) with the book's answer as the anchor.
+2. **Routes to the same clue,** each a place act with its own time, cost, risk and guard:
+   - mundane canvass (asking, riding, hiring; time and money, low risk, slow);
+   - Spirit Vision read (per-read pool cost, exposure risk, partial result: traces and direction, not a place);
+   - dowsing divination (B4/B5 gate, energy cost, the canon route and the anchor).
+3. **Case bar** on `progress`: each route adds bar by a draw-banded amount (unstated detail), and the bar crossing a mark settles a report; the canon route guarantees the anchor is reachable, the others reach it later or dearer, converging on the same beat (IB5, LSD218).
+4. **Keyed draw** (`keyedUnitFor`, canon pull applied) for what the clue holds that the text leaves unstated (how clear the trace, how many false leads); the stated answer stays exact.
+5. **Variation falls out of the menu:** a Klein with more Spirit Vision development sees an extra or cheaper route, not a changed result.
+Same chain serves later clue stretches in A3 and beyond; each stretch seeds its clue facts and lists its routes.
+
+### More ways to consider (palette; proposed; each names the owner it extends)
+
+- **Reader-gated clues (IB13):** a clue fact names which readers can reach it (mundane, vision, divination, mediumship, document clearance R6); an unreadable clue stays hidden rather than locked, honoring AD3 (specialness found in play).
+- **Partial and false reads (IB14):** a read returns a band (direction, certainty) with an accuracy draw; false leads cost time, so a cheap read is a gamble. Variance only in unstated accuracy.
+- **Exposure and counter-reads (IB15):** B2 makes use visible; counter-measures (shielding, masking) are options for the opposing actor, symmetric for NPC seers (R17).
+- **Perception family on one seam (IB16):** Spirit Vision, aura reading, divination, dowsing and mediumship all become `observation` reads of hidden world facts with different guards, costs and risks, so a new perception skill from another world joins by adding a reader, not a mechanic (R13 intake path).
+- **Passive versus active:** a cheap passive notice (a prompt that something is odd, development-gated) versus an active costed read, so skill familiarity shows up as better prompts (R13 IB5).
+- **Combat later:** the same read as a pre-fight option (read an opponent's aura or band) once a combat consumer exists (R17).
+- **Time and place costs:** a read takes minutes and needs presence, so clues also gate travel and scheduling (L2 days; the common clock).
+
+### Constraints to account for now (no build)
+
+One pool owner per actor (B1) for switch, reads, divination and acting; faculty id stable with `development` a plain number (R17); effects read through facts (`faculty.*`, `knowledge.*`), not skill names; every clue seeded or the read asserts; costs reserve existing means and refund on cancel; replay checks (KJ windows) re-run on the changed bundle; B2 and B3 live in one BE-seat file area, so serialize with the B2/B3 session.
+
+**Coordination.** No B2 or B3 source changes exist in master or the visible branches (grep of `src`/`tests`; B3 is "queued" on the backlog). I sent the B2/B3 session one short message with his steer and this shape; its worktree, if any, is unmapped here.
+
+**Open choices (five at most; codes continue).**
+- **Q-W29** B3 first build: sustained mode with a drain, per-read costed acts, or both (default both; confirm at ch33 P034).
+- **Q-W30** Resolve the KJ3Z replay collision before metering (default: read the ch52-54 paragraphs for any stated recovery, then add it or lower the cost; re-run the KJ3Z proof).
+- **Q-W31** Adopt "a clue is a seeded world fact read by `observation`, with several reader routes" as the default for investigation (default yes; first worked on the boy search).
+- **Q-W32** Which perception ideas to bank (IB13-IB16; default all, as proposals).
+
+**LATER / DELEGATE, not dispatched.** (1) Read ch33 P034 and ch52-54 uses for cost, duration, exhaustion and any recovery (small, haiku read plus Sonnet check; done when each is a paragraph locator or "not stated"). (2) B3 as faculty with an active flag, drain, exhaustion condition and costed read acts, plus the KJ3Z replay (medium, Sonnet high; with the B2/B3 session; done when a focused test shows grant, drain, refusal at empty and the inspector row, and the KJ3Z native proof still passes). (3) One clue-chain slice for the boy search with seeded clue facts, three routes, a bar and a keyed draw (medium, Sonnet high; done when a native run reaches the anchor by two routes at different cost). (4) Add IB13-IB16 to the bank table when accepted (tiny).
+
+**Status.** Source and pack read; builder notes read, ch33 paragraph not re-read; nothing run; no code or pack change; one message sent to the B2/B3 session.
+
