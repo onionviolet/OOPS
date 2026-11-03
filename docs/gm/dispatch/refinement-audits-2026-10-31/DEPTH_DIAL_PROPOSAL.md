@@ -340,3 +340,25 @@ Run one A2 window at medium and record builder minutes, corrections, fold-style 
 ### Status
 
 Stage and hour figures: deep rates measured, medium assumed, chapter counts after ch84 provisional. No reader beyond those already run was started; no brief, code or pack edit was made by this round.
+
+
+## Round 8 (2026-11-03; proposals under AD32; Weibao's reply to Round 7, recorded here as his stated steer, not copied to USER_VISION)
+
+His words: fix R2; investigation is low priority, so maybe abstract it into a bar that progresses, you wait, and things happen or they do not; battle is fine; look further into the future later; some aspects can be abstracted a lot and still be interesting.
+
+**Reading, proposed.**
+- **Q-W2 resolves toward building R2 (halfpence and exact change) and the L1 Nighthawk wage line before A2a**, each with its AD49 anchor. Still a build order, so it waits for his go on the brief.
+- **Q-W3 resolves toward a stronger A3 than "L0 cards": investigation as a progress bar** (below). Q-W4 stands as proposed (A2d and A6b at deep). Q-W5 and Q-W6 stay open and are deferred to the next seam read, per "look further in the future later"; no cut after ch84 is confirmed.
+- **Principle, proposed:** a stretch can be abstracted heavily and still be interesting if it keeps three things: a pressure the player can see (the bar, a deadline, a quantity), a choice about where to put effort, and an outcome that can go either way. Abstraction removes steps, not stakes. This is LSD209's day grain plus L1 settlement applied to a whole stretch, so it adds no new vocabulary.
+
+**Investigation bar (A3 default, proposed).** One pursuit per case: a visible progress bar, the effort Klein assigns (hours per day, which lead, which method he has), a wait or "advance days" command, and a report. Each tick can produce a lead, nothing, a cost (time, money, a favour), a danger or a canon beat. Canon beats stay fixed anchors on the life clock where the text has a decision, danger, spend or withheld fact (AD47 floor, canon pull), so the bar fills toward them and cannot skip them. Pure clue rows become what the bar surfaces, not authored scenes. The simulation already has pursuit and event objects (`src/simulation_contracts.js`, `src/event_feed.js`); I have not checked that they carry a bar with chance-based outcomes for the BE seat, so that check is the first step and the build size is unknown. Cost estimate for A3 falls from about 11-13 windows to roughly 6-8 (assumption: authoring shrinks to the canon beats; no bar window has run).
+
+**A5, described to match (titles only; recall of the book, not read for seams; provisional).** The stretch runs from the Inverted Mausoleum through a Holy Artifact, the Clown potion, new abilities, promotion and a pay raise, an autopsy and zombiefication case, a lesson on mediumship, and "Behind the Gate" into the spirit world. Proposed shape:
+- **Deep, played step by step:** the potion and its acting method, the first use of each new ability, the mediumship lesson and the first spirit-world crossing. These are the progression payoff and new mechanisms, so they are beats.
+- **Abstracted a lot:** the Mausoleum expedition, the autopsy and zombiefication case and the artifact's handling run as a case bar like A3 with canon beats as anchors; promotion and pay raise are one L1 settlement line (a new wage figure, an anchor) with one choice; downtime between is a chronicle card.
+- **What stays interesting:** acting is a quantity the player manages (how well Klein plays the role advances digestion), the case bars carry risk and cost, and the abilities change what the bar can do (a new method opens a lead or adds risk).
+- **Cost, proposed:** about 8-9 windows (down from 12-13 at full deep), about 14-15 h serial. Still needs a second potion chain for the Clown drink and acting, large and unscoped; until it exists the drink and abilities are facts, as Spirit Vision was.
+- **Open for him:** this shape for A5 (default yes), and whether acting should be a managed quantity or a lighter flavour line. The seam read for A5 would settle the list.
+
+**LATER / DELEGATE, not dispatched.** (1) Check whether the existing pursuit objects can carry the bar for the BE seat (small, Sonnet, read-only; done when a locator and a gap list exist). (2) Scope R2 plus the L1 wage line with anchors (small brief, Sonnet; done when each anchor cites a paragraph). (3) One bar-style A3 window as the measurement.
+
