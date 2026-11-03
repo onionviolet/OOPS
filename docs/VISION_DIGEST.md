@@ -18,6 +18,7 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 - **Each world picks its own systems and their look.** Progression, economy, combat, magic and the rest are chosen per world with nuance; no world (LOTM included) is the template. Progression is any lasting improvement, not only ranks ([why](USER_VISION.md#each-world-chooses-its-own-systems-and-their-ui-standing-rule-2026-10-30)).
 - **Complexity is welcome, and so is refactoring.** Keep the depth and manage the implementation cost ([why](USER_VISION.md#complexity-and-implementation-difficulty-2026-10-16)). What is built is the current best, open to change with a reason ([why](USER_VISION.md#rules-what-is-built-is-open-to-refactor-and-improvement-2026-10-28)).
 
+- **Standing checks (2026-11-03):** direction changes need the digest and a log entry in the same change; `npm run check:rules` now warns when they are missing ([workflow](gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md#standing-checks-proposal-2026-11-03-weibao-create-long-standing-checking-rules-so-these-wont-be-missed-again-ad32-except-the-check-that-already-runs)).
 - **Book campaigns (2026-11-02/03):** runtime mechanisms lead and book windows follow as their consumers; the protagonist's life should play as their own life, with daily-life granularity a later adjustable dial. The lore's stated numbers are fixed points and our systems are calibrated to reproduce them (AD49; [USER_VISION](USER_VISION.md#match-the-lores-numbers-by-calibrating-our-systems-2026-11-03)).
 
 ## What OOPS is not

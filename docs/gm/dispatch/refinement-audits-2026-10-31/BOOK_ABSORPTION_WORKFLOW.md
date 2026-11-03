@@ -30,7 +30,7 @@ Goal: absorb the whole first novel (8 volumes, 1,430 chapters, about 2.7M words;
 | T4 | Runner generator from `reviewed-episode.json` (KJ3I and KJ3J runners are near copies) | small | a new episode needs no hand-written runner |
 | T5 | Arc handoff file and ledgers (alias, plants, withheld) | small | an owner restarted from files continues without rereading |
 | T6 | Receipt fields auto-filled from the browser result (timings, boots, imports, sha) | small | receipt table needs no hand copying |
-| T7 | Path-scoped commit helper that stages only named hunks (today's RULES_INDEX commit needed a hand-built index) | small | a mixed file commits only its own lines by default |
+| T7 | Path-scoped commit helper that stages only named hunks (today's RULES_INDEX commit needed a hand-built index) | small | a mixed file commits only its own lines by default (evidence 2026-11-03: the index-only staging was hand-run about six times in one session) |
 | T8 | Single writer rule for the shared cast pack at merge | small | two arcs rarely mint conflicting IDs and any conflict is caught at merge |
 
 ## Order and gates
@@ -84,3 +84,17 @@ Accepted by Weibao: mechanisms lead and windows follow as consumers; daily-life 
 | Floor | Every canon step stays reachable as a step, card or montage day that passes CLR6's fold-loss test (AD47) | The level dial sets depth, not the floor. Rows with a `withheld` entry, an unknown net or a plant a later scene reads stay at beat grain |
 
 Open for Weibao, proposed defaults: Klein's default level is L0 for quiet stretches with L1 only where a source fixes an amount; the first L1 line is the Nighthawk wage, built when a window needs it.
+
+## Standing checks (proposal, 2026-11-03; Weibao: "create long standing checking rules so these won't be missed again"; AD32 except the check that already runs)
+
+Most misses in the depth-dial session already had a written rule; nothing fired. Defaults, not laws; each names the miss it came from. Do not add a new rule family: these live in the owners shown.
+
+| Check | Trigger | Owner and how it fires | Miss it came from |
+| --- | --- | --- | --- |
+| **Direction sync** | A dated `##` heading is added to USER_VISION, or lines are removed from PROJECT.md | `scripts/check_direction_sync.mjs`, chained into `npm run check:rules`: warns unless VISION_DIGEST.md or a `docs/gm/PROJECT_LOG*.md` entry is in the same change (`--strict` fails); focused test `tests/check_direction_sync.test.js`. Proven on `05954a578` (warns: heading without digest) and `605e212ba` (passes) | The digest was missed for four recorded changes; the replaced PROJECT.md line was not logged |
+| **Acceptance wording** | Any sentence in USER_VISION or an AD line | An accepted sentence is Weibao's quote or a direct restatement of it; anything an agent adds is labelled proposal. Not lintable (`check:docs` only checks that a link or quote is present); the recorder re-reads each accepted line against his words | The AD48 clause and the novelty rule were recorded as accepted without his say |
+| **Seat reachability** | A mechanism is called "exists" or "wired" | The status names the seat it holds for, with a locator in that seat's host. Exists for another seat is partial (see the [backlog rules](MECHANISM_BACKLOG.md)) | B1 Seer commands, base jobs (`activities.js`) and the bench (`BROKER_AT`) all existed, but not for the lead's seat |
+| **Actor per verb** | Step 3 (brief), for each D row | The brief lists who performs each verb (the lead as player, someone on screen, off-screen), the owner that runs it for this seat, and the open items the window consumes | "Old Neil brews, Klein watches" was recorded; nobody asked whether the player brews (backlog B7) |
+| **Carried open items** | Any note that says "open before <window>" | It gets a backlog row with that window as its first consumer | PF13-F1 (the ingredient pack, open before the ch31 shard) had no row |
+| **Evidence row in status cells** | A status or "Harness today" cell | It names the reconcile evidence row reached (source-edited, focused-tested, built, native run, persisted) and a locator; "documented only" when only a doc says so | Two LSD475 cells overclaimed (stock, presence preflight) |
+| **Shared-file commits** | Committing a file other sessions have edited | Stage only your hunks through the index (T7), then `git diff --cached --stat` before a commit with no pathspec; read the test's pass and fail lines, not the tail | Pathspec commits would have swept in others' edits; one commit preceded reading a test result |
