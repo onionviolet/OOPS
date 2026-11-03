@@ -234,3 +234,15 @@ Reading: the probe supports F2's worry in one respect. Idle days do not currentl
 **F8, sequencing.** B1's native proof needs a consumer: the ch32 P010 drink. The ch24 P034 to ch31 windows are content-only with briefs written (kjw2, kjw3), so building them toward ch32 unblocks the mechanism lane more than any daily-life build. They belong to the coordinator; named here, not started.
 
 **LATER / DELEGATE, not dispatched:** amend F2's stage-count discussion after the gap table lands (small, doc); decide whether the weekly wage line needs any new code or only a content row (done when the table names the owner).
+
+
+## Round 5 (2026-11-03; proposals under AD32; Weibao: granularity can be decided long term, wage and rent later, abstract a few levels; recorded in USER_VISION)
+
+**F9, a few levels of ordinary time, proposed.** One dial per life or world, default and reason per level, never "always" (Limits are adjectives). The mechanisms that already exist cover L0-L1.
+- **L0, chronicle:** a day or stretch is a card or montage line; only canon beats and exact quantities appear (LSD167, LSD209 narration).
+- **L1, period settlement:** a week or month ledger line with one report (wage, rent, upkeep) settled by outcome; the survey's Arx weekly ledger (F5) and the away bank are the existing patterns. Default for Klein once a source fixes an amount.
+- **L2, day acts:** the player picks the day's routine from a short menu; costs and one or two choices (LSD209 days).
+- **L3, step grain:** hours, chores and shifts. Only where a world is about them (a job-sim life); not a default.
+Each level reads the same state (money, time, stock), so moving up or down later does not change saves. Wage and rent attach at L1 when a source states an amount (the Nighthawk wage is the one found so far); building them is deferred and unscheduled.
+
+**Disposition:** ACCOUNT FOR NOW, any new money or time mechanism names its level and the exact quantities it keeps. LATER / DELEGATE, not dispatched: L1 settlement line for the Nighthawk wage once a window needs it (small, Sonnet; done when a pay act or ledger row settles in a native run); deciding Klein's default level with the lead-life owners.
