@@ -7202,3 +7202,7 @@ Weibao, asked whether to accept the PF13 decision rule and queue the fold test: 
 
 Weibao, on the book-absorption findings: “Runtime mechanism lane is fine, just make sure they can send seperate and capable implementators accordingly”. Recorded as accepted: the runtime mechanism lane, built by separate, capable implementers (fresh sessions, not the content builders). Model routing, brief shape and sequencing are proposals under [the workflow](gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md). The other findings in that round (depth dial, pack chunking, replay, clock, money ledger, review exports) stay proposals.
 
+
+## Book depth priority: Proto23-style play over investigation (2026-11-02)
+
+Weibao, on the depth dial for the rest of LOTM volume 1: “Investigation isnt a high priortyperhaps, most important stuff is improviing proto23 style gameplay and stuff”. Recorded as his steer, stated tentatively (“perhaps”): investigation-shaped stretches are lower priority than improving Proto23-style functional play and its information UI. It accepts no depth choice and changes no accepted floor; the options sit in the [depth dial proposal](gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md) (AD32). It means the functional UI style only; the standing “no Proto23-derived push without his yes” on mechanics and world content is unchanged.
