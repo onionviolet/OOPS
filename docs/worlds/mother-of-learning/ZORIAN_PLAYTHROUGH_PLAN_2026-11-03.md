@@ -8,6 +8,11 @@ and WA25-WA41. Locators are merged-shard chapter indices (`cN`). Sealed lead-run
 
 ## Reading and premises (PRF1)
 
+Purpose (Weibao, 2026-11-03, [recorded](../../USER_VISION.md#protagonist-playthroughs-as-the-developer-build-through-2026-11-03) for every protagonist life): a dev build that plays the lead's
+life to flesh out the world and expose its gaps. Everything he contacts is implemented once as world content for the normal and alternative starts;
+only the seat's loop, carry and knowledge are Zorian-specific. So each stage ends in a gap list (rows missing, seams unbuilt), not a polished slice.
+Built on Cyoria as a second start from day 1 (agent proposal, AD32; see the [P1/P2 results](ZORIAN_P1_P2_PAPER_TEST_2026-11-03.md)).
+
 Target: a developer plays Zorian from the opening day to the first point where the lead can see what the loop is and what bounds it, using
 the book's own rules for what resets and what carries. Viewport for any UI: desktop 1920x1080, mobile deferred (AGENTS standing UI priority).
 Premise: the built MoL world is a visitor branch with no loop and no Zorian seat; PROJECT.md puts Klein's journey first.
@@ -66,6 +71,46 @@ Status words: **have** (a shared seam is built and used by the visitor), **share
   month's end are scheduled, the invasion's first day is a canon beat.
 - WA48/WA56: the reset row was shaped on all 106 chapters; stages S7-S9 just add optional fields.
 
+## Lessons carried from the LOTM lane (Weibao, 2026-11-03: take them into account)
+
+Sources: [BOOK_ABSORPTION_WORKFLOW](../../gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md) (smoothing backlog T1-T8,
+dispositions, standing checks) and the "Durable lessons" table (WL1-WL5, CG1/CG2) in
+[LOTM_SITUATION_UI_COVERAGE](../../gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md). Proposals under AD32, applied here as defaults.
+
+| Lesson (LOTM miss) | Applied to the Zorian build |
+|---|---|
+| **Seat reachability**: Seer commands, base jobs and the bench "existed" but not for the lead's seat (B1) | A MoL command is "partial" until it passes for the Zorian seat. The P2 "reusable" group stays partial until a focused test runs it as the seat |
+| **Actor per verb** ("Old Neil brews, Klein watches", nobody asked if the player brews) | Each S-stage brief lists who performs every verb (Zorian, a teacher, off-screen) and the owner that runs it for this seat |
+| **First use of a runtime-bound pack feature** (KJ3P failed to boot after nine content windows) | The first stage that uses the start concept, the per-start loop key or a `triggers` list boots the pack against the current registry in a focused test before more content builds on it |
+| **Chain replay and checkpoint lineage** (each window proved only its own hop) | A restart loop is a chain by nature. S1 is proved from the day-1 checkpoint, and each later stage seeds from the earlier checkpoint; the batch gate replays every stage's runner in order on one bundle |
+| **Pin fact keys** (`book.lotm.<slice>.<name>`, T2) | Fact keys for the Zorian start use one prefix pinned in each brief (for example `book.mol.loop.<stage>.<name>`) so later stages resolve earlier checkpoints |
+| **Mechanisms lead, windows follow as consumers** (AD48 lane) | Per-mechanism implementer sessions (M1-M8 each with a seam, consumer locator, failure scenario, focused test, six-line floor); content windows (S0, S2-S5 rows) build only after the mechanism they consume exists. One writer per file area; single writer for the shared pack at merge (T8) |
+| **Canon pull**: a skipped stretch must land the lead where the next beat expects, or the fate agent restores him | A restart lands on the anchor with the carry set; a skipped replayed stretch is an L0/L1 card that still sets the next beat's place, time and presence |
+| **Depth dial and levels** (L0 card, L1 period line, L2 day menu; the floor is reachability, AD47) | Repeated months run at L0/L1 with exact quantities kept (reserve casts, days, lesson hours); new mechanisms and first uses stay at beat grain. This matches the variance and abstraction direction already recorded |
+| **Civil clock** (resolve from stated source times with day-turn acts; `clockClaims` and `anchors` exist; no new clock system) | M3 reuses `clockClaims`/anchors for the month and restart-day lights; the brief states day and hour with locators |
+| **Money ledger per currency** (no global rate, each conversion cites a locator, AD49) | A Cyoria purse table (crowns, who holds which purse) in the arc ledger; any recurring income is a checked anchor |
+| **Reader output checks** (invented figure at ch66 P037, off locators, over-limit fields) | Any haiku reader output runs `check_reader_rows.mjs` before a brief uses it, and money figures are read in the paragraph (`money_anchors.mjs`) |
+| **Source coverage honesty** (WL1 bind volume and edition, WL2 inventory before claiming entirety, WL3 truncation is a gap) | ZS16-ZS18 rest on keyword windows over c56-82 and c90-106. Those chapters stay "not read" in every status cell, and S7-S9 start with a full-text reader pass, not the keyword rows |
+| **Evidence row in status cells** (overclaimed "stock", "presence") | Each status names its evidence row (source-edited, focused-tested, built, native run, persisted). The P1/P2 results are "read only" |
+| **Carriers as siblings, no universal multiplier** (CG1/CG2: skills, companions, cargo and duties are separate carriers; no reset-count multiplier or loss percentage selected) | Supports keeping Weibao's decision (a) open: soul-bound skill is one carrier among several, and no multiplier is assumed |
+| **Content-window test floor** and **browser-life batches** (full `npm test`/build once per sweep gate; per-act checkpoints with `RESUME`) | Content stages run `check:rules`; the full suite and build run at each sweep gate. Long native runs checkpoint per act |
+| **Shared-file commits** (`scripts/own_hunks.mjs`) | Commit only this lane's hunks; this worktree shares `docs/USER_VISION.md` and `VISION_DIGEST.md` with others |
+
+Open carry-over items get backlog rows with their first consumer stage (the "carried open items" check): the tie-break for a death on the last
+day (R1, first consumer S1), the soul-bound versus multiplier decision (R2, S1), and the `lore.*` guest-permit scan (P2b, S0).
+
+## Newer commits folded in (2026-11-03: `ccfe99889`, depth dial Rounds 12-19)
+
+This branch is two commits behind master (`9ef0c8d5b`, `ccfe99889`); a sync is needed before commit. What they change here, all proposals under AD32:
+
+| Source | Applied to the Zorian build |
+|---|---|
+| [WER ST12-ST17](../../WORLD_ENTRY_RULES.md#developer-build-through-and-coverage-beyond-the-lead-2026-11-03) (on master) | **ST13:** every gap found is tagged on-path (build now) or off-path (recorded, built when a start needs it); Zorian's ring is the school, Cyoria, his teachers and allies, and the Threshold sources. **ST14:** before S1-S6 count as ready for other lives, run one beat with an off-canon input (different purse, timing or choice) and read whether the result follows by mechanism. **ST15:** each locked "Not how it happened" option in the run goes in the gap list as resolves-by-mechanism, needs-build or out-of-world. **ST16:** people get depth by contact; Zach, Taiven, Xvim, Kael and Ilsa are central here, so their tiers are raised from the same records with labelled fills. **ST17:** every stage report says which done it gives: "lead replay done" or "world ready for an ordinary life" |
+| [HP lead run start](../../gm/dispatch/refinement-audits-2026-10-31/HP_LEAD_RUN_START_2026-11-03.md) (template) | Same stage record shape: what is on disk, a seam probe of the Klein pipeline on this world, then gap codes with ACT NOW / ACCOUNT FOR NOW / LATER. Its G1 (parametrised `gen-runner`, `native-continuation`, `build_cast_pack`) already covers MoL's crosswalk (`world must be lotm or mol`). Its finding that the lead be-seat is a new profile, not an extension of the original-life row, matches the Zorian seat |
+| Depth dial R12-R13 (skills) | Skill growth has owners: capabilities grow as faculty development, techniques as power mastery, `progress` only for bars; cite SLR1-SLR43, ABR1-ABR22 and WER9 (what carries is stated per crossing). "Carry with decay" is retired. So the ZS rows map to faculty/mastery, and decision (a) is a WER9 line in the reset row's `carry`, not a new skill system |
+| Depth dial R12/R15 (variance) | Replayed months vary in path and converge on the beat; foreknowledge widens the option menu (information gating), it does not raise stats. This is the loop's native shape and the reason M4 shows a prediction the lead can check |
+| P2b (this plan's packet, now done) | Actor binding is a data rewrite of 82 commands and 387 `player` references, with 81 gated on visitor-derived condition facts: see the [P2b result](ZORIAN_P1_P2_PAPER_TEST_2026-11-03.md#p2b-what-actor-binding-costs-read-by-script-over-the-pack-object-2026-11-03-not-run-in-the-game) |
+
 ## First playable slice, and the decision to stop at the plan
 
 The lead-life guide's own first slice is "one MoL loop restart that keeps knowledge and replays two beats at their pulls, with a second world as
@@ -94,6 +139,8 @@ Result: **planned, not implemented.** Below floor is not claimed; nothing was bu
 | P3 | M3 day-indexed calendar for the first restart (storm and light show, a dance, the month's end), reusing `world_calendar.js` | sonnet, medium | the news strip shows an event on its day and not before (GM18) |
 | P4 | S1 slice: restart keeps carried knowledge and replays two beats | sonnet, medium, after P1-P3 and after the Klein lane releases the shared files | AD43 six-line floor, a headless journey from a fresh origin with save/reload/import |
 | P5 | Content passes on S2-S4 rows, using GM8/GM40 and GM29 as the seams | haiku shards, then sonnet merge | WA48 sample of 20 rows per type before a field is fixed |
+
+P1 and P2 were paper-tested the same day: [results](ZORIAN_P1_P2_PAPER_TEST_2026-11-03.md) (proposal: new world key for the seat; reset row v2 fills for LOTM and Perfect Run unchanged).
 
 Weibao decisions: (a) soul-bound carry versus an aptitude multiplier for a restart (shown in the seam note); (b) whether the visitor and Zorian
 share one Cyoria pack or split. Both are reversible prototype choices until a slice ships.
