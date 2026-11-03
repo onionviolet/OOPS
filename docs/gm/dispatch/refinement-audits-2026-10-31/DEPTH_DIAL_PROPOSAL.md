@@ -169,7 +169,7 @@ The steer reads as: spend less of the budget on investigation text and more on t
 
 **More to consider.**
 - **ACT NOW (done above):** novelty rule; A3 split; v2-v8 rates.
-- **ACCOUNT FOR NOW, the saved effort needs a destination.** If medium and light remove builder work, say where it goes or it just disappears: the Proto23-style panels the backlog already names (coins and fees U4, gathering display U2, aura reading line U1, altar and step display U3, clearance, client and fee in Reports) plus the home and inventory information shell. Proposal: each arc's schedule includes a UI pass for its mechanisms, desktop 1920x1080 first, built after the mechanism exists and checked against [DESIGN.md](../../../../DESIGN.md) and the Proto23 comparison, mobile deferred.
+- **ACCOUNT FOR NOW (reframed by Round 3: the destination is mechanisms and the lived life, not Proto23-style panels as a target), the saved effort needs a destination.** If medium and light remove builder work, say where it goes or it just disappears: the Proto23-style panels the backlog already names (coins and fees U4, gathering display U2, aura reading line U1, altar and step display U3, clearance, client and fee in Reports) plus the home and inventory information shell. Proposal: each arc's schedule includes a UI pass for its mechanisms, desktop 1920x1080 first, built after the mechanism exists and checked against [DESIGN.md](../../../../DESIGN.md) and the Proto23 comparison, mobile deferred.
 - **ACCOUNT FOR NOW, depth can change at sub-arc seams only,** so a switch never lands inside a scene and each side's start state is the stated seam state. Record the depth chosen per sub-arc in the receipts.
 - **ACCOUNT FOR NOW, light still leaves seam state honest:** a chronicle stage must set the facts, money, stock and time the next stretch requires (pinned keys, T2), so a skipped stretch cannot make a later brief wrong.
 - **ACCOUNT FOR NOW, the player-facing question is playable loops, not stages.** Count, per arc, the distinct loops a player can run (earn, spend, divine, gather, craft, fight, advance) and their UI. A stage count rewards length; a loop count shows whether Proto23-style play improved.
@@ -180,3 +180,23 @@ Open for Weibao: accept the A3 split and the novelty rule; say whether v2-v8 sho
 ## Status 2026-11-02: mechanism-plus-display slices lead (accepted, [USER_VISION](../../../USER_VISION.md#mechanism-plus-display-slices-lead-the-book-campaign-2026-11-02))
 
 Weibao: “Yes, lead with them”. Accepted: mechanism slices lead, and book windows follow as their consumers; progress is counted in playable loops. Weibao then corrected the framing (not Proto23-style display as such; mechanisms first so the protagonist's life plays as their own life), recorded in USER_VISION. Everything above (depth picks, A3 split, novelty rule, rates, v2-v8) remains a proposal. Next step, proposed: order the [mechanism backlog](MECHANISM_BACKLOG.md) rows by the loop each completes, each with its display, and let that order pick which book windows build next.
+
+
+## Round 3 (2026-11-02; proposals under AD32, prompted by "not exactly Proto23 style display, but mechanisms first, creating the protagonist's life so it is as if they are playing their own life", with an advisor pass)
+
+**F1, this mostly restates accepted direction.** Mechanisms before bulk review is accepted (LSD168, LSD201); fidelity is events, order and windows (LSD156); three grains already exist (LSD209: **beats** played step by step, **days** as montage, **narration** as journal and knowledge), with every canon step reachable as a step, card or montage day (AD47 floor, LSD167 card first, mechanism later upgrades it). So the depth dial should not run a second vocabulary. Mapping, proposed: **deep = beats at step grain; medium = days at montage grain with one or two choices; light = narration and cards.** Rows that fix money, prices, time windows, rites, potion steps or what Klein knows stay exact (LSD217). Round 1's "light = one stage per sub-arc" stays below the floor.
+
+**F2, "playing their own life" changes what a routine row is.** A routine (F) row is a day the native mechanisms produce (job shifts, wages, rent, siblings, study, clients, the Monday gathering), not a scene to author. Authoring cost moves to mechanisms; canon events (D rows) become anchored windows on the life clock (LSD156). Quiet time in an ordinary life is a chosen routine under CA2-CA5, not a scripted fold, so folding staying off is consistent. Investigation (your low-priority steer) becomes a duty routine of the Nighthawk job with canon beats only where the text has a decision, danger or spend.
+
+**F3, the stage counts above lose most of their meaning.** They price authored steps. Under F2 the cost is the mechanism list (B2-B6, R1-R9) plus beats. Read the per-arc stage columns as an upper bound for deep beats, not a forecast.
+
+**F4, what "mechanisms first" means for the next work, proposed default.** Order the [backlog](MECHANISM_BACKLOG.md) by the daily loop each row lets Klein live: earn and spend (R2 halfpence, B6 client income, R9 services), keep time and place (clock, the Monday gathering R4), practise and advance (B1 merged, B3, B4, B5), then duty and danger (R5 act engine, R7, R8). Book windows then build as the canon events the life reaches. Condition: this is an ordering, not new scope; a window whose mechanism is missing waits or ships as a LSD167 card. Displays follow only where a mechanism's state must be seen; existing views first.
+
+**ACT NOW (done):** USER_VISION entries corrected so the novelty rule and loop metric are proposals; PROJECT.md's next-step line points at the new order.
+
+**ACCOUNT FOR NOW:** a day-of-life test per arc ("can Klein live an ordinary day between these two canon events, with money, time, needs and obligations moving?") beside LSD156 as the check that the life is playable, not only the events reached.
+
+**LATER / DELEGATE, not dispatched:**
+- Backlog reorder by daily loop (small, Sonnet; done when each row names the loop it completes and the order is in MECHANISM_BACKLOG).
+- Map this dial onto LSD209 in the lead-life guide so one vocabulary remains (small doc, Sonnet; done when the guide section and this page agree).
+- One medium-grain measurement: an A2 sub-arc as days plus beats, compared with deep (one episode, Sonnet; done when builder minutes and fold-style losses are in a receipt).
