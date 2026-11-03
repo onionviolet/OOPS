@@ -2298,3 +2298,7 @@ Replaced in PROJECT.md item 1: "[KJ3N receipt] owns the current endpoint (Sunday
 ## 2026-11-03: PROJECT.md kjw6 clause replaced (B10)
 
 Replaced in PROJECT.md item 1: "kjw6 (the drink at ch32 P010, B1's first native proof) needs its own brief; the mechanism lane (B1-B6) gates ch32 onward." with a clause saying kjw6 is built but blocked by backlog B10 (the first native run was refused at boot with "Unknown authored energy."; the repo pack stays at the KJ3O revision). Evidence: KJ3P receipt.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw7)
+
+Replaced in PROJECT.md item 1: "[KJ3O receipt] owns the current endpoint (Monday: the Seer answer and Old Neil brewing the undrunk potion, English v1 ch23 through ch31 P077 ...) ... Seventeen slices now contain 207 ... ch24 P034 to ch31 P077 are built (kjw2-kjw5); kjw6 ... is built but blocked ... B10 ..." with the KJ3Q endpoint (the second gathering live at the notebook news, ch23 through ch35 P083), nineteen slices and 243 intents, ch24 P034 to ch35 P083 built (kjw2-kjw7, kjw6 and kjw7 native on the B10 bundle), kjw8 needing its own brief. Evidence: KJ3Q receipt.
