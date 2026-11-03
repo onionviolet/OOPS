@@ -452,3 +452,47 @@ Abstraction keeps stakes by the Round 8 test (visible pressure, effort choice, e
 
 **Status.** Proposals; source read, not run; no code, tests or builds this round; the file edit is the only change.
 
+
+## Round 11 (2026-11-03; proposals under AD32; slot design check run; Weibao's replies to Round 10; nothing accepted)
+
+His words: LSD107 "I guess it can vary, but like I guess it depends on the circumstances"; "AD33 should be worked on now"; on the key: "the key still gives variance no? there should still possibly be some variance"; slot design check: "go ahead".
+
+### F20, he is right about the key; Round 10's reading was too strict
+
+A key fixes which variant you get, not that there is none. In the code, canon pull already works this way (`src/canon_pull.js`, read, not run):
+- `pullFor` (line 57) = seat ceiling (`PULL_SEATS`, **be 0.9**) x world dial x kind weight (`PULL_KIND_WEIGHT`: great 1, detail 0.6, routine 0.15), plus a redundancy lift, minus disturbance inertia. Only a beat marked `pull.fixed` is pinned at 1.
+- The resolve draw (line 86) is `keyedUnitFor(cfg.worldSeed, 'fate', ['canon.pull', world, beat.id])` with chance = pull + (1 - pull) x p.
+So even in the book's own world, routine and detail beats have pull well under 1 and are drawn per key; great and `fixed` beats are pinned. **Revised reading (proposed, replaces Round 10's "same on every canon run"):** a run's key selects its unstated variation. The same key repeats exactly; a new life or seed gives a different variation of the same canon spine. Variance touches only unstated quantities (LSD217, AD49) and stays dial-driven by circumstance (seat, kind, world dial, disturbance), which is also his LSD107 answer. The KJ window runners stay exact because each window pins its key and checkpoint in the receipt; band asserts matter only when a runner changes the key. **Q-W11 resolved by his words** (default dial: canon spine pinned, details drawn). **LSD107 is a compatible variant**, not a disagreement: "details still vary" holds, and the amount of variance is a per-circumstance dial; the earlier flag to the LSD owner shrinks to a wording pointer.
+
+### Slot design check (read-only; source read, not run; answers Round 10's Q-W12 and F18)
+
+| Question | Finding | Evidence row reached |
+| --- | --- | --- |
+| Can `progress` carry a bar for the BE seat? | The effect validates (`simulation_contracts.js:81`), settles into `progression[actor][track].values[field]` (`simulation_effects.js:451-453`), and is published as fact `progress.<track>.<field>` in the same actor fact map as `condition.*` and `faculty.*` (lines 183-191) | producer and state owner read |
+| Can a place act read the bar? | Place-act rows guard with `{fact, op, value}` clauses (`place_acts.js:26`, `visibleWhen`, `requires`), the same shape as the `condition` and `faculty` facts. I did not read the evaluator that resolves those clauses against the actor fact map | consumer shape read, evaluator not traced: **assumption** |
+| Is there a draw helper? | `keyedUnitFor(worldSeed, stream, key, draw)` (`keyed_generation.js`) over `seeded_streams.js` `unitDecision` is pure, addressed by `hash(root, stream, key, n)`, with no cursor or save field (GR1-GR2). Parallel runs differ by `worldSeed` | read |
+| Does canon pull exist as code? | Yes: `canon_pull.js` (pull, disturbance records, restore/substitute agents), `canon_pull_host.js`, `canon_pull_panel.js`, used by `book_world_lotm_cast_host.js` | read, not run |
+| Where is the root seed held? | Draws take `cfg.worldSeed`; I did not trace where parallel-world saves store it | **unmapped** |
+| What is missing for the slot? | (a) a row effect whose amount comes from a keyed draw (rows carry fixed numbers: author draw-banded variants of one act, or add a small amount-from-draw effect); (b) a threshold report when the bar crosses a mark (a fact write plus a note on crossing; no existing one found for this seat); (c) anchors: canon beats already come from the constraint store (B9), so a bar must stop at the next unsettled anchor, which needs a check, not new state | read |
+
+**Conclusion (proposed).** The slot is mostly a composition of existing pieces: `progress` for the bar, place acts for effort, `keyedUnitFor` for the draw, `canon_pull` for the dial, the constraint store for anchors. The new work is small and named: the amount-from-draw route, the threshold report and the anchor stop. F18's "unknown size" is now "small, three items"; it is still unbuilt and unrun, so the next step is one focused slice with a native proof on a bar that has a first consumer (A2's repeat clients or A3's investigation), not a general framework.
+
+### AD33, worked on now (proposal; the owner line is not edited here)
+
+AD33 (RULES_INDEX line 222) says NPC-heavy work is deprioritized and procedural layouts stay deferred, except bounded per-world mechanisms Weibao named. His reply asks for it to be worked on now. Proposed reading, as a default with dial and reason (never "always"):
+- **Un-defer, in tiers.** Tier 1, now: variance in unstated quantities and slot outcomes (this proposal; GR1-GR17 already merged for generators). Tier 2, next, bounded: schedules, event order, encounter and lead selection by keyed tables (GR7-GR8 overlays), per world. Tier 3, later and still a per-world mechanism: place and layout variants for parallel worlds (side streets, shops, rooms), addressed lazily (GR4) and never altering canon-named sites or anything a pinned fact key reads.
+- **Keep:** NPC-heavy work stays deprioritized (the line's other half); canon beats and stated anchors stay pinned; outcomes freeze on reveal (GR3).
+- **Reason for the order:** Tier 1 needs no layout, serves parallel worlds directly, and makes Tier 2 and 3 reuse one draw and one overlay path.
+- **Action needed:** the AD33 line, and its USER_VISION record, need the owner to restate the deferral as tiered. That file (`RULES_INDEX.md`) carries other sessions' edits, so this is a hunk-only change by the coordinator or Weibao. `check:rules` and the direction-sync check run on that change, not on this one. Offered, not done.
+
+### Open choices (continue the codes; five at most)
+
+- **Q-W10 (still open)** Record his variance line and the tiered AD33 reading in USER_VISION and the owning lines (coordinator or Weibao; hunk-only; direction-sync check).
+- **Q-W13** First slot consumer for the one proven slice: A2's repeat clients (default, money anchors help) or A3's investigation bar.
+- **Q-W14** Where Tier 3 layouts start, once Tier 1-2 hold: parallel-world Tingen or Backlund streets first (default), or a different place.
+- **Q-W15** Parallel-world seed: confirm that a parallel world means a new `worldSeed` plus a world dial below 1, with the root seed saved in the save (to be traced; default yes).
+
+**LATER / DELEGATE, not dispatched.** (1) One focused slot slice: amount-from-draw, threshold report, anchor stop, one native proof from a saved checkpoint, persistence save/reload/import (Sonnet high, medium; done when the focused test and one native run pass with `progress.*` read by a place-act guard; reconciles the evaluator assumption). (2) Trace where saves hold the world seed and how a parallel world is created (small, haiku or Sonnet, read-only; done when locators or "not found" are listed). (3) AD33 tier wording as a hunk-only owner change (tiny, doc; done when the owner accepts or rejects it). (4) Variance-consumer list per slot (small, Sonnet).
+
+**Status.** Source read, nothing run, no code or tests; the proposal file is the only change.
+
