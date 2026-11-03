@@ -2294,3 +2294,7 @@ Replaced in PROJECT.md item 1: "[KJ3M receipt] owns the current endpoint (the in
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw5)
 
 Replaced in PROJECT.md item 1: "[KJ3N receipt] owns the current endpoint (Sunday, the housing company, 2 Daffodil Street and the move, English v1 ch23 through ch30 P065) ... Sixteen slices now contain 196 selected stages/intents ... ch24 P034 to ch30 P065 are built (kjw2-kjw4); the ch30 P066 to ch31 brief (kjw5)". Now: the KJ3O receipt owns the endpoint (English v1 ch23 through ch31 P077), seventeen slices contain 207 selected stages/intents, kjw2-kjw5 are built, and kjw6 needs its own brief. No direction changed.
+
+## 2026-11-03: PROJECT.md kjw6 clause replaced (B10)
+
+Replaced in PROJECT.md item 1: "kjw6 (the drink at ch32 P010, B1's first native proof) needs its own brief; the mechanism lane (B1-B6) gates ch32 onward." with a clause saying kjw6 is built but blocked by backlog B10 (the first native run was refused at boot with "Unknown authored energy."; the repo pack stays at the KJ3O revision). Evidence: KJ3P receipt.
