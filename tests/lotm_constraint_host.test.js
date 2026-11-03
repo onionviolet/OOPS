@@ -24,7 +24,7 @@ const {createLotmState,validateLotmState}=await import('../src/book_world_lotm_s
 const {planLotmCastBeats,canonActionDecision,persistLotmCastPlan,compactCastLedger,deriveCastLedger,castRevisionReport}=await import('../src/book_world_lotm_cast_host.js');
 const {domainRegistry}=await import('../src/domain_registry.js');
 const {newBeatState}=await import('../src/beat_records.js');
-const {validateBeatLedger}=await import('../src/beat_ledger.js');
+const {validateBeatLedger,restoreBeatLedger}=await import('../src/beat_ledger.js');
 const make=()=>{domainRegistry.command('beatLedger','commit')(newBeatState());const o=hostOver(bare());o.host.enroll('be',{independent:true});return o;};
 test('all actors keep canon and every cast write has provenance in repeatable runs',()=>{
  const run=()=>{const o=make(),out=planLotmCastBeats(o.box.p.state,undefined,fixture);return {state:o.box.p.state,out};};
@@ -82,4 +82,46 @@ test('180 synthetic canon facts across actors survive two identical null-player 
 test('canon world facts are protected across actors and explicit world scope',()=>{
  const s=make().box.p.state;
  assert.equal(canonActionDecision(s,{effects:[{type:'fact',scope:'world',key:'fixture.other.canon',value:99}]},fixture).allowed,false);
+});
+// B9: acts that have read past a canon beat's passage meet it; an unread beat still reserves time.
+const reachPack=()=>{
+ const p=structuredClone(fixture),lead=people[0].id,mk=(id,scene,locator)=>({...beat,id,scene,actor:lead,locator,effects:[{fact:`${id}.occurred`,value:true}],needs:null});
+ p.bindings.beats=[mk('fixture.met','s.met','zh 第5章 p10'),mk('fixture.unread','s.unread','zh 第9章 p3')];
+ p.bindings.days=[{scene:'s.met',day:1,from:100,to:120},{scene:'s.unread',day:1,from:150,to:170}];
+ p.householdActs={acts:[{id:'act.a',locator:'en v1 ch5 P001-040'},{id:'act.b',locator:'en v1 ch6 P001; continuity ch9 P090'}]};
+ p.leadLife={...p.leadLife};return p;
+};
+test('a timed act is refused while a canon beat sits unread inside it',()=>{
+ const s=make().box.p.state,p=reachPack();
+ assert.equal(canonActionDecision(s,{duration:300},p).allowed,false);
+});
+test('beats the finished acts have read past stop reserving time; an unread beat still does',()=>{
+ const s=make().box.p.state,p=reachPack();s.actors.player.completed={'act.b':true};
+ p.bindings.beats=p.bindings.beats.filter(b=>b.id==='fixture.met');
+ assert.equal(canonActionDecision(s,{duration:300},p).allowed,true);
+ const q=reachPack();assert.equal(canonActionDecision(s,{duration:300},q).allowed,false,'fixture.unread (ch9) is beyond ch6 and the continuity note adds no reach');
+ q.leadLife.sourceReach={enabled:false};assert.equal(canonActionDecision(s,{duration:300},q).allowed,false);
+ s.actors.player.completed={};assert.equal(canonActionDecision(s,{duration:300},p).allowed,false,'no finished act, no cover');
+ const o=reachPack();o.leadLife.sourceReach={chapterOffset:4};s.actors.player.completed={'act.b':true};
+ assert.equal(canonActionDecision(s,{duration:300},o).allowed,true,'a dial can shift the zh/en chapter numbering');
+});
+import {locatorReach,beatPassage} from '../src/canon_source_reach.js';
+test('locator reach takes the furthest paragraph and ignores continuity notes',()=>{
+ assert.deepEqual(locatorReach('en v1 ch17 P075; ch18 P001-027'),[18,27]);
+ assert.deepEqual(locatorReach('en v1 ch24 P061 - ch25 P015'),[25,15]);
+ assert.deepEqual(locatorReach('en v1 ch20 P059-065, P070-075, P077'),[20,77]);
+ assert.deepEqual(locatorReach('en v1 ch10 P002; continuity ch4 P022-030'),[10,2]);
+ assert.deepEqual(beatPassage('zh 第19章 p18'),[19,18]);assert.equal(beatPassage('fixture p1'),null);
+});
+// Private-data regression (skips on a clean clone): the KJ3M completed checkpoint against the KJ3E proof pack.
+const privateRoot=process.env.YAIRPG_PRIVATE_ROOT||new URL('../docs/research/novels/lord-of-mysteries/private/',import.meta.url).pathname;
+const {existsSync,readFileSync}=await import('node:fs');
+const kj3m=privateRoot+'kj3m-ch26-2026-11-02/completed-checkpoint.json',kj3e=privateRoot+'proof-bundles/kj3e-bundle-919b17d3/private_packs/lotm-cast/cast.json';
+test('KJ3M checkpoint: a 300-minute act is allowed once kjw1-kjw3 cover the day-3 beats, and refused with cover off',{skip:(!existsSync(kj3m)||!existsSync(kj3e))&&'private checkpoint or pack absent'},()=>{
+ const cp=JSON.parse(readFileSync(kj3m)),pack=JSON.parse(readFileSync(kj3e));
+ domainRegistry.command('beatLedger','commit')(restoreBeatLedger(cp.beatLedger));
+ const state=cp.expansion;assert.equal(state.clock,3813);
+ assert.equal(canonActionDecision(state,{duration:300},pack).allowed,true);
+ const off=structuredClone(pack);off.leadLife.sourceReach={enabled:false};
+ assert.equal(canonActionDecision(state,{duration:300},off).allowed,false,'without cover the unsettled day-3 beats still refuse');
 });

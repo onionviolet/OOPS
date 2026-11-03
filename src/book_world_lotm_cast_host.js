@@ -390,6 +390,7 @@ import {renderRefs} from './ref_resolver.js';
 import {beatKnowledgeWrites,applyBeatKnowledge} from './beat_knowledge.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {canonPullTick,pullFacts} from './canon_pull_host.js';
+import {sourceCoveredBeats} from './canon_source_reach.js';
 const REPORT_PREFIX='lotm.cast.report.';
 const terminalBeat=row=>row&&['carried','altered','blocked','lapsed'].includes(row.status);
 // The same authored day/minute projection used by settlement, without exposing
@@ -450,12 +451,15 @@ export function canonActionDecision(state,def,pack=getPrivateLotmCast(),context=
   if(c.type==='knowledge')return state.simulation?.knowledge?.[id]?.[c.key]?.value;
   return (c.scope==='actor'?state.actors?.[id]?.facts:state.worlds?.[I.world]?.facts)?.[c.key];
  };
- let settledLedger;
+ let settledLedger,covered;
+ // A beat the lead's finished acts have already read past is met, not owed (B9): the life has the scene.
+ const metByActs=id=>(covered??=(()=>{const r=pack.leadLife?.sourceReach;
+  return sourceCoveredBeats((pack.bindings?.beats||[]).filter(b=>data.store.byId.get(b.id)?.actor===lead),pack.householdActs?.acts,state.actors?.player?.completed,{chapterOffset:r?.chapterOffset,enabled:r?.enabled!==false});})()).has(id);
  const changed=[...changes.values()];
  // Include duration-only actions in time reservations without inventing an effect.
  if(!changed.length)changed.push({actor:lead,type:'time',key:'busy'});
  return reservationDecision(data.store,{changes:changed,at,through:at+(def?.duration||0),read,
-  settled:id=>terminalBeat((settledLedger??=currentCastBeatLedger()).done[id])});
+  settled:id=>terminalBeat((settledLedger??=currentCastBeatLedger()).done[id])||metByActs(id)});
 }
 // Inspection-only compatibility report. The saved revision and fill values are
 // retained unchanged; no source truth or strain table is written into the save.
