@@ -24,7 +24,7 @@ Goal: absorb the whole first novel (8 volumes, 1,430 chapters, about 2.7M words;
 
 | # | Item | Effort | Done when |
 | --- | --- | --- | --- |
-| T1 | 200-character pre-scan in the builder template, reports every over-length string at once (KJ3J failed four times) | tiny | one run lists all offenders |
+| T1 | 200-character pre-scan in the builder template, reports every over-length string at once (KJ3J failed four times) | tiny | one run lists all offenders (evidence 2026-11-03: KJ3L 8 offenders, KJ3M 9, KJ3N 20 then 5 then 3 over three passes, about 6 minutes; the pre-scan reads the `.py` source, so strings that grow when built or formatted slip through: run it on the built JSON as well) |
 | T2 | Pin fact keys in the brief (`book.lotm.<slice>.<name>`); builders reuse them | tiny | a later window's required keys all resolve in the prior checkpoint |
 | T3 | Durable proof bundle: store the bundle copy with its sha outside `/tmp` (proofs ran on KJ3E's `919b17d3…`; the repo bundle has drifted) | tiny | receipts name a retrievable sha |
 | T4 | Runner generator from `reviewed-episode.json` (KJ3I and KJ3J runners are near copies) | small | a new episode needs no hand-written runner |
