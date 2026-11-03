@@ -613,3 +613,41 @@ A cheap mechanical aid exists and needs no build: the register intake rule plus 
 
 **Status.** Owner text read; nothing run; this file plus one WRITEUP_REGISTER row (hunk-only) are the only changes. The IDEA_INDEX pointer line was not added: its neighbouring lines carry another session's uncommitted edits and the hunk did not apply; offered as a follow-up (the line text is in the Round 14 reply).
 
+
+## Round 15 (2026-11-03; proposals under AD32; Weibao: go ahead on recording the direction, and wants specifics on the two skill-store question and the anchor-band columns)
+
+**Q-W10 done for his direction only.** His words are recorded in [USER_VISION](../../../USER_VISION.md#variance-abstraction-and-procedural-work-2026-11-03) with a [digest](../../../VISION_DIGEST.md) line and a pointer on the AD33 row of the rules index. Tier names, the slot design, the intake path and the picks are not recorded as accepted.
+
+### Q-W21 specifics: the two skill stores are already decided (SLC37, SLC42), so there is nothing to merge
+
+Read at source, not run. [SLC37](../../../SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md) says "Two skill stores... Do not merge them", and `src/skill_inspector.js` implements the read-only view of both:
+- **Native skills:** `Skill` in `src/models/skill.js`; level, parent, milestones, xp multipliers, progress in `skill_progress`. Grows by practice XP (the SLC ladder, SLC112-SLC118 build on this store).
+- **Simulation methods:** `state.simulation.powers[actor][id]` (`owned`, `mastery`, `executions`, `fragments`, `lineage`, `donor`) plus the per-actor `sources` map (faculties with `awakened`, `active`, `suppressed`, expiry, `development`). Mastery rises only by an authored `mastery` effect.
+**Rule of thumb, proposed (a reading of SLC37, not a new rule):** a skill goes in the native store if it is learned by practice and climbs a ladder; it goes in the simulation store if something grants it (a potion pathway, an item, a trait) and it can be awakened, suppressed, copied or expire. A skill read by a canon anchor names its store in the SLC120 row.
+
+**Spirit Vision, traced (the worked example).** Granted by the Seer potion as a source, so it lives in the **simulation** store: `abilitySourceOf` (`src/book_world_lotm_abilities.js:70`) maps each ability command to its source; the LOTM host hides a command unless `s.actors.player.sources[...]` holds it (`src/book_world_lotm_host.js:276`); the faculty fact `faculty.<id>.development` is published (`simulation_effects.js:186`) and a place-act guard can read it. **Gaps found:**
+1. `simulationMethodLayers` (`skill_inspector.js`) lists powers' mastery and sources' kind, origin, expiry and grants, but not a faculty's `development`, so the inspector cannot answer "how developed is my Spirit Vision". SLC118's "one inspector line per effect" would need that line.
+2. The on/off switch and exhaustion (B3) are `active` and a condition, not a skill level; "what raises it" is not a native ladder, so SLC112 perks (derived from level) do not apply to it. Its growth is `development` or a power's mastery, authored as effects.
+3. KJ3Z used Spirit Vision twice at a 0/3 pool with no Cogitation shown; the engine had no meter to refuse that (a recorded datapoint, mismatch with the B3/B4 plan).
+Disposition: Q-W21 **resolved by SLC37/SLC42**; one small follow-up, a `development` row in the inspector (below).
+
+### Q-W22 specifics: the two columns for SLC119/SLC120
+
+SLC120 already asks for chapter-cited rows, evidence band (LSD287), consumer and what each does at a turning point. Add two columns and no others:
+- **Anchor band:** the lowest and highest level or state the canon beat needs, read from the text, with the paragraph locator. "None stated" is a valid entry and means the beat does not depend on the skill's level.
+- **Free variables:** the quantities around that beat the text does not state (how long, how costly, who noticed, how much pool), which are the only things variance may move (LSD217, AD49).
+Illustrative row (from the KJ3Z receipt and backlog, **not paragraph-checked, an example of shape only**):
+
+| Skill | Store | First consumer | Anchor band | Free variables | Reader of the result |
+| --- | --- | --- | --- | --- | --- |
+| Spirit Vision | simulation, source-granted faculty | ch33 P034 (B3), ch54 aura reads | the text shows the user seeing auras; no level or pool stated | exhaustion onset, pool cost per use (KJ3Z: none shown), recovery time | later aura reads and the B3 meter |
+Where the band is "none stated", the row is a candidate for free variation; where a band exists, the option menu repairs cost (Round 13), not the band.
+
+**Open choices (five at most).**
+- **Q-W23** Add the `development` row to the skill inspector now (small, read-only view; default yes) so the Spirit Vision example is testable.
+- **Q-W24** Add the two columns to SLC120's template (tiny doc change in a file carrying another session's edits, so hunk-only; default yes, when he picks SLC120).
+
+**LATER / DELEGATE, not dispatched.** (1) Inspector `development` row for faculties (small, Sonnet; done when a focused test shows a held faculty's development in `skillInspectorView`). (2) SLC120 columns in the template (tiny, doc, hunk-only). (3) Paragraph-check the Spirit Vision row against ch33 and ch54 (small, haiku read plus Sonnet check; done when the row cites checked locators).
+
+**Status.** Source read this round: `skill_inspector.js`, SLC37 and SLC42 text, `book_world_lotm_abilities.js:70`, `book_world_lotm_host.js:276`; nothing run; USER_VISION, digest, AD33 row and the register row updated hunk-only.
+
