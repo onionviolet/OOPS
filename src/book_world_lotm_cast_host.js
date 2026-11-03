@@ -9,6 +9,8 @@ import {createWakeQueue} from './wake_queue.js';
 // L4a host seam: one location store, relative clock projection, no beat resolver.
 import {onCastLoaded,lotmCastDays,lotmCastSchedule} from './book_world_lotm_cast_days.js';
 import {createSimulationRegistry} from './simulation_contracts.js';
+import {LOTM_ENERGY} from './book_world_lotm_ids.js';
+import {BE_SEER_ENERGY} from './book_world_lotm_be_seer.js';
 let LOTM_CAST={people:[],places:[],placeAliases:[]};
 export let castAvailable=false;
 import {whereabouts,awayReason,compileCastSchedule,TIME_BANDS} from './cast_schedule.js';
@@ -218,7 +220,7 @@ export function castElsewhere(state){
 const installed=new WeakSet();
 export function installCast(registry){
  if(!castAvailable||installed.has(registry))return;
- const defs=createSimulationRegistry({people:[...castPeople,...castSpawnPeople],commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands],situations:[castSituation]});
+ const defs=createSimulationRegistry({people:[...castPeople,...castSpawnPeople],commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands],situations:[castSituation],energies:[LOTM_ENERGY,BE_SEER_ENERGY]});
  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
  validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
  installed.add(registry);

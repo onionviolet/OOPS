@@ -88,3 +88,14 @@ Not run: full `npm test`, a build, 14/21 px captures, human play-through, civil 
 ## Next
 
 A mechanism session takes B10 (small: one registry call in `installCast`, plus the test). Then re-run `build-episode.py` and `play-episode.mjs` on a fresh bundle that includes the fix; the B1 assertions in the runner are the first native proof. kjw7 (ch33 P051 on) waits on kjw6.
+
+## Addendum: B10 fixed, native proof passed (2026-11-03)
+
+`installCast` now passes `energies:[LOTM_ENERGY,BE_SEER_ENERGY]` into the isolated registry (`src/book_world_lotm_cast_host.js`). Bundle `private/proof-bundles/b10-bundle-45c086a7` (bundle sha256 `45c086a7…`, built from the shared dirty tree plus this fix). Pack `cast-reviewed-kj3p-6972903dbafc6d8e` (sha256 `f4beb179…`) is now installed in `private_packs/lotm-cast/`.
+
+| Check | Result | Gap |
+| --- | --- | --- |
+| Focused tests (`book_world_lotm_cast`, `lotm_cast_tier`, `lotm_seer_slice`, `cast_whole_book_scale`) | 19 pass | no dedicated regression for an energy place-act row |
+| Native route, headless Chrome, B10 bundle, `play-episode.mjs` | 17 acts, 0 page errors, 268 s; ingestion fact, `be_seer` source and spirituality pool asserted after `drink`, not stabilized before `steady`, stabilized after; export/import preserves position, money 802 and facts; Rozanne and siblings hold no Seer text | no 14/21 px captures; full `npm test` and `build` of the repo not run |
+
+B1's first native proof passes. kjw7 starts at ch33 P051 from `completed-checkpoint.json` here. B2 and B3 fallbacks remain in `plate`, `dim`, `switch`, `exhaust`.
