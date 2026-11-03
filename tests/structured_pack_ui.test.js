@@ -74,3 +74,10 @@ test('loss of write ownership stops a plan while current job is still pending',(
     find(element,'structuredRepeat','work').click();v.canWrite=false;tick();assert.equal(find(element,'structuredRepeat','stop'),undefined);
     assert.equal(v.jobs.length,1);v.canWrite=true;v.jobs=[];v.actions[0].completed=1;tick();assert.equal(calls,1);panel.destroy();
 }));
+
+test('renewal preview shows current and after-renewal mastery and reserve',()=>withDom(({host,text})=>{
+    const v=view();v.renewal={visible:true,eligible:true,label:'Renewal',description:'Start over wiser.',lost:[],retain:[],reward:'A legacy.',reasons:[],mastery:4,reserve:7,masteryThreshold:3,next:{mastery:1,reserve:0},raw:'RAW_RENEWAL'};
+    const panel=createStructuredPackPanel({read:()=>v,command:()=>{}});
+    assert.match(text(host.children[0]),/Method mastery: 4 now \(needs 3\), 1 after renewal.*Training reserve: 7 now, 0 after renewal/s);assert.doesNotMatch(text(host.children[0]),/RAW_RENEWAL/);
+    panel.destroy();
+}));

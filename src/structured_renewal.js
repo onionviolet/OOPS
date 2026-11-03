@@ -35,7 +35,7 @@ export function previewStructuredRenewal(state,d,context) {
     if(!meets(r.requires,facts))reasons.push('Finish the required local consequences first.');
     if(context.nativeAlive!==true||context.nativeReady===false||context.vitals?.player?.health<=0||context.nativeBody?.mobile!==true||s.people.player?.life!=='alive')reasons.push('Recover before renewing your training.');
     if(context.busy||context.activeTechniquePractice||activePractice(actor)||state.pending.length||s.jobs.length||Object.keys(s.sessions).length||simulationOccupiesActor(state,'player')||waitingSimulationChoice(state)||state.chronicle?.session||state.chronicle?.life.endedAt!=null||Object.values(s.pursuits||{}).some(p=>['investigating','moving','searching','waiting','sheltered','encounter'].includes(p.status))||causalStoryTravelReasons(state,'player').length)reasons.push('Finish current work, practice and passage commitments first.');
-    return {visible:true,eligible:reasons.length===0,reasons,id:r.id,label:r.label,description:r.description,lost:[...r.reset],retain:[...r.retain],retained:[...r.retain],reward:r.reward,mastery,reserve,renewed:legacy===1,sequence:state.sequence};
+    return {visible:true,eligible:reasons.length===0,reasons,id:r.id,label:r.label,description:r.description,lost:[...r.reset],retain:[...r.retain],retained:[...r.retain],reward:r.reward,mastery,reserve,masteryThreshold:r.masteryThreshold,next:{mastery:1,reserve:0},renewed:legacy===1,sequence:state.sequence};
 }
 
 export function commitStructuredRenewal(state,d,context,sequence=state.sequence) {

@@ -185,3 +185,7 @@ Under Weibao’s scoped O4/O5 request, corrected acceptance routing, dated-adopt
 ## Reconciliation pass 4, 2026-11-02: LOTM Klein-first progress
 
 Read-only reconcile of the KJ1–KJ3D campaign state against its live owners, with a more-to-consider round: [LOTM progress reconciliation](dispatch/refinement-audits-2026-10-31/LOTM_PROGRESS_RECONCILIATION_2026-11-02.md). Ten ledger rows (RL1–RL10), five ACCOUNT FOR NOW items (M1–M5), four LATER items, and a commit batch manifest with handoff steps (families A–G; build and arch checks passed, full suite started). The whole campaign is still uncommitted over the Oct 31 HEAD, and a ch16 (KJ3E) build was in flight in another session, so no campaign owner file was edited; that writer carries RL2, RL9 and RL10. No runtime, pack, save, commit or dispatch.
+
+## Packet reconciliation and Climb source read, 2026-11-03
+
+Read-only reconciliation of the idle/cultivation implementation packets against `src/`, with a tested C1-C7 re-trace and a bundle-level Climb read: [reconciliation](../research/PACKET_RECONCILIATION_2026-11-03.md), [C1-C7 re-trace](../research/PACKET_RETRACE_C1_C7_2026-11-03.md), [Climb source read](../research/CLIMB_SOURCE_READ_2026-11-03.md). Proposals only (AD32); nothing accepted.

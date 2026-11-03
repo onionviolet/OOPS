@@ -21,7 +21,7 @@ export function createStructuredPackPanel({read,command,changed}) {
         status:(v.status||[]).map(s=>({label:s.label,value:s.value})),ladders:v.ladders||[],house:v.house||null,
         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
-        extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
+        extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons,mastery:v.renewal.mastery,reserve:v.renewal.reserve,masteryThreshold:v.renewal.masteryThreshold,next:v.renewal.next}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
         const b=document.createElement('button');b.type='button';b.textContent=label;Object.assign(b.dataset,data);b.disabled=disabled;
         b.onclick=()=>{
@@ -114,6 +114,7 @@ export function createStructuredPackPanel({read,command,changed}) {
                     p(view.renewal.label,renewal);p(view.renewal.description,renewal);
                     for(const text of view.renewal.lost||[])p(text,renewal);
                     for(const text of view.renewal.retain||[])p(text,renewal);p(view.renewal.reward,renewal);
+                    if(Number.isFinite(view.renewal.mastery)&&view.renewal.next){p(`Method mastery: ${view.renewal.mastery} now (needs ${view.renewal.masteryThreshold}), ${view.renewal.next.mastery} after renewal`,renewal);p(`Training reserve: ${view.renewal.reserve} now, ${view.renewal.next.reserve} after renewal`,renewal);}
                     for(const reason of view.renewal.reasons||[])p(reason,renewal);
                     add(renewal,'Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible);
                 }

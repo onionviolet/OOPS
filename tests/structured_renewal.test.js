@@ -34,7 +34,7 @@ test('renewal validates narrow author keys and hides unavailable presentation',(
     for(const patch of [{methodKey:'foreign.method'},{masteryThreshold:1},{practiceCommandId:'atelier.practice'},{requires:null}])assert.throws(()=>validateStructuredRenewalDefinition({...definition,renewal:{...definition.renewal,...patch}}));
     const f=setup(),before=structuredClone(f.plan);
     const view=previewStructuredRenewal(f.plan.state,definition,f.context);
-    assert.equal(view.eligible,true);assert.deepEqual(f.plan,before);assert.equal(view.mastery,2);
+    assert.equal(view.eligible,true);assert.deepEqual(f.plan,before);assert.equal(view.mastery,2);assert.equal(view.masteryThreshold,definition.renewal.masteryThreshold);assert.deepEqual(view.next,{mastery:1,reserve:0});assert.equal(typeof view.reserve,'number');
     f.plan.state.actors.player.facts['atelier.known']=false;
     assert.deepEqual(previewStructuredRenewal(f.plan.state,definition,f.context),{visible:false,eligible:false,reasons:[]});
 });
