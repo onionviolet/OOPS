@@ -496,3 +496,27 @@ AD33 (RULES_INDEX line 222) says NPC-heavy work is deprioritized and procedural 
 
 **Status.** Source read, nothing run, no code or tests; the proposal file is the only change.
 
+
+## Round 12 (2026-11-03; proposals under AD32; Weibao: skill deep dives, how skills interact in a protagonist playthrough and change stats, so keep variation and chance but let the final result land roughly the same regardless; nothing accepted)
+
+**Reading, proposed: variable path, convergent outcome.** This is LSD218 (canon fixes the outcome tier, play moves the cost) plus AD49 (stated figures are anchors) applied to skills. Skills and stats may differ by run; the anchors the book states are met within a band regardless; what differs is the cost of getting there and the surplus or deficit carried afterwards.
+
+**Convergence mechanisms (proposed defaults, each a dial with a reason):**
+- **Anchor bands.** Each canon anchor (a beat, a figure, a rite) states the stat and skill band it needs, read from the text (a Seer who can read an aura, a shot that hits). The slot's effort input and clock absorb the difference: a slow starter spends more days or favours, a lucky one arrives with spare. The tier (the beat lands) is pinned; the cost moves.
+- **Carry with decay.** Surplus or deficit carries to the next slot for a limited distance, then fades toward the band, so variance is felt for a stretch and does not compound into a different book. Consumers are named per slot (Round 9 F17) or the variance is dropped.
+- **Dial by world.** Canon run: fixed beats pinned, bands enforced. Parallel worlds: bands loosen with the world dial (LSD233), so a run can miss an anchor and diverge, which is the point of those worlds.
+- **Chance keeps its place.** Draws change time within a band, wounds, who noticed and stat gains, never a stated quantity (LSD217). Same key, same run (Round 11 F20).
+
+**F21, skill deep dives are worth doing, narrowly.** A skill earns a dive when it gates a slot or an anchor and its numbers are unstated, because those are the gaps variance fills. For Klein after ch54 that is: divination and Spirit Vision (B3/B4/B5), acting and digestion (R1, A5), shooting (B8), mediumship (A5). Each dive answers five things: inputs that raise it; what reads it (anchors, slots, other skills); the band each anchor requires, with paragraph locators; what is unstated and therefore free to vary; and its interactions with other skills and the potion. Use the existing `source-deep-dive` and `mechanic-absorption` skills; output goes to the owning palette, not a new family. Reading is bounded by AU rules, so each dive needs its AU13 plan and his go-ahead before readers run; ch161+ skills (mediumship) wait for the A5 seam read.
+
+**Interactions to account for now (ACCOUNT FOR NOW, no build):** skills share inputs (Cogitation time and spirituality feed divination, vision, acting and combat), so a bar that spends one affects the others; a skill read by an anchor must be the same state the slot raises (one `progress` track per skill, read as `progress.<track>.<field>`); and acting is a double role, a skill and the digestion mechanism for the potion, so it needs one owner, not two.
+
+**Open choices (five at most).**
+- **Q-W16** Start the dives with divination and Spirit Vision (they gate A2's slots; default) or acting first (it gates A5 and R1).
+- **Q-W17** Carry-with-decay as the default for surplus and deficit across slots (default yes; the decay length is a per-world dial).
+- **Q-W18** Whether a canon run may fail an anchor band at all (default no: it is repaired by cost, per LSD218; parallel worlds may).
+
+**LATER / DELEGATE, not dispatched.** (1) Divination and Spirit Vision dive (medium, Sonnet high; AU13 plan first; done when each anchor from ch31-84 has a band with a paragraph locator and a list of unstated free variables). (2) Acting and digestion dive, with one-owner proposal (medium; waits on R1 scope). (3) Per-slot variance-consumer list (small, Sonnet). (4) Band and carry fields on the slot design (folds into the Round 11 slot slice; done when a test shows a slow and a lucky key both meet the same anchor with different cost).
+
+**Status.** Proposals only; no source read this round beyond Rounds 10-11; no code, tests or builds.
+
