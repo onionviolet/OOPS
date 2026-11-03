@@ -200,3 +200,18 @@ Weibao: “Yes, lead with them”. Accepted: mechanism slices lead, and book win
 - Backlog reorder by daily loop (small, Sonnet; done when each row names the loop it completes and the order is in MECHANISM_BACKLOG).
 - Map this dial onto LSD209 in the lead-life guide so one vocabulary remains (small doc, Sonnet; done when the guide section and this page agree).
 - One medium-grain measurement: an A2 sub-arc as days plus beats, compared with deep (one episode, Sonnet; done when builder minutes and fold-style losses are in a receipt).
+
+## Day-of-life probe result (2026-11-02; A1, agent-played, partial, not human-reviewed)
+
+Run: headless `yairpg-game` MCP on the live repo bundle (`build.kind: live`, not the pinned KJ3E bundle, and the repo `dist/` is dirty from other sessions), loading the KJ3K `completed-export.txt` (Moretti flat, Day 2 16:21, 2,760 pence, "canon run"). About eight calls: look, open local actions, step one day, walk once. It reached the "played" row of the evidence table only for what is listed; it is not a full day-of-life trial.
+
+| Daily-life element | Result | Evidence |
+| --- | --- | --- |
+| Move between places | **Works** | Six 2-minute walks from the flat; walking to Sline Bakery ran as timed work |
+| Wait with a purpose | **Works** | "Wait until evening, 99 min" and "Wait until the day of your interview, 459 min" offered |
+| Talk, rites, making, rest and meals | **Present, not exercised** | Menu groups listed at the flat; I did not use them |
+| Time passing with no action | **Missing as life** | One stepped day moved the clock only: no wage, rent, sibling or meal event appeared in the changed lines; hunger is off by default; the beat note read "restored (a coincidence carried the day to where you stood)", so the canon run holds Klein in place |
+| Earn and spend loop | **Unverified, no income seen** | No wage or job action offered; money is in the inventory header (2,760 pence), not checked after the day |
+| Shop at the bakery or market | **Unverified** | Bakery arrival showed no local actions in the changed lines; I did not look at the full list |
+
+Reading: the probe supports F2's worry in one respect. Idle days do not currently produce a life (the wait and step commands pass time only), so routine rows still have to be authored or the daily-loop mechanisms (wage, rent, household, meals) have to exist. It does not show which of those exist, because no work or household action was reached. A real day-of-life trial needs a bounded list of the loops to try on the pinned bundle with the new BE Seer route. Limits: 1 stepped day took about 155 s wall; first replies are 15-25k characters; `game_load` only reads from the MCP temp folder. Reported once via `game_report_limit`.
