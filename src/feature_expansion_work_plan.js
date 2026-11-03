@@ -339,6 +339,22 @@ function lastSettledStep(state, registry, c, actorId) {
     return {text:`Last step result: ${entry.text} ${Math.max(0,state.clock-entry.at)} game min ago.`, at:entry.at, result};
 }
 
+// What the itinerary is working toward, and what it holds right now. Both are read from
+// the cursor and the actor's own accepted job; neither mirrors state or names private fields.
+function targetView(c) {
+    const ended = ['complete','cancelled'].includes(c.status);
+    if(c.stockPolicy) return {kind:'stock',reached:c.status === 'complete',text:`Target: keep the reserve between ${c.stockPolicy.lower} and ${c.stockPolicy.upper}, at most ${c.stockPolicy.maxAcceptedBatches} accepted batches (${c.stockAcceptedBatches} taken).`};
+    if(c.goal != null) return {kind:'goal',reached:c.status === 'complete',text:ended ? c.status === 'complete' ? 'Target: the goal was met.' : 'Target: the goal was not reached.' : 'Target: keep working until the goal is met.'};
+    return {kind:'steps',reached:c.index >= c.steps.length,text:`Target: ${c.steps.length} step${c.steps.length === 1 ? '' : 's'} (${Math.min(c.index,c.steps.length)} done).`};
+}
+
+function holdsText(job) {
+    if(!job) return 'Holds nothing: no step is reserved.';
+    if(job.cancellation === 'refund') return 'Holds reserved inputs for the accepted step; cancelling it returns them.';
+    if(job.cancellation === 'none') return 'Holds inputs for the accepted step, which cannot be cancelled.';
+    return 'Holds inputs for the accepted step; cancelling it forfeits spent inputs.';
+}
+
 export function workPlanView(state, registry, planRegistry, context) {
     const c = root(state)?.cursors[context.actorId || 'player'];
     if(!c) return null;
@@ -353,7 +369,7 @@ export function workPlanView(state, registry, planRegistry, context) {
     const stock = c.stockPolicy ? auditedKitReserveFacts(state,context) : null;
     const holding = c.stockPolicy && !['complete','cancelled'].includes(c.status) && !job &&
         (stock['auditedKitReserve.available'] >= c.stockPolicy.upper || c.stockHold && stock['auditedKitReserve.available'] > c.stockPolicy.lower);
-    return {id:c.id,definitionId:c.definitionId,label:c.label,status:c.status,index:c.index,total:c.steps.length,reason:c.reason,
+    return {id:c.id,definitionId:c.definitionId,label:c.label,status:c.status,index:c.index,total:c.steps.length,reason:c.reason,target:targetView(c),holds:holdsText(job),
         ...(c.stockPolicy ? {stockPolicy:copy(c.stockPolicy),stockHold:c.stockHold,holding:!!holding,available:stock['auditedKitReserve.available'],
             acceptedBatches:c.stockAcceptedBatches,remainingBatches:c.stockPolicy.maxAcceptedBatches-c.stockAcceptedBatches} : {}),
         steps:c.steps.map((s,index) => ({id:s.id,kind:s.kind,label:s.kind === 'command' ? registry.simulation.commands.get(s.commandId)?.label || 'Retained work step' : s.label,

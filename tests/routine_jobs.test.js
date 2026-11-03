@@ -68,6 +68,14 @@ test('K1 re-fit: the cursor view shows the latest settled step beside current wo
  p=advance(p,3);const done=last(reload(p));assert.equal(done.result,'completed');assert.match(done.text,/completed\. 0 game min ago\./);
  const cancelled=control(reserve(opened(3)),'cancel',{cancelCurrent:true});assert.equal(last(cancelled).result,'cancelled');
 });
+test('C6: the cursor view names its target and what it holds, and clears the hold when the step ends',()=>{
+ const view=p=>workPlanView(p.state,registry,registry.workPlans,ctx(p));
+ let p=reserve(opened(3));const live=view(p);
+ assert.equal(live.target.kind,'stock');assert.equal(live.target.reached,false);assert.match(live.target.text,/keep the reserve between .* at most 3 accepted batches \(1 taken\)/);
+ assert.match(live.holds,/Holds reserved inputs.*returns them/);assert.doesNotMatch(JSON.stringify(live),/jobId/);
+ p=advance(p,3);const idle=view(reload(p));assert.match(idle.holds,/Holds nothing/);assert.equal(JSON.stringify(view(reload(p))),JSON.stringify(idle));
+ const cancelled=view(control(reserve(opened(3)),'cancel',{cancelCurrent:true}));assert.match(cancelled.holds,/Holds nothing/);assert.equal(cancelled.target.reached,false);
+});
 test('SOURCE previously released 3 completes full two-kit output at 5',()=>{let p=reserve(opened(3));assert.equal(cursor(p).stockHold,false);p=advance(p,3);assert.equal(stock(p,K.kit),5);assert.equal(cursor(p).stockHold,true);assert.equal(cursor(p).stockAcceptedBatches,1);});
 test('SOURCE accepted support failure refunds, uses slot, pauses without silent restart; explicit resume consumes remainder',()=>{
  let p=reserve(opened());const stamina=p.vitals.player.stamina;p=advance(p,3,{facts:{location:'Shack'}});
