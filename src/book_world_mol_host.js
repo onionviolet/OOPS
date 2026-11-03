@@ -28,7 +28,7 @@ function passage(state,c,direction){const d=state.motherOfLearning,n=c.molNative
  const q=previewRealmPassage(connection,rc,{expectedSequence:state.sequence,expectedRevision:connection.revision,direction,operation:'passage'}),traveler=previewNativeRealmTraveler(state,c,rc,q);assert(q.allowed&&traveler.allowed,[...q.reasons,...traveler.reasons].join(' '));}
 // The seat's stated measure (G5): magic-missile casts left, read from the shared energy record, never stored twice.
 const zorianReserve=state=>{const e=energyView(state,'player').find(r=>r.id===MOL_ZORIAN_RESERVE);return e?`, a magic missile reserve of ${e.reserve} of ${e.capacity} casts`:'';};
-const labels={'book.mol.enroll':'Choose independent Cyoria guest entry','book.mol.enter':'Enter your retained Cyoria visitor instance','book.mol.return':'Return to Village in your own body and cargo',[MOL_BEGIN_ZORIAN]:'Begin as Zorian Kazbek, a student in Cyoria'};
+const labels={'book.mol.enroll':'Choose independent Cyoria guest entry','book.mol.enter':'Enter your retained Cyoria visitor instance','book.mol.return':'Return to Village in your own body and cargo',[MOL_BEGIN_ZORIAN]:'Begin as Zorian Kazinski, a student in Cyoria'};
 const moves=Object.fromEntries(Object.entries(L).map(([key,to])=>[`book.mol.move.${key}`,to]));
 const protectedLocations=[L.library,L.workshop,L.court];
 export function previewMolCommand(state,registry,id,context={}){context=molContext(state,context);const d=state.motherOfLearning,world=state.actors.player.worldId,location=context.facts?.location||state.simulation?.people.player.location,definition=registry.simulation.commands.get(id);

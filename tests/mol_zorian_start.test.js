@@ -141,3 +141,11 @@ test('G4: the c1-c4 roster, places and purses are pack rows with locators, and t
  const places=rows.catalog.filter(r=>r.kind==='place');assert.ok(places.length>=20&&places.every(r=>r.locator));
  const purses=rows.catalog.filter(r=>r.kind==='purse');assert.equal(purses.length,2);assert.ok(purses.every(r=>/not stated/.test(r.label)));
 });
+test('a Zorian save made before the reserve existed shows the panel and refuses the cast with a reason',()=>{
+ let p=at(zorian(),'court');delete p.state.simulation.energies.player;
+ let list;assert.doesNotThrow(()=>{list=ids(p,zctx);});
+ const q=previewMolCommand(p.state,registry,Z+'missile_practice',zctx(p));
+ assert.equal(q.eligible,false);assert.ok(q.reasons.length>0,"reason shown");
+ assert.doesNotThrow(()=>molPresentation(p.state,registry,zctx(p)));
+ assert.ok(!/reserve of/.test(molPresentation(p.state,registry,zctx(p)).sections[0].description));
+});

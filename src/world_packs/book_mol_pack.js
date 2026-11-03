@@ -62,7 +62,7 @@ export default {
    },
    {
     "id": "book.mol.kirielle",
-    "name": "Kirielle Kazinski",
+    "name": "Kirielle (sister)",
     "tags": [
      "zorian_s0",
      "tier:present",
@@ -92,7 +92,7 @@ export default {
    },
    {
     "id": "book.mol.daimen",
-    "name": "Daimen Kazinski",
+    "name": "Daimen (family; the parents visit him in Koth)",
     "tags": [
      "zorian_s0",
      "tier:mentioned",
@@ -128,7 +128,7 @@ export default {
      "tier:spoke",
      "scenes:00203,00302,00401"
     ],
-    "locator": "00302; en b1 c3 p20-p24"
+    "locator": "00302"
    },
    {
     "id": "book.mol.briam",
@@ -148,7 +148,7 @@ export default {
      "tier:present",
      "scenes:00203"
     ],
-    "locator": "00203; en b1 c2 p106"
+    "locator": "00203"
    },
    {
     "id": "book.mol.zach",
@@ -158,7 +158,7 @@ export default {
      "tier:present",
      "scenes:00203,00205,00301,00303,00403"
     ],
-    "locator": "00205; en b1 c2 p171"
+    "locator": "00205"
    },
    {
     "id": "book.mol.neolu",
@@ -178,7 +178,7 @@ export default {
      "tier:present",
      "scenes:00205"
     ],
-    "locator": "00205; en b1 c2 p166"
+    "locator": "00205"
    },
    {
     "id": "book.mol.kyron",
@@ -198,7 +198,7 @@ export default {
      "tier:present",
      "scenes:00204"
     ],
-    "locator": "00204; en b1 c2 p161"
+    "locator": "00204"
    },
    {
     "id": "book.mol.azlyn",
@@ -226,7 +226,7 @@ export default {
     "id": "book.mol.place.kazinski_house",
     "label": "Kazinski family house, Cirin",
     "kind": "place",
-    "locator": "00101; en b1 c1 p30"
+    "locator": "00101"
    },
    {
     "id": "book.mol.place.cirin_station",
@@ -238,7 +238,7 @@ export default {
     "id": "book.mol.place.cyoria_station",
     "label": "Cyoria train station and the road to the academy",
     "kind": "place",
-    "locator": "00104; en b1 c1 p135-p153"
+    "locator": "00104; en b1 c1 p153"
    },
    {
     "id": "book.mol.place.academy",
@@ -264,7 +264,7 @@ export default {
     "id": "book.mol.place.cafeteria",
     "label": "Academy cafeteria",
     "kind": "place",
-    "locator": "00201; en b1 c2 p1",
+    "locator": "00201",
     "containedIn": "book.mol.place.academy"
    },
    {
@@ -361,7 +361,7 @@ export default {
     "id": "book.mol.purse.zorian",
     "label": "Zorian’s own purse (crowns): amount not stated in c1-c4; held by Zorian",
     "kind": "purse",
-    "locator": "00104; en b1 c1 p135 (buys station bread; no price stated)"
+    "locator": "00104 (bread step; no price or purse in the scene)"
    },
    {
     "id": "book.mol.purse.household",
