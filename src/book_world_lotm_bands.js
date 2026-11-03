@@ -1,13 +1,13 @@
 // Pathway-and-sequence stat bands (L1, WA33/WA50/D1, 2026-11-03). One row per pathway and sequence; a person (cast, hostile, crowd) reads a band from
 // their pathway and sequence, never from a per-person stat. Shapes differ by pathway: a 'physical' band (strength, speed, toughness, endurance) for
-// body pathways, a 'perceptual' band (perception, spirit, tools, force) for pathways that act through sight, mind or tools. Scale: the world's own
-// ordinary adult is 2 on every axis, a Sequence 9 Beyonder is 3 to 5, higher sequences rise from there. EVERY number is an authored proposal (WPR5/AD49),
+// body pathways, a 'perceptual' band (perception, spirit, tools, force) for pathways that act through sight, mind or tools. Scale: open-ended, no ceiling or
+// floor. Values read against a reference adult (REFERENCE_ADULT, a dial set by calibration to stated outcomes, WA33), and higher sequences may sit many times above it. EVERY number is an authored proposal (WPR5/AD49),
 // not a canon claim. Evidence: 'I' (inferred from the pathway's named Sequence 9 and 8 abilities in book_world_lotm_abilities.js); the locator names that
 // source and the paragraph is still to be pinned from the novel text (unverified). A sequence nobody states is carried as 'open', never guessed.
 // Shown, believed and actual strength stay separate (WA50): these are actual bands only.
 import {LOTM_HOSTILES} from './book_world_lotm_abilities.js';
 export const BAND_SHAPES=Object.freeze({physical:['strength','speed','toughness','endurance'],perceptual:['perception','spirit','tools','force']});
-export const BAND_SCALE=Object.freeze({ordinaryAdult:2,proposal:true,note:'Authored proposal (WPR5/AD49); 0 to 10 per axis.'});
+export const BAND_SCALE=Object.freeze({referenceAdult:2,openEnded:true,proposal:true,note:'Authored proposal (WPR5/AD49). The reference adult is a calibration dial, not a fact; axes have no maximum.'});
 const OPEN='open';
 const ev=(path,seq)=>Object.freeze({label:'I',locator:`${path} Sequence ${seq} abilities, src/book_world_lotm_abilities.js; novel paragraph unpinned`});
 const row=(pathway,sequence,shape,values,evidence,proposal=true)=>Object.freeze({pathway,sequence,shape,values:Object.freeze(Object.fromEntries(BAND_SHAPES[shape].map((k,i)=>[k,values[i]]))),evidence,proposal});
