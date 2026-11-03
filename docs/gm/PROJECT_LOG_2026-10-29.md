@@ -2282,3 +2282,7 @@ Superseded PROJECT focus line preserved verbatim (paths are relative to PROJECT.
 ## 2026-11-03: PROJECT.md next-step wording replaced
 
 Replaced in PROJECT.md item 1: "Ch24 P034 (the university withdrawal) is next; its brief and the following window's are written." Now: mechanism slices lead and book windows follow as consumers (Weibao 2026-11-02); the ch24 P034 to ch31 briefs are content-only on existing mechanisms and can build; the mechanism lane (B1-B6) gates ch32 onward.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw2 and kjw3)
+
+Replaced in PROJECT.md item 1: "[KJ3K receipt] owns the current endpoint (the cane, the cover story and the smaller celebration, English v1 ch23 through ch24 P033) ... Thirteen slices now contain 152 selected stages/intents ... the ch24 P034 (university withdrawal) to ch31 briefs are content-only on existing mechanisms (kjw2 and kjw3 name no runtime dependency) and can build". Now: the KJ3M receipt owns the endpoint (English v1 ch23 through ch29 P016), fifteen slices contain 181 selected stages/intents, kjw2 and kjw3 are built, and kjw4 and kjw5 are next. No direction changed.
