@@ -4,7 +4,7 @@
 
 ## Diagnosis (confirmed)
 
-`reservationDecision` (`src/constraint_store.js:78-79`) refuses a timed act when an unsettled, non-fill beat of the same actor ends inside the window. `canonActionDecision` (`src/book_world_lotm_cast_host.js`) settles a beat only through `terminalBeat(ledger.done[id])`, which the cast host's day settlement writes when the clock passes the beat. The built acts run ahead of the canon clock, so at the KJ3M checkpoint (clock 3813) day-3 beats `.801` onward are future, unsettled and reserved. Read against the real KJ3E pack and checkpoint: 20, 120, 300, 360 and 720 minutes were all refused before the change with cover off (300 shown by the test), allowed after.
+`reservationDecision` (`src/constraint_store.js:78-79`) refuses a timed act when an unsettled, non-fill beat of the same actor ends inside the window. `canonActionDecision` (`src/book_world_lotm_cast_host.js`) settles a beat only through `terminalBeat(ledger.done[id])`, which the cast host's day settlement writes when the clock passes the beat. The built acts run ahead of the canon clock, so at the KJ3M checkpoint (clock 3813) day-3 beats `.801` onward are future, unsettled and reserved. Read against the real KJ3E pack and checkpoint: 300 minutes is refused with cover off ("leave time for what you have planned") and 20, 120, 300, 360 and 720 are allowed with it on (scratch run).
 
 ## Which beats the built acts cover
 
