@@ -1,4 +1,5 @@
 import {localMoneyLabel} from './ui/local_money_label.js';
+import {bookFinishLines} from './book_finish_lines.js';
 import {keptShopKeys} from './shop_locks.js';
 import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
@@ -730,26 +731,11 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     if (item.item_type === "BOOK") {
         if(!item.isFinished()) {
             item_tooltip += `<br><br>Time to read: ${Math.ceil(item.getRemainingTime()*10)/10} minutes`;
+            const upcoming = bookFinishLines(book_stats[item.name], format_book_bonuses);
+            if(upcoming.length) item_tooltip += `<br>Finishing it will provide:${upcoming.map(l => `<br>- ${l}`).join('')}`;
         }
         else {
-            item_tooltip += `<br><br>Reading it provided ${character.name} with:`;
-            if(Object.keys(book_stats[item.name].bonuses).length > 0) {
-                item_tooltip += `<br>- ${format_book_bonuses(book_stats[item.name].bonuses)}`;
-            }
-            if(book_stats[item.name].rewards?.skills) {
-                if(book_stats[item.name].rewards.skills.length == 1) {
-                    item_tooltip += `<br>- a new skill`;
-                } else {
-                    item_tooltip += `<br>- new skills`;
-                }
-            }
-            if(book_stats[item.name].rewards?.recipes) {
-                if(book_stats[item.name].rewards.recipes.length == 1) {
-                    item_tooltip += `<br>- a new recipe`;
-                } else {
-                    item_tooltip += `<br>- new recipes`;
-                }
-            }
+            item_tooltip += `<br><br>Reading it provided ${character.name} with:${bookFinishLines(book_stats[item.name], format_book_bonuses).map(l => `<br>- ${l}`).join('')}`;
         }
     }
 
@@ -5330,6 +5316,8 @@ function start_reading_display(title) {
     action_end_div.appendChild(action_end_text);
 
     action_div.appendChild(action_status_div);
+    const finish = bookFinishLines(book_stats[title], format_book_bonuses);
+    if(finish.length) action_status_div.title = `Finishing it will provide: ${finish.join("; ")}`;
     action_div.appendChild(action_end_div);
     start_activity_animation({book_title: title});
 }
