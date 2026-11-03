@@ -176,3 +176,7 @@ The steer reads as: spend less of the budget on investigation text and more on t
 - **LATER / DELEGATE, not dispatched.** (1) Measure medium once: run one A2 sub-arc at medium and compare builder minutes, late corrections and fold-style losses against deep (Sonnet, one episode, done when numbers are in the receipt). (2) Per-arc loop inventory and UI-pass list (small, Sonnet, one doc per arc, reopen at each arc start). (3) Edition-qualified volume map for v2-v8 (Luna low extraction plus Sol medium synthesis, reopen when v1 is end-to-end playable).
 
 Open for Weibao: accept the A3 split and the novelty rule; say whether v2-v8 should wait until v1 is playable end to end (my default).
+
+## Status 2026-11-02: mechanism-plus-display slices lead (accepted, [USER_VISION](../../../USER_VISION.md#mechanism-plus-display-slices-lead-the-book-campaign-2026-11-02))
+
+Weibao: “Yes, lead with them”. Accepted: slices of mechanism plus Proto23-style display lead, and book windows follow as their consumers; progress is counted in playable loops. Everything above (depth picks, A3 split, novelty rule, rates, v2-v8) remains a proposal. Next step, proposed: order the [mechanism backlog](MECHANISM_BACKLOG.md) rows by the loop each completes, each with its display, and let that order pick which book windows build next.
