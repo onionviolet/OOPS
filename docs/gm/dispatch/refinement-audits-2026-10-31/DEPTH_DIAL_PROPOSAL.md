@@ -520,3 +520,41 @@ AD33 (RULES_INDEX line 222) says NPC-heavy work is deprioritized and procedural 
 
 **Status.** Proposals only; no source read this round beyond Rounds 10-11; no code, tests or builds.
 
+
+## Round 13 (2026-11-03; proposals under AD32; Weibao: carry-with-decay may be too obvious, align actions and possibilities instead; more skills will come, so how do they meet the base systems; more-to-consider and advisor passes; nothing accepted)
+
+**F22, correction to Round 12: skill growth already has owners; `progress` is for bars only.** Round 12 said "one `progress` track per skill". The base game already holds two growth counters, read from source, not run:
+- **Faculty `development`** (`simulation_effects.js:410-420`): a capability granted as a `source`, with `awakened`, `active`, `suppressed`, expiry, and `development += amount`; published as fact `faculty.<id>.development` (line 186). B1 made Klein's Seer exactly this kind of source; its receipt says ability briefs extend `abilitySourceOf`.
+- **Power `mastery` and `executions`** (line 423 on): an executable technique with `owned`, `mastery`, `fragments`, `lineage`, and copy/transfer.
+- **Display:** the path-neutral ladder rows in `src/ability_skill_rows.js` feed the Skills and techniques tab; they name no world.
+- **`xp` and `reputation`** go through the generic gameplay effect (line 368).
+So the split, proposed: capabilities grow as faculty development, techniques as power mastery, and `progress` carries only cases and bars (slots). Round 12's "progress track per skill" is corrected, not deleted. Existing owners to cite rather than mint: [SKILL_AND_LEARNING_RULES](../../../SKILL_AND_LEARNING_RULES.md) SLR1-SLR43 (practice, teaching, texts, rust and loss, carryover; accepted), [ABILITY_RULES](../../../ABILITY_RULES.md) ABR1-ABR22 (proposed; absorbing, using and showing any world's abilities, crossing worlds), WER9 (what carries is stated per crossing), AD3 (a world's specialness starts hidden), the itch.io skill-floor line (USER_VISION 6081 area, not re-read).
+
+**Carry-with-decay retired as a mechanism (Q-W17 superseded by his words).** "Just align actions and possibilities" already has machinery, with no decay curve:
+- **The option menu does it.** Place-act `requires` and `visibleWhen` can gate on `faculty.<id>.development` (and power mastery as a fact), so a skilled run sees a cheaper or extra route and an unskilled run a costlier one. Cost differs because the available actions differ, which is LSD218 with no new state.
+- **Convergence is canon pull.** `canon_pull.js` restore and substitute agents with finite budgets bring the spine back to the anchor; fixed beats stay pinned.
+- **The check is WA45's seed sweep:** across seeds the book's outcome wins and only unstated quantities differ; no new gate.
+- **Variation then falls out of three things already there:** the keyed draw (Round 11), skill-gated option menus and pull dials. Q-W16 and Q-W18 stand.
+
+**What rounds 1-12 considered (index, detail in this file):** depths and rates (1-2); mechanisms first, ordinary-time levels, AD49 anchors (3-6); measured costs and picks (7); bars, A5 shape and farming (8-9); variance by key and dial, slot design check, AD33 tiers (10-11); skills and convergence (12).
+
+### How a future source-world skill meets the base systems
+
+Proposed intake path (ACCOUNT FOR NOW; one path, no new family), for any world's new skill:
+1. **Classify it once** by what it is: a capability (a `source` with faculty development: sight, resistance), an executable technique (a `power` with mastery), a ladder rung (an ability card on a path), or a plain skill under SLR. A skill is often two things (acting is a technique and the digestion mechanism); the classification names one owner for the growing number and records the other as a reader of it.
+2. **State its inputs and readers** (the Round 12 five questions): what raises it, what reads it (anchors, slots, other skills), unstated free variables, and shared pools. Shared pools (spirituality, Cogitation time) stay one pool owned by the energy system, read by several skills, never a pool per skill.
+3. **Gate by facts, not by name:** an action's availability reads `faculty.*`, `power.*` or `condition.*` facts, so a new skill joins the option menus without touching existing ones (AD38: it works if its mechanism applies).
+4. **Freeze on reveal (GR3):** a skill the player has seen or learned is saved as a value, not regenerated, so a content edit or reseed never rerolls a learned ability.
+5. **Crossing worlds:** what carries is stated per crossing (WER9, ABR); a source-world skill entering a base-game life arrives as a faculty or power the carrier names, hidden until found (AD3), and does not rewrite base skills.
+6. **Display:** the ladder rows and Skills tab already show it path-neutrally; a new skill adds a record, not a view.
+Interactions to watch: two skills reading one pool double-spend; a skill whose anchor band is read by a canon beat must be the same number the slot raises (one owner); and rust and loss (SLR) must treat source-world capabilities as the world's rules say, not by base defaults.
+
+**Open choices (five at most; codes continue).**
+- **Q-W10 (still open, repeated)** Record his variance line, the tiered AD33 reading and the skill-intake path in USER_VISION and the owning lines. It is not this session's to write and every round adds unrecorded words; coordinator or Weibao, hunk-only.
+- **Q-W19** Adopt the six-step intake path as the default way a new source-world skill is added (default yes; it reuses SLR, ABR and the sources/powers seams).
+- **Q-W20** Whether acting is classified as a power (technique with mastery) or a faculty development, with digestion reading it (default: faculty development of the Seer source, since digestion is the Seer chain's own progress; confirm at the A5 seam read).
+
+**LATER / DELEGATE, not dispatched.** (1) Intake-path check: take two real skills (Spirit Vision, acting) through the six steps against `sources`, `powers` and the SLR rows, and name each gap (small, Sonnet, read-only; done when each skill has an owner, readers and gaps with locators). (2) Place-act gate on `faculty.*.development` for the BE seat, one focused test (small; folds into the Round 11 slot slice). (3) Check how ABR1-ABR22 ("proposed") and SLR1-SLR43 ("accepted") divide cross-world skill carrying (small, read-only).
+
+**Status.** Source read this round: `simulation_effects.js` 183-191 and 410-432, `ability_skill_rows.js` header, RULES_INDEX router rows 65, 69, 121-122 and WER rows; nothing run, no code or tests.
+
