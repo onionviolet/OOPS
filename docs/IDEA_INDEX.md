@@ -8,6 +8,8 @@
 
 [Ideas left inventory, 2026-10-25](audits/IDEAS_LEFT_INVENTORY_2026-10-25.md): D5 proposal crosswalk, remaining audit/world/chat ideas and ranked next playable slices; existing owner codes retained.
 
+[Depth dial, slots and variance, 2026-11-03](gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md): idea bank IB1-IB12 (case bars, slot primitive, variance by key and dial, AD33 tiers, skill intake, anchor bands); proposals under AD32, extends AD47/AD49/WA45 and SLC112-SLC122; his direction is in [USER_VISION](USER_VISION.md#variance-abstraction-and-procedural-work-2026-11-03).
+
 ## Current feature routing, checked 2026-10-22
 
 [PROJECT current delivery](../PROJECT.md#current-delivery-routing-checked-2026-10-22)
