@@ -78,3 +78,6 @@ disposable-profile/
 /dist/ui-directions.js
 /dist/ui-directions.js.map
 /dist/ui-directions.receipt.json
+
+# Local-only: full UI string rows (regenerate: node scripts/ui_string_inventory.mjs)
+/docs/reviews/ui-string-inventory/
