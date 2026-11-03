@@ -146,3 +146,33 @@ Effort counts use AU3/AU5/AU10 units: haiku readers (one per window of at most 1
 Light for any arc: about a third of medium's stages, one builder per window; not recommended.
 
 Status: stage and episode counts are rate estimates, not measurements; medium and light rates are untested; arc boundaries after ch84 are provisional; no reader beyond those already run was started.
+
+## Round 2 (2026-11-02; proposals under AD32, prompted by "what about the rest, more to consider; investigation isn't high priority, improving Proto23-style gameplay is")
+
+The steer reads as: spend less of the budget on investigation text and more on the functional, information-first Proto23-style play ([USER_VISION](../../../USER_VISION.md#functional-proto23-style-ui-over-the-pictured-home-2026-11-01)). It changes two recommendations above and adds the rest of the saga.
+
+**Changes to round 1.**
+- **A3 (ch85-129, investigation-shaped): medium becomes "medium on rows with a spend, danger, new mechanism or appointment; chronicle-light on pure investigation rows"**, about 90 stages instead of 131. Reason: light inside A3 only drops interview-by-interview detail; the outcomes and clues stay reachable through the chronicle stage and the seam state. This is the one place I now offer light, because the reachability concern is about outcomes Klein can act on, and a pure clue row has none. The condition is that the row has no `withheld` entry, no unknown net and no plant a later scene reads.
+- **Novelty rule for every arc: first use of a mechanism is deep, repeats are medium.** The row reads already tag `first-shown` against `repeat` (A2 has 91 first-shown). A second divination client, gathering seat or amulet sale reuses the same loop, so it needs fewer authored steps, and the saved builder time goes to the loops the player actually plays. This depends on the mechanism existing first (backlog B and R rows).
+
+**The rest of the saga (volumes 2-8, about 1,217 chapters and 2.28M words by the 2.7M total in the workflow; no reads, no chapter spine, no edition-qualified volume map).**
+
+| Depth for all of v2-v8 | Stages (rate estimate) | Episodes |
+| --- | --- | --- |
+| Deep | about 6,800 | about 650 (roughly 220 serial hours) |
+| Medium | about 3,400 | about 380 |
+| Light | about 1,100 | about 190 |
+
+- Recommend **no per-arc dial yet** and no readers for v2+. Finish v1 end to end first (the per-volume entry contract VG3 needs source-qualified state anyway).
+- When v2+ starts, default to **light by volume, deep on chosen set pieces**: per volume, pick a few things where Klein's play changes (a new Sequence advancement, a new mechanism, a new city or economy) and build those at deep or medium; the rest is chronicle. Entry per VG2 as a canonical preset with stated assumed history, not by replaying chapters.
+- Each volume's pick goes through a seam pass one arc ahead and an AU13 plan, as in v1. Boundaries and totals for v2-v8 are not known from the repo; do not read them from this table.
+
+**More to consider.**
+- **ACT NOW (done above):** novelty rule; A3 split; v2-v8 rates.
+- **ACCOUNT FOR NOW, the saved effort needs a destination.** If medium and light remove builder work, say where it goes or it just disappears: the Proto23-style panels the backlog already names (coins and fees U4, gathering display U2, aura reading line U1, altar and step display U3, clearance, client and fee in Reports) plus the home and inventory information shell. Proposal: each arc's schedule includes a UI pass for its mechanisms, desktop 1920x1080 first, built after the mechanism exists and checked against [DESIGN.md](../../../../DESIGN.md) and the Proto23 comparison, mobile deferred.
+- **ACCOUNT FOR NOW, depth can change at sub-arc seams only,** so a switch never lands inside a scene and each side's start state is the stated seam state. Record the depth chosen per sub-arc in the receipts.
+- **ACCOUNT FOR NOW, light still leaves seam state honest:** a chronicle stage must set the facts, money, stock and time the next stretch requires (pinned keys, T2), so a skipped stretch cannot make a later brief wrong.
+- **ACCOUNT FOR NOW, the player-facing question is playable loops, not stages.** Count, per arc, the distinct loops a player can run (earn, spend, divine, gather, craft, fight, advance) and their UI. A stage count rewards length; a loop count shows whether Proto23-style play improved.
+- **LATER / DELEGATE, not dispatched.** (1) Measure medium once: run one A2 sub-arc at medium and compare builder minutes, late corrections and fold-style losses against deep (Sonnet, one episode, done when numbers are in the receipt). (2) Per-arc loop inventory and UI-pass list (small, Sonnet, one doc per arc, reopen at each arc start). (3) Edition-qualified volume map for v2-v8 (Luna low extraction plus Sol medium synthesis, reopen when v1 is end-to-end playable).
+
+Open for Weibao: accept the A3 split and the novelty rule; say whether v2-v8 should wait until v1 is playable end to end (my default).
