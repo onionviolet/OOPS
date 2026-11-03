@@ -20,3 +20,15 @@ test("inspector lists layers and sources for two native skills and one method, a
     assert.equal(v.sources.find(s=>s.id===STEADY_FRAME).carry,"stays with this body");
     assert.deepEqual(state,before);
 });
+
+test("inspector shows a held faculty's development and switches beside its source, and omits it when no faculty record exists",()=>{
+    const state=initializeExpedition(createExpansionState(5));
+    state.simulation={powers:{},faculties:{player:{[STEADY_FRAME]:{awakened:true,active:false,suppressed:false,development:2.5}}}};
+    state.actors.player.sources[STEADY_FRAME]={receiptId:"e:1",revision:1,acquiredAt:0,expiresAt:null,origin:"trained"};
+    state.actors.player.sources[FRAIL_FRAME]={receiptId:"e:0",revision:1,acquiredAt:0,expiresAt:null,origin:"acquired"};
+    const before=JSON.stringify(state),v=skillInspectorView({state,registry:expeditionRegistry,nativeSkills:[]});
+    assert.deepEqual(v.sources.find(x=>x.id===STEADY_FRAME).faculty,{development:2.5,awakened:true,active:false,suppressed:false});
+    assert.equal(v.sources.find(x=>x.id===FRAIL_FRAME).faculty,undefined);
+    assert.equal(JSON.stringify(state),before);
+});
+

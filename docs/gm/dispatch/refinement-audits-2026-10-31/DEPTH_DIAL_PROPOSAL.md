@@ -651,3 +651,31 @@ Where the band is "none stated", the row is a candidate for free variation; wher
 
 **Status.** Source read this round: `skill_inspector.js`, SLC37 and SLC42 text, `book_world_lotm_abilities.js:70`, `book_world_lotm_host.js:276`; nothing run; USER_VISION, digest, AD33 row and the register row updated hunk-only.
 
+## Round 16 (2026-11-03; proposals under AD32; Weibao: go ahead on the inspector row and the SLC120 columns; how is Spirit Vision implemented, does it boost stats or allow different interactions; more-to-consider)
+
+**Done (authorized):** `skillInspectorView` now shows a held faculty's `development`, `awakened`, `active` and `suppressed` beside its source (`src/skill_inspector.js`, `sources[].faculty`, read-only, omitted when no faculty record exists); one focused test added in `tests/skill_inspector.test.js` (2 pass, 0 fail). The two SLC120 columns (anchor band, free variables) are **not** added to the SLC120 row: that row sits in another session's uncommitted Skills round 6 (not in HEAD), so a hunk cannot apply; the column spec stays in Round 15 and goes into the row when its owner commits. Verification states: source-edited and focused-tested; `check:arch` passes; the full `npm test` passed on the current tree (4955 pass, 0 fail) and `check:rules` was run before commit; not built (`dist/` untouched), not played, not human-reviewed.
+
+### F24, how Spirit Vision works for Klein today: it allows interactions and changes information, and boosts no stats
+
+Evidence, read from the cast pack and source, not played this round (`private_packs/lotm-cast/cast.json`, `householdActs.acts`, 965 acts):
+- **No stat or capability grant.** 30 acts mention Spirit Vision; their effects are only `fact` (58), `knowledge` (39), `energy` (11) and `relocate` (6). There is no `faculty`, `power`, `condition`, `vital` or `body` effect for it anywhere in the pack. The Seer source Klein holds (`beSeerSources`, `book_world_lotm_be_seer.js:24`) has `grants: []`: it grants nothing.
+- **It is information and a cost.** Each use is an authored place act that writes what Klein saw as `knowledge` (for example `...aura.seen`) and facts, and some acts spend the spirituality pool with an `energy` `use` effect (`kj3p.switch`, `kj3q.body`, `kj3q.room`, `kj3q.aura` and others). So the pool (B1) is metered where the early windows chose to meter it; KJ3Z used it at 0/3 as facts only, because no refusal exists.
+- **It gates other actions through what Klein knows, not through a skill level.** Six acts have a guard reading an aura-related fact (for example `kj3q.blood`, `kj3s.first`, `kj3x.astrolabe`, `kj3z.advice` read `knowledge...aura.seen`; `kj3z.room` reads `...hanass.aura.read`). So a later choice becomes available only if the aura was seen first. That is the only "different interaction" it produces today.
+- **The Tingen Gravedigger path is different:** `book_world_lotm_abilities.js` has a `spirit_sight` ability (a body-faculty with a cost and drawback) and the summons rows read a `spirit-vision` preparation fact. That is the Nighthawk-seat path, not the BE seat Klein plays.
+
+**What B3, B4, R3 would add (still unbuilt):** B3 a visible on/off switch and an exhaustion condition (a `faculty` active flag and a `condition`); B4 energy as a legal cost shown in the step line; R3 an aura-reading line in the UI. None of them adds stats either. Where a stat effect is desirable, the source text stated none: the book describes sight, not a bonus, so a boost would be an invention (AD49 keeps stated numbers anchored; unstated ones are free to vary).
+
+### Interactions worth accounting for (ACCOUNT FOR NOW, no build)
+
+1. **Information gating is the real mechanism, so skill familiarity should widen the menu, not the stats.** Your point that familiarity with a skill improves play maps onto the option menu (Round 13 IB5): a Klein who has used Spirit Vision more should see more or cheaper routes (read more of an aura, notice a lie), by gating acts on `faculty.*.development` once the faculty exists, plus the knowledge facts already used. That keeps results converging (the beat lands) while the path differs.
+2. **Variance lives in what is unstated:** how much an aura reveals per use, how long a switch lasts, how much spirituality a look costs (KJ3Z shows none stated), and who notices a gaze. Draws change those within the canon-pull dial (Round 11); the aura the text states stays exact.
+3. **Make it a faculty before a stat.** Today there is no faculty record for Spirit Vision, so the new inspector row has nothing to show for it. B3 should grant it as a faculty (awakened, active, development) so the inspector, place-act guards and variance all read one record (Round 13 F22).
+4. **One owner for the pool:** the switch, exhaustion, divination and acting all read the same spirituality pool (B1), not a pool per skill.
+5. **Freeze on reveal (GR3):** what Klein has seen stays as knowledge, so a reseed never changes a past aura.
+
+**Open choices (five at most).** Q-W25: B3 grants Spirit Vision as a faculty with `development` and a switch, and grows `development` by authored use effects (default yes; no stat boost, because the text states none). Q-W26: whether to let accumulated use widen the option menu (default yes, as IB5; the amount is a dial).
+
+**LATER / DELEGATE, not dispatched.** (1) B3 as a faculty: grant on the Seer drink, an `activate` switch act, exhaustion as a condition, the inspector showing it (Sonnet high, medium; done when a focused test shows grant, switch and inspector row and one native run flips the switch). (2) Place-act guard on `faculty.*.development` for one aura-read variant (small; folds into B3). (3) Paragraph-check the Spirit Vision row for SLC120 against ch33 and ch54 (small, haiku read plus Sonnet check).
+
+**Status.** Source and pack read; inspector row and test added; nothing played; no change to the pack.
+

@@ -14,11 +14,12 @@ export function nativeSkillLayers(skill, progress = {}) {
 }
 
 export function simulationMethodLayers(state, registry, actorId = "player") {
-    const powers=state.simulation?.powers?.[actorId] || {}, held=state.actors?.[actorId]?.sources || {};
+    const powers=state.simulation?.powers?.[actorId] || {}, held=state.actors?.[actorId]?.sources || {}, faculties=state.simulation?.faculties?.[actorId] || {};
     const sources=Object.entries(held).flatMap(([id,instance])=>{
         const definition=registry.sources.get(id); if(!definition) return [];
         return [{id,label:definition.label,kind:definition.kind,origin:instance.origin || definition.origin || "unknown",
-            expires:instance.expiresAt ?? null,receipt:instance.receiptId ?? null,grants:(definition.grants||[]).map(g=>g.capability),carry:carries(definition)}];
+            expires:instance.expiresAt ?? null,receipt:instance.receiptId ?? null,grants:(definition.grants||[]).map(g=>g.capability),carry:carries(definition),
+            ...(faculties[id] ? {faculty:{development:faculties[id].development,awakened:!!faculties[id].awakened,active:!!faculties[id].active,suppressed:!!faculties[id].suppressed}} : {})}];
     });
     const methods=Object.entries(powers).map(([id,p])=>({id,store:"simulation",label:registry.simulation?.powers?.get?.(id)?.label || id,
         layers:[{layer:"Held",detail:p.owned ? "Owned" : "Not owned",source:p.donor ? `copied from ${p.donor}` : p.cause || "unrecorded"},
