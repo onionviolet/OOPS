@@ -809,3 +809,37 @@ One pool owner per actor (B1) for switch, reads, divination and acting; faculty 
 
 **Status.** Source and pack read; builder notes read, ch33 paragraph not re-read; nothing run; no code or pack change; one message sent to the B2/B3 session.
 
+
+## Round 19 (2026-11-03; proposals under AD32; reply from the B2/B3 session; correction to Round 18; nothing accepted)
+
+**Correction (my error).** Round 18 said no B2 or B3 source changes existed in master or the visible branches. They exist on branch `claude/adoring-bardeen-9c7a08` (`95edbc340` B2, `02c4b49cf` B3), not merged; my search covered master and a few named branches and missed that worktree branch. The [backlog](MECHANISM_BACKLOG.md) rows B2 and B3 said "queued" and are updated from the B3 receipt (hunk-only).
+
+**What B3 is today (from its receipt, read on the branch; the session confirmed in a message):** conditions `book.lotm.be_spirit_vision` and `book.lotm.be_spirit_exhaustion` (`bioVisible`, `absence:'zero'`, so `condition.<id>` is always a readable fact), on/off place-act effect builders, predicate builders including `beSpiritVisionSeesRequires()` as the gate for aura reads, one `beSeerUse()` spend per switch-on from B1's pool, exhaustion cleared by sleep or a 720-minute fallback, displayed in the existing bio conditions list. Implemented below floor: 37 focused tests pass, built, `check:arch` and `check:rules` pass; no native or browser run; not merged.
+
+**Source facts it adds (from the receipt; paragraphs not re-read by me):** two glabella taps on and two off (ch33 P034-P035); exhaustion afterward, "three sleepless nights" (P036-P037); Beyonders of this path are not Sleepless and need sleep (P038); the text says a **constant drain with no figure**. That settles Round 18's per-use versus sustained question in favour of a drain over time, with its rate an unstated free variable (AD49 assumed value, keyed band under Round 11).
+
+### Delta between B3 as built and the Round 18 shape
+
+| Piece | B3 as built | Round 18 shape | Disposition |
+| --- | --- | --- | --- |
+| Active state | condition `be_spirit_vision` | active flag on a faculty | keep the condition as the readable switch state; the faculty adds `development` beside it |
+| Exhaustion | condition, sleep or 720 min clears | same | reuse as is |
+| Cost | one `beSeerUse()` per switch-on | metered drain while on, plus costed deep reads | add drain; the switch-on spend stays as the start cost |
+| Faculty with stable id and `development` | none | needed for IB5 menus, inspector row, variance | additive; no migration needed if added as a new faculty record |
+| Aura-read gate | `condition.<id>` via `beSpiritVisionSeesRequires()` | same, later also `faculty.<id>.development` | reuse; add the development clause when the faculty exists |
+| KJ3Z replay | not touched (content rows apply no conditions yet) | a metered refusal collides with KJ3Z's two reads at 0/3 (F26) | the collision appears only when content rows start using the conditions and the drain; plan the AD49 check then |
+
+### Proposed disposition
+
+Merge B2 and B3 as built when their owner (the coordinator) is ready; do not rework them now, because the faculty, `development` and drain are additive and he said the larger shape is for the future. Extending later is cheap if the faculty id and a `development` number are introduced as a separate additive record, with the condition kept as the switch fact. That keeps saves valid and lets a drain be added without redoing the gate. The extension is a later slice, with the KJ3Z replay check, not part of the merge.
+
+**Reply sent to the B2/B3 session:** hold the extension (no rework now); keep the branch; a merge needs the coordinator or you. It was told this is a proposal, not a decision.
+
+**Open choices (five at most; codes continue).**
+- **Q-W33** Merge B2 and B3 as built now and extend later (default), or hold the merge until the faculty and drain exist.
+- **Q-W34** Whether the first native proof uses B3 as built (the kjw6 content rows named in the receipt) or waits for the extension (default: use B3 as built; the extension adds a later proof).
+
+**LATER / DELEGATE, not dispatched.** (1) Merge review of the B2/B3 branch into master (coordinator or a Sonnet session; done when `npm test`, `check:arch` and `check:rules` pass on the merged tree and the receipt rows are updated). (2) The extension slice: faculty with `development`, metered drain, costed deep reads, the KJ3Z replay check (medium, Sonnet high; as in Round 18 LATER 2). (3) Paragraph check of ch33 P034-P038 against the receipt's claims (small, haiku read plus Sonnet check).
+
+**Status.** Receipt and branch log read; the branch source not read beyond its receipt; nothing run; backlog rows B2 and B3 updated hunk-only.
+
