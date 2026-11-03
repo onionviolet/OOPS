@@ -2302,3 +2302,7 @@ Replaced in PROJECT.md item 1: "kjw6 (the drink at ch32 P010, B1's first native 
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw7)
 
 Replaced in PROJECT.md item 1: "[KJ3O receipt] owns the current endpoint (Monday: the Seer answer and Old Neil brewing the undrunk potion, English v1 ch23 through ch31 P077 ...) ... Seventeen slices now contain 207 ... ch24 P034 to ch31 P077 are built (kjw2-kjw5); kjw6 ... is built but blocked ... B10 ..." with the KJ3Q endpoint (the second gathering live at the notebook news, ch23 through ch35 P083), nineteen slices and 243 intents, ch24 P034 to ch35 P083 built (kjw2-kjw7, kjw6 and kjw7 native on the B10 bundle), kjw8 needing its own brief. Evidence: KJ3Q receipt.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw8)
+
+Replaced in PROJECT.md item 1: the KJ3Q endpoint (second gathering live at the notebook news, ch23 through ch35 P083; nineteen slices, 243 intents; built through kjw7) with the KJ3R endpoint (the Divination Club reception with Glacis chosen, ch23 through ch38 P011; twenty slices, 259 intents; built through kjw8, kjw6-kjw8 native on the B10 bundle; kjw9 needs its own brief). Evidence: KJ3R receipt.
