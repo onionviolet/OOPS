@@ -79,19 +79,26 @@ under the OGL (1e) or ORC (2e) as each site states.
   | pf1-universal-monster-rules | the one page (all rules inline, 106k characters) | |
   | pf1-spells-transmutation | 393 of 394 | 1 dead link |
   | pf1-spells-illusion | 144 (spells in both schools are filed under transmutation) | |
-  | other sorcerer/wizard schools (batch C) | 180 of 955 | **stopped**: see below |
-  | pf1-wondrous-items | 0 of 2,354 linked | **not started**: queued after batch C |
+  | other sorcerer/wizard schools | 954 of 955: abjuration 111, conjuration 200, divination 119, enchantment 179, evocation 169, necromancy 170, universal 6 | 1 dead link |
+  | pf1-wondrous-items | 2,352 + the index page | 1 dead link |
 
-  At this point the manifest holds 1,125 rows (935 browser, 190 transport).
+  Finished 2026-11-04 10:06 UTC. The manifest holds 4,251 rows with unique
+  URLs: 4,061 browser and 190 transport, about 39 MB of private text. Spells
+  cover the whole sorcerer/wizard list (1,493). Spells only on other classes'
+  lists (cleric, druid, occult and the rest) are not collected; that would be
+  a later pass from their class spell lists.
 - Stops on the browser route. (1) Batch B stopped itself at 02:43 UTC on a
   network error (`Failed to fetch`). The cause was hidden-tab timer throttling:
   gaps grew from about 7 s to 658 s. The site never refused anything. It
   resumed at about 6.7 s per page after the pacing timer moved into a Web
   Worker and the Mac was kept awake. (2) The browser pane was closed while
   batch C was running, between the last dump at 04:03 UTC and 04:33 UTC. Pages after the last dump were only
-  in the tab's memory and are lost; they must be refetched. Reopening the pane
-  and resuming C and the wondrous items is waiting on Weibao. Each catalogue
-  page needs one refetch, and the manifest skips everything already held.
+  in the tab's memory and were lost. Weibao said "Yes, resume". The pane
+  closed again about 30 minutes after a turn ended. The first loss was
+  refetched; from then on each page also went to the tab's IndexedDB, so the
+  second closure lost nothing (296 pages recovered). Checks every 25 minutes
+  kept the pane open for the rest of the run. The IndexedDB and localStorage
+  copies were deleted after the final import.
 - Polite transport state for `www.d20pfsrd.com`: closed (second 404, see
   above). Not cleared again.
 - Publisher per page (AFW-R4-2, 2026-11-04). d20pfsrd mixes Paizo and
@@ -102,7 +109,8 @@ under the OGL (1e) or ORC (2e) as each site states.
   d20PFSRD" title form. `unknown` means no notice was found, which is mostly
   hub and index pages. Cite a PF1 page with its publisher. The tagging is
   offline (`--publishers`) and runs after every `--import-browser`. Count at
-  1,125 rows: 1,007 Paizo, 9 third party, 5 mixed, 104 unknown.
+  4,251 rows: 3,688 Paizo, 10 third party, 9 mixed, 544 unknown. Of the
+  wondrous items, 2,040 are Paizo, 1 is third party and 311 are unknown.
 - Output: `private/manifest.jsonl` (one row per page: URL, title, HTTP status,
   SHA-256, text path) and `private/<section>/<hash>.txt`. Reader budget is 300
   pages per session, so the run resumes across sessions; rerun the same
