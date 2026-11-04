@@ -2350,3 +2350,7 @@ The Klein line now names the KJ3AB endpoint (Monday 4:04 p.m. at the flat after 
 ## 2026-11-04: PROJECT.md endpoint line replaced (kjw19)
 
 The Klein line now names the KJ3AC endpoint (Tuesday 7:58 a.m. at the Blackthorn office after Monday at the Divination Club and the warrant for Tris, English v1 ch62 P001 through ch64 P088; 13 acts, 31 slices, 481 stages; native on the master bundle `4c9c0c2b`, purse 817, pool 1/3). KJ3AB keeps Monday at home and the third gathering. First native uses of the C1 client registry (Glacis, Joyce), the Anna settle and one B3 Spirit Vision cycle. Agent-verified, not human-reviewed.
+
+## 2026-11-04: PROJECT.md endpoint line replaced (kjw20)
+
+The Klein line now names the KJ3AD endpoint (Tuesday 9 p.m. at the flat after the Beyonder records and the Theosophy Order, English v1 ch65 P001 through ch66 P047; 15 acts, 32 slices, 496 stages; native on the master bundle `4c9c0c2b`, purse 807, pool 1/2). KJ3AC keeps Glacis's and Joyce's paid sessions, the calling and the warrant for Tris. Agent-verified, not human-reviewed.
