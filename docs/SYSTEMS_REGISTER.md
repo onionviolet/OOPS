@@ -35,7 +35,7 @@ a line before relying on it. Update the owning file when a system or a degree la
 1. Live crafting runtime is single-world (Village frontier catalogue).
 2. Graded native rendering costs and Village tag-slot method matching are live; named-method preview/commit parity is defective. Generated discovery recipes and broader symbolic/potency/risk substitution remain open. [2026-10-26 making audit](audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md).
 3. Gate overflow policies mostly unread.
-4. Per-life world-pack state has no importer outside the pack modules.
+4. Per-life world-pack state has a save slice (2026-11-04, [SAVES 6d](SAVES.md)) but one writer (`reveal`) and no gameplay trigger.
 5. No legacy-command mechanism for in-flight jobs after a command changes.
 
 ## Keeping it current

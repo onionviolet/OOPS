@@ -47,11 +47,12 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
     assert.ok(Object.isFrozen(content.molDefinitions.commands) && !Object.isFrozen(content.molDefinitions.people));
 });
 
-test('the world_packs domain projects pack identity and adds no save slice', () => {
+test('the world_packs domain projects pack identity and writes no save key until world state exists', () => {
     const projection = domainRegistry.project('world_packs');
     assert.deepEqual(projection.map(p => p.id), ['book.hp', 'book.mol', 'book.hp.lead']);
     for (const p of projection) assert.equal(p.fingerprint, (worldPackRegistry.packs.get(p.id) ?? leadLifePackRegistry.packs.get(p.id)).fingerprint);
-    assert.equal(domainRegistry.list().find(d => d.id === 'world_packs').save, undefined);
+    domainRegistry.load({});
+    assert.equal(Object.hasOwn(domainRegistry.save({}), 'world_packs'), false);
 });
 
 test('the Cyoria coverage pack lints clean against the commands it cites (WAC9, WAC10)', () => {

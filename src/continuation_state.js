@@ -124,6 +124,8 @@ function restore(source, snapshot, c) {
     next.cheats=carryCheats(source.cheats, next.cheats);
     for(const key of preferences) if(Object.hasOwn(source,key))next[key]=copy(source[key]);
     next.saved_at=source.saved_at;
+    // World-pack histories belong to the worlds, not to one life (OD5): a crossing, resume or restart never restores a stale copy.
+    if(Object.hasOwn(source,'world_packs'))next.world_packs=copy(source.world_packs);else delete next.world_packs;
     const xp=next.levels?.person?.main_character?.skill_xp;
     if(xp&&!c.challenge)for(const skill of COMPATIBLE_MASTERY)if(c.mastery[skill]>0)xp[skill]=Math.max(xp[skill]||0,c.mastery[skill]);
     // Native load can infer a missing parent's XP from a child. Do not let
