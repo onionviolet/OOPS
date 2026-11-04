@@ -224,3 +224,6 @@ Per-book source, design, implementation and next-slice rows for the LOTM, COI, M
 
 Coverage of the 36 detail families (CW01-CW36) across four world clusters by reader pass, seven real gaps R1-R7, shared joins J1-J6, twelve hard cross-world features H1-H12 with a state check and floor check, and the H12, H7 and H8 results: [CROSS_WORLD_DETAIL_PASS](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md). All proposals (AD32), docs only except the H7 and H8 slices, which are agent-verified, not human-reviewed.
 
+## Shared mechanisms from one world, adaptation seam, 2026-11-03
+
+AB11-AB26 in the [ability abstraction round](../ABILITY_RULES.md#round-2-2026-11-03-mechanisms-from-one-world-that-serve-all-and-the-adaptation-slice): bloodline through AB1 provenance, LOTM digestion and loss of control left to their lane, conserved power, upkeep, soul anchors, enforced vows, emotion fuel, rule spaces, capacity, felt rank, names. AB11 built: `src/adaptation_ledger.js`, `src/adaptation_catalogue.js`, `tests/adaptation_ledger.test.js` (9 pass), calibrated in [E8E](../emergent/E8E_ADAPTATION.md#source-calibration-2026-11-03). Implemented, below floor (no consumer, route or UI). Proposals (AD32).

@@ -110,3 +110,39 @@ Archives of Nethys, scoped to afflictions, weapon and armor properties,
 conditions, poisons, runes and disguise. Private data in
 `docs/research/d20/private/`; scope, counts and hashes in the
 [collection receipt](d20/D20_RULES_COLLECTION_2026-11-03.md).
+
+## Wikis and rulebooks: acquired, missing and routes, 2026-11-03
+
+Trigger: Weibao, “for the wiki we can look for other routes, or use chrome extension” and “missing wikis and more, consider rule books and more I can just get”. The wiki registry stays [DUMPS.json](power-systems/wiki-digests/DUMPS.json); this section records what changed and the one pending list for wikis and rulebooks. Raw data stays in `~/.codex/research/wikis/<host>/dump/`. Nothing here is read or folded into a digest unless a row says so.
+
+**Route finding.** The registry's "unavailable" states came from Fandom S3 name guesses only. Two routes the registry had not tried both work:
+- WikiTeam text dumps on the Internet Archive, the route already used for Bleach and MHA. An archive search covered all 55 non-ready hosts.
+- The Fandom API inside Weibao's Chrome (Claude in Chrome, one tab, serial requests 4-8 s apart, 50 pages per request, saved as one download).
+
+| Wiki | Route | Snapshot | File | Check | State |
+|---|---|---|---|---|---|
+| Naruto (Narutopedia) | Internet Archive `wiki-narutofandomcom` | 2020-02-23 | `narutofandomcom-20200223-history.xml.7z`, 256 MB (17 GB XML); `current-pages.jsonl.gz`, 16,681 titles at newest revision | md5 matches IA | Bloodline pages read for [AB12](../ABILITY_RULES.md#round-2-2026-11-03-mechanisms-from-one-world-that-serve-all-and-the-adaptation-slice) |
+| Lord of the Mysteries | Fandom API in Chrome | 2026-11-03 live | `lotm-wiki-current-pages-2026-11-03.jsonl.gz`, 1,833 articles at their current revision (newest edit 2026-11-03), 10.4 MB raw | the on-disk byte count matches the in-page count | Held, unread |
+| Mistborn, Dresden Files, Magic: The Gathering, Tower of God, The S-Classes That I Raised, Lazy Dungeon Master | Internet Archive WikiTeam items | 2020 to 2025 | about 50 MB of text dumps in total | md5 matches IA for all six | Held, unread |
+| World Trigger | Internet Archive `wiki-worldtrigger.fandom.com-20231211` | 2023-12-11 | 7.8 MB | the archive returned HTTP 500 twice | Not acquired; retry later, or use the Chrome route |
+
+**Still missing (40 hosts).** No archive copy exists for: Mother of Learning, Reincarnation Paradise, Undead Unluck, Stormlight Archive, Omniscient Reader's Viewpoint, Mob Psycho 100, Dandadan, Fire Force, Kaiju No. 8, Solo Leveling, A Practical Guide to Evil, He Who Fights with Monsters, Slay the Spire, and 27 smaller web-novel wikis. These archive hits did not count, because they were fan or foreign-language wikis with similar names: Worm, Kagurabachi (Spanish only), Marvel, DC, Hades, VS Battles and the isekai wiki. The Chrome API route that worked for LOTM works for any of them; pick which ones.
+
+**Rulebooks.** None are held, apart from the scoped Pathfinder collections ([d20 receipt](d20/D20_RULES_COLLECTION_2026-11-03.md)). The licence notes below are from memory, so check each one before fetching. They are ranked by how many AB seams each rulebook feeds.
+
+| Rulebook | How to get it | Feeds |
+|---|---|---|
+| Ars Magica 5th edition core | Free PDF from Atlas Games (open licence, to verify) | Warping and Twilight (AB14 loss of control), vis as conserved power (AB15), magical bloodline Virtues (AB12), longevity rituals |
+| Vampire: The Masquerade 5th edition | Buy | Clans and bloodlines (AB12), Hunger and frenzy (AB14), blood bonds (AB18) |
+| GURPS Basic Set and GURPS Powers | Buy (GURPS Lite is free) | The most granular advantage, limitation and resistance pricing: Resistant, Unusual Background (AB11, AB12, AB21) |
+| Mutants & Masterminds 3e | Free SRD (OGL, d20herosrd) | Immunity, Enhanced Trait, Variable powers (AB11, AB21) |
+| D&D System Reference Document 5.2 | Free (CC-BY-4.0) | Attunement (AB21), conditions, pacts (AB18) |
+| Blades in the Dark SRD | Free (CC-BY 3.0) | Progress clocks, stress and trauma (AB14), downtime |
+| Call of Cthulhu 7e Quick-Start | Free from Chaosium | Sanity loss (AB14) |
+| Fate Core or Fate Condensed SRD | Free (CC-BY) | Aspects and consequences |
+| Mage: The Ascension 20th, Exalted 3rd, Nobilis | Buy | Paradox and rule spaces (AB20), Limit Break (AB14), names and domains (AB23) |
+
+Next steps, ranked:
+1. Choose rulebooks to get; the free ones can be fetched on your yes.
+2. Choose which of the 40 missing wikis to pull through Chrome.
+3. Read the held LOTM wiki against the mechanism lane (AB13, AB14), and give a lane owner the go.

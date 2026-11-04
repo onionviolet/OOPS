@@ -201,6 +201,34 @@ or the Frontier (see [placement](../worlds/jujutsu/WORLD_BRIEF.md#where-it-lives
 4. Notebook records "it learned your spear" with the receipt.
 5. Save, reload and import keep the ledger.
 
+## Source calibration (2026-11-03)
+
+This section was checked against the JJK fan wiki page on the Ten Shadows' adaptive general (revision 79200, 2026-02-15). That is a secondary source; the paraphrase is below, and the text is held in the local dump. The seam is built in [adaptation_ledger.js](../../src/adaptation_ledger.js) with this calibration in [adaptation_catalogue.js](../../src/adaptation_catalogue.js), and it sits below the floor ([AB11](../ABILITY_RULES.md#round-2-2026-11-03-mechanisms-from-one-world-that-serve-all-and-the-adaptation-slice)).
+
+| Page states | Seam field | Value |
+|---|---|---|
+| Analysis starts on the first hit; a wheel turn marks progress; after some time the adaptation completes | `trigger: 'clock'`, `turnTime` | clock; turn time unstated (60 is a dial) |
+| Each repeat hit by the same attack speeds the process | `speedup` | unstated (250 thousandths of remaining time) |
+| A simple cut was deflected after one turn; an infinity barrier needed five full turns | `needed` per key | 1 default, 5 for `space.infinity` |
+| A turn heals injuries taken before adaptation | `heal` | true |
+| After adapting it could see an attack that is normally invisible (auxiliary) | `sees` | true |
+| Analysis can continue after completion; one further turn gave a cut through space that bypassed the barrier (offensive) | `answerTurns` | 1 |
+| A tamed user can wear the wheel and bear the exposure; the summon then arrives with the result in effect | `holder` and `bearer` | separate fields |
+| The wheel blackened and paused while its bearer amplified | `advance({paused})` | caller supplies why |
+| Being unaffected by a pull left it unable to exploit that pull | `indiscriminate` → `blocksBenefit` | true |
+| It adapts to "all related phenomena"; a character believed slashing in general would be covered after one cutting technique | `depth`, `spill` | depth 2, spill 250 to the parent family |
+| The counter is a different attack | response by key | an unrelated key gets 0 |
+| Battle page (r78092): a hit landed mid-process did reduced damage, so adaptation is gradual, not binary | partial `defense` per turn | linear to the ceiling |
+| Ten Shadows page (r79547): the barrier and the pull were both finished on the fifth turn | `slots` | 2 |
+| Five turns for the barrier, stated on two pages; one character's in-fight estimate says four | `needed` | 5, conflict noted |
+| While bearing the wheel the bearer could use no other technique (r78092) | not modelled | bearer cost dial, later |
+
+**Correction to this doc.** The granularity table calls the middle grain "canon-like". The page goes further and says related phenomena are covered too. So the calibration reads at the middle grain and spills to the parent family. The parent is at least as hard to cover as the hardest member it learned from. How much spill to use stays a dial, because the page reports one character's belief, not a demonstrated result.
+
+**Second case (AD51).** `BODY_TOLERANCE` steps on rest after dosing, stops at resistant (600 thousandths), fades a turn a week and blunts the same drug as medicine. Every number is a proposal. Because it differs from the wheel in trigger, units, ceiling and decay, the seam is not JJK-shaped.
+
+**Still unstated:** seconds per turn, speedup and fading after a fight. The two held battle pages and the Ten Shadows page were read on 2026-11-03 (rows above); none of them gives a time per turn.
+
 ## Open questions
 
 - Q1: Default granularity per world, or per adapter only?
