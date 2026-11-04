@@ -10,6 +10,6 @@ export const molWorlds=installed.worlds;
 export const MOL_INITIAL_FACTS=installed.initialFacts;
 export const MOL_NATIVE_PEOPLE=installed.nativePeople;
 export const MOL_NATIVE_STOCK=installed.nativeStock;
-export const molDefinitions={people:installed.definitions.people,sites:installed.definitions.sites,powers:molPowers,conditions:molConditions,encounters:molEncounters,situations:molSituations,commands:molCommands,controllers:molControllers};
+export const molDefinitions={people:installed.definitions.people,sites:installed.definitions.sites,energies:installed.definitions.energies||[],powers:molPowers,conditions:molConditions,encounters:molEncounters,situations:molSituations,commands:molCommands,controllers:molControllers};
 export const MOL_ITEM_SPECIFICATIONS=installed.items;
 export function registerMolItems({itemTemplates,OtherItem}){for(const spec of MOL_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Mother of Learning item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}

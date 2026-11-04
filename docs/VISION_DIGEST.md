@@ -38,6 +38,7 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 - Canon play leads with Harry Potter, D&D and the book worlds; parallel versions start from easy reuse ([why](USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13)).
 - Non-lead characters do not need full lives, since the books give too little to go on ([why](USER_VISION.md#cast-lives-how-deep-everyone-elses-life-goes-2026-10-28)).
 - Variance only fills what the source leaves unstated, mainly to make parallel worlds of the same world differ; a key still picks a variation and the amount is a dial by circumstance. Repeated stretches are abstracted (investigation as a progress bar, low priority) and skills keep chance while results converge through the available actions ([why](USER_VISION.md#variance-abstraction-and-procedural-work-2026-11-03)).
+- Every protagonist's life (Klein, Harry, Zorian) is a developer build-through that builds and verifies what the lead touches for ordinary and alternative lives; it is not the default player start, and the lead's path is not the whole world ([why](USER_VISION.md#protagonist-playthroughs-as-the-developer-build-through-2026-11-03)).
 - Prose quality is known to be weak. A later local-AI drafting pass is the route, not a current gate.
 - World secrets stay sealed from Weibao outside their discovery route, because he plays too. Refer to them by ID and status ([AGENTS.md](../AGENTS.md#sealed-secrets)).
 

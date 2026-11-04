@@ -1,7 +1,8 @@
 import {hpCalendarBinding} from './book_world_hp_facts.js';
 import {check as assert, natural} from './basics.js';
-import {WORLD_CALENDAR_PROFILES} from './world_calendar_content.js';
+import {WORLD_CALENDAR_PROFILES, WORLD_DAY_EVENTS} from './world_calendar_content.js';
 import {legacyClimateEnvironment} from './world_climate.js';
+import {MOL_START_ZORIAN} from './book_world_mol_starts.js';
 const pad = n => String(n).padStart(2, '0');
 const seasons = ['Spring', 'Summer', 'Autumn', 'Winter'];
 
@@ -57,7 +58,14 @@ function visitorCalendarBinding(state) {
     if (!profile || worldId === 'base.frontier') return null;
     const domain = worldId === 'book.mol.cyoria' ? state.motherOfLearning : state.bookWorldCampaign;
     const visit = domain?.visits?.find(v => v.id === domain.activeVisitId && v.status === 'active');
-    const instance = domain?.instances?.find(i => i.id === visit?.instanceId && i.worldId === worldId);
+    let instance = domain?.instances?.find(i => i.id === visit?.instanceId && i.worldId === worldId);
+    // The Zorian seat lives in the world with no visit record: its run clock is the expansion clock since the run began
+    // (`runStartedAt`, else the start's own `initializedAt`), so no second clock and no visit invented.
+    if (!visit && worldId === 'book.mol.cyoria' && domain?.entryProfile === MOL_START_ZORIAN && natural(state.clock)) {
+        const base = domain.instances?.find(i => i.worldId === worldId);
+        const since = state.clock - (domain.runStartedAt ?? domain.initializedAt);
+        if (base && natural(since)) instance = {...base, clock: {...base.clock, elapsed: since}};
+    }
     if (!instance || domain.definitionRevision !== 1 || instance.definitionId !== profile.definitionId ||
         instance.definitionRevision !== profile.definitionRevision) return null;
     return {worldId, profile, instance};
@@ -103,4 +111,45 @@ export function createCalendarLog(emit) {
             return true;
         },
     };
+}
+
+// G6: dated events for one profile, shown on their day and never before. Reuses the projected view; no second clock.
+const LOCATOR = /^en b\d+ c\d+ p\d+$/;
+export function validateDayEvents(content, profile) {
+    const errors = [], seen = new Set(), months = profile.months;
+    if (content?.profileId !== profile.id || !Array.isArray(content.events)) return ['Day events do not match the calendar profile.'];
+    for (const e of content.events) {
+        if (typeof e.id !== 'string' || seen.has(e.id)) errors.push(`${e.id}: id`);
+        seen.add(e.id);
+        if (!['stated', 'inferred', 'fixture', 'unknown'].includes(e.dateBasis)) errors.push(`${e.id}: dateBasis`);
+        if (e.dateBasis === 'unknown') {
+            if (e.day != null || e.hour != null) errors.push(`${e.id}: unknown date carries a day`);
+            continue;
+        }
+        const m = months[(e.month ?? 1) - 1];
+        if (!m || !natural(e.day) || e.day < 1 || e.day > m.days || (e.hour != null && !(natural(e.hour) && e.hour < profile.units.hoursPerDay))) errors.push(`${e.id}: date`);
+        if (e.dateBasis !== 'fixture' && !LOCATOR.test(e.locator ?? '')) errors.push(`${e.id}: source locator`);
+    }
+    return errors;
+}
+export function dayEventsDue(profile, view, content) {
+    if (!content || !view) return [];
+    const u = profile.units, dayLength = u.minutesPerHour * u.hoursPerDay, now = view.absoluteLocalDay * dayLength + view.minuteWithinDay;
+    return content.events.filter(e => e.dateBasis !== 'unknown' && e.day != null).map(e => {
+        const before = profile.months.slice(0, (e.month ?? 1) - 1).reduce((n, m) => n + m.days, 0);
+        const at = ((e.year ?? 1) - 1) * profile.months.reduce((n, m) => n + m.days, 0) * dayLength + (before + e.day - 1) * dayLength + (e.hour ?? 0) * u.minutesPerHour;
+        return {...e, ageMinutes: now - at};
+    }).filter(e => e.ageMinutes >= 0).sort((a, b) => a.ageMinutes - b.ageMinutes || a.id.localeCompare(b.id));
+}
+// News rows for the active visitor world; worlds without authored day events return nothing.
+export function worldDayNews(state) {
+    const worldId = state?.actors?.player?.worldId, content = WORLD_DAY_EVENTS[worldId];
+    if (!content) return [];
+    const view = resolveWorldCalendar(state, null);
+    if (!view) return [];
+    return dayEventsDue(WORLD_CALENDAR_PROFILES[worldId], view, content).map(e => {
+        const hh = e.hour == null ? '' : `, ${pad(e.hour)}:00`;
+        return {id: `calendar:${e.id}`, ageMinutes: e.ageMinutes, dateBasis: e.dateBasis, locator: e.locator,
+            text: `Day ${e.day}${hh}: ${e.text}${e.dateBasis === 'inferred' ? ' (date inferred from the text)' : ''}`};
+    });
 }

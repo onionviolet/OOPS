@@ -27,7 +27,12 @@ const scoped={mode:'scoped',replace:['expansion.worlds[worldId]','expansion.acto
     retain:['expansion.worlds[other]','expansion[other owners]','expansion.clock','expansion.sequence',
         'expansion.simulation[shared records]','cross-world records','bound current time'],
     reason:'The connection replays this life; other lives and their worlds continue.'};
-export const RESTART_SCOPES=deepFreeze({default:{...scoped},'book.lotm.tingen':{...scoped},
+export const RESTART_SCOPES=deepFreeze({default:{...scoped},'book.lotm.tingen':{...scoped},'book.mol.cyoria#zorian':{...scoped,
+        // Whole MoL namespace replays (facts, receipts, knowledge); only the soul-bound entries of the loop row cross back (R2 proposed default,
+        // `class` in harm_loops decides soul-bound versus multiplier). Memory of events (pinned loop facts) and the skill key they unlock;
+        // every knowledge record under the namespace (memory of every run is soul-bound), including carried foreknowledge.
+        prefix:'book.mol.',soulBound:{facts:[/^book\.mol\.loop\./,/^book\.mol\.invocationStudied$/],
+            knowledge:[/^book\.mol\./]}},
     'base.frontier':{mode:'whole',replace:['save'],retain:['restore carries'],
         reason:'Frontier retains its existing whole-save intentional-loop semantics.'}});
 
@@ -63,8 +68,9 @@ function partition(source,target,belongs,move=x=>copy(x)) {
     return next;
 }
 
-export function scopedRestart(source,target,worldId) {
-    const scope=Object.hasOwn(RESTART_SCOPES,worldId)?RESTART_SCOPES[worldId]:RESTART_SCOPES.default;
+// `scopeKey` is the world id, or worldId#startId when the start has its own scope row (harm_loops loopKey).
+export function scopedRestart(source,target,worldId,scopeKey=worldId) {
+    const scope=Object.hasOwn(RESTART_SCOPES,scopeKey)?RESTART_SCOPES[scopeKey]:Object.hasOwn(RESTART_SCOPES,worldId)?RESTART_SCOPES[worldId]:RESTART_SCOPES.default;
     if(scope.mode==='whole')return copy(target);
     const live=source.expansion||{},anchor=target.expansion||{};
     const dyingOwners=new Set(owners.filter(key=>key==='lotm'?worldId==='book.lotm.tingen':
@@ -85,7 +91,7 @@ export function scopedRestart(source,target,worldId) {
         live.actors?.[id]?.worldId===worldId||anchor.actors?.[id]?.worldId===worldId)]);
     state.actors=copy(live.actors||{});
     for(const id of actors){setFrom(state.actors,anchor.actors,id);deadlines(state.actors[id],delta);}
-    const prefix=worldId==='book.lotm.tingen'?'book.lotm.':worldId+'.';
+    const prefix=scope.prefix??(worldId==='book.lotm.tingen'?'book.lotm.':worldId+'.');
     // Foreign knowledge and completion receipts remain live. Consumable resources
     // belong to the anchor body, even when their names name a retained world.
     for(const key of ['facts','completed','sources','techniques'])if(state.actors.player)
@@ -93,6 +99,9 @@ export function scopedRestart(source,target,worldId) {
             if(id.includes('.')&&!id.startsWith(prefix)) {
                 state.actors.player[key] ||= {};state.actors.player[key][id]=copy(value);
             }
+    const bound=scope.soulBound,keep=(list,id)=>list.some(re=>re.test(id));
+    if(bound&&state.actors.player)for(const [id,value] of Object.entries(live.actors?.player?.facts||{}))
+        if(keep(bound.facts,id)){state.actors.player.facts ||= {};state.actors.player.facts[id]=copy(value);}
     const belongs=(id,row)=> {
         if(id.startsWith(prefix)||actors.has(id)||actors.has(row?.actorId)||actors.has(row?.context?.actorId)||
             actors.has(row?.ownerId)||actors.has(row?.owner)||actors.has(row?.holder)||
@@ -126,7 +135,7 @@ export function scopedRestart(source,target,worldId) {
         // record, even though the player's local LOTM facts rewind.
         for(const key of ['knowledge','relationships'])if(s[key])for(const actor of actors) {
             s[key][actor]=partition(live.simulation?.[key]?.[actor],a[key]?.[actor],
-                (id)=>key==='knowledge'?id.startsWith(prefix):actors.has(id));
+                (id)=>key==='knowledge'?id.startsWith(prefix)&&!(bound&&keep(bound.knowledge,id)):actors.has(id));
             if(!Object.keys(s[key][actor]).length&&!Object.hasOwn(a[key]||{},actor)&&
                 !Object.hasOwn(live.simulation?.[key]||{},actor))delete s[key][actor];
         }

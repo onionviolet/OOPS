@@ -21,3 +21,19 @@ export const WORLD_CALENDAR_PROFILES = freeze({
         definitionId: 'book.paradise.goa.definition', definitionRevision: 1,
         anchor: {year: 1, month: 1, day: 1, hour: 6, minute: 0, day_count: 1}},
 });
+
+// G6: day-indexed events per calendar profile, keyed by day of month with an optional hour.
+// dateBasis: stated and inferred rows need a source locator; fixture rows are test scaffolding, not
+// source dates; unknown rows are placeholders with no day and never surface. Dates are not guessed.
+export const WORLD_DAY_EVENTS = freeze({
+    'book.mol.cyoria': {profileId: 'calendar.mol.visitor.legacy', events: [
+        {id: 'mol.restart_lights', month: 1, day: 1, hour: 6, dateBasis: 'fixture', locator: null,
+            label: 'Restart-day lights', text: 'The morning lights come on over the first day, as they have before.'},
+        {id: 'mol.school_dance', month: 1, day: 15, hour: 19, dateBasis: 'fixture', locator: null,
+            label: 'The school dance', text: 'The hall fills for the evening dance.'},
+        {id: 'mol.month_end', month: 1, day: 30, hour: 23, dateBasis: 'fixture', locator: null,
+            label: "The month's end", text: 'The last night of the month closes.'},
+        {id: 'mol.unplaced_event', month: 1, day: null, hour: null, dateBasis: 'unknown', locator: null,
+            label: 'An event the text leaves undated', text: 'Placeholder: the source gives no day.'},
+    ]},
+});

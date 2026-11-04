@@ -18,7 +18,7 @@ export default {
   "notice": "Paraphrased local campaign; entry, grants, budgets and service outcomes are original proposals."
  },
  "budgets": {
-  "entities": 20,
+  "entities": 30,
   "drawsPerEntity": 1,
   "saveBytes": 200000
  },
@@ -59,6 +59,315 @@ export default {
    {
     "id": "book.mol.hatch_scavenger",
     "name": "Hatch scavenger (original local adversary)"
+   },
+   {
+    "id": "book.mol.kirielle",
+    "name": "Kirielle (sister)",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00101,00103"
+    ],
+    "locator": "00101; en b1 c1 p42"
+   },
+   {
+    "id": "book.mol.zorian_mother",
+    "name": "Zorian’s mother (unnamed in c1-c4)",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00101,00103"
+    ],
+    "locator": "00101; en b1 c1 p42-p55"
+   },
+   {
+    "id": "book.mol.zorian_father",
+    "name": "Zorian’s father (unnamed in c1-c4)",
+    "tags": [
+     "zorian_s0",
+     "tier:mentioned",
+     "scenes:00101"
+    ],
+    "locator": "00101; en b1 c1 p42"
+   },
+   {
+    "id": "book.mol.daimen",
+    "name": "Daimen (family; the parents visit him in Koth)",
+    "tags": [
+     "zorian_s0",
+     "tier:mentioned",
+     "scenes:00101"
+    ],
+    "locator": "00101; en b1 c1 p42"
+   },
+   {
+    "id": "book.mol.fortov",
+    "name": "Fortov Kazinski",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00103,00307"
+    ],
+    "locator": "00101; en b1 c1 p49-p50; 00307; en b1 c3 p183"
+   },
+   {
+    "id": "book.mol.benisek",
+    "name": "Benisek",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00201,00302,00303,00305"
+    ],
+    "locator": "00201; en b1 c2 p56-p63"
+   },
+   {
+    "id": "book.mol.akoja",
+    "name": "Akoja",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00203,00302,00401"
+    ],
+    "locator": "00302"
+   },
+   {
+    "id": "book.mol.briam",
+    "name": "Briam",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00203"
+    ],
+    "locator": "00203; en b1 c2 p116-p118"
+   },
+   {
+    "id": "book.mol.raynie",
+    "name": "Raynie",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00203"
+    ],
+    "locator": "00203"
+   },
+   {
+    "id": "book.mol.zach",
+    "name": "Zach",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00203,00205,00301,00303,00403"
+    ],
+    "locator": "00205"
+   },
+   {
+    "id": "book.mol.neolu",
+    "name": "Neolu",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00205,00302"
+    ],
+    "locator": "00302; en b1 c3 p20"
+   },
+   {
+    "id": "book.mol.jade",
+    "name": "Jade",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00205"
+    ],
+    "locator": "00205"
+   },
+   {
+    "id": "book.mol.kyron",
+    "name": "Kyron",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00205,00402"
+    ],
+    "locator": "00205; en b1 c2 p166-p169"
+   },
+   {
+    "id": "book.mol.zenomir",
+    "name": "Zenomir Olgai",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00204"
+    ],
+    "locator": "00204"
+   },
+   {
+    "id": "book.mol.azlyn",
+    "name": "Azlyn Marivoski",
+    "tags": [
+     "zorian_s0",
+     "tier:present",
+     "scenes:00303"
+    ],
+    "locator": "00303; en b1 c3 p44"
+   },
+   {
+    "id": "book.mol.admin_desk_girl",
+    "name": "Administration desk clerk (unnamed)",
+    "tags": [
+     "zorian_s0",
+     "tier:spoke",
+     "scenes:00105"
+    ],
+    "locator": "00105; en b1 c1 p165"
+   }
+  ],
+  "catalog": [
+   {
+    "id": "book.mol.place.kazinski_house",
+    "label": "Kazinski family house, Cirin",
+    "kind": "place",
+    "locator": "00101"
+   },
+   {
+    "id": "book.mol.place.cirin_station",
+    "label": "Cirin train station",
+    "kind": "place",
+    "locator": "00103; en b1 c1 p113"
+   },
+   {
+    "id": "book.mol.place.cyoria_station",
+    "label": "Cyoria train station and the road to the academy",
+    "kind": "place",
+    "locator": "00104; en b1 c1 p153"
+   },
+   {
+    "id": "book.mol.place.academy",
+    "label": "Cyoria academy grounds",
+    "kind": "place",
+    "locator": "00105; en b1 c1 p160"
+   },
+   {
+    "id": "book.mol.place.admin_building",
+    "label": "Administration building",
+    "kind": "place",
+    "locator": "00105; en b1 c1 p165",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.third_year_housing",
+    "label": "Third-year housing room (room 115)",
+    "kind": "place",
+    "locator": "00105; en b1 c1 p167",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.cafeteria",
+    "label": "Academy cafeteria",
+    "kind": "place",
+    "locator": "00201",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.library",
+    "label": "Academy library",
+    "kind": "place",
+    "locator": "00201; en b1 c2 p1",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.invocations_room",
+    "label": "Essential Invocations classroom",
+    "kind": "place",
+    "locator": "00203; en b1 c2 p106",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.history_room",
+    "label": "History of magic classroom",
+    "kind": "place",
+    "locator": "00204; en b1 c2 p161",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.training_hall",
+    "label": "Training hall",
+    "kind": "place",
+    "locator": "00205; en b1 c2 p166",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.formula_room",
+    "label": "Spell formula classroom",
+    "kind": "place",
+    "locator": "00206; en b1 c2 p175",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.xvim_office",
+    "label": "Xvim Chao’s office",
+    "kind": "place",
+    "locator": "00207; en b1 c2 p179",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.warding_room",
+    "label": "Warding classroom (unnamed)",
+    "kind": "place",
+    "locator": "00301; en b1 c3 p4",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.alchemy_room",
+    "label": "Alchemy classroom",
+    "kind": "place",
+    "locator": "00303; en b1 c3 p44",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.room_six",
+    "label": "Room six",
+    "kind": "place",
+    "locator": "00304; en b1 c3 p59",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.ilsa_office",
+    "label": "Ilsa’s office",
+    "kind": "place",
+    "locator": "00306; en b1 c3 p135",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.residence_building",
+    "label": "Residence building",
+    "kind": "place",
+    "locator": "00307; en b1 c3 p183",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.alchemical_workshop",
+    "label": "Alchemical workshop",
+    "kind": "place",
+    "locator": "00308; en b1 c3 p207",
+    "containedIn": "book.mol.place.academy"
+   },
+   {
+    "id": "book.mol.place.dance_hall",
+    "label": "Dance hall",
+    "kind": "place",
+    "locator": "00401; en b1 c4 p3"
+   },
+   {
+    "id": "book.mol.purse.zorian",
+    "label": "Zorian’s own purse (crowns): amount not stated in c1-c4; held by Zorian",
+    "kind": "purse",
+    "locator": "00104 (bread step; no price or purse in the scene)"
+   },
+   {
+    "id": "book.mol.purse.household",
+    "label": "Kazinski household purse (crowns): amount not stated in c1-c4; held by the parents, away about six months",
+    "kind": "purse",
+    "locator": "00101; en b1 c1 p45 (six months away is stated; no money figure)"
    }
   ]
  },
@@ -5180,6 +5489,890 @@ export default {
      "completionFailure": "refund",
      "cancellation": "refund",
      "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.morning_home",
+     "revision": 1,
+     "label": "Wake, wash and eat breakfast at home · 3 min",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "costs": [],
+     "effects": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": 3
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.morning",
+       "stage": "seen",
+       "value": "A morning at home: you wake, wash, eat and look over the day's classes. Proposal row; the family house and its people arrive with the home content (G4).",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 3,
+     "claim": "book.mol.receipt.zorian_morning",
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false
+    },
+    {
+     "id": "book.mol.zorian.s0.invocations_class",
+     "revision": 1,
+     "label": "Attend Ilsa’s Essential Invocations class · 2 h, ~1 stamina",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.invocationStudied",
+       "value": true
+      },
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s0.invocations_class",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.invocation",
+       "stage": "understood",
+       "value": "A structured invocation makes a bounded mana construct; unstructured shaping is slower. A disruptor drops a levitated object but cannot undo fire, which burns out on its own. Class knowledge only; no spell learned.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 120,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false,
+     "once": true,
+     "description": "Scene lr.mol.main.00203 (en b1 c2 p106-160): a two-hour lecture on structured versus unstructured magic and dispelling. The lecture length is stated; the stamina figure is approximate (WA33)."
+    },
+    {
+     "id": "book.mol.zorian.s0.placement_test",
+     "revision": 1,
+     "label": "Sit Nora’s 60-question placement test · ~1 h, ~1 stamina",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s0.placement_test",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.placement",
+       "stage": "understood",
+       "value": "Nora gave a 60-question placement test, a 12-book recommended list, a weekly bonus lecture offer and three chapters due next class. Your answers are not scored here.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "book.mol.nora",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 60,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.nora",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "description": "Scene lr.mol.main.00206 (en b1 c2 p175): 60 questions, a 12-book reading list and three chapters for next class. The counts are stated; the duration and stamina are approximate (WA33). Reuses Nora’s formula rows; it does not copy them.",
+     "targetId": "book.mol.nora",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ]
+    },
+    {
+     "id": "book.mol.zorian.s0.missile_practice",
+     "revision": 1,
+     "label": "Fire the spell rod at a target · 1 cast of the reserve",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s0.missile_cast",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.missile",
+       "stage": "understood",
+       "value": "Magic missile costs far more mana than your other spells; the rod fires it until the reserve gives out.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false,
+     "description": "Scene lr.mol.main.00205 (en b1 c2 p171, label T): eight magic-missile shots before the reserve is spent. The 8 is stated; this cast costs 1 of 8 and the stamina and duration are approximate (WA33/WA35). The reserve shows beside your crowns and falls with each cast."
+    },
+    {
+     "id": "book.mol.zorian.s1.skip_class_drill",
+     "revision": 1,
+     "label": "Skip the Invocations lecture you already know and drill the rod at the court · 1 cast of the reserve",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s1.skipped_invocations",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.skipped_class",
+       "stage": "understood",
+       "value": "You were not in the Invocations room when the lecture began; the class ran without you and Ilsa will have noticed the empty seat.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.invocationStudied",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false,
+     "description": "G13 off-canon beat (proposal, AD32): in the earlier run you attended the Invocations lecture (lr.mol.main.00203, en b1 c2 p106-160, 2 h stated). Knowing it already, you drill the rod at the court during that slot instead, so the day differs from the one you remember. Cost, stamina and duration are approximate (WA33/WA35); the choice is the divergence, and its consequence is read by what you remembered about that day."
+    },
+    {
+     "id": "book.mol.zorian.s0.rest_reserve",
+     "revision": 1,
+     "label": "Sleep a night and let the reserve refill · ~8 h (approximate)",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "costs": [],
+     "effects": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "recover",
+       "amount": 8,
+       "cooling": 0
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": 6
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 480,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false,
+     "description": "The text of c1-c4 gives no recovery rate. A night of sleep refilling the reserve is a labelled proposal (WA33/WA35): the capacity (8) is stated, the rest is not."
+    },
+    {
+     "id": "book.mol.zorian.s0.shaping_practice",
+     "revision": 1,
+     "label": "Run the basic three under Xvim · 1 h, ~2 stamina",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -2
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.xvim",
+       "key": "book.mol.attention",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s0.basic_three_drilled",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.basic_three",
+       "stage": "understood",
+       "value": "The basic three must be faster and more deliberate; Xvim will retrain them until flawless. About a second too slow, by his count.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "book.mol.xvim",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.xvim",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 60,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "mol.support.book.mol.xvim",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "description": "Scene lr.mol.main.00207 (en b1 c2 p183-190): the basic three shaping exercises, restarted on Xvim’s order until fast and deliberate; one session ran an hour (stated). Only the levitation drill is named in the scene; the other two and \"flame weakest\" come from the task brief (ZS3), not from the scene file. Stamina is approximate (WA33).",
+     "targetId": "book.mol.xvim",
+     "coLocated": true,
+     "participants": [
+      "$target"
+     ]
+    },
+    {
+     "id": "book.mol.zorian.s0.watch_missile",
+     "revision": 1,
+     "label": "Watch Zach fire magic missiles · once, ~10 min",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s0.watched_missile",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.watched_missile",
+       "stage": "understood",
+       "value": "Zach fires magic missile again and again without tiring where you ran dry at eight. Watching taught you what to look for, not how to cast it.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false,
+     "once": true,
+     "description": "Scene lr.mol.main.00205 step 3 (en b1 c2 p171): you watch Zach fire magic missile repeatedly. Watching shows structure, not casting: it grants understanding only, no spell and no cast. Duration and stamina are approximate (WA33)."
     },
     {
      "id": "book.mol.zorian_talk",
@@ -12867,6 +14060,20 @@ export default {
        "priority": 1
       }
      ]
+    }
+   ],
+   "energies": [
+    {
+     "id": "book.mol.zorian.reserve",
+     "revision": 1,
+     "label": "Magic missile reserve (casts)",
+     "capacity": 8,
+     "output": 1,
+     "control": 1,
+     "efficiencyNumerator": 1,
+     "efficiencyDenominator": 1,
+     "strainLimit": 0,
+     "strainPerUse": 0
     }
    ]
   },

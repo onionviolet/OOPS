@@ -4,9 +4,11 @@ import {createRealmConnection,realmConnectionBinding,validateRealmConnectionBind
 import {validateWorldRecords,planWorldClock} from './world_instances.js';
 import {molCommands} from './book_world_mol_actions.js';
 import {jsonData} from './simulation_contracts.js';
+import {MOL_START_VISITOR,MOL_START_ZORIAN} from './book_world_mol_starts.js';
 import {compactEndedWorldVisits,previewWorldVisitRoom} from './world_visit_history.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
-const shape=(v,keys,text)=>assert(v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).length===keys.length&&keys.every(k=>Object.hasOwn(v,k)),`Unsupported ${text}.`);
+// `optional` keys (the Zorian run markers, AD45: absent in older saves) may be present or absent; anything else must match exactly.
+const shape=(v,keys,text,optional=[])=>assert(v&&typeof v==='object'&&!Array.isArray(v)&&keys.every(k=>Object.hasOwn(v,k))&&Object.keys(v).every(k=>keys.includes(k)||optional.includes(k)),`Unsupported ${text}.`);
 export const MOL_VISIT_CAPACITY=128;
 export const molLocationWorld=Object.fromEntries(Object.values(L).map(id=>[id,I.world]));
 export function createMolConnections(){return [createRealmConnection({id:'book.mol.entry',revision:1,from:MOL_FRONTIER,to:footprints[0].endpoint,kind:'physical',controllerId:'player',bidirectional:true,duration:0,lifetime:null,requirements:{id:'book.mol.entry.approval',revision:1,operations:['passage'],bodyForms:['human'],costs:[]},layerPolicy:{passage:true,manifestation:false,contact:false},cargoPolicy:{allowed:true,maxUnits:Number.MAX_SAFE_INTEGER,allowEquipped:true,classes:['carried']},flows:['body','cargo']})];}
@@ -22,15 +24,17 @@ export function validateMolCampaignState(state){
   for(const [id,a] of Object.entries(state.actors||{})){assert(!Object.keys(a.resources||{}).some(optionalPrefix)&&!Object.keys(a.sources||{}).some(optionalPrefix),'Cyoria means require the matching optional owner.');if(id==='player')assert(!Object.keys(a.completed||{}).some(k=>optionalPrefix(k)&&k!=='book.mol.chart')&&!Object.keys(a.facts||{}).some(k=>optionalPrefix(k)&&k!=='book.mol.chart'),'Absent Cyoria retains only deliberate entry reading.');}
   assert(!Object.keys(s?.knowledge?.player||{}).some(k=>optionalPrefix(k)&&k!=='book.mol.chart'),'Absent Cyoria retains only its explicit entry terms.');return true;
  }
- jsonData(d);shape(d,['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','nativeRevision','bodyPolicy','absence','entryProfile','instances','visits','activeVisitId','connections','retrievalOpenedAt','receipts'],'Mother of Learning campaign fields');
- assert(state.schema===11&&d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===MOL_SOURCE_SNAPSHOT&&d.sourceHash===MOL_SOURCE_HASH&&d.bodyPolicy==='same_native_body'&&d.absence==='freeze'&&d.entryProfile==='independent_nonmage_visitor','Unsupported exact Cyoria source/entry/body/clock semantics. Preserve this save for its matching reader.');
+ jsonData(d);shape(d,['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','nativeRevision','bodyPolicy','absence','entryProfile','instances','visits','activeVisitId','connections','retrievalOpenedAt','receipts'],'Mother of Learning campaign fields',['runStartedAt','runs','divergence']);
+ assert(state.schema===11&&d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===MOL_SOURCE_SNAPSHOT&&d.sourceHash===MOL_SOURCE_HASH&&d.bodyPolicy==='same_native_body'&&d.absence==='freeze'&&[MOL_START_VISITOR,MOL_START_ZORIAN].includes(d.entryProfile),'Unsupported exact Cyoria source/entry/body/clock semantics. Preserve this save for its matching reader.');
  assert(natural(d.initializedAt)&&d.initializedAt<=state.clock&&natural(d.nativeRevision)&&Array.isArray(d.instances)&&d.instances.length===1&&Array.isArray(d.visits)&&d.visits.length<=MOL_VISIT_CAPACITY,'Invalid retained Cyoria owners/history.');
  validateWorldRecords({definitions:footprints.map(f=>f.definition),instances:d.instances,visits:d.visits},{actorIds:Object.keys(state.actors),externalInstances:[{id:'frontier.main',worldId:'base.frontier',parentInstanceId:null}]});
  const f=footprints[0],instance=d.instances[0];assert(instance.id===f.instanceId&&instance.worldId===I.world&&instance.continuityId===f.continuityId&&instance.eraId===f.eraId&&instance.parentInstanceId===null&&instance.clock.observedAt<=state.clock,'Cyoria instance era/continuity changed.');
  assert(state.worlds[I.world]&&Object.entries(MOL_INITIAL_FACTS[I.world]).every(([key,value])=>typeof state.worlds[I.world].facts[key]===typeof value),'Missing retained Cyoria local facts.');
- assert(Array.isArray(d.connections)&&d.connections.length===1,'Missing actual Cyoria entry passage owner.');d.connections.forEach((c,i)=>{validateRealmConnectionBinding(c,binding[i]);assert(c.open&&c.openedAt===d.initializedAt,'Cyoria entry approval changed.');});
+ const zorian=d.entryProfile===MOL_START_ZORIAN;
+ assert(Array.isArray(d.connections)&&d.connections.length===(zorian?0:1),'Missing actual Cyoria entry passage owner.');d.connections.forEach((c,i)=>{validateRealmConnectionBinding(c,binding[i]);assert(c.open&&c.openedAt===d.initializedAt,'Cyoria entry approval changed.');});
  const visit=activeMolVisit(state),active=d.visits.filter(v=>v.status==='active');assert(d.activeVisitId===null?active.length===0:!!visit&&active.length===1&&visit.actorId==='player','One actual native body needs one Cyoria visit.');
- assert((state.actors.player.worldId===I.world)===!!visit&&(!visit||visit.endpoint.worldId===I.world&&molLocationWorld[s?.people.player?.location]===I.world),'Current Cyoria body and native location disagree.');
+ if(zorian)assert(!visit&&d.visits.length===0&&state.actors.player.worldId===I.world&&molLocationWorld[s?.people.player?.location]===I.world,'The Zorian start lives in Cyoria with no visitor passage.');
+ else assert((state.actors.player.worldId===I.world)===!!visit&&(!visit||visit.endpoint.worldId===I.world&&molLocationWorld[s?.people.player?.location]===I.world),'Current Cyoria body and native location disagree.');
  assert(!visit||![state.bookWorldCampaign,state.nestedCampaign,state.featureDestination,state.realmPrototype].some(x=>x?.activeVisitId),'The actual body cannot occupy another retained instance at the same time.');
  for(const p of molDefinitions.people){const person=s?.people[p.id],body=person?.body;assert(state.actors[p.id]?.worldId===I.world&&person?.inventory==='native'&&person.definitionId===p.id&&person.definitionRevision===1&&molLocationWorld[person.location]===I.world,'Missing exact independently retained Cyorian resident owner/place.');assert(body?.id===`native.person.${p.id}.body`&&body.ownerId===p.id&&body.controllerId===p.id&&body.form==='human','Cyorian resident body/controller is not its own independent owner.');}
  const w=state.worlds[I.world].facts;

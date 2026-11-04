@@ -4,6 +4,7 @@ import {molLoreInstitutionFacts} from './book_world_mol_lore.js';
 // this module freezes the installed copies and keeps only the fact reader.
 import {MOL_IDS as I,MOL_LOCATIONS as L,MOL_KEYS as K} from './book_world_mol_ids.js';
 import {packNative} from './world_pack_registry.js';
+import {molSupplier,isZorianStart} from './book_world_mol_starts.js';
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 const installed=packNative('book.mol');
 const {commands,controllers,powers,conditions,encounters,situations}=installed.definitions;
@@ -15,10 +16,9 @@ export function molFacts(state,ctx={}){
  const usable=id=>{const person=s.people?.[id],body=person?.body,v=vitals(id);return person?.inventory==='native'&&person.life==='alive'&&body?.form==='human'&&body.ownerId===id&&body.controllerId===id&&(body.hands??0)>=2&&body.mobile===true&&(v?.health??0)>1;};
  const bound=!!d&&n.bound===true&&n.revision===d.nativeRevision&&n.revision>0;
  const sameBody=b?.id==='native.player.body'&&actual?.id===b.id&&actual.form===b.form&&actual.ownerId===b.ownerId&&actual.controllerId===b.controllerId;
- const here=visit?.endpoint.worldId===I.world&&state.actors?.player?.worldId===I.world&&Object.values(L).includes(p?.location);
- const playerSupported=bound&&sameBody&&ctx.nativeAlive===true&&usable('player')&&here;
- const f={'mol.nativeBound':bound,'mol.playerSupported':playerSupported,'mol.chartSupported':ctx.nativeAlive===true&&p?.life==='alive'&&p.location==='Village'&&state.actors?.player?.worldId==='base.frontier',[`mol.local.${I.world}`]:playerSupported&&state.actors?.[actorId]?.worldId===I.world};
- for(const id of [I.imaya,I.ilsa,I.ibery,I.nora,I.xvim,I.taiven,I.kael,I.zorian,I.opponent]){f[`mol.support.${id}`]=playerSupported&&usable(id)&&s.people[id].body.id===`native.person.${id}.body`&&state.actors?.[id]?.worldId===I.world&&Object.values(L).includes(s.people[id].location);f[`mol.at.${id}`]=s.people?.[id]?.location||'';}
+ const start=molSupplier(state)({state,bound,sameBody,nativeAlive:ctx.nativeAlive===true,usable:usable('player'),visit,person:p,actorId}),playerSupported=start.playerSupported;
+ const f={'mol.nativeBound':start.nativeBound,'mol.playerSupported':playerSupported,'mol.chartSupported':ctx.nativeAlive===true&&p?.life==='alive'&&p.location==='Village'&&state.actors?.player?.worldId==='base.frontier',[`mol.local.${I.world}`]:start.local,...start.extra};
+ for(const id of [I.imaya,I.ilsa,I.ibery,I.nora,I.xvim,I.taiven,I.kael,I.zorian,I.opponent]){f[`mol.support.${id}`]=!(id===I.zorian&&isZorianStart(state))&&playerSupported&&usable(id)&&s.people[id].body.id===`native.person.${id}.body`&&state.actors?.[id]?.worldId===I.world&&Object.values(L).includes(s.people[id].location);f[`mol.at.${id}`]=s.people?.[id]?.location||'';}
  const accepted=ctx.molAcceptedJob,acceptedDefinition=molCommands.find(c=>c.id===accepted?.commandId);
  const acceptedTool=key=>accepted&&acceptedDefinition&&accepted.actorId==='player'&&accepted.context?.actorId==='player'&&accepted.revision===acceptedDefinition.revision&&accepted.reservationReturns===1&&accepted.cancellation==='refund'&&accepted.due===state.clock&&accepted.completionSupport?.location===acceptedDefinition.location&&JSON.stringify(accepted.costs)===JSON.stringify(acceptedDefinition.costs)&&accepted.effects.some(e=>e.type==='item'&&e.actor==='player'&&e.key===key&&e.amount===1&&e.reservationReturn===true)&&accepted.costs.some(e=>e.type==='item'&&e.actor==='player'&&e.key===key&&e.amount===-1)?1:0;
  const held=(id,key)=>Math.max(0,(ctx.gameplay?.[id]?.inventory?.[key]||0)-Object.values(s.custody||{}).filter(c=>(c.key===key||c.itemKey===key)&&c.holder===id&&c.owner!==id).reduce((a,c)=>a+c.count,0));
