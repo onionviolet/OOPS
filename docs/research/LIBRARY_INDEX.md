@@ -110,6 +110,7 @@ Archives of Nethys, scoped to afflictions, weapon and armor properties,
 conditions, poisons, runes and disguise. Private data in
 `docs/research/d20/private/`; scope, counts and hashes in the
 [collection receipt](d20/D20_RULES_COLLECTION_2026-11-03.md).
+- Pathfinder 1e scope widened 2026-11-04 (browser route): armor abilities, cursed items, afflictions, conditions, environment, haunts, skills, crafting, universal monster rules, and transmutation and illusion spells are in. Other spell schools are partial and wondrous items are not started; see the receipt.
 
 ## Wikis and rulebooks: acquired, missing and routes, 2026-11-03
 
@@ -157,6 +158,19 @@ Trigger: Weibao, “for the wiki we can look for other routes, or use chrome ext
 | Shadowrun (any edition) | Buy | Essence lost to implants: capacity as a body budget (AB21) |
 | Legend of the Five Rings | Buy | Shadowlands Taint (AB14), clan and family techniques (AB12) |
 | Vampire 5e, GURPS Powers, Mage 20th, Exalted 3e, Nobilis 3e | Buy (from round 2) | as above |
+
+**Next-wave free rulebooks fetched, 2026-11-03.** Weibao said “Fetch them”. Files are in `~/.codex/research/rulebooks/<slug>/`. None has been read yet. Screen each PDF with `pdf-screen` before reading it.
+
+| Next-wave rulebook | Source | File | Licence | Check |
+|---|---|---|---|---|
+| Basic Roleplaying ORC Content Document | Chaosium's own host, from its ORC announcement page | PDF 3.8 MB and RTF 2.4 MB | ORC | valid PDF and RTF; SHA-256 `d38af1fc2c27326b…` (PDF) |
+| Cypher Reference Document | col.montecookgames.com/license | `Cypher-Reference-Document-2026-07-29.docx` 8.5 MB, plus the licence PDF dated 2026-07-15 | Cypher Open License | valid docx; SHA-256 `cbc222b131436fef…` |
+| Eclipse Phase 2nd edition Quick-Start ("Acrimony", Nov 2023) | eclipsephase.com/qsr | PDF 6.7 MB | CC BY-NC-SA 4.0 (the site's licence page) | valid PDF; SHA-256 `8ba97f45ad34ef69…` |
+| Ironsworn rulebook and Assets Master Set | itch.io free download (shawn-tomkin.itch.io/ironsworn) in Weibao's Chrome; no account or payment. The rulebook was already in `~/Downloads` (2026-10-14) and was copied, not moved | rulebook 40.9 MB, about 270 pages; assets 0.46 MB | CC BY-NC-SA 4.0 (full text) | complete PDFs; SHA-256 `c1cfba6573cbd57e…` and `cc16c4eb95d0f782…` |
+| Delta Green: Need to Know | free, but only through DriveThruRPG with an account; the Arc Dream pages hold no direct file | not fetched | OGL core rules | Weibao's to grab |
+| Eclipse Phase 1st edition core | pay-what-you-want on DriveThruRPG; the publisher's epub mirror returns 404 | not fetched | CC BY-NC-SA | Weibao's to grab |
+
+A stalled duplicate rulebook download, `~/Downloads/Unconfirmed 993474.crdownload` (15.7 MB), is left in place for Weibao to discard in Chrome.
 
 Next steps, ranked:
 1. Choose rulebooks to buy; the free ones are fetched, and the free next wave above waits on your yes.

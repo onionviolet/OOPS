@@ -68,6 +68,13 @@ Source-inspected means neither runtime-verified nor sufficient for arbitrary D&D
 
 Source inspections establish reusable shapes for actor knowledge, conditions, story life, claims and jobs. They do not prove this proposed journey works. Reinspect changed owners before assigning engine writes; this GM has no shared-engine ownership.
 
+## Implementation status, 2026-11-03 (agent-verified, not human-reviewed)
+
+Route kind: **named fixture start** (ST2 Wizard; no registered world pack, no first-start selection). Panel "Phandalin" in the records dock, desktop-first.
+Built: [src/dnd_phandalin.js](../../../src/dnd_phandalin.js) (Mending eligibility and one-minute cast, carry gate, PS05 d20 check through the existing resolver with a declared DC 12 and saved receipts) and [src/dnd_phandalin_domain.js](../../../src/dnd_phandalin_domain.js) (namespaced slice `dnd_phandalin`, family `dnd.phandalin@1`, ticks from the game clock; old saves load with the slice absent). Tests: `tests/dnd_phandalin.test.js`, `tests/dnd_phandalin_domain.test.js`.
+Proven by walking a rebuilt bundle in the headless game: start, inspect, Mending, torn-sack gate, stones check, dry path, delivery once, save and reload, Export and literal Import into a fresh game.
+Below floor, still open: no coin moves on settlement (the 1 GP fee is text only, so FLR4 is met only for the carry gate); no world-pack registration or ST1/ST3; the slice clock starts at 09:00 and runs from game ticks but is not the home-world calendar; no lesson, board or hired-worker alternatives (PS02/PS03 alternatives); PS05 DC 12 and the 12-inch Mending limit are proposals to verify against SRD 5.2.1; the stones roll root is fixed per fixture; no 1920x1080 browser screenshot; no full `npm test` run.
+
 ## Finite next units and acceptance
 
 **A1 next bounded research unit:** inspect O1 character creation, the three proposed classes/backgrounds, Mending acquisition/components and the selected town setting chapter. Freeze one legal ST2 snapshot, one object schema and PS01–PS03 terms; qualify ST1/ST3 afterward. Prefer an already-held/signed-in setting source, or an explicitly selected accessible official source; do not acquire a large corpus merely to fill this table. Exact wages, repairs and local event routines remain authored rulings unless sourced.
