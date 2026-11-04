@@ -6,6 +6,8 @@ Source text stays outside tracked files. Never modify the library; convert into 
 
 ## Prime books
 
+**The Wandering Inn current holdings:** main-series coverage through book 19 plus the four newer split editions of books 1-2. Books 18-19 are web-text compilations with validated chapter-range coverage and separate repaired reader copies, not verified retail editions. See [the full-series receipt](#wandering-inn-published-run-acquisition-2026-10-31); this supersedes earlier partial-holdings snapshots.
+
 | Book | Language | Source | Chapters on disk | Batch keys |
 |---|---|---|---|---|
 | Lord of the Mysteries 诡秘之主 (Ai Qian Shui De Wu Zei) | zh | Calibre 1, EPUB with `nav.xhtml`, 8 volumes (chapters restart per volume) | volumes 1-8 | `lotm2`-`lotm8` (volume 1 read by the older wave plans) |
@@ -65,9 +67,27 @@ Weibao picked these three over the other RR options. 19 files; the daily quota r
 
 | Work | Held | Still to fetch |
 |---|---|---|
-| Mark of the Fool (J.M. Clarke) | Books 1-7 | Book 8 |
-| Tree of Aeons (Spaizzzer) | Books 1-6 | Books 7-8 |
-| The Legend of Randidly Ghosthound (puddles4263 / Noret Flood) | Books 1-6 | Books 7, 9-13; Book 8 not found on Z-Library |
+| Mark of the Fool (J.M. Clarke) | Books 1-8 (8 via Anna's Archive, 2026-10-30) | None known |
+| Tree of Aeons (Spaizzzer) | Books 1-7 (7 via Anna's Archive) | Book 8 (Z-Library only; not on Anna's partner servers yet) | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
+| The Legend of Randidly Ghosthound (puddles4263 / Noret Flood) | Books 1-12 (7-12 via Anna's Archive; 8 was missing from Z-Library) | Book 13 (Z-Library only) | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
+
+Continuations via Anna's Archive (2026-10-30, same route, MD5 taken from the queued Z-Library edition's metadata so each file is that exact edition): Millennial Mage 3-8 (now 1-8), Dungeon Life 3 (now 1-3). Same day through Anna's member API (key in the macOS Keychain item `annas-archive`, 50 fast downloads a day; `scripts/annas_route.py member`): Dungeon Life 4 (now 1-4), Chrysalis 2-5 and 7 (now 1-5, 7), Beneath the Dragoneye Moons 2, 4-6, 8-9 (now 1-2, 4-6, 8-9), Azarinth Healer 2-6 (now 1-6), Threadbare Complete Trilogy (books 1-3), Cinnamon Bun 1.
+
+Found later the same day by searching Anna's in Weibao's Chrome, then the member API: Chrysalis 6 (now 1-7), Dragoneye Moons 3 and 7 (now 1-9), Randidly Ghosthound 13 (another copy; now 1-13), Forge of Destiny 3 (now 1-3), Path of Ascension 12, Chaotic Craftsman Worships the Cube (chapters 1-604 compilation), The Daily Grind (a 7 MB Royal Road compilation), Super Minion, The Steerswoman 4 *The Language of Power*. Two downloads were the wrong book: both Anna's copies titled *The Lesser Kindred* are Elizabeth Kerner's novel, not Steerswoman 3; they sit in Source Library and are not Kirstein.
+
+Still Z-Library only: Tree of Aeons 8, Azarinth Healer 7, Threadbare Volume 4, Path of Ascension 9.
+
+Anna's Archive files (2026-10-30) came through Weibao's Chrome by the free slow-partner route, then `curl` and the scratch intake script: MD5 matched Anna's record, zip CRC clean, registered in the Source Library catalogue. Where the file is the same Z-Library edition, its Z-Library key is marked complete so it is not fetched twice.
+
+## Tutorial and reset fiction, 2026-10-31
+
+Anna's member API, matched to Z-Library edition MD5s, added *A Gamer's Guide to Beating the Tutorial* by Palt, books 2 (*Lust*, SHA-256 `ee7bfee95945`) and 3 (*Gluttony*, `0adff61adfdc`). Book 1 (`e60e896b7dd8`) was already held. All three are registered in Source Library. Books 2-3 passed MD5, SHA-256 and ZIP CRC checks; text is populated but was not prepared for batch reading or read in this run. The old harvest reuse index RH4 predates books 2-3; check the live Source Library as well.
+
+Reading continuity check, 2026-10-31: book 3's EPUB TOC finishes at Floor 25. Palt's [Royal Road contents](https://www.royalroad.com/fiction/73205/a-gamers-guide-to-beat1ng-the-tut0rial) resumes at chapter 230, Floor 26, and lists through chapter 417 in the checked snapshot. Chapter 230 is therefore a plausible next place to start; edition revisions and exact continuity were not compared. The public TOC labels chapter 370 onward *Greed*; it did not list a *Wrath* chapter in this snapshot. Palt's [members-only Patreon post](https://www.patreon.com/AuthorPalt/posts/gamers-guide-4-5-134883260) separately names PDFs for steps 4 and 5. It does not establish the boundaries or availability of the full PDFs on Royal Road.
+
+*The Tutorial Is Too Hard* by Gandara: one English anthology (`d9e940cd199c`, Anna's MD5 `7d8fadc31423be5aeee56aa5c5c3b621`) is registered. Its embedded metadata calls the author `---`; opening front matter credits Gandara and Light Novel Bastion. The TOC lists main chapters 1-380 and side stories 1-53, with no missing integers; chapter 230 and 233 have decimal subparts. This is TOC coverage, not a text or translation-quality audit. The EPUB passed MD5, SHA-256 and ZIP CRC checks; it was not prepared or read for this run.
+
+*Death After Death* by DWinchester is not registered in the checked local holdings. The Z-Library metadata search did not identify a matching edition. On 2026-10-31 a background search in Weibao's existing signed-in Chrome tab on Anna's returned no exact result for title plus author; an author search listed only *Tenebroum*. These searches do not prove absence under other metadata. The author-posted Scribble Hub route closed on HTTP 403 in the shared polite transport; Royal Road was already closed there. No chapters acquired. Author reading page: <https://www.royalroad.com/fiction/58180/death-after-death-roguelike-isekai>. Do not reset the transport or reroute that refusal through a browser collector.
 
 ## Not on disk, or unverified (the one pending list)
 
@@ -89,6 +109,23 @@ Reading state (what has been read, spent or merged) lives in the run files and `
 
 Er Gen's settings (`er-gen-haul-2026-10-09`: A Will Eternal, Beyond the Timescape and others, Calibre 71-73), Reincarnation Paradise (13), I Am the Fated Villain (14), Omniscient Reader's Viewpoint (18), Labyrinth of the Mad God (19, 20), Solo Leveling (46), Second Life Ranker (85) and about 200 more: see the catalogue.
 
+## Translator-site captures, 2026-10-30
+
+Fan translations captured through the polite transport (`lncrawl.polite.transport.Client`, no browser), text private and out of git. Registered files are in Source Library (`library/<sha>/source.epub`); staged files are in `~/.local/share/source-platform/staging/translator/`. The LN and WN of Re:Zero arc 4 (and the arc 3 interludes) were already held, as were Fate/Zero 1-4 and Re:Zero LN 1-10 (Calibre 150, 160, 161).
+
+| File | Chapters | Source | Label | State |
+|---|---|---|---|---|
+| Re:Zero Web Novel Arc 5 - Stars What Make History | 84 (index: 84) | witchculttranslation.com/table-of-content/ | WN | registered `b1bfb8f6ccef` |
+| Re:Zero Web Novel Arc 8 - Vincent Vollachia | 76 (76) | same | WN | registered `85d8c6be215f` |
+| Re:Zero Web Novel Arc 9 - Light of a Nameless Star | 62 (62) | same | WN | registered `f2dc129a2220` |
+| Re:Zero Web Novel Arc 10 - The Land of the Lion Kings (ongoing) | 27 (27, through Chapter 26) | same | WN | registered `91bbcc411cc1` |
+| Re:Zero Web Novel Arc 6 - Hall of Memories | 91 (complete) | Witch Cult, plus translationchicken.com (3) and eminenttranslations.com (2, saved from Weibao's Chrome 2026-10-30 at his request) | WN | registered `bfc232bd8c65`; replaces `0048ebcb3e3e` (89 chapters) and the partial `dfac593c9e59` |
+| Re:Zero Web Novel Arc 7 - The Land of Wolves | 116 (ch 63 Sparka added 2026-11-03, BC2) | same | WN | registered `6559e2bf05ab`; replaces `0b9b3695d836` (115 chapters) |
+| Re:Zero Web Novel Arc 1 - A Tumultuous First Day | 24 (24) | same | WN | staged only (LN 1 held) | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
+| Fate/Zero Volumes 2, 3, 4 and Another Story (Heart of Freaks) | 20, 19, 33, 1 | baka-tsuki.org/project/index.php?title=Fate/Zero | LN fan translation | staged only; alternate translation, not registered. Chapter = act part from the Full Text pages; Vol 4 adds the Translator's Notes page | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
+
+Done except as listed (the Arc 6 chapters 89–90 and Arc 7 chapter 63 gaps named below were closed on 2026-11-03, see BC2 and BC5). Weibao approved four reopenings of the Witch Cult closure (all logged in the transport `requests.jsonl`). The table of contents carries wrong post dates, so the last two runs took live URLs from the site's `post-sitemap.xml` by slug. The fourth closure was my own local `UnicodeEncodeError` on a non-ASCII URL; the final run percent-encoded every path, dry-validated all URLs, and finished with no further closure. Missing: Arc 6 chapters 89 and 90 (Eminent Translations; its robots.txt disallows GPTBot) and Arc 7 chapter 63 "Sparka" (no sitemap slug, so not requested); each EPUB's front matter lists them. Arc 6 and 7 chapter counts: 89 of 91 and 115 of 116 index entries. The earlier partial Arc 6 (`dfac593c9e59`, 61 chapters) stays registered but is replaced by `0048ebcb3e3e`. Arc 2 is hosted on eminenttranslations.com and most of Arc 3 on kagurojp.wordpress.com, not Witch Cult. No Game No Life: the Baka-Tsuki page is marked abandoned and taken down, with no chapter links left; NGNL 1-3 stay on Anna's.
+
 ## Keeping this current
 
 A new book arrives: add its row here (and in `books.json` if it will be batch-read) in the same change. A search that finds nothing is recorded in `BATCH_READING_WORKFLOW.md` "Known gaps".
@@ -98,10 +135,815 @@ A new book arrives: add its row here (and in `books.json` if it will be batch-re
 | Document | Owns |
 |---|---|
 | [SOURCE_ACQUISITION_TOOLS](SOURCE_ACQUISITION_TOOLS.md), [TOOL_REGISTRY](../TOOL_REGISTRY.md) | How to acquire: Source Library CLI, polite scraper, Calibre routes |
-| [BOOK_CANDIDATES_2026-10-22](BOOK_CANDIDATES_2026-10-22.md), [BOOK_DISCOVERY_2026-10-26](BOOK_DISCOVERY_2026-10-26.md), [FUTURE_ACQUISITION_QUEUE](FUTURE_ACQUISITION_QUEUE_2026-10-13.md) | What we might acquire next (proposals, history) |
+| [DOWNLOAD_WISHLIST_2026-10-30](DOWNLOAD_WISHLIST_2026-10-30.md) (current ranked to-download list), [BOOK_CANDIDATES_2026-10-22](BOOK_CANDIDATES_2026-10-22.md), [BOOK_DISCOVERY_2026-10-26](BOOK_DISCOVERY_2026-10-26.md), [FUTURE_ACQUISITION_QUEUE](FUTURE_ACQUISITION_QUEUE_2026-10-13.md) | What we might acquire next (proposals, history) |
 | [BOOK_ACQUISITION_RECEIPT_2026-10-24](BOOK_ACQUISITION_RECEIPT_2026-10-24.md), [SOURCE_ACQUISITION_RECEIPT_2026-10-26](SOURCE_ACQUISITION_RECEIPT_2026-10-26.md) | What was downloaded, dated, with checks (history; this index is the live answer) |
 | `novels/LOCAL_LIBRARY.md` and `.json` (private) | The 2026-10-03 Calibre import evidence; not updated since |
 | `novels/ttks-novels-2026-10-10/` (private) | The five TTKS captures and their per-book notes |
+
+
+## RR continuation round, 2026-10-31
+
+Weibao directed RR books, continuations and all published volumes before rulebooks or
+more openers. Anna's member route acquired 28 EPUBs: He Who Fights with Monsters 2-12,
+Dungeon Crawler Carl 2-7, The Menocht Loop 2-6, and Cinnamon Bun 2-7. With the already-held
+first volumes, holdings now cover 1-12, 1-7, 1-6 and 1-7 respectively. Each new file
+passed exact edition MD5, SHA-256 and EPUB ZIP CRC checks and was registered in Source
+Library, with its matching Z-Library edition key linked. Not prepared or read in this run;
+archive integrity does not establish editorial completeness or translation quality.
+
+He Who Fights with Monsters 13 (`zlibrary:129279895:58a5ab`) and Dungeon Crawler Carl 8
+(`zlibrary:126735302:4bc91a`) returned `annas_api_Record_not_found`. Keep these two as
+continuation gaps for the next available route, without same-day Anna's retry. The
+[author's HWFWM page](https://hewhofightswithmonsters.com/) gives October 6, 2026 for book
+13; [Dinniman's books page](https://mattdinniman.com/books/) lists book 8. Other series'
+latest publication boundaries were not exhaustively audited. Menocht 6 and Cinnamon 7
+are the highest volumes found in this round's catalogue searches.
+
+Before the priority correction, Eberron: Rising from the Last War was acquired and
+verified (`9aa844f587e5`); Strixhaven was interrupted during transfer and is not held.
+Ravnica and Theros were not requested from Anna's. Last API response reported 10 left
+before the final successful request, so approximately 9 remained afterward; no separate
+balance check was issued. Private edition receipts and the bounded runners are in
+`novels/annas-2026-10-31-next/`. No subscription purchase, reading batch or gameplay
+change was made.
+
+## Worldview acquisition round, 2026-10-31
+
+Weibao authorized further RR/LN/world-rich acquisition using LOTM and Reverend Insanity
+as comparison gates, including the free slow route. Ranking and evidence are in
+[download wishlist W9](DOWNLOAD_WISHLIST_2026-10-30.md#w9-lotm--reverend-insanity-comparison-round-2026-10-31).
+Recommendations concern acquisition usefulness, not verified literary parity or a
+new gameplay implementation order. No full-source reading was performed.
+
+| Source | Newly acquired | Current verified local coverage / limitation |
+|---|---|---|
+| A Practical Guide to Sorcery, Azalea Ellis | Main books 2-6 | Book 1 already held as A Conjuring of Ravens (`dbdd8c5e9257`); now main books 1-6. Bonus material not inventoried; book 7 is preorder on the checked author store |
+| Virtuous Sons, Y.B. Striker | Book 2, The Tyrant Riot (`ed432b884633`) | Main books 1-2 held; no book 3 found in this catalogue search, not a serial completeness claim |
+| Deep Sea Embers, Yuan Tong | English compilation (`54f0982cb93e`) | 851 leaf TOC entries, numbered 1-850 then 852. No separate 851 member. Publisher's [Embers of the Deep](https://www.webnovel.com/book/24233205105935405) ends with the corresponding ending labeled 851, so this may be numbering rather than absent story text. Exact edition alignment remains unresolved; do not label a confirmed missing chapter or text completeness |
+| Embers Ad Infinitum, Cuttlefish That Loves Diving | English compilation (`478f0fe47f0a`) | TOC chapter numbers 1-953, no integer gaps; matches the [publisher's 953-entry listing](https://www.webnovel.com/book/18555275806275805). This is TOC coverage, not a full-text audit |
+| Throne of Magical Arcana, Cuttlefish That Loves Diving | English c1-910 compilation (`ce30d3016be7`) | 910 leaf TOC entries, numbered 1-910 with no integer gaps; matches [publisher listing](https://www.webnovel.com/book/6838665602002005). Chapter text not read |
+
+All nine new EPUBs passed exact selected-edition MD5, SHA-256 and ZIP CRC checks and
+were registered in Source Library. Matching Z-Library keys were linked so later runs
+can reuse them. Not prepared for reading, batch-registered or read in this run.
+Private receipts, coverage checks, bounded runners and 18 Wandering Inn continuation
+candidates (books 2-19, subtitle matching still required) are under
+`novels/worldview-2026-10-31/`. These candidates are not acquired files.
+
+The member API then explicitly returned `annas_api_No_downloads_left` for the selected
+Forty Millenniums of Cultivation compilation and The Wandering Inn 2. Neither was
+acquired; neither response establishes mirror absence. Stop further member calls until
+reset. The free slow route for Wandering Inn 2 reached DDoS-Guard's manual browser
+check in the existing signed-in Chrome tab. User was notified; the check was not
+solved or bypassed. No slow transfer completed. Browser account UI describes usage
+in a last-18-hours window; no reset time was independently established.
+
+### Wandering Inn slow-route proof, 2026-10-31
+
+The signed-in browser's automatic DDoS-Guard check completed without manual input on
+a later member-session attempt. The slow partner supplied a direct file URL. The
+Wandering Inn book 2, Fae and Fare, is now acquired (`c160409e975c`), exact MD5
+`13388d14bee6db9ae56261b10e82990e`, SHA-256 and EPUB ZIP CRC verified, registered in
+Source Library with `zlibrary:117224558:a49eb6` linked. Holdings now include books 1-2;
+3 onward remain candidates, not acquired. No full-source read or reading preparation.
+Receipt: `novels/worldview-2026-10-31/wandering2_slow_receipt.json`. The earlier slow
+stop above is historical; route now has one verified transfer. Cause of the earlier
+manual-check failure remains unresolved. Next priority is Wandering Inn continuations,
+with LOTM and RI comparisons concerned with world depth and possibilities overall.
+
+## Wandering Inn published-run acquisition, 2026-10-31
+
+Weibao explicitly requested the rest of The Wandering Inn, everything published,
+through slow downloads. **Acquired this run: main books 3-19 and the four newer split
+editions of books 1-2**, 21 retained source EPUBs. With the previously held original
+books 1-2, the library has main-series story coverage through 19. The author’s
+[book catalogue](https://wanderinginn.com/books-2/) lists through 19;
+[Podium's book 20 page](https://www.podiumentertainment.com/titles/108158/memorys-flame)
+dates Memory's Flame November 3, 2026, after this run. The main web serial continues
+beyond collected ebooks; it was not captured here. No audiobook or spinoff was acquired.
+
+| Coverage | Actual state |
+|---|---|
+| Main books 3-17 | Registered source EPUBs passed exact selected-edition MD5, SHA-256 and ZIP CRC checks, XML package parsing, real spine-target checks and populated chapter-member checks. Book 8 uses alternate edition `zlibrary:117224526:1eed31`, as the initially selected edition had no slow partner copy |
+| Book 15 replacement | The first source (`9c60bfd53f10f1e07b3213eae1be9b43`) has malformed OPF XML (unbound prefix), so it was not registered or counted. Original download retained unchanged. Replacement `zlibrary:126534653:7f0ea0`, SHA-256 `31fd8b5e70dd`, passed intake and structural checks |
+| Main book 18 | Downloaded raw compilation `0b41836ca6aa`; 19 chapter files correspond to the author’s book-18 mapping, 7.29 B through 7.42 M with interludes. Raw manifest/TOC refer to hundreds of absent chapters from the larger original compilation. Separate reader derivative `8b35c961039d` removes stale references; every non-package/non-NCX ZIP member is byte-identical to the original |
+| Main book 19 | Downloaded raw compilation `db6863339fd9`; 14 chapter files correspond to the author’s book-19 mapping, 7.43 G through 7.55 E with its interlude. Same stale manifest/TOC defect; separate reader derivative `bbd3d9d6d0c9` removes stale references with chapter payload unchanged |
+| Current split editions | Book One Part One `37f2f568269d`; No Killing Goblins (Book One Part Two) `eeea0284b528`; Fae and Fare (Book Two Part One) `5f17e89a6de1`; Immortal Games (Book Two Part Two) `775023587ed7`. Kept as separate editions, not counted as four additional main-series story installments |
+
+Books 18-19 cover the author’s [published-book chapter map](https://wanderinginn.com/table-of-contents/),
+but the available files are web-text compilations. **Retail editorial equivalence,
+retail bonus material and text-by-text completeness remain unverified.** Do not label
+them retail copies or claim every published word was compared. The raw assets carry
+quality notes and pointers to the reader derivatives. No prose was recreated or edited.
+No book was full-read or prepared for a paid reading batch in this run.
+
+Raw browser downloads remain in `~/Downloads/annas-arch-<md5-prefix>.epub` and are
+registered in Source Library. Reader derivatives live under the private lane's
+`reader-copies/`. Exact locators/hashes/source keys, original failures, derivation
+proof and the 21-item structural check report are in
+`novels/worldview-2026-10-31/wandering_slow_receipts.jsonl`,
+`wandering_verified_queue.json`, `wandering_reader_repairs.json` and
+`wandering_structure_checks.json`. Matching Z-Library jobs are linked for reuse.
+
+Checks: `register_browser_downloads.py` registered 21 retained source EPUBs;
+`repair_container.py` proved unchanged chapter payload for two derivatives;
+`check_wandering_structure.py` passed for all 21 reader editions (raw sources except
+the two explicitly repaired ones), with no missing spine targets and populated text.
+The first book-15 parse failure and the first book-18/19 structural failures were
+investigated before replacements/derivatives. Source hashes establish transfer identity,
+not full-text accuracy. Catalogues regenerated; document whitespace check passed.
+
+Browser behavior: the earlier manual DDoS-Guard check later cleared automatically in
+the same paid browser session, without a manual challenge interaction or security
+setting change. Why it first failed was not isolated. Stale session recognition and
+a transient protection failure remain hypotheses. This run had queued slow downloads
+and occasional browser observation timeouts during automatic page refresh, distinct
+from manual verification failure. Temporary wait tabs were closed afterward. Fast
+quota was not used. The no-wait partner for book 4 was materially slower; the remaining
+transfers used the proven queued slow partner, one transfer at a time per server.
+
+Useful companions, proposals only: [The Singer of Terandria](https://wanderinginn.com/book/huntsong-the-singer-of-terandria-book-2/)
+for additional viewpoints and institutions, and [The Last Tide](https://www.cloudscapecomics.com/last-tide/)
+for a fisher's life at the world's edge. Current published main-series collection takes
+precedence; ebook/web versions and web continuation remain separate source scopes.
+
+## Innverse companion acquisition, 2026-10-31
+
+Later explicit authorization covered Singer of Terandria and The Last Tide through
+slow downloads. Registered three unchanged source files in Source Library:
+
+| Title | Acquired state |
+|---|---|
+| Gravesong | Yonder compilation EPUB, SHA-256 `00e09574cfff`; catalogue title explicitly qualifies edition |
+| Huntsong | Yonder version EPUB, SHA-256 `8ecb4bf68563`; current retail equivalence unverified |
+| The Last Tide: Book One | PDF, SHA-256 `71f074a0f856`; exact MD5 matched, qpdf passed, 172 measured pages; cover and interior render checked |
+
+**Singer is not recorded as a complete current retail set.** The
+[official collection](https://store.wanderinginn.com/collections/thesingerofterandriaseries)
+lists Gravesong, Huntsong and Ghostsong. Current retail Huntsong/Ghostsong were not
+found in checked title/ISBN searches. Ghostsong draft/preview records were excluded.
+Yonder compilation overlap does not establish retail equivalence or bonus coverage.
+The [official Last Tide page](https://store.wanderinginn.com/products/the-last-tide)
+describes Book One as the complete story published so far; Kickstarter reward prose
+and edition extras were not inventoried or acquired.
+
+Both EPUBs passed exact MD5, SHA-256, ZIP CRC, package XML, spine-target and populated
+text checks. No full-source reading or chapter-by-chapter retail comparison occurred.
+PDF catalogue metadata says 171 pages; the actual file has 172. A separate alternate
+PDF transfer timed out and its partial file remains unregistered; the original browser
+transfer finished successfully. Raw retained downloads remain under `~/Downloads/`.
+Private receipts: `novels/innverse-companions-2026-10-31/epub_receipts.json`,
+`pdf_receipt.json` and `acquisition_status.json`.
+
+A separate user-requested research chat `01a19404-22af-7c10-9d13-894a5f8fb41b`
+considers next acquisitions, with its report owned at `DOWNLOAD_SCOUT_NEXT_2026-10-31.md`.
+Weibao subsequently authorized that chat to acquire continuations and its three new RR picks; purchases remain outside scope. See the receipt below.
+
+
+## RR continuation and new-source intake, 2026-10-31
+
+Weibao authorized continuations and the scout's three new RR picks, complete available
+runs where possible. This section supersedes earlier partial-holdings and pending-gap
+snapshots for these titles. The original Innverse acquisition chat finished before
+this writer updated the shared index and regenerated the catalogues.
+
+| Source | New files this run | Resulting bounded coverage |
+|---|---|---|
+| Bog Standard Isekai | 2–5 | 1–5 held, through Warbound. Published run identified in the scout; ongoing serial/revisions remain distinct |
+| Mage Errant | 2–7 plus The Gorgon Incident and Other Stories | Main books 1–7 plus anthology held. Catalogue calls anthology “8”; it is not a new main-story installment |
+| Peculiar Soul | One RR compilation | 132 numbered chapters, 1–132 without integer gaps in NCX; 134 spine entries including front matter. Matches the author's listed completed-serial chapter count, not a text-by-text comparison with RR |
+| Mark of the Fool | 10 | Books 1–10 held. [Author final ebook launch](https://www.patreon.com/jmclarke/posts/mark-of-fool-10-135310195) is July 30, 2025; the older wishlist “not released” note is stale |
+| Reborn as a Demonic Tree | 4–9 | Books 1–9 held; this closes the catalogue-discovered continuation run, not the later web serial |
+| The Legend of Randidly Ghosthound | 15 | Held through 15 |
+| Tree of Aeons | 8 | Held through 8 |
+| Azarinth Healer | 7 | Published editions held through 7; original serial and revised retail coverage are distinct |
+| Threadbare | 4–6 | Held 1–6, with earlier 1–3 in the complete-trilogy asset |
+| Millennial Mage | 11 Flockbound, 13 Homebound | Held 1–13. Fused/book 6 was already registered under a title without the series name. [Author confirms Flockbound is book 11 and available](https://www.jlmullins.com/flockbound); a number-only catalogue search missed it |
+| He Who Fights with Monsters | 13 | Held through 13 |
+| Dungeon Crawler Carl | 8 A Parade of Horribles | Held through 8 |
+| Labyrinth of the Mad God | 3 | Held 1–3 |
+
+**30 new unchanged EPUBs, all verified and registered in Source Library.** The table
+states exact held boundaries, not a claim of the latest serial coverage for every
+ongoing work. Bog Standard 2 used the slow browser route; 29 others used the
+independent authenticated Z-Library desktop route after Chrome blocked the slow
+partner host. No attempt bypassed that browser block. The other chat's Singer and
+Last Tide transfers were not duplicated.
+
+All 30 match selected MD5s, have recorded SHA-256 hashes, pass ZIP CRC and package
+XML parsing, and have real spine/navigation targets and populated text. Peculiar
+Soul has all 132 numbered NCX chapters, matching the author's completed-serial count;
+text-by-text completeness remains unverified. No full-source reading or paid reading
+batch was performed. Shared download jobs link exact source keys for future reuse.
+
+**Still unacquired:** Memories of the Fall and Immovable Mage. No matching
+compilations were found in checked Z-Library/Anna's searches. Rith's author EPUB
+post advertises volumes 1–3 / chapters 0–145 but requires membership access. The
+existing RR polite capture route remains closed after HTTP 403; it was not replaced
+by a browser chapter collector. These are route/access gaps, not proof of source absence.
+
+The old wishlist's “not released” statements about Mark of the Fool 10 and
+Millennial Mage 11 are superseded: both were released and are now held; the latter
+is Flockbound and was found by subtitle. Fused/book 6 and Path of Ascension 9 were
+already held, so no duplicate requests were made for them.
+
+Evidence and source/version caveats: [scout and acquisition report](DOWNLOAD_SCOUT_NEXT_2026-10-31.md#authorized-follow-up-30-epubs-acquired-2026-10-31).
+Exact paths, hashes, keys and checks: `novels/rr-next-2026-10-31/verified_intake.json`;
+provider receipts under `novels/zlibrary/rr-next-2026-10-31/sources/.acquisitions/`.
+Raw assets remain in that private source folder, with Bog Standard 2 in Downloads.
+
+
+### Next ranked RR shelf attempt, 2026-10-31
+
+The later S1–S8 acquisition request produced **no new assets**: no matching ebook
+was identified in the checked Z-Library/Anna's catalogues, and no accessible
+author EPUB export was established. The same-title Farmer Mage result credits
+Timothy Ellis, not S.C. King, and was excluded. Public serials remain available to
+browse, but the project's existing RR capture route is durably closed after 403.
+The [attempt record and proposed route](DOWNLOAD_SCOUT_NEXT_2026-10-31.md#s1s8-acquisition-attempt-2026-10-31)
+preserve exact scope, TOC counts, checks and the policy decision needed before
+signed-in chapter capture. Previous 30-file intake remains unchanged.
+
+
+## Ranked RR signed-in captures, 2026-10-31
+
+Weibao explicitly authorized the paced signed-in capture, starting with Department
+of Otherworld Rescue and then S2–S8 in ranked order. **Eight new EPUB snapshots,
+1,360 public TOC entries, all captured, checked and registered in Source Library.**
+This supersedes the earlier unheld/zero-transfer states for these eight works.
+
+| Code | Source | Public TOC entries captured | EPUB SHA-256 prefix |
+|---|---|---:|---|
+| S1 | [Department of Otherworld Rescue](https://www.royalroad.com/fiction/126289/department-of-otherworld-rescue-litrpg-isekai) | 198 | `e38776366cf9` |
+| S2 | [Hocus, Pocus, Hypothesis](https://www.royalroad.com/fiction/118886/hocus-pocus-hypothesis-a-scientific-isekai) | 304 | `0be8c5d886e9` |
+| S3 | [[Farmer] Mage](https://www.royalroad.com/fiction/86267/farmer-mage) | 166 | `d83fd774a7ca` |
+| S4 | [Just Add Mana](https://www.royalroad.com/fiction/125163/just-add-mana) | 211 | `8ad1d75f11a3` |
+| S5 | [Those Who Return at Dawn](https://www.royalroad.com/fiction/129408/those-who-return-at-dawn-greek-myth-progression) | 201 | `88c6c579e052` |
+| S6 | [Faith in Numbers: Ring Around the Rose](https://www.royalroad.com/fiction/192068/faith-in-numbers-ring-around-the-rose-cult-building) | 51 | `d5be47ae1aa1` |
+| S7 | [In a Civilized Manner](https://www.royalroad.com/fiction/55691/in-a-civilized-manner) | 180 | `29bad1f8ac04` |
+| S8 | [The Story Mage](https://www.royalroad.com/fiction/104998/the-story-mage-litrpg-kingdom-building-and-politics) | 49 | `3b3471dd970b` |
+
+These are **Royal Road web-edition snapshots**, complete against each saved public
+TOC manifest, not retail editions or claims that the ongoing stories have ended.
+The last two works were marked inactive, not completed. Patreon-ahead, locked or
+removed chapters are not implied coverage. Chapter-content bodies, tables and
+available chapter images are included; author notes outside that DOM region are
+excluded. No paid reading batch or full-source reading was performed.
+
+Each title was finished and packaged before proceeding to the next. All 1,360
+source URLs are unique within their manifests; every expected capture exists and
+its hash matches its receipt. All eight EPUBs match recorded SHA-256s and live
+registered locations. ZIP CRC, package XML, spine and navigation targets passed.
+Visible text matches the captures with whitespace and U+FFFD rendering artifacts
+normalized. Numeric entities that were literal in visible source text were
+preserved as literals rather than decoded into different characters. The first
+book's separate comparison identified only 62 replacement-character artifacts;
+raw HTML and text remain unchanged. [Farmer] Mage's one chapter image is embedded
+and also preserved as a separate unchanged asset.
+
+Private owner: `novels/rr-ranked-browser-2026-10-31/`. Each S-code folder has
+`toc.json`, immutable `chapters/*.json`, its EPUB, `receipt.json` and
+`preserved_assets.json`; `final_inventory_check.json` joins all eight. Source TOC
+snapshots were taken between 2026-10-31 22:47 UTC and 2026-11-01 00:45 UTC
+(October 31 local time). Later serial updates are outside those pinned boundaries.
+
+The authorized route used background signed-in browser controls, one chapter at a
+time with at least 4.2 seconds between chapter responses and subsequent requests.
+The old polite transport's 403 closure was not reset. No manual challenge, paid
+access, purchase, account/security-setting change or other chat's download was
+involved. Chapter navigation may affect RR history; no Set Progress or library
+membership controls were clicked. The local loopback intake only persisted DOM
+data and never fetched RR itself. Temporary capture tabs and local intake server
+were closed after the run.
+
+The prior 30-file intake remains separate. The earlier Memories of the Fall and
+Immovable Mage gaps were outside this S1–S8 capture scope and remain unacquired.
+[Route, authorization and outcome report](DOWNLOAD_SCOUT_NEXT_2026-10-31.md#authorized-paced-rr-browser-capture-2026-10-31).
+
+
+## Two further RR snapshots, 2026-11-01
+
+Weibao explicitly requested Memories of the Fall and Immovable Mage through the
+same paced signed-in capture. This supersedes the earlier unacquired state for
+Memories; Immovable has a preserved partial capture, not a registered EPUB yet.
+
+| Code | Source | Verified current coverage | EPUB SHA-256 prefix / state |
+|---|---|---|---|
+| S9 | [Memories of the Fall](https://www.royalroad.com/fiction/36051/memories-of-the-fall), Rith | All 210 entries of the Nov 1 04:31 UTC public TOC, including book sections and other chapters | `aeb701ee25cd`, registered |
+| S10 | [Immovable Mage](https://www.royalroad.com/fiction/39344/immovable-mage), ImmovableMage | 263 of 323 pinned public entries saved, contiguous ordinals 1–263; next 264, remaining 60 | Partial raw capture; no EPUB/completeness claim |
+
+S9 passed TOC coverage, unique URLs, populated content, raw-file hash checks,
+visible-text equivalence with whitespace/U+FFFD artifacts normalized, ZIP CRC,
+package XML and spine/navigation targets. Final hash and live Source Library
+location were rechecked. First-capture HTML truncation in 51 long entries was
+corrected in separate immutable captures; original files remain preserved.
+RR's CSS-uppercase spoiler control labels are preserved in the derivative.
+This is a public web-edition snapshot, not retail equivalence, story completion,
+full-source reading or reader-app acceptance. Outside author notes are excluded.
+
+Private owner remains `novels/rr-ranked-browser-2026-10-31/`: S9 has its EPUB,
+`receipt.json`, selected source hashes and `chapters-corrected/`. S10 has its
+`toc.json`, 263 immutable `chapters/*.json` and hashed `checkpoint.json`.
+Browser control became disabled in Work settings after interruption, blocking the
+last 60 requests. The loopback intake is no longer listening. Resume from the
+checkpoint after browser access is restored; do not repeat successful entries.
+The old transport closure and the other chat's downloads remain untouched.
+
+**RTOC is already held:** A Regressor's Tale of Cultivation, Tremendous,
+Calibre 17/duplicate 43 and prepared `rtoc` reader source. The held Calibre 17
+EPUB passed physical ZIP CRC and SHA-256 checks (`798bfee32222`); the existing
+owner records 640 normalized reading entries. A focused search found no RR
+edition. The [translator page](https://wetriedtls.com/series/a-regressors-tale-of-cultivation)
+listed 893 chapter entries at this check, suggesting continuation work, but local
+reading-order numbering, extras and access boundaries need alignment before an
+exact gap can be stated. No new RTOC download or paid reader run was started.
+[Findings and more-to-consider round](DOWNLOAD_SCOUT_NEXT_2026-10-31.md#nov-1-follow-up-memories-immovable-mage-and-rtoc).
+
+
+## RTOC numbering alignment and missing material, 2026-11-01
+
+Weibao explicitly authorized alignment and acquisition of missing available
+chapters without duplicating the held material. **Two new verified EPUBs,
+248 new public entries; 645 current TOC identities mapped to held material;
+all 893 records of the pinned translator TOC accounted for.** The original
+Calibre 17 and prepared `rtoc` reader source were not replaced or renumbered.
+
+| Package | Newly acquired coverage | Entries | SHA-256 prefix |
+|---|---|---:|---|
+| RTOC | Linked continuation after original site chapter 640 through 874, including intervening supplementary entries and the combined 807 + 808 page | 238 | `866408d63472` |
+| RTOC-GAPS | Missing chapter 211 plus nine distinct pre-640 supplementary entries: tidbit 1, pre-revision chapter 148 IF, Q&A 6–8, TMI 2–4 and the pre-revision chapter 410 blogpost | 10 | `acd035e41583` |
+
+**Numbering:** the old file has 644 NCX entries, comprising prologue, 639 numbered
+files and four Q&A files. Its numbered labels reach 640. The second “142” is
+*Madman (3)* and maps to source chapter 143; it is not another missing chapter.
+Chapter 211, *Lightning Flash (5)*, was genuinely absent by the TOC alignment and
+is now supplied separately. Q&A 1–3 are bundled in old `chapter201.html`; Q&A 4
+and 5 are in `chapter233.html` and `chapter265.html`. Those were reused, not
+redownloaded. The additional older Q&A3-labelled file remains distinct. The old
+640 normalized reading entries excluded Q&A files and were never a site cutoff.
+
+The translator's source index is also not a chapter number: Q&A 11 uses index
+735.0 while chapter 735 uses 735.5. The 807–809 jump is a combined 807 + 808 page.
+The current [translator series](https://wetriedtls.com/series/a-regressors-tale-of-cultivation)
+TOC contains 893 records, all marked public and price 0 at capture. This mapping
+accounts for identities/coverage against the existing older edition; it does not
+claim that held chapters were refreshed to their current revised text or full-read.
+
+**Offline-image limitation:** all selected text passed conversion checks. Three
+images, one in the continuation and two maps in TMI 2, remain explicit external
+EPUB resources with original source URLs. Their media host disallowed the polite
+transport through robots; its durable stop was preserved, with no alternate
+fetch. These image bytes are not available offline. The EPUB manifests and
+metadata record this qualified coverage rather than claiming complete image intake.
+
+**Verification:** 248 unique source URLs and unique new bodies; every selected raw
+hash, final EPUB SHA-256, ZIP CRC, package XML, spine/navigation targets and live
+Source Library location passed. Visible text matched the captures with whitespace
+and U+FFFD artifacts normalized. Original Calibre 17 SHA-256 was rechecked unchanged
+(`798bfee32222`). No unmapped TOC identities remain. No paid reader batch was run.
+
+Private owner: `novels/rtoc-continuation-2026-11-01/`. `full_toc.json` joins all nine
+public API pages; `held_numbering.json` and `held_reader_map.json` preserve the old
+numbering; `checkpoint.json` and `gaps_checkpoint.json` preserve selection and
+transport receipts. Each package has immutable raw captures, EPUB and receipt;
+`final_coverage.json` maps all 893 identities and verifies hashes/live locations.
+The existing `lncrawl.polite.transport.Client` and normal transport root supplied
+all translator requests with its 4–8 second spacing; no refusal was reset.
+
+**Immovable Mage remains partial:** Chrome and the explicitly requested extension
+route still reported “Local browser use is disabled in Work settings,” including
+at the final recheck. No new RR chapter request was issued this turn. Its 263/323
+checkpoint is intact; next entry 264, remaining 60. A connected extension alone has
+not restored this tool's browser capability. The saved state is not an RR rejection.
+[Resumption and Anna's free-route findings](DOWNLOAD_SCOUT_NEXT_2026-10-31.md#resumed-request-and-annas-free-route-2026-11-01).
+
+
+## Anna’s gap round, 2026-11-01
+
+Weibao authorized continuing the ranked reading-download queue and checking Anna’s.
+**17 newly covered volumes across three series, 18 unchanged source EPUBs retained**
+(two editions of Twelve Kingdoms 3), plus six separate repaired reader copies.
+14 source files came through Anna’s existing member API; four through the independent
+Z-Library desktop route. Original source bytes were preserved.
+
+| Source | Newly acquired | Resulting coverage |
+|---|---|---|
+| Arcane Ascension, Andrew Rowe | Books 2–6 | Books 1–6 held. This closes the discovered catalogue continuation set; later publication/serial coverage is not implied |
+| Slumrat Rising, Warby Picus | Books 1–6 | Continuous 1–6 held. Book 5 is **The Dislocated Man**, found by subtitle; the earlier unresolved book-5 gap is superseded |
+| The Twelve Kingdoms, Fuyumi Ono | Seven Seas books 1–6 | Current released Seven Seas sequence through 6 held. Book 7 is dated Nov 24, 2026 by the publisher. Older fan/other numbering is distinct; no complete-original-series claim |
+
+**Remaining:** Anna’s exact-title searches found no Immovable Mage ebook, no Bioshifter
+beyond the held 1–3, and only Ghostsong preview/2023 material and the already-held
+Huntsong Yonder edition. No retail-equivalence claim or duplicate companion intake.
+Immovable Mage’s 263/323 checkpoint remains unchanged: its existing browser tab is
+claimed by the earlier capture chat, so this chat did not take ownership or issue new
+RR requests. This supersedes the old browser-disabled diagnosis only for this chat’s
+working Anna’s browser access; it does not establish the other chat’s capture status.
+
+**Routes:** the initially displayed account page was stale (50/50 used); the member
+API subsequently returned 50 available at the first successful request. Anna’s
+book-4 request later returned invalid JSON; no retry was made. Twelve Kingdoms 6
+returned record-not-found, then came from Z-Library. Books 4–5 also used Z-Library
+after the Anna’s failure. No purchase or membership change.
+
+**Checks:** exact source MD5s/SHA-256s, live registered paths, ZIP CRC, package XML,
+populated text, spine and navigation checked. Six original editions contained dangling
+packaging/navigation references: Slumrat 2/3/5/6 and Twelve Kingdoms 5/6. Separate reader
+copies remove those references, with all other ZIP member bytes unchanged. Twelve
+Kingdoms 6’s missing spine ID is `jnov_xhtml_jnovels`; no missing story text was invented.
+Both Twelve Kingdoms 3 files passed these structural checks; the newer desktop edition
+is retained separately, with no text-equivalence claim. Reader-app acceptance and
+sentence-level/translation completeness remain unverified; no full reading or paid
+reader batch ran.
+
+Private evidence: `novels/annas-gaps-2026-11-01/verified_intake.json` records all 18
+source hashes and selected usable reader paths; `reader_repairs.json` records the six
+repairs. Anna’s JSON receipts live beside them; desktop receipts are under
+`novels/zlibrary/annas-gaps-2026-11-01/sources/.acquisitions/`.
+Publisher boundary: [Seven Seas catalogue](https://sevenseasentertainment.com/series/the-twelve-kingdoms-novel/)
+and [release calendar](https://sevenseasentertainment.com/release-dates/).
+
+
+## RR full-run continuation round, 2026-11-01
+
+Weibao: “Continue with the next useful RR series and continuations, get full
+available runs and use the remaining Anna’s downloads.” **41 new source EPUBs,
+41 unique hashes, all acquired and registered.** Used the remaining 36 Anna’s
+fast downloads; five Primal Hunter continuations used the existing Z-Library
+desktop allowance after Anna’s reached zero. No purchase or membership change.
+
+| Code | Source | New volumes | Now held / bounded result |
+|---|---|---|---|
+| RR-A1 | The Weirkey Chronicles, Sarah Lin | 2–11 | 1–11, through Deadgold. The author’s June 18 release post supersedes the stale series page calling 11 Patreon-only |
+| RR-A2 | Battle Mage Farmer, Seth Ring | 3–9 | Main novels 1–9, through Culmination. Tales of the Ecclesia is a separate game/adventure supplement, not main novel 10, and was not acquired |
+| RR-A3 | This Used to Be About Dungeons, Alexander Wales | 1–3 | Published volumes 1–3; later web text is a separate boundary |
+| RR-A4 | Blue Core, Inadvisably Compelled | 1–3 | Three-book set held. Author marks the web story completed; no chapter-by-chapter web/retail equivalence claim |
+| RR-A5 | Sagewood, Blake Arthur Peel and Kimberly Ann Peel | 1–4 | Publisher’s four-book sequence held, through Restore the Balance |
+| RR-A6 | The Primal Hunter, Zogarth | 3–16 | 1–16 held. Anna’s supplied 3–11, Z-Library 12–16. Publisher confirms 16 released; this does not cover later Royal Road/Patreon text |
+
+**Preflight correction:** live Source Library already held Heretical Fishing 1–5
+and Cinnamon Bun 1–7, beyond the older wishlist snapshot. They were excluded from
+this round. Author/title and exact MD5 checks ran before each transfer; no held
+opening volume or matching file was fetched just to consume allowance. Discovery
+also found Forge of Destiny edition changes and later Dragoneye candidates, but
+those were not acquired or counted; version/numbering alignment remains open.
+Defiance of the Fall continuations remain a useful later queue.
+
+**Verification:** all 41 expected MD5s and SHA-256s matched live registered files;
+ZIP CRC, package XML, real spine IDs/targets, parseable spine XML, populated text
+(over 50,000 text characters each), and NCX/EPUB3 navigation targets passed.
+Zero structural gaps were found; no repairs or reconstructed story text were
+needed in this round. Shared acquisition jobs record the selected edition keys.
+These are acquisition/container checks, not full reading, translation-quality,
+internal story-completeness, or reader-app acceptance checks. No paid reading
+batch, gameplay edit, commit or push.
+
+Private owner: `novels/annas-rr-runs-2026-11-01/`. `candidates.json` and
+`primal-candidates.json` preserve selected metadata; MD5-named receipts preserve
+provider results; `verified_intake.json` gives exact paths/hashes/checks;
+`summary.json` gives totals. `verify.py` is the local repeatable intake check.
+Z-Library originals and its transfer receipts remain under `desktop-sources/`.
+
+Boundary sources: [Weirkey author updates](https://sarahlinauthor.blogspot.com/),
+[Weirkey series page, stale on book 11](https://sarahlinauthor.blogspot.com/p/the-weirkey-chronicles.html),
+[Battle Mage Farmer author catalogue](https://sethring.com/book-series/battle-mage-farmer-series/),
+[Dungeons author homepage](https://alexanderwales.com/),
+[Blue Core author afterword](https://www.royalroad.com/fiction/25082/blue-core/chapter/824910/author-afterword),
+[Sagewood publisher series](https://aethonbooks.com/book/a-way-home/), and
+[Primal Hunter 16 publisher](https://aethonbooks.com/book/the-primal-hunter-16/).
+
+
+## Z-Library remainder round, 2026-11-02
+
+Weibao: “use zlib for the rest”. The live desktop account had **21 downloads
+remaining** before intake and **0 remaining (30/30 used)** afterward, checked
+Nov 2 at 07:28 UTC. **21 new source EPUBs acquired and registered**, with 21
+unique hashes. One separate repaired reader copy was also registered.
+
+| Code | Source | New volumes | Now held / boundary |
+|---|---|---|---|
+| ZR1 | Defiance of the Fall, TheFirstDefier / JF Brink | 3–16 | 1–16 held. Book 17 has a catalogue candidate, but the publisher dates release to Dec 2, 2026; that candidate was not acquired or counted as a released edition |
+| ZR2 | Paranoid Mage, Inadvisably Compelled | 1–5 | Five-book set held, through Sovereign Mage. Author’s RR page marks the story completed; web/retail text equivalence was not audited |
+| ZR3 | The Iron Teeth, Scott Straughan / ClearMadness | 1–2 | A Goblin’s Tale and City of Daggers held. Book 1’s metadata truncates the author to “Scott”; internal author credit confirms Scott Straughan. This is the identified retail pair, not a claim of complete later web coverage |
+
+The exact edition MD5 and live catalogue/job ledger were checked before each
+transfer; no held opening volume was repeated. Downloaded files retain their
+original bytes. ZIP CRC, package XML, spine IDs/targets, populated text, navigation
+targets, hashes and live registration passed for selected reading paths.
+
+**Reader-copy exception:** Defiance 8’s cover XHTML repeated the `alt` attribute
+on one image. A separate copy removes the generic `alt="Image"` and retains the
+descriptive alt text. All other ZIP members are byte-identical; the original
+source SHA-256 is unchanged. Twenty source EPUBs pass unchanged, and the repaired
+Defiance 8 copy passes. No story text was reconstructed. Structural checks do not
+establish sentence-level completeness, full reading or reader-app acceptance.
+
+Private evidence owner: `novels/zlib-rest-2026-11-02/`. `candidates.json` and
+`iron-candidates.json` preserve selected metadata; MD5-named receipts and
+`sources/.acquisitions/` preserve transfer evidence; `verified_intake.json` records
+all paths/hashes/checks and preferred reader paths; `reader_repairs.json` records
+the one repair. `verify.py` repeats the source-container checks.
+
+Queue update: Defiance’s earlier continuation gap is closed through 16.
+Dragoneye/Forge version alignment, Immovable Mage’s earlier capture ownership,
+and the Innverse retail-equivalence gaps remain separate outstanding work.
+No purchase, account change, paid reader batch, gameplay edit, commit or push.
+
+Boundary sources: [Defiance 17 publisher date](https://aethonbooks.com/book/defiance-of-the-fall-17/)
+and [Paranoid Mage author listing](https://www.royalroad.com/fiction/49879/paranoid-mage).
+
+
+## Anna’s slow RR round, 2026-11-02
+
+Weibao: “Use Anna’s slow downloads for the remaining useful RR series and
+continuations. Get full available runs and avoid duplicates.” **12 new source
+EPUBs acquired and registered through Anna’s slow links, 12 unique hashes.**
+No member-API or Z-Library allowance was used in this round. Two selected runs
+are closed; Dragoneye retains one explicit acquisition gap.
+
+| Code | Source | New files | Resulting held boundary |
+|---|---|---|---|
+| SD1 | Beneath the Dragoneye Moons, Selkie Myth | 10–14 and 16 | 1–14 and 16 held; **15 Rise from the Ashes remains unacquired**, so this is not a complete 1–16 run |
+| SD2 | Vainqueur the Dragon, Maxime J. Durand / Void Herald | 1–4 | Full four-book published set held, through The Last Adventure |
+| SD3 | Commerce Emperor, Maxime J. Durand / Void Herald | 2–3 | Full three-book publisher set held; reused book 1 |
+
+**Version mapping:** Dragoneye 10 is Under Ashen Skies, 11 Mandate of Heaven,
+12 The Phoenix Peaks, 13 Moonfall, 14 Immortal War, 15 Rise from the Ashes and
+16 Of Gods and Dragons. Older chapter/web collections and renamed editions were
+not substituted for those volumes. The selected book 16 catalogue title has
+misordered words; its exact candidate MD5 and physical intake are preserved.
+
+**Route and limit evidence:** signed-in background Chrome exposed the ordinary
+slow-partner pages. Book 10 arrived through the browser despite its download-event
+notification timing out; book 11 arrived later and was verified before registration.
+Subsequent files used the existing `annas_route.intake` helper on URLs actually
+shown by those pages. An initial overlap of transfers preceded one HTTP 429 on
+book 15. The partner page explicitly says one file at a time per server; subsequent
+transfers were serialized and the refused request was not repeated. Overlap as the
+cause is inferred, not established by the 429 body.
+
+Anna’s separately offered waitlist partner for book 15 was allowed to count down.
+It repeatedly returned through the automatic DDoS-Guard check and restarted its
+countdown, with no download link. One observation followed 17 seconds, 7 seconds,
+zero/no wait text, the browser check, then a fresh wait. No challenge was solved,
+stop state reset, header/domain variant tried, or browser warning bypassed. The
+actual 429 receipt and independent waitlist evidence remain separate. All started
+file transfers finished; no downloader is left running. Book 15 is the remaining
+gate for this selected Dragoneye run.
+
+**Duplicate checks:** compared title/author aliases with the live catalogue, Calibre
+and loose Downloads names, then checked each exact MD5 and shared job before transfer.
+Held Dragoneye 1–9 and Commerce Emperor 1 were reused. Source originals remain
+unchanged. All 12 new MD5s/SHA-256s, live registered locations, ZIP CRC, package XML,
+spine IDs/files/XML, populated text and NCX/EPUB3 navigation targets passed. No
+reader-copy repairs were needed. These are acquisition/container checks, not full
+reading, sentence-level completeness, retail/web equivalence or reader-app acceptance.
+
+Private owner: `novels/annas-slow-2026-11-02/`. The three
+candidate files preserve selected editions; MD5-named receipts preserve individual
+outcomes, including the refused book 15; `verified_intake.json` lists the 12 actual
+files and hashes; `route_observations.json` and `summary.json` preserve gaps and totals.
+`offered_urls.json` is private, temporary retrieval evidence and is not a durable
+resume URL registry. `intake_one.py` reuses the existing helper, and
+`register_downloads.py` registers browser transfers after hash verification.
+
+The Gods Are Bastards search also exposed mixed older web-book and edited-retail
+candidates; none was acquired or counted, and their version map remains unresolved.
+No purchase, account change, paid reading batch, gameplay change, commit or push.
+
+Boundary sources: [Dragoneye series numbering](https://www.audible.co.uk/series/Beneath-the-Dragoneye-Moons-Audiobooks/B091V2KW16),
+[Vainqueur author listing and four-book links](https://www.royalroad.com/fiction/26534/vainqueur-the-dragon),
+and [Commerce Emperor publisher’s complete-series listing](https://aethonbooks.com/book/commerce-emperor-3/).
+
+## Anna’s slow follow-up, 2026-11-02
+
+Weibao: “Try another slow partner for Dragoneye 15, then continue with the
+remaining useful RR series and continuations. Full available runs, no duplicates.”
+**10 new source EPUBs, 10 unique source hashes**, acquired through ordinary
+Anna’s slow-partner links. Two separate reader derivatives were also registered;
+they are repairs, not additional volumes. No fast/member API or Z-Library download
+allowance was used. This supersedes the preceding Dragoneye acquisition gap.
+
+| Code | Source | Added | Resulting coverage and remaining gap |
+|---|---|---|---|
+| SF1 | Beneath the Dragoneye Moons, Selkie Myth | 15, Rise from the Ashes | **1–16 held**, closing the earlier internal gap |
+| SF2 | The Chronicles of Emberstone Farm, L. Meili | 1–3 | **All three publisher-listed books held**; web/Patreon continuation is separate |
+| SF3 | Meadowreach Homestead, G. A. Jensen | 1–4 | Entire run found in Anna’s title search held. **5–9 remain missing**: desktop metadata finds 5–8, Anna’s search shows only 1–4, and the author has announced the ninth-book finale |
+| SF4 | The Gods Are Bastards, D. D. Webb, current Podium editions | 1–2 | **Current retail 3, This Town Ain’t Big Enough, remains missing**. Its selected MD5 has no Anna’s record; title search finds the older 2020 web book 4. That was not substituted. Podium dates current book 3 to Sept 29, 2026 and book 4 to March 30, 2027 |
+
+**Routes:** the old partner-1 link for Dragoneye 15 returned 403. A fresh URL
+actually offered by slow partner 2 succeeded; the original 429 and failed-link
+receipts remain intact. Emberstone 1’s no-wait partner stalled at 1,085,126 bytes,
+unchanged for over 19 minutes. Its exact process was stopped, the partial retained,
+and independently offered partner 2 completed it. Subsequent transfers were
+serialized through partner 2, respecting countdowns. Gods 2’s wait restarted once
+through the automatic browser check, then produced a working link. No manual
+challenge, warning bypass, guessed retrieval URL, header variant or stop reset.
+
+**Reuse and verification:** local title/author aliases, Calibre, registered assets,
+loose filenames and exact candidate MD5/job states were checked before transfers.
+The ten successful receipts report new downloads. Originals retain their source
+MD5/SHA-256. ZIP CRC, package XML, real spine IDs/files/XML, populated text and
+NCX/EPUB3 navigation were checked. Eight sources pass unchanged. Both current
+Gods books have an NCX “Cover” entry pointing to nonexistent `OEBPS/c0.xhtml`;
+separate reader copies remove that one dangling entry. Every other ZIP member is
+byte-identical, and both source hashes remain unchanged. All ten preferred reading
+paths pass. This does not establish full reading, sentence-level completeness,
+retail/web equivalence or reader-app acceptance.
+
+Private evidence owner: `novels/annas-slow-followup-2026-11-02/`. Four candidate
+manifests preserve exact edition identity; MD5-named receipts preserve completed
+transfers; suffixed receipts preserve failures; `preflight.json`,
+`route_observations.json` and `summary.json` retain discovery and gaps.
+`verified_intake.json` includes actual locations, hashes and preferred reader paths;
+`reader_repairs.json` records the two repairs. `verify.py` validates all ten again.
+Temporary `offered_urls.json` links are historical evidence, not a resume registry.
+All intake processes and the waiting serial worker have ended. No paid reading,
+purchase, gameplay edit, commit or push.
+
+Boundary sources: [Emberstone publisher list](https://aethonbooks.com/book/emberstone-farm/),
+[Meadowreach author’s book-nine announcement](https://www.reddit.com/r/litrpg/comments/1wm9jtm/book_9_finale_of_cozy_litrpg_slice_of_life_with_a/),
+[Gods author’s Podium-edition notice](https://tiraas.net/),
+[current Gods book 3](https://www.podiumentertainment.com/titles/109204/this-town-aint-big-enough)
+and [book 4’s future date](https://dev.podiumentertainment.com/titles/116124/jewel-of-the-west).
+
+Checks: source-library venv `verify.py` reports 10 checked, two original NCX gaps
+and zero preferred-reader gaps; live hash/location checks pass for all ten.
+`python3 -I scripts/library_catalogue.py` reports Calibre 232, Source Library 2,350
+(includes the two new reader derivatives). Local Markdown destination checks and
+`git diff --check` on the four touched library documents pass. Acquisition/docs
+only; no runtime test or build claim.
+
+## Anna's slow: Percy Jackson and Hunger Games, 2026-11-02
+
+Weibao: "Anna slow, with seperate wave for free webserials", after asking for
+Percy Jackson and Hunger Games. **15 new source EPUBs, 15 unique MD5s**, through
+ordinary Anna's slow-partner links in signed-in Chrome (one tab, closed after),
+one file at a time, each fetched by the existing `annas_route.intake` helper. No
+member API, Z-Library allowance, purchase, or browser-check interaction (the
+automatic DDoS-Guard check cleared on its own). Not held before: no catalogue,
+Calibre or index entry matched either series.
+
+| Code | Series | Held |
+|---|---|---|
+| PH1 | Percy Jackson and the Olympians, Rick Riordan | 1-5 (Lightning Thief to Last Olympian) |
+| PH2 | The Heroes of Olympus, Rick Riordan | 1-5 (Lost Hero to Blood of Olympus) |
+| PH3 | The Hunger Games, Suzanne Collins | 1-3, *The Ballad of Songbirds and Snakes*, *Sunrise on the Reaping* |
+
+Not taken: Percy Jackson side books (*Demigod Files*, *Trials of Apollo*, later
+arcs), by scope. Top-ranked retail-style hit per title was chosen; each file's
+embedded title and author match, ZIP CRC passed and text is populated. This is
+acquisition and container checking, not reading or edition-equivalence. Private
+owner: `novels/annas-slow-riordan-collins-2026-11-02/` (MD5-named receipts,
+`intake_one.py`). Run it with `source-library/.venv/bin/python`; system python
+lacks `httpx`. No commit or push.
+
+## Wildbow trio, free web serials, 2026-11-02
+
+Weibao: "Wildbow trio" as the free web-serial wave after Percy Jackson and
+Hunger Games. **Three EPUBs registered** (Worm was already held, Calibre 32).
+
+| Code | Source | Route and result |
+|---|---|---|
+| WB1 | Pact | Captured from the author's public WordPress table of contents through the existing polite transport (`lncrawl.polite.transport.Client`): 145 distinct chapter pages, 1.01 to 16.12, no refusal, no cap hit. Assembled by a local script into one EPUB (6.2 MB of chapter text), XML-validated. This is a **capture**, not a retail file; comments and sharing widgets are stripped, images are not kept |
+| WB2 | Twig | Anna's slow partner, `Twig: Complete` (zlib 2017 upload, 346 files, about 10 MB text), ends with the author's closing note *An End to the Twig Experiment* |
+| WB3 | Ward | Anna's slow partner, `Ward` (lgli 2020, 295 files, about 11.7 MB text), Arc 1 Daybreak through Epilogue VII |
+
+**Why two routes:** the first polite run guessed Twig's table-of-contents URL
+wrong, got HTTP 404, and the transport closed that host durably. `parahumans.net`
+(Ward's site) answered 403 to robots.txt and closed too. Neither was retried,
+reset or approached another way; both came from Anna's instead. Closed hosts stay
+closed in `novels/wildbow-2026-11-02/transport/state.json`.
+
+**Checks:** Twig and Ward pass ZIP CRC, with title and author in the OPF; chapter
+completeness was judged from the table of contents and final files, not read.
+Pact's 145 chapters are those the table of contents lists; whether the author
+posted anything outside it is unchecked. No sentence-level or retail-equivalence
+claim. Private owner: `novels/wildbow-2026-11-02/` (`toc.py`, `fetch_pact.py`,
+`assemble_pact.py`, `anna/` receipts). No purchase, commit or push.
+
+
+## Anna's fast + local Z-Library round, 2026-11-03
+
+Weibao: "use the local zlib, download stuff on anna's accordingly, check the fast download"
+and "also download all the Re:Zero IFs". Quota read live: Anna's member API 50/50 at
+start (**1 left** after), local Z-Library 30/30 at start (3 used, **27 left**). **53 new
+source EPUBs, 53 unique hashes**, ZIP CRC and populated-text checked, registered.
+Anna's fast first; Z-Library only where Anna's had no copy (Ex 6, Overlord 14, 16).
+
+| Code | Series | Volumes | Boundary |
+|---|---|---|---|
+| RA1 | Ishura (Keiso) | 1–10 | Through vol. 10 (2026 release) |
+| RA2 | Infinite Dendrogram (Kaidou) | 1–16 | Edition availability beyond 16 not checked |
+| RA3 | Overlord (Maruyama) | 1–16 | Complete through the Yen Press 16 |
+| RA4 | Re:Zero Short Story Collection | 1–5 | Official English SS; stories are not individually tagged "IF" here |
+| RA5 | Re:Zero Ex | 1–6 | Side-story novels |
+
+Interpretation: "Re:Zero IFs" was first read as the Short Story Collection plus Ex volumes;
+Weibao then clarified he meant the web-novel IF routes (next section). The main-line Re:Zero
+volumes 11+ are not part of this round.
+Not downloaded: Irregular at Magic High School (candidates found, lower priority), Forty
+Millenniums of Cultivation. Receipts and runners: `novels/anna-zlib-2026-11-03/`.
+Catalogue regenerated (source-library 2421). Nothing committed.
+
+
+## Re:Zero web-novel IF routes, 2026-11-03
+
+Weibao: "I meant the Web novel if arcs and stuff, like the wrath". Source: Witch Cult
+Translations' table of contents ("Re: Zero IF Stories", seven routes), captured through the
+polite transport (robots checked, paced, shared state dir; no closure). **All seven held**,
+registered as separate fan-translation files (label WN-side, not LN).
+
+| Code | Route | Source | Held as | Size |
+|---|---|---|---|---|
+| IF1 | Oboreru IF (Wrath) | Witch Cult, 1 post | EPUB `01ba90a65f1f` | ~25.0k words |
+| IF2 | Rem IF (Sloth), Re:IF Starting Life in a Different World: prologue, ch. 1–6, interlude, epilogue, plus the two Fortune extras (Fish-Head Tree, Setsubun Hollow) | Remonwater | EPUB `238bc38a06e8` | ~92.8k words, 11 posts |
+| IF3 | Ayamatsu IF (Pride), April Fools 2017 | Witch Cult PDF upload | PDF `1830fedad59a` | about 42 pages; stored unchanged, not read or screened beyond header check |
+| IF4 | Lust route, The Butterfly Dream | Eminent Translations | EPUB (registered 2026-11-03) | ~8.6k words, 8 sections, read from Weibao's Chrome at his request (Eminent's robots.txt disallows the polite client, so the transport stayed closed; one page, one tab). Eminent's reader also lists a next IF, *Re: Mistaking Life in Another World from Zero I (Genderbent)*, not captured |
+| IF5 | Kasaneru IF (Greed) | Witch Cult | EPUB `fdeb0c9271e4` | ~20.3k words |
+| IF6 | Tsugihagu IF (Gluttony) | Witch Cult | EPUB `5ebe34a3b7df` | ~23.6k words |
+| IF7 | Azamuku IF (Vollachia), plus the Azamuku Supplement post | Witch Cult | EPUB `b154980eba0f` | ~32.7k words (28.1k + 4.6k) |
+
+Checks: ZIP CRC and every XML part parse clean; word counts per post recorded in
+`novels/rezero-if-2026-11-03/assemble_report.json`. Captures are the fan translators' web
+text (footnotes kept, images and comments dropped), not retail files. Rem IF's chapter list
+comes from Remonwater's own table of contents; the IF2 stop point is that list's last IF row.
+Not captured: the Harem What-if (Rem's part) and other Remonwater extras outside the IF list.
+Witch Cult's Side Content page is marked unavailable on the site. No purchase, commit or push.
+
+### Duplicate cleanup and library reconcile, 2026-11-03
+
+Weibao: "delete duplicates" and a library reconcile. Method: same-title EPUB groups compared by
+extracted-text hash. Deleted six exact-text copies, keeping the original source in each case:
+Cradle books 4, 5, 8, 9 (second managed copy), Deadman Running repair v1 (v2 kept) and the
+Dungeon Crawler Carl derived "reviewed-spine" copy. Kept on purpose: the Archmage's Ire and
+Couriers Outbound and Gods Are Bastards reader-repair copies (same text, fix reader container
+errors) and the distinct editions (Lord of the Mysteries, Circle of Inevitability, Ascendance
+Part 5.2, Lesser Kindred). Manifest of deleted hashes and paths:
+`novels/dedupe-2026-11-03/manifest_before_delete.json`; `source-harvest-2026-10-25` ledgers
+still name the deleted Cradle hashes as history.
+
+Reconcile result (Source Library, read-only checks on the live DB and disk): 2,422 assets, every
+one has a location that exists; no unregistered file under `library/`; no location without an
+asset. Calibre catalogue 232 equals `metadata.db`. Both catalogues are generated from the live
+databases, so they match by construction. Not checked: byte-level corruption beyond today's ZIP
+CRC checks, and whether older entries match their index rows.
+
+
+## Browser captures, Riordan round and Arc cleanup, 2026-11-03
+
+Weibao: "open in browser for anything that would fix it ... go ahead and get stuff accordingly".
+
+**Browser (Weibao's Chrome, one tab, about 7 s per page; Eminent and Witch Cult both disallow or
+closed the polite client, so the transport stayed closed and nothing was retried through it).**
+
+| Code | Item | Result |
+|---|---|---|
+| BC1 | Re:Zero WN Arc 2, Eminent, chapters 1–19 | EPUB, 75.9k words, registered `1875457f6f79`. Eminent text, not Witch Cult |
+| BC2 | Re:Zero WN Arc 7 chapter 63 "Sparka" | The table-of-contents link was mis-slugged (301). Browser followed it to `/chapter-63-sparka/`; inserted after chapter 62, so Arc 7 is **116 of 116**, registered `6559e2bf05ab` (replaces the 115-chapter file) |
+| BC3 | Eminent Genderbent IF, "Mistaking ... I" | EPUB, 13.9k words, `6542a6a3c911`. Only part I was reached; any later parts were not looked for |
+| BC4 | Re:Zero Academy: First Period | EPUB, 9.2k words, `65b65dcfac6c` (it sat next in Eminent's IF Stories list; not an IF route) |
+| BC6 | Re:Zero WN Arc 2, chapters 20–49 | Weibao approved the host 2026-11-03. Eminent's Arc 2 list links chapters 20–49 to pandemoniumtranslations.com (chapter 50 returns 404, so 49 is the end of the live list, not a verified end of the arc). One Chrome tab, one fetch every 6.5–7 s, 30 pages. Combined EPUB chapters 1–49 (49 chapters, 197k words, ZIP and XML checked), `95325d69544e`; the 19-chapter `1875457f6f79` stays registered as a subset. Pandemonium's robots.txt could not be read from the tab; text only, not compared with Witch Cult. Scripts and raw JSON: `novels/rezero-if-2026-11-03/build_arc2_full.py` and `~/Downloads/pandemonium_rezero_arc2_20-49_2026-11-03.json` |
+| BC7 | JJK novels and two Riordan extras (Z-Library desktop; Anna's fast returned `annas_api_No_downloads_left`, quota roll-off expected about 17:00 EST) | Four EPUBs, ZIP CRC clean, registered: *Jujutsu Kaisen: Summer of Ashes, Autumn of Dust* (30k words) and *Jujutsu Kaisen: Thorny Road at Dawn* (32k; VIZ English novels, so the 2026-10-22 "no official JJK novels" line is superseded), *Daughter of the Deep* (89k), *Camp Half-Blood Confidential* (25k). Not read. Runner and receipts: `novels/jjk-riordan-2026-11-03/` |
+| BC8 | Classics, Z-Library desktop (Anna's fast still empty) | Four EPUBs, ZIP CRC clean, registered, not read: *The Wheel of Time Omnibus* (Jordan; 18 MB, 951 parts, about 4.5M words, which fits the 14 main books but the book list was not checked), *The Books of Earthsea: Complete Illustrated Edition* (452k words), *His Dark Materials: The Complete Trilogy* (381k), *Ender's Game* (112k). Not fetched: Discworld (41 novels; a "Discworld Omnibus" hit has unknown contents), Forty Millenniums (only partial 1-2711 and 1-1145 files), Irregular at Magic High School (vol 1-6 exist, lowest rank), Gods Are Bastards 3-4 (2019 web-edition numbering only). Runner and receipts: `novels/classics-2026-11-03/`. Same day, later: Bookracy in Chrome failed (its API at api.bookracy.com returned "failed to fetch", a backend outage, not a human check); Z-Library then reported `daily_quota_exhausted` before issuing any request for the Ender sequels (*Speaker for the Dead* `3751901:8bc3f0`, *Xenocide* `3767336:6c021d`, *Children of the Mind* `18764408:9154dc`, *Ender's Shadow* `3799981:cdaaa7`, *Ender in Exile* `115720409:543abc`), so none came through Z-Library. **All five were then fetched the same day through Anna's free slow route** (MD5 from the Z-Library metadata, Weibao's Chrome one tab, partner server #9 with no waitlist, DDoS-Guard cleared on its own in about 18 s, then `annas_route.py intake --url --key`): *Speaker for the Dead* (139k words), *Xenocide* (186k), *Children of the Mind* (120k), *Ender's Shadow* (143k) and *Ender in Exile*; all ZIP CRC clean, registered, not read, and the Z-Library keys are linked. Bookracy's own search in Chrome failed on its backend, so it was not used. The runner prints `True` even when the inner acquire fails; read `via_zlib.ok` in the receipts, not the console line |
+| BC9 | Tier 2 round, 2026-11-03, **in progress, not yet held** | Anna's free slow route (links collected in Chrome, one tab; transfers run serially in a detached worker, because Source Library's single download lock makes a second parallel transfer fail with `SourceError`, and the partner server delivers about 20 KB/s, so a 5–9 MB EPUB takes 5–7 min). 35 files resolved from Z-Library metadata (no quota): Tensura 1–3, 5–7, 9–15, 17–20 (4 and 8 not found; 16 already held), No Game No Life 1–3, 5, 7–12 (4 held; 6 not found), El-Melloi II Case Files 1–3, 6 (4 held; 5 not found), Fate/strange Fake English 4–5 (1–3 not found in English), Re:Zero web novel Arc 3 (Z-Library `25245389`), and the Chinese *宿命之环* 校对版全本 (`121534267`). Receipts are the only completion record: `novels/tier2-2026-11-03/receipts.jsonl` (runner, queue and resolved list beside it). Not found anywhere searched (Z-Library, Anna's search in Chrome, Komga, CLU; Bookracy and Suwayomi were down): JJK Modulo, JJK Official Fanbook (JP or EN), JJK Official Character Guide, *Delicious in Dungeon World Guide*. Cuttlefish's other works (灭运图录, 一世之尊, 武道宗师) exist only as Chinese editions on Z-Library; 长夜余火 is our English *Embers Ad Infinitum* and 奥术神座 is *Throne of Magical Arcana* (zh Wikipedia work list, English titles unverified) |
+| BC10 | Manga queue, 2026-11-03 (Weibao: "grab the mangas") | The governed manga/manhwa downloader already queues Naruto (701), Gaiden, Boruto, Naruto extras, Hunter x Hunter, FMA, Bleach, JJK side and guide/Modulo chapters, plus about 50 more series (Chainsaw Man, JoJo parts, Dungeon Meshi, Frieren, Demon Slayer, Mushoku Tensei, Solo Leveling and others). It had been stopped since 2026-10-29. I moved the manga ahead of the manhwa (backup `governor/queue.json.bak-2026-11-03-manga-first`) and restarted the governor loop (`governor.py start`); it downloads only inside 18:00 to 08:20, on AC or at 50% battery or more, and pauses below 30 GB free disk. Nothing downloaded yet. Existing text: `scripts/manga_text/` (Apple Vision OCR plus bubble detector, no speaker labels) has JJK 277, Bleach 214 and Omniscient Reader chapters as `chapter.jsonl` in `docs/research/manga-text/private/`; its watcher picks up new CBZs |
+| BC5 | Arc 6 | Already complete at 91 chapters (`bfc232bd8c65`, chapters 89–90 from the 2026-10-30 Chrome saves). The "chapters 89–90 missing" lines above are stale. The partial (61) and 2-missing Arc 6 files were deleted as superseded |
+
+**Riordan round (local Z-Library, 19 EPUBs, all ZIP-CRC checked, registered).** Trials of Apollo 1–5;
+Kane Chronicles as *The Complete Kane Chronicles* omnibus (books 1–3 in one file); Magnus Chase 1–3;
+Percy Jackson companions: Demigod Files, Chalice of the Gods, The Sun and the Star, Wrath of the
+Triple Goddess, Greek Gods, Greek Heroes, Demigod Diaries; Brooklyn House Magician's Manual, 9 From the
+Nine Worlds, Hotel Valhalla Guide. Anna's fast had 1 left and did not supply any of them. Not read.
+Receipts and runner: `novels/riordan-2026-11-03/`; browser JSON and scripts: `novels/rezero-if-2026-11-03/`.
+Nothing committed.
+
+
+### What "held" means, and compilation coverage, 2026-11-03
+
+Reconcile of the acquisition gap-scan method (owner rule: [AR36 and AR36b](SOURCE_ACQUISITION_TOOLS.md)).
+Classification: the 2026-11-03 Shadow Slave recommendation was an incomplete rule plus a skipped check,
+not a library defect. Evidence row reached: container facts from the live database and spines (part counts,
+chapter numbers read from part titles); no text was read or compared.
+
+| Series | Held coverage (from `scripts/library_coverage.py`) | Gap |
+|---|---|---|
+| Shadow Slave | Calibre 16 compilation chapters 1–1840 (contiguous); volume 9 chapters 1841–2260; volume 10 2261–2720; volume 11 2721–3000 (spine lacks 2888–2889); volume 2 (96–350) is an alternate edition downloaded before the check | None through 3000; only the two volume-11 chapters are unaccounted for |
+| Meadowreach Homestead | 1–4, no compilation | 5–8 confirmed real (Z-Library only) |
+| Dungeon Crawler Carl | 1–8, no compilation (book 8 is held as *A Parade of Horribles*, found by author, not title) | None; a second copy fetched by Anna's slow was deleted |
+
+Other held multi-chapter EPUBs and their chapter ranges (ledger of 38 in `novels/rr-gap-scan-2026-11-03/compilations.jsonl`):
+Reincarnation Paradise 1–4143; Reverend Insanity 1–2334; Lord of the Mysteries 1–1467 (two copies, different
+translations); Beyond the Timescape 1–1354; Warlock of the Magus World 1–1200; Circle of Inevitability 1–1190
+(two translations) and the Circle of Inevitability novel compilation 1–1180 (missing 1026); Dao of the Bizarre
+Immortal 1–1024 (missing 144); Deep Sea Embers 1–852; A Knight Who Eternally Regresses 0–802; Second Life
+Ranker 1–800 (7 gaps); A Novel Concept 1–438; Hocus, Pocus, Hypothesis 1–304; The Daily Grind 200–276 only.
+About 20 further compilations (for example A Will Eternal, I Shall Seal the Heavens, Absolute Regression)
+carry no chapter numbers in their part titles, so their coverage is unmapped and needs a table-of-contents read.
+Before listing any gap, run the tool; do not infer holdings from titles or volume numbers.
+
+Anna's slow check, 2026-11-03: Meadowreach Homestead 5, 6, 7 and 8 all return "not found" on Anna's, so they
+stay Z-Library only (4 downloads of the 8 left). Battle Mage Farmer 10 (5e adventure) was fetched and kept.
 
 ## d20 rules reference collections, 2026-11-03
 
@@ -129,7 +971,7 @@ Trigger: Weibao, “for the wiki we can look for other routes, or use chrome ext
 
 **Still missing (40 hosts).** No archive copy exists for: Mother of Learning, Reincarnation Paradise, Undead Unluck, Stormlight Archive, Omniscient Reader's Viewpoint, Mob Psycho 100, Dandadan, Fire Force, Kaiju No. 8, Solo Leveling, A Practical Guide to Evil, He Who Fights with Monsters, Slay the Spire, and 27 smaller web-novel wikis. These archive hits did not count, because they were fan or foreign-language wikis with similar names: Worm, Kagurabachi (Spanish only), Marvel, DC, Hades, VS Battles and the isekai wiki. The Chrome API route that worked for LOTM works for any of them; pick which ones.
 
-**Rulebooks.** As of 2026-11-03 this line read "none are held". That was stale: Calibre holds the D&D 5e 2014 core, Xanathar's, Tasha's, Fizban's, Monsters of the Multiverse, Planescape, Spelljammer, GURPS Powers and Thaumatology, the M&M Hero's Handbook and Blades in the Dark, and later rounds added more (see the [download wishlist](DOWNLOAD_WISHLIST_2026-10-30.md) W2 held line). The scoped Pathfinder data is in the [d20 receipt](d20/D20_RULES_COLLECTION_2026-11-03.md). The licence notes below are from memory, so check each one before fetching. They are ranked by how many AB seams each rulebook feeds. The licence notes below are from memory, so check each one before fetching. They are ranked by how many AB seams each rulebook feeds.
+**Rulebooks.** As of 2026-11-03 this line read "none are held". That was stale: Calibre holds the D&D 5e 2014 core, Xanathar's, Tasha's, Fizban's, Monsters of the Multiverse, Planescape, Spelljammer, GURPS Powers and Thaumatology, the M&M Hero's Handbook and Blades in the Dark, and later rounds added more (see the [download wishlist](DOWNLOAD_WISHLIST_2026-10-30.md) W2 held line). The scoped Pathfinder data is in the [d20 receipt](d20/D20_RULES_COLLECTION_2026-11-03.md). The licence notes below are from memory, so check each one before fetching. They are ranked by how many AB seams each rulebook feeds.
 
 | Rulebook | How to get it | Feeds |
 |---|---|---|
@@ -142,6 +984,18 @@ Trigger: Weibao, “for the wiki we can look for other routes, or use chrome ext
 | Call of Cthulhu 7e Quick-Start | Free from Chaosium | Sanity loss (AB14) |
 | Fate Core or Fate Condensed SRD | Free (CC-BY) | Aspects and consequences |
 | Mage: The Ascension 20th, Exalted 3rd, Nobilis | Buy | Paradox and rule spaces (AB20), Limit Break (AB14), names and domains (AB23) |
+
+**Free rulebooks fetched, 2026-11-03.** Weibao said “Fetch the free ones”. Files are in `~/.codex/research/rulebooks/<slug>/`. None has been read or folded into a seam yet. Screen each PDF with `pdf-screen` before reading it.
+
+| Rulebook | Source | File | Licence | Check |
+|---|---|---|---|---|
+| D&D System Reference Document 5.2.1 | Wizards' own host, linked from dndbeyond.com/srd | `SRD_CC_v5.2.1.pdf`, 6.0 MB | CC-BY-4.0 | valid PDF; SHA-256 `8974902d109d6e63…` |
+| Call of Cthulhu 7e Quick-Start Rules | Chaosium's free PDF (chaosium.com/cthulhu-quickstart) | `CHA23131 … Quick-Start Rules.pdf`, 32 MB | free download from the publisher, not an open licence | valid PDF; SHA-256 `39b6a53915ddf9f4…` |
+| Blades in the Dark SRD | `amazingrando/blades-in-the-dark-srd-content`, linked from the official licensing page | one file each as markdown, HTML and TeX (commit `f141ed2`, 2022-04-08) | CC-BY 3.0, credit One Seven Design and John Harper | shallow clone |
+| Ars Magica 5th edition, the full open corpus | `OriginalMadman/Ars-Magica-Open-License`, linked from atlas-games.com/openars | 50+ official books as corrected markdown, including the Definitive Edition core rules (commit `6d61e5e`, 2026-10-31) | CC BY-SA 4.0 (the text was machine-extracted, then hand-fixed; the `reviewed` folder is the trusted set) | shallow clone |
+| Fate SRD, Fate Condensed included | `fate-srd/fate-srd-content`, the official SRD organisation that Evil Hat endorses (commit `93ed848`, 2025-08-08) | `docs/markdown/Fate-Condensed-SRD-CC-BY.md` plus the Core and Accelerated SRDs | CC-BY 3.0 | shallow clone; its build scripts are never run |
+| GURPS Lite 4th edition | free from Steve Jackson Games, but only through a Warehouse 23 checkout with an account | not fetched | free distribution | Weibao's to grab: agents do not create accounts or check out |
+| Mutants & Masterminds 3e SRD, scoped | d20herosrd.com through the lncrawl-polite transport: the powers chapter, character creation and the OGL page | 74 pages as text plus `manifest.jsonl` (body SHA-256 per page). They include Immunity, Enhanced Trait, Variable, Modifiers, Descriptors, the effect descriptions and the sample powers | OGL Open Game Content | the run stopped on a 404 from a site-internal link (`/6-powers/effects/sample-powers/mimic`), which closes the host in the transport for good. Seven queued pages were not fetched. Reopening the host needs Weibao's say-so, or the Chrome route |
 
 **Next rulebook wave, 2026-11-03 (not fetched).** Weibao asked for “more rulebooks”. Free status was checked by web search on 2026-11-03; licence pages still need opening before any fetch. Ranked by the AB seams each one feeds ([round 3](../ABILITY_RULES.md#round-3-2026-11-03-in-world-reasons-per-world-ars-magica-read-more-rulebooks)).
 
@@ -176,18 +1030,6 @@ Next steps, ranked:
 1. Choose rulebooks to buy; the free ones are fetched, and the free next wave above waits on your yes.
 2. Choose which of the 40 missing wikis to pull through Chrome.
 3. Read the held LOTM wiki against the mechanism lane (AB13, AB14), and give a lane owner the go.
-
-**Free rulebooks fetched, 2026-11-03.** Weibao said “Fetch the free ones”. Files are in `~/.codex/research/rulebooks/<slug>/`. None has been read or folded into a seam yet. Screen each PDF with `pdf-screen` before reading it.
-
-| Rulebook | Source | File | Licence | Check |
-|---|---|---|---|---|
-| D&D System Reference Document 5.2.1 | Wizards' own host, linked from dndbeyond.com/srd | `SRD_CC_v5.2.1.pdf`, 6.0 MB | CC-BY-4.0 | valid PDF; SHA-256 `8974902d109d6e63…` |
-| Call of Cthulhu 7e Quick-Start Rules | Chaosium's free PDF (chaosium.com/cthulhu-quickstart) | `CHA23131 … Quick-Start Rules.pdf`, 32 MB | free download from the publisher, not an open licence | valid PDF; SHA-256 `39b6a53915ddf9f4…` |
-| Blades in the Dark SRD | `amazingrando/blades-in-the-dark-srd-content`, linked from the official licensing page | one file each as markdown, HTML and TeX (commit `f141ed2`, 2022-04-08) | CC-BY 3.0, credit One Seven Design and John Harper | shallow clone |
-| Ars Magica 5th edition, the full open corpus | `OriginalMadman/Ars-Magica-Open-License`, linked from atlas-games.com/openars | 50+ official books as corrected markdown, including the Definitive Edition core rules (commit `6d61e5e`, 2026-10-31) | CC BY-SA 4.0 (the text was machine-extracted, then hand-fixed; the `reviewed` folder is the trusted set) | shallow clone |
-| Fate SRD, Fate Condensed included | `fate-srd/fate-srd-content`, the official SRD organisation that Evil Hat endorses (commit `93ed848`, 2025-08-08) | `docs/markdown/Fate-Condensed-SRD-CC-BY.md` plus the Core and Accelerated SRDs | CC-BY 3.0 | shallow clone; its build scripts are never run |
-| GURPS Lite 4th edition | free from Steve Jackson Games, but only through a Warehouse 23 checkout with an account | not fetched | free distribution | Weibao's to grab: agents do not create accounts or check out |
-| Mutants & Masterminds 3e SRD, scoped | d20herosrd.com through the lncrawl-polite transport: the powers chapter, character creation and the OGL page | 74 pages as text plus `manifest.jsonl` (body SHA-256 per page). They include Immunity, Enhanced Trait, Variable, Modifiers, Descriptors, the effect descriptions and the sample powers | OGL Open Game Content | the run stopped on a 404 from a site-internal link (`/6-powers/effects/sample-powers/mimic`), which closes the host in the transport for good. Seven queued pages were not fetched. Reopening the host needs Weibao's say-so, or the Chrome route |
 
 ## Acquisition round 2026-11-04 (Weibao: "go ahead", "use the rest of today's usage")
 
