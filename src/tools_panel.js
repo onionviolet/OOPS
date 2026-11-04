@@ -71,7 +71,7 @@ export function createToolsPanel({read, quote, execute, cancel, action, discover
             // The quote opens under its tool so it stays in view without scrolling.
             if (row.key === selected) line.append(detail);
         }
-        if (!view.rows.length) list.append(node('p', 'You carry no tools.'));
+        if (!view.rows.length) list.append(node('p', 'You carry no tools yet. Any you pick up show here with their wear.'));
         detail.replaceChildren();
         if (q && !detail.isConnected) list.append(detail);
         if (q) {

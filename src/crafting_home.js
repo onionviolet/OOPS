@@ -80,7 +80,7 @@ export function createCraftingHome({read,quote,execute,forecast}) {
   }
   const depth=view.depth??{tolerance:[],deductions:[],trials:0};
   if(depth.tolerance.length)notebook.append(Object.assign(node('p',`Body still dulled to: ${depth.tolerance.map(t=>`${t.effect} ${t.level}/${t.overdoseAt}`).join(' · ')}. Drinking past the limit sours the body instead.`),{className:'crafting-trial-tolerance'}));
-  if(!depth.deductions.length)notebook.append(node('p',depth.trials?'Nothing has shown an effect yet.':'Drink a preparation to start a record.'));
+  if(!depth.deductions.length)notebook.append(node('p',depth.trials?'Nothing has shown an effect yet. Drink another preparation and note what changes.':'Drink a preparation to start a record.'));
   for(const d of depth.deductions){const row=node('p',`${d.material} → ${d.effect}: ${d.status} (seen ${d.hits} of ${d.withCount} trials with it)`);row.dataset.craftDeduction=d.status;notebook.append(row);}
   products.replaceChildren(node('h3','Your preparations'));
   // DRC9: observed effects name the action; an unknown preparation stays plain "Drink one".

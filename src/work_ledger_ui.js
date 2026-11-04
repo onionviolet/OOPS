@@ -129,7 +129,7 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
         const history = element('section', ''); history.className = 'work-ledger-history'; history.setAttribute('aria-label', 'Saved receipts');
         element('h4', 'Saved receipts', history);
         const receipts = state.receipts || view.receipts || [];
-        if (!receipts.length) element('p', 'No saved receipts yet.', history);
+        if (!receipts.length) element('p', 'No saved receipts yet. Accept a commission and each step is kept here.', history);
         else {
             const list = element('ol', '', history);
             for (const receipt of receipts) if (typeof receipt.text === 'string') element('li', receipt.text, list);

@@ -99,7 +99,7 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
         }
         // H8: dated reasons a quote moved (pity, fear, shortage), each with its why and days left.
         const causesBox = panelSection(`Why prices moved lately · ${v.causes.length}`, {disclosure: true}); causesBox.node.dataset.section = 'price-causes';
-        if(!v.causes.length) causesBox.body.append(node('p', 'No recent cause. Prices follow standing alone.', 'expedition_preview'));
+        if(!v.causes.length) causesBox.body.append(node('p', 'Nothing has moved prices lately. They follow your standing alone.', 'expedition_preview'));
         for(const c of v.causes) {
             const p = node('p', `${c.kind[0].toUpperCase()}${c.kind.slice(1)} in ${c.region}${c.detail ? ` (${c.detail})` : ''}: selling ${pct(c.sell)}, buying ${pct(c.buy)}${c.closes ? ', shop shut' : ''}, ${Math.max(1, Math.ceil((c.until - v.now) / 1440))} d left.`);
             p.dataset.priceCause = c.kind; p.append(node('span', ` Why: ${c.why}`, 'standing_why')); causesBox.body.append(p);
@@ -120,7 +120,7 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
         }
         const talk = panelSection(`Talk · ${v.rumours.length}`, {disclosure: true}); talk.node.dataset.section = 'talk';
         rumours.replaceChildren(talk.node);
-        if(!v.rumours.length) talk.body.append(node('p', 'No one has repeated a price to you.', 'expedition_preview'));
+        if(!v.rumours.length) talk.body.append(node('p', 'No one has passed a price to you yet. Trade a little and people start to.', 'expedition_preview'));
         for(const r of v.rumours.slice(-5).reverse()) {
             const row = infoRow({label: r.text, chips: [chip(`sounds ${r.sounds}`, {guess: !r.verdict}), ...(r.verdict ? [chip(r.verdict === 'held' ? 'held up' : 'was wrong', {tone: r.verdict === 'held' ? 'good' : 'limit'})] : [])]});
             row.dataset.rumourRow = r.id; talk.body.append(row);

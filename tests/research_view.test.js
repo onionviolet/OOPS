@@ -34,7 +34,7 @@ test('every study row names a real command, power and duration (rows cannot drif
 test('before the seat has been told of a lesson it lists nothing (AD6); the facts that gate it are real', () => {
     const fresh = initializeExpedition(createExpansionState(71));
     assert.equal(view({state: fresh}).projects.length, 0);
-    assert.match(view({state: fresh}).empty, /Nothing here can be studied yet/);
+    assert.match(view({state: fresh}).empty, /Nothing to study yet/);
     assert.equal(createFieldFixture().state.actors.player.facts['field.introduced'], true);
 });
 
@@ -111,7 +111,7 @@ test('sealed situation truth and other seats\' records never reach the view', ()
     outside.actors.player.worldId = 'book.other';
     const v = researchView(observerView(outside), outside);
     assert.equal(v.projects.length, 0);
-    assert.match(v.empty, /Nothing here can be studied yet/);
+    assert.match(v.empty, /Nothing to study yet/);
 });
 
 test('figures validate and share their facts with the text form (UR37)', () => {

@@ -14,5 +14,5 @@ test('a world panel keeps its title and takes its own group or its role group', 
     assert.equal(panelListing('some-world-panel', {title: 'Bench'}).group, 'World');
 });
 test('a greyed shared panel names its blocker', () => {
-    assert.equal(panelListing('homes', {title: 'Homes'}).reason, 'Village only');
+    assert.equal(panelListing('homes', {title: 'Homes'}).reason, 'Go back to the Village to use this');
 });

@@ -207,6 +207,63 @@ Checks:
 
 Agent-verified, not human-reviewed.
 
+## Empty states slice (2026-11-03)
+
+Scope: the empty states a fresh home-world game shows (fresh-day3, seed 7), then other panels a player opens often. The work list came from a headless sweep of all 22 top-nav routes and 51 known panels (`scripts/capture_empty_states.mjs`), not from inventory rows alone. 34 strings rewritten (39 places) in 24 source files, applying CPY9, CPY1, CPY8, CPY13 and RPT14. The sweep also showed that Reports, Travelers, Neighbors and Projects are not empty on a fresh game. They were collapsed, so they needed no new line.
+
+| Before | After |
+| --- | --- |
+| Item details · Pick an item first | Item details · Select an item in Inventory |
+| Study · Nothing here can be studied yet | Study · Ask around for someone to teach you |
+| Nothing here can be studied yet. Lessons, books and odd things you meet will appear here once you start on them. | Nothing to study yet. Ask the people around you what they could teach, and their lessons show up here. |
+| Other worlds · No optional world installed | Other worlds · No other world is open to you yet |
+| Ledger · Nothing owed or recorded yet | Ledger · Take a commission to start one |
+| Village only (six panels) | Go back to the Village to use this |
+| No work running. | No work running. Pick something under Here to start. |
+| No saved receipts yet. | No saved receipts yet. Accept a commission and each step is kept here. |
+| No assist leased. | No assist leased. Spend points from finished commissions to lease one. |
+| No equipment yet. / No usable items or books yet. / No materials, components or loot yet. | Each adds a step: "Buy or loot gear to see it here." / "Buy, cook or find something to eat, use or read." / "Gather or craft some to see them here." |
+| No home yet. The Village home supplier rents and sells places to live; a wild site lets you build one from gathered material. | No home yet. Rent or buy one from the Village home supplier, or build one at a wild site from gathered material. |
+| No installed furnishings. | No furnishings yet. Carry one here to install it. |
+| You carry no tools. | You carry no tools yet. Any you pick up show here with their wear. |
+| No spillable stock carried | Carry a vial or ingredient pack to spill |
+| No authored site is applied. | None of your own places is in use. Fill in the draft and press Apply site. |
+| No story has taken shape yet. Rivalries and debts appear here once the saved record shows them. | No story has taken shape yet. Rivalries and debts show up here as they form. |
+| No recent cause. Prices follow standing alone. | Nothing has moved prices lately. They follow your standing alone. |
+| No one has repeated a price to you. | No one has passed a price to you yet. Trade a little and people start to. |
+| Nothing here can be gathered. | Nothing to gather here. Where I am lists nearby places to try. |
+| No known people, services or stations to inspect here. | Nothing here to inspect yet. Talk to someone in Local actions to meet them. |
+| No known subjects here | Nothing here to inspect yet |
+| Nothing to name yet | Equip something to name it |
+| No known people to show here / No learned routes to show here / No local notes are available here | Meet someone to see them here / Travel a road to learn its route / Nothing noted here yet |
+| No commitments are running. | Nothing running. Start work or take a job and it shows here. |
+| No combat facts observed yet. | Nothing noticed about this opponent yet. Trade a few blows to learn more. |
+| Relationship: No remembered dealings. | Relationship: You have not dealt with them yet. |
+| No known unfinished waypost opportunities. | Nothing left unfinished at the wayposts you know. |
+| Nothing is left to temper in this slice. | Nothing is left to temper for now. |
+| Nothing has shown an effect yet. | Nothing has shown an effect yet. Drink another preparation and note what changes. |
+| No numbers this item adds to what you wear. | Wearing this adds nothing to your stats. |
+
+The first draft of the work line said "Open local controls to start something". That button is hidden when no work runs, so the line now names the Here tab, which is always on screen (RPT14). The Study line names no particular lesson. Studies are listed only after the player hears of them (AD6), and the first home one needs the craftsman meeting, which a fresh game does not have yet.
+
+Left as they are:
+- Quiet on purpose (CPY9 dial): "No shield", "No active effects", "No station", "No worn title", "Nothing held", "No quality rating", "No moments are waiting.", "Nothing weighs on you." These are slot labels or calm status lines where a pointer would be noise.
+- Already point forward: the Known things kinds ("Defeat an enemy and it is recorded here." and the rest), "Gather a material and it is tallied here.", "Equip something and it can be named here.", the skill, bestiary and book list empties, "No project is offered here. Try another place.", the owed-ledger empty text, "Hold or wear a second piece of equipment…", "No items in this inventory. Gather, loot or buy items…", the Travelers intro.
+- No step that holds in every world yet: "No paths known yet.", "No techniques known yet." and the Knows glance "Nothing learned yet." These are shared across worlds, and each world reaches them differently.
+- Developer text and disclosures (CPY2), not empty states: "No stock, money, deed or debt is granted by meeting the residents.", the "No … may precede actual …" checks, the inspector's "No retained … owner" lines, and the thrown error in `authored_site.js` (only its UI twin changed).
+- Book-world files and the refusal files (`main.js`, `crafting_frontier_runtime.js`, `hp_brewing_*`, `village_career*`, `village_content.js`, `original_frontier_*`) are outside this slice.
+
+Noticed for later slices: the Ledger panel is titled "Work Ledger" (`main.js`, CPY6). Statistics says "Per-activity time and per-world tallies are not recorded yet." (CPY1). Trade standing shows "no policy" in lower case.
+
+Checks:
+- 23 focused test files for the touched modules, including the three updated for changed strings (`inventory_tabs`, `panel_directory`, `research_view`): all pass except `book_world_lotm_opening`. That file fails at HEAD too, because `canon_pull_panel.js` does not export `canonPullVisible`.
+- `npm run build`: passes.
+- Full `npm test`: 4931 pass, 20 fail, 17 skipped. The same 20 fail on a clean HEAD checkout (`book_world_lotm_opening`, `conflict_frame` ×15, `place_act_sequence`, `reach_run_admission`, `cast_worksheet`, `lead_run_crosswalk`; the last two also fail at HEAD when run alone). None of them touches this slice.
+- Headless Chrome at 1920×1080, rebuilt bundle, fresh origin, fresh-day3 seed 7, via `node scripts/capture_empty_states.mjs <dir> --grep …`: 18 of 18 new lines found on screen with no page errors. The 12 unchanged since the first pass are on bundle 7f625b3b1336: Other worlds, ledger assist and receipts, home, story, spill, own places, tools, both trade standing lines. The 6 on the final bundle f84d876cc880 are the Item details and Study reasons, the work line, receipts, home and tools. The screenshots confirm the ledger lines.
+- Not exercised on screen: the inventory category hints (the Other tab was not clicked), Where I am, the inspect target, notebook reasons, Travel Today, combat inspection, the waypost, temper, preparation, furnishing and item-card lines, and "Go back to the Village to use this" (needs a game away from the Village). They are implemented but not yet checked on screen.
+
+Agent-verified, not human-reviewed.
+
 ## Not decided here
 
 The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Nothing in the game has been rewritten yet.

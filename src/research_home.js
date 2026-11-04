@@ -90,7 +90,7 @@ function createPanel() {
             mapBox);
     });
     definePanel({id: 'research', title: 'Study', role: 'records', node: root, home: document.getElementById('main_content'), defaultDock: 'right', after: 'records',
-        unavailableReason: () => 'Nothing here can be studied yet', discovered: () => true,
+        unavailableReason: () => 'Ask around for someone to teach you', discovered: () => true,
         eligible: () => { const s = readPort('expansion'); return !!s && researchView(observerView(s), s).projects.length > 0; }});
     return {render};
 }

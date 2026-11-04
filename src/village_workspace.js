@@ -155,7 +155,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             targetCycle.hidden=!!t.defeated||t.cycle==null;targetCycle.value=t.cycle||0;setAttr(targetCycle,'aria-label',`${t.name} attack cycle`);
             setTitle(targetLine,`Inspecting ${tk.length>1?`${t.name}, ${tk.indexOf(t)+1} of ${tk.length}`:t.name}. Select another opponent in the list to inspect it; inspection does not change attack targeting.`);}
         endedBack.hidden=!target.ended;setText(endedBack,count?'Inspect current opponents':'Back to Around you');
-        detailEmpty.hidden=!!facts.length;setText(detailEmpty,target.ended?`${target.name}: inspection ended. Select a current opponent to inspect. Departure remains in the encounter actions.`:'No combat facts observed yet.');
+        detailEmpty.hidden=!!facts.length;setText(detailEmpty,target.ended?`${target.name}: inspection ended. Select a current opponent to inspect. Departure remains in the encounter actions.`:'Nothing noticed about this opponent yet. Trade a few blows to learn more.');
         const caption=encounterCaption(board);setText(rosterCaption,caption);setTitle(rosterCaption,caption);
         if(inList){const down=opponents.filter(o=>o.defeated).length,{groupsLeft,clears}=board.encounter||{};
             const rows=[['Opponents',String(count)],['Defeated',`${down} of ${count}`],...[...named.entries()].map(([n,g])=>[n,`${g.filter(o=>!o.defeated).length} of ${g.length} left`]),groupsLeft?['Groups left',groupsLeft]:null,clears?['Clears',String(clears).replace(/^Clears:\s*/,'')]:null].filter(Boolean);
@@ -300,7 +300,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             if(target&&shell&&selected&&!frame.dialogue&&target.kind!=='enemy'){const back=node('button',`← ${frame.place}`);back.type='button';back.className='shell-focus-back';back.dataset.focusBack='';back.title='Back to the place overview. Esc also works.';back.onclick=()=>choose(null);focus.append(back);}
             if(target){focus.append(node('strong',target.name),node('p',target.role||'Role not assessed'));
                 if(target.kind==='enemy')focus.append(node('p',`Level/title: ${target.title||'???'} · ${target.hp||'??? hp'}`),node('p',target.stats||'Stats: ???'));
-                if(target.kind==='person')focus.append(node('p',`Known traits: ${target.traits?.join(', ')||'Not assessed'}`),node('p',`Relationship: ${target.relationship||'No remembered dealings.'}`),node('p',target.memory||''));
+                if(target.kind==='person')focus.append(node('p',`Known traits: ${target.traits?.join(', ')||'Not assessed'}`),node('p',`Relationship: ${target.relationship||'You have not dealt with them yet.'}`),node('p',target.memory||''));
                 if(target.kind==='person'&&target.memory)focus.lastElementChild.title=target.memory;
                 if(active){const menu=node('div');menu.className='shell-focus-actions';
                     for(const choice of active.actions){const b=node('button',choice.label);b.type='button';b.disabled=!!choice.disabled;b.title=choice.reason||'';b.dataset.focusAction=choice.id;b.onclick=()=>{act(choice.id);render();};menu.append(b);}focus.append(menu);}

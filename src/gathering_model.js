@@ -39,7 +39,7 @@ function regrow(site) {
  */
 export function gatheringModel(view) {
     const sees = request => (view.observer ? view.observer.sees(request) : true);
-    if (!view.visible || !view.sites?.length) return {empty: view.visible ? 'Nothing here can be gathered.' : 'Your gathering places are elsewhere.', sites: []};
+    if (!view.visible || !view.sites?.length) return {empty: view.visible ? 'Nothing to gather here. Where I am lists nearby places to try.' : 'Your gathering places are elsewhere.', sites: []};
     // Default: the yield's own id (it defaults to the material or family id); regional variants are never named before they are held.
     const nameOf = view.nameOf || (y => spoken(y.id));
     const season = view.season?.id && view.season.list?.length ? {id: view.season.id, list: view.season.list, progress: view.season.progress ?? null,

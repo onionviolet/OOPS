@@ -19,6 +19,6 @@ export function teacherWindow(state, facts) {
     if(state.campaign.facts.anchor && learned.known && !state.actors.player.facts.surveyed) unfinished.push('survey the known dry-bank path');
     return {window, available, cause, learned,
         phase: state.actors.player.facts['village.waypostChapterClosed'] ? 'Account recorded' : 'Following the waypost',
-        preview: unfinished.length ? `Known unfinished opportunities: ${unfinished.join('; ')}. All remain available.` : 'No known unfinished waypost opportunities.',
+        preview: unfinished.length ? `Known unfinished opportunities: ${unfinished.join('; ')}. All remain available.` : 'Nothing left unfinished at the wayposts you know.',
         text: `Daily teaching: 08:00–18:00 · ${window.open ? `open for ${window.remaining} more game minutes` : window.reason} ${cause || (available ? 'The craftsman can take questions.' : '')}`};
 }
