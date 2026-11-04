@@ -2,6 +2,7 @@ import {lifeExperienceView,LIFE_LESSONS} from './life_experience.js';
 import {lifeRecordView} from './life_record.js';
 // Read-only news from existing owners. No rolls, rewards, enrollment or save fields.
 import {pursuitView} from "./pursuit.js";
+import {worldDayNews} from "./world_calendar.js";
 export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     const leads = [], news = [], actor = state.actors.player, worldId = actor.worldId;
     const destination = (panel, control) => ({view: "people", panel, control});
@@ -89,6 +90,8 @@ export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
         // Frozen pending outcomes remain private until a completion receipt exists.
         news.push({id:`receipt:${receipt.id}`, at:receipt.at, text:receipt.label});
     }
+    // Dated world events appear on their day and not before; a world without them contributes nothing.
+    for(const e of worldDayNews(state)) news.push({id:e.id,at:Math.max(0,state.clock-e.ageMinutes),text:e.text});
     const order = (a,b) => b.at-a.at || a.id.localeCompare(b.id);
     leads.sort((a,b) => Number(b.available)-Number(a.available) || a.at-b.at || a.id.localeCompare(b.id));
     const lifeView=state.chronicle ? lifeExperienceView(state.chronicle) : null;

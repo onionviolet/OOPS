@@ -114,3 +114,24 @@ export function knownPeopleView(state, facts = {}) {
     for(const row of castSettledPeople(state,currentCastBeatLedger()))append(row);
     return rows;
 }
+
+// G8: carried foreknowledge, a read over received knowledge records. A record is carried when its basis holds
+// `carried: {stampDay, carrier, sourceKind, decaysAfterDays, prediction?}`; nothing else is stored. `today` is
+// {day, divergedOnDay}: the current absolute local day and the day the world first left the stamped timeline (null while it has not).
+// It widens what the lead can anticipate and check; it grants no stat, resource or skill.
+export const CARRIERS = ['self', 'notebook', 'code_phrase'];
+export function carriedKnowledgeView(state, today) {
+    const known = state.simulation?.knowledge?.player || {}, rows = [];
+    for(const [id, r] of Object.entries(known)) {
+        const c = r.basis?.carried;
+        if(!c) continue;
+        const since = today.divergedOnDay == null ? null : Math.max(0, today.day - today.divergedOnDay);
+        const status = since == null ? 'reliable' : since >= c.decaysAfterDays ? 'stale' : 'fading';
+        const p = c.prediction;
+        rows.push({id, text: r.value, stampDay: c.stampDay, carrier: c.carrier, sourceKind: c.sourceKind,
+            decaysAfterDays: c.decaysAfterDays, daysSinceDivergence: since, status,
+            prediction: p ? {day: p.day, hour: p.hour ?? null, text: p.text, check: today.day < p.day ? 'upcoming' : 'due'} : null,
+            note: status === 'stale' ? 'The world has moved on; check before relying on this.' : 'A prediction to check. It adds no stat.'});
+    }
+    return rows.sort((a, b) => a.stampDay - b.stampDay || a.id.localeCompare(b.id));
+}
