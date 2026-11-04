@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>World Rules Map</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--mut:#6b6a66;--line:#dedbd3;--card:#fff;
+--ok:#2f7d4f;--okb:#e3f2e8;--prop:#a86a00;--propb:#fbefd6;--ask:#8a3fa0;--askb:#f3e6f7;--miss:#b3372b;--missb:#f9e1de;--unv:#5b6b80;--unvb:#e6ebf2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161615;--fg:#ecebe6;--mut:#a09e97;--line:#3a3935;--card:#1f1f1d;
+--okb:#1c3527;--propb:#3a2d10;--askb:#33203a;--missb:#3d1d19;--unvb:#232b36;--ok:#7fd3a0;--prop:#f0b850;--ask:#d39be6;--miss:#f08a7d;--unv:#a8b8cc}}
+:root[data-theme="dark"]{--bg:#161615;--fg:#ecebe6;--mut:#a09e97;--line:#3a3935;--card:#1f1f1d;--okb:#1c3527;--propb:#3a2d10;--askb:#33203a;--missb:#3d1d19;--unvb:#232b36;--ok:#7fd3a0;--prop:#f0b850;--ask:#d39be6;--miss:#f08a7d;--unv:#a8b8cc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:32px 0 10px}.mut{color:var(--mut)}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:var(--propb);color:var(--prop);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;margin:10px 0}.legend span{display:flex;align-items:center;gap:5px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.ok{background:var(--okb);color:var(--ok);border-color:var(--ok)}.prop{background:var(--propb);color:var(--prop);border-color:var(--prop)}
+.ask{background:var(--askb);color:var(--ask);border-color:var(--ask)}.miss{background:var(--missb);color:var(--miss);border-color:var(--miss)}
+.unv{background:var(--unvb);color:var(--unv);border-color:var(--unv)}
+.pipe{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}
+@media (max-width:800px){.pipe{grid-template-columns:repeat(3,1fr)}}
+.stage{border:1.5px solid;border-radius:8px;padding:8px;cursor:pointer;font-size:12px;min-height:84px}
+.stage b{display:block;font-size:13px;color:var(--fg)}.stage:hover,.cell:hover{filter:brightness(.96)}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:760px;font-size:13px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--card)}
+td.cell{cursor:pointer;border-left:4px solid}
+#detail{position:sticky;bottom:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:16px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.f{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 12px;margin:8px 0}.f code{font-weight:700}
+</style></head><body><main>
+<h1>World implementation rules map</h1>
+<p class="mut"><span class="badge">Proposal (AD32)</span> Audit of the rules for implementing a world, 2026-11-04, rounds 1 to 4. Source: <code>docs/audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md</code>. Click any stage or cell for codes, owner and open items.</p>
+<div class="legend"><span><i class="sw ok"></i>standing / covered</span><span><i class="sw prop"></i>proposed, used as default</span><span><i class="sw ask"></i>awaiting Weibao's yes</span><span><i class="sw miss"></i>missing or misrouted</span><span><i class="sw unv"></i>unverified</span></div>
+
+<h2>The pipeline: nine stages a world passes through</h2>
+<div class="pipe" id="pipe"></div>
+
+<h2>Levels: does each rule family reach code and screen?</h2>
+<div class="wrap"><table id="mx"><thead><tr><th>Family</th><th>Doc owner</th><th>Path rule</th><th>Test / check</th><th>Runtime producer</th><th>On screen</th></tr></thead><tbody></tbody></table></div>
+
+<div id="detail"><b>Details</b><div class="mut">Select a stage or cell.</div></div>
+
+<h2>Open findings</h2><div id="fl"></div>
+</main>
+<script>
+const S=[
+["1 Source","AU1-15","ok","AGENT_USAGE_RULES, source acquisition tools. Standing."],
+["2 World pass","WPR1-32","ask","WORLD_PASS_RULES. Proposed; path rule says follow. In A3 ask group. WPR has no save or compatibility line (F15)."],
+["3 Absorption","WA1-68","prop","WORLD_ABSORPTION_RULES. Mixed: WA1-41, 48-50, 54-60 in force; WA42-47, 51-53, 61-68 await yes (F4)."],
+["4 Entry","WER1-17","ok","WORLD_ENTRY_RULES. Standing consideration. WER13 ties launch and Beginning to one start list."],
+["5 Lives","CLR, LSD","prop","LEAD_LIFE_RULES accepted lines; CLR1-13 and LSD proposal."],
+["6 Systems","GTR, ABR, MR, SR...","ask","MR, SR, BHR, CBR, ECR, SLR, PIR, GR accepted. GTR1-35, ABR1-22 await yes (A3). Gate/ability files load only the runtime rule (F10)."],
+["7 Runtime","AR1-16","ok","ARCHITECTURE_RULES, runtime-code path rule, check:arch."],
+["8 UI","UR, DSG, RPT, SUI","prop","UR1-75 standing, UR76-82 proposed in use, DSG6-19 await yes, RPT13 standing but its test misses two worlds (F11)."],
+["9 Done + saves","AD36, AD43, S14, SAVES","miss","Floor accepted, completion standard proposed. Persistence has a prose checklist (SAVES section 5) and no codes; world-pack saves undesigned (F15, F16)."]];
+const M=[
+["World UI kit (DSG19)",["ok","DESIGN.md"],["miss","none; world_*.js loads sites rule (F10)"],["miss","none (F12)"],["unv","flourish for one world only"],["unv","census 2026-10-30, mostly unchecked (L1)"]],
+["Reports voice (RPT13)",["ok","UI_RULES"],["miss","misrouted to sites rule (F10)"],["prop","world_look.test.js, scans six tables (F11)"],["ok","9 voiced families"],["miss","Shadow Slave and Gu fall back to generic (F11, L6)"]],
+["Entry / starts (WER)",["ok","WORLD_ENTRY_RULES"],["miss","none"],["ok","start content tests"],["ok","start_records.js"],["unv","Beginning list clear; CG7 cross verb at minute zero (F13)"]],
+["Gates, abilities (GTR, ABR)",["ask","proposed rulebooks"],["miss","runtime-code only (F10)"],["prop","tests exist, not routed from codes (F12)"],["ok","progression_gates.js, ability_*.js"],["unv","not probed"]],
+["Persistence (SAVES)",["prop","SAVES.md, prose checklist, no codes (F15)"],["miss","none"],["ok","save_files, save_compatibility, v06 migration, check:rule-behavior saves"],["miss","world_pack_save.js has no importer (F16, G2)"],["ok","FLR5 floor script"]],
+["Runtime (AR)",["ok","ARCHITECTURE_RULES"],["ok","runtime-code.md"],["ok","check:arch"],["ok","n/a"],["ok","n/a"]]];
+const F=[
+["F11","RPT13's test passes while Shadow Slave and Gu have no voice rows; the test reads table shapes, not the Beginning list.","L6 voice rows, L7 test reads the start list"],
+["F10","Gate, ability and report-voice files load only the generic runtime rule (voice file also loads the sites rule).","L8 one short path rule plus glob change"],
+["F15","New (round 4). Persistence is the one stage-9 family with no rule codes, and WPR never mentions saves; S14 is the only world-pass pointer to SAVES section 5.","L10 link WPR17 or S14 to SAVES section 5, no new codes"],
+["F16","New (round 4). World packs: loader exists, save path does not (SAVES G2). Recent worlds wrote per-change compatibility lines instead, which works but is ad hoc.","L11 design the pack save path before the first pack with per-life state"],
+["F17","New (round 5). Phandalin, the newest world, has a desktop panel but no kit census row and no voice row.","L15 census rows, L6 voice rows"],
+["F18-F19","New (round 5). UR76's UI contract card has no shared form; UR77's panel budget has no count outside a code comment.","L13 form decision, L14 MCP panel count"],
+["L12","New (round 5). DSG19's six questions trigger nothing at creation time. Put them in the world lane brief template.","Haiku, 15 min"],
+["A3","About 160 codes in three groups (WPR+GTR+ABR, DSG6-19, WA42-47/51-53/61-68) wait for one accept-as-default answer.","Weibao's call"]];
+const d=document.getElementById('detail');
+function show(t,b){d.innerHTML='<b>'+t+'</b><div>'+b+'</div>'}
+const p=document.getElementById('pipe');
+S.forEach(s=>{const e=document.createElement('div');e.className='stage '+s[2];e.innerHTML='<b>'+s[0]+'</b>'+s[1];e.onclick=()=>show(s[0]+' ('+s[1]+')',s[3]);p.appendChild(e)});
+const tb=document.querySelector('#mx tbody');const L=["Doc owner","Path rule","Test / check","Runtime producer","On screen"];
+M.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML='<th>'+r[0]+'</th>';r.slice(1).forEach((c,i)=>{const td=document.createElement('td');td.className='cell '+c[0];td.style.color='var(--fg)';td.textContent=c[1];td.onclick=()=>show(r[0]+': '+L[i],c[1]);tr.appendChild(td)});tb.appendChild(tr)});
+const fl=document.getElementById('fl');F.forEach(f=>{fl.innerHTML+='<div class="f"><code>'+f[0]+'</code> '+f[1]+'<div class="mut">Next: '+f[2]+'</div></div>'});
+</script></body></html>

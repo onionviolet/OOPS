@@ -244,4 +244,4 @@ Next world after Mother of Learning, 2026-11-03: [ranked world proposal](dispatc
 
 ## World implementation rules map, 2026-11-04
 
-Nine-stage map of the rule sets for implementing a world (source to done), status colors, and findings F1-F9 with proposals A1-A5, saved as [the audit](../audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md). Main gap: no single list of what a new world ships for UI. Proposal only (AD32); extends the 2026-10-30 reconciliation audit.
+Nine-stage map of the rule sets for implementing a world (source to done), status colors, and findings F1-F9 with proposals A1-A5, saved as [the audit](../audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md). Main gap: no single list of what a new world ships for UI. Proposal only (AD32); extends the 2026-10-30 reconciliation audit. Round 4 adds an interactive [visual map](../audits/world_implementation_rules_map_2026-11-04.html) and persistence findings F15-F16.

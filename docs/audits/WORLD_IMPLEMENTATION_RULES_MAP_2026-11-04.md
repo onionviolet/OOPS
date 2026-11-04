@@ -143,3 +143,57 @@ Each cell gives its evidence row; "none" means I found none.
 | L9 | Probe CG3, CG5, CG9 and K2 on the current build and mark each fixed or open in UI_CAPABILITY_GAPS | Haiku through the MCP, half a session | One dated status per code |
 
 No agents were spawned, no other chat was messaged, and nothing was committed in this round (AD32).
+
+## Round 4: visual map and persistence level (2026-11-04)
+
+Weibao repeated the ask with an advisor pass. New angle: the persistence level, plus an interactive visual. Proposal status unchanged (AD32).
+
+**Visual.** [world_implementation_rules_map_2026-11-04.html](world_implementation_rules_map_2026-11-04.html), published privately as [World Rules Map](https://claude.ai/artifact/8KH6cZcnhoEUdJ1jcsgdze): pipeline stages colored by status, a family-by-level matrix (adds a Persistence row), and the open findings.
+
+**Recount (ran).** Code counts for WPR, WER, SR, MR, UR, AR, WA, DSG, RPT match round 1. `world_report_voice.js` still keys nine families; F11 stands.
+
+| Code | Level | Finding | Evidence | Disposition |
+|---|---|---|---|---|
+| F15 | Doc / instruction | Persistence is the one stage-9 family without rule codes. SAVES.md section 5 is a prose checklist (proposal); WORLD_PASS_RULES has no mention of saves, migration or compatibility lines; S14 is the only world-pass pointer. | ran: grep counts (WPR 0, WA 1, WER 3, standard 5); read: SAVES 5-6 | L10 |
+| F16 | Runtime | World packs have a loader but no save path (SAVES G2). Recent worlds (Cyoria 6a-6c, `dnd_phandalin`) recorded per-change compatibility lines, which works but is per-world and ad hoc. | read: SAVES G2, 6a-6c | L11 |
+
+| Code | LATER item | Level, effort | Done check |
+|---|---|---|---|
+| L10 | Link WPR17 (or S14) to SAVES section 5 so a world pass meets the compatibility-line step; no new codes | Haiku, 10 min | One-line hunk, check:docs passes |
+| L11 | Design the world-pack save path before the first pack that holds per-life state (G2) | Sonnet, medium | SAVES G2 closed with a stated path and test |
+
+Not done: L9 UI probes (CG3, CG5, CG9, K2) still open. Nothing committed.
+
+## Round 5: focused reconcile of UI creation rules, and more to consider (2026-11-04)
+
+Weibao asked for a reconcile pass on the rules for implementing and creating world UI, then more to consider. Proposal status unchanged (AD32). Source revision: HEAD `faeeeabc1` plus this file's uncommitted rounds 4-5. Scope: DSG12-DSG19, UR76-UR82, RPT13, WER13 start list. SUI1-SUI19 and UIV were not traced (unmapped residue).
+
+### Ledger
+
+Evidence rows follow the reconcile skill: **owner text** = rule is current; **source read** = producer or consumer read on the current tree; nothing here ran a build, test or browser journey.
+
+| ID | Claim and locator | Class | Owner, consumer | Evidence reached | Disposition |
+|---|---|---|---|---|---|
+| F17 | DSG19 says every playable world answers six questions and the census marks each; the newest world, D&D Phandalin (`dnd_phandalin_panel.js`, commit `423808323`, 2026-11-03), has a desktop panel but no census row and no voice row in `world_report_voice.js` | incomplete integration | DESIGN DSG19 and RPT13; consumer `dnd_phandalin_panel.js` | source read: census grep 0 hits, voice keys 0 hits | Same class as F11; widens L6. How a player reaches Phandalin was not traced. |
+| F18 | UR76 "fill the UI contract before building" names a system card, but no template or card file exists outside rule text; `docs/WORLD_CARDS.md` is a world card, not a UI contract | missing supplier | UI_RULES UR76; consumer: world lanes | source read: `ls docs`, grep "UI contract" (5 docs cite, none is a form) | Compatible variant if lane briefs carry the card inline; open whether a shared form is wanted (L13). |
+| F19 | UR77 budgets homes in numbers ("83 panels today", 2026-10-30); the only code that cites UR77 is a comment in `book_world_lotm_acts_host.js`; no test or script counts panels or routes | missing proof | UI_RULES UR77; consumer: none | source read: grep UR77 over `src tests scripts` | Budget is reader-enforced. A count is cheap through the game MCP; no new gate (L14). |
+| F20 | WER13: launch and the in-game Beginning view share one start list. Book starts register through one producer, `registerBookBeginnings` (`choices.register` per start: HP, Shadow Slave, Gu, more) | none (compatible) | WORLD_ENTRY_RULES WER13; producer `book_world_beginning_registration.js` | source read: producer only; launch consumer not read | Supports L7: the RPT13 coverage test can read this producer. |
+| F21 | DSG6-DSG19 are proposed lines that new world UI already follows (DSG19 is the "O3 gate"); the gate cites Weibao's words, the lines themselves await his yes | genuine open question, already A3 | DESIGN.md | owner text | Stays in A3. |
+
+Unmapped residue: SUI1-SUI19, RPT1-RPT12 and RPT14, UIV, UR78-UR82 consumers, mobile (deferred by standing priority).
+
+### More to consider
+
+**ACT NOW (done).** Ledger above; Phandalin added as a named case to the voice gap.
+
+**ACCOUNT FOR NOW.**
+- World UI is created three ways: a desktop panel file per world (`*_panel.js`, 19 files, two world-specific), a book start registration, and voice rows. Nothing ties the three, so a new world can ship one without the others (F11, F17). The cheapest tie is the start list producer (F20), not a new registry.
+- DSG19's six questions are a creation checklist that nothing triggers at creation time; they are checked later by census. Putting the six questions into the lane brief template is the moment that matters, not a test.
+- Proposed-in-use rules (UR76-UR82, DSG6-19) shape every new world panel. Until A3 is answered, lanes treat them as defaults, which is the current reading, and that is fine.
+
+| Code | LATER item | Level, effort | Done check |
+|---|---|---|---|
+| L12 | Add DSG19's six questions and the RPT13 voice row to the world lane brief template (`LANE_BRIEF_TEMPLATE.md`) as a checklist block | Haiku, 15 min | Template shows the block; one-hunk diff |
+| L13 | Decide if UR76's system card wants a shared form or stays inline in briefs | UI owner, Weibao's call if a new file | Answer recorded beside UR76 |
+| L14 | Count panels, routes and tabs on the current build through the game MCP and refresh UR77's "today" figure | Haiku via MCP, small | UR77 number dated 2026-11 or later |
+| L15 | Census rows for Phandalin and for worlds added since 2026-10-30 (folds into L1) | Haiku, small | Census lists every start the producer registers |
