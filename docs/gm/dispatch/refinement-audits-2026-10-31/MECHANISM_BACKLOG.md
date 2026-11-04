@@ -30,7 +30,7 @@ Source: private `kj-mechanisms-2026-11-02/MECHANISM_GAPS_ARC2.md` (28 merged mec
 | R2 | Halfpence and exact change (exchange quotes accept mainly whole numbers (default; the dial is the quote format)) | ch56 P036 | coins and fees on screen (U4) | queued | Sonnet high; economy owners ECC25, ECX6 |
 | R3, U1 | Spirit Vision switch, exhaustion and aura-reading line | ch62 P008, ch72 P047 | aura reading line | queued after B1 | overlaps B3 |
 | R4, U2 | Gathering display: seat symbols, Sequence aura, illusory items | ch58 P018-P076, ch61 P046 | the existing remote-meeting render, not `gathering_panel.js` (resource gathering) | queued | UI after the mechanism; desktop 1920x1080 first |
-| R5, U3 | Wire the act engine so rite, craft and summons rows are reachable from play; altar and ritual step display | ch57 P022, ch60 P067 | altar layout, four candles, step display | queued, large | first brief of its own; Opus justified only if the backlash seam in `src/harm_engine.js` must change |
+| R5, U3 | Wire the act engine so rite, craft and summons rows are reachable from play; altar and ritual step display | ch57 P022, ch60 P067 | altar layout, four candles, step display | implemented, below floor (altar text and one rite proven headless; 1920x1080, summons rows and further bindings open) | [R5 receipt](R5_IMPLEMENTATION_RECEIPT.md); `harm_engine.js` unchanged; next: bind the ch57 P022 and ch60 P067 rows and the summons rows |
 | R6 | Document clearance and pathway reading | ch65 P052 | clearance level | queued | |
 | R7 | Sealed Artifact 2-049 area effect | ch71 P033 | none | queued | |
 | R8 | Amulet protection and potency decay | ch69 P014 | none | queued | depends on R5 |
