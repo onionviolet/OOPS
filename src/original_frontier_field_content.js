@@ -25,7 +25,7 @@ const remember = (target, text) => ({type: "relationship", target, axis: "trust"
 const command = d => {const out = {revision: 1, worldId: WORLD, group: "original_frontier", actorId: "player", location: "Village", costs: [], effects: [], ...d};
     if(out.location == null) delete out.location; return out;};
 const introduced = actor("freight.introduced"), question = actor("explore.question");
-const living = eq("actor.life", "alive", "Recover before field work."), healthy = gte("vital.health", 2, "Recover above one HP before this trial.");
+const living = eq("actor.life", "alive", "Recover before field work."), healthy = gte("vital.health", 2, "You're too badly hurt for this trial. Heal until your health is at least 2.");
 const hands = eq("originalFrontier.playerHandsUsable", true, "This task needs two usable hands. Rest tender hands first.");
 // This is the declared cargo limit, not a new universal weight simulation.
 const light = eq("originalFrontier.unloadedBody", true, "Leave Rough wood logs and Prepared survey kits in storage before personal footing. Ordinary gear and a rope can remain carried.");

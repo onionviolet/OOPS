@@ -20,15 +20,15 @@ export function assessHpPreparation(projected, selections = {}) {
     const rows = F.slots.map(slot => {
         const id = selections[slot.id], lot = held.get(id);
         const row = (status, reason) => ({slot: slot.id, lotId: id ?? null, status, reason, evidence: [...(slot.evidence ?? [])]});
-        if(!id) return row('incomplete', 'No held lot selected for this condition.');
-        if(!lot) return row('stale', 'This selected lot is no longer held. Select a current lot.');
-        if(seen.has(id)) return row('stale', 'One lot cannot fill two slots.');
+        if(!id) return row('incomplete', 'Pick a lot you\'re carrying for this slot.');
+        if(!lot) return row('stale', 'You no longer have that lot. Pick another.');
+        if(seen.has(id)) return row('stale', 'One lot can\'t fill two slots.');
         seen.add(id);
-        if(lot.ingredient !== slot.ingredient) return row('unsupported', 'The pinned method does not predict this ingredient replacement. Experimenting remains possible.');
+        if(lot.ingredient !== slot.ingredient) return row('unsupported', 'The recipe doesn\'t cover this swap. You can still try it as an experiment.');
         if(lot.stewing) return row('incomplete', 'Still on the stew pot. Finish or take it off before brewing.');
-        if(lot.form !== slot.form) return row('deviation', `This method calls for ${slot.form}; the held lot is ${lot.form}.`);
+        if(lot.form !== slot.form) return row('deviation', `This method calls for ${slot.form}. Yours is ${lot.form}.`);
         if(slot.minStewMinutes) {
-            if(!lot.stewedKnown) return row('uncertain', 'Stewing duration is unverified. A supplier claim is not an observation; assay or stew your own lot.');
+            if(!lot.stewedKnown) return row('uncertain', 'You don\'t know how long this was stewed. A supplier\'s word isn\'t proof. Assay it or stew your own.');
             if(lot.stewedKnown === 'short of twenty-one days') return row('deviation', 'Observed preparation is short of the full twenty-one days.');
             if(lot.stewedKnown !== 'twenty-one days') return row('unsupported', 'No supported duration reading for this preparation.');
         }

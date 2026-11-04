@@ -17,7 +17,7 @@ const known=m=>{if(!BE_DIV_METHODS.includes(m))throw Error(`Unknown divination m
 export const beDivMethodLearnEffects=(m,value,situationId)=>[{type:'knowledge',actor:'player',key:beDivMethodKey(known(m)),stage:'understood',value,
  basis:{kind:'instruction',attributedTo:'player',situationId}}];
 export const beDivMethodRequires=(m,{real=false}={})=>({fact:`${BE_DIV_PREFIX}${known(m)}.${real?'real':'learned'}`,op:'eq',value:true,
- reason:real?'You have not learned this method, or the Seer power behind it is not in you.':'You have not learned this method.'});
+ reason:real?'You haven\'t learned this method, or you don\'t have the Seer power behind it.':'You haven\'t learned this method.'});
 // Facts for the host projection (one additive call in book_world_lotm_div_supply.js). Only a book life that holds the
 // Seer source reads true for `.real`; the Tingen life keeps its own I.method path.
 export function beDivMethodFacts(state,ctx,{enrolled}){

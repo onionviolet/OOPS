@@ -16,7 +16,7 @@ export function configureHpBrewingDomain(operations) {
     native = operations;
     panel?.render();
 }
-const writeReason = () => !native?.persist || !native?.writable?.() ? 'Restore writable saving before using the HP bench.' : null;
+const writeReason = () => !native?.persist || !native?.writable?.() ? 'Saving is paused, so you can\'t use the Polyjuice bench right now.' : null;
 function publish(next, summary, materials = []) {
     if(materials.length && (!native?.itemOwners || !native?.removeExact)) throw Error('The native material transaction is not available.');
     const transaction = beginNativeCraftTransaction({owners: materials.length ? native.itemOwners() : [],
@@ -40,7 +40,7 @@ function context() {
     if(!t) return null;
     return {now: calendarMinutes(t), moon: t.getMoonPhaseName(t.getMoonPhase())};
 }
-const need = () => context() ?? (() => { throw new Error('The game clock is not ready.'); })();
+const need = () => context() ?? (() => { throw new Error('The bench isn\'t ready yet. Try again in a moment.'); })();
 function nativeHoldings() {
     const inventory = native?.inventory?.() ?? {}, world = native?.world?.(), rows = [];
     for(const [key, held] of Object.entries(inventory)) {
@@ -97,19 +97,19 @@ function foreignUseReason(req) {
     const b = state?.batches[req.batchId];
     if(!b || b.dosesLeft < 1) return 'Choose a remaining suspension portion you hold.';
     if((b.custody ?? 'carried') !== 'carried') return 'Retrieve this portion from your bench first.';
-    if(b.history?.process !== ABRASIVE.id) return 'This proposed use needs a retained suspension preparation.';
-    if(native?.world?.() !== 'base.frontier' || req.use !== 'structural-repair') return 'This repair proposal applies in the Frontier; choose its actual current target there.';
+    if(b.history?.process !== ABRASIVE.id) return 'This only works with a portion of the suspension.';
+    if(native?.world?.() !== 'base.frontier' || req.use !== 'structural-repair') return 'This repair only works in the Frontier. Pick the damage to treat there.';
     const fit = assessIngredientWorldFit({definitionWorld: 'book.hp', hostWorld: native.world(), use: req.use});
-    if(!fit.eligible) return 'This suspension has no supported way to repair structural damage here. The dose stays yours.';
-    return 'No structural repair action is connected to this preparation.';
+    if(!fit.eligible) return 'This suspension can\'t repair damage here. You keep the dose.';
+    return 'Nothing can use this suspension for repairs yet.';
 }
 export function quote(req) {
     const c = context();
-    if(!c) return {eligible: false, reason: 'The game clock is not ready.'};
+    if(!c) return {eligible: false, reason: 'The bench isn\'t ready yet. Try again in a moment.'};
     const reason = writeReason();
     if(reason) return {eligible: false, reason};
-    if(req?.type === 'begin') return state ? {eligible: false, reason: 'The slice is already begun.'} : {eligible: true, summary: 'Set up a bench and a small purse.'};
-    if(!state) return {eligible: false, reason: 'Begin the slice first.'};
+    if(req?.type === 'begin') return state ? {eligible: false, reason: 'You\'ve already set up the bench.'} : {eligible: true, summary: 'Set up a bench and a small purse.'};
+    if(!state) return {eligible: false, reason: 'Set up the Polyjuice bench first.'};
     if(req?.type === 'foreignUse') return {eligible: false, reason: foreignUseReason(req)};
     try {
         const actual = requestContext(req, c);
@@ -124,11 +124,11 @@ export function execute(req) {
     const c = need(), reason = writeReason();
     if(reason) throw new Error(reason);
     if(req?.type === 'begin') {
-        if(state) throw new Error('The slice is already begun.');
+        if(state) throw new Error('You\'ve already set up the bench.');
         const seed = req.seed ?? globalThis.crypto.getRandomValues(new Uint32Array(1))[0];
         return publish(begin({seed, now: c.now}), 'The Polyjuice slice is set up.');
     }
-    if(!state) throw new Error('Begin the slice first.');
+    if(!state) throw new Error('Set up the Polyjuice bench first.');
     if(req?.type === 'foreignUse') throw new Error(foreignUseReason(req));
     const actual = requestContext(req, c), out = commit(state, actual, req);
     checkAdmission(out.state, actual);

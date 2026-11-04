@@ -262,8 +262,42 @@ Checks:
 - Headless Chrome at 1920×1080, rebuilt bundle, fresh origin, fresh-day3 seed 7, via `node scripts/capture_empty_states.mjs <dir> --grep …`: 18 of 18 new lines found on screen with no page errors. The 12 unchanged since the first pass are on bundle 7f625b3b1336: Other worlds, ledger assist and receipts, home, story, spill, own places, tools, both trade standing lines. The 6 on the final bundle f84d876cc880 are the Item details and Study reasons, the work line, receipts, home and tools. The screenshots confirm the ledger lines.
 - Not exercised on screen: the inventory category hints (the Other tab was not clicked), Where I am, the inspect target, notebook reasons, Travel Today, combat inspection, the waypost, temper, preparation, furnishing and item-card lines, and "Go back to the Village to use this" (needs a game away from the Village). They are implemented but not yet checked on screen.
 
+## Slice 2: leftovers, Tingen and Harry Potter refusals (2026-11-03)
+
+Scope: the slice 1 leftovers, the six shared "above one HP" lines (UR74, changed together), then player-facing refusal and reason lines in the Tingen (LotM) and Harry Potter code a fresh game can reach. 62 lines (61 refusals and one button label) at 75 sites in 24 source files, applying CPY1, CPY3, CPY4, CPY13, CPY14 and CPY19. The inventory tag was a starting point, not the list. The Polyjuice bench reasons thrown in `hp_brewing_state.js` reach the button through `quote()`, so they are in. Source-audit notes in the LotM row files are not player text.
+
+| Before | After |
+| --- | --- |
+| Restore writable saving before study. / … before study conditioning. | Saving is paused, so you can't study right now. / … so study conditioning can't change right now. |
+| Restore writable saving before using the HP bench. | Saving is paused, so you can't use the Polyjuice bench right now. |
+| Recover above one HP before this trial. (5 variants) | You're too badly hurt for this trial. Heal until your health is at least 2. |
+| Use your current living native body in the Village, above one HP and free of another encounter. | You need to be in your own body in the Village, with health of at least 2 and no other fight under way. |
+| Wake first: you are asleep. (10 places) | You're asleep. Wake up first. |
+| Need Sailor, breath & duty officer. | You need the Sailor's long breath working and the duty officer here. |
+| Need the taught protocol, current G3 custody and cleared group, and 3 stamina. | You need the protocol you were taught, the grade 3 item in your keeping, the cleared group and 3 stamina. |
+| Not written yet: that route carries pulls and claims this build has no rules for. | Not written yet: that route brings pulls and claims the game has no rules for. |
+| … is a stated loss-of-control risk. | … risks losing control. |
+| A fresh book life is unavailable in this host. | This life isn't open to you yet. |
+| Begin the slice first. / Begin the Polyjuice slice (button) | Set up the Polyjuice bench first. / Set up the Polyjuice bench |
+| That costs N coins and you hold M. | That costs N coins. You have M. (1 coin when N is 1) |
+| This bench supports carried portions and private bench storage. Recipient and native chest transfers are not connected. | You can carry portions or keep them on your bench. Giving them away or moving them to a chest isn't possible yet. |
+| The pinned method does not predict this ingredient replacement. Experimenting remains possible. | The recipe doesn't cover this swap. You can still try it as an experiment. |
+| A proposed physical arrangement is not a demonstrated result. | Nobody has tried this mix yet, so the result is unknown. |
+| The hand-preparation service is unavailable here. | No one here prepares ingredients by hand. |
+
+Checks:
+- Focused tests: 90 files for the touched HP, LotM, cast, Frontier, combat-fit, village-study and UI-contract modules. `hp_brewing`, `hp_brewing_domain`, `hp_preparation`, `hp_material_preparation` and `hp_ingredient_substitution` pass 50 of 50 after the pinned regexes were moved to the new wording (three test files). Failures in `conflict_frame` (15 "road old/runner") and `cast_worksheet` (1) also fail on a clean HEAD checkout. `book_world_lotm_opening` fails to import `canonPullVisible` from `canon_pull_panel.js`, also at HEAD. Under load (load average 42), the seven `cast_*` adapter files failed their "live integration … real save validator" tests. Rerun one at a time with load near 6, those files and five save tests (`save_compatibility`, `native_save_fixtures`, `world_pack_save`, `structured_pack_runtime`, `book_world_native_binding`) pass 72 of 72 with no failing subtests. Also run: nine more files covering UI contract, player text, village study, combat fit, Tingen districts, clearance and ritual, and Frontier, 46 of 46. `npm run check:arch` passes. The full `npm test` was not run.
+- `npm run build`: passes.
+- The rebuilt bundle was checked in headless Chrome at 1920×1080, scenario fresh, on a test origin. Tingen workroom: "Not written yet: that route brings pulls and claims the game has no rules for." shows, and the old wording is gone. Polyjuice bench, in a first tab and in a second, read-only tab: the button reads "Set up the Polyjuice bench", and the reason shows as visible text and as the button's title. No page errors.
+
+Gaps:
+- The bench line also shows in the first, writing tab, where the game bar says "Saving available." The bench's `writable` port (`tradeWritable` in `main.js`) returns false there; `persist` is wired. The old line ("Restore writable saving …") was just as wrong. The cause is runtime, not copy, and is left for its own fix.
+- Not exercised on screen: the "above one HP" set, the sleep line, the Tingen district, clearance and ritual lines, and the "Can't be undone on this save" cost (a returnable save shows "Your Village life pauses" instead).
+- Left as they are: Harry Potter school pack text (`book_hp_life_data.js`, `book_hp_school_extension.js`). Its content hash is stored in saves (`structured_pack_state.js`) and pinned by the school extension, so rewording needs a pack revision with a migration. "Cast unavailable: private pack absent" and its sibling labels change as one family in a later slice. "TC01" in the bench reason is an item naming question. Spell adapter dial reasons, the `div_supply` notes and the LotM source-row notes are developer text (CPY2).
+- Follow-up outside copy: find why `tradeWritable` is false for the Polyjuice bench in a fresh, writing tab and fix it, so the bench opens and the paused line only shows when saving really is paused.
+
 Agent-verified, not human-reviewed.
 
 ## Not decided here
 
-The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Nothing in the game has been rewritten yet.
+The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Slices 1 and 2 rewrote refusal lines under these proposals. The rules themselves are not accepted.

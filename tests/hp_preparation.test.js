@@ -29,11 +29,11 @@ test('paid preparation changes actual formula fit without mutating source or inv
 test('unfunded, unavailable, stale-prepared and incompatible preparation refuse without changing a lot', () => {
     const source = raw(), before = structuredClone(source);
     assert.throws(() => planHpPreparation({...request(source), purse: 1}), /costs 2/);
-    assert.throws(() => planHpPreparation({...request(source), apparatusAvailable: false}), /unavailable/);
-    assert.throws(() => planHpPreparation({...request(source), apparatusAvailable: undefined}), /unavailable/);
+    assert.throws(() => planHpPreparation({...request(source), apparatusAvailable: false}), /prepares ingredients by hand/);
+    assert.throws(() => planHpPreparation({...request(source), apparatusAvailable: undefined}), /prepares ingredients by hand/);
     assert.throws(() => planHpPreparation({...request(source), now: 3}), /played clock/);
     assert.throws(() => planHpPreparation(request({...source, stew: {startedAt: 4}})), /raw lot/);
-    assert.throws(() => planHpPreparation(request(source, 'book.hp.prep.shred_fine')), /cannot receive/);
+    assert.throws(() => planHpPreparation(request(source, 'book.hp.prep.shred_fine')), /can't be prepared that way/);
     const made = planHpPreparation(request(source));
     assert.throws(() => planHpPreparation(request(made.lot)), /raw lot/);
     assert.deepEqual(source, before);
@@ -46,7 +46,7 @@ test('paid or borrowed source is not permanent apparatus access or broader demon
     assert.equal(first.lot.custody, 'borrowed');
     const next = {...raw(), id: 'L2'};
     assert.equal(planHpPreparation(request(next)).cost.coins, first.cost.coins);
-    assert.throws(() => planHpPreparation({...request(next), apparatusAvailable: false}), /unavailable/);
+    assert.throws(() => planHpPreparation({...request(next), apparatusAvailable: false}), /prepares ingredients by hand/);
     assert.equal(first.receipt.after.variant, fine);
     assert.equal(Object.hasOwn(first.receipt, 'tolerance'), false);
     assert.equal(Object.hasOwn(first.receipt, 'learnedApparatus'), false);

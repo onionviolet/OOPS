@@ -18,10 +18,10 @@ test('HP native boundary refuses unavailable or read-only saving before any paym
     host();
     configureHpBrewingDomain(null);
     assert.equal(quote({type: 'begin'}).eligible, false);
-    assert.throws(() => execute({type: 'begin', seed: 21}), /writable saving/);
+    assert.throws(() => execute({type: 'begin', seed: 21}), /Saving is paused/);
     assert.equal(saved(), undefined);
     configureHpBrewingDomain({persist: () => assert.fail('must not write'), writable: () => false});
-    assert.throws(() => execute({type: 'begin', seed: 21}), /writable saving/);
+    assert.throws(() => execute({type: 'begin', seed: 21}), /Saving is paused/);
     assert.equal(saved(), undefined);
 });
 
@@ -110,8 +110,8 @@ test('paid preparation and native-only suspension roll back together on actual w
     const b = Object.values(saved().batches)[0];
     world = 'base.frontier';
     const kept = saved(), refusal = {type: 'foreignUse', batchId: b.id, use: 'structural-repair'};
-    assert.match(quote(refusal).reason, /no supported way/);
-    assert.throws(() => execute(refusal), /dose stays yours/);
+    assert.match(quote(refusal).reason, /can't repair damage here/);
+    assert.throws(() => execute(refusal), /You keep the dose/);
     assert.deepEqual(saved(), kept); assert.deepEqual(inventory, {}); assert.equal(writes, 1);
     clock.minute = 0;
 });

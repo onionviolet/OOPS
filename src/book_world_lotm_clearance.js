@@ -38,7 +38,7 @@ clearanceCommands.push(
   duration:15,costs:[attention(),{type:'vital',key:'stamina',amount:-3}],cancellation:'refund',completionRequires:workSupport,completionCoLocated:true,completionFailure:'refund',
   effects:[attention(1),{type:'resource',actor:'player',key:meritRes.earned,amount:watch.pay},
    know('sealed.watch','The unlit, covered lamp drew your attention through the cold-room register while Hale and the cleared group watched. Hale logged the shortened watch and its merit. The handling spent stamina when you took up the lamp; returning it does not itself restore that effort. Ordinary recovery still applies.','player','player','observation','understood')]}));
-supportedWork.reason='Need the taught protocol, current G3 custody and cleared group, and 3 stamina.';
+supportedWork.reason='You need the protocol you were taught, the grade 3 item in your keeping, the cleared group and 3 stamina.';
 // Facts: the player's role and the clearance verdict for each grade the vault can reach from here.
 export function clearanceFacts(state,f,{profile,ingested,here,peopleAt}){
  const role=playerRole(profile,ingested),present=peopleAt.map(id=>lotmRoleOf(state,id)).filter(Boolean);

@@ -32,9 +32,9 @@ const af = (key, value = true) => ({type: 'fact', actor: 'player', scope: 'actor
 const know = (key, value) => ({type: 'knowledge', actor: 'player', key: `remainder_combat_fit.${key}`, stage: 'understood', value});
 const enrolled = eq('auditRemainder.enrolled', true, 'Accept the optional local audit additions first.');
 const terms = eq('remainder.combatFit.terms', true, 'Review and accept these optional fit and body-use terms first.');
-const living = eq('remainder.combatFit.workSupported', true, 'Use your current living native body in the Village, above one HP and free of another encounter.');
-const hands = eq('remainder.combatFit.handsUsable', true, 'Recover your actual hands before this work.');
-const bench = eq('remainder.combatFit.benchSupported', true, 'Use the existing actual dry Village workbench.');
+const living = eq('remainder.combatFit.workSupported', true, 'You need to be in your own body in the Village, with health of at least 2 and no other fight under way.');
+const hands = eq('remainder.combatFit.handsUsable', true, 'Your hands need to heal before this work.');
+const bench = eq('remainder.combatFit.benchSupported', true, 'This needs the dry Village workbench.');
 const craft = all(enrolled, terms, living, hands, bench);
 const lio = eq('remainder.combatFit.lioSupported', true, 'Lio needs present willingness, his own living usable body, active learned guard source and owned unborrowed kit.');
 const fitting = all(enrolled, terms, living, hands, lio);

@@ -169,9 +169,9 @@ test('supply has owners and consequences (MR27): finite stock, loans fall overdu
 
 test('the harvest patch regrows on a dial and needs a readable sky', () => {
     const r = new Run(); r.do({type: 'acquire', route: HARVEST, ingredient: I('fluxweed')});
-    assert.throws(() => r.do({type: 'acquire', route: HARVEST, ingredient: I('fluxweed')}), /regrown/);
+    assert.throws(() => r.do({type: 'acquire', route: HARVEST, ingredient: I('fluxweed')}), /grown back/);
     r.wait(HP.rules.harvestCooldownMinutes); r.do({type: 'acquire', route: HARVEST, ingredient: I('fluxweed')});
-    assert.throws(() => commit(begin({seed: 1, now: 0}), {now: 0}, {type: 'acquire', route: HARVEST, ingredient: I('fluxweed')}), /sky/);
+    assert.throws(() => commit(begin({seed: 1, now: 0}), {now: 0}, {type: 'acquire', route: HARVEST, ingredient: I('fluxweed')}), /moon's phase/);
 });
 
 test('MR4: a quote consumes nothing and equals the committed result', () => {
@@ -256,8 +256,8 @@ test('same-cohort split, partial actual use, custody and recombination conserve 
     r.do({type: 'sample', donorId: 'd1', route: 'ask'}); const sampleId = Object.keys(r.s.samples)[0];
     const stored = structuredClone(r.s);
     assert.throws(() => r.do({type: 'drink', batchId: part.id, sampleId}), /Retrieve/);
-    assert.throws(() => r.do({type: 'transferBatch', batchId: part.id, custody: 'recipient:d1'}), /not connected/);
-    assert.throws(() => r.do({type: 'transferBatch', batchId: part.id, custody: 'native-chest'}), /not connected/);
+    assert.throws(() => r.do({type: 'transferBatch', batchId: part.id, custody: 'recipient:d1'}), /isn't possible yet/);
+    assert.throws(() => r.do({type: 'transferBatch', batchId: part.id, custody: 'native-chest'}), /isn't possible yet/);
     assert.deepEqual(r.s, stored);
     r.do({type: 'transferBatch', batchId: part.id, custody: 'carried'});
     assert.equal(r.s.batches[part.id].readyAt, before.readyAt);
@@ -459,7 +459,7 @@ test('animal-features checks are reload-stable and care is quoted, admitted once
 test('older saves with a fixed animal-features timer still load and clear', () => {
     const c = catDrink(3), old = JSON.parse(JSON.stringify(c.s));
     old.condition = {id: 'animal_features', until: c.now + HP.rules.animalRecoveryMinutes}; validate(old);
-    assert.match(quote(old, {now: c.now}, {type: 'seekCare'}).reason, /older fixed recovery/);
+    assert.match(quote(old, {now: c.now}, {type: 'seekCare'}).reason, /old fixed schedule/);
     settle(old, c.now + HP.rules.animalRecoveryMinutes); assert.equal(old.condition, null);
     const bad = JSON.parse(JSON.stringify(c.s)); bad.condition.track.stage = 9; assert.throws(() => validate(bad), /Malformed animal-features/);
 });
