@@ -3,8 +3,8 @@
 Weibao asked: "check reddit or other forms for comprehensive worlds like
 pathfinder and stuff". This survey collects forum opinion on which tabletop
 settings are the most detailed. Before anything is fetched, the candidates go
-on the [library index](LIBRARY_INDEX.md#to-obtain-rules-data-and-setting-books-2026-11-04)
-list. Every line here is forum opinion unless it says otherwise. Nobody has
+on the [download wishlist W11](DOWNLOAD_WISHLIST_2026-10-30.md#w11-comprehensive-settings-and-full-pf1-rules-data-2026-11-04)
+(DL83-DL91). Every line here is forum opinion unless it says otherwise. Nobody has
 counted books across these lines. Depth and volume are different measures:
 forum posters say Hârn wins on depth, and the Forgotten Realms and Golarion
 win on volume.

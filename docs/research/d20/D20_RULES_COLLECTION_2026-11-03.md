@@ -85,8 +85,8 @@ under the OGL (1e) or ORC (2e) as each site states.
   Finished 2026-11-04 10:06 UTC. The manifest holds 4,251 rows with unique
   URLs: 4,061 browser and 190 transport, about 39 MB of private text. Spells
   cover the whole sorcerer/wizard list (1,493). Spells only on other classes'
-  lists (cleric, druid, occult and the rest) are not collected; that would be
-  a later pass from their class spell lists.
+  lists (cleric, druid, occult and the rest) were not crawled. They came
+  later from the Foundry repo instead (see the open-repo bullet below).
 - Stops on the browser route. (1) Batch B stopped itself at 02:43 UTC on a
   network error (`Failed to fetch`). The cause was hidden-tab timer throttling:
   gaps grew from about 7 s to 658 s. The site never refused anything. It
@@ -115,6 +115,29 @@ under the OGL (1e) or ORC (2e) as each site states.
   SHA-256, text path) and `private/<section>/<hash>.txt`. Reader budget is 300
   pages per session, so the run resumes across sessions; rerun the same
   command to continue. The manifest is the live count.
+- **Full spell data from open repos, 2026-11-04** (Weibao: "clone"). These
+  are shallow sparse clones in `private/repos/`, git hooks off, and no build
+  script was run:
+  - Foundry VTT PF1 system, `packs/` only, commit `6ed79862` (2026-11-04),
+    66 MB. The README says the code is GPLv3, the game content is OGL 1.0a,
+    and Paizo trademarks are used under the Community Use Policy. There are
+    3,028 spell records, each with class lists and level by class. 3,016 cite
+    a Paizo product code, 3 cite another publisher and 9 cite nothing.
+    Compared with the d20pfsrd sorcerer/wizard pages: 1,446 names match,
+    1,580 spells exist only in Foundry, and 44 d20pfsrd titles have no Foundry
+    match. Those 44 are mostly 3.5 conversions, third-party pages and series
+    pages such as *Beast Shape* against *Beast Shape I-IV*. This closes the
+    class-only spell gap: cleric 1,069, druid 734, witch 1,101, psychic 982,
+    occultist 590, and so on. The packs also hold feats, classes, races,
+    buffs, items, armor, weapons, monster abilities, templates and mythic
+    paths, none of them counted yet.
+  - PCGen, `data/pathfinder/` only, commit `69ad2ab9` (2026-11-03), 84 MB.
+    The code is LGPL 2.1; each data set carries its own OGL notice. There are
+    17 publisher folders, Paizo among them. The Paizo spell files hold about
+    3,136 unique entry keys, a rough count that includes variant keys.
+    Use it as a cross-check, not the main source.
+  - Recount: `python3 -I docs/research/d20/spell_coverage.py docs/research/d20/private`
+    (offline; prints counts only).
 
 ## Pathfinder 2e: Archives of Nethys (browser, by Weibao's instruction)
 

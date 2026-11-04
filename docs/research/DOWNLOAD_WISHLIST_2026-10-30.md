@@ -134,10 +134,10 @@ Numenera; Eclipse Phase; Ironsworn; Godbound free; Rifts Megaverse Builder.
 |---|---|---|
 | DL8 | D&D 2024 Player's Handbook, Dungeon Master's Guide, Monster Manual | Current rules beside the held 2014 set; D&D is a canon-first world |
 | DL9 | Strixhaven: A Curriculum of Chaos | Magic-school life in D&D; direct comparison for the Harry Potter school year |
-| DL10 | Eberron: Rising from the Last War | Magic as infrastructure and industry; making systems |
+| DL10 | Eberron: Rising from the Last War (held since 2026-10-31, Source Library `9aa844f587`) | Magic as infrastructure and industry; making systems |
 | DL11 | Guildmasters' Guide to Ravnica; Acquisitions Incorporated | Guild membership and renown; running a business as a life |
 | DL12 | Mythic Odysseys of Theros | Gods, piety and divine favor as a progression track |
-| DL13 | Sword Coast Adventurer's Guide; Explorer's Guide to Wildemount; Van Richten's Guide to Ravenloft; Mordenkainen Presents: Monsters of the Multiverse | Forgotten Realms base, a second setting, dread and curses, monster cultures |
+| DL13 | Sword Coast Adventurer's Guide; Explorer's Guide to Wildemount; Van Richten's Guide to Ravenloft; Mordenkainen Presents: Monsters of the Multiverse (Monsters of the Multiverse held, Calibre 228) | Forgotten Realms base, a second setting, dread and curses, monster cultures |
 | DL14 | Pathfinder 2e Player Core, GM Core, Monster Core; Kingmaker (kingdom rules) | Second d20 frame; settlement and kingdom building |
 | DL15 | GURPS Infinite Worlds; GURPS Low-Tech Companion 3: Daily Life and Economics | Crossings between worlds; prices, wages and household economy |
 | DL16 | Pendragon core; Burning Wheel Gold | Generational play and inheritance; skills that improve by use |
@@ -506,3 +506,22 @@ the largest gaps in the two palettes; the rest when a world or pass needs them.
 ### Done 2026-11-04
 
 Solo Leveling novels 1-8 and web compilation, four Riordan companions, five Naruto novels, Mushoku Tensei 1-26, Meadowreach 5-8, SAO Progressive 1-9, and DL14 (Pathfinder 2e Player Core, Player Core 2, GM Core, Monster Core) plus Exalted, Pendragon, GURPS Infinite Worlds, Traveller and Burning Wheel from DL16-DL18 are held; the JJK Modulo and Delicious in Dungeon guide gaps are partly closed. Table and caveats: [library index](LIBRARY_INDEX.md#acquisition-round-2026-11-04-weibao-go-ahead-use-the-rest-of-todays-usage). Still open: DL8-DL13 (D&D 2024, Strixhaven, Ravnica, Theros, Wildemount, Van Richten as sourcebooks), Torg, Kingmaker, Naruto databooks, Modulo 2-6 and 8, Discworld.
+
+## W11. Comprehensive settings and full PF1 rules data, 2026-11-04
+
+Weibao: "send that into the to be obtained books, check reddit or other forms for comprehensive worlds like pathfinder and stuff?" Forum evidence is in the [settings survey](COMPREHENSIVE_SETTINGS_SURVEY_2026-11-04.md), and it is opinion, not counts. Holdings were checked 2026-11-04 against the Calibre and Source Library catalogues. Buying anything still needs his yes. Spells missing from 5e are covered by existing rows: the 2024 core books are DL8, Strixhaven is DL9, and the Sword Coast Adventurer's Guide and Explorer's Guide to Wildemount are DL13. The 2014 core, Xanathar's and Tasha's are held. Warhammer is DL75, HârnMaster is DL78, and the RuneQuest core is DL20.
+
+| Code | Source | Why | Route |
+|---|---|---|---|
+| DL82 | Foundry VTT PF1 system packs and PCGen Pathfinder data | Every PF1 spell with class lists (3,028 records), plus feats, classes and items | **Done 2026-11-04** (Weibao: "clone"): see the [d20 receipt](d20/D20_RULES_COLLECTION_2026-11-03.md) |
+| DL83 | *The Guide to Glorantha* (two volumes); *Cults of RuneQuest* | Called the best setting on the forums. Myth and cult magic would make a mechanically distinct world | A/Z, else buy |
+| DL84 | *HârnWorld* and the Hârn kingdom modules | Named again and again as the most granular setting: low magic, with social and economic detail | A/Z, else buy |
+| DL85 | *Empire of the Petal Throne* (Tékumel) | Very old, very dense, and nothing like European fantasy | A/Z, else buy |
+| DL86 | Mystara Gazetteers GAZ1-14 | Detailed nations, factions and common people; Immortals take the place of gods | A/Z, else buy |
+| DL87 | *Pathfinder Lost Omens World Guide*; PF1 *Inner Sea World Guide* | Golarion, the biggest setting by volume, as places and factions | A/Z, else buy |
+| DL88 | *Forgotten Realms Campaign Setting* (3e); *Grand History of the Realms* | The setting with the most material in total, which D&D's canon-first world uses | A/Z, else buy |
+| DL89 | *The Dark Eye* 5e core (Aventuria) | Perhaps the Realms' rival for word count; much of it is German-only | A/Z, else buy |
+| DL90 | *Ptolus: City by the Spire* | One city and its dungeon in 672 pages, a model for depth at settlement scale | A/Z, else buy |
+| DL91 | PF1 Core Rulebook, Advanced Player's Guide, Ultimate Magic, Ultimate Combat, Advanced Class Guide, Occult Adventures | Optional: DL82 already covers the rules data | A/Z |
+
+Order (proposal): DL83 and DL84 first, because they add the most distinct kinds of world. Then DL87 and DL88 for volume. Run DL91 only if a reader needs book layout or rules text that DL82 lacks.
