@@ -330,3 +330,91 @@ These are **INFERRED proposals**, at most five. They add no gate to the current 
 Delivered: 13 NA contracts covering every requested topic, 23 source inventory rows, 8 consolidation rows, 4 bridge steps, one Mermaid layering diagram, 5 risk rows and 5 suggestions. Referenced corpus codes retain their owners and source qualifications; this report does not independently reverify canon claims. Inspected corpus sections include engine/play/canon/mechanics, transformation/senses, society/bonds/progression/monster side, majority/clocks/kin, authoring/micro/minds/making, synthesis/start specs and the four Paradise reports. In-progress sibling drafts and future returns may need coordinator reconciliation.
 
 Documentation checks only: local links, source locator bounds and named interface coverage. No source/test/build/runtime change, no commit/push, no browser or gameplay check, no private save/import. **UNKNOWN/open:** exact production schema/migration, chosen second lease consumer, measured performance, rebuilt desktop behavior, persistence conservation and human acceptance. These are future implementation proofs, not blockers to completing this research lane.
+
+## H3 and H4 as one shape: body, control and recognition bridge (2026-11-03, proposal)
+
+Status: **proposals (AD32)**, docs only. Nothing here is an accepted decision, and no `src/` or `tests/` file changed. Source of the ask: [cross-world detail pass](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md#hard-features-that-serve-many-worlds-2026-11-03-proposal) rows H3 (NA1-NA4, NA9-NA11, NA13) and H4 (NA5, NA12; J1 "claim, receipt, belief"). The H2 rewind design lives in the timeline/loop owner and is not touched. Evidence labels: SHOWN means read in source this session, not run; INFERRED is every design line; UNKNOWN is named where it applies. Sealed secrets are not used or touched; any later world fixture refers to a secret by ID and route only.
+
+### What the source shows (SHOWN, 2026-11-03)
+
+- **F1 Two body models, still parallel.** Native `Person` (`src/models/person.js:48`) and `Hero` (`src/models/hero.js`, `class Hero extends Person`) own inventory, equipment, levels and bio through components and carry no body id or controller. Simulation people carry an optional `body`; Tern's content gives it `id`, `ownerId` and `controllerId` and the possession actions assert and swap them (`src/backlog_expansion_body.js`, the `backlog.body.*` cases). `controllerId` is read in about 166 lines across `src/`, mostly that body and care content (count by grep, not classified).
+- **F2 "Seat" already means something else in code.** `src/seat_profiles.js` seats (`be`, `beside`, `follow`, `bystander`, `ordinary`) are audience and panel filters. `src/observer_view.js` always builds the observer for `CONTROLLED_ACTOR_ID = 'player'` and says seats "choose only who the player controls" while every seat controls that one actor. NA3's executive-control seat is a different thing.
+- **F3 Knowledge is keyed by person and its `basis` is free-form.** `simulation.knowledge[actor][key] = {stage, value, at, cause, basis?}` with stages `seen`, `interpreted`, `understood` (`src/simulation_effects.js:371`). The validator at `src/simulation_contracts.js:259` checks id, stage, value, time and cause, not `basis`. Extra basis fields therefore need no save migration; they do need a compatibility note for readers that ignore them.
+- **F4 Receipt and belief already exist as a pair.** The divination builder writes a `seen` signal, then an `interpreted` belief whose `basis.evidence` names the signal key, with `status` (`signal`, `obscured`, `unanswered`), `method`, `targetId` and `attributedTo` (`src/cast_divination_adapter.js`). `knowsRows` maps stage and status to known, guessed or open (`src/knowledge_view.js`, `certaintyOf`). The replacement-registry host builds per-observer records with `observerId`, `test.kind` (credential, personal memory, institutional registry) and `supersedes` from the player's own knowledge only (`src/feature_expansion_recognition_host.js`, imported by `src/main.js`). So J1 is mostly a shared reading shape plus a few basis fields, not a new store.
+- **F5 A second authority for "who knows the link" exists.** `src/persona_standing.js` keeps `exposedTo` per persona; its only importer is `src/gatherings.js`. It does not read the knowledge map (NA-R5 duplicate authority).
+- **F6 Dead seam.** `registerWhoKnowsSource` and `registerAskSource` (`src/who_knows_view.js`) have no caller outside that file, though `knowledge_home` (imported by `src/ui_extras.js`) uses the module. Treat the who-knows column as a missing seam, not a caller.
+- **F7 Consumers are uneven.** LOTM divination is live (`src/book_world_lotm_cast_host.js` imports the adapter and rows). The Polyjuice slice (`src/hp_brewing_domain.js`) matched no appearance or drinking terms in a text grep, so it looks like brewing only (UNKNOWN until read in full). Transmigration appears as source-limited text in `src/feature_expansion_book_situated.js:114` (body controller acts in an existing body; transmigration cause not established). No Omniscient Reader's Viewpoint mechanism code was found; name matches were not opened. Disguise and persona have `persona_standing.js` and the subtlety host's office/disguise actions.
+
+### Bridge plan (proposal)
+
+| Item | Default | Dial | Reason |
+|---|---|---|---|
+| Body identity authority | Simulation `people[id].body` (`id`, `ownerId`, `controllerId`) stays the one body record. | Template reference (NA1) added only when a second body kind is authored. | It is already saved, validated and exercised by Tern. |
+| Native `Person`/`Hero` | Stays owner of goods, gear, stats and XP. Default: do not instantiate a second Hero for another seat (NA-B4). | A per-body native adapter after a real second-body consumer exists. | Moving it would touch every native panel. |
+| Legacy human | A derived binding, not saved by default: `bodyBinding(state, personId)` returns `{personId, bodyId, ownerId, controllerId, native}`; with no simulation body it returns `bodyId: 'body.<personId>.native'`, owner and controller equal to the person. Same idea as `BE_PROFILE_ID` ("derived, never copied into saved state"). | Explicit migration only if a world needs a saved native body id. | Compatibility decision: no migration now; old saves read unchanged. |
+| Control | `body.controllerId` is the single control field (Tern pattern). `simulation.controllers` stays NPC scheduling. | A lease record (NA3) when a second reversible route is chosen, with expiry and return pointer outside capped history. | One field now, richer record at the second consumer (NA-R1). |
+| Code vocabulary | `seat` stays the perspective filter. NA3's concept is `control` / `lease` in code and docs. | Rename in docs only if confusion shows. | Avoids a collision with `seat_profiles.js`. |
+| Knowledge owner | The person. A body or controller change moves no knowledge, memory, relationship or XP; Tern's and the player's maps stay separate. | Inherited body memory enters only as a `recollection` basis attributed to the previous owner, if a world says so. | `observerView` already reads `knowledge[actor]`. |
+| `exposedTo` | Compatibility exception: stays for gatherings, dated 2026-11-03. New link knowledge is written as belief entries (below). | Later bridge derives `exposedTo` from belief entries and retires the field. | Avoids a second authority growing. |
+
+### One actor-safe record: claim, receipt, belief (proposal)
+
+No new store. All three live in the existing observer-owned knowledge entry; a claim lives with its carrier.
+
+- **Claim** is an assertion made by someone or something, not held in anyone's head: `{claimId, claimant, subject, says, carrier, madeAt}`. `subject` is `{bodyId?, personaId?, personId?}`. `carrier` is a document, item, rite result, persona or utterance. Authored in content rows or created by an action; it is not saved as a global fact.
+- **Receipt** is the observer's `stage: 'seen'` (or `'understood'` for a read document) entry with extra basis fields: `basis.channel` (`sight`, `scent`, `document`, `divination`, `told`, `read`), `basis.subject` (`{bodyId?, personaId?}`), `basis.claim` (`{claimId, claimant}` when a claim was delivered), and the existing `kind`, `attributedTo`, `status`, `method`.
+- **Belief** is a `stage: 'interpreted'` entry: `basis.kind: 'inference'`, `basis.evidence: [receipt keys]`, `basis.believes: {personId | 'unknown'}`, `basis.grade: 'sure' | 'likely' | 'unsure'`, optional `basis.supersedes: <earlier belief key>`. `unknown` is a valid result and writes nothing hidden.
+
+Keys: `recognition.<subjectRef>.<n>` inside the observer's own map. Rules (proposal defaults, each with a dial):
+
+1. **R-a Observer-owned.** A record is written only into the observer who received it. Default: no write into anyone else's map from a body or control change. Dial: a witnessed event produces receipts for named witnesses only.
+2. **R-b Truth is not copied by default.** The resolver may read who actually controls a body; the record stores only what the observer was given. A belief can be wrong; correcting it adds a new entry that supersedes the old, and leaves other observers' entries and the event history unchanged.
+3. **R-c Subject is a body or persona, not the controller.** A face seen is `subject.bodyId`. It names a person only when the observer holds a receipt or belief linking them (for example a told link or a divination result). This is "the clerk saw a face, not the order."
+4. **R-d Stale documents stay stale.** A credential claim keeps its `madeAt`; a later body change does not edit it. Readers show "on record as" separately from "you believe now".
+5. **R-e Source kinds reuse existing ones.** Read text from a source book is `instruction` with `sourceId`; past own memory is `recollection`; divination is `observation` then `inference`. Add a kind only when none fits.
+6. **R-f No sealed truth in output.** Every view built from these entries is checked for absence of the real controller or sealed-secret content for an observer without a receipt.
+
+Pure reader (proposal name `recognitionView(knowledgeMap, subjectRef) -> {claimedAs, believedAs, basis, grade, status, supersededBy}`) takes the observer's own map, never `simulationFacts`. NA5's `perceptionView` stays a later channel layer that produces receipts; this slice does not build it.
+
+### Named consumers and callers
+
+| Consumer | How it uses the record | Live today (SHOWN) | Reachable caller |
+|---|---|---|---|
+| LOTM divination | Divination interpret step writes `basis.subject` when `targetId` is a person or body; belief grade from `status` | Adapter and rows in the cast host | `knowledge_view.js` rows and `people_knowledge.js` person accounts via the LOTM cast host |
+| Registry credential and personal-memory checks | Per-observer records already hold `observerId`, `test.kind`, `supersedes`; add `basis.subject`/`claim` | Recognition host, imported by `main.js` | `main.js` import graph |
+| Disguise (persona) | Persona link is a belief entry about `{personaId -> bodyId}` | `persona_standing.js` exists; only `gatherings.js` imports it | Missing seam for player-facing readers; slice 2 |
+| Polyjuice | A dose changes the drinker's presented face for a duration: an NA4 configuration change plus a claim carried by the body's look. Needs the brewing slice to expose a drink action first. The layer model (looks, credentials, knowledge, true self) is owned by [PJI1-PJI30](HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md); this record is the knowledge layer it reads, and PJI-L1 should reuse it (not read in full here) | Brewing only (UNKNOWN until read in full) | Missing seam |
+| Omniscient Reader's Viewpoint | The reader's text is a claim from a carrier; the player's entry is `instruction` with `sourceId`; divergence makes it stale (R-d) | No mechanism code found | Missing seam; needs the world pass to settle which reading rights exist |
+| Transmigration | Controller change on the same body id; knowledge stays with each person; previous owner's memories enter only by dial (R-e) | Source-limited text; Tern is the live control transfer | Tern actions in the backlog content |
+
+### First implementation slice (proposal): "who do they think this is" read
+
+One slice, no save change (F3), two live consumers (NA-R1), one reachable caller.
+
+- **Build.** A pure module reading an observer's own knowledge map (`recognitionView`). The divination interpret effect adds `basis.subject` and `basis.grade` when the target is a person. The registry host records pass through the same view. `personAccounts` in `src/people_knowledge.js` (called by `knownPeopleView`, imported by `people_ui` and `main.js`) adds one line per subject: "On record as X; you believe Y (grade, from sign)". The Knows rows keep their existing certainty labels.
+- **Join with H3.** A fixture asserts invariant R-a for a control change: after the Tern possession actions, `simulation.knowledge.player` and `simulation.knowledge[Tern]` are byte-equal to their pre-transfer values apart from newly received receipts, and `bodyBinding` reports `controllerId` changed while `ownerId` did not. The binding is a pure derived read, not a new saved field.
+- **Deferred, named.** `perceptionView` channels (NA5), a lease record (NA3), persona belief entries and `exposedTo` retirement, Polyjuice drink carrier, ORV claims, `registerWhoKnowsSource` first caller.
+- **Failure scenario.** Observer A sees a disguised face with no link receipt; observer B holds a told link. A's view must say unknown and contain no controller id; B's view names the person. A control change must not make A's view change.
+
+AD43 floor for the slice (FLR1-FLR6; docs-only today, so none are met yet):
+
+| Line | Check proposed |
+|---|---|
+| FLR1 Build | `npm run build`; receipt names the bundle hash from `game_freeze`. |
+| FLR2 Route | `yairpg-game` MCP walk from a fresh LOTM life to a divination interpretation, then open People; or the named Tern fixture for the control case. |
+| FLR3 Shown | The People line reads in UR70-UR75 shape with a visible basis and a feedback line when no belief exists; desktop 1366x768 and 1920x1080 only (mobile deferred). |
+| FLR4 Used | Consumers: divination and registry records feed the People line; the Tern fixture reads `bodyBinding`. A test-only call does not count as a consumer. |
+| FLR5 Kept | Basis fields are optional and save unchanged; still exercise save, reload, Export and Import once because stored entries now carry new fields. |
+| FLR6 Labelled | Receipt names the highest state reached (not above "built" until a browser run) and the route kind. |
+
+Focused tests (proposal): a new recognition view test, extended `tests/people_knowledge.test.js` and `tests/knowledge_view.test.js`, and the existing Tern body test file (locate by grep). Full `npm test`, `npm run check:arch` and `npm run check:rules` run once at commit.
+
+### Suggestions, smallest first
+
+1. **H34-S1** The slice above.
+2. **H34-S2** Persona link beliefs, then derive `exposedTo` from them and give `registerWhoKnowsSource` its first real source.
+3. **H34-S3** Read the Polyjuice slice in full, expose a drink action, and add the appearance carrier on NA4.
+4. **H34-S4** Lease record at the second reversible control route, chosen when a world needs it.
+5. **H34-S5** `perceptionView` channels, starting with the hound scene named in NA5.
+
+Not done: no code, tests, build or browser run; Polyjuice and ORV findings are from name searches; classification of the `controllerId` uses was not done.

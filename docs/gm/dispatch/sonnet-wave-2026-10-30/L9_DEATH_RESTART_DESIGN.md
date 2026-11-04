@@ -94,3 +94,73 @@ Counts are COR-coded rule ids per LOTM volume from the whole-book family pass (`
 | v7-v8 (12, 6) | Partial madness that persists at high rank; treatment by a peer; outer-entity reaction to forbidden acts | Floor under `restBacklash` (done); treatment rows with a rescuer fact (done as alternatives); entity reaction belongs to GM33/GM34 |
 
 Next code step (a small Sol slice after the s3 audit): a `sources` registry in world rows (`act`, `cycle`, `line`, `object`, `place`, `residue`) with default weights, a `cycle` tick helper `cycleBacklash(state,rules,carrier,{kind,fromMinute,toMinute})`, and `transferBacklash(from,to,amount)` so curses can be passed or traded. Accrual wiring into LOTM casts stays with `sw-wire`.
+
+## H2 rewind checkpoint: extend the continuation anchors, do not add a second one (proposal, AD32, 2026-11-03)
+
+*Proposal, not an accepted decision. Source rows: [cross-world detail pass](../../../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md) H2 and [gap audit](../../../audits/GAP_AUDIT_2026-10-30.md) G15. Defaults carry a dial and a reason (AD5); nothing here is a menu for Weibao.*
+
+### F1. The audit row is stale: the primitive exists
+
+H2 says "no code". Reading `src/` on 2026-11-03 found one, with player state:
+
+- `life.initial` and `life.checkpoint` in `src/continuation_state.js` are `nativeSnapshot(save)` copies of the **whole native save**, so they already hold body, levels, inventory, money, quests and date. This is the player-state capture `anchor_snapshots.js` lacks.
+- `set` replaces the single checkpoint; `checkpoint` and `initial` return to one; `loop`, `loop:initial|checkpoint` and `cycle` repeat on a timer (`loop.cycles`); `die:<cause>` and `restart:initial|checkpoint` (slice 1-2, above) restore through `restore()` and `scopedRestart`. The validator already requires `loop.target` to be `initial` or `checkpoint`.
+- `anchor_snapshots.js` stays what it is: world facts at a time from an authored event graph. It is not a restore source. Its one honest role here is a later consumer (O2 below).
+- What H2 still lacks is therefore narrower than the audit says: (a) **eligibility**: `continuationEligibility` returns the Frontier-only message for `set`, `checkpoint`, `initial`, `loop` and `cycle` in any other world, and the travel set `TRAVEL_WORLDS` holds only `base.frontier` and `book.lotm.tingen`; (b) **callers**: the only trigger is the player's own button (the Investigate-for-10-minutes route), and no world, host or timer can set an anchor; (c) **world binding**: no world says when its anchor is set, what replaces it or what it keeps; (d) **MoL has a table row but no scope row** (`book.mol.cyoria` falls to `RESTART_SCOPES.default`).
+- Verification state: read, not run. I did not run the continuation tests.
+
+### D1. One slice shape, three loop kinds by who owns the anchor (proposal)
+
+Default: **one anchor pair per life** (`initial` + one replaceable `checkpoint`), exactly as built. A world's loop-table row adds a `loopKind` and an `anchorBy` field; the restore path is unchanged.
+
+| loopKind | Who sets the checkpoint | Who triggers the rewind | Replaceable? | Worlds (proposal, unread rows flagged) |
+| --- | --- | --- | --- | --- |
+| `chosen` | The player, through a means the world gives (a connection, a save-point item, a power) | The player (`checkpoint`, `cycle`) or death | Yes, one at a time; replacing is the cost of the old one | Speedrunning the Multiverse and Regressor's Tale-style deliberate regression (rows unread: PG4/whole-book pass owed) |
+| `entrapment` | The world, at a fixed moment (loop start, `initial` only; no `checkpoint`) | The world's clock or death, not the player | No: `set` is refused (`anchorBy: 'world'`) | Mother of Learning: the canonical loop is a fixed-length trap whose start and end the world owns; exact trigger and length are PG4-owed, so dial `lengthDays` is unknown, not zero |
+| `duplicate` | Neither: the world makes a body or processing copy and keeps the origin running | The world's process | Not applicable: `branch:` (a paused parent plus a tethered life) already exists | You Have Died Again (row unread; its death-and-return may be `final` plus `revival`, then not this seam at all) |
+
+Reason: the audit's hard feature is "who may move the pointer", not "what is saved". Default is safe because the three kinds share `restore()`. Dial: a world may use `chosen` with a cost row (time, a resource, a witness) or `entrapment` with a visible, advancing deadline. Exception with a reason: a world whose rewind is not a snapshot at all (a memory-only regression where the body keeps its state) does not use this seam; it uses `carries` in `loop_table.js` with an empty `resets`, which `defineLoopTable` currently refuses, so that row owes a one-line relaxation when such a world arrives.
+
+### D2. Reachable callers (found in `src/`) and the ones to add
+
+Found: (1) `src/continuation_ui.js` buttons for `study`, `set`, `checkpoint`, `initial`, `loop*`, `cycle`; (2) `src/continuation_host.js` calls `planContinuation` for every command; (3) the harm path (`harm_engine.js` gives `die:'loss_of_control'`, `harm_host_die` routes it to `die:` then `restart:`); (4) `loop.nextAt` is the five-minute repeat timer. Nothing in `book_world_*` calls an anchor.
+
+Proposed new callers, each a command string through the same `planContinuation`, not a parallel function: (a) `anchor:<id>` from a world host at a world-owned moment (loop start, a save-point item use, a regression event); (b) `expire` from a world clock when an `entrapment` deadline passes, resolving to `restart:initial`; (c) the existing death route unchanged. Every caller carries a `token` (existing idempotence check) so a retried tick cannot restart twice.
+
+### D3. Save slice and compatibility decision (AR6, VG3)
+
+- **No schema bump.** `continuation` stays schema 1. New fields are optional and additive: `life.anchorLog` (last 8 entries: `{id, kind:'world'|'player', at, token}`), `loop.kind`, `loop.deadlineAt` (only in `entrapment`). Old saves have none and validate unchanged; a validator row accepts absence.
+- **Snapshots stay whole-save**, so their size is unchanged. Default: the world's `scopedRestart` row decides what comes back from the snapshot, as in slice 2; **dial:** keep one checkpoint per life (storage cost is two whole saves per life; `anchorLog` stores no snapshots).
+- **Explicit compatibility decision:** a save made before this slice that sits in a newly eligible world has `life.initial` only if a connection was begun there; one without a continuation is not migrated, because an initial taken now would be a future the lead did not live. Such a save simply shows the existing "needs its own temporal means" message until a world anchor is set forward from now. Reason: no fabricated past (AD38).
+- Persistence check owed at the slice: save, reload, import, then restart, and assert the anchor pair and `anchorLog` survive (AGENTS.md persistence rule).
+
+### D4. First implementation slice (one, proposal): Mother of Learning as an `entrapment` world
+
+Scope: register `book.mol.cyoria` as an `entrapment` loop, with a world-called initial anchor and an `expire` restart. Not Regressor's Tale, not Speedrunning, not You Have Died Again (their rows are unread; the slice names them as consumers it does not build).
+
+1. `src/continuation_state.js`: add the Cyoria world id to the travel set, add `anchor:<id>` (world caller; sets `life.initial` only when absent or `anchorBy:'world'`, refuses `set` when the loop row says `anchorBy:'world'`) and `expire`. Additive; old commands untouched.
+2. `src/harm_restart_scope.js`: add a `book.mol.cyoria` row using the existing `motherOfLearning` owner (scoped default, with a reason string). Dial: what the lead keeps comes from the loop table's `carries` (aptitude, memories), still marked pending the PG4 text read.
+3. `src/loop_table.js` and `src/book_world_mol_access.js`: extend the MoL row with `loopKind:'entrapment'`, `anchorBy:'world'`, `lengthDays:null` (flagged unknown). The readout shows the kind and "the world sets and ends this loop".
+4. Design only until a Weibao yes on implementation: the slice touches `src/` (this task did not).
+
+**AD43 floor (six lines, proposed per check):**
+
+| Floor line | Check |
+| --- | --- |
+| Focused test | Extend `tests/continuation_state.test.js` and `tests/harm_restart_scope.test.js`: world anchor sets `initial`, `set` is refused, `expire` restores through `scopedRestart` with the other worlds retained, token replay is rejected |
+| Failure scenario | A tick fires twice, or the lead is mid-visit in another owner when the loop expires: second call refused, active-visit restart refused with both inputs untouched (existing `scopedRestart` refusal) |
+| Persistence | Save, reload and import with an anchor and `anchorLog` present; old continuation JSON validates unchanged |
+| Browser proof | Rebuilt bundle, fresh origin, Cyoria at a desktop 1920x1080 and 1536x864 viewport: the readout shows "loop: world-owned", `Return to initial` works, `Replace checkpoint` is hidden. Mobile is deferred (standing UI priority) |
+| Gates | `npm run build`, `npm test`, `npm run check:arch`, `npm run check:rules` at the committer stage (AD36) |
+| Reachability | Checked from a real caller: the readout is read from the Cyoria panel and the restart through the continuation panel, not by a unit call alone |
+
+### O1-O3. Later work (proposals, with level and done check)
+
+- **O1 (L2, medium):** Regressor's Tale and Speedrunning the Multiverse as `chosen` rows once their readers confirm the trigger and the carries; done when each has a row with source locators and the same restart test.
+- **O2 (L3, small):** use `anchor_snapshots.js` to author the world-fact side of a canon `initial` (what Cyoria's facts say on loop day one), so the world's anchor is calibrated to its source (AD49) instead of whatever the save held; done when a test checks the authored facts against the snapshot at the anchor time. It stays a consumer; it never restores player state.
+- **O3 (L3, small):** a witness row (who remembers a rewind) per world; none in this slice, as slice 1 already said.
+- **G15 note:** `anchor_snapshots.js` is still unimported by `src/`; wiring it is O2's job and stays a separate row.
+
+### Sweep result
+
+Swept the new section for never, always and only. The remaining hits are conditions ("only when", "only if"), the module description that `anchor_snapshots.js` does not restore player state, and a cited audit phrase. Each design line has a default, a dial and a reason; a world whose rewind is not a snapshot is named as an exception.
