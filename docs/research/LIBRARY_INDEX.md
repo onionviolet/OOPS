@@ -103,3 +103,10 @@ A new book arrives: add its row here (and in `books.json` if it will be batch-re
 | `novels/LOCAL_LIBRARY.md` and `.json` (private) | The 2026-10-03 Calibre import evidence; not updated since |
 | `novels/ttks-novels-2026-10-10/` (private) | The five TTKS captures and their per-book notes |
 
+## d20 rules reference collections, 2026-11-03
+
+Not books: Pathfinder 1e pages from d20pfsrd and Pathfinder 2e records from
+Archives of Nethys, scoped to afflictions, weapon and armor properties,
+conditions, poisons, runes and disguise. Private data in
+`docs/research/d20/private/`; scope, counts and hashes in the
+[collection receipt](d20/D20_RULES_COLLECTION_2026-11-03.md).

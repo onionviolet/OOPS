@@ -192,6 +192,14 @@ Read-only reconcile of the KJ1–KJ3D campaign state against its live owners, wi
 
 Read-only reconciliation of the idle/cultivation implementation packets against `src/`, with a tested C1-C7 re-trace and a bundle-level Climb read: [reconciliation](../research/PACKET_RECONCILIATION_2026-11-03.md), [C1-C7 re-trace](../research/PACKET_RETRACE_C1_C7_2026-11-03.md), [Climb source read](../research/CLIMB_SOURCE_READ_2026-11-03.md). Proposals only (AD32); nothing accepted.
 
+## Afflictions and weapon properties, 2026-11-03
+
+Staged-affliction and corrosion seams (Tetanus, Rusting, a resistant festering wound) plus a d20 palette AFW1-AFW36: [considerations](../AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md). State: New. Round 2 wires the affliction seam into the HP Polyjuice bench (staged animal features, hospital-wing care), agent-verified, not human-reviewed. Next: a disease consumer with exposure and a terminal stage, or AFW-L2 corrosion in combat.
+
+## Polyjuice and perceived identity, 2026-11-03
+
+Identity as layers (looks, credentials, knowledge, true self) and which layers each gate reads, with d20 disguise and detection ideas, PJI1-PJI30: [considerations](../worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md). State: New. Next: PJI-L1, a dose that passes one gate. The d20 rules data is collected: [receipt](../research/d20/D20_RULES_COLLECTION_2026-11-03.md).
+
 ## UI copy pass, 2026-11-03
 
 

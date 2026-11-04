@@ -31,6 +31,12 @@ const obtain = async (ingredient, route, prepared = false) => {
     if(prepared) await p.locator('[data-hp-prepared]').check();
     await act('acquire'); if(prepared) await p.locator('[data-hp-prepared]').uncheck();
 };
+// Literal Import reloads the page; a rejection stays on the page, so report its message instead of a load timeout.
+const importLiteral = async literal => {
+    const loaded = p.waitForEvent('load', {timeout: 20000}).then(() => true, () => false);
+    await p.evaluate(x => load_progress(x), literal);
+    if(!(await loaded)) throw Error('Literal Import did not reload: ' + JSON.stringify(await p.evaluate(() => [...document.querySelectorAll('.message_critical')].map(n => n.innerText).slice(-3))));
+};
 const lotRow = name => p.locator('[data-hp-lot]').filter({hasText: name}).first();
 const text = () => p.locator('#hp_brewing').innerText();
 
@@ -110,7 +116,7 @@ try {
     checks.push('Drinking binds the donor for an hour; Save and reload keep the effect and the slice byte for byte');
     const literal = await p.evaluate(() => save_to_file());
     assert.equal(typeof literal, 'string');
-    await Promise.all([p.waitForEvent('load'), p.evaluate(x => load_progress(x), literal)]);
+    await importLiteral(literal);
     await play(); await open();
     assert.equal(JSON.stringify(panelSlice(await s.save())), keep, 'literal Import reproduces the slice');
     checks.push('Export then literal Import reproduces the slice byte for byte');
@@ -124,6 +130,40 @@ try {
     assert.match(await text(), /The change wore off/);
     assert.match(await text(), /Batch|2 doses/);
     checks.push('After the hour the aftermath is recorded in the saved ledger and shown after a reload; two doses remain');
+
+    // 5b. Animal hair: staged features on the shared affliction seam, hospital care, a weekly check,
+    // then Save/reload and literal Import. The sample's hidden species is set in the stored save
+    // (no UI reveals or picks it), then the drink and care run through the panel.
+    await act('sample-ask'); // a donor not on the ask cooldown
+    await p.evaluate(() => window.saveProgress());
+    await p.evaluate(() => { const d = JSON.parse(localStorage.getItem('save data')); const x = Object.values(d.hp_brewing.samples).at(-1); x.truth.species = 'cat'; localStorage.setItem('save data', JSON.stringify(d)); });
+    await p.reload(); await play(); await open();
+    const catSample = Object.values(panelSlice(await s.save()).samples).at(-1);
+    assert.equal(catSample.truth.species, 'cat');
+    await pick('batch', batch.id); await pick('sample', catSample.id);
+    await act('drink');
+    assert.match(await text(), /Animal features, stage 3 of 3: Fur on your face, a tail and animal eyes\. Next check in about 7 days\./);
+    await act('seek-care');
+    assert.match(await text(), /in the hospital wing\./);
+    assert.equal(await p.locator('[data-hp-action="seek-care"]').count(), 0);
+    let track = panelSlice(await s.save()).condition;
+    assert.equal(track.care, true); assert.equal(track.track.stage, 3);
+    checks.push('A cat-hair drink shows staged animal features (stage 3 of 3) and the hospital-wing check-in is admitted once and saved');
+    for(let d = 0; d < 7; d++) await s.step(1440);
+    await s.step(5); await p.waitForTimeout(100);
+    const afterWeek = panelSlice(await s.save());
+    assert.ok(afterWeek.condition === null || afterWeek.condition.track.treatments.length === 1, 'one weekly check with care recorded');
+    const weekText = afterWeek.condition ? `stage ${afterWeek.condition.track.stage}` : 'cleared';
+    const keepFeatures = JSON.stringify(afterWeek);
+    await p.reload(); await play(); await open();
+    assert.equal(JSON.stringify(panelSlice(await s.save())), keepFeatures, 'reload keeps the staged track');
+    const literal2 = await p.evaluate(() => save_to_file());
+    await importLiteral(literal2);
+    await play(); await open();
+    assert.equal(JSON.stringify(panelSlice(await s.save())), keepFeatures, 'literal Import keeps the staged track');
+    checks.push(`After one played week in care the check ran (${weekText}); Save/reload and literal Import keep the track byte for byte`);
+    await p.locator('[data-hp-condition]').scrollIntoViewIfNeeded().catch(() => {});
+    await p.screenshot({path: join(out, 'hp-animal-features-1920.png')});
 
     // 6. UI checks at the primary target.
     const ui = await s.uiCheck();

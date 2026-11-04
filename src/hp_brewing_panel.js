@@ -186,7 +186,12 @@ export function createHpBrewingPanel({read, quote, execute}) {
                 button('Add the sample to a glass and drink', {type: 'drink', batchId: sel.batch, sampleId: sel.sample}, use, {id: 'drink', why: true});
             }
             if(v.effect) use.append(el('p', `You are ${v.effect.donorName} (${v.effect.kind === 'thin' ? 'thin draught' : 'Polyjuice'}) for about ${v.effect.minutesLeft} more minutes.`, 'hp-note'));
-            if(v.condition) use.append(el('p', `Animal features remain, about ${v.condition.daysLeft} days.`, 'hp-note'));
+            if(v.condition?.stage) {
+                const box = el('div'); box.dataset.hpCondition = '';
+                box.append(el('p', `Animal features, stage ${v.condition.stage} of ${v.condition.stages}: ${v.condition.text} Next check in about ${v.condition.nextCheckDays} days${v.condition.care ? ', in the hospital wing' : ''}.`, 'hp-note'));
+                if(!v.condition.care) button('Check into the hospital wing', {type: 'seekCare'}, box, {id: 'seek-care'});
+                use.append(box);
+            } else if(v.condition) use.append(el('p', `Animal features remain, about ${v.condition.daysLeft} days.`, 'hp-note'));
             parts.push(use);
             // Public records supplied by the shared experiment/method helpers.
             const entries = v.experiments.entries;

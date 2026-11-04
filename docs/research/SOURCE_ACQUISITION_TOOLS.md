@@ -96,6 +96,17 @@ from a request to download. Distinguish that workflow policy from technical
 access and actual platform content restrictions. Do not invent another approval
 step for routine discovery, private preparation or an already authorized run.
 
+## Authorized Archives of Nethys browser route, 2026-11-03
+
+Weibao asked to collect “the two D&D wikis”. The polite transport closed
+`2e.aonprd.com` on HTTP 403; that closure stays. He then said: “Archives of
+Nethys, we can do the in browser version”. This permits, for that site and the
+rules families in the [d20 collection receipt](d20/D20_RULES_COLLECTION_2026-11-03.md),
+a background-tab browser capture paced 4-8 s per request. It is not a general
+exception for other closed hosts. The pane cannot download, reach localhost or
+write the clipboard while hidden; oversized tool results are saved to disk, which
+is how the data left the page.
+
 ## Prepare and report the actual result
 
 Preserve unchanged raw capture and derive readable TXT/chapter JSON/search data
