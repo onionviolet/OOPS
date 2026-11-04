@@ -146,18 +146,54 @@ def import_browser(path, manifest, done):
     bad = [(r['url'], r.get('status')) for r in dump['records'] if r.get('status') != 200]
     print(f"{dump['section']}: {added} added, {skipped} skipped; non-200: {bad}")
 
+COPYRIGHT = re.compile(r'(?:©|\bCopyright(?=\s*\d{4}))\s*(?:\d{4}(?:\s*[-–]\s*\d{4})?)?\s*,?\s*([^;©]{2,80}?)\s*(?:;|$|Authors?\b)')
+def publishers_of(text):
+    """Publisher per PF1 page (AFW-R4-2, 2026-11-04): d20pfsrd mixes Paizo and
+    third-party content and labels it in each page's Section 15 notice and its
+    PZO product codes. Returns (label, publishers, PZO codes); offline."""
+    flat = ' '.join(text.split())
+    pubs = []  # Section 15 notices and inline third-party "Source ... ©" lines
+    for m in COPYRIGHT.finditer(flat):
+        p = re.sub(r'[\s,]*\b(?:19|20)\d{2}$', '', m.group(1).strip(' .,')).strip(' .,')
+        if p and p not in pubs: pubs.append(p)
+    # Third-party pages without a notice carry the publisher in the title,
+    # e.g. "Hazards and Disasters – Rite Publishing – d20PFSRD".
+    head = text.split('\n', 1)[0].split(' – ')
+    if not pubs and len(head) >= 3 and head[-1].strip() == 'd20PFSRD':
+        named = next((h.strip() for h in head[:-1] if re.search(r'Publishing|Games|Press|Productions|Gaming|Studio', h)), None)
+        if named: pubs.append(named)
+    codes = sorted(set(re.findall(r'\bPZO\d{4,5}\b', flat)))
+    paizo = any('paizo' in p.lower() for p in pubs) or bool(codes)
+    other = [p for p in pubs if 'paizo' not in p.lower()]
+    label = ('mixed' if paizo and other else 'Paizo' if paizo else 'third party' if other else 'unknown')
+    return label, pubs, codes
+
+def tag_publishers(manifest):
+    rows = [json.loads(l) for l in manifest.open()]
+    counts = {}
+    for r in rows:
+        if 'd20pfsrd.com' not in r['url']: continue
+        label, pubs, codes = publishers_of((ROOT / r['text']).read_text())
+        r.update(publisher=label, publishers=pubs, pzo_codes=codes)
+        counts.setdefault(r['section'], {}).setdefault(label, 0); counts[r['section']][label] += 1
+    tmp = manifest.with_suffix('.tmp')
+    tmp.write_text(''.join(json.dumps(r) + '\n' for r in rows)); tmp.replace(manifest)
+    for s, c in counts.items(): print(s, c)
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--probe', action='store_true', help='fetch catalogue pages only and list in-scope links')
     ap.add_argument('--section', action='append', help='limit to these sections')
     ap.add_argument('--import-browser', metavar='DUMP', action='append', help='fold browser-route dumps into the manifest; no network')
+    ap.add_argument('--publishers', action='store_true', help='tag each PF1 manifest row with its publisher; no network')
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = OUT / 'manifest.jsonl'
     done = {json.loads(l)['url'] for l in manifest.open()} if manifest.exists() else set()
     if a.import_browser:
         for p in a.import_browser: import_browser(p, manifest, done)
-        return
+    if a.import_browser or a.publishers:
+        tag_publishers(manifest); return
     linked = held_links()
     closed = set()
     with Client(TRANSPORT) as c, manifest.open('a') as out:
