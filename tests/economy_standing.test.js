@@ -98,3 +98,32 @@ test('the insurance offer is computed from the region and the dials, and buying 
     d.insure(50, undefined, 'carried cargo');
     assert.deepEqual(spent, [-slums.premium]);
 });
+
+test('H8 price causes: pity, fear, shortage tag the quote, a crew street closes, and each expires and persists', () => {
+    let st = s.addCause(s.fresh(), {kind: 'pity', region: 'Slums', detail: '9 coins lost', source: 'road mishap'}, 0);
+    const pity = s.standingTerms(st, {region: 'Slums', vendorId: 'x', now: D});
+    assert.ok(pity.parts.some(p => p.id === 'cause:pity' && p.why) && pity.buy < 1 && !pity.closed);
+    assert.equal(s.standingTerms(st, {region: 'Village', vendorId: 'x', now: D}).parts.some(p => p.cause), false, 'other regions unaffected');
+    assert.equal(s.standingTerms(st, {region: 'Slums', vendorId: 'x', now: 4 * D}).parts.some(p => p.cause), false, 'expires');
+    // A missed term at the crews: fear, and their street shuts; a counting-house default only taints prices.
+    let late = s.takeLoan(s.shiftStanding(s.fresh(), 'gutter_crews', 30, 't', 0), 'gutter_crews', 10, 0);
+    late = s.settleDue(late, 40 * D);
+    const shut = s.standingTerms(late, {region: 'Slums', vendorId: 'x', now: 41 * D});
+    assert.equal(shut.closed.kind, 'fear'); assert.ok(shut.closed.daysLeft >= 1 && shut.closed.why);
+    assert.equal(s.standingTerms(late, {region: 'Slums', vendorId: 'x', now: 55 * D}).closed, undefined);
+    let town = s.takeLoan(s.shiftStanding(s.fresh(), 'counting_house', 30, 't', 0), 'counting_house', 10, 0);
+    town = s.settleDue(town, 40 * D);
+    assert.equal(s.standingTerms(town, {region: 'Town', vendorId: 'x', now: 41 * D}).closed, undefined);
+    assert.ok(s.standingTerms(town, {region: 'Town', vendorId: 'x', now: 41 * D}).parts.some(p => p.cause === 'fear'));
+    // A big purchase makes a shortage; a small one does not; renewing replaces, never stacks.
+    assert.equal(s.tradeDeed(s.fresh(), {region: 'Village', vendorId: 'v', buyValue: 20}, 0).causes.length, 0);
+    const big = s.tradeDeed(s.fresh(), {region: 'Village', vendorId: 'v', buyValue: 150}, 0);
+    assert.equal(big.causes[0].kind, 'shortage');
+    assert.equal(s.addCause(big, {kind: 'shortage', region: 'Village'}, D).causes.length, 1);
+    // Save, reload: JSON round trip validates and keeps the rows; an old slice without causes migrates to none.
+    const saved = JSON.parse(JSON.stringify(big));
+    assert.doesNotThrow(() => s.validateStanding(saved));
+    assert.deepEqual(s.migrateStanding(saved).causes, big.causes);
+    const {causes, ...old} = saved; assert.deepEqual(s.migrateStanding(old).causes, []);
+    assert.throws(() => s.validateStanding({...saved, causes: [{kind: 'bogus', region: 'x', sell: 1, buy: 1, until: 1, since: 0}]}), /price cause/);
+});

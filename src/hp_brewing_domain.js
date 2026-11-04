@@ -1,5 +1,5 @@
 import {registerDomain} from './domain_registry.js';
-import {readPort} from './ui_ports.js';
+import {readPort, whenPortsReady} from './ui_ports.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {begin, commit, quote as quoteAction, view, settle, validate, HP_SLICE_ID, HP} from './hp_brewing_state.js';
@@ -154,5 +154,6 @@ registerDomain({id: HP_SLICE_ID, initialState: () => null,
     load: slice => { state = slice ?? null; panel?.render(); },
     tick, commands: {quote, execute}, projection: read,
     refresh: () => panel?.render(),
-    panels: [() => { panel = createHpBrewingPanel({read, quote, execute}); }],
+    // The panel mounts before main.js passes the clock port; render again once it arrives.
+    panels: [() => { panel = createHpBrewingPanel({read, quote, execute}); whenPortsReady(() => panel?.render()); }],
 });

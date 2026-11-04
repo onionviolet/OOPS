@@ -9,6 +9,8 @@ import {HP_PROCESS} from './hp_brewing_formula.js';
 import {planHpPreparation, validateHpPreparationReceipt, projectHpPreparation} from './hp_preparation.js';
 import {HP_ABRASIVE_PROCESS as ABRASIVE, planHpAbrasiveMixture} from './hp_ingredient_substitution.js';
 import {createExperimentLog, recordTrial, validateExperimentLog} from './craft_experiment_log.js';
+import {afflict, advance} from './affliction_track.js';
+import {ANIMAL_FEATURES, HOSPITAL_CARE, BODY_SAVE_MODIFIER} from './hp_animal_features.js';
 import {createDemonstratedMethod, validateDemonstratedMethod, planDemonstratedRepeat, MAX_DEMONSTRATED_METHODS} from './craft_reference.js';
 
 const PACK = packNative('book.hp');
@@ -75,7 +77,8 @@ export function settle(s, now) {
         } else if(fx.kind === 'transform' || fx.kind === 'thin') log(s, fx.endsAt, 'aftermath', 'The change wore off. Nobody connected it to you.');
         s.effect = null;
     }
-    if(s.condition && now >= s.condition.until) { log(s, s.condition.until, 'aftermath', 'The animal features cleared at last.'); s.condition = null; }
+    if(s.condition?.track) settleFeatures(s, now);
+    else if(s.condition && now >= s.condition.until) { log(s, s.condition.until, 'aftermath', 'The animal features cleared at last.'); s.condition = null; }
     for(const d of s.debts) if(d.status === 'open' && now >= d.dueAt) {
         d.status = 'overdue'; s.master.standing -= R.overdueStandingLoss;
         log(s, d.dueAt, 'debt', `The loan of ${label(d.ingredient)} was not repaid in time. The Potions master remembers.`);
@@ -86,6 +89,18 @@ export function settle(s, now) {
     }
     s.now = now;
     return s;
+}
+
+// Weekly recovery checks on the shared affliction seam. Each check's d20 is keyed by the
+// track's start and the check time, so reloading or settling in pieces draws the same.
+function settleFeatures(s, now) {
+    const c = s.condition;
+    const {track, events} = advance(ANIMAL_FEATURES, c.track, {at: now, treatment: c.care ? HOSPITAL_CARE : null,
+        draw: t => { const natural = draw(s, `features:${t.since}:${t.nextAt}`) % 20 + 1; return {total: natural + BODY_SAVE_MODIFIER, natural}; }});
+    for(const e of events) if(e.type === 'save' && e.to < e.from && e.to > 0) log(s, e.at, 'aftermath', ANIMAL_FEATURES.stages[e.to - 1].text);
+    const done = events.find(e => e.type === 'recovered');
+    if(done) { log(s, done.at, 'aftermath', 'The animal features cleared at last.'); s.condition = null; }
+    else c.track = track;
 }
 
 const slotGrade = (slot, lot) => {
@@ -377,6 +392,14 @@ export function act(s, ctx, req) {
         spend(s, d.repay); d.status = 'repaid';
         return `Repaid the loan of ${label(d.ingredient)}.`;
     }
+    case 'seekCare': {
+        need(s.condition, 'Nothing here needs the hospital wing.');
+        need(s.condition.track, 'These features follow the older fixed recovery; care does not change it.');
+        need(!s.condition.care, 'You are already in the hospital wing.');
+        s.condition.care = true; s.condition.careSince = now;
+        log(s, now, 'care', 'You checked into the hospital wing. The features will be looked after until they clear.');
+        return 'Admitted to the hospital wing. Weekly checks now get the healer\'s help.';
+    }
     case 'drink': {
         const batch = s.batches[req.batchId] ?? fail('Choose a batch.'), sample = s.samples[req.sampleId] ?? fail('Choose a sample.');
         carried(batch);
@@ -389,9 +412,9 @@ export function act(s, ctx, req) {
         batch.dosesLeft--; delete s.samples[sample.id]; batch.known.identified = true;
         if(batch.grade === 'original') { s.effect = {kind: 'nothing', startedAt: now, endsAt: now, donorId: donor.id, discovered: false}; log(s, now, 'drink', 'You drank it. Nothing changed, and the sample was wasted.'); observeDrink('Nothing happened.', 'oral.no-change', false); return 'Nothing happened.'; }
         if(sample.truth.species !== 'human') {
-            s.condition = {id: 'animal_features', until: now + R.animalRecoveryMinutes};
+            s.condition = {id: 'animal_features', track: afflict(ANIMAL_FEATURES, {at: now, stage: ANIMAL_FEATURES.stages.length}), care: false};
             s.effect = {kind: 'animal', startedAt: now, endsAt: now, donorId: donor.id, discovered: false};
-            log(s, now, 'drink', 'Wrong kind of hair. You came out part animal and the features will take days to clear.');
+            log(s, now, 'drink', 'Wrong kind of hair. You came out part animal, and the features will take weeks to clear.');
             observeDrink('Animal features appeared.', 'oral.animal-features', true);
             return 'The potion took the wrong kind of hair.';
         }
@@ -445,7 +468,9 @@ export function view(s, ctx) {
         }),
         experiments: clone(t.experiments ?? createExperimentLog()), methods: clone(t.methods ?? []),
         effect: t.effect && t.effect.endsAt > t.now ? {kind: t.effect.kind, donorName: t.donors[t.effect.donorId].name, minutesLeft: Math.ceil((t.effect.endsAt - t.now) / 5) * 5} : null,
-        condition: t.condition ? {id: t.condition.id, daysLeft: Math.ceil((t.condition.until - t.now) / 1440)} : null,
+        condition: !t.condition ? null : t.condition.track ? {id: t.condition.id, stage: t.condition.track.stage, stages: ANIMAL_FEATURES.stages.length,
+            text: ANIMAL_FEATURES.stages[t.condition.track.stage - 1].text, care: t.condition.care, nextCheckDays: Math.ceil((t.condition.track.nextAt - t.now) / 1440)}
+            : {id: t.condition.id, daysLeft: Math.ceil((t.condition.until - t.now) / 1440)},
         debts: t.debts.filter(d => d.status !== 'repaid').map(d => ({id: d.id, name: label(d.ingredient), status: d.status, dueInDays: Math.floor((d.dueAt - t.now) / 1440), repay: d.repay})),
         ledger: t.ledger.slice(-16).map(e => ({id: e.id, at: e.at, kind: e.kind, text: e.text})), moonReady: typeof ctx.moon === 'string', moon: ctx.moon ?? null,
         harvestReady: t.harvestAt === null || t.now - t.harvestAt >= R.harvestCooldownMinutes};
@@ -485,6 +510,14 @@ export function validate(s) {
     for(const c of cohorts.values()) need(c.doses === c.yield, 'HP cohort portions do not conserve the produced doses.');
     if(s.cauldron.brew) { checkPending(s.cauldron.brew, s); need(s.cauldron.brew.startedAt <= s.now, 'Pending HP brew is ahead of the slice clock.'); }
     need(int(s.cauldron.condition) && s.cauldron.condition >= 0 && s.cauldron.condition <= R.cauldronStart, 'Bad cauldron condition.');
+    if(s.condition) {
+        const c = s.condition, t = c.track;
+        need(c.id === 'animal_features', 'Unknown HP condition.');
+        // Compatibility: older saves keep their fixed `until`; new ones carry a staged track.
+        need(t ? t.id === ANIMAL_FEATURES.id && Number.isInteger(t.stage) && t.stage >= 1 && t.stage <= ANIMAL_FEATURES.stages.length
+            && int(t.since) && int(t.nextAt) && t.nextAt > t.since && t.since <= s.now && typeof c.care === 'boolean' && Array.isArray(t.treatments)
+            && (!c.care || int(c.careSince) && c.careSince <= s.now) : int(c.until), 'Malformed animal-features record.');
+    }
     need(int(s.purse) && Object.keys(s.donors).length === R.donors && s.ledger.length <= LEDGER_CAP, 'Bad purse, donors or ledger.');
     need(Object.values(s.lots).filter(l => l.stew).length <= R.stewPotCapacity, 'Too many lots in the stew pot.');
     return s;

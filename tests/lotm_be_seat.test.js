@@ -291,3 +291,86 @@ test('B3: the Spirit Vision switch gates aura seeing, ending it leaves exhaustio
  // Refusal: the switch without the drink.
  const orphan=structuredClone(keep);delete orphan.actors.player.sources[B.BE_SEER_SOURCE];assert.throws(()=>validateLotmState(orphan));
 });
+
+// B4/B5/R1 (divination energy cost and method gate), uses the fixture cast above.
+const {previewSimulationCommand,commitSimulationCommand}=await import('../src/simulation.js');
+const {createSimulationRegistry,validateSimulationEffect}=await import('../src/simulation_contracts.js');
+const {lotmContext}=await import('../src/book_world_lotm_actions.js');
+const {defineDivinations,quoteDivinations}=await import('../src/cast_divination_adapter.js');
+const {defineCastAbilities}=await import('../src/cast_ability_adapter.js');
+const {lotmDivinationFacts}=await import('../src/book_world_lotm_div_supply.js');
+await import('../src/book_world_lotm_domain.js');
+const B=await import('../src/book_world_lotm_be_seer.js');
+const M=await import('../src/book_world_lotm_divination_method.js');
+const {LOTM_CAST_SITUATION:CAST_SIT}=await import('../src/book_world_lotm_cast_host.js');
+const binding={worldId:LOTM_IDS.world,group:'book_lotm',situationId:CAST_SIT};
+const room='fixture.place.player';
+const eq=(fact,value,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
+// A working pendulum query: the method gates the means (B5) and the attempt spends the Seer pool (B4).
+const query={id:'fixture.pendulum',targetId:'fixture.sample',question:'Does the pendulum lean to yes?',method:'Pendulum',label:'Ask the pendulum',description:'Let the pendulum swing over the question.',place:room,
+ means:M.beDivMethodRequires('pendulum',{real:true}),contact:eq('actor.life','alive'),
+ steps:[{id:'ask',kind:'attempt',label:'Ask',description:'Spend spirit and watch the swing.',minutes:2,costs:[B.beSeerUse()],status:'signal',signal:'It swings clockwise.',report:'You watched the swing.'}]};
+const cmds=defineDivinations({queries:[query]},binding);
+const ref=createSimulationRegistry({commands:cmds,energies:[B.BE_SEER_ENERGY]});for(const [id,d] of ref.commands)registry.simulation.commands.set(id,d);
+const ctxOf=p=>lotmContext(p.state,{actorId:'player',external:p.external,gameplay:p.gameplay,vitals:{player:{health:24,max_health:24,stamina:18,max_stamina:18}},nativeAlive:true,facts:{location:p.state.simulation.people.player.location}});
+function setup(){
+ const o=hostOver(bare());o.host.enroll('be',{independent:true});const p=structuredClone(o.box.p);
+ p.state.simulation.people.player.location=room;
+ return {p,apply:e=>applySimulationEffects(p.state===undefined?p:p,e,{actorId:'player'},registry,'fixture.m')};
+}
+const preview=p=>previewSimulationCommand(p.state,registry,'fixture.pendulum.ask',ctxOf(p));
+const fx=(p,effects)=>applySimulationEffects(p,effects,{actorId:'player'},registry,'fixture.m');
+
+test('B5: a means without its learned method does not run, the lesson alone shows but does not work, drink plus lesson works',async()=>{
+ const {p}=setup();
+ const f=()=>lotmDivinationFacts(p.state,{external:p.external,gameplay:p.gameplay});
+ for(const e of [...M.beDivMethodLearnEffects('pendulum','Old Neil showed you the swing.',CAST_SIT),...B.beSeerDrinkEffects()])validateSimulationEffect(e);
+ assert.equal(f()['actor.lotm.div.method.pendulum.real'],false);
+ assert.equal(preview(p).eligible,false,'no method, no pendulum');
+ fx(p,B.beSeerDrinkEffects());
+ assert.equal(f()['actor.lotm.div.method.pendulum.real'],false,'the potion alone teaches nothing');
+ assert.equal(preview(p).eligible,false);
+ const q=p.state;fx(p,M.beDivMethodLearnEffects('pendulum','Old Neil showed you the swing.',CAST_SIT));
+ assert.equal(f()['actor.lotm.div.method.pendulum.learned'],true);assert.equal(f()['actor.lotm.div.method.pendulum.real'],true);
+ assert.equal(f()['actor.lotm.div.method.tarot.learned'],false,'one lesson opens one method');
+ assert.equal(preview(p).eligible,true);
+ // A staged show needs the lesson only: learned without the source.
+ const s=setup().p;fx(s,M.beDivMethodLearnEffects('pendulum','Shown.',CAST_SIT));
+ const sf=lotmDivinationFacts(s.state,{external:s.external,gameplay:s.gameplay});
+ assert.equal(sf['actor.lotm.div.method.pendulum.learned'],true);assert.equal(sf['actor.lotm.div.method.pendulum.real'],false);
+ assert.throws(()=>M.beDivMethodRequires('unlisted'));
+ validateLotmState(p.state);
+});
+
+test('R1: the BE seat reaches the chart, tarot and numerology rows through learned method plus source, not the Tingen power',()=>{
+ const {p}=setup();const f=()=>lotmDivinationFacts(p.state,{external:p.external,gameplay:p.gameplay});
+ assert.equal(f()['actor.lotm.div.means.chart'],false);
+ fx(p,B.beSeerDrinkEffects());assert.equal(f()['actor.lotm.div.means.chart'],false,'source alone is not the craft');
+ fx(p,M.beDivMethodLearnEffects('chart','The chart lesson.',CAST_SIT));
+ assert.equal(f()['actor.lotm.div.means.chart'],true);assert.equal(f()['actor.lotm.div.means.tarot'],false);
+ // Learned but no source (or lost source): no working method.
+ const s=setup().p;fx(s,M.beDivMethodLearnEffects('chart','x',CAST_SIT));
+ assert.equal(lotmDivinationFacts(s.state,{external:s.external,gameplay:s.gameplay})['actor.lotm.div.means.chart'],false);
+});
+
+test('B4: the divination step spends the Seer pool, shows it in the cost line, and refuses at an empty pool or strain limit',()=>{
+ const {p}=setup();fx(p,[...B.beSeerDrinkEffects(),...M.beDivMethodLearnEffects('pendulum','x',CAST_SIT)]);
+ const quote=()=>quoteDivinations(p.state,cmds,d=>preview(p),{facts:()=>({})})[0];
+ const pool=()=>p.state.simulation.energies.player[B.BE_SEER_ENERGY_ID];
+ assert.match(quote().costText,/1 Spirituality; 1 strain \(pool 3 of 3\)/);
+ const before=pool().reserve;
+ const out=commitSimulationCommand(p.state,registry,{id:'fixture.pendulum.ask'},ctxOf(p),p.state.sequence);
+ assert.equal(out.state.simulation.energies.player[B.BE_SEER_ENERGY_ID].reserve,before-1,'paid from the B1 pool');
+ // Empty pool: refuse, never run free.
+ pool().reserve=0;assert.equal(preview(p).eligible,false);assert.match(quote().costText,/pool 0 of 3/);
+ assert.throws(()=>commitSimulationCommand(p.state,registry,{id:'fixture.pendulum.ask'},ctxOf(p),p.state.sequence));
+ // Strain limit: rest before more use.
+ pool().reserve=3;pool().strain=pool().policy.strainLimit;assert.equal(preview(p).eligible,false);
+ // Authoring: an energy cost that is not a use, or has no pool, is not a legal cost.
+ for(const bad of [{type:'energy',energyId:B.BE_SEER_ENERGY_ID,operation:'recover',amount:1},{type:'energy',operation:'use',output:1,control:1}]){
+  const q2=structuredClone(query);q2.steps[0].costs=[bad];assert.throws(()=>defineDivinations({queries:[q2]},binding),/explicit spent stock/);
+ }
+ // The ability adapter accepts the same cost and records it as stated, not unknown.
+ const ab=defineCastAbilities({encounters:[{id:'fixture.enc',label:'E',description:'d',place:room,moves:[{id:'go',label:'Go',description:'d',minutes:1,report:'r',costs:[B.beSeerUse()]}]}]},binding);
+ assert.equal(ab[0].castAbility.cost,'stated');assert.equal(ab[0].costs[0].type,'energy');
+});

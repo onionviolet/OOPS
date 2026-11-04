@@ -6,6 +6,7 @@ import {applySimulationEffects} from "./simulation_effects.js";
 import {validateExpansionState} from "./expansion_engine.js";
 import {ROAD_RIVAL,RIVAL_PURSUIT} from "./frontier_campaign.js";
 import {validateNativeBattle} from "./native_battle_contracts.js";
+import {rivalMemoryEffects} from "./rival_memory.js";
 import {legacyConflictRandom,runConflictFrame} from './conflict_frame.js';
 export {validateNativeBattle} from "./native_battle_contracts.js";
 import {commitPartyBattleAction,withdrawPartyBattle} from "./party_battle.js";
@@ -30,6 +31,7 @@ function finish(plan,registry,result) {
         {type:"relationship",target:ROAD_RIVAL,axis:result === "won" ? "respect" : "familiarity",amount:1,text:`Road contest ended: ${result}. Injuries and spent stamina remain.`}];
     if(result === "won" && !state.actors.player.facts["rival.resolved"]) effects.push(
         {type:"fact",scope:"actor",key:"rival.resolved",value:true},{type:"source",sourceId:"frontier.rival_insight",operation:"grant",awakened:true,active:true});
+    effects.push(...rivalMemoryEffects(state.actors.player.facts,result)); // H7: Mara remembers this contest.
     applySimulationEffects(plan,effects,{actorId:"player"},registry,cause);
     const p=s.pursuits[RIVAL_PURSUIT];p.status=result === "withdrawn" ? "withdrawn" : "tested";p.due=null;p.closedAt=state.clock;p.closedBy="player";
     state.actors.player.completed[session.commandId]=(state.actors.player.completed[session.commandId] || 0)+1;

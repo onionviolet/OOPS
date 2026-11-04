@@ -124,11 +124,11 @@ test('use and lasting consequences: canon transforms for an hour, a cat hair lea
     c.do({type: 'sample', donorId: 'd2', route: 'brush'}); const sid = Object.keys(c.s.samples).at(-1);
     c.s.samples[sid].truth.species = 'cat';
     c.do({type: 'drink', batchId: b2.id, sampleId: sid});
-    assert.equal(c.s.condition.until - c.now, HP.rules.animalRecoveryMinutes);
+    assert.equal(c.s.condition.track.stage, 3); assert.equal(c.s.condition.track.nextAt - c.now, 7 * DAY);
     const reloaded = JSON.parse(JSON.stringify(c.s)); validate(reloaded);
     assert.ok(reloaded.condition && reloaded.ledger.length > 0);
     assert.throws(() => commit(reloaded, {now: c.now + 1}, {type: 'drink', batchId: b2.id, sampleId: 'S99'}), /Choose a sample|last change/);
-    settle(reloaded, c.now + HP.rules.animalRecoveryMinutes); assert.equal(reloaded.condition, null);
+    settle(reloaded, c.now + 400 * DAY); assert.equal(reloaded.condition, null);
 });
 
 test('a degraded batch changes for half the stated hour; an original batch does nothing and wastes the sample', () => {
@@ -421,4 +421,45 @@ test('treatment reaches the existing subsequent potion-quality reader across its
     r.do({type: 'brew', slots});
     assert.equal(r.s.cauldron.brew.grade, 'canon', 'restored apparatus changes a real future product, not only a display meter');
     validate(JSON.parse(JSON.stringify(r.s)));
+});
+
+// Staged animal features on the shared affliction seam (AD51 consumer). Canon fixed point:
+// several weeks in the hospital wing (book.hp.ev.long_recovery).
+const catDrink = seed => {
+    const c = new Run(seed); const b = c.brew(c.slots());
+    c.do({type: 'sample', donorId: 'd2', route: 'brush'}); const sid = Object.keys(c.s.samples).at(-1);
+    c.s.samples[sid].truth.species = 'cat'; c.do({type: 'drink', batchId: b.id, sampleId: sid}); return c;
+};
+const weeksToClear = (c, care) => {
+    if(care) c.do({type: 'seekCare'});
+    const start = c.now; while(c.s.condition) c.wait(7 * DAY);
+    return (c.now - start) / (7 * DAY);
+};
+test('animal features recover in weekly stages; hospital care calibrates to several weeks', () => {
+    const cared = [], alone = [];
+    for(let seed = 1; seed <= 40; seed++) { cared.push(weeksToClear(catDrink(seed), true)); alone.push(weeksToClear(catDrink(seed + 1000), false)); }
+    const mean = xs => xs.reduce((a, b) => a + b, 0) / xs.length;
+    assert.ok(Math.min(...cared) >= 2, 'never faster than two weeks');
+    assert.ok(mean(cared) >= 3 && mean(cared) <= 7, `cared mean ${mean(cared)} weeks`);
+    assert.ok(mean(alone) > mean(cared), `untreated ${mean(alone)} should be slower than cared ${mean(cared)}`);
+});
+test('animal-features checks are reload-stable and care is quoted, admitted once and saved', () => {
+    const a = catDrink(7), b = JSON.parse(JSON.stringify(a.s));
+    assert.equal(quote(a.s, {now: a.now}, {type: 'seekCare'}).eligible, true);
+    a.do({type: 'seekCare'});
+    assert.equal(quote(a.s, {now: a.now}, {type: 'seekCare'}).eligible, false);
+    const saved = JSON.parse(JSON.stringify(a.s)); validate(saved); assert.equal(saved.condition.care, true);
+    const v = view(a.s, {now: a.now}); assert.equal(v.condition.stage, 3); assert.equal(v.condition.care, true); assert.match(v.condition.text, /tail/);
+    // Settling in one jump or week by week gives the same history.
+    b.condition.care = true; b.condition.careSince = a.now;
+    const jump = structuredClone(b); settle(jump, a.now + 20 * 7 * DAY);
+    const steps = structuredClone(b); for(let w = 1; w <= 20; w++) settle(steps, a.now + w * 7 * DAY);
+    assert.deepEqual(jump.condition, steps.condition); assert.deepEqual(jump.ledger.map(e => e.text), steps.ledger.map(e => e.text));
+});
+test('older saves with a fixed animal-features timer still load and clear', () => {
+    const c = catDrink(3), old = JSON.parse(JSON.stringify(c.s));
+    old.condition = {id: 'animal_features', until: c.now + HP.rules.animalRecoveryMinutes}; validate(old);
+    assert.match(quote(old, {now: c.now}, {type: 'seekCare'}).reason, /older fixed recovery/);
+    settle(old, c.now + HP.rules.animalRecoveryMinutes); assert.equal(old.condition, null);
+    const bad = JSON.parse(JSON.stringify(c.s)); bad.condition.track.stage = 9; assert.throws(() => validate(bad), /Malformed animal-features/);
 });

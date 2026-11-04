@@ -167,7 +167,7 @@ Codes continue each world's numbering. Before writing, I checked ORIGINS_AND_WOR
 |---|---|---|
 | HP26 | Staircases move and some steps vanish (general knowledge), so a route you memorized fails on some days. | The castle has its own moods, and being late to class becomes a texture, not a penalty screen. |
 | HP27 | Every-flavor beans include bad flavors (general knowledge), so a shared snack can be a small social gamble. | Tiny risk, big recognition. |
-| HP28 | Prices come in Galleons, Sickles and Knuts at odd ratios (17 and 29, general knowledge), and Muggle-borns fumble the change. | A fan catches a wrong ratio instantly, and the fumbling marks an outsider. |
+| HP28 | Prices come in Galleons, Sickles and Knuts at odd ratios (17 and 29, shown in B1:PDF-p59 to p60; see HP institutions F1/X5), and Muggle-borns fumble the change. | A fan catches a wrong ratio instantly, and the fumbling marks an outsider. |
 | HP29 | Portraits gossip and carry news between castles faster than owls (general knowledge). | The walls really do talk, so a secret said in a corridor travels. |
 | HP30 | Feast food appears and vanishes on the tables, and house-elves are never seen doing it (general knowledge). | It pairs with HP7. Finding the kitchens recasts every feast you remember. |
 | HP31 | Wizards dress strangely in Muggle places, with mixed-up clothes (general knowledge). | Your own outfit choices become an exposure risk that a Muggle neighbor notices. |
