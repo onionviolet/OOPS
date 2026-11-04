@@ -2,6 +2,8 @@ import {registerDomain} from './domain_registry.js';
 import {current_game_time} from './game_time.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {namedMoneySource as named} from './money.js';
+import {isGrained} from './currency_subunits.js';
+const grained = v => { if(typeof v === 'number' && !isGrained(v, 2)) throw Error('Money must be on the halfpenny grain.'); return v; };
 export {setSavedPurse, addSavedPurse} from './money.js';
 // One money seam (ECX1, ECR16) and a faucet/sink ledger (ECL2, ECR15), 2026-10-19.
 // Every write to the hero's coin purse (`character.money`) goes through setPurse/addPurse with a
@@ -10,7 +12,8 @@ export {setSavedPurse, addSavedPurse} from './money.js';
 // arithmetic, no row, because the live publication after that write records it. Staged plan values
 // (`plan.external.money`, `plan.money`, `p.native.money`) are not the purse; a plan's net change
 // is recorded once when it commits. The seam keeps today's arithmetic exactly (no rounding or
-// range rule yet), so behavior is unchanged.
+// range rule yet), so behavior is unchanged. R2: a halfpenny is 0.5 of a pence on the same purse
+// (src/currency_subunits.js); a write that is not on the halfpenny grain throws.
 //
 // The ledger is debug and read-only: memory only, never saved, the last LIMIT rows. Baseline rows
 // (load, new game, start layers) set the purse without being a faucet or sink.
@@ -29,10 +32,10 @@ function record(holder, before, source, {baseline = false, detail = null} = {}) 
 
 // The live purse. `detail` is optional display text (a trade label, a plan message).
 export function setPurse(holder, value, source, options) {
-    source = named(source); const before = holder.money; holder.money = value; record(holder, before, source, options);
+    source = named(source); const before = holder.money; holder.money = grained(value); record(holder, before, source, options);
 }
 export function addPurse(holder, amount, source, options) {
-    source = named(source); const before = holder.money; holder.money += amount; record(holder, before, source, options);
+    source = named(source); const before = holder.money; holder.money = grained(holder.money + amount); record(holder, before, source, options);
 }
 
 // Names a committed expansion plan's money change by the events it appended (their action ids);

@@ -1,10 +1,13 @@
 // Pack-owned quotes over simulation admission, reserved stock and native money.
 // Existing inventory/equipment owners settle the result; no stock is seeded here.
 import {validateItemKey} from './inventory_key.js';
+import {isGrained} from './currency_subunits.js';
 const id=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 const natural=x=>Number.isSafeInteger(x)&&x>=0;
 const positive=x=>natural(x)&&x>0;
+// R2 dial: quote format. Default whole pence; a price may carry `grain:2` so total, tender and change are in halfpence-of-unit.
+const grainedNat=(x,g)=>Number.isFinite(x)&&x>=0&&isGrained(x,g);
 const eq=(fact,value,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 // exchanges: {schema:1,rows:[{id,revision,kind:'purchase'|'wear',place,minutes,
 // label,description,report,requires?, sellerId?,items?:[{key,count,label}],
@@ -26,7 +29,7 @@ export function defineCastExchanges(data,{worldId,actorId='player',group,situati
   if(row.kind==='purchase'){
    const price=row.price;
    if(actorId!=='player'||!id(row.sellerId)||row.sellerId===actorId||!Array.isArray(row.items)||!row.items.length||
-    !price||!text(price.unit)||!positive(price.moneyPerUnit)||price.total!==null&&!natural(price.total))throw Error('Purchase needs a bound seller, stock and grouped quote.');
+    !price||!text(price.unit)||!positive(price.moneyPerUnit)||price.total!==null&&!grainedNat(price.total,price.grain??1)||![undefined,1,2].includes(price.grain))throw Error('Purchase needs a bound seller, stock and grouped quote.');
    const keys=new Set();
    for(const item of row.items){
     validateItemKey(item.key);
@@ -36,11 +39,12 @@ export function defineCastExchanges(data,{worldId,actorId='player',group,situati
     effects.push({type:'item',actor:actorId,key:item.key,amount:item.count});
    }
    const tender=price.tender??null,change=price.change??null;
-   if(tender!==null&&!natural(tender)||change!==null&&!natural(change)||
-    (tender===null)!==(change===null)||tender!==null&&(price.total===null||tender-change!==price.total))throw Error('Tender and change must conserve the grouped price.');
+   const g=price.grain??1;
+   if(tender!==null&&!grainedNat(tender,g)||change!==null&&!grainedNat(change,g)||
+    (tender===null)!==(change===null)||tender!==null&&(price.total===null||Math.round((tender-change)*g)!==Math.round(price.total*g)))throw Error('Tender and change must conserve the grouped price.');
    if(price.total===null)continue;
    const debit=(tender??price.total)*price.moneyPerUnit,credit=(change??0)*price.moneyPerUnit;
-   if(!natural(debit)||!natural(credit))throw Error('Exchange currency exceeds supported precision.');
+   if(!grainedNat(debit,2)||!grainedNat(credit,2))throw Error('Exchange currency exceeds supported precision.');
    if(debit)costs.push({type:'resource',actor:actorId,key:'money',native:true,amount:-debit});
    if(credit)effects.push({type:'resource',actor:actorId,key:'money',native:true,amount:credit});
    costText=`${price.total} ${price.unit} for ${row.items.map(x=>`${x.count} ${x.label}`).join(', ')}${tender!==null?`; tender ${tender}, change ${change} ${price.unit}`:''}`;
