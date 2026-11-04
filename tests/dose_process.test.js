@@ -147,7 +147,7 @@ test('special-order tier costs more and has little stock; Seq 4 and above have n
     p.state.actors.player.facts['book.lotm.bf.fool_4.formula'] = true;
     for(const s of row.slots) p.gameplay.player.inventory[s.key] = 1;
     p = run(p, 'bf_start_fool_4'); p = run(pass(p, row.minutes), 'bf_collect_fool_4'); ok(p); assert.equal(holds(p, row.product.key), 1);
-    assert.match(hostOver(p).host.view('fool_4').bench.selected.drink.reason, /Not yet written.*without its rite.*loss-of-control/);
+    assert.match(hostOver(p).host.view('fool_4').bench.selected.drink.reason, /Not yet written.*without its rite.*losing control/);
 });
 
 test('stock reaches a save enrolled before the bench (DWF127) and the frog invariant still holds', () => {
