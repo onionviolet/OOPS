@@ -263,6 +263,18 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const a of v.divinations)rites.append(node('p',`${a.queryLabel}: ${a.question} ${a.method}. ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(a.signal?[node('p',a.signal)]:[]),...(a.belief?[node('p',`Your interpretation: ${a.belief}`)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
    actions.append(rites);
   }
+  if(v.altarRites?.length){
+   // One block per rite: the altar as text lines in placing order, then its steps with only the next one a live button (U3).
+   const altar=node('details');altar.dataset.lotmAltarRites='';altar.dataset.perspective='player';altar.append(node('summary','Altar and rites · Your rite'));
+   const byRow=new Map();for(const a of v.altarRites){if(!byRow.has(a.rowId))byRow.set(a.rowId,[]);byRow.get(a.rowId).push(a);}
+   for(const [rowId,steps] of byRow){
+    const rite=node('div');rite.dataset.lotmRite=rowId;rite.append(node('h4',steps[0].rowLabel));
+    if(steps[0].layout)rite.append(node('p',`Altar, in the order you set it: ${steps[0].layout.stations.map((x,i)=>`${i+1}. ${x.label}${steps.find(t=>t.id===`${rowId}.${x.id}`)?.status==='done'?' (set)':''}`).join('; ')}.`));
+    for(const a of steps)rite.append(node('p',`${a.index+1}/${a.total} ${a.step}${a.status==='done'?' · done':a.status==='next'?' · next':''}. ${a.description} ${a.costText}`),...(a.status==='next'?[row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[])]:[]));
+    altar.append(rite);
+   }
+   actions.append(altar);
+  }
   if(v.exchanges?.length){
    const exchange=node('details');exchange.dataset.lotmExchanges='';exchange.dataset.perspective='player';exchange.append(node('summary','Belongings · Your exchange'));
    for(const a of v.exchanges)exchange.append(node('p',a.description),node('p',a.costText),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));

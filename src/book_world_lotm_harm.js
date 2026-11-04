@@ -9,7 +9,8 @@ export const LOTM_ACCRUAL={divination:{source:'divination peek',weight:1},abilit
 export function harmClassOf(def){
  if(def.bodyCare)return def.bodyCare.kind==='sleep'?'rest':'care';
  if(def.journey||String(def.id).startsWith('lotm.move.'))return 'travel';
- if(def.divination)return 'ritual';
+ if(def.divination||def.lotmAct?.kind==='station'||def.lotmAct&&/^lotm\.rite\./.test(def.lotmAct.rowId))return 'ritual';
+ if(def.lotmAct)return 'craft';
  if(def.castAbility)return 'practice';
  if(/bf_|brew|making/.test(def.id)||def.making)return 'craft';
  if(/observe_|inference/.test(def.id)||def.inference)return 'research';
@@ -23,6 +24,10 @@ const accrualOf=def=>def.divination?.kind==='attempt'?LOTM_ACCRUAL.divination:de
 export function accrueHarm(s,def){
  const a=accrualOf(def);if(!a||s.actors?.player?.worldId!==WORLD)return null;
  const next=addBacklash(harmState(),HARM_WORLDS[WORLD],CARRIER,a);setHarmState(next.state);return next.record;
+}
+// A finished rite or craft names its carrier and weight (lotm_act_engine settle); the one door into the same slice.
+export function accrueAct(carrier,{source,weight}){
+ const next=addBacklash(harmState(),HARM_WORLDS[WORLD],carrier,{source,weight});setHarmState(next.state);return next.record;
 }
 export function restHarm(s,minutes,treated=false){
  if(s.actors?.player?.worldId!==WORLD||!(minutes>0))return null;

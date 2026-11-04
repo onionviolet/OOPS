@@ -10,9 +10,10 @@ import {createSimulationRegistry} from '../src/simulation_contracts.js';
 import {applySituationEffect} from '../src/causal_situations.js';
 import {previewSimulationCommand,commitSimulationCommand,simulationFacts} from '../src/simulation.js';
 const rows=[...LOTM_RITE_ROWS.rows,...LOTM_CRAFT_ROWS.rows,...LOTM_AID_PREPARATIONS.rows];
-const {commands,unbound}=defineLotmActs(rows,LOTM_ACT_BINDINGS,{worldId:I.world,group:'book_lotm',situationId:I.situation});
-const defs=createSimulationRegistry({commands});for(const [id,d] of defs.commands)registry.simulation.commands.set(id,d);
+await import('../src/book_world_lotm_domain.js');
 const room='fixture.workroom';
+const {commands,unbound}=defineLotmActs(rows,LOTM_ACT_BINDINGS,{worldId:I.world,group:'book_lotm',situationId:I.situation,resolvePlace:()=>room});
+const defs=createSimulationRegistry({commands});for(const [id,d] of defs.commands)registry.simulation.commands.set(id,d);
 function setup(facts={}){const p=fresh(5);applySituationEffect(p.state,{type:'situation',situationId:I.situation,operation:'begin'},registry.simulation,'t.begin');
  p.state.simulation.people.player.location=room;Object.assign(p.state.actors.player.facts,facts);return p;}
 const def=id=>registry.simulation.commands.get(id);
@@ -23,9 +24,9 @@ const stock=(p,k,n)=>{p.gameplay.player.inventory[k]=n;return p;};
 
 test('rows without a complete binding are reported, not guessed',()=>{
  const ids=new Set(commands.map(c=>c.lotmAct.rowId));
- assert.equal(ids.size,5);
+ assert.equal(ids.size,6);
  assert.ok(unbound.length>60);
- assert.match(unbound.find(u=>u.id==='lotm.rite.spirit-call').reasons[0],/No binding/);
+ assert.match(unbound.find(u=>u.id==='lotm.rite.sacrifice-ritual').reasons[0],/No binding/);
  const partial=defineLotmActs(LOTM_CRAFT_ROWS.rows.slice(5,6),{[LOTM_CRAFT_ROWS.rows[5].id]:{place:room,steps:{},inputs:{}}},{worldId:I.world,group:'g',situationId:I.situation});
  assert.equal(partial.commands.length,0);assert.ok(partial.unbound[0].reasons.some(r=>/minutes/.test(r))&&partial.unbound[0].reasons.some(r=>/Moon flower/.test(r)));
 });
@@ -41,7 +42,7 @@ test('volume 1 craft: inputs spend at distill, oil appears at the end, bath aid 
  assert.equal(p.gameplay.player.inventory[K.essenceOil]??0,0);assert.equal(p.state.actors.player.facts['lotm.mood.relaxed']??p.state.actors.player.facts['actor.lotm.mood.relaxed'],true);
 });
 test('volume 2 rite: ordered steps, offering spent, owner effects and risk settle once',()=>{
- let p=stock(setup({'lotm.rite.fool-offering-means':true}),K.metalBox,1);
+ let p=stock(stock(setup({'lotm.rite.fool-offering-means':true}),K.metalBox,1),K.candle,1);
  assert.equal(preview(p,'lotm.rite.fool-sacrifice.send').eligible,false);
  p=run(p,'lotm.rite.fool-sacrifice',['candle','petition','channel','send']);
  assert.equal(p.gameplay.player.inventory[K.metalBox]??0,0);
@@ -53,7 +54,7 @@ test('volume 2 rite: ordered steps, offering spent, owner effects and risk settl
  const added=[];const add=(c,a)=>added.push([c,a]);
  const f=()=>simulationFacts(p.state,ctx(p),registry);
  settleLotmBacklash(p.state,sacrifice,I.world,f(),add);settleLotmBacklash(p.state,sacrifice,I.world,f(),add);
- assert.equal(added.length,1);assert.deepEqual(added[0],['spirit',{source:'lotm.rite.fool-sacrifice',weight:2}]);
+ assert.equal(added.length,1);assert.deepEqual(added[0],['power',{source:'lotm.rite.fool-sacrifice',weight:2}]);
 });
 test('volume 3 rite and craft: unresolved owners stay auditable; craft yields its product',()=>{
  let p=setup({'lotm.rite.v3-self-summon-transfer-v3':true,'lotm.craft.fish-man-hunting-preparation-means':true});

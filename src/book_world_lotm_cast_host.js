@@ -25,6 +25,8 @@ import {defineJourneys,quoteJourneys,pendingJourneyReports,settleJourneyReports}
 import {defineInferences,quoteInferences,pendingInferenceReports,settleInferenceReports} from './cast_inference_adapter.js';
 import {defineCards,dueCards,settleCardReports} from './cast_card_runtime.js';
 import {defineCastAbilities,quoteCastAbilities} from './cast_ability_adapter.js';
+import {defineActs,quoteActs,collectActBacklash,pendingActBacklash} from './book_world_lotm_acts_host.js';
+import {accrueAct} from './book_world_lotm_harm.js';
 import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
 import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js';
 import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
@@ -89,6 +91,11 @@ export let castDivinationCommands=[];
 export function castDivinationOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  return quoteDivinations(state,castDivinationCommands,preview,options);
+}
+export let castActCommands=[];
+export function castActOffers(state,preview,options={}){
+ if(!lotmBe(state)||!castAvailable)return [];
+ return quoteActs(state,castActCommands,preview,options);
 }
 export let castTopicCommands=[];
 export function castTopicOffers(state,preview,options={}){
@@ -180,6 +187,7 @@ function deriveCast(pack){
  castCardRows=defineCards(pack.eventCards ?? null,{worldId:I.world,actorId:'player',group:'book_lotm',situationId:LOTM_CAST_SITUATION});
  castAbilityCommands=defineCastAbilities(pack.abilityConflicts,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castDivinationCommands=defineDivinations({...pack.divinations,queries:[...(pack.divinations?.queries||[]),...LOTM_DIVINATION_ROWS.queries]},{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castActCommands=defineActs({situationId:LOTM_CAST_SITUATION,resolvePlace:resolveCastPlace,requires:eq('lotm.profile.be')}).commands;
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castMakingCommands=defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -220,7 +228,7 @@ export function castElsewhere(state){
 const installed=new WeakSet();
 export function installCast(registry){
  if(!castAvailable||installed.has(registry))return;
- const defs=createSimulationRegistry({people:[...castPeople,...castSpawnPeople],commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands],situations:[castSituation],energies:[LOTM_ENERGY,BE_SEER_ENERGY]});
+ const defs=createSimulationRegistry({people:[...castPeople,...castSpawnPeople],commands:[...castBodyCommands,...castTalkCommands,...castWalkCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castActCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands],situations:[castSituation],energies:[LOTM_ENERGY,BE_SEER_ENERGY]});
  for(const family of ['people','commands','situations'])for(const [id,def] of defs[family])registry.simulation[family].set(id,def);
  validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
  installed.add(registry);
@@ -268,7 +276,7 @@ const cardWindowFor=state=>({scenes:lotmCastDays().filter(d=>state.clock>=state.
 const pendingCardReports=state=>castCardRows.length>0&&dueCards(state,castCardRows,cardWindowFor(state)).length>0;
 export function castSyncDue(state){
  if(!lotmCastLife(state)||!castAvailable)return false;
- if(lotmBe(state)&&pendingCardReports(state))return true;
+ if(lotmBe(state)&&(pendingCardReports(state)||pendingActBacklash(state,castActCommands)))return true;
  if(lotmBe(state)&&(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)||pendingDivinationReports(state,castDivinationCommands,I.world)||pendingInferenceReports(state,castInferenceCommands,I.world)))return true;
  if(lotmBe(state)&&LOTM_CAST.householdActs?.objects?.some(r=>!state.worlds[I.world].facts[`place.act.seed.${r.id}`]))return true;
  if(missingCastBodies(state)||!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
@@ -286,7 +294,7 @@ export function syncLotmCast(state){
  let promoted=false;
  if(lotmBe(state))for(const id of LOTM_CAST.householdActs?.requiredPeople||[]){const person=castPeople.find(p=>p.id===id);if(person)promoted=enrollCastBody(state,person)||promoted;}
  const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)||pendingDivinationReports(state,castDivinationCommands,I.world)||pendingInferenceReports(state,castInferenceCommands,I.world)));
- changed=promoted||changed||(lotmBe(state)&&pendingCardReports(state));
+ changed=promoted||changed||(lotmBe(state)&&(pendingCardReports(state)||pendingActBacklash(state,castActCommands)));
  const referenced=referencedCastPeople(state);
  const visiting=lotmBe(state)?placeActVisitors(state,LOTM_CAST.householdActs):new Set();
  for(const person of castPeople){if(!state.simulation.people[person.id]&&(projectedPlaces.get(person.id)!=null||referenced.has(person.id)))changed=enrollCastBody(state,person)||changed;
@@ -619,7 +627,10 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
   for(const r of tick.records)out.reports.push({text:`Beat b1: ${r.outcome}${r.sign?` (${r.sign})`:''}.`,at:plan.state.clock,kind:'events',actor:'player'});
   if(JSON.stringify(tick.pull)!==JSON.stringify(pullBefore)){plan.nativePatch={...plan.nativePatch,canonPull:JSON.parse(JSON.stringify(tick.pull))};pullNext=tick.pull;}
  }
+ // A finished rite or craft charges its backlash once: the mark rides this save, the accrual follows it.
+ const actAdds=lotmBe(plan.state)?collectActBacklash(plan.state,castActCommands):[];
  const result=persist(plan);
+ for(const [carrier,due] of actAdds)accrueAct(carrier,due);
  if(pullNext)domainRegistry.command('canonPull','commit')(pullNext);
  domainRegistry.command('beatLedger','commit')(saved);
  for(const report of [...out.reports,...news.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);

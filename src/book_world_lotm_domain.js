@@ -8,6 +8,7 @@ import {registerDomain} from './domain_registry.js';
 import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {lotmFacts} from './book_world_lotm_actions.js';
 import {lotmDivinationFacts} from './book_world_lotm_div_supply.js';
+import {lotmActFacts} from './book_world_lotm_acts_host.js';
 import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
 import {createLotmPanel} from './book_world_lotm_ui.js';
 import {lotmPeople} from './book_world_lotm_content.js';
@@ -44,5 +45,5 @@ function restoreMissingCast(envelope){
 registerUpcomingSource(()=>host?.upcoming()||[]);
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
- projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
+ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home()});}]});
