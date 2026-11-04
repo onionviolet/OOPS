@@ -2346,3 +2346,7 @@ The Klein line now names the KJ3AA endpoint (Sunday 10:50 p.m. at the flat after
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw18)
 
 The Klein line now names the KJ3AB endpoint (Monday 4:04 p.m. at the flat after the third gathering and the leave ritual, English v1 ch58 P001 through ch61 P071; 16 acts, 30 slices, 468 stages; native on the master bundle `65a3b122`, purse 799, pool 2/3). KJ3AA keeps Anna's first paid divination and the night notes. A third pack remote session was added (KJ3Q precedent). Agent-verified, not human-reviewed.
+
+## 2026-11-04: PROJECT.md endpoint line replaced (kjw19)
+
+The Klein line now names the KJ3AC endpoint (Tuesday 7:58 a.m. at the Blackthorn office after Monday at the Divination Club and the warrant for Tris, English v1 ch62 P001 through ch64 P088; 13 acts, 31 slices, 481 stages; native on the master bundle `4c9c0c2b`, purse 817, pool 1/3). KJ3AB keeps Monday at home and the third gathering. First native uses of the C1 client registry (Glacis, Joyce), the Anna settle and one B3 Spirit Vision cycle. Agent-verified, not human-reviewed.
