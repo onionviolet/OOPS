@@ -1,15 +1,26 @@
 """Scoped collection of d20 rules pages (Pathfinder 1e d20pfsrd, Pathfinder 2e
 Archives of Nethys) through the lncrawl-polite transport. Weibao asked for it
-2026-11-03 ("Scraping wiki of the two D&D wikis"). Index pages are fetched as
-catalogue; each detail page spends one reader budget unit (300 per host per
-session). Resumable: pages already in the manifest are skipped before budget.
-Raw HTML stays in the transport cache; extracted text and the manifest go to
-the gitignored private folder. Run with the fork's venv python:
+2026-11-03 ("Scraping wiki of the two D&D wikis"; "For d20pfsrd, we consider
+stuff beyond weapons too"). Resumable: pages already in the manifest are
+skipped before budget. Raw HTML stays in the transport cache; extracted text
+and the manifest go to the gitignored private folder. Run with the fork's venv:
 
   /Users/weiwei/code/lncrawl-polite/.venv-polite/bin/python \
       docs/research/d20/collect_d20_polite.py [--probe] [--section NAME]
+
+URL discipline (added after a hand-typed index URL got HTTP 404 and closed
+www.d20pfsrd.com for good on 2026-11-04): every URL fetched must have appeared
+as a link in a page the transport already holds or fetched this run. Seeds
+that fail this are refused locally, before any request. PF1 paths are fetched
+in the site's canonical trailing-slash form (all 187 successful receipts and
+the pages' rel=canonical use it), because a redirect also closes the host.
+
+Each section: `index` seed pages, optional `follow` (links on catalogue pages
+that are themselves catalogue pages, fetched unbudgeted, CATALOGUE_CAP each), and `keep`
+(links that are budgeted detail pages, 300 per host per session). Run
+`--probe` first; it fetches only catalogue pages and writes the link lists.
 """
-import sys, json, hashlib, argparse
+import sys, re, json, hashlib, argparse
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, urlunsplit
 sys.path.insert(0, '/Users/weiwei/code/lncrawl-polite')
@@ -22,28 +33,76 @@ OUT = ROOT / 'docs/research/d20/private'
 
 PF1 = 'https://www.d20pfsrd.com'
 AON = 'https://2e.aonprd.com'
-# Each section: index pages, and the URL test that keeps a link in scope.
+
+def rx(pattern):
+    r = re.compile(pattern)
+    return lambda u: bool(r.fullmatch(u))
+
+P = re.escape(PF1)
 SECTIONS = {
+    # Complete: index + 184 pages (run-2, 2026-11-04).
     'pf1-weapon-abilities': {'index': [f'{PF1}/magic-items/magic-weapons/magic-weapon-special-abilities/'],
-                             'keep': lambda u: u.startswith(f'{PF1}/magic-items/magic-weapons/magic-weapon-special-abilities/')},
-    'pf1-armor-abilities': {'index': [f'{PF1}/magic-items/magic-armor/magic-armor-special-abilities/'],
-                            'keep': lambda u: u.startswith(f'{PF1}/magic-items/magic-armor/magic-armor-special-abilities/')},
-    'pf1-afflictions': {'index': [f'{PF1}/gamemastering/afflictions/'],
-                        'keep': lambda u: u.startswith(f'{PF1}/gamemastering/afflictions/')},
-    'pf1-conditions': {'index': [f'{PF1}/gamemastering/conditions/'], 'keep': lambda u: u == f'{PF1}/gamemastering/conditions/'},
-    'pf1-disguise': {'index': [f'{PF1}/skills/disguise/', f'{PF1}/skills/bluff/', f'{PF1}/skills/perception/',
-                               f'{PF1}/magic/all-spells/a/alter-self/', f'{PF1}/magic/all-spells/d/disguise-self/',
-                               f'{PF1}/magic/all-spells/t/true-seeing/', f'{PF1}/magic/all-spells/s/seeming/',
-                               f'{PF1}/magic/all-spells/v/veil/'], 'keep': lambda u: False},
+                             'keep': rx(rf'{P}/magic-items/magic-weapons/magic-weapon-special-abilities/[^/]+/')},
+    # Wider scope, 2026-11-04. Seeds are all site-linked; follow/keep paths
+    # past the seed are unverified until --probe shows the catalogue.
+    'pf1-armor-abilities': {'index': [f'{PF1}/magic-items/'],
+                            'follow': rx(rf'{P}/magic-items/magic-armor/(?:[^/]+/)?'),
+                            'keep': rx(rf'{P}/magic-items/magic-armor/[^/]*special-abilit[^/]*/[^/]+/')},
+    'pf1-cursed-items': {'index': [f'{PF1}/magic-items/'],
+                         'follow': rx(rf'{P}/magic-items/cursed-items/'),
+                         'keep': rx(rf'{P}/magic-items/cursed-items/[^/]+/')},
+    'pf1-wondrous-items': {'index': [f'{PF1}/magic-items/'],
+                           'follow': rx(rf'{P}/magic-items/wondrous-items/'),
+                           'keep': rx(rf'{P}/magic-items/wondrous-items/(?:[^/]+/){{1,2}}')},
+    'pf1-afflictions': {'index': [f'{PF1}/gamemastering/'],
+                        'follow': rx(rf'{P}/gamemastering/afflictions/(?:[^/]+/)?'),
+                        'keep': rx(rf'{P}/gamemastering/afflictions/(?:[^/]+/){{1,2}}')},
+    'pf1-haunts': {'index': [f'{PF1}/gamemastering/'],
+                   'follow': rx(rf'{P}/gamemastering/haunts/'),
+                   'keep': rx(rf'{P}/gamemastering/haunts/[^/]+/')},
+    'pf1-conditions': {'index': [f'{PF1}/gamemastering/conditions/'], 'keep': lambda u: False},
+    'pf1-environment': {'index': [f'{PF1}/gamemastering/'],
+                        'follow': rx(rf'{P}/gamemastering/environment/'),
+                        'keep': rx(rf'{P}/gamemastering/environment/[^/]+/')},
+    'pf1-skills': {'index': [f'{PF1}/skills/'], 'keep': rx(rf'{P}/skills/[^/]+/')},
+    'pf1-crafting': {'index': [f'{PF1}/feats/', f'{PF1}/magic-items/'],
+                     'follow': rx(rf'{P}/feats/item-creation-feats/'),
+                     'keep': rx(rf'{P}/(?:feats/item-creation-feats/[^/]+|magic-items/[^/]*creat[^/]*)/')},
+    'pf1-spells-transmutation': {'index': [f'{PF1}/magic/'],
+                                 'follow': rx(rf'{P}/magic/[^/]*transmutation[^/]*/'),
+                                 'keep': rx(rf'{P}/magic/all-spells/[a-z0-9]/[^/]+/')},
+    'pf1-spells-illusion': {'index': [f'{PF1}/magic/'],
+                            'follow': rx(rf'{P}/magic/[^/]*illusion[^/]*/'),
+                            'keep': rx(rf'{P}/magic/all-spells/[a-z0-9]/[^/]+/')},
+    'pf1-universal-monster-rules': {'index': [f'{PF1}/bestiary/rules-for-monsters/universal-monster-rules/'],
+                                    'keep': rx(rf'{P}/bestiary/rules-for-monsters/universal-monster-rules/[^/]+/')},
     'pf2-diseases': {'index': [f'{AON}/Diseases.aspx'], 'keep': lambda u: u.startswith(f'{AON}/Diseases.aspx?ID=')},
     'pf2-curses': {'index': [f'{AON}/Curses.aspx'], 'keep': lambda u: u.startswith(f'{AON}/Curses.aspx?ID=')},
     'pf2-conditions': {'index': [f'{AON}/Conditions.aspx'], 'keep': lambda u: u.startswith(f'{AON}/Conditions.aspx?ID=')},
 }
+CATALOGUE_CAP = 25  # unbudgeted catalogue pages per section; past this, widen by a reviewed edit
 CONTENT = {'www.d20pfsrd.com': ['#article-content', 'article', '.entry-content'], '2e.aonprd.com': ['#main', 'main', '#ctl00_RadDrawer1_Content_MainContent_DetailedOutput']}
 
 def norm(url):
-    p = urlsplit(url)
-    return urlunsplit((p.scheme, p.netloc.lower(), p.path, p.query, ''))
+    p = urlsplit(url.strip())
+    path = p.path
+    if p.netloc.lower() == 'www.d20pfsrd.com':
+        if path and not path.endswith('/') and '.' not in path.rsplit('/', 1)[-1]: path += '/'
+        return urlunsplit((p.scheme, 'www.d20pfsrd.com', path, '', ''))
+    return urlunsplit((p.scheme, p.netloc.lower(), path, p.query, ''))
+
+def links_of(soup, base):
+    return {norm(urljoin(base, el['href'])) for el in soup.select('a[href]')}
+
+def held_links():
+    """Links on every page the transport already holds (local cache read, no request)."""
+    seen = set()
+    for meta in (TRANSPORT / 'cache').glob('*.json'):
+        info = json.loads(meta.read_text())
+        if info.get('status') != 200 or urlsplit(info['url']).hostname not in CONTENT: continue
+        seen.add(norm(info['url']))
+        seen |= links_of(BeautifulSoup(meta.with_suffix('.bin').read_bytes(), 'html.parser'), info['url'])
+    return seen
 
 def text_of(body, host):
     soup = BeautifulSoup(body, 'html.parser')
@@ -53,12 +112,13 @@ def text_of(body, host):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--probe', action='store_true', help='fetch index pages only and list in-scope links')
+    ap.add_argument('--probe', action='store_true', help='fetch catalogue pages only and list in-scope links')
     ap.add_argument('--section', action='append', help='limit to these sections')
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = OUT / 'manifest.jsonl'
     done = {json.loads(l)['url'] for l in manifest.open()} if manifest.exists() else set()
+    linked = held_links()
     closed = set()
     with Client(TRANSPORT) as c, manifest.open('a') as out:
         def save(section, url, body, info, kind):
@@ -71,34 +131,44 @@ def main():
                    'sha256': info['sha256'], 'chars': len(text), 'text': str((folder / f'{h}.txt').relative_to(ROOT))}
             out.write(json.dumps(row) + '\n'); out.flush(); done.add(url)
             print(section, kind, info['status'], len(text), title[:70], flush=True)
-            return soup
+
+        def get(section, url, kind):
+            """One guarded fetch. Returns the page's links, or None if refused/closed."""
+            host = urlsplit(url).hostname
+            if host in closed: return None
+            if url not in linked:
+                print('REFUSE (not site-linked)', section, url, flush=True); return None
+            try:
+                if kind == 'page':
+                    with c.chapter(url):
+                        body, info = c.fetch(url)
+                else:
+                    body, info = c.fetch(url)  # cache hit if held
+            except StopHost as e:
+                closed.add(host); print('STOP', section, e, flush=True); return None
+            if url not in done: save(section, url, body, info, kind)
+            found = links_of(BeautifulSoup(body, 'html.parser'), url)
+            linked.update(found)
+            return found
+
         for name, sec in SECTIONS.items():
             if a.section and name not in a.section: continue
-            links = []
-            for idx in sec['index']:
-                host = urlsplit(idx).hostname
-                if host in closed: break
-                try:
-                    body, info = c.fetch(idx)
-                except StopHost as e:
-                    closed.add(host); print('STOP', name, e, flush=True); break
-                soup = save(name, idx, body, info, 'index') if idx not in done else BeautifulSoup(body, 'html.parser')
-                for el in soup.select('a[href]'):
-                    u = norm(urljoin(idx, el['href']))
-                    if sec['keep'](u) and u not in sec['index'] and u not in links: links.append(u)
+            follow, keep = sec.get('follow', lambda u: False), sec['keep']
+            catalogue, links = list(sec['index']), []
+            for idx in catalogue:  # grows through `follow` links, capped
+                found = get(name, idx, 'index')
+                if found is None: continue
+                for u in sorted(found):
+                    if follow(u) and u not in catalogue:
+                        if len(catalogue) < CATALOGUE_CAP: catalogue.append(u)
+                        else: print('CATALOGUE CAP', name, u, flush=True)
+                    elif keep(u) and u not in catalogue and u not in links: links.append(u)
             todo = [u for u in links if u not in done]
-            print(f'{name}: {len(links)} in scope, {len(todo)} to fetch', flush=True)
+            print(f'{name}: {len(catalogue)} catalogue, {len(links)} in scope, {len(todo)} to fetch', flush=True)
             if a.probe:
-                (OUT / f'{name}.links.json').write_text(json.dumps(links, indent=1)); continue
+                (OUT / f'{name}.links.json').write_text(json.dumps({'catalogue': catalogue, 'pages': links}, indent=1)); continue
             for u in todo:
-                host = urlsplit(u).hostname
-                if host in closed: break
-                try:
-                    with c.chapter(u):
-                        body, info = c.fetch(u)
-                    save(name, u, body, info, 'page')
-                except StopHost as e:
-                    closed.add(host); print('STOP', name, e, flush=True); break
+                if get(name, u, 'page') is None and urlsplit(u).hostname in closed: break
 
 if __name__ == '__main__':
     main()
