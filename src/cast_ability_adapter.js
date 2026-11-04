@@ -46,9 +46,9 @@ export function defineCastAbilities(data,{worldId,actorId='player',group,situati
    effects.push({type:'fact',scope:'actor',actor:actorId,key:phaseKey,value:move.id},
     {type:'knowledge',actor:actorId,key:receiptKey,stage:'seen',value:move.report,basis:{kind:'observation',attributedTo:actorId,situationId,...(move.locator||row.locator?{at:move.locator||row.locator}:{})}});
    const declaredCosts=structuredClone(move.costs||[]);
-   check(Array.isArray(declaredCosts)&&declaredCosts.every(c=>['resource','item','vital'].includes(c.type)&&(c.amount==null||Number.isFinite(c.amount)&&c.amount<0)),'Encounter costs must name actual spent stock or an unknown amount.');
-   const unknownCost=move.costs==null||declaredCosts.some(c=>c.amount==null);
-   const costs=declaredCosts.filter(c=>c.amount!=null);
+   check(Array.isArray(declaredCosts)&&declaredCosts.every(c=>c.type==='energy'?c.operation==='use'&&!!c.energyId:['resource','item','vital'].includes(c.type)&&(c.amount==null||Number.isFinite(c.amount)&&c.amount<0)),'Encounter costs must name actual spent stock or an unknown amount.');
+   const unknownCost=move.costs==null||declaredCosts.some(c=>c.type!=='energy'&&c.amount==null);
+   const costs=declaredCosts.filter(c=>c.type==='energy'||c.amount!=null);
    const command={id:commandId,revision:1,label:move.label,description:move.description,worldId,actorId,group,once:true,duration:move.minutes,cancellation:'refund',
     ...(row.place?{location:row.place}:{}),...(row.targetId?{targetId:row.targetId,participants:['$target'],coLocated:true}:{}),
     visibleWhen:requires||eq('actor.life','alive'),requires:support,completionRequires:support,completionCoLocated:!!row.place||!!row.targetId,completionFailure:'refund',costs,effects,

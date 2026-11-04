@@ -5,6 +5,7 @@
 // three contacts the rows describe as held in mind, which need only a body awake enough to ask.
 import {LOTM_DIVINATION_FACTS} from './lotm_divination_rows.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
+import {beDivMethodFacts} from './book_world_lotm_divination_method.js';
 const PREFIX='actor.lotm.div.';
 // default (derived rule) / dial (item or knowledge makes it true anywhere) / reason (why the default is open).
 const DERIVED={
@@ -21,11 +22,11 @@ export const LOTM_DIV_DERIVED=DERIVED;
 export function lotmDivinationFacts(state,ctx={}){
  const enrolled=state.actors?.player?.worldId===I.world&&state.lotm,
   inv=ctx.gameplay?.player?.inventory||{},known=state.simulation?.knowledge?.player||{},money=(ctx.external?.money??0)>0,
-  method=state.simulation?.powers?.player?.[I.method]?.owned===true,out={};
+  method=state.simulation?.powers?.player?.[I.method]?.owned===true,out={},bem=beDivMethodFacts(state,ctx,{enrolled:!!enrolled});
  for(const key of LOTM_DIVINATION_FACTS){
   const name=key.slice(PREFIX.length),stock=`book.lotm.div.${name}`,rule=DERIVED[name]?.need;
   if(name.startsWith('grounds.')){out[key]=!!enrolled&&!!known[`book.lotm.div.${name}`];continue;}
-  out[key]=!!enrolled&&((inv[stock]||0)>0||!!known[stock]||rule==='money'&&money||rule==='method'&&method||rule==='mind');
+  out[key]=!!enrolled&&((inv[stock]||0)>0||!!known[stock]||rule==='money'&&money||rule==='method'&&(method||bem[`actor.lotm.div.method.${name.replace(/^means\./,'')}.real`])||rule==='mind');
  }
- return out;
+ return Object.assign(out,bem);
 }
