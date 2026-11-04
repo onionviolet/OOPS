@@ -1,0 +1,878 @@
+{
+  "schema": 1,
+  "shard": "S043",
+  "reader": "content_s043; gpt-6-luna low",
+  "payload_sha256": "cba42e750c32a696afd2bc456084701a1f13d8204dadf77748f73fc5690f216b",
+  "scope": "Complete assigned historical checkpoint spans; recorded mechanisms and evidence limits reviewed, not contemporary runtime, source-canon, or implementation validation.",
+  "rows": [
+    {
+      "record_id": "U0441",
+      "path": "docs/research/project-zomboid/CHECKPOINT.md",
+      "input_sha256": "08c4806b421e0f2e1901e69a5cc071b38254c1c306f0d5470afaa3df20d0173d",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          30,
+          30
+        ]
+      ],
+      "original_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "P01",
+        "P03",
+        "P04"
+      ],
+      "mechanism_and_interactions": "Bounded Project Zomboid static scout answers five assigned feature questions from installed 42.21 source. The trail reads learning, craft admission/UI, body readers, action lifecycle, hide/tanning/drying, smithing and pottery; selected CFR decompilation covers core XP, knowledge, environmental timing and persistence. Findings/proposals and tooling/system digests are source-qualified, not accepted. Validation covers JSON, paths, links, ignore behavior and archived hashes. No game launch or YAIRPG implementation occurred.",
+      "disposition": "Finished source scout with partial wider aspects. Runtime, real UI/clock/crafting/save-reload remain untested; multiplayer XP, all cancellation/refund edges, global save recovery, NPC branching, AI/RNG/tutorials, full physiology/worldgen/economy and recipe menu reachability remain bounded gaps. Duplicate bloom recipe IDs have different fuel values and are preserved unresolved.",
+      "owner_or_consumer": "docs/research/project-zomboid/REPORT.md, FEATURES/COMMON/ASPECTS, ASPECTS.json, VALIDATION.json, TOOLING.md; P01/P03/P04 and chain round 5 retain authority.",
+      "evidence_state": "Installed source identity and targeted static reads are reported with hashes; game behavior and save persistence were deliberately not tested.",
+      "remaining_check": "If a specific gap is selected, trace that bounded edge or authorize a separate runtime pass; preserve the duplicate recipe values until reachability is established. No current YAIRPG mechanism gate follows from this scout."
+    },
+    {
+      "record_id": "U0442",
+      "path": "docs/research/project-zomboid/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "a43e0a87be8fb45cadb1610ec7e37393ef87e584759b78ef80a7253ce32833a9",
+      "read_ranges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "original_ids": [
+        "A01-A12",
+        "A03",
+        "A06",
+        "A07",
+        "A09",
+        "A11",
+        "G1-G8"
+      ],
+      "mechanism_and_interactions": "Aspect inventory assigns each A01-A12 explicit status, evidence and YAIRPG takeaways. Five aspects have bounded source coverage; the rest stay partial. It points to the parent checkpoint G1-G8 for exact questions and preserves a raw snapshot/hash trail.",
+      "disposition": "Partial research status remains accurate: dialogue/scheduling, whole-save recovery/offline behavior, AI/RNG/tutorials/wider simulation, and all runtime aspects are not established. This record summarizes limits and does not upgrade coverage.",
+      "owner_or_consumer": "docs/research/project-zomboid/aspects-2026-10-14/ASPECTS.md, ASPECTS.json, SYSTEM_INVENTORY.md and DEEPER_SYSTEMS.md; parent docs/research/project-zomboid/CHECKPOINT.md G1–G8 owns exact limits.",
+      "evidence_state": "Historical checkpoint reports source-level scope and retained hashes; no underlying artifacts or runtime were inspected here.",
+      "remaining_check": "Select a concrete aspect and consult its exact G1-G8 evidence route; no broad runtime or whole-save claim follows from this inventory."
+    },
+    {
+      "record_id": "U0443",
+      "path": "docs/research/qud-systems-audit-2026-10-15/CHECKPOINT.md",
+      "input_sha256": "1fbcf6f00386aca0622563741b00cce65c63c358b9ed357be0831584c1b20cce",
+      "read_ranges": [
+        [
+          1,
+          62
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          15,
+          15
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          62,
+          62
+        ]
+      ],
+      "original_ids": [
+        "CP1",
+        "CP2",
+        "CP3",
+        "CP4",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+      ],
+      "mechanism_and_interactions": "Qud audit is a connected but partial static source graph. Later depth passes progressively trace queued-victim serialization/scheduling/cell-save consumers, alternate full-body holders via retained Physics damage references, and recovery consumers including null-origin movement and supplied-context restoration. These are conditional preservation/access findings, distinct from placement, activity, identity restoration or an automatic selector. Checkpoints keep each depth dated, hashes/read windows joined, and native behavior separate.",
+      "disposition": "Historical research-only audit complete for named windows, not native or exhaustive method/system coverage. O1-O5 retain native/save/UI, other consumer families, universal rank/title routes, edge ordering/persistence, generated-task sequencing and remote time gaps. Depth 7 reports no stock automatic selector for preserved contextless victim; generic movement/effect access has narrower scope. No design or implementation dispatch.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/REPORT.md, CURRENT.md, private unread inventories; depth-specific reports and independent-audit reports; VALIDATION.json.",
+      "evidence_state": "Checkpoint claims source pins, targeted static reads and artifact validation. It expressly disclaims native behavior; no reports/source were re-opened.",
+      "remaining_check": "For any selected future claim, use exact unread owners and a disposable native route only if needed; current evidence does not prove whole-system behavior."
+    },
+    {
+      "record_id": "U0444",
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-5/CHECKPOINT.md",
+      "input_sha256": "81d9d303493da52e027cd2f00d55d7b2d6c8fcfeaef3a67a4698286a4f92dbe2",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "original_ids": [
+        "depth 5",
+        "Temporary",
+        "graveyard",
+        "CURRENT",
+        "UNREAD.json"
+      ],
+      "mechanism_and_interactions": "Depth 5 closes a named research packet over queue, serializer, scheduler, cell-save, Temporary and graveyard consumers. Root cumulative archive counts and the independent auditor ledger are separate; counts must not be summed as unique classes. Resume uses CURRENT, decoded flow, independent findings and exact unread inventory; validators cover their respective archive/input scopes.",
+      "disposition": "Packet is complete only for named static consumers. Game/native/save experiments, whole-game object reachability, GC observations, implementation and player acceptance are unrun. Integrity/source links do not establish native behavior.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/depth-5/REPORT.md, QUEUED_VICTIMS_AND_CLEANUP.md, independent-audit/FINDINGS.md, private/depth-5/UNREAD.json.",
+      "evidence_state": "Historical checkpoint states captures, source pin checks and scope; no native trial or underlying validation rerun here.",
+      "remaining_check": "Keep native behavior, whole-game reachability and acceptance open; any resumption should start from CURRENT and exact unread records."
+    },
+    {
+      "record_id": "U0445",
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-5/independent-audit/CHECKPOINT.md",
+      "input_sha256": "7625ddd54941dc6d7ef96af739e26b98c8d0a28cbf948e9e0502ca625a9005ce",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "original_ids": [
+        "AQ1-AQ4",
+        "AU1-AU6"
+      ],
+      "mechanism_and_interactions": "Independent Qud depth-5 audit used seven targeted ILSpy exports against a pinned assembly and reused existing bodies by source hash. It owns only independent-audit artifacts; parent owns reconciliation into depth5/CURRENT and cumulative unread records. Artifact validation is separate from static semantic coverage and native behavior.",
+      "disposition": "Independent static audit findings were sent to parent, including serializer closure and failure-order observations. Installed identity was inherited, not independently rechecked; this checkpoint contains no native validation.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/depth-5/independent-audit/; parent depth5/CURRENT and cumulative unread records.",
+      "evidence_state": "Historical checkpoint reports targeted source export and pinned archive hash; findings themselves remain in linked owner and were not in this assigned span.",
+      "remaining_check": "Parent reconciliation is the named follow-up; current independent checkpoint alone cannot establish reconciled coverage or native behavior."
+    },
+    {
+      "record_id": "U0446",
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-6/CHECKPOINT.md",
+      "input_sha256": "e120829b3c4b811de1851dcefe62d75a6e25283cc011d3a7f10034d546c4fad2",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "depth 6",
+        "Physics damage reference",
+        "XRL.IGameSystem",
+        "CURRENT"
+      ],
+      "mechanism_and_interactions": "Named save-root reading connects serialization/load order, system hooks, object/zone/quest state, brain/reference wrappers, party and player records; independent audit covers writer enrollment, reference finalization, Physics damage assignment/preservation and scheduler rejection. A queued actor body may be saved through another actor’s retained Physics damage reference, but that does not imply placement, activity, or restoration to an omitted vortex queue. Friendly-fire filters and reference-only links are not equivalent rescue paths.",
+      "disposition": "Connected partial static graph, not an exhaustive parts/mod inventory. Native body survival/recovery, custom manager/part hooks and later access remain untested/unread; independent/root ledgers are separate.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/depth-6/SAVE_REFERENCES_AND_RECOVERY.md, CURRENT.md, private/depth-6/UNREAD.json, independent-audit/UNREAD.md.",
+      "evidence_state": "Checkpoint reports named source reads and coverage/locator validation; native recovery was not performed.",
+      "remaining_check": "Native body survival/recovery, custom manager/part hooks and later access need targeted evidence; no placement/activity equivalence should be inferred."
+    },
+    {
+      "record_id": "U0447",
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-6/independent-audit/CHECKPOINT.md",
+      "input_sha256": "998387b460e2027108ce15b6dbe0353b9fcaa0785e4a1171df82b0535a282a64",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "original_ids": [
+        "A6-1",
+        "A6-4",
+        "A6-U1",
+        "A6-U5"
+      ],
+      "mechanism_and_interactions": "Independent depth-6 audit follows alternate full-body holders for contextless queued victims and identity/context/activity restoration. It adds a fresh targeted QudGameObjectExtensions export and reuses eight full classes by hash; the primary lane was sent damage-holder, wrapper-order and scheduler-validation closures. Primary lane retains current entrypoint and cumulative coverage.",
+      "disposition": "Static findings A6-1..A6-4 remain distinct from open A6-U1..A6-U5. Validation proves archive integrity and links, not runtime behavior; installed identity belongs to separate parent evidence.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/depth-6/independent-audit/; primary depth-6 findings/current entrypoint.",
+      "evidence_state": "Historical checkpoint reports pinned archive hash and targeted export; native game/save execution expressly absent.",
+      "remaining_check": "Open A6-U1..A6-U5 only at their stated scope; native/save behavior needs a separate authorized observation."
+    },
+    {
+      "record_id": "U0448",
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-7/CHECKPOINT.md",
+      "input_sha256": "e2fec2de5f7dba017d2590ca45122b5779fdc7d65ebf321ab8e30cc51c37f679",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "original_ids": [
+        "depth 7",
+        "CURRENT"
+      ],
+      "mechanism_and_interactions": "Named recovery consumers include direct attribution-field use, damage/death/thermal references, null-origin targeted movement, cell admission/entry, and supplied-context restoration. Independent audit owns party/leader wrappers, ordinary AI nowhere guard, selector and part finalization. Generic movement and retained effect access are positive but narrow capabilities; no stock automatic selector for rescuing the preserved contextless victim was established. A metadata scan is navigation evidence, not semantic whole-assembly reading.",
+      "disposition": "Research remains static and qualified; native recovery and actor-specific/mod event hooks are unobserved/unread. Independent reads remain separate from root counts.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/depth-7/RECOVERY_CONSUMERS.md, CURRENT.md, private/depth-7/UNREAD.json, independent-audit/UNREAD.md.",
+      "evidence_state": "Checkpoint reports metadata scanner and source/coverage validation with no decode errors; this is not whole-assembly semantic evidence or native recovery.",
+      "remaining_check": "Actor-specific and mod hooks remain unread; a native recovery scenario would need separate evidence and cannot be inferred from generic movement."
+    },
+    {
+      "record_id": "U0449",
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-7/independent-audit/CHECKPOINT.md",
+      "input_sha256": "ab30a3e0e14c33e7bd892253dd2f1ec2a10c23fecebf5851dcaacb07aa7c0a2a",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ]
+      ],
+      "original_ids": [
+        "A7-1",
+        "A7-5",
+        "A7-U1",
+        "A7-U5"
+      ],
+      "mechanism_and_interactions": "Independent depth-7 audit follows party/leader wrappers and actor load hooks for recovery of preserved contextless victims, using three narrow exports and thirteen reused classes at pinned hash. Named movement windows were cross-checked with primary lane. Parent owns primary findings and current/cumulative records; this lane owns only independent-audit directory.",
+      "disposition": "Static codes A7-1..A7-5 and A7-U1..A7-U5 are stable local labels; actor-composition and universal-call-site gaps remain open. No automatic rescue claim and no native execution.",
+      "owner_or_consumer": "docs/research/qud-systems-audit-2026-10-15/depth-7/independent-audit/; primary depth-7 findings/current records.",
+      "evidence_state": "Historical checkpoint reports hash verification and exact captures; runtime remains unattempted.",
+      "remaining_check": "Resolve actor composition/universal call sites only for a selected question; no automatic rescue or runtime claim is established."
+    },
+    {
+      "record_id": "U0450",
+      "path": "docs/research/rain-world/emergence-2026-10-15/audit/CHECKPOINT.md",
+      "input_sha256": "ab7c8929b4deacd407576b4cb8acf0f3c8b88831bd9106a36f5d41e34e739d0c",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "RW-U1",
+        "RW-U7",
+        "UNREAD.json",
+        "READ_LEDGER.json"
+      ],
+      "mechanism_and_interactions": "Rain World emergence audit covers four connected static source chains, direct consumer checks and exact read complements for build 22785462. It distinguishes captured-unread ScavengerAI and other unreviewed windows from read source. Suggested next bounded questions are ghost propagation or grasp/stick teardown; evidence receipts validate identity/ranges/links only.",
+      "disposition": "Partial audit, whole game unread. No native observation or save roundtrip; semantic coverage may not be inferred from capture counts, and no hidden upgrade from captured to read is allowed.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/audit/REPORT.md, FINDINGS.json, UNREAD.json, READ_LEDGER.json; sibling extraction owns private export.",
+      "evidence_state": "Historical checkpoint reports four chains and validation artifacts; no current behavior or native result established.",
+      "remaining_check": "Choose one concrete bounded gap from UNREAD if further research is selected; no current native behavior or save roundtrip claim."
+    },
+    {
+      "record_id": "U0451",
+      "path": "docs/research/rain-world/emergence-2026-10-15/extraction/CHECKPOINT.md",
+      "input_sha256": "21ba47122993cd2c69c03f0ccbb5d31ea0358461b241396e04cec0fb4f93372a",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "30 complete outer-class captures",
+        "3 fully reviewed",
+        "11 selected-window reviewed",
+        "16 captured-unread"
+      ],
+      "mechanism_and_interactions": "Bounded extraction captures 30 outer classes, with three fully reviewed, eleven selected-window reviewed and sixteen captured-unread. Audit sibling reads captures. Next source questions include pathfinding/physical consequences, abstraction early-return ownership and save scheduling; assembly presence alone does not establish optional DLC/MMF activation.",
+      "disposition": "Extraction is partial and research-only; whole-game reading and native observation are absent. Input/type/source hashes and review windows were validated, which is not runtime verification.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/extraction/REPORT.md, SOURCE_INDEX.json, VALIDATION.json; sibling ../audit.",
+      "evidence_state": "Historical checkpoint reports validated input and source hashes/read-window bounds, no native observation.",
+      "remaining_check": "Continue only through a named source question and preserve capture/read/native distinctions; optional branch presence is not activation."
+    },
+    {
+      "record_id": "U0452",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-2/audit/CHECKPOINT.md",
+      "input_sha256": "9f3728697230f00ec3921fbf2afd8f40bc88f415cd0ae112e0730bc58fab7e24",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "original_ids": [
+        "RW2-U4",
+        "RW2-U2",
+        "DeathRain",
+        "CreatureSmashedInGround"
+      ],
+      "mechanism_and_interactions": "Round 2 continues four bounded chains at pinned assembly hash, joining cumulative exact read windows while keeping Unity Mathf support and DeathRain alias separate. Correction narrows the statically zero term to normal finite-speed CreatureSmashedInGround extra rainDeath; independent rain-push exposure, main-chunk accumulation and random death remain. This is a static correction, not a reproduced native physics defect.",
+      "disposition": "Partial source audit; whole RainWorldGame and ScavengerAI remain unread. Several lifecycle, map, social-cycle, mask and community propagation edges remain open; artifact validation does not prove native outcomes.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-2/audit/REPORT.md, FINDINGS.json, READ_LEDGER.json, UNREAD.json; extraction sibling SOURCE_INDEX.json.",
+      "evidence_state": "Checkpoint reports managed source plus raw IL and managed Mathf support for a narrowed static finding; no native physics reproduction or repair.",
+      "remaining_check": "Round-2 unread branches remain bounded; verify no native defect claim without a reproducing native case."
+    },
+    {
+      "record_id": "U0453",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-2/extraction/CHECKPOINT.md",
+      "input_sha256": "d3ded39890c349d1d0a9536a0603df9d43ef2ab130a9ec35cab6fa3cf85843c9",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "GlobalRain",
+        "Room/RainWorldGame",
+        "PathFinder",
+        "CUMULATIVE_COVERAGE.json"
+      ],
+      "mechanism_and_interactions": "Round-2 extraction provides four bounded consumer chains and exact cumulative unread intervals. Current round coverage is three fully reviewed, thirteen selected windows and two captured-unread; cumulative coverage is six full, twenty-one selected windows and fourteen captured-unread. It keeps raw whole-assembly output distinct from an exactly preserved method and maintains separate public/private owners.",
+      "disposition": "Partial source research with no native execution or actual save read/write. Full GlobalRain transitions, real game order, complete path map generation, connected-object cycles and missing realization inputs remain gaps.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-2/extraction/REPORT.md, SOURCE_INDEX.json, CUMULATIVE_COVERAGE.json, private round-2 work area.",
+      "evidence_state": "Historical extraction counts and exact complement claims; no source execution or save test.",
+      "remaining_check": "Use exact cumulative complements for any continuation; reading counts and captured output do not settle the named chains."
+    },
+    {
+      "record_id": "U0454",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-3/audit/CHECKPOINT.md",
+      "input_sha256": "c1d0c586e1714df9d48a2e5419e77c3feeb2f6cb2b04f90d5ed67fc06f0630c6",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "original_ids": [
+        "Room unload queue",
+        "successful grip rebuild",
+        "READ_LEDGER",
+        "UNREAD"
+      ],
+      "mechanism_and_interactions": "Round 3 audit statically closes named successful grip rebuild duplicate lifecycle, staged abstract/realized destruction, Room unload queue, endpoint restore admissions, persistent versus new realized social state, cycle catch-up and independent backend success/durability check. It distinguishes symbolic trace from native behavior and keeps source windows joined only at matching hashes.",
+      "disposition": "Four gap families remain. Native playback/save roundtrip and OS failure reproduction are unobserved; pending-friend returned payload, same-cycle shelter-friend boost recapture and malformed-load recovery are candidate bounded questions. No product adoption.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-3/audit/REPORT.md, FINDINGS.json, READ_LEDGER.json, UNREAD.json; workflow at ../../audit/RESEARCH_FLOW.md.",
+      "evidence_state": "Historical checkpoint reports hash/line locators and validation; no native execution or persistence trial.",
+      "remaining_check": "A selected native playback/save roundtrip or one named remaining consumer is required for runtime/durability claims; no broad continuation implied."
+    },
+    {
+      "record_id": "U0455",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-3/extraction/CHECKPOINT.md",
+      "input_sha256": "ef5d2603f5ffacfda5fb554a7105fcaf665aa53d96e670ab3b14da69e851f6f0",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "pending-friend returned-string consumer",
+        "full death-persistent/version parse",
+        "storage queue/unmount guarantees",
+        "shelter-friend boost snapshot order"
+      ],
+      "mechanism_and_interactions": "Round-3 extraction saves three bounded serialize/store/load chains, with cumulative exact unread complements and a separate sibling cleanup/audit owner. It explicitly retains static failure candidates rather than treating them as reproduced defects.",
+      "disposition": "Whole-game semantics and actual runtime saving are unverified; no actual save read/write or execution. Pending-friend return, death-persistent/version parsing, storage queue/unmount guarantees and shelter-friend snapshot order remain open.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-3/extraction/REPORT.md, SOURCE_INDEX.json, CUMULATIVE_COVERAGE.json, VALIDATION.json; sibling round-3/audit owns independent findings.",
+      "evidence_state": "Historical extraction states exact counts and validation, but actual save behavior was not tested.",
+      "remaining_check": "Any selected next pass should target one listed consumer and keep runtime save behavior unverified until observed."
+    },
+    {
+      "record_id": "U0456",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-4/audit/CHECKPOINT.md",
+      "input_sha256": "ecaa6d1de341188211cb57b99b544c68fb6865de1714469c1bee681003254785",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "SessionEnded",
+        "Friend progress",
+        "CustomPassage",
+        "Expedition"
+      ],
+      "mechanism_and_interactions": "Round-4 audit resolves named direct session-end snapshot order statically: ordinary route snapshots NPC strings before friend boost, while Friend progress may use boosted live like; then time/kills/progression and current save serialization. RegionState shared object versus cached strings, current-world versus death-persistent replacement, malnourished retention and exit-menu clock gates were traced. CustomPassage and Expedition may intervene, so no all-mode guarantee.",
+      "disposition": "No storage/native reunion acceptance. Extension/special-mode exclusions, pending-friend outer recovery or authorized disposable native persistence remain possible concrete questions; do not equate serializer chain to durable storage.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-4/audit/FINDINGS.json, READ_LEDGER.json, UNREAD.json, VALIDATION.json; workflow ../../audit/RESEARCH_FLOW.md.",
+      "evidence_state": "Historical checkpoint reports source windows and validation, not actual storage or reunion acceptance.",
+      "remaining_check": "Test a selected special mode or disposable native persistence route before claiming universal snapshot or durable reunion behavior."
+    },
+    {
+      "record_id": "U0457",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-4/extraction/CHECKPOINT.md",
+      "input_sha256": "a3265eef1469f54e0aee362b825bc8dcc43162205fd3d2360d39aaf817237b71",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "Player.Update",
+        "outside exception catcher/recovery",
+        "fresh-session latch setup",
+        "external-mod reads"
+      ],
+      "mechanism_and_interactions": "Round-4 extraction traces pending-friend encoding through queue clear, factory, admission and realization at source level. It preserves separate owner for independent shelter-friend boost persistence.",
+      "disposition": "Gameplay/restoration acceptance and whole-game reading remain incomplete; no save read or execution. Full Player.Update scheduling, outer exception recovery, fresh-session latches, external-mod reads and per-species realization remain gaps.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-4/extraction/REPORT.md, SOURCE_INDEX.json, CUMULATIVE_COVERAGE.json, VALIDATION.json.",
+      "evidence_state": "Historical checkpoint reports bounded source closure and structural validation only.",
+      "remaining_check": "Trace only a named scheduling/recovery/species edge or use authorized native observation; source closure is not gameplay acceptance."
+    },
+    {
+      "record_id": "U0458",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-5/audit/CHECKPOINT.md",
+      "input_sha256": "47f29e54dd54cbdd8224aab2972d969aef188a5c4fb33be6af8874c5a4fdbb75",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "AchievementChallenge",
+        "Expedition",
+        "WarpPoint",
+        "MainLoopProcess"
+      ],
+      "mechanism_and_interactions": "Round-5 audit statically traces base passage API/registry/invocation and exception order; AchievementChallenge to base completion to Expedition content/core save to campaign wipe to current pointer revert; WarpPoint death scrub; and process resume/new retained payload scope. No automatic NPC recapture found in shipped base callbacks. Core request success is not required before campaign wipe, and no cross-file durability gate was proved.",
+      "disposition": "Partial, named base/Expedition chain only. External implementation behavior, runtime, plugins, save durability and exhaustive plugin/platform scope remain unknown. Static negative reference scan is not runtime registry truth.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-5/audit/REPORT.md, FINDINGS.json, READ_LEDGER.json, UNREAD.json, VALIDATION.json; private CUSTOM_PASSAGE_REFERENCE_SCAN.json.",
+      "evidence_state": "Historical checkpoint reports static source references and receipts; no routine execution or personal save access.",
+      "remaining_check": "Select a concrete callback/module or authorized native observation; external mods, durability and platform-wide behavior remain open."
+    },
+    {
+      "record_id": "U0459",
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
+      "input_sha256": "ffbfbd4e028cdd5f88521c96e5ced32aeb6d78b6a8b943f69616384b7426798b",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "original_ids": [
+        "aftermanagedexception",
+        "externalmodhooks",
+        "actualstartmode/state",
+        "disk/backendfreshness"
+      ],
+      "mechanism_and_interactions": "Round-5 extraction resolves bounded outer-recovery/replay questions at source level and keeps semantic reading separate from structural exception scans. It reports one full class, eight selected windows, zero captured-unread this round, while whole-game scope remains partial.",
+      "disposition": "No actual save read or game execution. Unity dispatch after managed exception, external mod hooks, actual start mode/state, disk/backend freshness, repeated factory/placement success and native behavior remain unverified. Fresh-game replay is not automatic same-game recovery.",
+      "owner_or_consumer": "docs/research/rain-world/emergence-2026-10-15/round-5/extraction/REPORT.md, SOURCE_INDEX.json, CUMULATIVE_COVERAGE.json, VALIDATION.json.",
+      "evidence_state": "Historical checkpoint reports source-level bounded closure and counts only; no runtime or save roundtrip.",
+      "remaining_check": "Keep fresh-game replay distinct from same-game recovery; establish actual mode, backend freshness and repeated placement only with named further evidence."
+    },
+    {
+      "record_id": "U0460",
+      "path": "docs/research/remnant-2/CHECKPOINT.md",
+      "input_sha256": "9877b04077f2380f73f49aec8b46f76fd21c732d34eb51936b2a3c34e5c1b959",
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          11,
+          11
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          37,
+          37
+        ]
+      ],
+      "original_ids": [
+        "R2-P06",
+        "P15",
+        "P16",
+        "R2-S01..03",
+        "A01-A12",
+        "1282100",
+        "1282101"
+      ],
+      "mechanism_and_interactions": "Remnant II source scout indexes IoStore containers and 767,729 chunk lines / 513,719 unique paths, then samples campaign, event, archetype, item, tile, UI, hazard and bark assets. 161 outputs contain object-read errors and no-error outputs rely on unmatched public usmap. Six proposals map to existing K parts and synthesis IDs; R2-P06 extends P15/P16. No accepted owner edit or reprioritization. Source-only save-reader comparison and private raw extracts are distinct from game behavior.",
+      "disposition": "Research delivery finished at documented limits, not gameplay. Unresolved: encrypted indexes/config/localization; build-matched mappings; native selection weights/seed/connectivity; container overlap precedence; reroll retention; full world faction/puzzle matrix (sealed solutions refer only to IDs); dialogue recovery; balance formulas; save migration/atomicity; UI/persistence/gameplay. Further mapping and clean object-read comparison was proposed; no additional dispatch/acquisition required for current research delivery.",
+      "owner_or_consumer": "docs/research/remnant-2/REPORT.md, FINDINGS, IMPLEMENTATION_PACKETS, TOOLING, SOURCE_LEDGER, ASPECTS.json, SYSTEM_INVENTORY.md, DEEPER_SYSTEMS.md; shared K parts and synthesis IDs are proposal mapping only.",
+      "evidence_state": "Historical checkpoint reports asset/indexing/parser checks, source pin and hashes, with object-read errors and unmatched map explicitly retained; game was never launched and no YAIRPG build/browser/test was run.",
+      "remaining_check": "If this research is reopened, obtain build-qualified mapping and replay saved selections into a new output root; no acquisition/dispatch or YAIRPG gameplay claim is authorized by this record."
+    }
+  ],
+  "repairs": [
+    {
+      "coordinator_removed_nonliteral_original_ids": {
+        "U0441": [],
+        "U0442": [],
+        "U0443": [
+          "AQ1-AQ4",
+          "AU1-AU6",
+          "Q24"
+        ],
+        "U0444": [],
+        "U0445": [],
+        "U0446": [],
+        "U0447": [
+          "A6-2",
+          "A6-3",
+          "A6-U2",
+          "A6-U3",
+          "A6-U4"
+        ],
+        "U0448": [
+          "Recovery consumers"
+        ],
+        "U0449": [
+          "A7-2",
+          "A7-3",
+          "A7-4",
+          "A7-U2",
+          "A7-U3",
+          "A7-U4"
+        ],
+        "U0450": [],
+        "U0451": [],
+        "U0452": [],
+        "U0453": [],
+        "U0454": [],
+        "U0455": [],
+        "U0456": [],
+        "U0457": [],
+        "U0458": [],
+        "U0459": [],
+        "U0460": []
+      }
+    },
+    "Normalized scalar evidence line numbers to numeric ranges and corrected Zomboid aspects supplier folder."
+  ],
+  "cross_record_findings": [
+    "Across Project Zomboid, Qud, Rain World and Remnant II, static source reading and artifact integrity receipts are distinct from native/gameplay behavior, persistence, installation, and acceptance.",
+    "Qud and Rain World continuation records progressively narrow specific mechanisms, but repeated checkpoint counts and parent/independent ledgers remain separate evidence layers.",
+    "Historical gaps name bounded consumers and source-version/mode boundaries; old pause/lease/status language does not create current authority or new AD42 human gates."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0441-U0442 retain Project Zomboid runtime, broader save and feature gaps; duplicate bloom recipe reachability and menu availability remain unresolved.",
+    "U0443-U0449 retain Qud native recovery/selector and actor/mod consumer boundaries; static preservation or generic movement does not establish placement, activity or automatic rescue.",
+    "U0450-U0459 retain Rain World native playback/save/backend, outer recovery, external mod and mode-specific gaps; hashes and static traces do not qualify actual persistence.",
+    "U0460 retains build-matched Remnant II mapping, selection, precedence, dialogue, balance, save and UI gaps; never-launched source research does not qualify gameplay."
+  ]
+}

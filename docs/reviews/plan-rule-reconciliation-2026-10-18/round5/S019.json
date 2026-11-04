@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "shard": "S019",
+  "reader": "content_s019; gpt-6-luna low",
+  "payload_sha256": "dad09d89ffd58071df99a487e1d6fa7e1119fe9fc2dcfb4b4fbcac644d855220",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0251",
+      "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/CHECKPOINT.md",
+      "input_sha256": "3b4f6db5703fa6ae4122875188d3df54da68867626ec405b620eb530018f2084",
+      "read_ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "RB-P1",
+        "RB-P5"
+      ],
+      "mechanism_and_interactions": "A finite source-bank audit joins pinned repository refs and seed hashes to 20 findings, five ranked families, two original hypothetical cases and five later absorption packets. COVERAGE distinguishes review from collection; FINDINGS owns mechanism/current-owner/provenance joins; REPORT synthesizes and packets remain proposals. It inspected source blobs without running code. The named next step is coordinator choice and Engine interface refresh, then separately authorized implementation; no repository or gameplay behavior was delivered.",
+      "disposition": "Historical source review and document validation reported complete at its bounded snapshot, with repository-row coverage but explicit exclusions for whole repositories, all branches, commercial source and gameplay. Its proposed RB-P1/RB-P5 priorities are recommendations, not canonical plan changes.",
+      "owner_or_consumer": "docs/gm/world-implementation/second-pass/repository-bank-absorption/COVERAGE.json, FINDINGS.json, REPORT.md and ABSORPTION_PACKETS.md; assigning coordinator owns plan integration; Engine must refresh interfaces before a chosen implementation.",
+      "evidence_state": "Checkpoint reports matching pinned HEADs/URLs, seed hash checks, current-owner semantic review and document validation. It explicitly says these establish review, not behavior; no gameplay/build/save/browser tests or source execution occurred.",
+      "remaining_check": "If a packet is selected, coordinator must integrate it and Engine refresh actual interfaces; then implement and prove the selected consumer. No whole-repository or gameplay qualification follows from this review.",
+      "evidence_lines": [
+        [
+          5,
+          7
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          25,
+          27
+        ]
+      ]
+    },
+    {
+      "record_id": "U0252",
+      "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/CHECKPOINT.md",
+      "input_sha256": "f5d6b768e424f4f94b269a7f87b386a9ebeea9ee52a5f054c8ea8ed373208e71",
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "RTE-01..10"
+      ],
+      "mechanism_and_interactions": "The planning recommendations retain the boundary scheduler, immediate preview reuse, early rejection, stable participant/body freezing, no render RNG and durable native publication. Proposed follow-ons cover candidate/validation cost, derived due/occupancy indexes, world-clock activation, work budgets/continuation, touched native publication, projection invalidation and causal evidence. Historical helper/tick and jump timings plus separate browser samples are reported, but no new measurement or implementation is claimed.",
+      "disposition": "Planning audit complete; assigning master is to reconcile RTE-01..10 into the concrete plan while preserving Engine/Ability/Original holds. Measurements are bounded historical samples, not current performance proof or predicted savings.",
+      "owner_or_consumer": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md, FINDINGS.json and DEPENDENCIES.md; assigning master owns plan reconciliation; runtime Engine/Ability/Original remain held-confirmed.",
+      "evidence_state": "Checkpoint reports ten findings, five handoffs, historical measurements and document/hash checks. It explicitly records no source/runtime/bundle execution, game tests/build/browser/save, fresh measurements, or implementation authority.",
+      "remaining_check": "Master must select and reconcile recommendations; any implementation requires its existing review/deferral policy and new runtime/performance evidence tied to a chosen workload. Do not treat old timings as current baseline.",
+      "evidence_lines": [
+        [
+          13,
+          17
+        ],
+        [
+          21,
+          23
+        ],
+        [
+          44,
+          48
+        ]
+      ]
+    },
+    {
+      "record_id": "U0253",
+      "path": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
+      "input_sha256": "7a0b2b001973316d99c53f8658acd85abc4ed87d01f3d6a9c9a08f948b199a5e",
+      "read_ranges": [
+        [
+          1,
+          147
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "SOC01-SOC10",
+        "SOC08-SOC10",
+        "SOC11-SOC15"
+      ],
+      "mechanism_and_interactions": "The society audit inspected people, knowledge, situations, effects, Glasshouse, macro/micro summaries and named teaching, mood, promise, chronicle, command/controller and reward-bridge follow-ups. Its later family/history extension adds genealogy/history comparisons and an original retirement-workshop case separating biological/adopted kin, apprenticeship, actual property/right/method succession and disputed archive evidence. These remain audit findings and proposals; the broader graph/generation direction is audit-authorized, not implemented.",
+      "disposition": "Original audit and directly requested family/history extension are complete for their document scope and await master integration. SOC08-SOC10 retain existing requirements; no new runtime, schema, interface, canon or gameplay decision is made.",
+      "owner_or_consumer": "docs/gm/world-implementation/second-pass/society/REPORT.md, FINDINGS.json, DEPENDENCIES.md and FAMILY_GENEALOGY_HISTORY.md; assigning master owns integration; actual runtime/callers remain Engine-owned.",
+      "evidence_state": "Historical checkpoint reports targeted source-owner reads, official developer/publisher feature descriptions and structured/link/hash checks. It explicitly says no primary novel scene, game/build/browser/save execution, or inheritance/native behavior proof was performed.",
+      "remaining_check": "Assigning master must review/integrate useful scoped amendments. Any selected family or society behavior still needs a named runtime consumer and gameplay/persistence proof; do not promote source descriptions or original examples to implemented mechanics.",
+      "evidence_lines": [
+        [
+          3,
+          13
+        ],
+        [
+          92,
+          96
+        ],
+        [
+          115,
+          117
+        ]
+      ]
+    },
+    {
+      "record_id": "U0254",
+      "path": "docs/gm/world-implementation/second-pass/society/branching/CHECKPOINT.md",
+      "input_sha256": "4ded2ff1ed438290dd7be68be770ef5ecf72bd78e69469d42df1c6c5bbf661c1",
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "U01-U14"
+      ],
+      "mechanism_and_interactions": "The branching analysis reuses the society and family/history work for two early-choice-to-later-outcome cases: Frontier Open Counter persistent career arc and an original family workshop retirement/teaching lineage. Cases track stock, witnesses, independent decisions, refusal/delay, closure and useful return. It maps seven canonical Frontier ending IDs without replacing them with local social groups. Short Measure is detached/unrepaired, with stock-guard and NPC 4/4/1 route mismatch, so there is no working-gameplay claim.",
+      "disposition": "Finite branching analysis and static checks are complete and ready for coordinator integration. New quantities, branches and cast are original proposals; wider Frontier/family runtime remains proposed, while separately authorized narrow skills/discovery/Engine work is not blanket-held.",
+      "owner_or_consumer": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md, WORKED_CASES.md, CASES.json, COVERAGE.json and DEPENDENCIES.md; coordinator integrates, Frontier owns finite world IDs, Engine owns runtime/callers.",
+      "evidence_state": "Checkpoint reports static graph reachability, guarded-edge arithmetic, canonical ending mapping, link/hash checks and fixture arithmetic only; it explicitly excludes gameplay, inheritance codecs and native behavior.",
+      "remaining_check": "Coordinator must integrate selected amendments; any actual case requires Frontier/Engine consumer integration and gameplay, persistence and native behavior evidence. Preserve the unresolved Short Measure route mismatch.",
+      "evidence_lines": [
+        [
+          7,
+          15
+        ],
+        [
+          45,
+          51
+        ],
+        [
+          54,
+          58
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator split synthesized SOC01-SOC15 range into source-literal baseline SOC01-SOC10 and extension SOC11-SOC15; removed SOC07 borrowed from neighboring society source from branching row."
+  ],
+  "cross_record_findings": [
+    "Across these records, source/document audits and planning packets are completed at their named scope, while current gameplay proof and canonical integration remain separate owner work.",
+    "Two distinct society outputs reuse source reviews but add proposed family/branching cases; static graph/arithmetic validation does not establish runtime, native persistence or inheritance behavior.",
+    "Historical efficiency measurements and repository-source fingerprints are bounded evidence snapshots, not current runtime benchmarks or whole-source qualification."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0251: no whole-repository/all-branch/commercial-source or gameplay coverage; future packet choice and refreshed Engine interfaces remain with coordinator/Engine.",
+    "U0252: current performance baseline and selected workload behavior are unmeasured; plan integration and any runtime implementation/evidence remain open.",
+    "U0253-U0254: master integration and named gameplay consumers remain open; family/branching proposals lack gameplay, persistence and native behavior proof, and U0254 records an unrepaired Short Measure route mismatch."
+  ]
+}

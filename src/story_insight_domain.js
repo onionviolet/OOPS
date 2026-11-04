@@ -60,7 +60,7 @@ function createPanel(){
   const sk=skillSummary(),next=JSON.stringify([recognizeStories(state),tropeLines(state),history??null,world,sk]);if(next===signature)return;signature=next;
   stories.replaceChildren(...(storyLines(state).map(s=>{const p=node('p',s.line);p.dataset.storyKind=s.kind;return p;})));
   for(const t of tropeLines(state)){const p=node('p',`${t.name}. ${t.line}`);p.dataset.trope=t.trope;p.dataset.tropeId=t.id;stories.append(p);}
-  if(!stories.childElementCount)stories.append(node('p','No story has taken shape yet. Rivalries and debts appear here once the saved record shows them.'));
+  if(!stories.childElementCount)stories.append(node('p','No story has taken shape yet. Rivalries and debts show up here as they form.'));
   rustLabel.hidden=!sk?.rustAvailable;rustBox.checked=!!sk?.rustOn;rustText.textContent=sk?.dial?` Let unpracticed skills go rusty here. ${sk.dial.reason}`:'';
   skillBox.replaceChildren(...skillLines(sk).map(l=>{const p=node('p',l.line);p.dataset.skillKind=l.kind;return p;}));
   if(!skillBox.childElementCount)skillBox.append(node('p','Nothing recorded yet. Near misses and rusty skills appear after time passes without practice.'));

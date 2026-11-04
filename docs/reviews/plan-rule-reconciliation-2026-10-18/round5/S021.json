@@ -1,0 +1,348 @@
+{
+  "schema": 1,
+  "shard": "S021",
+  "reader": "content_s021; gpt-6-luna low",
+  "payload_sha256": "6f3cb6bb98c94be24a09d1c25e04fc1c9ef8893506b8b5b93ce9a3f891ad6714",
+  "scope": "Complete assigned historical content spans; record claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0260",
+      "path": "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md",
+      "input_sha256": "bc3f8c688c2b65deb86ff394ff41db7d7577d95a106ad6daebb84b2786e020f6",
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The brief seeks incremental game-mechanic absorption grounded in existing consumers rather than repeating generic schedulers, inventories, mastery or NPC memory. Concrete candidate interactions include energy/byproduct recycling, batch alignment with a later cut, origin-qualified access, modifying an existing item, relic carriers across transitions, institution gifts versus services, support-dependent wards, typed capped recovery and meaningful away-progress stops. It requests source-linked comparisons and connected player journeys while separating documented mechanics from adaptations.",
+      "disposition": "Historical research brief, not implementation authorization. Its supplied adoption counts and first-milestone wording describe that dated snapshot, not present standing scope or independent gameplay proof.",
+      "owner_or_consumer": "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md; source adoption audit referenced but no exact path supplied in this block.",
+      "evidence_state": "Only brief content inspected. It cites a supplied local adoption audit and requests future linked-source research; no mechanics or runtime independently verified.",
+      "remaining_check": "Any resumed research must compare the specific new interaction with live system owners, use primary citations, and distinguish research from accepted design and gameplay proof.",
+      "evidence_lines": [
+        [
+          11,
+          17
+        ],
+        [
+          27,
+          35
+        ]
+      ]
+    },
+    {
+      "record_id": "U0261",
+      "path": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-brief.md",
+      "input_sha256": "c9649ded6a5cdc617a8cfa8ac806fca7c2ceb21d598e69a99953f2379672600d",
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Create",
+        "Botania",
+        "Ars Nouveau",
+        "Hex Casting",
+        "Thaumcraft",
+        "FTB Quests",
+        "Better Questing",
+        "Hardcore Questing Mode",
+        "Patchouli",
+        "KubeJS",
+        "CraftTweaker"
+      ],
+      "mechanism_and_interactions": "The proposed Minecraft scout distinguishes mod mechanics from pack-authored progression and authoring tools. It asks for quest dependency/alternative/repeatability, actual-item provenance versus completion flags, manuals/research, differentiated materials/tools and automation, with concrete accessible payload paths. That specificity goes beyond generic crafting, recipes, queues or NPC memory already present in the brief. Minecraft is a donor; no runtime dependency or new world is implied.",
+      "disposition": "Historical research assignment; recommendations did not authorize implementation, acquisition, installation or execution. The requested accessibility comparison must distinguish pack manifests from actual quest/script data and source code from prebuilt jars.",
+      "owner_or_consumer": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-brief.md; prior scout referenced but not path-named here.",
+      "evidence_state": "Assignment text only; no candidate pack/mod files or claims from the requested future report inspected.",
+      "remaining_check": "If resumed, inspect primary repo/pack artifacts and exact edition paths; establish whether quest graphs and scripts are downloadable without launching Minecraft.",
+      "evidence_lines": [
+        [
+          7,
+          9
+        ],
+        [
+          13,
+          19
+        ]
+      ]
+    },
+    {
+      "record_id": "U0262",
+      "path": "docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md",
+      "input_sha256": "f8d7630eb7fdb1f2db7152c1b06a9fd5d23a896e0bb5f1baa85f83f0c9225527",
+      "read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "JoJo",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "S24",
+        "SF1",
+        "SF2",
+        "SF3",
+        "SF4",
+        "SF5",
+        "T1 to T10",
+        "K24",
+        "K9",
+        "K22",
+        "K3",
+        "K21",
+        "I18"
+      ],
+      "mechanism_and_interactions": "JoJo’s proposed audit separates rule-shaped Stand effects, laws/counters, fan premises, revision cross-checks and synthesis; time, causality, conditions, object/place binding, range/power and shared damage have distinct questions. Sci-fi splits into concept weapons, civilization scale, games, local novels and fan premises, connected to power implication tests, selves, cheat cosmology, economy and information. The plan explicitly says a JoJo wiki digest is not verified canon and separates authorization for JoJo from the unchanged sci-fi plan.",
+      "disposition": "Historical plan revised by an authorization notice on 2026-10-11: JoJo expanded audit authorized and its report owns execution; sci-fi portion remains undispatched. The old site-access question and route assumptions are superseded for JoJo by that notice, not evidence of current authorization for sci-fi.",
+      "owner_or_consumer": "docs/research/jojo-audit-2026-10-11/REPORT.md (linked current audit report); sci-fi feeds docs/DEEP_CONCEPTS.md.",
+      "evidence_state": "Plan and its internal update inspected only; no JoJo report or sci-fi source dossier inspected. Historical wiki access claims not refreshed.",
+      "remaining_check": "Consult the linked JoJo report for actual coverage; dispatch sci-fi only under later direction, then qualify each lane’s source and canon evidence.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          28,
+          47
+        ],
+        [
+          49,
+          83
+        ]
+      ]
+    },
+    {
+      "record_id": "U0263",
+      "path": "docs/research/academagia/CHECKPOINT.md",
+      "input_sha256": "8f09beef156f1ec662cf9a5200182165587638b55291d9e90e434990dfc823ac",
+      "read_ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P2",
+        "P4",
+        "Steam app 533480"
+      ],
+      "mechanism_and_interactions": "This early Academagia web checkpoint describes community-derived roll/exam formulas and thin adventure coverage. It proposes a conditional download/decompile route only if P2 or P4 is accepted: managed assemblies for exact formulas, or BCS mod tools for adventure/event data. It explicitly distinguishes wiki inference from exact source data and reports no purchased/installed game, launch, gameplay or YAIRPG edit.",
+      "disposition": "Historical partial web research checkpoint, superseded in depth by later source/decompile and aspect passes. Purchase price, Steam silence, build details and proposed route are dated and not current offers or authorization.",
+      "owner_or_consumer": "docs/research/academagia/CHECKPOINT.md; proposed later pass would need exact tuning decision P2 or P4.",
+      "evidence_state": "Checkpoint claims only; the web pages and underlying game binaries/tools were not inspected for this shard.",
+      "remaining_check": "Use later Academagia source checkpoints for what was actually decoded; do not act on historical purchase advice or treat wiki silence as proof of content absence.",
+      "evidence_lines": [
+        [
+          3,
+          10
+        ],
+        [
+          13,
+          20
+        ]
+      ]
+    },
+    {
+      "record_id": "U0264",
+      "path": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "76e0c1ac54cf7060228b3b8f5c60e0e035cbc0baac9acdbf96d1e05b4836e6fe",
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01–A12",
+        "A01",
+        "A03",
+        "A04",
+        "D1",
+        "D2",
+        "D3",
+        "48 roots",
+        "112 tables",
+        "StoryActorLink",
+        "RepositorySerializer",
+        "GameInfo",
+        "CustomSerializer"
+      ],
+      "mechanism_and_interactions": "The aspect pass reports bounded source traces across dialogue, save, NPC schedule/adaptation, research reserves, and pheme knowledge/opposition/delay/absorb/deflection. It distinguishes 48 initialized roots from separately serialized systems, documents a delete-before-pack route without exercising it, and retains private text corpora with contextual IDs rather than publishing prose. It marks speakers, dynamic resolvers, newspaper delivery, complete combat and live UI/runtime behavior as unresolved; a schema or count is not proof of active content.",
+      "disposition": "Historical partial source research with passive structural checks. The report, proposed packets and extracted references are research artifacts, not accepted gameplay or native acceptance. Later execution would require a separate authorized route.",
+      "owner_or_consumer": "docs/research/academagia/aspects-2026-10-14/; private references linked via PRIVATE_REFERENCE_INDEX.md.",
+      "evidence_state": "Checkpoint statements reviewed; no source assemblies, corpus, save/cache, or verification artifacts independently inspected here.",
+      "remaining_check": "For selected future work, follow exact listed source owners: resolve speaker attribution, native UI behavior, migrations/recovery, and active article consumers without inferring from table counts.",
+      "evidence_lines": [
+        [
+          9,
+          15
+        ],
+        [
+          19,
+          28
+        ],
+        [
+          30,
+          38
+        ]
+      ]
+    },
+    {
+      "record_id": "U0265",
+      "path": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "101e733189df54f647d15720b5363d8ffe59760a6976ec6c20082b7752997c30",
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "StateFlags 4",
+        "build 2453605",
+        "F1–F20",
+        "CustomSerializer.GetDeletedObjects",
+        "List<Guid>",
+        "1,192 gain records",
+        "17 courses",
+        "360 calendar records"
+      ],
+      "mechanism_and_interactions": "The decompile pass reports exact formula/data findings alongside story graph gates, continuation windows, daily random-event selection, relationship defaults, favors and concealment. Its key integration caution is that passive source/data decoding does not establish runtime-selected patch/cache behavior; the deletion cast discrepancy was explicitly left for a separate isolated execution lane. Adventure reachability, clubs, merit, vendetta and spell/duel paths retain distinct gaps.",
+      "disposition": "Historical partial source/decompile research, with no game launch, save access or gameplay. It is further qualified by the later adventure pass, which reports a different source-compatible null result for the shipped List<Guid>; preserve the discrepancy rather than collapsing it into a confirmed defect.",
+      "owner_or_consumer": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md; follow-up source surfaces named include SelectionItem resolver and PATCH_MERGING in later checkpoints.",
+      "evidence_state": "Only checkpoint claims reviewed. No assemblies or executable behavior inspected in this reader.",
+      "remaining_check": "If relevant, reconcile exact build and source path against later pass, then separately authorize any runtime/cache experiment; map roots to wiki pages before claiming reachability.",
+      "evidence_lines": [
+        [
+          9,
+          14
+        ],
+        [
+          16,
+          28
+        ],
+        [
+          30,
+          32
+        ]
+      ]
+    },
+    {
+      "record_id": "U0266",
+      "path": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "input_sha256": "0e4f6abfef6008c95aa17d6c2709f8dc6d75e0aff6e18ff4a5286e0cbfcc0b79",
+      "read_ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "COMMON",
+        "Adventure",
+        "Ability",
+        "Action",
+        "Bookworms Library Knowledge ≥2",
+        "Rimbal date gate",
+        "Content",
+        "Summer",
+        "List<Guid>",
+        "GetDeletedObjects"
+      ],
+      "mechanism_and_interactions": "This later pass maps base and two patch unions, choice gates/effects and continuance, plus club entrances, rewards and failures. It distinguishes source-compatible patch composition from the earlier intended-deletion model and records a concrete type mismatch where shipped List<Guid> makes GetDeletedObjects return null, correcting the earlier unconditional-cast concern. Mechanical mapping still does not establish selected profile, runtime reachability, narrative meaning, combined patch profile or all dynamic bindings.",
+      "disposition": "Historical partial passive source/data mapping with structural checks. It corrects a prior checkpoint’s interpretation; the correction itself is not runtime proof. Non-club narrative and broad club census remain open, and proposals remain unaccepted.",
+      "owner_or_consumer": "docs/research/academagia/pass-2026-10-14-adventures/; named resume surfaces include PATCH_MERGING, MemoryDB.Create, SelectionItemHelper and private root indexes.",
+      "evidence_state": "Checkpoint claims and links reviewed; no underlying maps/source/cache/gameplay independently inspected.",
+      "remaining_check": "Keep intended versus source-compatible deletion labels; only a separately authorized profile/runtime lane can establish chosen cache and playable reachability. Map non-club organizations and prose individually.",
+      "evidence_lines": [
+        [
+          10,
+          14
+        ],
+        [
+          18,
+          26
+        ],
+        [
+          28,
+          36
+        ]
+      ]
+    },
+    {
+      "record_id": "U0267",
+      "path": "docs/research/academagia/pass-2026-10-14-systems/CHECKPOINT.md",
+      "input_sha256": "fbca45eca3fd5bbdf9ce6388accf0f263132c8fd9624aa4dd71fa472a56ba87f",
+      "read_ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "DS01/02/04/05/07/09/10/11/15",
+        "UNREAD.md",
+        "FAMILY_MAP",
+        "MERIT_MATRIX",
+        "ResolveStrategyEx"
+      ],
+      "mechanism_and_interactions": "The systems pass delivers fifteen bounded source-flow dossiers and an inventory routing 320 rows across systems, namespaces, tables, UI and dependencies. It partly closes inherited compound questions without calling them fully closed, and keeps source anomalies distinct from reproduced runtime defects. Unread combat/duel, mood/effect interpretation, dynamic resolution, combined patch profiles, narrative semantics, native UI, saves and gameplay each retain separate owners and gaps.",
+      "disposition": "Historical partial source research. Selected flows and passive checks are reported complete, but the broader engine/content model, native verification and YAIRPG acceptance remain explicitly open. Proposals do not authorize owner edits or implementation.",
+      "owner_or_consumer": "docs/research/academagia/pass-2026-10-14-systems/UNREAD.md, FAMILY_MAP and REPORT.md; source owners include CombatAndDuel, Rimbal and ResolveStrategyEx.",
+      "evidence_state": "Checkpoint claims reviewed only; no dossiers, inventories, source code or VERIFICATION.json independently inspected.",
+      "remaining_check": "Choose a named unresolved flow and follow stable source IDs through consumer/state; preserve variant boundaries and do not promote passive source findings to played behavior.",
+      "evidence_lines": [
+        [
+          9,
+          14
+        ],
+        [
+          19,
+          30
+        ],
+        [
+          32,
+          40
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator replaced U0260 sci-fi/JoJo content incorrectly borrowed from U0262 with actual game-absorption brief content; removed source-absent F1–F20 from U0263."
+  ],
+  "cross_record_findings": [
+    "Research briefs define incremental questions and explicitly distinguish candidate ideas from implementation; downstream reports and accepted owner docs remain separate evidence and authority.",
+    "Academagia checkpoints show an evolving source interpretation: the decompile checkpoint’s deletion-cast concern is later qualified by the adventure pass for shipped List<Guid>; preserve the distinct intended/source-compatible models and do not claim runtime behavior.",
+    "Across Academagia passes, passive source maps, private data decoding, runtime/cache selection, player reachability, native behavior and YAIRPG acceptance are separate proof states."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0260–U0261 contain research briefs, not the requested reports or candidate source artifacts; recommendation details and access claims remain unverified.",
+    "U0262 authorizes/points to a JoJo report but this shard does not include it; sci-fi dispatch remains historically out of scope in that plan.",
+    "U0263 historical purchase/build advice is dated; later Academagia checkpoints supersede its bounded web-only coverage.",
+    "U0264–U0267 identify many source and runtime gaps. No assemblies, source, maps, payloads, private artifacts or current runtime were independently inspected in this content pass."
+  ]
+}

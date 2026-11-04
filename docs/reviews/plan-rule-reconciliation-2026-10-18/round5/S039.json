@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "shard": "S039",
+  "reader": {
+    "agent": "Codex subagent",
+    "model": "GPT-6",
+    "effort": "not exposed by runtime"
+  },
+  "payload_sha256": "0e0a4a2201cb6c208420c0f235ebdfd6e779a41410b73fc3461f57a33fe67651",
+  "scope": {
+    "statement": "Only the five assigned source ranges in S039 were read; transport parts were read separately.",
+    "records": [
+      "U0419",
+      "U0420",
+      "U0421",
+      "U0422",
+      "U0423"
+    ]
+  },
+  "rows": [
+    {
+      "record_id": "U0419",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
+      "input_sha256": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
+      "read_ranges": [
+        [
+          746,
+          1030
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Historical checkpoint notes summarize Fallout mechanics across editions: SPECIAL/derived-stat distinctions, XP and level benefits, combat modifiers, drugs/healing, ammunition, gear bonuses and quest routes. Preserve edition-specific behavior, including documented bugs and unresolved conflicting claims; child-page formulas and transclusions remain dependencies. Actor-specific knowledge and local town/faction reactions are kept separate from global law, reputation or player-visible information.",
+      "disposition": "Historical content evidence only; do not treat checkpoint assertions as accepted design, current gates, source canon, or runtime proof.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/READ_LEDGER.jsonl and NOTES.jsonl; checkpoint is the historical receipt, not a runtime consumer. For Fate shards, SUMMARY.md and correction/scope-disposition files retain named qualifications.",
+      "evidence_state": "Assigned historical checkpoint span read by reader. Reported paired-note/hash/length/chunk checks are not independent inspection of underlying payloads or notes, canon authentication, current runtime or integration proof.",
+      "remaining_check": "Consult the specific original manifest/payload/note and any append-only correction before reusing a claim; preserve edition/continuity and source hierarchy. Any selected mechanic needs its actual consumer and separate runtime/persistence evidence.",
+      "evidence_lines": [
+        [
+          750,
+          758
+        ],
+        [
+          1010,
+          1026
+        ],
+        [
+          1028,
+          1030
+        ]
+      ]
+    },
+    {
+      "record_id": "U0420",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
+      "input_sha256": "644c52a59e60f7eeb02a12dab89be4f75359a1af6c0f99b8de567fa6924f33a0",
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Checkpoint for an offline selected-text reader of a dated Type-Moon/Fate secondary archive. It records a restored local cache, completed page/hash/length checks and queue position, while explicitly leaving nested transclusions unresolved and distinguishing related parallel-world works from separate DDD material. It is a work receipt and source-limit statement, not primary canon authentication.",
+      "disposition": "Historical content evidence only; do not treat checkpoint assertions as accepted design, current gates, source canon, or runtime proof.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/READ_LEDGER.jsonl and NOTES.jsonl; checkpoint is the historical receipt, not a runtime consumer. For Fate shards, SUMMARY.md and correction/scope-disposition files retain named qualifications.",
+      "evidence_state": "Assigned historical checkpoint span read by reader. Reported paired-note/hash/length/chunk checks are not independent inspection of underlying payloads or notes, canon authentication, current runtime or integration proof.",
+      "remaining_check": "Consult the specific original manifest/payload/note and any append-only correction before reusing a claim; preserve edition/continuity and source hierarchy. Any selected mechanic needs its actual consumer and separate runtime/persistence evidence.",
+      "evidence_lines": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "record_id": "U0421",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "input_sha256": "1bb42c010c4fbd6c5d92e609983679af57502db9750fed58cd4ec50c398f58ee",
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Shard A reports its assigned retained-input range complete with paired notes/ledger and selected hash/length proof. It preserves continuity distinctions, unresolved nested transclusions, and several prior note corrections where the retained payload does not establish a claim. These are reading/record-accuracy controls, not game runtime evidence.",
+      "disposition": "Historical content evidence only; do not treat checkpoint assertions as accepted design, current gates, source canon, or runtime proof.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/READ_LEDGER.jsonl and NOTES.jsonl; checkpoint is the historical receipt, not a runtime consumer. For Fate shards, SUMMARY.md and correction/scope-disposition files retain named qualifications.",
+      "evidence_state": "Assigned historical checkpoint span read by reader. Reported paired-note/hash/length/chunk checks are not independent inspection of underlying payloads or notes, canon authentication, current runtime or integration proof.",
+      "remaining_check": "Consult the specific original manifest/payload/note and any append-only correction before reusing a claim; preserve edition/continuity and source hierarchy. Any selected mechanic needs its actual consumer and separate runtime/persistence evidence.",
+      "evidence_lines": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "record_id": "U0422",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "input_sha256": "9c209f8dd7a227c7700f4741d0d360ce840d69c4b09f5a35c448f7bc596b5aae",
+      "read_ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Shard B checkpoint records its assigned manifest range, predecessor review and completion counts. It warns that unexpanded transclusions remain unresolved and character selection cannot establish absence of powers. The archive is a dated secondary source and mappings remain proposals.",
+      "disposition": "Historical content evidence only; do not treat checkpoint assertions as accepted design, current gates, source canon, or runtime proof.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/READ_LEDGER.jsonl and NOTES.jsonl; checkpoint is the historical receipt, not a runtime consumer. For Fate shards, SUMMARY.md and correction/scope-disposition files retain named qualifications.",
+      "evidence_state": "Assigned historical checkpoint span read by reader. Reported paired-note/hash/length/chunk checks are not independent inspection of underlying payloads or notes, canon authentication, current runtime or integration proof.",
+      "remaining_check": "Consult the specific original manifest/payload/note and any append-only correction before reusing a claim; preserve edition/continuity and source hierarchy. Any selected mechanic needs its actual consumer and separate runtime/persistence evidence.",
+      "evidence_lines": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "record_id": "U0423",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/CHECKPOINT.md",
+      "input_sha256": "677ba19829d3ce7b866c7e02fecc9072dc5c89c5c5227f1d5805800f37a04600",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Shard C reports its assigned retained and zero-input dispositions complete, with bounded chunk/hash parity and correction records. It requires separating source assertions, analyst inferences, proposals and unknowns, preserving parallel-world continuity and unresolved nested sources. This confirms archival workflow evidence only, not runtime behavior or canon authority.",
+      "disposition": "Historical content evidence only; do not treat checkpoint assertions as accepted design, current gates, source canon, or runtime proof.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/READ_LEDGER.jsonl and NOTES.jsonl; checkpoint is the historical receipt, not a runtime consumer. For Fate shards, SUMMARY.md and correction/scope-disposition files retain named qualifications.",
+      "evidence_state": "Assigned historical checkpoint span read by reader. Reported paired-note/hash/length/chunk checks are not independent inspection of underlying payloads or notes, canon authentication, current runtime or integration proof.",
+      "remaining_check": "Consult the specific original manifest/payload/note and any append-only correction before reusing a claim; preserve edition/continuity and source hierarchy. Any selected mechanic needs its actual consumer and separate runtime/persistence evidence.",
+      "evidence_lines": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator normalized the reader’s alternative row evidence/gap keys to required schema and supplied owner/proof/remaining-check fields from actual checkpoint receipt paths and qualified reader findings. No new reading coverage inferred."
+  ],
+  "cross_record_findings": [
+    "Fallout notes retain edition, variant and bug distinctions; they do not support one shared formula where the page points to child sources or reports conflicts.",
+    "Character and checkpoint notes distinguish actor-specific knowledge, local reactions, player-visible information, attributed claims and broader rules; those boundaries should remain explicit.",
+    "The Fate records describe dated secondary-wiki reading and workflow proof. They preserve continuity/source distinctions but do not authenticate canon or demonstrate OOPS runtime behavior."
+  ],
+  "unresolved_questions_source_gaps": [
+    "Underlying wiki source pages, nested transclusions and unselected text were not read in this assignment.",
+    "Historical notes and completion receipts do not establish current project gates or runtime behavior."
+  ],
+  "coordinator_review": "Schema repaired; source controls and selected Fallout edition/actor/provenance statements spot-checked, fate continuity and correction boundaries retained."
+}

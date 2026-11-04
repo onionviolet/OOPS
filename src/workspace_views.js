@@ -53,7 +53,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
         references.render();
         syncProse();
         const view=read(),next=JSON.stringify(view);
-        if(next!==signature){signature=next;work.textContent=view.work.length?view.work.join(' · '):'No work running.';jump.textContent=view.waiting?'Open waiting response':'Open local controls';
+        if(next!==signature){signature=next;work.textContent=view.work.length?view.work.join(' · '):'No work running. Pick something under Here to start.';jump.textContent=view.waiting?'Open waiting response':'Open local controls';
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';
             ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;
             // UIX2: this panel owns the current-work presentation; readers (the bar chip) re-read it.

@@ -25,7 +25,7 @@ const know = (key, text, stage = 'seen', actor = 'player', attributedTo = I.eda,
 const live = all(
     eq('reference.workshop.supported', true, 'Return to the Village with your supported living native body, stock and local clock.'),
     eq('reference.workshop.handsUsable', true, 'Recover your actual hands before constructing or using the frame.'),
-    {fact: 'vital.health', op: 'gte', value: 2, reason: 'Recover above one HP before bench work.'},
+    {fact: 'vital.health', op: 'gte', value: 2, reason: 'You\'re too badly hurt for bench work. Heal until your health is at least 2.'},
 );
 const eda = eq('reference.workshop.edaPresent', true, 'Eda must be present and willing, with her own living usable body and free attention.');
 const sitePresent = eq('audit.fixture.sitePresent', true, 'Use Eda\'s actual commissioned Village fitting bench.');

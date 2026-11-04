@@ -45,7 +45,7 @@ const learned = all(eq(`power.${I.method}.owned`), eq(`faculty.${I.method}.activ
     eq(`knowledge.feature_objects.method.understood`));
 const introduced = eq('actor.feature_objects.introduced');
 const live = all(eq('featureObjects.supported', true, 'This Village work needs the current native body, location, stock and supported local clock.'),
-    eq('featureObjects.handsUsable', true, 'Recover your hands before fitting work.'), gte('vital.health', 2, 'Recover above one HP before fitting work.'));
+    eq('featureObjects.handsUsable', true, 'Recover your hands before fitting work.'), gte('vital.health', 2, 'You\'re too badly hurt for fitting work. Heal until your health is at least 2.'));
 const lender = eq('featureObjects.miriSupported', true, 'Eda needs present consent, her own living body and free attention.');
 const own = variant => eq(`featureObjects.own.${variant}`, true, 'Carry an owned, unequipped and unborrowed knife in the declared condition.');
 const loan = variant => eq(`featureObjects.loan.${variant}`, true, 'Carry the exact matching Eda loan in the declared condition.');

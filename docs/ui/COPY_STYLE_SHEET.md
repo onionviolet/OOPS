@@ -207,6 +207,97 @@ Checks:
 
 Agent-verified, not human-reviewed.
 
+## Empty states slice (2026-11-03)
+
+Scope: the empty states a fresh home-world game shows (fresh-day3, seed 7), then other panels a player opens often. The work list came from a headless sweep of all 22 top-nav routes and 51 known panels (`scripts/capture_empty_states.mjs`), not from inventory rows alone. 34 strings rewritten (39 places) in 24 source files, applying CPY9, CPY1, CPY8, CPY13 and RPT14. The sweep also showed that Reports, Travelers, Neighbors and Projects are not empty on a fresh game. They were collapsed, so they needed no new line.
+
+| Before | After |
+| --- | --- |
+| Item details · Pick an item first | Item details · Select an item in Inventory |
+| Study · Nothing here can be studied yet | Study · Ask around for someone to teach you |
+| Nothing here can be studied yet. Lessons, books and odd things you meet will appear here once you start on them. | Nothing to study yet. Ask the people around you what they could teach, and their lessons show up here. |
+| Other worlds · No optional world installed | Other worlds · No other world is open to you yet |
+| Ledger · Nothing owed or recorded yet | Ledger · Take a commission to start one |
+| Village only (six panels) | Go back to the Village to use this |
+| No work running. | No work running. Pick something under Here to start. |
+| No saved receipts yet. | No saved receipts yet. Accept a commission and each step is kept here. |
+| No assist leased. | No assist leased. Spend points from finished commissions to lease one. |
+| No equipment yet. / No usable items or books yet. / No materials, components or loot yet. | Each adds a step: "Buy or loot gear to see it here." / "Buy, cook or find something to eat, use or read." / "Gather or craft some to see them here." |
+| No home yet. The Village home supplier rents and sells places to live; a wild site lets you build one from gathered material. | No home yet. Rent or buy one from the Village home supplier, or build one at a wild site from gathered material. |
+| No installed furnishings. | No furnishings yet. Carry one here to install it. |
+| You carry no tools. | You carry no tools yet. Any you pick up show here with their wear. |
+| No spillable stock carried | Carry a vial or ingredient pack to spill |
+| No authored site is applied. | None of your own places is in use. Fill in the draft and press Apply site. |
+| No story has taken shape yet. Rivalries and debts appear here once the saved record shows them. | No story has taken shape yet. Rivalries and debts show up here as they form. |
+| No recent cause. Prices follow standing alone. | Nothing has moved prices lately. They follow your standing alone. |
+| No one has repeated a price to you. | No one has passed a price to you yet. Trade a little and people start to. |
+| Nothing here can be gathered. | Nothing to gather here. Where I am lists nearby places to try. |
+| No known people, services or stations to inspect here. | Nothing here to inspect yet. Talk to someone in Local actions to meet them. |
+| No known subjects here | Nothing here to inspect yet |
+| Nothing to name yet | Equip something to name it |
+| No known people to show here / No learned routes to show here / No local notes are available here | Meet someone to see them here / Travel a road to learn its route / Nothing noted here yet |
+| No commitments are running. | Nothing running. Start work or take a job and it shows here. |
+| No combat facts observed yet. | Nothing noticed about this opponent yet. Trade a few blows to learn more. |
+| Relationship: No remembered dealings. | Relationship: You have not dealt with them yet. |
+| No known unfinished waypost opportunities. | Nothing left unfinished at the wayposts you know. |
+| Nothing is left to temper in this slice. | Nothing is left to temper for now. |
+| Nothing has shown an effect yet. | Nothing has shown an effect yet. Drink another preparation and note what changes. |
+| No numbers this item adds to what you wear. | Wearing this adds nothing to your stats. |
+
+The first draft of the work line said "Open local controls to start something". That button is hidden when no work runs, so the line now names the Here tab, which is always on screen (RPT14). The Study line names no particular lesson. Studies are listed only after the player hears of them (AD6), and the first home one needs the craftsman meeting, which a fresh game does not have yet.
+
+Left as they are:
+- Quiet on purpose (CPY9 dial): "No shield", "No active effects", "No station", "No worn title", "Nothing held", "No quality rating", "No moments are waiting.", "Nothing weighs on you." These are slot labels or calm status lines where a pointer would be noise.
+- Already point forward: the Known things kinds ("Defeat an enemy and it is recorded here." and the rest), "Gather a material and it is tallied here.", "Equip something and it can be named here.", the skill, bestiary and book list empties, "No project is offered here. Try another place.", the owed-ledger empty text, "Hold or wear a second piece of equipment…", "No items in this inventory. Gather, loot or buy items…", the Travelers intro.
+- No step that holds in every world yet: "No paths known yet.", "No techniques known yet." and the Knows glance "Nothing learned yet." These are shared across worlds, and each world reaches them differently.
+- Developer text and disclosures (CPY2), not empty states: "No stock, money, deed or debt is granted by meeting the residents.", the "No … may precede actual …" checks, the inspector's "No retained … owner" lines, and the thrown error in `authored_site.js` (only its UI twin changed).
+- Book-world files and the refusal files (`main.js`, `crafting_frontier_runtime.js`, `hp_brewing_*`, `village_career*`, `village_content.js`, `original_frontier_*`) are outside this slice.
+
+Noticed for later slices: the Ledger panel is titled "Work Ledger" (`main.js`, CPY6). Statistics says "Per-activity time and per-world tallies are not recorded yet." (CPY1). Trade standing shows "no policy" in lower case.
+
+Checks:
+- 23 focused test files for the touched modules, including the three updated for changed strings (`inventory_tabs`, `panel_directory`, `research_view`): all pass except `book_world_lotm_opening`. That file fails at HEAD too, because `canon_pull_panel.js` does not export `canonPullVisible`.
+- `npm run build`: passes.
+- Full `npm test`: 4931 pass, 20 fail, 17 skipped. The same 20 fail on a clean HEAD checkout (`book_world_lotm_opening`, `conflict_frame` ×15, `place_act_sequence`, `reach_run_admission`, `cast_worksheet`, `lead_run_crosswalk`; the last two also fail at HEAD when run alone). None of them touches this slice.
+- Headless Chrome at 1920×1080, rebuilt bundle, fresh origin, fresh-day3 seed 7, via `node scripts/capture_empty_states.mjs <dir> --grep …`: 18 of 18 new lines found on screen with no page errors. The 12 unchanged since the first pass are on bundle 7f625b3b1336: Other worlds, ledger assist and receipts, home, story, spill, own places, tools, both trade standing lines. The 6 on the final bundle f84d876cc880 are the Item details and Study reasons, the work line, receipts, home and tools. The screenshots confirm the ledger lines.
+- Not exercised on screen: the inventory category hints (the Other tab was not clicked), Where I am, the inspect target, notebook reasons, Travel Today, combat inspection, the waypost, temper, preparation, furnishing and item-card lines, and "Go back to the Village to use this" (needs a game away from the Village). They are implemented but not yet checked on screen.
+
+## Slice 2: leftovers, Tingen and Harry Potter refusals (2026-11-03)
+
+Scope: the slice 1 leftovers, the six shared "above one HP" lines (UR74, changed together), then player-facing refusal and reason lines in the Tingen (LotM) and Harry Potter code a fresh game can reach. 62 lines (61 refusals and one button label) at 75 sites in 24 source files, applying CPY1, CPY3, CPY4, CPY13, CPY14 and CPY19. The inventory tag was a starting point, not the list. The Polyjuice bench reasons thrown in `hp_brewing_state.js` reach the button through `quote()`, so they are in. Source-audit notes in the LotM row files are not player text.
+
+| Before | After |
+| --- | --- |
+| Restore writable saving before study. / … before study conditioning. | Saving is paused, so you can't study right now. / … so study conditioning can't change right now. |
+| Restore writable saving before using the HP bench. | Saving is paused, so you can't use the Polyjuice bench right now. |
+| Recover above one HP before this trial. (5 variants) | You're too badly hurt for this trial. Heal until your health is at least 2. |
+| Use your current living native body in the Village, above one HP and free of another encounter. | You need to be in your own body in the Village, with health of at least 2 and no other fight under way. |
+| Wake first: you are asleep. (10 places) | You're asleep. Wake up first. |
+| Need Sailor, breath & duty officer. | You need the Sailor's long breath working and the duty officer here. |
+| Need the taught protocol, current G3 custody and cleared group, and 3 stamina. | You need the protocol you were taught, the grade 3 item in your keeping, the cleared group and 3 stamina. |
+| Not written yet: that route carries pulls and claims this build has no rules for. | Not written yet: that route brings pulls and claims the game has no rules for. |
+| … is a stated loss-of-control risk. | … risks losing control. |
+| A fresh book life is unavailable in this host. | This life isn't open to you yet. |
+| Begin the slice first. / Begin the Polyjuice slice (button) | Set up the Polyjuice bench first. / Set up the Polyjuice bench |
+| That costs N coins and you hold M. | That costs N coins. You have M. (1 coin when N is 1) |
+| This bench supports carried portions and private bench storage. Recipient and native chest transfers are not connected. | You can carry portions or keep them on your bench. Giving them away or moving them to a chest isn't possible yet. |
+| The pinned method does not predict this ingredient replacement. Experimenting remains possible. | The recipe doesn't cover this swap. You can still try it as an experiment. |
+| A proposed physical arrangement is not a demonstrated result. | Nobody has tried this mix yet, so the result is unknown. |
+| The hand-preparation service is unavailable here. | No one here prepares ingredients by hand. |
+
+Checks:
+- Focused tests: 90 files for the touched HP, LotM, cast, Frontier, combat-fit, village-study and UI-contract modules. `hp_brewing`, `hp_brewing_domain`, `hp_preparation`, `hp_material_preparation` and `hp_ingredient_substitution` pass 50 of 50 after the pinned regexes were moved to the new wording (three test files). Failures in `conflict_frame` (15 "road old/runner") and `cast_worksheet` (1) also fail on a clean HEAD checkout. `book_world_lotm_opening` fails to import `canonPullVisible` from `canon_pull_panel.js`, also at HEAD. Under load (load average 42), the seven `cast_*` adapter files failed their "live integration … real save validator" tests. Rerun one at a time with load near 6, those files and five save tests (`save_compatibility`, `native_save_fixtures`, `world_pack_save`, `structured_pack_runtime`, `book_world_native_binding`) pass 72 of 72 with no failing subtests. Also run: nine more files covering UI contract, player text, village study, combat fit, Tingen districts, clearance and ritual, and Frontier, 46 of 46. `npm run check:arch` passes. The full `npm test` was not run.
+- `npm run build`: passes.
+- The rebuilt bundle was checked in headless Chrome at 1920×1080, scenario fresh, on a test origin. Tingen workroom: "Not written yet: that route brings pulls and claims the game has no rules for." shows, and the old wording is gone. Polyjuice bench, in a first tab and in a second, read-only tab: the button reads "Set up the Polyjuice bench", and the reason shows as visible text and as the button's title. No page errors.
+
+Gaps:
+- The bench line also shows in the first, writing tab, where the game bar says "Saving available." The bench's `writable` port (`tradeWritable` in `main.js`) returns false there; `persist` is wired. The old line ("Restore writable saving …") was just as wrong. The cause is runtime, not copy, and is left for its own fix.
+- Not exercised on screen: the "above one HP" set, the sleep line, the Tingen district, clearance and ritual lines, and the "Can't be undone on this save" cost (a returnable save shows "Your Village life pauses" instead).
+- Left as they are: Harry Potter school pack text (`book_hp_life_data.js`, `book_hp_school_extension.js`). Its content hash is stored in saves (`structured_pack_state.js`) and pinned by the school extension, so rewording needs a pack revision with a migration. "Cast unavailable: private pack absent" and its sibling labels change as one family in a later slice. "TC01" in the bench reason is an item naming question. Spell adapter dial reasons, the `div_supply` notes and the LotM source-row notes are developer text (CPY2).
+- Follow-up outside copy: find why `tradeWritable` is false for the Polyjuice bench in a fresh, writing tab and fix it, so the bench opens and the paused line only shows when saving really is paused.
+
+Agent-verified, not human-reviewed.
+
 ## Not decided here
 
-The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Nothing in the game has been rewritten yet.
+The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Slices 1 and 2 rewrote refusal lines under these proposals. The rules themselves are not accepted.

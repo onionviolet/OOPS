@@ -5,6 +5,9 @@ import { character } from "./character.js";
 import { get_crafting_quality_caps } from "../crafting_recipes.js";
 import { Skill } from "../models/skill.js";
 import { availabilities } from "./component_references.js";
+import { ladderPanelText, readLevels } from "../skill_ladder.js";
+
+const ladderText = id => { const text = ladderPanelText(id, readLevels(character.getLevelableComponent()), skills[id]?.milestones); return text ? `\n${text}` : ""; };
 
 availabilities["skill"] = {};
 
@@ -1293,7 +1296,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                                     names: {0: "Sleeping"}, 
                                     description: "Good, regular sleep is the basis of getting stronger and helps your body heal",
                                     get_effect_description: ()=>{
-                                        return `Multiplies health restored when sleeping by ${Math.round(100*(1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level))/100}`;
+                                        return `Multiplies health restored when sleeping by ${Math.round(100*(1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level))/100}${ladderText("Sleeping")}`;
                                     },
                                     base_xp_cost: 1000,
                                     flavour_text: "One rat, two rats, three rats...",
@@ -1374,6 +1377,17 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                                         }
                                     }
                                 });                         
+    skills["Patience"] = new Skill({
+        names: {0: "Patience"},
+        description: "Sitting still and letting time do its work, without fretting",
+        get_effect_description: () => `Grows while you rest and wait. Its ladder is below.${ladderText("Patience")}`,
+        flavour_text: "Some things only happen once you stop watching them.",
+        base_xp_cost: 60,
+        xp_scaling: 2,
+        category: "Activity",
+        max_level: 10,
+        max_level_coefficient: 1.5,
+    });
     skills["Meditation"] = new Skill({
         names: {0: "Meditation"}, 
         description: "Focus your mind",

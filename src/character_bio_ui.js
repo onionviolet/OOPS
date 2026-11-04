@@ -1,5 +1,6 @@
 import {characterBioView} from "./character_bio.js";
 import {skillInspectorView} from "./skill_inspector.js";
+import {domainRegistry} from "./domain_registry.js";
 
 export function createCharacterBio({registry, skillTable = {}, read, readTraining, practice, showSkill}) {
     const node = (tag, text = "") => {const element=document.createElement(tag); element.textContent=text; return element;};
@@ -23,11 +24,11 @@ export function createCharacterBio({registry, skillTable = {}, read, readTrainin
         empty.hidden=!!(view.description.length || view.influences.length || view.learned.length || view.faded.length || view.heritage.length || view.conditions.length || view.techniques.length || view.life);
         practiceButton.hidden=!view.techniques.length;
         if(inspect) {
-            const {state}=read(), found=skillInspectorView({state,registry,nativeSkills:Object.values(skillTable).filter(skill=>skill.isUnlocked?.() && skill.getTotalXP?.()>0).map(skill=>({skill,progress:{level:skill.getCurrentLvl(),totalXp:skill.getTotalXP()}}))});
+            const {state}=read(), found=skillInspectorView({state,registry,why:domainRegistry.project("skillLadder")?.why||[],nativeSkills:Object.values(skillTable).filter(skill=>skill.isUnlocked?.() && skill.getTotalXP?.()>0).map(skill=>({skill,progress:{level:skill.getCurrentLvl(),totalXp:skill.getTotalXP()}}))});
             const rows=[...found.native,...found.methods].map(item=>{const block=node("div"); block.append(node("strong",`${item.label} (${item.store})`));
                 for(const l of item.layers) block.append(node("p",`${l.layer}: ${l.detail} · source: ${l.source}`)); block.append(node("p",`Carry: ${item.carry}`)); return block;});
             const srcs=found.sources.map(x=>node("p",`Source ${x.label}: ${x.kind}/${x.origin}${x.expires!=null ? ` · expires ${x.expires}` : ""} · ${x.carry}`));
-            inspect.replaceChildren(inspect.firstChild,...rows,...srcs);
+            inspect.replaceChildren(inspect.firstChild,...found.why.map(line=>{const p=node("p",line);p.dataset.ladderWhy="";return p;}),...rows,...srcs);
         }
         for(const [key,{details,list,rows}] of sections) {
             details.hidden=!view[key].length;

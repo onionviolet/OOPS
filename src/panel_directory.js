@@ -28,9 +28,9 @@ const ROLE_GROUP = Object.freeze({character: ME, records: RECORDS, actions: WORL
 
 // The blocker a greyed row names when the panel gives none of its own (UIV1).
 const REASONS = Object.freeze({
-    homes: 'Village only', 'home-overview': 'Village only', gathering: 'Village only', 'drainage-site': 'Village only',
-    'optional-worlds': 'No optional world installed', ledger: 'Nothing owed or recorded yet',
-    'shell-detail': 'Pick an item first', 'village-travelers': 'Village only', 'village-neighbors': 'Village only', 'cultivation-insights': 'Needs finished work in your home world',
+    homes: 'Go back to the Village to use this', 'home-overview': 'Go back to the Village to use this', gathering: 'Go back to the Village to use this', 'drainage-site': 'Go back to the Village to use this',
+    'optional-worlds': 'No other world is open to you yet', ledger: 'Take a commission to start one',
+    'shell-detail': 'Select an item in Inventory', 'village-travelers': 'Go back to the Village to use this', 'village-neighbors': 'Go back to the Village to use this', 'cultivation-insights': 'Needs finished work in your home world',
 });
 
 export function panelListing(id, {title, group, role} = {}) {

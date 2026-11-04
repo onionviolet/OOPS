@@ -1,0 +1,416 @@
+{
+  "schema": 1,
+  "shard": "S031",
+  "reader": "content_s031; Codex",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "e355c5c56a0d003a0fb5656c6dc6286aa7ad93cae7a70ee275efe2418f795e6d",
+  "rows": [
+    {
+      "record_id": "U0376",
+      "path": "docs/research/minecraft/tfc-chains-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "6e4940e51e6f4b1f7f69404af96b30eece5e0af63a4187c26f9b863629e4dc9a",
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A03",
+        "A01",
+        "A04"
+      ],
+      "mechanism_and_interactions": "The TFC source slice completed six bounded feature questions, with A03 covered and A01/A04 partial. It reused local traces for barrel, lye pot, leather/drying, pit heating and knapping/mold/assembly, while dependency behavior, animal systems and native interruption/UI/save behavior remained outside scope.",
+      "disposition": "Bounded source research delivery, not implementation or acceptance. The checkpoint distinguishes read/source evidence from native testing and lists explicit unread dependencies and persistence gaps.",
+      "owner_or_consumer": "docs/research/minecraft/tfc-chains-2026-10-14/CHECKPOINT.md; required game-lane and aspect artifacts, private recipe/type and guide tables, structural inventory.",
+      "evidence_state": "The checkpoint reports artifact/hash checks and source traces, but expressly claims no native test or acceptance.",
+      "remaining_check": "If reselected, inspect the named dependency and native barrel/pot/kiln interruption, UI, save/reload and full save migration; these were not proven.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          11,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0377",
+      "path": "docs/research/minecraft/tfc-chains-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "3f830f8c4108ab9817a25f2ee099b779db63255c1442ea21f0101ec1792b886b",
+      "read_ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A03",
+        "A01",
+        "A04"
+      ],
+      "mechanism_and_interactions": "The grouped TFC aspect dossier has all twelve rows; A03 is covered and A01/A04 partial. The checkpoint points to its parent for unread items and evidence.",
+      "disposition": "Aspect documentation delivered with partial coverage; no native or whole-mod completion claim.",
+      "owner_or_consumer": "docs/research/minecraft/tfc-chains-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "evidence_state": "This brief checkpoint summarizes status and points to a parent checkpoint; underlying details were not part of this assigned span.",
+      "remaining_check": "Use the parent checkpoint for named dependency and native-play gaps before making broader claims.",
+      "evidence_lines": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "record_id": "U0378",
+      "path": "docs/research/modding-tree/CHECKPOINT.md",
+      "input_sha256": "ed66e1fa63092461b65c2ea338cdf0f6bdbfc01d068f9db6930b598d0142e4c7",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The Modding Tree audit covered engine/content layers and selected Profectus reset, persistence, save-version and offline seams. It contrasts TMT’s Vue 2 globals, per-tick code and Decimal math with YAIR’s frozen-JSON content model, so the lane favored ideas over code reuse; bundled break_eternity licensing was unchecked.",
+      "disposition": "Historical source audit complete for its stated targets, while the community survey is partial; no implementation or runtime play.",
+      "owner_or_consumer": "docs/research/modding-tree/CHECKPOINT.md; listed YAIR source consumers include simulation, save, frontier campaign, foundation start content and heir inheritance.",
+      "evidence_state": "Pinned source revisions and read areas are stated; full late-game/community semantics, runtime, deep grids/clickables and other named sources remain unread.",
+      "remaining_check": "For any later adoption, revisit the actual consumer and missing-source/license gaps; the checkpoint does not establish current runtime behavior.",
+      "evidence_lines": [
+        [
+          3,
+          17
+        ],
+        [
+          19,
+          25
+        ]
+      ]
+    },
+    {
+      "record_id": "U0379",
+      "path": "docs/research/modding-tree/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "7b3c2e13ad568398c7388b37557ecadeee4f6acea23d89b4caaf48092303d5f6",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01"
+      ],
+      "mechanism_and_interactions": "The Modding Tree aspect dossier records twelve rows, three deeper systems, ranked proposal packets and small touches. It identifies gaps in full community semantics/licenses, arbitrary-mod dialogue, runtime save/offline arithmetic and desktop accessibility/layout.",
+      "disposition": "Partial static research; all recommendations remain proposals and no dependent runtime work is authorized by this historical record.",
+      "owner_or_consumer": "docs/research/modding-tree/aspects-2026-10-14/CHECKPOINT.md",
+      "evidence_state": "Document validation passed, but the checkpoint explicitly distinguishes it from gameplay/save-roundtrip proof.",
+      "remaining_check": "If a proposal is selected, resolve its exact source gap and obtain consumer/runtime evidence rather than treating this dossier as adoption.",
+      "evidence_lines": [
+        [
+          3,
+          14
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    },
+    {
+      "record_id": "U0380",
+      "path": "docs/research/modding-tree/pass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "9627e6b2ee951173865d32d4a2317532dbc224c65b2289f0edad9e12adc94246",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The Prestige-community comparison covered Rewritten balance/help/display, Communitree grouping/activation and selected Profectus requirements/layer conventions. It corrected prior coverage and kept proposals mapped to existing owner gates, with desktop/UI and source limitations listed.",
+      "disposition": "Finite source comparison complete; all seven proposals remain unaccepted and source research is not gameplay completion.",
+      "owner_or_consumer": "docs/research/modding-tree/pass-2026-10-14/CHECKPOINT.md; REPORT, FINDINGS, proposal packets and system digests.",
+      "evidence_state": "The checkpoint reports artifact validation and named source pin, but explicitly leaves pacing, desktop use, exhaustive feature/license coverage and canonical host parity open.",
+      "remaining_check": "A future selection needs the proposal-level source and runtime gates named in the checkpoint; no implementation authorization follows.",
+      "evidence_lines": [
+        [
+          3,
+          8
+        ],
+        [
+          10,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "U0381",
+      "path": "docs/research/multi-realm-muds/CHECKPOINT.md",
+      "input_sha256": "dfa27c8706212013fd9f5a631ced0ba4e50f167234f2e41749c48864c6919c7a",
+      "read_ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01"
+      ],
+      "mechanism_and_interactions": "The MUD public-document audit sampled RetroMUD and 3 Kingdoms guides/help, then traced bounded travel/retention, learning/admission and builder themes into proposals. It preserves ambiguity around contradictory transport/reincarnation guidance and does not infer arbitrary guild switching or complete cross-realm carrier rules.",
+      "disposition": "Bounded public-document deliverable finished, but checkpoint status is partial and explicitly not server implementation, live play or server audit.",
+      "owner_or_consumer": "docs/research/multi-realm-muds/CHECKPOINT.md; REPORT, findings, implementation packets, source ledger and aspect artifacts.",
+      "evidence_state": "The checkpoint names the source basis and checks; server serializers/formulas, full areas/guilds, companions, dialogue, native UI and persistence remain unavailable or unresolved.",
+      "remaining_check": "Any consumer needs the named server/source gaps resolved; no live travel or save/import proof was performed.",
+      "evidence_lines": [
+        [
+          3,
+          17
+        ],
+        [
+          19,
+          38
+        ]
+      ]
+    },
+    {
+      "record_id": "U0382",
+      "path": "docs/research/multi-realm-muds/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "76828d56c387501b23080ad38b90ae4683d6c971958f5598d75b6f0d06bfb1e6",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01",
+        "A12"
+      ],
+      "mechanism_and_interactions": "All A01–A12 rows have explicit dispositions for both games, limited to public-document coverage.",
+      "disposition": "Partial grouped aspect coverage; twelve rows do not amount to twelve server audits.",
+      "owner_or_consumer": "docs/research/multi-realm-muds/aspects-2026-10-14/CHECKPOINT.md",
+      "evidence_state": "Delivered artifact list and scope boundary are stated; detailed evidence and gaps reside in the parent checkpoint, not this span.",
+      "remaining_check": "Consult the parent checkpoint before claims beyond public-document coverage.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "record_id": "U0383",
+      "path": "docs/research/multiverse-idle/CHECKPOINT.md",
+      "input_sha256": "e0336e935e3c3fe8c51f576dec4c64f2046d833804dfddd2e4cba7577ffb7d9f",
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01",
+        "P01",
+        "P04",
+        "P14",
+        "P03"
+      ],
+      "mechanism_and_interactions": "The Multiverse Idle UI lane completed public-media review, screenshots and aspect documentation, but the screenshots did not establish actual map/world-selector behavior, parallel simulation, offline calculation or save migration. The checkpoint recommends later isolated demo evidence if selected.",
+      "disposition": "Historical public-media research complete; executable/native gaps remain open and no owner direction changed.",
+      "owner_or_consumer": "docs/research/multiverse-idle/CHECKPOINT.md; six game-lane outputs, evidence and four aspect files.",
+      "evidence_state": "Validation is document/media structure only; no game/demo download, launch, purchase, save roundtrip or YAIRPG prototype proof occurred.",
+      "remaining_check": "If selected, obtain direct media or isolated demo/source evidence for named gaps and prove any YAIRPG action at the required desktop viewport and persistence route.",
+      "evidence_lines": [
+        [
+          3,
+          12
+        ],
+        [
+          14,
+          26
+        ]
+      ]
+    },
+    {
+      "record_id": "U0384",
+      "path": "docs/research/multiworld-synthesis-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "f4e84a41ab225d24efa12ed5a30377ce5a58454f21e030f7ca6f5cecb1195230",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The multiworld synthesis combined seven source-partial lanes into 35 shown-claim checks, 35 inference/proposal checks, eight-source comparison, ten ranked proposals and a twelve-aspect rollup preserving 84 source cells. It left runtime implementation and source completeness unclaimed.",
+      "disposition": "Finite documentation synthesis complete; it creates no owner edits or implementation authority.",
+      "owner_or_consumer": "docs/research/multiworld-synthesis-2026-10-14/CHECKPOINT.md",
+      "evidence_state": "Checkpoint reports structural validation and explicitly lists source/native gaps and unchanged dirty checkout state.",
+      "remaining_check": "Coordinator may select a bounded owner-compatible proposal; all gameplay/UI/save gates remain open until separately executed.",
+      "evidence_lines": [
+        [
+          3,
+          8
+        ],
+        [
+          10,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "U0385",
+      "path": "docs/research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "64151d0a47843f1d1ae369298705c3e87dd0c954bfccd9fcbffba67a31dbe6b5",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The aspect rollup preserves seven source packages, twelve keys and 84 original source cells.",
+      "disposition": "Finite source synthesis is complete, not complete game/system coverage or gameplay acceptance.",
+      "owner_or_consumer": "docs/research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "evidence_state": "This checkpoint delegates unread/native gaps to its parent and makes the status boundary explicit.",
+      "remaining_check": "Use parent checkpoint for detailed remaining gaps; do not promote the rollup to full coverage.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0386",
+      "path": "docs/research/naev/CHECKPOINT.md",
+      "input_sha256": "5589aa453c29246676d5a5e671ccd13cfd7f7117e709d47845eb1da0e578e7c4",
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P10",
+        "A01"
+      ],
+      "mechanism_and_interactions": "The Naev lane indexed mission/event headers and XML, then traced bounded mission/event dispatch, scene claims, access, personal knowledge versus Flow support, bioship growth, a supply-to-service aftermath, sampled traffic/AI, dialogue sequencing, save omissions, economy and deadlines. The census is not exhaustive reading.",
+      "disposition": "Bounded source research delivered; partial status keeps whole-game reading and runtime gates open; no owner/code adoption or gameplay claim.",
+      "owner_or_consumer": "docs/research/naev/CHECKPOINT.md; report, findings, packets, tooling, system digests and aspect artifacts.",
+      "evidence_state": "The checkpoint reports a pinned mirror and document validation, while identifying untested claim/reload edges, dialogue, AI, save migration, UI/accessibility and canonical-host parity.",
+      "remaining_check": "Any selected consumer needs the named source gap plus rebuilt desktop and persistence proof; the mirror pin is not a canonical-head claim.",
+      "evidence_lines": [
+        [
+          3,
+          20
+        ],
+        [
+          22,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0387",
+      "path": "docs/research/naev/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "5589aa453c29246676d5a5e671ccd13cfd7f7117e709d47845eb1da0e578e7c4",
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P10",
+        "A01"
+      ],
+      "mechanism_and_interactions": "The Naev aspect checkpoint repeats the bounded research scope: mission/event headers and XML were indexed, selected system interactions traced, and proposal artifacts delivered, while whole-game coverage and all runtime gates remained open.",
+      "disposition": "Partial aspect record; it confirms documentation validation, not runtime results or complete source coverage.",
+      "owner_or_consumer": "docs/research/naev/aspects-2026-10-14/CHECKPOINT.md",
+      "evidence_state": "The source span describes selected reading, validation and explicit gaps; it labels the mission-guard anomaly as inferred pending reproduction.",
+      "remaining_check": "Resolve selected source questions and separately prove runtime/UI/persistence before promoting claims.",
+      "evidence_lines": [
+        [
+          3,
+          20
+        ],
+        [
+          22,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0388",
+      "path": "docs/research/naev/pass-2026-10-14-systems/CHECKPOINT.md",
+      "input_sha256": "1a594b4eb5ba2102a8e8df834ea0410a34ac706c961ae9bc37fc0879378d072e",
+      "read_ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The Naev deep pass source-closed selected subquestions on fleet/capture/repair/convoy, optimizer, mining interaction, reference pages, effects/damage and gate/wormhole travel. It records 94 inventory rows, eight proposals and 25 touches, while retaining residual gaps in combat AI, ordinary jumps, faction systems, save migration, dialogue, bioship leaves and other areas.",
+      "disposition": "Partial bounded source pass; no game execution, UI/persistence proof or accepted gameplay decision.",
+      "owner_or_consumer": "docs/research/naev/pass-2026-10-14-systems/CHECKPOINT.md; SYSTEMS, FAMILY_MAP and private source pin route.",
+      "evidence_state": "Structural validation passed; checkpoint distinguishes source-traced selected seams from runtime verification and lists 28 residual questions.",
+      "remaining_check": "If another pass is selected, choose a named source gap; runtime work requires a separately selected packet and rebuilt desktop/persistence evidence.",
+      "evidence_lines": [
+        [
+          3,
+          16
+        ],
+        [
+          18,
+          53
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator retrieved literal original codes mechanically from assigned spans for navigation; this metadata extraction adds no semantic reading credit."
+  ],
+  "cross_record_findings": [
+    "TFC and Naev targeted source traces, aspect matrices and broad system inventories retain different semantic scopes; indexing and output completeness do not close untraced consumers.",
+    "MUD public-document contradictions, source/mode/save limitations and multiworld inference cells remain unresolved rather than becoming universal travel/retention rules."
+  ],
+  "unresolved_questions_source_gaps": [
+    "See row-specific remaining checks: donor native/save/UI and untraced consumer questions remain open; no contemporary runtime or whole-source qualification."
+  ],
+  "coordinator_review": "All 13 assigned checkpoint spans reviewed. Historical source summaries and explicit proof boundaries are preserved; no proposal is promoted to accepted direction. Old hold language is not treated as a new approval gate under AD42.",
+  "coordinator_final_metadata_corrections": {
+    "U0379": [
+      "A12"
+    ],
+    "U0381": [
+      "A12"
+    ],
+    "U0383": [
+      "A12"
+    ],
+    "U0386": [
+      "A12"
+    ],
+    "U0387": [
+      "A12"
+    ]
+  }
+}

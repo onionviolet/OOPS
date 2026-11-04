@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "shard": "S036",
+  "reader": "content_s036; gpt-6-luna low",
+  "payload_sha256": "ff6846e03eb90211a3ce981d2163c954d6018eff6161761c9c61ddecc32e4252",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0416",
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "offline full-input reader",
+        "dungeon-crawler-carl_SOURCES.json",
+        "READ_LEDGER"
+      ],
+      "mechanism_and_interactions": "This checkpoint describes a historical source-reading workflow, not a game mechanic: the reader loads retained fan-wiki payloads in bounded chunks, separates wiki assertions, character/System AI claims and analyst inference, and preserves article spans, costs, gates and uncertainties. It distinguishes 1,753 retained payloads from 17 with no retained text; zero-length pages remain unknown rather than evidence of no powers. Ledger receipts record ranges and hash/length checks, while thematic notes remain secondary-source claims, not canon verification.",
+      "disposition": "Progress checkpoint, not a completed full archive pass: 1,341 notes and 1,770 ledger rows coexist with 412 retained payloads pending and 17 without input. The queue proceeds from manifest row 1352 (Boomer), so earlier completed pages and gaps make it non-contiguous. Later tranche summaries report additional completed readings, but this record still says substantial queue work remains.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/dcc-full/ (notes and ledger named, but exact filenames for them are not stated in this assigned checkpoint); source manifest dungeon-crawler-carl_SOURCES.json",
+      "evidence_state": "The checkpoint reports bounded semantic reading and receipts, but this review inspected only the assigned checkpoint text, not its manifest, payloads, notes or ledger. It explicitly identifies a dated secondary fan wiki and preserves excerpt/hash mismatches and no-input uncertainty.",
+      "remaining_check": "Any later use must inspect the row-level notes and receipts for the selected article and distinguish complete retained text from excerpt-only or absent payload; primary-canon claims need separate source evidence.",
+      "evidence_lines": [
+        [
+          7,
+          9
+        ],
+        [
+          13,
+          15
+        ],
+        [
+          27,
+          29
+        ]
+      ],
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/dcc-full/CHECKPOINT.md",
+      "input_sha256": "0b4dda192420c29209c7cf273d5ed89b42d2533a82a07b5bc7a38f9f050ec8ae",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "record_id": "U0417",
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "offline reader",
+        "READ_LEDGER.jsonl",
+        "SUMMARY.md"
+      ],
+      "mechanism_and_interactions": "This is a completed offline reading/audit lane, not a game mechanic. The dated WikiTeam snapshot supplies secondary wiki text; 353 retained inputs were read in manifest order, then 38 named-payload audit gates adjudicated. The ledger and notes each have 353 rows, selected payloads were verified, and audit outputs include corrections and audit notes. The checkpoint itself keeps source uncertainty and thin later-anime coverage distinct from completion of the assigned retained inputs.",
+      "disposition": "Lane reports complete for retained inputs and all three named audit gates, with final hash, length, order and chunk-coverage review passed. Nine manifest rows lacked read_file; completion does not turn those into read source or establish canon. SUMMARY.md carries remaining scope limits.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/ (NOTES.jsonl, READ_LEDGER.jsonl, CORRECTIONS.jsonl, AUDIT_NOTES.jsonl, AUDIT_READ_LEDGER.jsonl, SUMMARY.md)",
+      "evidence_state": "Historical checkpoint assertions only; this pass did not inspect the named outputs, source snapshot, or rerun integrity checks. The record explicitly says the archive is a dated secondary wiki, not canon authentication.",
+      "remaining_check": "For a selected claim, inspect its note, receipt and SUMMARY.md scope limits, and qualify against primary canon separately; the checkpoint says some later anime seasons may be thin.",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          18,
+          20
+        ]
+      ],
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/CHECKPOINT.md",
+      "input_sha256": "16a52831dbdd6f70944f7787b13d6739842879d17a1ac1d4d2752a9fcb1badb0",
+      "read_ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "record_id": "U0418",
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Lane W",
+        "Law of Regression",
+        "Mending Rune of the Death-Prince",
+        "Ring/Great Runes",
+        "Elden Lord"
+      ],
+      "mechanism_and_interactions": "The focused qualification distinguishes two separate source-described mechanisms: Law of Regression is a local incantation with stated range, targets, costs and dispelling plus a separate site-gated quest reveal; the Death-Prince rune is a carrier for an ending-level Order change, committed only through the Elden Lord post-final-boss choice at Fractured Marika. Possession/acquisition alone does not commit it. The reader notes no full resulting-world behavior or counters. Notes distinguish wiki claims, inference, proposals, costs/gates and authority; the wiki is secondary evidence.",
+      "disposition": "The main Elden Ring queue was paused on 2026-10-13 by Weibao priority change as a historical priority instruction. The checkpoint reports 471 of 4,811 rows complete at one stage, then 302 at a later checkpoint, 4,340 pending, and directs continuation from page 301. These chronology/status differences are preserved as historical checkpoints, not resolved into current progress; neither the pause nor these claims certify full-source qualification.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/eldenring_SOURCES.json, workers/elden-full/NOTES.jsonl, workers/elden-full/READ_LEDGER.jsonl; priority direction docs/USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13",
+      "evidence_state": "The assigned checkpoint reports manifest/payload title, revision, hash, count and URL checks for the two qualification pages and paired rows for the archive. No payload, note, ledger, current source, runtime or gameplay proof was inspected in this shard. Source is explicitly a secondary Fandom snapshot.",
+      "remaining_check": "This content review does not resume the broad queue. Any future source task follows the live priority owner; inspect its corresponding note/source receipt and keep source semantics and selected runtime behavior separately verified. Broad archive completion remains unclaimed.",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          15,
+          38
+        ],
+        [
+          40,
+          62
+        ],
+        [
+          75,
+          78
+        ]
+      ],
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/elden-full/CHECKPOINT.md",
+      "input_sha256": "ce05a1152b0d34f3e1c436648ce12de8de9d5dbdf75b2b531030bc835eff6c3e",
+      "read_ranges": [
+        [
+          1,
+          78
+        ]
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "All three records describe offline secondary-wiki reading programs; source reading, hash/ledger integrity, semantic note accuracy and primary-canon authority are separate evidence states.",
+    "U0417 reports its retained-input and named audit work complete; U0416 and U0418 retain substantial pending queues, while U0418 additionally records a user-directed pause. These statuses do not make source coverage interchangeable.",
+    "The checkpoint texts report historical progress and proof only. No current runtime behavior, accepted mechanic, or full-source qualification was inspected or established here."
+  ],
+  "unresolved_gaps": [
+    "No underlying payloads, notes, ledgers, integrity outputs, or primary sources were inspected in this shard.",
+    "U0416 retains pending and absent inputs, excerpt/hash limitations, and secondary-wiki uncertainty.",
+    "U0417 notes source uncertainty and possible thin later-anime coverage.",
+    "U0418 retains an explicitly paused main queue and 4,340 pending rows in its later checkpoint; focused mechanic claims still need source-level review if selected."
+  ]
+}

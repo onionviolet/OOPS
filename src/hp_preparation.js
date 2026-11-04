@@ -50,10 +50,10 @@ export function planHpPreparation({lot, variantId, now, purse, apparatusAvailabl
     need(object(lot) && text(lot.id), 'Choose a lot you hold.');
     need(lot.form === 'raw' && !lot.stew && lot.variant == null, 'Only a raw lot can be prepared.');
     need(natural(now) && natural(lot.acquiredAt) && lot.acquiredAt <= now, 'Preparation needs the played clock after acquisition.');
-    need(PACK.ingredients.find(i => i.id === lot.ingredient)?.forms.includes(terms.form), 'This ingredient cannot receive that preparation.');
-    need(apparatusAvailable === true, 'The hand-preparation service is unavailable here.');
+    need(PACK.ingredients.find(i => i.id === lot.ingredient)?.forms.includes(terms.form), 'This ingredient can\'t be prepared that way.');
+    need(apparatusAvailable === true, 'No one here prepares ingredients by hand.');
     need(natural(purse), 'Preparation needs the current coin balance.');
-    need(purse >= terms.coins, `This preparation costs ${terms.coins} coins; you hold ${purse}.`);
+    need(purse >= terms.coins, `This preparation costs ${terms.coins} ${terms.coins === 1 ? 'coin' : 'coins'}. You have ${purse}.`);
     const receipt = {law: terms.law, revision: terms.revision, status: terms.status, at: now, lotId: lot.id, ingredient: lot.ingredient,
         before: {form: 'raw', variant: null}, after: {form: terms.form, variant: variantId},
         accounting: {unit: terms.unit, input: terms.input, yield: terms.yield, waste: terms.waste},

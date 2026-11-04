@@ -14,7 +14,7 @@ export const LOTM_ENTRY_AXES=Object.freeze([
   {id:'1352',label:'1352 and later',available:false,reason:'Not written yet: later years need their own Tingen.'}]},
  {id:'method',label:'How you arrive',options:[
   {id:'crossing',label:'You wake in a local who has just died',available:true},
-  {id:'design',label:'Brought over by someone\'s design, as in the books',available:false,reason:'Not written yet: that route carries pulls and claims this build has no rules for.'}]},
+  {id:'design',label:'Brought over by someone\'s design, as in the books',available:false,reason:'Not written yet: that route brings pulls and claims the game has no rules for.'}]},
  {id:'host',label:'Host',options:[
   {id:'adult',label:'An adult clerk',available:true},
   {id:'young',label:'A child or teenager',available:false,reason:'Not written yet: the church teams hire adult clerks, and young hosts need lives of their own.'}]}]);

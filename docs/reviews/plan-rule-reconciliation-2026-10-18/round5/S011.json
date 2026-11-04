@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "shard": "S011",
+  "reader": "content_s011; gpt-6-luna low",
+  "payload_sha256": "6d0a6ad83e0dfc15e4f5012906a71811771b43d2d371b4a62903d41259b92ebf",
+  "scope": "Historical content review attempted; source output was truncated, so no content findings or proof claims are made. Not contemporary runtime or source-canon validation.",
+  "rows": [
+    {
+      "record_id": "U0156",
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta1/CHECKPOINT.md",
+      "input_sha256": "f7fb05aaaa692369d32a08d469642c9cba45445dc7942a52c42aaf85152a3359",
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0157",
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta2/CHECKPOINT.md",
+      "input_sha256": "fad1ab0eada82e467ee060dcb757664582c044313d63a094da50fd0aa9dd73b6",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0158",
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta3/CHECKPOINT.md",
+      "input_sha256": "123f3c8551fef9b0de4e7856ee93f12456a97ce7dee0b7bea01c1fdfa8787faa",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0159",
+      "path": "docs/gm/dispatch/ttks-novels-2026-10-10/CHECKPOINT.md",
+      "input_sha256": "e2a64bcfb66134c6bc83f761efb5be97f4901b475696a7fe28c5ea2c81870298",
+      "read_ranges": [
+        [
+          1,
+          207
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0160",
+      "path": "docs/gm/dispatch/ui-density-slices-2026-10-13/CHECKPOINT.md",
+      "input_sha256": "2ced516d070be7a946de11eb1fc160d62d51a5862238f5fed2e58e1982e574c0",
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0161",
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/CHECKPOINT.md",
+      "input_sha256": "995e114ff6c432f3f798ec1ef8c509b707f1744c9b780436988e4484f0cc3331",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0162",
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/feedback/CHECKPOINT.md",
+      "input_sha256": "4ff714e54d32b26ce58d70dfbc178bafb71b215e2b3a052b1816b867f73ed3a7",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0163",
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/theme/CHECKPOINT.md",
+      "input_sha256": "dd38bcad8e6284dccc9e70922c3d1276c06f9d6e648f1c84715371b5bca85919",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0164",
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/CHECKPOINT.md",
+      "input_sha256": "a4fd0a8090e750c663768ca08627afbe9c523a98bff07f729787b105de395eb4",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0165",
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/CHECKPOINT.md",
+      "input_sha256": "5913a5a460cc3de6c2a553d16626c70f8205fe98226123170078dcc5c1500294",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0166",
+      "path": "docs/gm/dispatch/village-career-2026-10-09/CHECKPOINT.md",
+      "input_sha256": "9c0f5adb1fa44ec5612fc463f7ac332212282408818bbf2ea7786439708ffc19",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0167",
+      "path": "docs/gm/dispatch/village-choices-2026-10-09/CHECKPOINT.md",
+      "input_sha256": "80cb3658163b516ff4887fc8c32c57bf3f9f88b9c1d03988f0f5565efa3f165b",
+      "read_ranges": [
+        [
+          1,
+          10
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    },
+    {
+      "record_id": "U0168",
+      "path": "docs/gm/dispatch/village-mentor-2026-10-09/CHECKPOINT.md",
+      "input_sha256": "e4306f91aa97cd3c535ec7a8f1f99a03e326046892552384f09cb6032dfa32e1",
+      "read_ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "coverage": "unread-tool-output-truncated",
+      "original_ids": [],
+      "mechanism_and_interactions": "Not reviewed: the mandated one-call source load executed, but its combined output was truncated before source text was available to the reader.",
+      "disposition": "Unresolved; no semantic disposition assigned.",
+      "owner_or_consumer": "Not reviewed.",
+      "evidence_state": "No source content reached model context; metadata only.",
+      "remaining_check": "Requires an authorized reader to inspect this exact assigned span and record chronology/evidence boundaries.",
+      "evidence_lines": []
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [],
+  "unresolved_questions_source_gaps": [
+    "The source part outputs were omitted by tool-output truncation after the plan extraction printed the full shard inventory. All assigned source spans remain unread semantically; metadata ranges and hashes are populated from ROUND5_PLAN.json."
+  ]
+}

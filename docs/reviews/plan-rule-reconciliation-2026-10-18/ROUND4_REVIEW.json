@@ -1,0 +1,932 @@
+{
+  "schema": 1,
+  "date": "2026-11-01",
+  "authority": "User requested historical semantic reconciliation, preserving other chats and excluding L2b and whole-LOTM qualification",
+  "scope": "Historical execution-control semantics, not comprehensive mechanic/source/canon review",
+  "historical_catalog_sha256": "f4432cdcaa25b66240ef7c6f9439fcca4a9e6582b96b90aa0cae37c011dddb38",
+  "families": [
+    {
+      "id": "H01",
+      "label": "Audit absorption",
+      "classification": "source-delivered; behavior unverified",
+      "decision": "Bootstrap and revisions 10/11 still describe conflicting leases, pending leaf repairs and acquisition. Revision 13 records the acquired exact release, five selected joins and matching build; that settles those execution blockers.",
+      "retained_distinctions": "Five-family source boundary, ACS original adaptations, native publication constraints and deferred save/browser/failure gates remain. Metadata inventory 2,374 is not semantic reading.",
+      "successor_owner": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+          "sha256": "27a3b40b3e9c011ccce757721d8c5c1558a3576b69a80039eb7bcd71bb2ee5f3"
+        },
+        {
+          "path": "docs/gm/audit-absorption-2026-10-07/RELEASE.json",
+          "sha256": "ed165a0b9ef2d458abc3fde08c9192ef56f8b9e7975a29c48dc02dc039d005d7"
+        },
+        {
+          "path": "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.json",
+          "sha256": "ab0f16ba0c8b9f96b7028a3b043c2d8d2773fa62e11457042ceef2b3bef14b40"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H02",
+      "label": "Causal endings",
+      "classification": "leaf released; later integrator receipt",
+      "decision": "Revision 5 active leaf reservations are replaced by revision 6 source release. The later world-integrator checkpoint records P1\u2013P5 source/native/UI/build admission; neither record proves playable protection or persistent recovery.",
+      "retained_distinctions": "Independent physical/goal/finality facets, actual means/observer/custody constraints and five deferred acceptance families stay distinct.",
+      "successor_owner": "docs/gm/causal-endings/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/causal-endings/CHECKPOINT.md",
+          "sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f"
+        },
+        {
+          "path": "docs/gm/causal-endings/INTEGRATION.json",
+          "sha256": "be2133ca067383efbf1af5dda7ec3f59316fde51eb9f804ac43ad9ceb679d36c"
+        },
+        {
+          "path": "docs/gm/world-implementation/CHECKPOINT.md",
+          "sha256": "926047da4adbbbc13a77292bf7ab261480fdf3716bc031391e64158022f7b038"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H03",
+      "label": "Foundation chain",
+      "classification": "ended partial chain; archived handoffs",
+      "decision": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+          "sha256": "3c8986eb4ad834688c6a400f3e39afd6ef72e03bf43956116d2baf3a28da8c27"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H04",
+      "label": "Six Ages identity/intake",
+      "classification": "corrected target; uninstall not established",
+      "decision": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate.",
+      "retained_distinctions": "Retain five prior source dossiers, bounded unread native outcomes, private-copy receipts and original target history. No new uninstall request, installation or private deletion follows.",
+      "successor_owner": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+          "sha256": "8143d9125b012d11ad8cdebb46d2ebd8bd720708bd9bc592f57863252e659bd6"
+        },
+        {
+          "path": "docs/gm/dispatch/life-sim-sources-2026-10-07/UNINSTALL.json",
+          "sha256": "129ee2e50ff14c8f9bee5386eb6ccc208beae617d1090b59a098cea3d5120016"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H05",
+      "label": "New-game audit wave",
+      "classification": "finite source audit completed after repair",
+      "decision": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate.",
+      "retained_distinctions": "Demo/version/source ranges do not prove retail/native completeness. No replay of interrupted workers or Factorio export is needed for this finite source wave.",
+      "successor_owner": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+          "sha256": "8f67da8c15536e18081b26522fac10c53fe5732f9d68a5e465a3b84b3f527791"
+        },
+        {
+          "path": "docs/research/magic-research-2/VALIDATION.json",
+          "sha256": "e1ca518fc9df130e617bbb49e5b9d8db704ea0cb40b30df64cc433e938fcd0da"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H06",
+      "label": "Steam/Factorio coordination",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "decision": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+          "sha256": "ab86c13d4138bedcba5a9ff5efe3255b96d9873234509f14ed12913d9efa6c7b"
+        },
+        {
+          "path": "docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+          "sha256": "934dc99ab48c68a51e98e8a912091a933cd11cc4aae0a96b429b748537b3f9d7"
+        },
+        {
+          "path": "docs/research/factorio/native/CHECKPOINT.md",
+          "sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H07",
+      "label": "Continued life",
+      "classification": "later source/build refinement delivered",
+      "decision": "The two pre-11aaa snapshots record the earlier book/nested delivery. The retained continued-life checkpoint records later 1ca667 refinement and released writers; their deferred gameplay gates remain unrun.",
+      "retained_distinctions": "Earned passages, body/cargo/landing guards, native funded jobs, actor recognition and retained historical scopes remain separate from full-world parity.",
+      "successor_owner": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+          "sha256": "f9db2169568f9bb45be811f5b6cd4577eead8ce3b01badd5f6ad9a7a5f2b4657"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H08",
+      "label": "Ink",
+      "classification": "source/native/build role complete",
+      "decision": "Revision 3 pending voice/refinement work precedes revision 4 admission and released source writers. Its opening active-goal wording does not override its final completed-role disposition.",
+      "retained_distinctions": "Immutable content versions, legacy cursor scopes, native pure-plan/durable-publication boundary and all19 runtime_activation false voice rows are retained. No full book voice activation or behavioral proof follows.",
+      "successor_owner": "docs/gm/feature-wave/ink/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/feature-wave/ink/CHECKPOINT.md",
+          "sha256": "87cee19bba49f9ef12bec6c81f46c406279394b5ded6d29a5ae83dc4ba531d3e"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H09",
+      "label": "Village story",
+      "classification": "source/model delivered; browser blocked",
+      "decision": "Pre-delivery source acquisition/startup repair is superseded by released source/model/build records. The final receipt contains limited enrollment/meeting observations and an unavailable browser route; later watch/account/conversation and persistence remain unverified.",
+      "retained_distinctions": "Preserve generated-state uncertainty, peer writer separation, original-scene proposal status and named A1/A2 rather than converting a browser/tool blocker into completion.",
+      "successor_owner": "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+          "sha256": "ac5ce879839875b0cd5d5063278ac93761c1480d853be5596625073aa5ac3c35"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H10",
+      "label": "World implementation",
+      "classification": "selected source remainder delivered",
+      "decision": "Coordinator revision 7 pending engine/native/build notes precede revision 21 and the remainder delivery. Its selected 19 plus historical 3 close that source candidate queue, not the whole-world or gameplay objective.",
+      "retained_distinctions": "Optional schemas, actual body/native owner constraints, original proposal values and five deferred play/durability families remain. Retired first-milestone wording creates no current gate.",
+      "successor_owner": "docs/gm/world-implementation/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/gm/world-implementation/CHECKPOINT.md",
+          "sha256": "926047da4adbbbc13a77292bf7ab261480fdf3716bc031391e64158022f7b038"
+        },
+        {
+          "path": "docs/gm/audit-implementation/remainder/COVERAGE.json",
+          "sha256": "91f61711769e8756fd3fefc2f3cadaf9e8619dd8da1d7e9b5754c6f9f9402c2c"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H11",
+      "label": "Factorio native pipeline",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "decision": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/research/factorio/native/CHECKPOINT.md",
+          "sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9"
+        },
+        {
+          "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+          "sha256": "ab86c13d4138bedcba5a9ff5efe3255b96d9873234509f14ed12913d9efa6c7b"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H12",
+      "label": "Game discovery",
+      "classification": "finite research complete; later source absorption exists",
+      "decision": "The original finite Brogue/Shattered packet research stays complete. Its later local checkpoint still mentions a blocked GD-01 leaf; the later absorption DELIVERY/RECONCILIATION explicitly records GD-01 source/native/build integration. That supersedes the old native-unintegrated status at source-delivery scope.",
+      "retained_distinctions": "GD-02 and parked deeper research are separately unselected; source acquisition and current gameplay are unproven here. Genre-open scouting remains direction, not an automatic new wave.",
+      "successor_owner": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+          "sha256": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6"
+        },
+        {
+          "path": "docs/gm/audit-absorption-2026-10-07/DELIVERY.md",
+          "sha256": "65f7a56227d4207001edd8a44ca8f8f5bd83c360f18c5357d5e11f2294b81d61"
+        },
+        {
+          "path": "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.json",
+          "sha256": "ab0f16ba0c8b9f96b7028a3b043c2d8d2773fa62e11457042ceef2b3bef14b40"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H13",
+      "label": "Idle/social/engine scout",
+      "classification": "finite research and later Qud pass complete",
+      "decision": "Initial and genre-open finite research are followed by a bounded Qud re-audit and saved questions. Later native feat/care/equipment consumers qualify earlier missing-foundation assertions; they do not implement every scout packet.",
+      "retained_distinctions": "Pinned edition/source ranges, unextracted Pets, CK3 opaque algorithms, documentation-only sources, and original ranked packet identities are retained.",
+      "successor_owner": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+          "sha256": "bfbd62da901801342b047643e14a045cafb2c39994708301de070299e1cdd8cb"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H14",
+      "label": "Magic Research 2",
+      "classification": "premature completion corrected by later evidence",
+      "decision": "Historical checkpoint claimed three JSON files before they existed. Current checkpoint and parseable FINDINGS/COVERAGE/INTAKE/VALIDATION suppliers now support the finite static demo audit. Present artifacts do not make the earlier false claim true at its original time.",
+      "retained_distinctions": "Five selected traces, exact source-map body/range scope and four unimplemented proposals remain; extraction/recovery counts are not full semantic or retail coverage.",
+      "successor_owner": "docs/research/magic-research-2/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/research/magic-research-2/CHECKPOINT.md",
+          "sha256": "9fcc3f69dea6d68923b1ef6ca764b03f5dc6e0103b1cce0752708eadc3579831"
+        },
+        {
+          "path": "docs/research/magic-research-2/FINDINGS.json",
+          "sha256": "caf21b441ed3b242052e53f209a3482d4d5a34cf590a83f7a9823be579dba6e1"
+        },
+        {
+          "path": "docs/research/magic-research-2/COVERAGE.json",
+          "sha256": "b706a6dde5be78d7f3577fbcdaf23bafbb4be8a045a20f8ab9922edbafbafe9e"
+        },
+        {
+          "path": "docs/research/magic-research-2/INTAKE.json",
+          "sha256": "4ad2c0cfaa29e28f327119fdb9b6e65402af70dd31d7630f22b6fc7c06e314f2"
+        },
+        {
+          "path": "docs/research/magic-research-2/VALIDATION.json",
+          "sha256": "e1ca518fc9df130e617bbb49e5b9d8db704ea0cb40b30df64cc433e938fcd0da"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    },
+    {
+      "id": "H15",
+      "label": "Wiki digest pipeline",
+      "classification": "bounded pass followed by unfinished expanded source task",
+      "decision": "Two old bounded/acquisition checkpoints are superseded as execution queues by expanded full-reading and the later October13 lane setup. Early stopped/no-worker and October10 coverage counts are historical. Cache-loss/restoration and paused-edition lanes must be respected.",
+      "retained_distinctions": "Integrity/read receipts are not accurate-note approval or complete integration. Frozen source scopes, overlapping supplements, edition differences and outstanding raw/parent-review gates remain. No downloads/readers/watchdog are resumed.",
+      "successor_owner": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+      "evidence_inputs": [
+        {
+          "path": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+          "sha256": "3d11d8719e3ffe8751452e5932bab7f579e55a4354e84af717347d18545da0b4"
+        },
+        {
+          "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SESSIONS.md",
+          "sha256": "fe2690a3b3ce6762387b2f667596f3c3f414f97bb3402e245182a063deeb0d93"
+        }
+      ],
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification"
+    }
+  ],
+  "members": [
+    {
+      "original_locator": "docs/gm/audit-absorption-2026-10-07/history/CHECKPOINT_REVISIONS_10_11.md",
+      "sha256": "9b56c7c6f48d96134efd8d1aa236f3b8ff57a47c701784dbe67b78049d3f85ce",
+      "family": "H01",
+      "classification": "source-delivered; behavior unverified",
+      "successor_owner": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "disposition": "Bootstrap and revisions 10/11 still describe conflicting leases, pending leaf repairs and acquisition. Revision 13 records the acquired exact release, five selected joins and matching build; that settles those execution blockers.",
+      "retained_distinctions": "Five-family source boundary, ACS original adaptations, native publication constraints and deferred save/browser/failure gates remain. Metadata inventory 2,374 is not semantic reading.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Bootstrap and revisions 10/11 still describe conflicting leases, pending leaf repairs and acquisition. Revision 13 records the acquired exact release, five selected joins and matching build; that settles those execution blockers."
+    },
+    {
+      "original_locator": "docs/gm/audit-absorption-2026-10-07/history/CHECKPOINT_STARTUP_TO_ACS_SELECTION.md",
+      "sha256": "b6d52b38a2ff2ccd6a8120d0a2abd80ac1d36639e1c3f1c4f57705433377760f",
+      "family": "H01",
+      "classification": "source-delivered; behavior unverified",
+      "successor_owner": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "disposition": "Bootstrap and revisions 10/11 still describe conflicting leases, pending leaf repairs and acquisition. Revision 13 records the acquired exact release, five selected joins and matching build; that settles those execution blockers.",
+      "retained_distinctions": "Five-family source boundary, ACS original adaptations, native publication constraints and deferred save/browser/failure gates remain. Metadata inventory 2,374 is not semantic reading.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Bootstrap and revisions 10/11 still describe conflicting leases, pending leaf repairs and acquisition. Revision 13 records the acquired exact release, five selected joins and matching build; that settles those execution blockers."
+    },
+    {
+      "original_locator": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "sha256": "0caf5d538255415327b5d5a5ed20ab260e547c39deec083eec478e76037234cf",
+      "family": "H02",
+      "classification": "leaf released; later integrator receipt",
+      "successor_owner": "docs/gm/causal-endings/CHECKPOINT.md",
+      "disposition": "Revision 5 active leaf reservations are replaced by revision 6 source release. The later world-integrator checkpoint records P1\u2013P5 source/native/UI/build admission; neither record proves playable protection or persistent recovery.",
+      "retained_distinctions": "Independent physical/goal/finality facets, actual means/observer/custody constraints and five deferred acceptance families stay distinct.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Revision 5 active leaf reservations are replaced by revision 6 source release. The later world-integrator checkpoint records P1\u2013P5 source/native/UI/build admission; neither record proves playable protection or persistent recovery."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md",
+      "sha256": "0861d7328e0b6bf4df587c351df109495711f457f7f8152dc82e8f9660af9ded",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R1 native gate was pending in this snapshot; later R1/R15 receipts own subsequent proof, not this source-test count."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R3_CLOSURE.md",
+      "sha256": "2d3eb68b7c08dfd280d360b4d32b25580f09b8bb976010f7907367e93a012ede",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R1 closed technical proof before R2; preserves the independent FA07 natural route gap at this handoff."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R4_CLOSURE.md",
+      "sha256": "cd806d9dea423d0d577c469d4b1e7f37c2b0f2afdd0a4c21b2dcb75d8c2c3f02",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R3 FA08 positive chain delivered; FA07 and failure policies stayed separate. This transfer grants no present R4 lease."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R5_CLOSURE.md",
+      "sha256": "eedfe1c72c8d0ebe451452612319523ea02b0c6637c2a1f43cd4361906f5f517",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R4 routines/reserve positive checkpoints passed; exact native negatives/stamina remain scoped, and transport Save JSON is not genuine Export."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/CHECKPOINT_BEFORE_R12.md",
+      "sha256": "aebe4ad779c31ab06a3fb66bb539ed95ab0ff9e4b3c3437d1c410b98cd419faf",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R11 stopped on a new-game error with no paid progress; R10 missing post-attempt state and R8 FAIL_CLOSED are retained, not reconstructed."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/CHECKPOINT_BEFORE_R13_TRANSFER.md",
+      "sha256": "992ce16bdc4cf4f2337d0978614bde1862b953f39240edeb108934ab5d54f2e6",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R12 accounting did not run a new native attempt; next FA20 and final recovery/gap review were separate open gates."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/CHECKPOINT_BEFORE_R15.md",
+      "sha256": "912f75871346e0e4f404c86bb305b0566dda6d45fe76bfa59e52bf19d9543dc0",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R14 assessment concluded with technical chain incomplete; later R15 execution supersedes the no-useful-unit state for selected rows, not every inherited gate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/CHECKPOINT_PRE_R6_CLOSURE.md",
+      "sha256": "4014b4a93b9325612651c39c3c9fbda48d165edc661887756b7eba9bd942eaeb",
+      "family": "H03",
+      "classification": "ended partial chain; archived handoffs",
+      "successor_owner": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "disposition": "Eight pre-closure/transfer snapshots are predecessor accounting, not eight active writers. The root final dated entry stops at its deadline; W1 remains incomplete at that receipt. Later R15 delivery can resolve selected earlier feature gaps without erasing R8 FAIL_CLOSED or R10 loss.",
+      "retained_distinctions": "Keep each round input/budget/earned-versus-seeded proof and permanent failure boundaries; do not replay paid work, reconstruct missing post-attempt state, infer current branch integration or restart a watcher.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "R5 manual acquisition/commissioning delivered, while native study/kit/control was still open; preserve that distinction from later R15 reports."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/life-sim-sources-2026-10-07/history/six-ages-2-uninstall-request/CHECKPOINT_BEFORE_REFRESH.md",
+      "sha256": "8b153a2848954ca29bfb4ebe55ba8b4f5ccc62dae59caf6dfd7fe747288478b3",
+      "family": "H04",
+      "classification": "corrected target; uninstall not established",
+      "successor_owner": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+      "disposition": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate.",
+      "retained_distinctions": "Retain five prior source dossiers, bounded unread native outcomes, private-copy receipts and original target history. No new uninstall request, installation or private deletion follows.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/life-sim-sources-2026-10-07/history/six-ages-identity-correction/CHECKPOINT.md",
+      "sha256": "5f2c051fd9f7bb4947befb73855dc1f88bde7408476717dda98aceb7d55389e9",
+      "family": "H04",
+      "classification": "corrected target; uninstall not established",
+      "successor_owner": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+      "disposition": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate.",
+      "retained_distinctions": "Retain five prior source dossiers, bounded unread native outcomes, private-copy receipts and original target history. No new uninstall request, installation or private deletion follows.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/life-sim-sources-2026-10-07/history/six-ages-identity-correction/six-ages-1-intake/CHECKPOINT.md",
+      "sha256": "7a53b7cb32bae359c35f35e6b190afe1a2697a5451688d04f2a8ed13da08beca",
+      "family": "H04",
+      "classification": "corrected target; uninstall not established",
+      "successor_owner": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+      "disposition": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate.",
+      "retained_distinctions": "Retain five prior source dossiers, bounded unread native outcomes, private-copy receipts and original target history. No new uninstall request, installation or private deletion follows.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Old Six Ages 1 app881420 waiting/intake is retired by the explicit Six Ages 2 app2278010 correction. Revision 11 reports finite Six Ages 2 source delivery; shell exit alone did not establish uninstall. Tale remains a separate actual-source gate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/new-game-audits-2026-10-07/history/CHECKPOINT_BEFORE_DAEMON_RESUME.md",
+      "sha256": "1ece7435bd611819dcc8757a2af363771e129b54fdd3df9e890e29d5195082d0",
+      "family": "H05",
+      "classification": "finite source audit completed after repair",
+      "successor_owner": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+      "disposition": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate.",
+      "retained_distinctions": "Demo/version/source ranges do not prove retail/native completeness. No replay of interrupted workers or Factorio export is needed for this finite source wave.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/new-game-audits-2026-10-07/history/CHECKPOINT_BEFORE_FINAL_RECONCILIATION.md",
+      "sha256": "42b25d4c26da95edc5326de6d6e137674e83f366b726a08670ee84ba43b4919e",
+      "family": "H05",
+      "classification": "finite source audit completed after repair",
+      "successor_owner": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+      "disposition": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate.",
+      "retained_distinctions": "Demo/version/source ranges do not prove retail/native completeness. No replay of interrupted workers or Factorio export is needed for this finite source wave.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/new-game-audits-2026-10-07/history/CHECKPOINT_BEFORE_MODEL_ERROR_RESUME.md",
+      "sha256": "3f687d4a61409e9808dfe8379fca2412845e6bca8562c387104a03471b695f38",
+      "family": "H05",
+      "classification": "finite source audit completed after repair",
+      "successor_owner": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+      "disposition": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate.",
+      "retained_distinctions": "Demo/version/source ranges do not prove retail/native completeness. No replay of interrupted workers or Factorio export is needed for this finite source wave.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "The model/daemon checkpoints record interrupted workers and a premature Magic completion claim. Revision 4 reports repaired evidence JSON and acquired Achra/Magic/Soulash dossiers; Erenshor/Matchless payload gates stay separate."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-acceptance-state-refresh/PARENT_CHECKPOINT.md",
+      "sha256": "9adb1920ad298d7a0cbf00284070b6acdb47e242cd25f8f551481fc73f1db85f",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-acceptance-state-refresh/ROOT_CHECKPOINT.md",
+      "sha256": "cb1e597eb8e9cd6b65325fa0c4dd486c143072144c2f1b01fb90eb6b22b36579",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-acceptance-state-refresh/WAVE_CHECKPOINT.md",
+      "sha256": "588c74513dfd8c8723b2952378a1b48517d85d57afeca501119246253370ff3b",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-arm-complete-intel-start/ROOT_CHECKPOINT.md",
+      "sha256": "e06e87294262eceb49444242bca329a7a2e338d64403e2351533393da17fb19d",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-arm-complete-intel-start/WAVE_CHECKPOINT.md",
+      "sha256": "cfd7f801efc80d764cdbed5aa294d4bdbccc4251f50439094e8e2f6b6b50b207",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-model-error-resume/ROOT_CHECKPOINT.md",
+      "sha256": "00d134f4ac1fa2d4786d61ed426c83dede8f00fcf43caf852aa210e154a1928f",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-parent-source-routing/CHECKPOINT.md",
+      "sha256": "ca8844bd0a9ffad9aeba78b2cece9ae06d5ec50954d546c3123770cbec9a1110",
+      "family": "H06",
+      "classification": "finite intake complete; deeper native objective incomplete",
+      "successor_owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "disposition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit.",
+      "retained_distinctions": "Function attempts, C success, original recovered semantics and original retort gameplay are different claims. Old PIDs/leases/readiness watcher state are dated observations, not present authority.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Seven parent/root/wave snapshots mix completed installed-source intake, later full-native recovery and retort use. Native-usage CHECKPOINT is the more specific acceptance successor than the wave front door. Initial streams closed and selected Flow/Heat qualification advanced; remaining backend/resource/ownership/corpus questions are explicit."
+    },
+    {
+      "original_locator": "docs/gm/feature-wave/features/nested-campaign/continued-life/BOOK_CHECKPOINT_BEFORE_11aaa9cbfc69.md",
+      "sha256": "53d81b0382d878525da2252aa5aa83174b032c7d7c3f1960b25799e8f5b88399",
+      "family": "H07",
+      "classification": "later source/build refinement delivered",
+      "successor_owner": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+      "disposition": "The two pre-11aaa snapshots record the earlier book/nested delivery. The retained continued-life checkpoint records later 1ca667 refinement and released writers; their deferred gameplay gates remain unrun.",
+      "retained_distinctions": "Earned passages, body/cargo/landing guards, native funded jobs, actor recognition and retained historical scopes remain separate from full-world parity.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "The two pre-11aaa snapshots record the earlier book/nested delivery. The retained continued-life checkpoint records later 1ca667 refinement and released writers; their deferred gameplay gates remain unrun."
+    },
+    {
+      "original_locator": "docs/gm/feature-wave/features/nested-campaign/continued-life/NESTED_CHECKPOINT_BEFORE_11aaa9cbfc69.md",
+      "sha256": "68a9ae6fc657cc85c97cae205a167147bb72148001c94de18de457764565e75f",
+      "family": "H07",
+      "classification": "later source/build refinement delivered",
+      "successor_owner": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+      "disposition": "The two pre-11aaa snapshots record the earlier book/nested delivery. The retained continued-life checkpoint records later 1ca667 refinement and released writers; their deferred gameplay gates remain unrun.",
+      "retained_distinctions": "Earned passages, body/cargo/landing guards, native funded jobs, actor recognition and retained historical scopes remain separate from full-world parity.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "The two pre-11aaa snapshots record the earlier book/nested delivery. The retained continued-life checkpoint records later 1ca667 refinement and released writers; their deferred gameplay gates remain unrun."
+    },
+    {
+      "original_locator": "docs/gm/feature-wave/ink/history/CHECKPOINT_BEFORE_REFINEMENT_RELEASE.md",
+      "sha256": "7f2c886044f4aade904d3e82d42b150fcc0020b6e63b5d7567b052a11cd6ded9",
+      "family": "H08",
+      "classification": "source/native/build role complete",
+      "successor_owner": "docs/gm/feature-wave/ink/CHECKPOINT.md",
+      "disposition": "Revision 3 pending voice/refinement work precedes revision 4 admission and released source writers. Its opening active-goal wording does not override its final completed-role disposition.",
+      "retained_distinctions": "Immutable content versions, legacy cursor scopes, native pure-plan/durable-publication boundary and all19 runtime_activation false voice rows are retained. No full book voice activation or behavioral proof follows.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Revision 3 pending voice/refinement work precedes revision 4 admission and released source writers. Its opening active-goal wording does not override its final completed-role disposition."
+    },
+    {
+      "original_locator": "docs/gm/story-life-2026-10-07/CHECKPOINT_BEFORE_DELIVERY.md",
+      "sha256": "5f65e2ead5f2f8b8968ea0c7b34a299e5ab5c24334d577398d694fbcb12c7646",
+      "family": "H09",
+      "classification": "source/model delivered; browser blocked",
+      "successor_owner": "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+      "disposition": "Pre-delivery source acquisition/startup repair is superseded by released source/model/build records. The final receipt contains limited enrollment/meeting observations and an unavailable browser route; later watch/account/conversation and persistence remain unverified.",
+      "retained_distinctions": "Preserve generated-state uncertainty, peer writer separation, original-scene proposal status and named A1/A2 rather than converting a browser/tool blocker into completion.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Pre-delivery source acquisition/startup repair is superseded by released source/model/build records. The final receipt contains limited enrollment/meeting observations and an unavailable browser route; later watch/account/conversation and persistence remain unverified."
+    },
+    {
+      "original_locator": "docs/gm/world-implementation/history/COORDINATOR_REVISION_7_CHECKPOINT.md",
+      "sha256": "abc7914ba12ed71f0035c0cbacb26dd5dacaadffed48b4e713d83fcd9a1978da",
+      "family": "H10",
+      "classification": "selected source remainder delivered",
+      "successor_owner": "docs/gm/world-implementation/CHECKPOINT.md",
+      "disposition": "Coordinator revision 7 pending engine/native/build notes precede revision 21 and the remainder delivery. Its selected 19 plus historical 3 close that source candidate queue, not the whole-world or gameplay objective.",
+      "retained_distinctions": "Optional schemas, actual body/native owner constraints, original proposal values and five deferred play/durability families remain. Retired first-milestone wording creates no current gate.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Coordinator revision 7 pending engine/native/build notes precede revision 21 and the remainder delivery. Its selected 19 plus historical 3 close that source candidate queue, not the whole-world or gameplay objective."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/2026-10-07-daemon-resume/CHECKPOINT-before.md",
+      "sha256": "536559ea839aade32518be75e8352aca0602ce8509f3f95144fc8548ae3544a1",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Pre-daemon writer/process/index readback is historical; continuation/native-usage owners retain the later reacquired streams and exact repair residue."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-004-final.md",
+      "sha256": "d8ebe290a4690180356ff6cea0659e4abc0feda0ffbeca0180f0f51e015297f7",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Early whole-analysis/decode/initial250 qualification and remaining-mode instructions precede closed initial corpus receipts; these are historical attempts, not a fresh export queue."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-004.md",
+      "sha256": "d8ebe290a4690180356ff6cea0659e4abc0feda0ffbeca0180f0f51e015297f7",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Early whole-analysis/decode/initial250 qualification and remaining-mode instructions precede closed initial corpus receipts; these are historical attempts, not a fresh export queue."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-008.md",
+      "sha256": "9cf724568183f27a3663a639b4130bbc5c07348a6da08115d97121ceb35df991",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Old merged canGiveProducts locators required wrapper/helper separation; later schema2/source-binding and canonical acquisitions own the corrected narrow trace."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-010-before-packed.md",
+      "sha256": "014ac0573887a388f6cb755f65d557d2dd549b7df00caf939bf4d2662f6878ae",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Packed/index source-binding progress does not finish full export or ABI qualification; retain +26e/+26f and original-policy distinctions at their source scope."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-011-before-scalar-repair.md",
+      "sha256": "abfc85d41944fc5d73181a6763859316eea62b77cd3be4ce6db651eba8dfdb1a",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Scalar/full-context repairs were unfinished here; later1105 affected-method acquisition narrows that gap without proving NaN/FPCR/signed-zero behavior."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-012-before-largefunction-stop.md",
+      "sha256": "94dbe5a10399650fac7502967645c7017aac82cd2e99dbf4ff9c6e1ca6d41b74",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "177104-function/zero-new-chunk/resource-stop progress precedes full initial streams; preserve the capacity/failure receipt and avoid unchanged retries."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-013-before-capacity-continuation.md",
+      "sha256": "8f858040487812d53bf921c48a6d434433b1a2631e230b4dc4242b9232809d3c",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "177104-function/zero-new-chunk/resource-stop progress precedes full initial streams; preserve the capacity/failure receipt and avoid unchanged retries."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-revision14.md",
+      "sha256": "2fb55055779e0cc548e034f642c97144970829c9389fb70fa94a3fb3e7910d01",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "177104-function/zero-new-chunk/resource-stop progress precedes full initial streams; preserve the capacity/failure receipt and avoid unchanged retries."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-revision15.md",
+      "sha256": "946ee0ebe81dff8ac0cd443d9d5240d918b2d9008a46e685c7bbedc14610cb6d",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "ARM1850 initial attempts were closed while Intel/remaining affected methods were still pending; later initial Intel closure and affected-body proof supersede those counts as an execution queue."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-revision16-before-archive-count-correction.md",
+      "sha256": "898132f5773a47de97027dded185b726623a8f870fabe08be922a928b3c18e12",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Pre-correction archive/count state must not replace corrected revision16a or current exact archive/index; preserve its original failure and hash evidence."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-revision16a.md",
+      "sha256": "849517484ed4ebe854f07359dd41811393f89b0bcb8d1a210d9df76ab2b14036",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Corrected archive/index state still had prepared Splitter/backend work; later canonical Flow/Heat receipts settle selected cases, with hash/resource/ownership work remaining."
+    },
+    {
+      "original_locator": "docs/research/factorio/native/history/CHECKPOINT-revision17.md",
+      "sha256": "ee281da18683f2b59b112f6d823a421fc00d94780a68f7b45944a91815284ed2",
+      "family": "H11",
+      "classification": "initial exports completed; meaningful recovery incomplete",
+      "successor_owner": "docs/research/factorio/native/CHECKPOINT.md",
+      "disposition": "Thirteen native snapshots describe intermediate counts, writer transfers, packed recovery, scalar repairs and prepared jobs. Retained native/usage checkpoints report both initial streams closed and later Flow/Heat acquisitions, with consequential repairs and exact ownership still open.",
+      "retained_distinctions": "Preserve failed rows, input/tool revisions, ARM versus Intel and body/ASM versus expanded-C scope, finite scalar proof limits, resource diagnoses and original retort-policy differences. No exporter, tool or recovered code is run.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Running Intel stream and prepared14-table/Inserter qualification precede initial closure and canonical repairs; retained undecoded/expanded-body unknowns are not blanket defect counts."
+    },
+    {
+      "original_locator": "docs/research/game-discovery-2026-10-06/history/CHECKPOINT_FINITE_RESEARCH_2026_10_06.md",
+      "sha256": "959aa8e791baf632740f35946461b93404f90cd2b1baef06447350ecc0ea434e",
+      "family": "H12",
+      "classification": "finite research complete; later source absorption exists",
+      "successor_owner": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+      "disposition": "The original finite Brogue/Shattered packet research stays complete. Its later local checkpoint still mentions a blocked GD-01 leaf; the later absorption DELIVERY/RECONCILIATION explicitly records GD-01 source/native/build integration. That supersedes the old native-unintegrated status at source-delivery scope.",
+      "retained_distinctions": "GD-02 and parked deeper research are separately unselected; source acquisition and current gameplay are unproven here. Genre-open scouting remains direction, not an automatic new wave.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "The original finite Brogue/Shattered packet research stays complete. Its later local checkpoint still mentions a blocked GD-01 leaf; the later absorption DELIVERY/RECONCILIATION explicitly records GD-01 source/native/build integration. That supersedes the old native-unintegrated status at source-delivery scope."
+    },
+    {
+      "original_locator": "docs/research/idle-social-engine-scout-2026-10-06/history/FIRST_PASS_CHECKPOINT.md",
+      "sha256": "ec54c92c0553451590640a84a9648ee0b7e8e498e3e9b27d0c3acadde26de872",
+      "family": "H13",
+      "classification": "finite research and later Qud pass complete",
+      "successor_owner": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+      "disposition": "Initial and genre-open finite research are followed by a bounded Qud re-audit and saved questions. Later native feat/care/equipment consumers qualify earlier missing-foundation assertions; they do not implement every scout packet.",
+      "retained_distinctions": "Pinned edition/source ranges, unextracted Pets, CK3 opaque algorithms, documentation-only sources, and original ranked packet identities are retained.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Initial and genre-open finite research are followed by a bounded Qud re-audit and saved questions. Later native feat/care/equipment consumers qualify earlier missing-foundation assertions; they do not implement every scout packet."
+    },
+    {
+      "original_locator": "docs/research/idle-social-engine-scout-2026-10-06/history/GENRE_OPEN_CHECKPOINT.md",
+      "sha256": "db4bc3e47696b9ea364045e4ea60c538d53c740b93dd0a81159e839b95ce72bb",
+      "family": "H13",
+      "classification": "finite research and later Qud pass complete",
+      "successor_owner": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+      "disposition": "Initial and genre-open finite research are followed by a bounded Qud re-audit and saved questions. Later native feat/care/equipment consumers qualify earlier missing-foundation assertions; they do not implement every scout packet.",
+      "retained_distinctions": "Pinned edition/source ranges, unextracted Pets, CK3 opaque algorithms, documentation-only sources, and original ranked packet identities are retained.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Initial and genre-open finite research are followed by a bounded Qud re-audit and saved questions. Later native feat/care/equipment consumers qualify earlier missing-foundation assertions; they do not implement every scout packet."
+    },
+    {
+      "original_locator": "docs/research/magic-research-2/history/2026-10-07-interrupted-checkpoint.md",
+      "sha256": "e4fb1cb8b251155db53b6006b9ffff8ad3cd5e64a59643d67216390f4e34244d",
+      "family": "H14",
+      "classification": "premature completion corrected by later evidence",
+      "successor_owner": "docs/research/magic-research-2/CHECKPOINT.md",
+      "disposition": "Historical checkpoint claimed three JSON files before they existed. Current checkpoint and parseable FINDINGS/COVERAGE/INTAKE/VALIDATION suppliers now support the finite static demo audit. Present artifacts do not make the earlier false claim true at its original time.",
+      "retained_distinctions": "Five selected traces, exact source-map body/range scope and four unimplemented proposals remain; extraction/recovery counts are not full semantic or retail coverage.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Historical checkpoint claimed three JSON files before they existed. Current checkpoint and parseable FINDINGS/COVERAGE/INTAKE/VALIDATION suppliers now support the finite static demo audit. Present artifacts do not make the earlier false claim true at its original time."
+    },
+    {
+      "original_locator": "docs/research/power-systems/wiki-digests/history/checkpoint-before-addendum-2.md",
+      "sha256": "573f5900fa5deca761bac7f5a2f6ac031fa050d86f0374a7939c919f2e0086fe",
+      "family": "H15",
+      "classification": "bounded pass followed by unfinished expanded source task",
+      "successor_owner": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+      "disposition": "Two old bounded/acquisition checkpoints are superseded as execution queues by expanded full-reading and the later October13 lane setup. Early stopped/no-worker and October10 coverage counts are historical. Cache-loss/restoration and paused-edition lanes must be respected.",
+      "retained_distinctions": "Integrity/read receipts are not accurate-note approval or complete integration. Frozen source scopes, overlapping supplements, edition differences and outstanding raw/parent-review gates remain. No downloads/readers/watchdog are resumed.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Two old bounded/acquisition checkpoints are superseded as execution queues by expanded full-reading and the later October13 lane setup. Early stopped/no-worker and October10 coverage counts are historical. Cache-loss/restoration and paused-edition lanes must be respected."
+    },
+    {
+      "original_locator": "docs/research/power-systems/wiki-digests/history/dump-run-checkpoint-before-final.md",
+      "sha256": "1d8339f11df6c11c60ded01333efce4b57ad2148ca3e51e67ad19d02728cae36",
+      "family": "H15",
+      "classification": "bounded pass followed by unfinished expanded source task",
+      "successor_owner": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+      "disposition": "Two old bounded/acquisition checkpoints are superseded as execution queues by expanded full-reading and the later October13 lane setup. Early stopped/no-worker and October10 coverage counts are historical. Cache-loss/restoration and paused-edition lanes must be respected.",
+      "retained_distinctions": "Integrity/read receipts are not accurate-note approval or complete integration. Frozen source scopes, overlapping supplements, edition differences and outstanding raw/parent-review gates remain. No downloads/readers/watchdog are resumed.",
+      "review_scope": "Selected execution state, ownership/release, next/resume and evidence-boundary clauses; not full source-content reading or current runtime verification",
+      "next_distinguishing_check": "For newly selected work: recover live owner/input identity and actual consumer receipt; test its remaining scenario rather than replay this historical control record.",
+      "specific_transition": "Two old bounded/acquisition checkpoints are superseded as execution queues by expanded full-reading and the later October13 lane setup. Early stopped/no-worker and October10 coverage counts are historical. Cache-loss/restoration and paused-edition lanes must be respected."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "SG01",
+      "scope": "Checkpoint M3 merge/post-merge/October18 reconciliation and M4 results; brief opening/MP13",
+      "decision": "Folded shared checkpoint replaced pre-merge worktree-only authority. M3 B4 and later M4 evidence supersede old stopped/next-M4 controls; old failures and source-specific remaining gaps stay historical."
+    },
+    {
+      "id": "SG02",
+      "scope": "Owner opening retained-snapshot pointer; October18\u201320 reconciliation/native join/remainder",
+      "decision": "Pre-consolidation snapshot remains historical. Later LIP3/LIP4 delivered native prototype, qualifying old planning-only/native-not-started language; remaining exact Export/travel/current-target proof stays at its owner. No whole-LOTM qualification work performed."
+    },
+    {
+      "id": "SG03",
+      "scope": "Rolling-plan October18 core-rule pointer; A1/A2 release, integration and single-target rerun",
+      "decision": "Earlier R1\u2013R14 control records remain superseded by rolling/current surface owners and later released seeded UI candidate. Multiple viewport, input and human-review states are preserved; current AD42 human review is optional."
+    },
+    {
+      "id": "SG04",
+      "scope": "Unchanged member/owner/evidence hashes; prior folded relationship reused",
+      "decision": "No selected input drift; reuse previous execution-control review, without new body-lineage content qualification."
+    },
+    {
+      "id": "SG05",
+      "scope": "Owner round11 fold and October18 selection boundary; sessions folded header and historical launcher note",
+      "decision": "23 completed/3 stopped source lanes are folded. Earlier body-framework/hound roadmap is a proposal palette; current selected native consumer rather than whole taxonomy is the implementation boundary."
+    },
+    {
+      "id": "SG06",
+      "scope": "CR3 final V4/handback, CR5 completion/source boundary/handback, P33 outcome/final integration; dispatch integration/fold",
+      "decision": "Changed CR3/CR5/P33 checkpoints record documentation completion and later source/integration qualifications, not new gameplay. Parent fold explicitly excludes P12\u2013P25 and CR1\u2013CR6 from that particular fold request; preserve those content scopes despite folded lane-control routing."
+    },
+    {
+      "id": "SG07",
+      "scope": "T3 completion/source route limits/validation and parent current routing",
+      "decision": "T3 Q1\u2013Q45 research completed/released with four unverified candidate systems and edition/access limits. B1 seeded native evidence and B3/B5 design/prompts have distinct scopes; do not relaunch a completed T lane or turn a prompt into delivered play."
+    },
+    {
+      "id": "SG08",
+      "scope": "Unchanged member/owner/evidence hashes; prior folded relationship reused",
+      "decision": "No selected input drift; retain the existing foundation-control skip scope, not broad system completion."
+    },
+    {
+      "id": "SG09",
+      "scope": "All48 original locators: selected opening/final control clauses and15 retained checkpoint dispositions, plus named supplier receipts",
+      "decision": "Individual execution-state transitions are dispositioned in H01\u2013H15; unique source claims, original mechanics, failed evidence and incomplete objectives remain with named suppliers. Cache reuse is confined to duplicate control review and checks all successor inputs."
+    }
+  ],
+  "coverage_limits": [
+    "Original frozen inventory remains70 section-reviewed/708 indexed-only;519 ungrouped indexed-only were not semantically read here.",
+    "Old checkpoint processes/leases/servers/tests/branch states are dated evidence, not live assertions.",
+    "No gameplay, raw book/wiki source qualification, source acquisition, reader dispatch or whole-LOTM/L2b mutation."
+  ]
+}

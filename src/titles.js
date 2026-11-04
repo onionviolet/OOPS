@@ -38,6 +38,8 @@ export const title_catalog = [
     {id: 'settled', family: 'life', name: 'Settled In', counter: 'years', at: 1, text: 'Live through your first year.'},
     {id: 'old_hand', family: 'life', name: 'Old Hand', counter: 'years', at: 5, text: 'Live through five years.', bonus: {xp_multipliers: {all_skill: 1.01}}},
     {id: 'hermit', family: 'life', name: 'Long-Lived', counter: 'years', at: 10, text: 'Live through a whole decade.', bonus: {xp_multipliers: {all_skill: 1.02}}},
+    // SLC121 deed: counts the best Sleeping level kept, so rust never takes it back. Recognition only; the ladder row pays the effect (SLR43).
+    {id: 'sound_sleeper', family: 'life', name: 'Sound Sleeper', counter: 'sleeping_level', at: 5, text: 'Reach Sleeping level 5.', requires_counter: true},
     {id: 'devoted', family: 'life', name: 'Devoted', counter: 'playtime_hours', at: 10, text: 'Spend 10 hours of your own time on this life.'},
     // Original proposal goals; P00 projects only earned native counters, never elapsed wall time.
     {id: 'quiet_hour', family: 'life', name: 'A Place to Breathe', counter: 'home_minutes', at: 60, text: 'Spend 60 played minutes at home.', requires_counter: true},

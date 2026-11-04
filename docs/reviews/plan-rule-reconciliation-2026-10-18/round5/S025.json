@@ -1,0 +1,377 @@
+{
+  "schema": 1,
+  "shard": "S025",
+  "reader": "content_s025; gpt-6-luna low",
+  "payload_sha256": "014932112813e64968548c1e3f11669a02bfd91d5689de1e4ecabe492d374a06",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0312",
+      "path": "docs/research/everyday-paths-ui-2026-10-15/CHECKPOINT.md",
+      "input_sha256": "8bf1fe8bc460272f999b3ea41cf98b6d049dc7e4a2aab9d31bc2a18de3b5b7b4",
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "D2–D4",
+        "P1–P5",
+        "F7–F9",
+        "P6–P10",
+        "T1–T4",
+        "FP1–FP5",
+        "FT1",
+        "FT2",
+        "FT3",
+        "FT4",
+        "EP1–EP5",
+        "RF",
+        "CG",
+        "LA",
+        "UX",
+        "DS",
+        "NP"
+      ],
+      "mechanism_and_interactions": "Interactive mockups make fishing reaches, mining faces and farm blocks directly selectable; target, skill, sensing/control and method alter inspector text, blocked reasons and previews. Investigation and delegation retain the chosen context and responsibility. Earlier path concepts (P1–P10, FP1–FP5, EP1–EP5) remain unselected proposals; later D2–D4 supersede older generic manual-first/automation-ladder wording. The checkpoint reports 36 scenario combinations and targeted interactions checked in a mockup at 1366×768, while native donor parity, rebuilt YAIR, persistence and acceptance remain unproven.",
+      "disposition": "Historical research/mockup delivery, with subsequent interaction studies extending earlier paper-only work. No gameplay or shared-owner change; proposal identifiers are not accepted decisions.",
+      "owner_or_consumer": "docs/research/everyday-paths-ui-2026-10-15/mockups/ and docs/research/everyday-paths-ui-2026-10-15/PATH_PROPOSALS.md",
+      "evidence_state": "Checkpoint claims mockup captures and interaction checks; this shard did not inspect the mockup or donor source. No native parity, YAIR browser, persistence or human acceptance evidence is claimed.",
+      "remaining_check": "If a candidate is later selected, inspect its donor interaction and prove the chosen behavior in rebuilt YAIR with persistence as applicable; the checkpoint names no selected candidate.",
+      "evidence_lines": [
+        [
+          17,
+          17
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          32,
+          41
+        ]
+      ]
+    },
+    {
+      "record_id": "U0313",
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "input_sha256": "d142122f68f029f9cee259384f6b70eac412c3789eff37e6276f79a2675b2f90",
+      "read_ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The Factorio native-source goal distinguishes initial ARM and Intel acquisitions, later canonical Splitter/Inserter closure and four Heat views. The checkpoint reports exact acquisition counts and matched-body checks, but also says coherent hash/merge, Intel section/resource, exact ownership and final corpus qualification remain open. The retort source/native/UI/build delivery is explicitly implemented-unverified, with gameplay/browser/save acceptance deferred; base and installed Space Age/Quality/Elevated Rails are kept distinct from public experimental comparison and activation.",
+      "disposition": "Historical acquisition checkpoints, not a semantic completion claim: finite installed-source/API review was released, while the broader full native decompile remains unfinished.",
+      "owner_or_consumer": "docs/research/factorio/native/ASSIGNMENT.md and docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "evidence_state": "This source record summarizes historical acquisition and named receipts; no underlying native outputs or present runtime were inspected here.",
+      "remaining_check": "The parent native lane retains exact corpus reconciliation and retort gameplay/browser/save proof; no current combined build is established.",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "record_id": "U0314",
+      "path": "docs/research/factorio/native/CHECKPOINT.md",
+      "input_sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Native recovery reports canonical Splitter/Inserter decoding, including guarded Splitter target tables and six Inserter comparison cases; Heat exports retain double-field and lower64D0/W0-word observations, with return/calling-convention uncertainty. A packed-global ownership scan is still at start-membership-in-decoded-byte-union, pending a later all-global assertion. Prepared jobs include exact Intel __unwind_info repair and a bounded retry guard. These are extraction/ABI mechanisms and limits, not player-facing game mechanics.",
+      "disposition": "Historical native recovery advanced through several qualified repairs, while final cross-architecture corpus, ownership and reader/index reconciliation remain unfinished. Retort delivery remains implemented-unverified; no gameplay acceptance follows.",
+      "owner_or_consumer": "docs/research/factorio/native/FLOW_REPAIR.json and docs/research/factorio/native/HEAT_PHYSICAL_REPAIR.json",
+      "evidence_state": "Checkpoint gives hashes, counts and claimed receipts, but this reader did not inspect the native tables or execute Factorio. Unknown return types and calling conventions remain explicit.",
+      "remaining_check": "Complete exact Heat rows, immutable ownership and corpus reconciliation before making broader native claims; separately exercise retort gameplay/browser/save behavior if selected.",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0315",
+      "path": "docs/research/factorio/native/readers/cross-architecture/CHECKPOINT.md",
+      "input_sha256": "75d94393d79b9d903995b8d29d4d4290029dea0e0d88acb779986cfd5216b85e",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The reader’s intended comparison selects Intel counterparts for 22 consequential QS/NLH claims across 53 ARM bodies using complete Mach-O mangled-symbol identity, then compares frozen chunk/line/C/body hashes and needed instructions. A temporary map initially failed to normalize leading hex zeros; it was corrected before semantic review. At this checkpoint counterpart extraction was still running, so no counterpart availability or semantic equivalence was yet claimed.",
+      "disposition": "In-progress bounded source review, not completed cross-architecture validation. Retort implications are proposals and playable acceptance is deferred.",
+      "owner_or_consumer": "docs/research/factorio/native/readers/cross-architecture/ (fresh dossier; final report not yet delivered)",
+      "evidence_state": "Checkpoint reports read-only SQLite extraction and frozen ARM views; no Intel semantic results or game-side proof existed at this snapshot.",
+      "remaining_check": "Finish the finite 53-body/22-claim review and report actual discrepancies; do not infer equivalence from the planned method.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "U0316",
+      "path": "docs/research/factorio/native/readers/logistics-heat/CHECKPOINT.md",
+      "input_sha256": "87d89ddb2b445733e293636f12a5139e8dbe7e5b33feb1f6bd60628bd34f1248",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "HeatBuffer",
+        "HeatEnergySource",
+        "100741abc",
+        "10073ec44",
+        "101559374"
+      ],
+      "mechanism_and_interactions": "The completed reader tied 43 generated C bodies to 11 native claims and 12 installed snapshot/API selections. It found extraction limits that matter to interpretation: electric partial C omits the clamp, HeatBuffer long casts appear as floating loads/stores, and HeatEnergySource’s conditional extraction void signature misses boolean w0, so instruction evidence takes precedence. For spoilage-related helpers, canGiveProducts forwards the ingredient spoil scalar unchanged; canGiveItemProduct showed no product-offset read/addition, while giveProducts adds product+0x34. This helper asymmetry is not itself a runtime bug claim.",
+      "disposition": "Completed and released bounded arm64 logistics/heat reading. Whole semantic coverage, x86_64, complete callee network, original types/comments and buildable C++ were not claimed.",
+      "owner_or_consumer": "docs/research/factorio/native/readers/logistics-heat/REPORT.md and docs/research/factorio/native/readers/quality-spoilage/FINDINGS.json",
+      "evidence_state": "Checkpoint reports frozen hashes, instruction/C line locators, installed hashes and validation; no fresh source or runtime proof was performed in this shard.",
+      "remaining_check": "Trigger helper, Item::spoil internals, unknown virtual consumers and gameplay/browser/save acceptance remain outside this reader’s proof.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "U0317",
+      "path": "docs/research/factorio/native/readers/production-early/CHECKPOINT.md",
+      "input_sha256": "515f572718aff5cabe63d1408ff04c99d69bc3c24145044c87b5ddce9ff2af61",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The bounded production trace follows actual input expenditure through fractional work, output admission, product custody and retained blocked completion. Native inputs may already be spent when completion blocks; the proposed root pre-batch refusal is a stricter custody policy, not observed Factorio behavior. Static vtables resolved virtual input/give/overload/admission/change-recipe slots, but subclass and continuation semantics remain open. Two trays, resin/residue, sap/fuel/stamina and pre-batch reservation are original proposals rather than native rules.",
+      "disposition": "Research reader completed with seven claims and explicit helper gaps; tray design and balance remain unselected. Gameplay/build integration and save/browser/failure proof are deferred.",
+      "owner_or_consumer": "docs/research/factorio/native/readers/production-early/REPORT.md and docs/research/factorio/native/readers/production-early/FINDINGS.json",
+      "evidence_state": "The checkpoint reports source hashes, C body reads and vtable corroboration; this shard did not inspect those underlying artifacts or run gameplay.",
+      "remaining_check": "Parent integration must decide whether to use the stricter pre-batch policy, then prove blocked completion, custody and persistence in rebuilt YAIR if implemented.",
+      "evidence_lines": [
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    {
+      "record_id": "U0318",
+      "path": "docs/research/factorio/native/readers/quality-spoilage/CHECKPOINT.md",
+      "input_sha256": "191b6c036b1848b97094fd7ca547d2929185433ee17ed1e753ea49115ff843fe",
+      "read_ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "100741abc",
+        "101559374",
+        "10073ec44"
+      ],
+      "mechanism_and_interactions": "The bounded quality/spoilage reading covers 11 complete arm64 bodies and one scoped helper, with native entry/C/body hashes and installed/API locators. A key interaction is asymmetric: canGiveProducts forwards ingredient spoil unchanged; canGiveItemProduct has no product-offset read/addition in its 129 instructions; giveProducts adds product+0x34. The helper-level contrast is verified by the checkpoint but is not reported as a runtime bug. Native expiry may convert material, clear a stack or dispatch an egg trigger.",
+      "disposition": "Completed/released native-to-installed reading, with caller/interface integration retained by parent. Trigger helper, Item::spoil internals and unknown virtual consumers remain open; no playable acceptance.",
+      "owner_or_consumer": "docs/research/factorio/native/readers/quality-spoilage/REPORT.md and docs/research/factorio/native/readers/quality-spoilage/FINDINGS.json",
+      "evidence_state": "Checkpoint reports exact frozen views, hashes and instruction counts; no native body or live runtime was re-read here.",
+      "remaining_check": "Parent needs caller/interface integration and the named expiry/trigger internals before claiming broader behavior; browser, save and failure acceptance stay deferred.",
+      "evidence_lines": [
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "record_id": "U0319",
+      "path": "docs/research/far-field-tropes-2026-10-08/CHECKPOINT.md",
+      "input_sha256": "bc20432625f9df63de520bfbec0966feb26408ea65f17533c1ace5e7e42bc096",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P01"
+      ],
+      "mechanism_and_interactions": "This far-field research catalogued genre families and 36 trope entries with four variants each, alongside 24 original ideas and eight ranked candidates. The checkpoint describes P01 as an NPC-originated invitation, a shared task and discussion of compatible futures, but does not establish a chosen implementation. Its source method distinguishes documentary mechanics from installed-game audits and full-novel reading; strict popularity ranking was not supported by the purposive sample.",
+      "disposition": "Documentation and ideation delivered; proposals remain unaccepted and no gameplay implementation was authorized. Source limits and ranking uncertainty are explicit.",
+      "owner_or_consumer": "docs/research/far-field-tropes-2026-10-08/REPORT.md and docs/research/far-field-tropes-2026-10-08/PROPOSALS.md",
+      "evidence_state": "Historical checkpoint reports bounded source/document work and local validation; underlying reports and sources were not reread for this shard.",
+      "remaining_check": "A future implementation assignment needs fresh source review and playable/persistence proof; recheck live direction before claiming novelty.",
+      "evidence_lines": [
+        [
+          11,
+          17
+        ]
+      ]
+    },
+    {
+      "record_id": "U0320",
+      "path": "docs/research/free-text-worlds-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "4ce6a0d74acbcf83ad4c76045945c919eea762836e7cce44b130c465f79dac15",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The checkpoint records static-source research across URR, Progress Quest, Achaea/Iron Realms, Godville and queued Gu, with separate game subfolders and shared implementation packets. Evidence levels are mixed: URR 0.10.4d inventory/selected bytecode, current official Progress Quest JS, public Achaea material, Godville developer posts and app listings. It explicitly leaves full URR generator flow, server internals, sibling parity, Gu identity/engine rules and gameplay/import/long-run behavior unread or untested; “PARTIAL” is bounded rather than a blanket source failure.",
+      "disposition": "Partial documentation/source research, all proposals unadopted and no dependent runtime work authorized. Scope statements in the checkpoint are historical and not current project direction.",
+      "owner_or_consumer": "docs/research/free-text-worlds-2026-10-14/REPORT.md and docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "evidence_state": "Checkpoint reports static evidence and document/extraction checks only; no game or runtime was launched and no source dossiers were inspected here.",
+      "remaining_check": "Coordinator intake and any exact named gap for a selected packet remain the route; do not infer full source, runtime or save behavior from the evidence census.",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "record_id": "U0321",
+      "path": "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "7ea8402107173b7b7b126c3f669d7f441894e14acf12abb7ca75c37eef32c45b",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The aspects dossier reports A01–A12, inventory signals, three deeper systems, five ranked proposal packets and 24 small touches, including dialogue and persistence priority seams. It explicitly limits URR to selected recovered bytecode rather than original source/full disassembly, Iron Realms and Godville to public descriptions, Gu identity/builds to unresolved queue/store identity, and behavior to static inventory rather than runtime/UI/save evidence.",
+      "disposition": "Partial aspects research and validation completed; all recommendations remain proposals. The checkpoint’s “one realm/one prestige” line is a dated lane scope statement, not an adopted current gate.",
+      "owner_or_consumer": "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/REPORT.md and docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/TOOLING.md",
+      "evidence_state": "Checkpoint reports artifact validation and no execution; underlying reports and game sources were not inspected in this shard.",
+      "remaining_check": "Any selected packet needs the exact unavailable source or identified-only gap addressed, followed by actual runtime/UI/persistence proof if implemented.",
+      "evidence_lines": [
+        [
+          5,
+          7
+        ],
+        [
+          9,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "U0322",
+      "path": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+      "input_sha256": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "GD-01",
+        "GD-02",
+        "ACS31",
+        "15finite",
+        "GD-01",
+        "GD-02",
+        "GM01a112fe-13f6-7493-89c7-db0f42123ff6",
+        "GM01a113f0-a07e-72a3-bb2f-6af475c2ce94"
+      ],
+      "mechanism_and_interactions": "The completed save-only follow-up broadens cross-game mechanism/dependency/failure/late-exception/DLC comparison and parks five distinct questions; none is source-ready or dispatched. The user’s clarification makes scouting genre-open, so the five rows are only one subset, not the whole direction. Existing finite Brogue/Shattered research and ACS/Taiwu-related evidence are linked to their owners rather than re-read/imported. Separate later assignments cover book-lore synthesis and world completion; this checkpoint claims neither runtime ownership nor acceptance.",
+      "disposition": "Research follow-up delivered; no new standing research objective, source/native/build ownership or implementation authority. Human coordination note is reported sent, but receiver acceptance is not claimed.",
+      "owner_or_consumer": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md and docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "evidence_state": "Historical checkpoint states bounded source reuse and ownership/status observations; underlying source dossiers and current integration were not inspected here.",
+      "remaining_check": "A coordinator may select one unresolved path against current live coverage; gameplay, browser, save roundtrip, failure, regression and director gates were deferred.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ]
+    },
+    {
+      "record_id": "U0323",
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/CHECKPOINT.md",
+      "input_sha256": "8423a5da26e64613ed96de6aa201f8f161aadac9c1ac4f54c0dfc46e38ee68dd",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The adoption audit’s decision surface is REPORT.md, supported by original-title dispositions, game-focused routing rows, nine consequential current-source traces, five ranked opportunities, 17 gap routes and five specification-only packets. The packets name locator recovery, existing balm verification, ACS progression contrast, conditional REA comparison and production feedback. These are research routes/specifications, not delivered gameplay mechanisms; checkpoint says source-level completion is bounded and no new private-source semantic or runtime completion is inferred.",
+      "disposition": "Audit documentation complete at its stated evidence level; proposals and packets remain gated, and historical paused status for World1 is not current authority. Most prior runtime gates remain open.",
+      "owner_or_consumer": "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md and docs/research/game-research-adoption-audit-2026-10-13/PACKETS.md",
+      "evidence_state": "Checkpoint reports validation of inventory, hashes, links and criteria; no underlying dossiers or runtime were independently inspected here.",
+      "remaining_check": "Any future packet selection follows current user direction and live ownership/provenance, not historical pause wording or a new mandatory human gate. Missing artifacts do not justify broad re-export; selected gameplay still needs its own evidence.",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          17
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator removed source-absent IDs borrowed from nearby records and retained literal source ranges/names; mechanism summaries spot-checked against flagged source blocks."
+  ],
+  "cross_record_findings": [
+    "The Factorio records distinguish native extraction and ABI evidence from actual game behavior; several readers explicitly warn that generated C omissions or helper asymmetries do not establish runtime bugs.",
+    "Research checkpoints repeatedly distinguish static/documentary evidence, prototypes, source traces, integration and rebuilt playable proof. Their historical status does not qualify current runtime or acceptance.",
+    "Several records contain later follow-ups that supersede earlier scope wording, while proposal sets and packets remain proposals; preserve chronology and named gaps rather than treating a checkpoint as blanket completion."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0312: chosen donor interaction and rebuilt YAIR/persistence proof remain open for any selected path.",
+    "U0313–U0318: Factorio native corpus/ABI reconciliation and deferred retort gameplay/browser/save proof remain with parent owners.",
+    "U0319–U0323: selection and exact source gaps are owned by their coordinators; no current runtime or full source-canon qualification was performed in this shard."
+  ]
+}

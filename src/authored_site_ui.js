@@ -76,7 +76,7 @@ export function createAuthoredSiteUI({container, read, apply, reset, download, o
         const key = JSON.stringify(view.applied);
         if(key !== lastApplied && !dirty) fill(view.applied || DEFAULT_DRAFT);
         lastApplied = key;
-        applied.textContent = (view.applied ? `Applied: ${view.applied.siteName}.` : 'No authored site is applied.') + (dirty ? ' The draft has unapplied edits.' : '') + (view.reason ? ' ' + view.reason : '');
+        applied.textContent = (view.applied ? `Applied: ${view.applied.siteName}.` : 'None of your own places is in use. Fill in the draft and press Apply site.') + (dirty ? ' The draft has unapplied edits.' : '') + (view.reason ? ' ' + view.reason : '');
         applyButton.disabled = busy || !view.canWrite;
         resetButton.disabled = busy || !view.canWrite || !view.applied;
         openButton.disabled = busy || !view.applied;

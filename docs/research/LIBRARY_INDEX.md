@@ -208,3 +208,35 @@ Receipts and runners: `docs/research/novels/wave-2026-11-04/` (gitignored: `rece
 Corrections to earlier lines in this file: Tree of Aeons 8, Path of Ascension 9 and Overlord 1-3 were already held (the "Still Z-Library only" and "books 5+" lines are stale). Quotas at end of run: Anna's fast 1 of 50 left; Z-Library 4 of 30 left. Not found: Naruto official databooks, Torg Eternity (English), JJK Official Fanbook (English; a Spanish PDF exists).
 
 Operating notes from this run: the manga governor's `source-library download` holds the shared download lock chapter after chapter, so a Z-Library `acquire` starves until `governor.py work-on` pauses it (then `work-off`); the governor's loop, runner and OCR died at 19:47 on 2026-11-03 and were restarted at 22:46 (Naruto at 3626 of the 3376-4076 range, about 36%). Source Library rejects `.mobi`. A wrapper that records `ok` from `acquire` must read the result's own `ok`: `acquire` returns `ok: false` without raising.
+
+## To obtain: rules data and setting books, 2026-11-04
+
+Weibao: "send that into the to be obtained books". Nothing on this list has been fetched. Downloads wait for his yes; book rows use Anna's or Z-Library quota (1 of 50 fast and 4 of 30 left at the end of the 2026-11-04 round, see above).
+
+**Pathfinder 1e full rules data (repos, not books).** These fill the gap in the [d20 receipt](d20/D20_RULES_COLLECTION_2026-11-03.md): spells that are only on other classes' lists. The tree was checked through the GitLab API on 2026-11-04. The licence has not been opened yet.
+
+| Source | What it holds | Route | Check after fetch |
+|---|---|---|---|
+| Foundry VTT PF1 system, `gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1` | YAML packs: about 3,028 spell files by school (transmutation 784, conjuration 452, evocation 346, enchantment 326, abjuration 318, necromancy 312, divination 262, illusion 221, universal 7) with class lists, plus feats, classes, races, buffs, items, armor, weapons, monster abilities, templates and mythic paths | one shallow git clone into `docs/research/d20/private/`; its build scripts are never run | licence and publisher notes; cross-check against the 1,493 d20pfsrd spells |
+| PCGen data, `github.com/PCGen/pcgen` | Pathfinder LST data files | sparse clone of the data folder | use as a second cross-check |
+
+**D&D 5e books still missing.** Already held in Calibre: Player's Handbook, Dungeon Master's Guide and Monster Manual (2014); Xanathar's; Tasha's; Fizban's; Monsters of the Multiverse; Planescape; Spelljammer; Eberron: Rising from the Last War (Source Library). Between them they hold almost all 2014-era spells.
+
+| Book | Why |
+|---|---|
+| Player's Handbook (2024) | the revised spell list and rules |
+| Explorer's Guide to Wildemount | dunamancy spells; Exandria setting |
+| Strixhaven: A Curriculum of Chaos | interrupted 2026-10-31, not held; a few spells; magic-school setting |
+| Sword Coast Adventurer's Guide | Forgotten Realms setting detail |
+| Dungeon Master's Guide (2024), Monster Manual (2025) | the revised core |
+
+**Pathfinder 1e books (optional; the repos above cover the rules).** Core Rulebook, Advanced Player's Guide, Ultimate Magic, Ultimate Combat, Advanced Class Guide, Occult Adventures, and the Inner Sea World Guide for setting detail.
+
+**Comprehensive setting books.** From the [settings survey](COMPREHENSIVE_SETTINGS_SURVEY_2026-11-04.md), ranked by how distinct each world would be from what is already held:
+1. Glorantha: Guide to Glorantha, RuneQuest: Roleplaying in Glorantha, Cults of RuneQuest.
+2. Hârn: HârnWorld and the kingdom modules (Columbia Games).
+3. Tékumel: Empire of the Petal Throne.
+4. Mystara: the Gazetteer series (GAZ1-14).
+5. Golarion lore: Lost Omens World Guide; the Realms: 3e Forgotten Realms Campaign Setting and Grand History of the Realms; Warhammer: the WFRP 4e core; The Dark Eye 5e core; Ptolus.
+
+Second pass 2026-11-04 (after the table above): Z-Library quota spent on four D&D setting PDFs, now held: *Strixhaven: Curriculum of Chaos* (75 MB), *Van Richten's Guide to Ravenloft* (81 MB), *Mythic Odysseys of Theros* (99 MB), *Guildmasters' Guide to Ravnica* (67 MB). `acquire` only collects `*.epub` from a Z-Library download, so each PDF landed in staging with `unexpected_download_outputs`; the files were intact and were registered by hand (header check, sha dedupe, `register`). Fix `source_platform.py` before the next Z-Library PDF, or the same quota is wasted. Anna's fast quota read 0 when the 2024 Player's Handbook (md5 prefix `ea967fbe`, English, 114 MB) was tried, so it is not held; still open: Player's Handbook 2024, Dungeon Master's Guide 2024, Monster Manual 2025, Explorer's Guide to Wildemount (Z-Library 5447668:3d838f), Torg in English, Kingmaker, JJK Modulo 2-6 and 8 (Z-Library has Modulo 8: 127480719:02829e), Naruto databooks, Discworld. Both quotas reset tomorrow.

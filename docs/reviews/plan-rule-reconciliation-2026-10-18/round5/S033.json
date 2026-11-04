@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "shard": "S033",
+  "reader": "content_s033; gpt-6-luna low",
+  "payload_sha256": "5edbb811bbb411725d6320ee51ada774b96c66f6446f005592dc0a56b2dc373d",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0394",
+      "path": "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md",
+      "input_sha256": "5a4f144e9d4be4814b12b11e7607fc02848b9c67b619f6d3965e3284f3ba9a56",
+      "read_ranges": [
+        [
+          1,
+          509
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A1",
+        "A2",
+        "A5",
+        "A6",
+        "A7",
+        "A11",
+        "A12",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B8",
+        "B9",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C6",
+        "C7"
+      ],
+      "mechanism_and_interactions": "The report separates three nonhuman bodies and marks its evidence as shown/stated/inferred/recalled: stationary plants act through shade, fruit, timber, humans and proxies, with seasons as clock/resource and neighbor shade competition; fungi split into network colonies (spread, trade, digest, signal; soil partners and fruiting) versus parasites (borrowed host senses, staged change, host agency/lifespan); place spirits couple environmental health to appearance, purification and human use, with day/night form hinges, ritual calendars and praise as distinct state/resource loops. Crossings retain differing bodies: plant shade/light, fungal host/network and place pollution/ritual are not one generic nature system. The “wood wide web” is explicitly contested, leading to a proposed trade/competition model rather than assumed cooperation.",
+      "evidence_lines": [
+        [
+          7,
+          12
+        ],
+        [
+          178,
+          216
+        ],
+        [
+          258,
+          310
+        ]
+      ],
+      "disposition": "Historical comparative research and design proposals, not an implementation or accepted mechanic. It contains source-derived mechanisms alongside inferred slot maps and feature-family ideas; several web-novel details are blurb/search-summary only, some folklore and book details are recalled, and the report itself flags those limits. No subsequent delivery or acceptance is claimed in this assigned record.",
+      "owner_or_consumer": "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md is the named research source; no selected-world implementation owner or concrete runtime consumer is named in this record.",
+      "evidence_state": "The assigned document span was read. Mechanism claims are the report’s cited/qualified summaries and inferences, not independent inspection of the underlying works, source validation, implementation, tests, browser play, persistence or integration proof.",
+      "remaining_check": "If a specific start is selected, validate the chosen mechanisms against its actual source/world, preserve the network-versus-parasite and place-versus-body distinctions, and name the runtime owner/consumer; the report leaves several source texts unchecked, nature-spirit pollution rules unsourced, and network cooperation scientifically disputed."
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [],
+  "unresolved_gaps": [
+    "Underlying works were not all inspected; web-novel details are thin and recalled claims are leads only.",
+    "The report explicitly lacks sourced pollution-handling rules for river or mountain kami and notes contested evidence for cooperative wood-wide-web claims.",
+    "No selected-world consumer, implementation, or playable proof is present in this record."
+  ]
+}

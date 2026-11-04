@@ -1,0 +1,558 @@
+{
+  "schema": 1,
+  "shard": "S012",
+  "reader": "content_s012; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "5ffa903a24c53164cc374ffe8a4d0cff695d869a7494693e3e6a8206ed7e43d5",
+  "rows": [
+    {
+      "record_id": "U0169",
+      "path": "docs/gm/dispatch/village-study-2026-10-09/CHECKPOINT.md",
+      "input_sha256": "b61bbc92ba2dfc3f32c1725792d488a7416a11f684e951d6792e24a09ba001f7",
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Part 1",
+        "Part 2",
+        "Career schema 1 → 2"
+      ],
+      "mechanism_and_interactions": "Village patrol study separates known (native six-minute reading), practiced (five meditation minutes), and executable (a new full patrol with loaned lantern/baton); Tessa offers the notes at Dependable. A successful full patrol pays 50 base plus proposed 10 report bonus; early departure pays nothing, and first successful use adds one life entry. Career owns practice/issuance/use; native books own knowledge.",
+      "disposition": "Historical implementation and assigned gates reported complete, with test/build/browser and normal-timer evidence. Balance, fiction, pacing and menu readability remain human feedback; the proposed bonus is not acceptance. The record describes schema migration and generated schema-1 compatibility, not current runtime proof.",
+      "owner_or_consumer": "src/village_career.js, village_career_ui.js, main.js, items.js, save_files.js; report and acceptance backlog in village-study dispatch",
+      "evidence_state": "Checkpoint reports two browser routes, persistence/import cases, and timer-specific checks; not independently rerun here.",
+      "remaining_check": "If reselected, inspect present code and test patrol readiness, early departure, native reading/practice, migration and payout against current owners.",
+      "evidence_lines": [
+        [
+          25,
+          35
+        ],
+        [
+          42,
+          53
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00025-L00035",
+        "L00042-L00053"
+      ]
+    },
+    {
+      "record_id": "U0170",
+      "path": "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/CHECKPOINT.md",
+      "input_sha256": "28334e763cad89aff96b45cfbf8f64cce0ccc5bbeeb95fb1d7f3bac0f2a8ffad",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "I6",
+        "I7",
+        "I8",
+        "I9",
+        "I10",
+        "R11",
+        "Vivid"
+      ],
+      "mechanism_and_interactions": "The checkpoint describes a UI/flow slice: notebook/people/routes reveal and level/keyboard feedback, settled effects and discovery were sequenced; a later contrast repair changed Vivid bar value text to dark #0b1030 and lighter tracks after the original gate measured fill against panel rather than text against fill.",
+      "disposition": "Historical gate reports 11 items passing with one baseline test failure, then a post-gate contrast repair and full check rerun passing. Several reveal/animation/keyboard/level/zoom behaviors and human taste on Vivid bars, vitals, reveal and coin float remain explicitly unverified/open.",
+      "owner_or_consumer": "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/CHECKPOINT.md; source owners named as display.js and minimal main.js hook",
+      "evidence_state": "Historical check/build claims are in the assigned checkpoint; no browser artifact or current source examined here.",
+      "remaining_check": "For any future UI selection, rebuild and inspect the populated desktop result, including text-to-fill contrast and the deferred behaviors.",
+      "evidence_lines": [
+        [
+          16,
+          23
+        ],
+        [
+          25,
+          29
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00016-L00023",
+        "L00025-L00029"
+      ]
+    },
+    {
+      "record_id": "U0171",
+      "path": "docs/gm/dispatch/wider-gameplay-2026-10-11/CHECKPOINT.md",
+      "input_sha256": "87e5671a6a788dba225a27127b49c3e27a5c65fac49d19eabdd20b31ef27b1ae",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P04",
+        "P05",
+        "E1-E4",
+        "D1-D5",
+        "C1"
+      ],
+      "mechanism_and_interactions": "The required journey links natural preparation, site entry, ability or ordinary approach, lasting outcome and finite reward/extraction, with retreat/injury/treatment and an explicitly signalled lethal route to ended-life archive plus independent new character. Ordinary native defeat remains unconsciousness. Private P04 and earlier packs were included; actively edited P05 excluded.",
+      "disposition": "An isolated candidate reports 416 tests, build matching seven changed files and final browser groups passing. Shared integration, director acceptance and wider ability/death/dungeon families stay in backlog; no commit, push or integration was authorized in that historical checkpoint.",
+      "owner_or_consumer": "Isolated wider-gameplay candidate; INPUTS.json, VERIFICATION and REPORT; root integration owner",
+      "evidence_state": "Checkpoint claims historical test/build/browser proof against a pinned candidate; current checkout integration is not established.",
+      "remaining_check": "If selected again, inspect the live candidate/integration and verify the chosen natural journey and archive/restart boundary on rebuilt browser.",
+      "evidence_lines": [
+        [
+          9,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00009-L00013"
+      ]
+    },
+    {
+      "record_id": "U0172",
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/CHECKPOINT.md",
+      "input_sha256": "27a93c8653a7e7a81d97e4fe3278baa232ba56417fcf38f56a434d17c4bcff8e",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1-F5",
+        "R/D/I/V/H",
+        "ASSIGNMENT",
+        "VALIDATION"
+      ],
+      "mechanism_and_interactions": "This finite workflow audit produced report, workflow map, tooling decision, next packet and four bounded evidence returns. It proposed a Lin native/Ink finite request→real stock→staff_supply consumer and preserved incumbent native/Ink tooling; no synthetic suppression/calendar/economy add-on was proposed.",
+      "disposition": "Audit is reported complete with hashes, routing coverage and narrow JSON/link/source-path checks. The next packet remains proposal-only; runtime integration, build and combined browser/persistence proof were not run, and the checkpoint prohibits automatic successor/implementation.",
+      "owner_or_consumer": "workflow-foundation-audit dispatch REPORT.md, WORKFLOW_MAP.md, TOOLING_DECISION.md, NEXT_PACKET.md and VALIDATION; shared runtime owner not assigned here",
+      "evidence_state": "Historical document/hash checks are reported; no runtime or consumer was inspected in this reader pass.",
+      "remaining_check": "Any future implementation needs human selection and refreshed ownership, then real request→stock→staff_supply consumer and browser/persistence proof.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00011"
+      ]
+    },
+    {
+      "record_id": "U0173",
+      "path": "docs/gm/dispatch/world1-expansion-2026-10-11/CHECKPOINT.md",
+      "input_sha256": "a21c5432b56ede3a99330af7c5659d340589b31332d11d7f41d88aff9731b1b7",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "p05",
+        "18 commands",
+        "repeat3"
+      ],
+      "mechanism_and_interactions": "The connected expansion delivered a private fresh-campaign p05 provisioning chain of 18 commands, timed repeat3 control with native transactions and stop/recheck conditions, plus time/input/progress projection and changing-countdown focus. Existing p04 characters retain content/inventory; only empty p05 availability is registered, with no automatic migration.",
+      "disposition": "Checkpoint reports source tests, build, focused tests, native UI groups and food/save/import journeys. It explicitly avoids broad native-branch or whole-world/director claims; fiction/balance/pacing, combined integration and wider units remain open.",
+      "owner_or_consumer": "Isolated world1-completion candidate; VERIFICATION.json and original expansion REMAINING_MANIFEST; shared integration not claimed",
+      "evidence_state": "Evidence is historical and tied to named candidate/build; current runtime behavior is not established here.",
+      "remaining_check": "If resumed, reconcile live source ownership and prove selected p05 flow on a fresh campaign; retain explicit p04 compatibility and no automatic migration.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00007",
+        "L00009-L00011"
+      ]
+    },
+    {
+      "record_id": "U0174",
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/coverage/CHECKPOINT.md",
+      "input_sha256": "f4a01862dc5e80157a21a99207a04a6a1891ea538a1b39eb651398383a1256c3",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "W1-FULL-U01",
+        "W1-FULL-SOURCE-POST319",
+        "W1-FULL-AUDIT396",
+        "V2-V5"
+      ],
+      "mechanism_and_interactions": "COVERAGE.json projects a private whole-horizon ledger of 3,575 mixed accounting rows across S00–S14, retaining 1,033 direct-audit occurrence IDs. The checkpoint explicitly says these are not feature counts and qualification parents need reviewed observable children; the recommended next work is U01/U02 plus source qualification under live reservation.",
+      "disposition": "Read-only coverage projection is complete; source gaps (A1 V2–V5, unavailable post319 source, per-idea extraction beyond 179 parent rows) remain explicit. This records inventory/projection consistency only; implementation, browser, director and qualification remain unadjudicated.",
+      "owner_or_consumer": "coverage/COVERAGE.json and private DETAIL_LEDGER.json, build_ledger.py, NEXT_UNITS.md; root coordinator",
+      "evidence_state": "Historical checkpoint states exact pinned inputs and inventory/projection validation, not gameplay evidence.",
+      "remaining_check": "Coordinator must join live candidate evidence to matching requirements and inspect consumers before treating dated gap descriptions as current.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00011"
+      ]
+    },
+    {
+      "record_id": "U0175",
+      "path": "docs/gm/engine/observation-channels/CHECKPOINT.md",
+      "input_sha256": "1d24d146d76bbd5b19b2404423030ac76fe6a58788efc06e6907fb14f14d3ec6",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "openRealmObservationClock",
+        "closeRealmObservationClock",
+        "nextRealmActivityBoundary",
+        "expireRealmObservation"
+      ],
+      "mechanism_and_interactions": "Observation channels combine a paid shelf/private-research instruction path, a crafted player device using owned template/logs/kit/stamina, then a finite outside activation. Same-clock sampling can produce a zero-fuel notice; source/power/body/anchor support and typed view differ from physical door. Manual close, expiry or support loss closes the edge while preserving evidence. Replay is read-only; one claim per lease; retained activations/receipts have stated caps.",
+      "disposition": "Finite code plus native integration packet are reported delivered, implemented-unverified. Only syntax/import and link checks ran; planners, cases, browser, save and build did not. Root's travel/pocket-entry guard and actual native body correspondence remain integration gates.",
+      "owner_or_consumer": "src/observation_channels.js, src/pocket_observation.js and NATIVE_INTEGRATION.md; root owns shared native/save/registry/UI/build",
+      "evidence_state": "Checkpoint contains source hashes and contract claims, but no behavior proof was run.",
+      "remaining_check": "Root integration must preserve actual body correspondence, paid activation enrollment, clock cutoff and truthful observation support in native travel/save paths.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00009"
+      ]
+    },
+    {
+      "record_id": "U0176",
+      "path": "docs/gm/engine/realm-cargo/CHECKPOINT.md",
+      "input_sha256": "967e106a856d601c9b3ad5ff600629b79062ee991709e9c6d513bed15784eab3",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "buildNativePocketCargo",
+        "Integration contract"
+      ],
+      "mechanism_and_interactions": "Cargo contracts use exact native stock references, complete owned/loan cargo manifests, lender consent/permission proposal and deterministic purpose/route/endpoint passage gate. Current custody stays simulation-owned; native integration rereads actual stock and rejects missing, stale or loan cargo. Same-key worn/bag ambiguity fails closed pending actual allocations; helper does not enroll consent.",
+      "disposition": "Finite pure contract and narrow traveler integration are reported complete but implemented-unverified; syntax/import passed only. The checkpoint expressly leaves route-context wiring and selected lender grant/return-obligation publication to root; no gameplay, save or browser proof.",
+      "owner_or_consumer": "src/realm_cargo.js, src/native_realm_traveler.js, INTEGRATION.md; root owns route context and shared host",
+      "evidence_state": "Historical source review and syntax/import claims only; no scenario proof.",
+      "remaining_check": "Root must consume helper allow/reasons and cargoComplete guards, then test actual cargo/custody and lender grant/return path if selected.",
+      "evidence_lines": [
+        [
+          5,
+          7
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00007",
+        "L00013-L00015"
+      ]
+    },
+    {
+      "record_id": "U0177",
+      "path": "docs/gm/engine/realm-clock/CHECKPOINT.md",
+      "input_sha256": "67458d92e48cf74de3e664dc465d4672e2f4f4b869feb0d4e150fb84d0cb1afd",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "openRealmObservationClock",
+        "closeRealmObservationClock",
+        "nextRealmActivityBoundary",
+        "expireRealmObservation",
+        "syncRealmClock"
+      ],
+      "mechanism_and_interactions": "Clock phase supplies pure activity/lease planning and adapters. Enrollment follows staged paid activation; prior support sync precedes cutoff and resident-controller decisions. Joss activation unions current observation support with actual visit; the player's location remains unchanged. Root selected joined-clock absolute paid jobs to settle due work while local elapsed/new decisions freeze without presence/support.",
+      "disposition": "Phase 2 is reported implemented-unverified, with writers released to root and no behavior probes/tests/build. Root still must wire paid open/close, UI support/clock, travel/pocket guards and build; no migration or full frozen native simulation is claimed.",
+      "owner_or_consumer": "realm-clock README and native root owners realm_state.js, expansion_engine.js, save/main/UI; observation adapter scope remains separate",
+      "evidence_state": "Checkpoint supplies fingerprints and API contract, not executed gameplay evidence.",
+      "remaining_check": "Verify paid activation, cutoff, location/body preservation, travel closure and due-job settlement in root's rebuilt browser/persistence route.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00011"
+      ]
+    },
+    {
+      "record_id": "U0178",
+      "path": "docs/gm/engine-extension-2026-10-08/CHECKPOINT.md",
+      "input_sha256": "7fde0cd036b930bf69f6f8594f84be6061bcec758a0a694b0751cc112125d491",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "portableCarrierPolicy"
+      ],
+      "mechanism_and_interactions": "Read-only engine study inventories components/cards and sequences proposed migration. It finds staged/durable owners should be preserved; 4 MiB guard, biography compaction and random-event guarantees already exist, while portableCarrierPolicy is prose, instance schema supports only freeze/played minutes, and the heir builder has test imports but no production caller in the reviewed snapshot.",
+      "disposition": "Seven-question study completed with structural/document checks; runtime registry completeness and gameplay remain untested. Proposed card formats, budgets, operation guarantees and backend choices were not accepted decisions; next implementation selection belongs to Weibao.",
+      "owner_or_consumer": "docs/gm/engine-extension-2026-10-08/{REPORT.md, COMPONENTS.md, HOST_INVENTORY.json, SCHEMA.md, MIGRATION.md, VALIDATION.json}; PROJECT and north-star remain external owners",
+      "evidence_state": "Historical input snapshot and structural validation reported; no current source/API or runtime validation here.",
+      "remaining_check": "Before any implementation, reread live assignment/PROJECT/AGENTS, inspect actual consumers and prove selected preparation rule with browser and persistence gates.",
+      "evidence_lines": [
+        [
+          9,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00009-L00013"
+      ]
+    },
+    {
+      "record_id": "U0179",
+      "path": "docs/gm/feature-wave/backlog/CHECKPOINT.md",
+      "input_sha256": "a61399b71366e19de89d5d29838f40430b61d183d740e5dc5010b2d5d6cdd4e1",
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Backlog1",
+        "Backlog2",
+        "BL-01",
+        "AMENDMENT_BUILD_ADMISSION.json",
+        "AMENDMENT_COVERAGE"
+      ],
+      "mechanism_and_interactions": "Backlog preserves eight proof families and nested expansion7. Replacement/relay uses actual Eda office/two-seal duty while body, debt, source, mastery and property remain hers; qualification consumes native body/progression and precedes publication. Transit reuses native movement, shared-clock stage, durable publisher and player-known carrier view; 96 visit capacity reserves return space, ended visits persist, and lazy backlogActions avoid a cold import cycle.",
+      "disposition": "Amendment/source admission and build hash are reported; syntax/import/registration checks passed. The record repeatedly labels gameplay implemented-unverified: no unit/browser/save/failure/director checks. Backlog1 remains supported; explicit opening opts Backlog2; later behavior gates remain deferred.",
+      "owner_or_consumer": "Backlog dispatch AMENDMENT_BUILD_ADMISSION.json and AMENDMENT_COVERAGE; existing Features integrator and native publisher/clock/UI consumers",
+      "evidence_state": "Checkpoint reports source and bundle-hash admission, not behavior proof; no current build inspected.",
+      "remaining_check": "Keep native alive/vital/seal guards, publisher preflight, clock reconciliation and opening-version compatibility under any later selected gameplay verification.",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          25,
+          31
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00007-L00013",
+        "L00025-L00031"
+      ]
+    },
+    {
+      "record_id": "U0180",
+      "path": "docs/gm/feature-wave/features/CHECKPOINT.md",
+      "input_sha256": "662722b016ac79767b8b4e3f863c3139e414b467a137dcabc5ca852117a13e49",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "nestedCampaign1",
+        "Backlog2",
+        "ACCEPTANCE_BACKLOG"
+      ],
+      "mechanism_and_interactions": "Historical Features delivery joins objects, mature methods, native teams/society, Tidemark, Backlog proofs and nested campaigns through existing owners. The checkpoint says native domains stage after reward preflight, then a durable publisher writes and validates the envelope before publishing people/items/equipment/XP/vitals/quests/locations/cursors; absent optional namespaces do not enroll on load/render.",
+      "disposition": "Current pointer marks this delivery historical and points to later book-world agency delivery. Source/native/UI/save/build are described as implemented-unverified. Unit/browser/gameplay/save/import/reload/failure/keyboard/regression/director checks are explicitly deferred in the assigned checkpoint.",
+      "owner_or_consumer": "Current Features DELIVERY.md, COVERAGE.json, BUILD.json, continued-life checkpoint and nested-campaign ACCEPTANCE_BACKLOG.md",
+      "evidence_state": "Only historical bundle/source and import/compiler claims are in record; no behavior proof established.",
+      "remaining_check": "If newly selected, follow current Features owner and acceptance backlog; test reward preflight, durable publication and exact optional namespace compatibility on rebuilt browser.",
+      "evidence_lines": [
+        [
+          1,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00001-L00011"
+      ]
+    },
+    {
+      "record_id": "U0181",
+      "path": "docs/gm/feature-wave/features/CHECKPOINT_INITIAL_WAVE_48e8a7514ff2.md",
+      "input_sha256": "20f57bda6162615243bd44f11ea713bd8d173827e9a4347570255c20e4e9cd14",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Tidemark",
+        "Ink",
+        "48e8a7514ff2"
+      ],
+      "mechanism_and_interactions": "Initial feature wave integrated functional objects, mature methods, native team objectives, society itineraries, optional Tidemark, Backlog proofs and pinned Ink. Existing expansion5 remains, optional namespaces do not enroll on load/render, opted destination/backlog/Ink/workPlans require6, and native battle3 validates with1/2 retained. Later Ink tag fix rebuilt the same frozen bundle receipt.",
+      "disposition": "Historical source/native/UI/save/build delivered as implemented-unverified; syntax/import, compiler and build checks reported. Unit/browser/gameplay/save/reload and director checks are deferred. A later direct steering points to a different active coordinator/feature refinement, not proof of behavior.",
+      "owner_or_consumer": "DELIVERY.md, COVERAGE.json, BUILD.json, SUCCESSION.json and RELEASE.json; Features root owns shared integration",
+      "evidence_state": "Historical receipts and checks described; no current merge or play evidence in this span.",
+      "remaining_check": "For a selected follow-up, check current owner and test deferred generated-origin, team, itinerary, Tidemark revisit and Ink cursor cases.",
+      "evidence_lines": [
+        [
+          5,
+          13
+        ],
+        [
+          17,
+          21
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00013",
+        "L00017-L00021"
+      ]
+    },
+    {
+      "record_id": "U0182",
+      "path": "docs/gm/feature-wave/features/CHECKPOINT_REFINEMENT_11aaa9cbfc69.md",
+      "input_sha256": "7e787eef7ba3cba44693eab0b70267c420d7ac0eddd1834f525292db590d0faa",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "nestedCampaign1",
+        "Backlog2",
+        "scopedInk2",
+        "11aaa9cbfc69"
+      ],
+      "mechanism_and_interactions": "Refinement retains existing feature owners and adds Eda/Orrin/Bera office/relay/reference scenes, nested passages, shared clock guards and one durable publisher. The publisher stages both native domains after reward preflight and validates the full envelope before publishing; existing 5/6/absent compatibility remains while explicit nestedCampaign1 requires7, office requires Backlog2 and scoped narratives require wrapper2.",
+      "disposition": "Checkpoint reports source/build/import/compiler admission, but specifically defers all unit, browser, gameplay, save/import/reload, failure, keyboard, regression and director checks. Five later acceptance gates own generated-save behavior/conservation/mission/chain/durability/UI review.",
+      "owner_or_consumer": "Features DELIVERY.md, COVERAGE.json, BUILD.json, nested-campaign ACCEPTANCE_BACKLOG.md; source queues own specialists",
+      "evidence_state": "Historical current-build hashes and static checks reported, no gameplay evidence.",
+      "remaining_check": "Use acceptance backlog against current bundle to verify native publication, compatibility gates, passage/clock and generated-save conservation.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00011"
+      ]
+    },
+    {
+      "record_id": "U0183",
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT.md",
+      "input_sha256": "6b4a3b34875d96c2353cd9e1df5a8cf4fa2b3b1c776c2eeef45a2add77bda045",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "PR01-08",
+        "nestedCampaign1",
+        "Backlog2",
+        "scopedInk2"
+      ],
+      "mechanism_and_interactions": "Book-world subtlety delivery assembles 19 roster rows with source references, edition/era limits, rules/recognition/topologies/deep chains, and four profile modules/19 voice rows. Selected office/relay/reference consumers use real native body/progression, conserved office duty and independent reports. Nested hub/destinations/missions/chains join through native save publication and carrier/shared-clock guards; divergences from PR01–08 remain explicit.",
+      "disposition": "Finite code/build goal reported delivered, implemented-unverified. No gameplay/unit/browser/save/failure/keyboard/regression/director test ran; Hunter and 19-world parity remain unclaimed. Further work is deferred acceptance or newly selected scope.",
+      "owner_or_consumer": "Current Features checkpoint, DELIVERY.md, COVERAGE.json, BUILD.json, nested-campaign ACCEPTANCE_BACKLOG.md",
+      "evidence_state": "Historical assembly/build claims only, no raw source or runtime requalification in this span.",
+      "remaining_check": "If selected, exercise the actual office and nested-world flows with current source and persistence; preserve explicit source-world divergences and do not infer parity.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00009"
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Across the assigned records, technical slice completion varies: several implementations and integrations remain explicitly implemented-unverified, while some historical browser proofs are bounded to named candidates and journeys.",
+    "Documentation, source admission, bundle hashes and static checks are not gameplay proof; reports consistently leave distinct owners for root integration, rebuilt browser/persistence acceptance, director feedback or source qualification.",
+    "Version and ownership boundaries recur in the feature-wave records: nestedCampaign, Backlog, scoped Ink, native save publication, clock, and world/source parity are separate contracts whose thresholds and gaps should not be collapsed."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0170-U0173, U0175-U0179 retain historical verification claims only; current source, merge, or runtime state was not inspected.",
+    "U0174 retains named source and qualification gaps, and its mixed ledger counts are not delivery counts.",
+    "U0180-U0183 explicitly defer gameplay and acceptance checks; current integrated behavior and source-world fidelity are not established by these checkpoint spans."
+  ],
+  "coordinator_review": "Worker findings/gaps and selected long/end rows inspected; corrected the reported evidence-line typo without changing read coverage. Historical native study/feature-wave claims retain their current-proof limits.",
+  "coordinator_code_corrections": [
+    [
+      "U0174",
+      "W1-FULL-U02",
+      "removed: not an explicit assigned-block code"
+    ],
+    [
+      "U0178",
+      "P1-P13",
+      "removed: not an explicit assigned-block code"
+    ],
+    [
+      "U0181",
+      "P04",
+      "removed: not an explicit assigned-block code"
+    ],
+    [
+      "U0181",
+      "P05",
+      "removed: not an explicit assigned-block code"
+    ]
+  ],
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
+  ]
+}

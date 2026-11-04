@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "shard": "S047",
+  "reader": "content_s047; gpt-6-luna low",
+  "scope": "Complete assigned historical checkpoint spans reviewed; document claims and evidence gaps recorded, not contemporary runtime or source-canon validation",
+  "payload_sha256": "9b9842df0dc1002a3e05c3327519a45dc3831a00f503e4c0181758c42239195c",
+  "rows": [
+    {
+      "record_id": "U0500",
+      "path": "docs/research/trimps-antimatter/CHECKPOINT.md",
+      "input_sha256": "2a17fdca1e4c2fb579d4124285df4b9985e7ec6f370808782cffc9569984379c",
+      "read_ranges": [
+        [
+          1,
+          56
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1-P5",
+        "Portal",
+        "Perks",
+        "Heirlooms",
+        "Void Maps",
+        "Bone Trader",
+        "Automator",
+        "Celestials"
+      ],
+      "mechanism_and_interactions": "Trimps Portal/reset separates run state from persistent progression; perks allocate/respec, heirlooms generate by type/rarity/modifiers and can be carried/recycled, Void Maps are seeded drops with entry scaling and consumed Cthulimp rewards, Bone Trader supports single-run and permanent purchases, and saved Map-at-Zone/Bionic settings expose earned automation. AD layers reset at Big Crunch/Eternity/Reality with sampled challenge, Automator, Celestial and YAIRPG comparisons.",
+      "disposition": "Historical bounded static audit completed; P1–P5 remain unaccepted proposals. Direct reads were sampled and explicitly omit full retention exceptions, all automation controllers, Automator grammar, Celestial catalog, runtime pacing and balance. License mismatch for Trimps is recorded as unresolved. No gameplay or reuse was tested.",
+      "owner_or_consumer": "docs/research/trimps-antimatter/REPORT.md, FINDINGS.json and proposal packets P1-P5; implementation authority remains the relevant runtime/design owners, not this checkpoint.",
+      "evidence_state": "Checkpoint reports pinned-source reads and document validation, not runtime behavior or current source validity.",
+      "remaining_check": "If a proposal is selected, refresh source/ownership, resolve the Trimps GPL header/license mismatch before reuse, and qualify its specific persistence, pacing and browser behavior; do not treat sampled source as full-game proof.",
+      "evidence_lines": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "record_id": "U0501",
+      "path": "docs/research/upload-labs/CHECKPOINT.md",
+      "input_sha256": "de59eb4099d24ffa0ad73d77bc4fd460066a7f70577a67dd19e53d4e72cf075d",
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1",
+        "457 .gd files",
+        "18 JSON data files",
+        "nine identical 29-byte files"
+      ],
+      "mechanism_and_interactions": "Recovered 457 Godot scripts plus 18 JSON data files; nine identical 29-byte automation scripts decompiled blank, while readable continuous-process, producer and research nodes support bounded automation findings. The dossier proposes a real native workshop bottleneck receipt as the first slice.",
+      "disposition": "Bounded installed-source audit and static copy/hash gate reported complete. Eight proposals are not implementation; runtime/UI/pacing/save roundtrip/import/scene entitlement remain unexercised. Steam uninstall was requested, but dialog confirmation was not observed, so removal is unverified.",
+      "owner_or_consumer": "docs/research/upload-labs/REPORT.md, INTAKE, FINDINGS, COVERAGE and IMPLEMENTATION_PACKETS; uninstall receipt docs/gm/dispatch/steam-installs-2026-10-09/UPLOAD_UNINSTALL.json.",
+      "evidence_state": "Checkpoint summarizes recovery and private verification claims; this review did not inspect the underlying dossier or verify installation state.",
+      "remaining_check": "Any selected workshop slice needs the actual recipe consumer and rebuilt/runtime/persistence proof. If install removal matters, resolve the explicitly unverified uninstall receipt; blank automation families cannot support claimed behavior.",
+      "evidence_lines": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "record_id": "U0502",
+      "path": "docs/research/ur-quan-masters/CHECKPOINT.md",
+      "input_sha256": "2e6623263beeed48c39eb98cd7e1749166b91da6a8320933a81cdd4ff0f2c8bc",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F13",
+        "UQM-N1",
+        "P01-P25"
+      ],
+      "mechanism_and_interactions": "UQM pass indexed 27 conversation modules and phrase tables, with lexical response/NPCPhrase call sites, then sampled dialogue/evidence/trade, travel/layer, scan/depletion, hazard, save/load, calendar/event and species AI. Default mineral pickup accepts free capacity then marks the node retrieved without remainder (F13). Seven local proposals extend prior synthesis; UQM-N1 is a local candidate.",
+      "disposition": "Static pass delivered as PARTIAL, explicitly bounded by unclosed dialogue predicates/state, remaining species voices, combat/AI, mod pipeline, legacy/malformed save recovery, event closure, economy calibration, installed-build parity and native gameplay/persistence. No gameplay implemented; all proposals only.",
+      "owner_or_consumer": "docs/research/ur-quan-masters/REPORT.md, FINDINGS, IMPLEMENTATION_PACKETS and private source references under /Users/weiwei/.codex/research/lib-uqm/; shared YAIRPG owners not changed.",
+      "evidence_state": "Historical checkpoint reports official source pin and structural/document checks; underlying source and artifacts were not re-inspected here. F13 is a stated static counterexample, not a native loss test.",
+      "remaining_check": "If selected, close one named callback or save/event consumer with source and isolated fixture evidence; separately prove any YAIRPG behavior on rebuilt play. Installed Free Stars parity and actual persistence remain unverified.",
+      "evidence_lines": [
+        [
+          1,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0503",
+      "path": "docs/research/ur-quan-masters/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "958aa34947675eeb62826867efa76cf01db7cc110da1f45d6e3a735ec871ae76",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A04",
+        "A05",
+        "A07",
+        "A10"
+      ],
+      "mechanism_and_interactions": "The aspect lane supplies twelve aspect entries, JSON keys, a system inventory and three deeper traces; A04/A05/A07/A10 are explicitly partial, while other rows are only covered within their bounded static scopes.",
+      "disposition": "PARTIAL checkpoint defers exact unread boundaries to the authoritative parent lane checkpoint. Presence of all twelve rows is not whole-game coverage and no native proof is claimed.",
+      "owner_or_consumer": "docs/research/ur-quan-masters/CHECKPOINT.md is the explicitly named authoritative owner; this lane's aspect artifacts are under docs/research/ur-quan-masters/aspects-2026-10-14/.",
+      "evidence_state": "Only this short checkpoint span was reviewed; the linked parent checkpoint is not part of this assigned span.",
+      "remaining_check": "Use the parent checkpoint's named gaps if a specific aspect is selected; do not infer completeness from row count.",
+      "evidence_lines": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0504",
+      "path": "docs/research/vagrus/CHECKPOINT.md",
+      "input_sha256": "b2c776208e53f0c4e06b20e7aa5b154392dccef857b603f451963e0f98a5ffd3",
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Section F",
+        "56 labeled findings",
+        "eight ranked proposals",
+        "1,178 records",
+        "569 subevents"
+      ],
+      "mechanism_and_interactions": "Vagrus audit decoded five installed encrypted Addressables tables and compared copied originals; sampled event scripts/branches, injury-choice graph, staffing/effects and methods, with structural counts for 1,178 older event records and 46 newer base graphs. Raw prose, code and reproduction tools remain private; event counts are not semantic closure.",
+      "disposition": "Section F and shared report are complete for targeted static source audit. Seven outputs and structural validations reported pass; no launch, save access, runtime cadence, balance or YAIRPG change. Whole narrative/DLC, event priority, re-recruitment, difficulty, UI and persistence remain gaps; no generational heir transfer/offline loop established.",
+      "owner_or_consumer": "docs/research/vagrus/REPORT.md, COVERAGE.json, RECONCILIATION.md, EXTRACTION_RECEIPT.md and VALIDATION.json; shared report docs/research/steam-library-wave-2026-10-10/REPORT.md.",
+      "evidence_state": "Historical checkpoint states matching bundle/table and validation results; this review did not inspect the installed game, private artifacts or runtime.",
+      "remaining_check": "Future selected packet must resolve its named coverage gap and consumer. Do not treat structural event counts or source table recovery as narrative, cadence, save or gameplay proof.",
+      "evidence_lines": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "record_id": "U0505",
+      "path": "docs/research/vagrus/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "62e30c1a873603f03985cb324dad0b5ce791fb8ab2fba9747f48e5d31715fe6e",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12"
+      ],
+      "mechanism_and_interactions": "Aspect pass extends Vagrus dialogue, architecture/save and selected behavior/AI evidence, reusing prior extracts and returning to code/data for A01/A03/A04. Twelve aspect rows, system inventory/deeper systems, six proposal packets and 24 touches were delivered; raw exact IDs/conditions/hashes remain private. A bounded event-table census does not resolve companion return or quest closure.",
+      "disposition": "PARTIAL: G1-G8 name unread semantics for dialogue/returns, graph controller, combat/RNG, journals/codex, DLC, UI/mod API, actual saves/cadence and remaining files. No accepted owner or runtime changed; next step is coordinator selection, not another extraction/setup pass.",
+      "owner_or_consumer": "docs/research/vagrus/aspects-2026-10-14/ASPECTS.md, ASPECTS.json, SYSTEM_INVENTORY.md, DEEPER_SYSTEMS.md, REPORT.md and FINDINGS.json; parent docs/research/vagrus/CHECKPOINT.md.",
+      "evidence_state": "Historical checkpoint reports pinned installed hashes and structural checks; no source, reports, browser or persistence behavior rechecked in this task.",
+      "remaining_check": "A chosen slice needs its actual incoming/consumer path and the specific G1-G8 gap closed. Native/rebuilt UI and save roundtrip are future gates only for implementation, not automatic research retries.",
+      "evidence_lines": [
+        [
+          1,
+          34
+        ]
+      ]
+    },
+    {
+      "record_id": "U0506",
+      "path": "docs/research/vagrus/pass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "aeb162e1b844338ebe2b4f42f692eb45076fd732ff021b2083441bd95b71f326",
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1-P3",
+        "46 base/569 subevent"
+      ],
+      "mechanism_and_interactions": "Deeper pass reconstructs Vagrus event grammar and readiness/location/faction/crew/flag gates, category priority, cadence, cooldown and branch closure; traces market stock/import/blend/restock/marginal quotes, company support/cargo and travel cost, with selected recruitment/loyalty/quest/DLC consumers. Event graph corpus remains distinct from the older indexed table.",
+      "disposition": "PARTIAL research delivery with G1-G6 gaps: companion incoming/reset exceptions, all quest outcomes, DLC chains, all graph bodies/controller, tuning/routes and runtime/entitlement/persistence. Explicitly says no authorized implementation gate remains and P1-P3 stay proposals.",
+      "owner_or_consumer": "docs/research/vagrus/pass-2026-10-14/ report, COVERAGE, TOOLING and retained private inputs under ~/.codex/research/vagrus-2/; no Province War write.",
+      "evidence_state": "Historical checkpoint reports hash/JSON/link checks, not current runtime or source qualification; underlying outputs not re-opened.",
+      "remaining_check": "If resumed for a selected feature, begin from the exact incoming route/reset or chosen graph/market path; generic add/remove methods and indexed counts do not prove authored reachability or best live trade loop.",
+      "evidence_lines": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "record_id": "U0507",
+      "path": "docs/research/vintage-story/CHECKPOINT.md",
+      "input_sha256": "2e9dea84c17125782d922264c332e7fc19341883acc70c9598fdd7ce189c217c",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "F1-F5",
+        "1829 C# files",
+        "seven ranked proposals"
+      ],
+      "mechanism_and_interactions": "Vintage Story feature scout answers five feature questions at evidence levels and maps seven proposals, four packets and 30 touches against three pinned source clones, wiki revisions and a 1,829-file C# census. The checkpoint specifically distinguishes source-read trigger/variable architecture from absent paid authored branches/assets.",
+      "disposition": "Feature-source pass complete but PARTIAL in substance: paid recipe/config, barrel break behavior, dialogue corpus, native visuals/mechanics/save roundtrips, engine save/offline behavior and inventory-only systems remain unverified. No source implementation, game test, stage, commit or push.",
+      "owner_or_consumer": "docs/research/vintage-story/REPORT.md, feature rows F1-F5, SYSTEM_INVENTORY and proposal packets; private decoded flows/wiki captures under ~/.codex/research/fs-vintage-story/.",
+      "evidence_state": "Historical checkpoint reports artifact/source-map validation only; no game build, test or native acceptance. Acquired private assets/runtime were not inspected here.",
+      "remaining_check": "Any selected mechanic needs the paid asset definition tied to a release or an authorized disposable runtime path for the named interaction; do not infer refund/reset/pause outcomes from source blocking alone.",
+      "evidence_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "record_id": "U0508",
+      "path": "docs/research/vintage-story/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "69b0a1fbcb75228aa7638877a1f4b673dd8346e0bd0002cfc97b9f070c063148",
+      "read_ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Aspect lane has all twelve aspects and required files, with priority dialogue, architecture and persistence source-read; census covers C# directories, but semantics beyond named traces remain unread.",
+      "disposition": "PARTIAL; checkpoint delegates each asset/runtime/engine boundary and resume step to its parent feature-scout checkpoint. Row presence does not imply semantic or whole-game completion; no install or run.",
+      "owner_or_consumer": "docs/research/vintage-story/CHECKPOINT.md is the specifically named lane owner; aspect artifacts are under docs/research/vintage-story/aspects-2026-10-14/.",
+      "evidence_state": "Assigned four-line checkpoint only; parent checkpoint and aspect files were not re-read.",
+      "remaining_check": "If an aspect is selected, use the named asset/runtime/engine gap in the parent checkpoint; no additional gate is implied by this short record.",
+      "evidence_lines": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "record_id": "U0509",
+      "path": "docs/research/warsim/CHECKPOINT.md",
+      "input_sha256": "8c5ed468234d1dae19f692fbac50afca571a2e8955fbc5cc4190eecda0db741a",
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "BattleSim",
+        "TurnReport",
+        "RandomTurnEvent",
+        "SaveGame",
+        "LoadGame"
+      ],
+      "mechanism_and_interactions": "Warsim static research addresses four questions and inspects six named native functions, plus content inventory, ranked proposals, implementation packets and Province War fit. Manifest/build/hash evidence identifies the installed executable but not runtime execution; all source semantics and gameplay/persistence remain bounded.",
+      "disposition": "PARTIAL; coordinator may register dossier and supersede earlier gated snapshot. Exact battle/economy/modifier/event/name/history/content/RNG/save behavior and gameplay are explicitly unread/unverified. No launch or save read; no authorizing watcher/install/approval is needed to use research findings, but that does not imply runtime behavior.",
+      "owner_or_consumer": "docs/research/warsim/REPORT.md, FINDINGS.json, IMPLEMENTATION_PACKETS.md, TOOLING.md, Province War fit and TABLE_COVERAGE.md; private extracts ~/.codex/research/warsim/extract/.",
+      "evidence_state": "Historical checkpoint reports manifest and artifact validation; this pass did not inspect binary/source outputs or launch game.",
+      "remaining_check": "Select one formula/function gap and trace its named consumers; native gameplay/persistence requires its own authorized route. Personal Saves/ and Scores/ were deliberately excluded, not a follow-up source target.",
+      "evidence_lines": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "record_id": "U0510",
+      "path": "docs/research/warsim/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "41fcf1987b1fcf992740233d29e1c4f9a5b1ccf850f73f6055147a814b43a708",
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "38 pools",
+        "143 helpers"
+      ],
+      "mechanism_and_interactions": "Warsim aspects retain 38 dialogue/flavor pools with build-qualified IDs and Advice tags, 190 selected Data files, 143 helpers, resolver traces for monsters/relations/quest composition, an XP gate, and selected RNG/phase evidence. P1 dialogue IDs/effects, P2 save boundary, P3 fact-linked quest composition are proposals; P4/P5 are deeper reusable proposals.",
+      "disposition": "PARTIAL: all evidence remains static bytes/tables/native paths; U1-U9 enumerate branch/speaker, cadence, save isolation, diplomacy consumers, monster activity, quest durability, UI/mod API, broader systems and native gameplay gaps. No implementation, launch or persistence test.",
+      "owner_or_consumer": "docs/research/warsim/aspects-2026-10-14/ASPECTS.md, SYSTEM_INVENTORY.md, DEEPER_SYSTEMS.md, PRIVATE_REFERENCE_INDEX.md and CHECKPOINT.md; retained private source references under ~/.codex/research/warsim-aspects-2026-10-14/.",
+      "evidence_state": "Historical checkpoint reports artifact/hash validation and bounded decompiles; none were re-run or independently inspected here.",
+      "remaining_check": "Select one concrete U1-U9 caller/consumer chain before deeper work; maintain private raw evidence and do not promote static resolver reads into gameplay/persistence proof.",
+      "evidence_lines": [
+        [
+          1,
+          35
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    {
+      "coordinator_removed_nonliteral_original_ids": {
+        "U0500": [
+          "Map at Zone"
+        ],
+        "U0501": [],
+        "U0502": [
+          "D1-D5"
+        ],
+        "U0503": [
+          "A01-A12"
+        ],
+        "U0504": [
+          "46 base graphs"
+        ],
+        "U0505": [
+          "G1-G8",
+          "P1-P6"
+        ],
+        "U0506": [
+          "G1-G6",
+          "1,178/17,223/34,323"
+        ],
+        "U0507": [
+          "four implementation packets"
+        ],
+        "U0508": [
+          "A01-A12"
+        ],
+        "U0509": [
+          "P1-P5",
+          "U1-U9"
+        ],
+        "U0510": [
+          "A01-A12",
+          "P1-P5",
+          "U1-U9",
+          "190 Data files"
+        ]
+      }
+    }
+  ],
+  "cross_record_findings": [
+    "Across these source audits, static recovery, structural inventories and selected traces expose real mechanisms, but counts and sampled bodies do not close semantic branches, source parity or gameplay.",
+    "The checkpoints distinguish proposal delivery from implementation and separate native installed-source evidence from rebuilt YAIRPG behavior, UI, persistence and human feedback; historical human gates remain optional under current AD42.",
+    "Several partial records name precise continuation paths, while short aspect checkpoints delegate to a parent owner; their status does not create a new current blocker or authorize reopening work."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0500 license mismatch and sampled source limits remain if a proposal is selected; no current source/runtime refresh was performed.",
+    "U0501 Steam removal is unverified, and Upload Labs runtime, UI, save/import and entitlement behavior were unexercised.",
+    "U0502-U0503 retain UQM dialogue, event, save, economy, source-parity and aspect-specific boundaries; F13 is static evidence only.",
+    "U0504-U0506 retain Vagrus narrative/graph/companion/DLC/market tuning and actual runtime/persistence gaps; structural table counts do not establish semantic closure.",
+    "U0507-U0508 require acquired asset/release or authorized native evidence for paid content and engine/runtime behavior.",
+    "U0509-U0510 retain Warsim function/content/save and native play gaps; personal saves and scores remain excluded."
+  ]
+}

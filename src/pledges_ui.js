@@ -58,7 +58,7 @@ export function createPledgesPanel({read, commands}) {
             if(o.taskLessons)group.append(node('p',`${o.taskLessons} retained lessons of this ${o.kind} stage save up to ${Math.min(3,o.taskLessons)} measured-step composure, down to the ordinary one-point effort.`));
             s.body.append(group);
         }
-        if(t.done) s.body.append(node('p', 'Nothing is left to temper in this slice.'));
+        if(t.done) s.body.append(node('p', 'Nothing is left to temper for now.'));
         else {
             const line = infoRow({label: `Next: ${t.next}`, chips: [chip(`${t.risk / 10}% chance to fail`, {tone: t.risk >= 400 ? 'limit' : 'warn'}), chip(`vows steady ${t.stability}`), chip(`heart demon ${t.pressure}`, {tone: t.pressure ? 'limit' : ''}), chip(`scar ${t.scar}`)], more: `Vows steady it (${t.stability}); broken vows and the heart demon (${t.pressure}) worsen it (scar ${t.scar}).${t.tribulation ? ' This is a tribulation: a failure wakes the demon harder.' : ''}${t.taskLessons ? ` This quick stage has ${t.taskLessons} retained task lessons, adding ${Math.min(3,t.taskLessons)} stability to the shown chance.` : ''}`, moreLabel: 'What moves it'}); line.dataset.trialRisk = String(t.risk);
             s.body.append(line);

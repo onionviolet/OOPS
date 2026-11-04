@@ -1,0 +1,419 @@
+{
+  "schema": 1,
+  "shard": "S026",
+  "reader": "content_s026; gpt-6-luna low",
+  "payload_sha256": "d322660aead2eda5c5d22fb756889b8f52d0040763fdadbaeac5a2fe78e3ddbe",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0324",
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "d542e24f800e016847f15558bbca13bfdc739f65685a5b178daa87aa31029a6d",
+      "read_ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A0004",
+        "A0016",
+        "A0017",
+        "GD-D01/D02/D03/D04/D05"
+      ],
+      "mechanism_and_interactions": "Classifies historical adoption claims against code/source evidence, including individually reassessed negatives, landed entries, partial capabilities and conservative untraced rows. The audit distinguishes exact delivered consumer/host binding from keyword overlap; broad partial-capability rows still need their stated missing-consumer check. Top-ten packets are ranked research proposals, not implementation authorization.",
+      "disposition": "Partial research audit delivered with 597 classifications and 26 negative re-audits. Numerous exact consumers remain untraced; five pinned upstream caller/exception groups were explicitly not re-decompiled. No code, build, gameplay, or adoption proof was performed.",
+      "owner_or_consumer": "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md, LEDGER.json and UNPARK_PACKETS.md; private source snapshot/scripts are under ~/.codex/research/adoption-reaudit/notes/. Receiving coordinator selects any later exact consumer trace.",
+      "evidence_state": "Checkpoint reports extraction, JSON, citation/hash, and empty source/test diff checks. These are reported historical checks, not re-run here; the underlying dossiers and source were not part of the assigned fragment.",
+      "remaining_check": "If a packet is selected, trace the exact cited consumer/host binding at fresh HEAD, including the five upstream groups only if relevant; then use the selected owner and separate runtime evidence.",
+      "evidence_lines": [
+        [
+          5,
+          12
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          73,
+          75
+        ]
+      ]
+    },
+    {
+      "record_id": "U0325",
+      "path": "docs/research/groundhog-life/CHECKPOINT.md",
+      "input_sha256": "dabed65b403933b0110dc9d54a366fb322c71c984f11bd850458ce718cc15eda",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Static Groundhog Life source audit covered the public itch.io HTML5 Vue 2/webpack build and a later GitHub mirror, including Loop Trap, health, automation, time-banking, and new-entity differences. It identifies the public itch build as browser JavaScript rather than Unity/Electron; a mirror tag is not authoritative provenance or a code license.",
+      "disposition": "Source audit complete for the public build; later build only partly read. Proposals P1–P5 remain unaccepted. Runtime/UI, full late-game balance, exact first-life duration, and later war/achievement-group details were not covered; no code reuse authority follows.",
+      "owner_or_consumer": "docs/research/groundhog-life/CHECKPOINT.md; later aspects and pass checkpoints are sibling research owners, not consumers.",
+      "evidence_state": "Historical source/hash coverage and exclusions are checkpoint claims; no source payload, execution, or UI proof was re-read here.",
+      "remaining_check": "Before any chosen reuse, establish mirror provenance and author license; any gameplay adoption needs its own named consumer and runtime/save proof.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ],
+        [
+          13,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0326",
+      "path": "docs/research/groundhog-life/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "a8a87e6717648910c3ac3e7b9e81280948efaf4f86bdb8df062801f3f5ed7138",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "mechanism_and_interactions": "Delivered all twelve fixed aspect rows, file/table/module-family inventory, three deeper systems, proposals, packets and touch list. The PARTIAL status refers to provenance, generated UI/order edge cases, and unexercised render/focus/duration/import rollback, rather than missing deliverable files. No selected implementation or playable acceptance occurred.",
+      "disposition": "Documentation pass complete, with explicit source and runtime gaps. Later-mirror author/provenance/license, broad generated UI and schedule order, and rendered desktop/focus/save rollback remain open; proposal contents do not alter direction.",
+      "owner_or_consumer": "docs/research/groundhog-life/aspects-2026-10-14/CHECKPOINT.md; no implementation consumer selected.",
+      "evidence_state": "Checkpoint reports fixed-key/shape, JSON/link, inventory, retained hashes and artifact checks; no native behavior or persistence exercised in this assigned content.",
+      "remaining_check": "For a chosen proposal, first resolve the mirror provenance/license boundary and select its actual consumer; qualify only the exact UI/order or import scenario it needs.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          13,
+          19
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "U0327",
+      "path": "docs/research/groundhog-life/pass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "5f04a13fb551ef63e3e325f11dab476bc0cc5e527b96c4fe6df6de61c64ca010",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Follow-up statically read the named remaining later-build paths: war/research/target/wave/arrival/reset; Loop Trap transform via matching vendor AST; automatic actions and research queue; 31 achievements/seven groups; time banking and relevant generated UI handlers. Its completion means those named paths were read, not the whole framework/UI or live simulation.",
+      "disposition": "Assigned static follow-up complete, no further item in its scope. Balance, scheduling-order and registered-object reset interactions, other framework/generated UI, provenance/license, Reddit/Patreon, rendered UI, and live save roundtrip remain outside proof. Earlier P1–P5 are still proposals by the sibling checkpoint.",
+      "owner_or_consumer": "docs/research/groundhog-life/pass-2026-10-14/CHECKPOINT.md and its report/findings/packets; no runtime consumer selected.",
+      "evidence_state": "Historical checkpoint reports unchanged input hash, AST traced without evaluation, JSON/count/artifact validations. No current source, simulation, UI, or save behavior verified here.",
+      "remaining_check": "If a system is selected, test its named ordering/reset or balance scenario in an authorized fixture and verify mirror provenance/license before reuse.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          13,
+          20
+        ],
+        [
+          22,
+          22
+        ]
+      ]
+    },
+    {
+      "record_id": "U0328",
+      "path": "docs/research/hearts-of-iron-iv/CHECKPOINT.md",
+      "input_sha256": "caa1258deae72682b85f5c38ccfe7ea928927944e2c2d2153cbb4648fcf35afd",
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "H-D1",
+        "H-D2",
+        "H-D3",
+        "H-D4",
+        "H-G1",
+        "H-G2",
+        "H-G3",
+        "H-G4",
+        "H-G5"
+      ],
+      "mechanism_and_interactions": "HoI4 research delivered representative script/source chains across focus, events, missions, modifiers, technology, doctrine, equipment and AI; a comment-aware corpus census and 5,393 selected source hashes were checked. Source definitions do not establish native evaluators: save schema/migration, production/research/MTTH/queue behavior, supply/combat, full campaign semantics, runtime, and adoption remain separate gaps.",
+      "disposition": "Authorized research outputs are complete; PARTIAL describes bounded source/runtime/save gaps, not pending gameplay work. Province War and YAIRPG registration/adoption remain future owner decisions; no Province War write or implementation authority was produced.",
+      "owner_or_consumer": "docs/research/hearts-of-iron-iv/ research outputs including REPORT, FINDINGS.json, IMPLEMENTATION_PACKETS, SAVE_SHAPE and SOURCE_LEDGER; Province War later lane/owner is not specified by this fragment.",
+      "evidence_state": "Historical artifact validation and selected source hashes are reported. No game launch, native evaluation, personal save inspection, project tests, or current adoption check occurred.",
+      "remaining_check": "Any selected packet needs the specific native/source fixture for the relevant field/formula, campaign family or owner-registration consumer; preserve save privacy and avoid upgrading script declarations into engine behavior.",
+      "evidence_lines": [
+        [
+          8,
+          12
+        ],
+        [
+          15,
+          25
+        ]
+      ]
+    },
+    {
+      "record_id": "U0329",
+      "path": "docs/research/hearts-of-iron-iv/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "ef2ad6cc6482a0adf87d8c705f5eff9ffb5bcebf61ed46cc66dfa2b2c45a98b6",
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "mechanism_and_interactions": "Aspect pass captured selected text/event corpora and traced event/reply/localization/presentation joins, architecture/save-version limits, and deeper special projects, operations/phases and scripted UI/text. Structural row/inventory coverage is broader than semantic/runtime proof; native interpreter/tick/combat/save behavior and all country/faction/MIO/raid/occupation semantics remain bounded.",
+      "disposition": "Aspect deliverables and documentation checks completed, while native engine and serializer semantics, current save/migration, complete variant trees, live UI/tutorial/sound/performance, mod precedence/offline behavior, and any YAIRPG/Province War adoption remain open. No gameplay acceptance or runtime work claimed.",
+      "owner_or_consumer": "docs/research/hearts-of-iron-iv/aspects-2026-10-14/ (ASPECTS, SYSTEM_INVENTORY, DEEPER_SYSTEMS, IMPLEMENTATION_PACKETS); no runtime consumer selected.",
+      "evidence_state": "Historical source-capture counts, matching selected hashes, JSON/link/output checks are reported. No native game, personal save, or YAIRPG runtime was inspected in this shard.",
+      "remaining_check": "Choose one native function/consumer and separately scoped disposable current-build evidence for the exact save, UI, or semantic variant before adoption.",
+      "evidence_lines": [
+        [
+          8,
+          14
+        ],
+        [
+          18,
+          27
+        ],
+        [
+          29,
+          31
+        ]
+      ]
+    },
+    {
+      "record_id": "U0330",
+      "path": "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/CHECKPOINT.md",
+      "input_sha256": "3c283486206c1b1269f1fb5cf5cfd96f4602619e4cfa1ec46f133e24ea96a623",
+      "read_ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "H-G1",
+        "H-G2",
+        "H-G3",
+        "H-G4",
+        "H-G5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "I005",
+        "I008",
+        "I009",
+        "I027",
+        "I030",
+        "I062",
+        "I075",
+        "I076",
+        "I094",
+        "I102",
+        "I103",
+        "I137",
+        "I147",
+        "I148",
+        "I153",
+        "I154",
+        "C01-C09"
+      ],
+      "mechanism_and_interactions": "Fifteen representative systems plus taxonomy/inventory were captured from source, with data fields, conditions, timers, comment-level formulas, joins, and save limits recorded. It reconciles earlier gaps: network/acclimatization and some comment formulas were extended; native production/research/MTTH, supply/search/combat, modifier aggregation, exact saves, and broad semantics remain open. Cheap closures and metadata contracts are explicitly not runtime engine proof.",
+      "disposition": "Assigned source-only output pass is complete; PARTIAL marks explicit unread evidence, not an implementation mandate. Research proposals may be registered by a coordinator, but no adoption/owner registration or playable/save acceptance is claimed.",
+      "owner_or_consumer": "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/ (SYSTEMS, FAMILY_MAP, FINDINGS, IMPLEMENTATION_PACKETS, REPORT); selected owner registration is deferred to coordinator.",
+      "evidence_state": "Checkpoint reports source/copy/prior hashes, inventory and document validation; no game tests, build, browser play, or save/restore ran. All claims here are historical checkpoint claims, not independently repeated.",
+      "remaining_check": "Select an exact U01-U04 gap with a real consumer; use scoped disposable evidence for saves/native evaluators or one named semantic variant, and keep inventory-only families labeled as such.",
+      "evidence_lines": [
+        [
+          4,
+          14
+        ],
+        [
+          18,
+          30
+        ],
+        [
+          35,
+          42
+        ],
+        [
+          45,
+          68
+        ]
+      ]
+    },
+    {
+      "record_id": "U0331",
+      "path": "docs/research/heavens-vault/CHECKPOINT.md",
+      "input_sha256": "59c1e3d14a132ebde3c4a2e70705b4745820aa873bd3b1c24453ea571e9b9205",
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Heaven’s Vault bounded static pass identified Unity Mono, extracted ten TextAssets, and read selected translation, story, timeline and river consumers, comparing notebook owners and source. Story route, timeline/clue/inscription meanings, morphology/distribution, travel topology/tuning, other asset types, and actual native timing/save behavior were intentionally not exhaustive.",
+      "disposition": "Source/data pass complete for four bounded research questions; no runtime implementation or gameplay verification claimed. Proposed YAIRPG changes remain proposals; human approval is not a technical proof requirement under current direction.",
+      "owner_or_consumer": "docs/research/heavens-vault/ report and extraction/checkpoint; no adopted YAIRPG consumer named.",
+      "evidence_state": "Historical extract/hash and artifact/link checks are reported; no game launch, save roundtrip, or rebuilt YAIRPG UI was performed or re-run here.",
+      "remaining_check": "If a proposal is selected, trace a named route/consumer and then independently verify useful consequence, rebuilt desktop behavior, and relevant persistence/import; source confidence and runtime proof remain separate.",
+      "evidence_lines": [
+        [
+          5,
+          10
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          22,
+          26
+        ]
+      ]
+    },
+    {
+      "record_id": "U0332",
+      "path": "docs/research/heavens-vault/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "3e208f348419542d96efb13764906ab8011977e3db578454f3691858425fd799",
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "mechanism_and_interactions": "Aspect delivery includes twelve rows, full structural inventory/index, top three deeper systems, implementation packets and touch list. It reuses prior extracts and traces selected dialogue, architecture/save, tutorial, presentation and behavior/AI code. Gaps retain full narrative/relationships/endings, language generation, river/ruin/oxygen tuning, authoring/mod/accessibility, reset/achievement semantics, native saves/crash/performance/offline behavior and unextracted assets/helpers.",
+      "disposition": "Bounded aspect pass delivered; PARTIAL means explicit unread/unverified units. No accepted owner or runtime changed, and the cited Vagrus Province War fit does not authorize a Province War write or adoption.",
+      "owner_or_consumer": "docs/research/heavens-vault/aspects-2026-10-14/ (ASPECTS, SYSTEM_INVENTORY, DEEPER_SYSTEMS, REPORT, proposals); Province War may cite existing Vagrus fit report, but no consumer is assigned here.",
+      "evidence_state": "Historical source hashes and document validation checks are reported; no native dialogue/save/persistence or YAIRPG gameplay was exercised in this shard.",
+      "remaining_check": "Choose one named subsystem/route and resolve its actual source or native save/UI scenario before claiming broader coverage; preserve the explicitly bounded route and asset limits.",
+      "evidence_lines": [
+        [
+          5,
+          13
+        ],
+        [
+          17,
+          26
+        ],
+        [
+          29,
+          33
+        ]
+      ]
+    },
+    {
+      "record_id": "U0333",
+      "path": "docs/research/heavens-vault/repass-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "794b2c55d549a2904b90f677688998719b169c33a661a95af232fc6ac4bb1a4e",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1",
+        "B01-B32",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "mechanism_and_interactions": "P1 statically traced a selected helper through offer, examination, uncertain feedback, host learning, procedural timeline and later consumers. Solving chooses wording/commentary in that chain; word confirmation separately changes dictionary knowledge and its attributed record, not solved-inscription membership. Showing an object can affect subsequent offers even if kept or uncertain. Literal destinations are resolved without proving reachability or native timing.",
+      "disposition": "Selected static audit delivered; all six YAIR suggestions remain proposals. Exact stored pointers/conditions/tables and branch record are preserved privately, while execution semantics remain unverified. No missing external implementation was found in the checked selected occurrences.",
+      "owner_or_consumer": "docs/research/heavens-vault/repass-2026-10-14/REPORT.md, COVERAGE.json, and ignored private branch record; no external implementation owner is missing according to this checkpoint.",
+      "evidence_state": "Historical checks cover pointer/token identity, selected conditions/destinations/tables and hashes. No game execution, gameplay tests, or human acceptance ran here.",
+      "remaining_check": "If selected, verify item/phrase/dictionary/RNG inputs, tutorial queue and suspended reload callback order, dynamic comparison routes, and native presentation/navigation/persistence for the relevant branch.",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ],
+        [
+          13,
+          15
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    "Coordinator distinguished public output files from private workspace and retained source-literal upstream group locator."
+  ],
+  "cross_record_findings": [
+    "Static research completion is distinct from exhaustive source semantics, native evaluator behavior, adopted ownership, and playable/save acceptance; all three game dossiers preserve those boundaries.",
+    "Sibling Groundhog Life passes progressively add named static mechanisms, but later-build provenance/license, broad scheduling/reset interactions, and live behavior remain distinct; its proposals remain unaccepted.",
+    "Heaven’s Vault static evidence distinguishes solved-inscription state, dictionary knowledge, offer history, literal destination resolution, and actual reachability/timing; selected branches do not qualify whole-game or native behavior."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0324 leaves many exact consumer bindings untraced and upstream caller/exception source rows unread.",
+    "U0325-U0327 retain later mirror provenance/license and runtime/simulation/UI/save evidence gaps; proposals P1-P5 remain unaccepted.",
+    "U0328-U0330 leave HoI4 native evaluator, current save, comprehensive variant, live UI, and adoption evidence open.",
+    "U0331-U0333 retain Heaven’s Vault whole-route/content, native execution, save roundtrip, and selected YAIRG adoption proof gaps."
+  ]
+}

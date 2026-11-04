@@ -51,7 +51,7 @@ function groupsFor(home, form, sees) {
 export function homeOverviewModel(view, {homeId} = {}) {
     const observer = view.observer, sees = request => (observer ? observer.sees(request) : true);
     if (!view.visible || !view.homes.length) {
-        return {empty: view.visible ? 'No home yet. The Village home supplier rents and sells places to live; a wild site lets you build one from gathered material.' : 'Your known homes are elsewhere.', homes: []};
+        return {empty: view.visible ? 'No home yet. Rent or buy one from the Village home supplier, or build one at a wild site from gathered material.' : 'Your known homes are elsewhere.', homes: []};
     }
     const c = view.context, id = view.homes.some(h => h.id === homeId) ? homeId : (view.here?.id || view.state.primary || view.homes[0].id);
     const h = view.homes.find(x => x.id === id), place = P[h.id], q = conditionOf(h);
