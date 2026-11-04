@@ -201,6 +201,10 @@ reading code on 2026-10-30; none is a decision.
 
 `motherOfLearning.entryProfile` now accepts a second value, `book.mol.zorian@1`, beside `independent_nonmage_visitor`. An old save holds the old value and loads unchanged; a Zorian save (zero connections, zero visits, `book.mol.studentStatus` actor fact) is rejected by an older build's validator, which is the stated downgrade behavior. No migration is needed. The start owner is `src/book_world_mol_starts.js`; the Zorian resident record stays attached but inert (the native envelope requires every definition person).
 
+### 6b. Zorian S0 content (2026-11-03, proposal under AD32)
+
+No saved shape changes. The magic-missile cast count is the existing `simulation.energies.player["book.mol.zorian.reserve"]` record (reserve, strain, policy; `validateEnergyState`), written only by the Zorian begin command, so a visitor save never holds it and an old save loads unchanged. A Zorian save written before this change has no such record: the panel still renders (no readout), and its `missile_practice` row is shown but ineligible with the reason `Learn this energy method first.` (tested). Nothing else reads the record. Roster people, place rows and purse rows are pack `content` rows, not native actors or locations, because one added definition person or native location invalidates every existing Cyoria save (the validator requires each definition person and the envelope each location). Making Kirielle, the mother or Cirin native is a separate decision that needs a migration (AD45). Checked: `tests/mol_zorian_start.test.js` freezes the visitor action list and fact keys (`tests/fixtures/mol_visitor_start_surface.json`, captured before the change) and round-trips the cast count through export and `loadExpansionState`. Not native-run.
+
 ## 7. Links
 
 - Code map: [S12](systems/PROGRESSION_WORLD_STATE.md#s12-persistence); world packs [S8](systems/PROGRESSION_WORLD_STATE.md).

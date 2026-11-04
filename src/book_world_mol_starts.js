@@ -15,6 +15,8 @@ export const ZORIAN_SEAT_ACTOR='player';
 // the pack already has, so no new native location owner or save envelope entry is introduced here.
 export const MOL_ZORIAN_PLACES=Object.freeze({home:L.house});
 export const MOL_ZORIAN_STUDENT='book.mol.studentStatus';
+// G5: the cast count the text states (8 magic missiles, en b1 c2 p171). Policy row lives in the pack's energies.
+export const MOL_ZORIAN_RESERVE='book.mol.zorian.reserve';
 // Visitor premises that make no sense for a native student: arrival, passage, guest pass and room, the sponsor's return.
 export const ZORIAN_HIDDEN_COMMANDS=Object.freeze(['book.mol.chart','book.mol.arrival','book.mol.guest_room','book.mol.guest_pass','book.mol.return_visit_life','book.mol.enroll','book.mol.enter','book.mol.return']);
 export const molStartOf=state=>state?.motherOfLearning?.entryProfile??null;

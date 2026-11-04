@@ -34,7 +34,7 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
     const original = value => Array.isArray(value)
         ? value.filter(row => !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.') && !row?.id?.startsWith?.('book.mol.zorian.')).map(original)
         : value && typeof value === 'object'
-            ? Object.fromEntries(Object.entries(value).filter(([key]) => !loreKeys.has(key)).map(([key, child]) => [key, original(child)]))
+            ? Object.fromEntries(Object.entries(value).filter(([key, child]) => !loreKeys.has(key) && !(key === 'energies' && Array.isArray(child) && child.every(e => e.id.startsWith('book.mol.zorian.')))).map(([key, child]) => [key, original(child)]))
             : value;
     const out = {};
     for (const k of Object.keys(content).sort()) if (typeof content[k] !== 'function') out[k] = original(content[k]);
@@ -43,7 +43,7 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
     const loaded = installedWorldPack('book.mol');
     assert.equal(loaded.pack.sourceSnapshot.hash, MOL_SOURCE_HASH);
     assert.equal(loaded.pack.sourceSnapshot.locator, MOL_SOURCE_SNAPSHOT);
-    assert.deepEqual(loaded.pack.content.people.map(p => [p.id, p.name]), content.molDefinitions.people.map(p => [p.id, p.label]));
+    assert.deepEqual(loaded.pack.content.people.filter(p => !p.tags?.includes('zorian_s0')).map(p => [p.id, p.name]), content.molDefinitions.people.map(p => [p.id, p.label]));
     assert.ok(Object.isFrozen(content.molDefinitions.commands) && !Object.isFrozen(content.molDefinitions.people));
 });
 

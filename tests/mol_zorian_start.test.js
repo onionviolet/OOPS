@@ -85,3 +85,67 @@ test('the Zorian start passes the native envelope check (location and presence m
  p.raw.quests[I.quest]=molQuestProjection(p.state,I.world);
  assert.doesNotThrow(()=>validateMolEnvelope({...structuredClone(p.raw),expansion:structuredClone(p.state),'current location':L.house},p.state));
 });
+
+// G4/G5 (S0 content on the seat). Scene rows lr.mol.main.00101-00404; figures carry locators in the stage record.
+import {advanceSimulationBoundary} from '../src/simulation.js';
+import {loadExpansionState} from '../src/expansion_engine.js';
+import {energyView} from '../src/energy_resources.js';
+import {MOL_ZORIAN_RESERVE} from '../src/book_world_mol_starts.js';
+import {MOL_LOCATIONS as LOC} from '../src/book_world_mol_ids.js';
+import fs from 'node:fs';
+const Z='book.mol.zorian.s0.';
+const reserve=p=>energyView(p.state,'player').find(r=>r.id===MOL_ZORIAN_RESERVE);
+const at=(p,where)=>{const out=commitMolCommand(p.state,registry,{type:'book_mol',id:'book.mol.move.'+where},zctx(p));return {...p,...out};};
+const act=(p,id)=>({...p,...commitMolCommand(p.state,registry,{type:'book_mol',id},zctx(p))});
+const finish=p=>{let n=0;while(p.state.simulation.jobs.some(j=>j.actorId==='player')&&n++<2000){p.state.clock++;advanceSimulationBoundary(p,registry,{player:zctx(p)});}return p;};
+const run=(p,id)=>finish(act(p,id));
+test('the visitor start keeps the exact frozen action list and fact keys (no Zorian row leaks)',()=>{
+ const frozen=JSON.parse(fs.readFileSync(new URL('./fixtures/mol_visitor_start_surface.json',import.meta.url),'utf8'));
+ const p=fixture(false);
+ assert.deepEqual(ids(p).sort(),frozen.ids);assert.deepEqual(Object.keys(molFacts(p.state,context(p))).sort(),frozen.facts);
+ assert.ok(!ids(p).some(id=>id.startsWith(Z)));
+});
+test('G5 ZS1: the reserve starts at the stated 8 casts, shows on the seat and falls with each cast',()=>{
+ let p=zorian();const r0=reserve(p);assert.equal(r0.reserve,8);assert.equal(r0.capacity,8);
+ assert.match(molPresentation(p.state,registry,zctx(p)).sections[0].description,/reserve of 8 of 8 casts/);
+ p=at(p,'court');assert.ok(ids(p,zctx).includes(Z+'missile_practice'));
+ p=run(p,Z+'missile_practice');assert.equal(reserve(p).reserve,7);
+ assert.match(molPresentation(p.state,registry,zctx(p)).sections[0].description,/reserve of 7 of 8 casts/);
+ for(let i=0;i<7;i++)p=run(p,Z+'missile_practice');
+ assert.equal(reserve(p).reserve,0);
+ const q=previewMolCommand(p.state,registry,Z+'missile_practice',zctx(p));assert.equal(q.eligible,false);
+ p=at(p,'house');p=run(p,Z+'rest_reserve');assert.equal(reserve(p).reserve,8);
+});
+test('G5: the cast count survives a save, reload, export and import of the expansion state',()=>{
+ let p=at(zorian(),'court');for(let i=0;i<3;i++)p=run(p,Z+'missile_practice');
+ assert.equal(reserve(p).reserve,5);
+ const exported=JSON.stringify(p.state),imported=loadExpansionState(JSON.parse(exported),registry);
+ assert.equal(energyView(imported,'player').find(r=>r.id===MOL_ZORIAN_RESERVE).reserve,5);
+ assert.doesNotThrow(()=>validateMolCampaignState(imported));
+});
+test('G4/G5: school-day rows commit as the seat and write the pinned s0 fact keys',()=>{
+ let p=at(zorian(),'academy');
+ p=run(p,Z+'invocations_class');const f=p.state.actors.player.facts;
+ assert.equal(f['book.mol.invocationStudied'],true);assert.equal(f['book.mol.loop.s0.invocations_class'],true);
+ p=at(p,'workshop');p=run(p,Z+'placement_test');assert.equal(p.state.actors.player.facts['book.mol.loop.s0.placement_test'],true);
+ p=at(p,'court');p=run(p,Z+'shaping_practice');assert.equal(p.state.actors.player.facts['book.mol.loop.s0.basic_three_drilled'],true);
+ p=run(p,Z+'watch_missile');assert.equal(p.state.actors.player.facts['book.mol.loop.s0.watched_missile'],true);
+ assert.equal(reserve(p).reserve,8);
+ assert.equal(previewMolCommand(p.state,registry,Z+'watch_missile',zctx(p)).eligible,false);
+});
+test('G4: the c1-c4 roster, places and purses are pack rows with locators, and the purse figures stay unstated',()=>{
+ const pack=installedWorldPack('book.mol').pack,rows=pack.content;
+ const roster=rows.people.filter(r=>r.tags?.includes('zorian_s0'));
+ assert.ok(roster.length>=16&&roster.every(r=>r.locator&&r.tags.some(t=>t.startsWith('tier:'))));
+ const native=new Set(pack.native.definitions.people.map(p=>p.id));assert.ok(roster.every(r=>!native.has(r.id)));
+ const places=rows.catalog.filter(r=>r.kind==='place');assert.ok(places.length>=20&&places.every(r=>r.locator));
+ const purses=rows.catalog.filter(r=>r.kind==='purse');assert.equal(purses.length,2);assert.ok(purses.every(r=>/not stated/.test(r.label)));
+});
+test('a Zorian save made before the reserve existed shows the panel and refuses the cast with a reason',()=>{
+ let p=at(zorian(),'court');delete p.state.simulation.energies.player;
+ let list;assert.doesNotThrow(()=>{list=ids(p,zctx);});
+ const q=previewMolCommand(p.state,registry,Z+'missile_practice',zctx(p));
+ assert.equal(q.eligible,false);assert.ok(q.reasons.length>0,"reason shown");
+ assert.doesNotThrow(()=>molPresentation(p.state,registry,zctx(p)));
+ assert.ok(!/reserve of/.test(molPresentation(p.state,registry,zctx(p)).sections[0].description));
+});
