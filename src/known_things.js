@@ -4,6 +4,7 @@ import {readPort, whenPortsReady} from './ui_ports.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 import {registerPaletteSource} from './command_palette.js';
 import {registerChangeCounter} from './change_badges.js';
+import {current_location} from './runtime_state.js';
 import {node, createTabs, syncList, visibleRenderer, plural} from './reference_kit.js';
 
 // SX1: Known things. One searchable reference over what the player has already met: creatures
@@ -46,11 +47,29 @@ function readRecords() {
     memo = {at: now, value: readRecordsNow()};
     return memo.value;
 }
+// Which places belong to the world the player is standing in: the ones joined to the current place by
+// travel links or parents, either direction. Other worlds' places and optional packs sit in separate
+// pieces of the map, so they are never listed. Open (CG2): a place in this world the player has
+// not reached yet still counts, because nothing records visits; that needs a save-compat decision.
+export function reachableFrom(start, locations) {
+    if (!start) return null;
+    const ids = new Map(Object.entries(locations)), idOf = loc => (loc && typeof loc === 'object' ? loc.id : loc);
+    const links = new Map();
+    const join = (a, b) => { if (!a || !b) return; (links.get(a) || links.set(a, new Set()).get(a)).add(b); (links.get(b) || links.set(b, new Set()).get(b)).add(a); };
+    for (const [id, loc] of ids) {
+        join(id, idOf(loc.parent_location));
+        for (const c of loc.connected_locations || []) join(id, idOf(c.location ?? c));
+    }
+    const seen = new Set([start]), todo = [start];
+    while (todo.length) for (const next of links.get(todo.pop()) || []) if (!seen.has(next)) { seen.add(next); todo.push(next); }
+    return seen;
+}
 function readRecordsNow() {
     const r = readPort('records');
     if (!r) return projectKnownThings({});
-    const places = [];
+    const places = [], here = reachableFrom(current_location?.id, r.locations || {});
     for (const [id, location] of Object.entries(r.locations || {})) {
+        if (here && !here.has(id)) continue;
         let unlocked = false; try { unlocked = !!location.isUnlocked?.(); } catch { unlocked = false; }
         if (unlocked) places.push({id, name: location.name || id, detail: location.parent_location ? `In ${location.parent_location.name}` : 'Region'});
     }

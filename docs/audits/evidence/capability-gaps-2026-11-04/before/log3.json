@@ -1,0 +1,51 @@
+{
+ "doorMinuteZero": {
+  "inDom": true,
+  "visible": true,
+  "text": "blur_onCross to another world: Tingen"
+ },
+ "actionsMinuteZero": "directions Move somewhere else | question_answer Talk to someone | work_outline Find work | blur_onCross to another world: Tingen | Mix at the Village counter",
+ "knownPlaces": [
+  "Adventurer's guildPlace · Region",
+  "Antique storePlace · Region",
+  "Awakened artisan workroomPlace · Region",
+  "Cat caféPlace · Region",
+  "Cave roomPlace · In Nearby cave",
+  "Clan academy annexPlace · Region",
+  "Cold kitchenPlace · Region",
+  "Crab spawning groundsPlace · In Waterfall basin",
+  "Diagon Alley glass counterPlace · Region",
+  "Diagon Alley rented glass workshopPlace · Region",
+  "Fight the giant crabPlace · In Downstream from the village",
+  "Fight the giant crab again!Place · In Further downstream",
+  "Folded GlasshousePlace · Region",
+  "ForestPlace · In Forest road",
+  "Hogwarts study roomPlace · Region",
+  "Lamp cellarPlace · Region",
+  "Lime yardPlace · Region",
+  "Mistglass conservatoryPlace · Region",
+  "Nekomimi caféPlace · Region",
+  "Primeval forestPlace · In Motherwood",
+  "Reedbank lanePlace · Region",
+  "Reedbank repair stallPlace · Region",
+  "Riverbank shorePlace · In Riverbank",
+  "SlumsPlace · Region",
+  "Splintered causeway trialPlace · Region",
+  "Survey campPlace · Region",
+  "The swamplandsPlace · In Swampland fields",
+  "Tingen docksPlace · Region",
+  "Tingen probationer lodgingPlace · Region",
+  "Tingen supervised workroomPlace · Region",
+  "Tingen university areaPlace · Region",
+  "Town farmsPlace · Region",
+  "Town outskirtsPlace · Region",
+  "VillagePlace · Region",
+  "Wild willow standPlace · Region"
+ ],
+ "doorAfterElder": {
+  "inDom": true,
+  "visible": true,
+  "text": "blur_onCross to another world: Tingen"
+ },
+ "errs": []
+}
