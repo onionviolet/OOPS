@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {BUNDLED_WORLD_PACKS, loadBundledWorldPacks, installedWorldPack, worldPackRegistry} from '../src/world_pack_registry.js';
+import {BUNDLED_WORLD_PACKS, loadBundledWorldPacks, installedWorldPack, worldPackRegistry, leadLifePackRegistry} from '../src/world_pack_registry.js';
 import {domainRegistry} from '../src/domain_registry.js';
 import {authorReport} from '../src/world_pack_loader.js';
 import {lintWorldPack} from '../src/world_pack.js';
@@ -49,8 +49,8 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
 
 test('the world_packs domain projects pack identity and adds no save slice', () => {
     const projection = domainRegistry.project('world_packs');
-    assert.deepEqual(projection.map(p => p.id), ['book.hp', 'book.mol']);
-    for (const p of projection) assert.equal(p.fingerprint, worldPackRegistry.packs.get(p.id).fingerprint);
+    assert.deepEqual(projection.map(p => p.id), ['book.hp', 'book.mol', 'book.hp.lead']);
+    for (const p of projection) assert.equal(p.fingerprint, (worldPackRegistry.packs.get(p.id) ?? leadLifePackRegistry.packs.get(p.id)).fingerprint);
     assert.equal(domainRegistry.list().find(d => d.id === 'world_packs').save, undefined);
 });
 

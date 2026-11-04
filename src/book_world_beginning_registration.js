@@ -1,14 +1,27 @@
 // One composition registration for source-qualified typed book beginnings.
 // Each book retains its own content owner and exact saved definition.
 import {registerHpBeginnings} from './book_world_hp_content.js';
+import {registerDomain, domainRegistry} from './domain_registry.js';
+import {packNative} from './world_pack_registry.js';
+import {loadHpLeadCast,withHpLeadCast} from './book_world_hp_lead_pack.js';
+import {registerHpLeadDomain} from './book_world_hp_lead_domain.js';
+import {registerHpLifeHoldings} from './hp_life_holdings.js';
+import {registerBookLifeHoldings} from './book_life_holdings.js';
 import {shadowSlaveApprentice} from './world_packs/book_shadow_slave_life.js';
 import {shadowSlaveTrial} from './world_packs/book_shadow_slave_trial.js';
 import {guAcademyLife} from './world_packs/book_gu_life.js';
 import {guKeeperLife} from './world_packs/book_gu_keeper.js';
 import {shadowCompanyLife} from './world_packs/book_shadow_company_life.js';
 
-export async function registerBookBeginnings(register, choices) {
+export async function registerBookBeginnings(register, choices, hpPorts = null) {
     await registerHpBeginnings(register, choices);
+    const lead = await register(withHpLeadCast(packNative('book.hp.lead'), await loadHpLeadCast()));
+    // The domain registry is process-wide and rejects a repeated id, so a second call keeps the first registration.
+    if (!domainRegistry.list().some(d => d.id === 'hp')) registerHpLeadDomain(registerDomain, hpPorts?.state ?? (() => null), hpPorts);
+    if (hpPorts) { registerHpLifeHoldings(); registerBookLifeHoldings(); }
+    choices.register({packId: lead.id, label: 'Harry Potter · the boy in the cupboard',
+        arrival: 'Begin as a ten-year-old in your guardians\' household on the morning of a cousin\'s birthday. This is an opt-in lead life; the school and trade lives are unchanged.',
+        means: 'No money, no wand and no method of your own. Your aunt and uncle decide the day; something in you sometimes acts on its own.'});
     const d = await register(shadowSlaveApprentice);
     choices.register({packId: d.id, label: 'Shadow Slave · divergent Memory apprentice',
         arrival: 'Begin a divergent Woken artisan life with rare acquired weave sight and replication training.',

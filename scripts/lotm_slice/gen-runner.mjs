@@ -3,11 +3,14 @@
 // Usage: node scripts/lotm_slice/gen-runner.mjs <slice-dir>/reviewed-episode.json --origin <prior completed-checkpoint.json>
 //          [--out file] [--slice-dir repo/relative/dir] [--leak actor=regex]... [--absent actor=substring]...
 //          [--carry-fact key]... [--seed 7] [--wall 2026-11-02] [--bundle dir]
+//          [--pack private_packs/lotm-cast/cast.json] [--id-prefix book.lotm.] [--panel lotm] [--attr-prefix lotm]
+// World inputs (defaults are the LOTM values): pack path under the bundle, act id prefix, workspace panel id, data-<attr>-* selector prefix.
 // --leak: the actor's knowledge JSON must not match the regex. --absent: no knowledge key of that actor contains the substring.
 // --carry-fact: an earlier slice's fact that must survive export/import.
 import fs from 'node:fs';import path from 'node:path';
 export const DEFAULT_BUNDLE='docs/research/novels/lord-of-mysteries/private/proof-bundles/kj3e-bundle-919b17d3';
 export const BUNDLE_SHA='919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf';
+export const DEFAULT_WORLD={pack:'private_packs/lotm-cast/cast.json',idPrefix:'book.lotm.',panel:'lotm',attrPrefix:'lotm'};
 const S=JSON.stringify,PLAIN=['fact','knowledge','relocate'];
 export function actsOf(review){
   const ids=review.acts.map(a=>a.id),prefix=ids[0].slice(0,ids[0].lastIndexOf('.')+1);
@@ -25,10 +28,13 @@ function checksFor(act,prefix){
   return `  if(suffix===${S(suffix)}){\n   ${L.join('\n   ')}\n  }`;
 }
 export function generate(review,o){
-  const {prefix,acts}=actsOf(review),sliceDir=o.sliceDir,bundle=o.bundle??DEFAULT_BUNDLE;
+  const {prefix,acts}=actsOf(review),sliceDir=o.sliceDir,bundle=o.bundle??DEFAULT_BUNDLE,world={...DEFAULT_WORLD,...Object.fromEntries(Object.entries(o.world||{}).filter(([,v])=>v!=null))};
+  if(!prefix.startsWith(world.idPrefix))throw new Error('act ids '+prefix+' do not start with world id prefix '+world.idPrefix);
+  if(!/^[\w.\/-]+$/.test(world.pack))throw new Error('world pack path must be a plain relative path: '+world.pack);
+  const routeOpts=world.panel===DEFAULT_WORLD.panel&&world.attrPrefix===DEFAULT_WORLD.attrPrefix?'':','+S({panel:world.panel,attrPrefix:world.attrPrefix});
   const plain=acts.every(a=>!(a.costs||[]).length&&a.effects.every(e=>PLAIN.includes(e.type)));
   const finalFacts=acts.flatMap(a=>a.effects.filter(e=>e.type==='fact'&&e.scope==='actor'&&e.actor==='player'&&e.value===true).map(e=>e.key));
-  const carry=[...(o.carryFacts||[])],tag=prefix.replace(/^book\.lotm\./,'').replace(/\.$/,'');
+  const carry=[...(o.carryFacts||[])],tag=prefix.slice(world.idPrefix.length).replace(/\.$/,'');
   const wallParts=(o.wall||'2026-11-02').split('-').map(Number);
   const leaks=(o.leaks||[]).map(([a,re])=>`  {const t=JSON.stringify(known(s,${S(a)})).toLowerCase();assert(!/${re.replace(/\//g,'\\/')}/.test(t),${S('leak into '+a)});}`);
   const absent=(o.absent||[]).map(([a,sub])=>`  assert(!Object.keys(known(s,${S(a)})).some(k=>k.includes(${S(sub)})),${S(a+' must not know '+sub)});`);
@@ -38,14 +44,14 @@ import fs from 'node:fs/promises';import assert from 'node:assert/strict';import
 // Its packs lack this slice: copy it, drop the new cast.json in, and pass that copy as argv[2].
 const out=resolve(${S(sliceDir)}),root=resolve(process.argv[2]||${S(bundle)});
 const imp=p=>import(pathToFileURL(resolve(p))),{Session}=await imp('scripts/playtest/lib.mjs'),{NativeContinuation}=await imp('scripts/playtest/native-continuation.mjs'),{serve}=await imp('scripts/perf/lib.mjs');
-const pack=JSON.parse(await fs.readFile(root+'/private_packs/lotm-cast/cast.json','utf8')),prefix=${S(prefix)},rows=pack.householdActs.acts.filter(r=>r.id.startsWith(prefix));
+const pack=JSON.parse(await fs.readFile(root+'/${world.pack}','utf8')),prefix=${S(prefix)},rows=pack.householdActs.acts.filter(r=>r.id.startsWith(prefix));
 const origin=JSON.parse(await fs.readFile(${S(o.origin)},'utf8'));
 const expectedIds=${S(acts.map(a=>a.id))};
-const server=await serve(root),session=await new Session({url:server.url+'?test_hooks=1',seed:${o.seed??7},wall:Date.UTC(${wallParts[0]},${wallParts[1]-1},${wallParts[2]}),opTimeout:300000}).start(),route=new NativeContinuation(session);
+const server=await serve(root),session=await new Session({url:server.url+'?test_hooks=1',seed:${o.seed??7},wall:Date.UTC(${wallParts[0]},${wallParts[1]-1},${wallParts[2]}),opTimeout:300000}).start(),route=new NativeContinuation(session${routeOpts});
 const result={steps:[],checks:[]};let p,t0=Date.now();
 const snap=()=>route.snapshot(),view=()=>route.view(),fa=(s,who='player')=>s.expansion.actors[who].facts,af=s=>fa(s),known=(s,who='player')=>s.expansion.simulation.knowledge[who]||{};
 try{
- result.bundleSha256=createHash('sha256').update(await fs.readFile(root+'/dist/bundle.js')).digest('hex');result.packSha256=createHash('sha256').update(await fs.readFile(root+'/private_packs/lotm-cast/cast.json')).digest('hex');
+ result.bundleSha256=createHash('sha256').update(await fs.readFile(root+'/dist/bundle.js')).digest('hex');result.packSha256=createHash('sha256').update(await fs.readFile(root+'/${world.pack}')).digest('hex');
  assert.deepEqual(rows.map(r=>r.id),expectedIds,'pack acts differ from reviewed-episode.json (wrong root or stale pack)');
  await route.load(origin);p=route.page;assert.equal((await view()).arc.next.id,rows[0].id);const initial=await snap();const money0=initial.character.money;
  while(!(await view()).arc.done){
@@ -73,9 +79,9 @@ ${absent.join('\n')}
 }
 if(import.meta.url===`file://${process.argv[1]}`){
   const a=process.argv.slice(2),opt=(n)=>{const r=[];a.forEach((x,i)=>{if(x===n)r.push(a[i+1]);});return r;},one=n=>opt(n)[0];
-  const file=a[0];if(!file||file.startsWith('--')||!one('--origin')){console.error('usage: gen-runner.mjs <reviewed-episode.json> --origin <checkpoint.json> [--out f] [--slice-dir d] [--leak a=re] [--absent a=sub] [--carry-fact k] [--seed n] [--wall YYYY-MM-DD] [--bundle d]');process.exit(2);}
+  const file=a[0];if(!file||file.startsWith('--')||!one('--origin')){console.error('usage: gen-runner.mjs <reviewed-episode.json> --origin <checkpoint.json> [--out f] [--slice-dir d] [--leak a=re] [--absent a=sub] [--carry-fact k] [--seed n] [--wall YYYY-MM-DD] [--bundle d] [--pack p] [--id-prefix s] [--panel id] [--attr-prefix s]');process.exit(2);}
   const split=s=>{const i=s.indexOf('=');return [s.slice(0,i),s.slice(i+1)];};
   const sliceDir=one('--slice-dir')??path.relative(process.cwd(),path.dirname(path.resolve(file)));
-  const src=generate(JSON.parse(fs.readFileSync(file,'utf8')),{sliceDir,origin:one('--origin'),leaks:opt('--leak').map(split),absent:opt('--absent').map(split),carryFacts:opt('--carry-fact'),seed:one('--seed'),wall:one('--wall'),bundle:one('--bundle')});
+  const src=generate(JSON.parse(fs.readFileSync(file,'utf8')),{sliceDir,origin:one('--origin'),leaks:opt('--leak').map(split),absent:opt('--absent').map(split),carryFacts:opt('--carry-fact'),seed:one('--seed'),wall:one('--wall'),bundle:one('--bundle'),world:{pack:one('--pack'),idPrefix:one('--id-prefix'),panel:one('--panel'),attrPrefix:one('--attr-prefix')}});
   if(one('--out'))fs.writeFileSync(one('--out'),src);else process.stdout.write(src);
 }

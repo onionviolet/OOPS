@@ -1,4 +1,5 @@
 import {readPort} from './ui_ports.js';
+import {ownHoldings, ownHoldingsView, syncOwnHoldingsNotices} from './own_holdings.js';
 
 // Per-world look (DESIGN.md DSG12, PLAN M3). Display only: reads the player's current world,
 // stores nothing, changes no rule. The page root already carries data-world (the world id,
@@ -35,6 +36,11 @@ export function applyWorldLook(root, worldId) {
     if (root.dataset.worldFamily !== look.family) root.dataset.worldFamily = look.family;
     const flourish = look.flourish ? 'on' : 'off';
     if (root.dataset.worldFlourish !== flourish) root.dataset.worldFlourish = flourish;
+    // A world that keeps its own belongings and body hides the native hero's (own_holdings.js); written only when on.
+    const registered = ownHoldings(worldId);
+    if (registered) { if (root.dataset.ownHoldings !== 'on') root.dataset.ownHoldings = 'on'; }
+    else if (root.dataset.ownHoldings !== undefined) delete root.dataset.ownHoldings;
+    syncOwnHoldingsNotices(root, registered ? ownHoldingsView(worldId, readPort('expansion')) : null);
     return look.family;
 }
 

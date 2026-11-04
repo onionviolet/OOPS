@@ -155,3 +155,17 @@ test('classifier recognizes concrete reaction cues while leaving scenery unclass
         ['the train station', null], ['a lieutenant nearby', null],
     ]) assert.equal(classifyAction(text), cls, text);
 });
+
+test('hp world builds a catalogue from the pack lives and proposes unmapped canon ids', () => {
+    const cat = runtimeCatalogue('hp');
+    assert.deepEqual(cat.people, []);
+    assert.ok(cat.ids.size > 0 && [...cat.ids].every(id => id.startsWith('book.hp.')));
+    assert.throws(() => runtimeCatalogue('nope'), /lotm, mol or hp/);
+    const reg = [{id: 'hp.person.petunia', kind: 'person', label: 'Petunia'}, {id: 'hp.place.kitchen', kind: 'place', label: 'Kitchen'}];
+    const s = {beat: 'lr.hp.1', pov: 'lead', evidence: [{locator: 'en b1 c2 p13'}], place: 'hp.place.kitchen', present: [],
+        touched: [{id: 'hp.person.petunia', kind: 'person', status: 'present'}], outcomes: []};
+    const r = buildCrosswalk({registry: reg, scenes: [s], extras: [], world: 'hp', slice: {from: 'en b1 c2 p1', to: 'en b1 c2 p99'}});
+    assert.equal(r.crosswalk.counts.runtime, 0);
+    assert.match(r.crosswalk.mapping['hp.person.petunia'], /^new:hp\.person\.cast-/);
+    assert.equal(r.crosswalk.places['hp.place.kitchen'], 'hp.place.kitchen');
+});

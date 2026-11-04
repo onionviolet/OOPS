@@ -34,13 +34,15 @@ export function projectCalendar(profile, {elapsed = 0, unit = 'played_minutes', 
         dayIdentity: JSON.stringify([instanceId, profile.id, profile.revision, absoluteLocalDay]),
         absoluteLocalDay, minuteWithinDay, dayFraction: minuteWithinDay / dayLength,
         year, month, day: remaining + 1, hour, minute, day_count,
-        weekday: profile.week?.[day_count % profile.week.length] ?? null,
+        weekday: profile.week?.[day_count % profile.week.length] ?? null, showWeekday: profile.showWeekday === true,
         seasonId, precision: profile.precision, label: profile.label, format: profile.format,
         description: profile.format === 'elapsed' ? 'Local elapsed shift date; civil calendar unknown.' : 'Authored legacy numeric calendar; not a sourced civil date.'};
 }
 export function formatCalendar(view, {time = false} = {}) {
     if (!view) return 'Local date unavailable';
-    const date = view.format === 'elapsed' ? `Shift day ${view.absoluteLocalDay + 1} (local elapsed; civil date unknown)` :
+    // An elapsed profile may opt in to a named weekday and plain day count (the book gives order and weekday, not a date).
+    const date = view.format === 'elapsed' && view.showWeekday && view.weekday ? `${view.weekday}, day ${view.absoluteLocalDay + 1}` :
+        view.format === 'elapsed' ? `Shift day ${view.absoluteLocalDay + 1} (local elapsed; civil date unknown)` :
         `${pad(view.day)}/${pad(view.month)}/${view.year}`;
     return date + (time ? ` ${pad(view.hour)}:${pad(view.minute)}` : '') +
         (view.seasonId ? `, ${view.seasonId}, ${view.weekday}` : '');

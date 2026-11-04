@@ -1,4 +1,5 @@
 import {hpSchoolLife,hpTradeLife,hpSpellRows} from './world_packs/book_hp_life_data.js';
+import {hpLeadLife} from './world_packs/book_hp_lead_life_data.js';
 // HP-local clock projection. Shared simulation owns all elapsed time, jobs and skill settlement.
 import {recurringWindow} from './world_rhythm.js';
 import {hpCharmRows} from './read_models/hp_charm_bridge.js';
@@ -40,8 +41,10 @@ export function hpLifeStatus(state,context={}){
 }
 
 export function hpCalendarBinding(state){
- const life=[hpSchoolLife,hpTradeLife].find(l=>state?.actors?.player?.worldId===l.world.id);
+ const life=[hpSchoolLife,hpTradeLife,hpLeadLife].find(l=>state?.actors?.player?.worldId===l.world.id);
  const opening=life&&state.simulation?.knowledge?.player?.[life.id+'.opening'];
  const instance=life&&state.worlds?.[life.world.id]?.facts?.[life.id+'.instance'];
- return opening&&instance?{profile:life.calendarProfile,instanceId:instance,elapsed:Math.max(0,state.clock-opening.at)}:null;
+ // The lead life's calendar names the weekday (the book gives order and the Saturday, no date). The flag is added here, not on the
+ // profile, because the profile is part of the pack's content hash and an existing save must keep matching it.
+ return opening&&instance?{profile:life===hpLeadLife?{...life.calendarProfile,showWeekday:true}:life.calendarProfile,instanceId:instance,elapsed:Math.max(0,state.clock-opening.at)}:null;
 }

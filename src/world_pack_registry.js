@@ -4,6 +4,7 @@
 // state, save slice, tick or UI (AR3). Imports no world module (AR2, no cycles).
 import molPack from './world_packs/book_mol_pack.js';
 import hpPack from './world_packs/book_hp_pack.js';
+import hpLeadPack from './world_packs/book_hp_lead_life.js';
 import {loadWorldPacks} from './world_pack_loader.js';
 import {registerDomain} from './domain_registry.js';
 
@@ -11,8 +12,12 @@ export const BUNDLED_WORLD_PACKS=Object.freeze([molPack,hpPack]);
 export function loadBundledWorldPacks(raw=BUNDLED_WORLD_PACKS){return loadWorldPacks(raw);}
 const registry=loadBundledWorldPacks();
 export const worldPackRegistry=registry;
+// Lead lives load as their own list: pack ids may not nest and `book.hp.lead` sits under the `book.hp` pack.
+export const BUNDLED_LEAD_LIFE_PACKS=Object.freeze([hpLeadPack]);
+export const leadLifePackRegistry=loadBundledWorldPacks(BUNDLED_LEAD_LIFE_PACKS);
 // A dormant or missing bundled pack is a loud failure: an empty world must never install silently.
 export function installedWorldPack(id,from=registry){
+    if(from===registry&&!from.packs.has(id)&&leadLifePackRegistry.packs.has(id))from=leadLifePackRegistry;
     const loaded=from.packs.get(id);
     if(!loaded)throw Error(`World pack ${id} did not load (${from.dormantPacks.get(id)??'missing'}).`);
     const errors=from.diagnostics.filter(d=>d.packId===id&&d.severity==='error');
@@ -21,4 +26,4 @@ export function installedWorldPack(id,from=registry){
 }
 // Deep copy for definitions that were mutable before packs; callers re-freeze what they froze.
 export const packNative=(id,from)=>structuredClone(installedWorldPack(id,from).pack.native);
-registerDomain({id:'world_packs',deps:[],projection:()=>[...registry.packs.values()].map(p=>({id:p.id,revision:p.revision,fingerprint:p.fingerprint}))});
+registerDomain({id:'world_packs',deps:[],projection:()=>[...registry.packs.values(),...leadLifePackRegistry.packs.values()].map(p=>({id:p.id,revision:p.revision,fingerprint:p.fingerprint}))});

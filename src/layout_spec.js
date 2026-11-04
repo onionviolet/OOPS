@@ -218,6 +218,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'mol_access': surface('ST6', {home: 'Reference dock; opens in Cyoria, listed under All panels', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
         'primordial_credit': surface('ST2', {home: 'Sect Library priced credit (prototype, opt-in)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
         'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
+        'hp': surface('ST2', {home: 'Household day (Harry Potter lead life)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
         'customization': surface('ST7', {representations: routed}),
         'customization-effects': surface('ST7'),
         'customization-preview': surface(UNSET),

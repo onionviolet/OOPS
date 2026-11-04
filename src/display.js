@@ -17,6 +17,7 @@ import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {reportRepeatKey} from './report_repeats.js';
 import {currentWorldFamily, currentWorldId} from './world_look.js';
+import {ownHoldingsView} from './own_holdings.js';
 import {reportVoice} from './world_report_voice.js';
 import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot, hostileSubject} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
@@ -1384,6 +1385,8 @@ function update_displayed_storage() {
 function update_displayed_money() {
     if(!ports()) whenPortsReady(update_displayed_money);
     if(deferSimulationRender(update_displayed_money, () => update_displayed_money(...arguments))) return;
+    const own = ownHoldingsView(currentWorldId(), readPort('expansion'));
+    if(own) {set_HTML(document.getElementById("money_div"), `Your purse contains: ${own.purse}`); return;}
     set_HTML(document.getElementById("money_div"), `Your purse contains: ${currentWorldId()==='book.lotm.tingen'||denominationsKnown() ? format_money(character.money) : `${character.money} coins (denominations unfamiliar)`}`);
 }
 

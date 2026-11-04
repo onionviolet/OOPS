@@ -1,5 +1,5 @@
 // L1 / CL55, CL57, CL77. Local only; no API or runtime mutation.
-// node scripts/lead_run/build_crosswalk.mjs <mergedDir> --world lotm|mol
+// node scripts/lead_run/build_crosswalk.mjs <mergedDir> --world lotm|mol|hp
 //   --from <locator> --to <locator> [--review <private.json>] [--report]
 // Writes crosswalk.json and consumer_fitness.json beside the private merged inputs.
 // Review shape: {entities:{indexId:runtimeId|new:id|skip:reason}, places:{text:registryPlaceId}}.
@@ -13,6 +13,8 @@ import {compareLocators} from './merge_shards.mjs';
 import {LOTM_IDS, LOTM_LOCATIONS, LOTM_KEYS} from '../../src/book_world_lotm_ids.js';
 import {MOL_IDS, MOL_LOCATIONS, MOL_KEYS} from '../../src/book_world_mol_ids.js';
 import molPack from '../../src/world_packs/book_mol_pack.js';
+import hpPack from '../../src/world_packs/book_hp_pack.js';
+import {hpSchoolLife, hpTradeLife} from '../../src/world_packs/book_hp_life_data.js';
 
 const KINDS = new Set(['person', 'place', 'organization', 'item']);
 const norm = s => String(s ?? '').normalize('NFKC').trim().toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, ' ');
@@ -130,8 +132,17 @@ export function classifyAction(trigger) {
     return TRIGGERS.find(([, re]) => re.test(norm(trigger)))?.[0] ?? null;
 }
 
+// HP runtime ids come from the pack's original school and trade lives and its canon catalogue.
+// Those lives use book.hp.* ids and original people, so scene ids such as hp.person.petunia
+// stay unmapped (proposed) until an authored cast pack or review names a target.
+const hpRuntimeIds = () => {
+    const ids = new Set(list(hpPack.content?.catalog).map(row => row.id));
+    for (const life of [hpSchoolLife, hpTradeLife]) for (const rows of [life.locations, life.items]) for (const row of list(rows)) ids.add(row.id);
+    return ids;
+};
 export function runtimeCatalogue(world) {
-    if (!['lotm', 'mol'].includes(world)) throw new Error('world must be lotm or mol');
+    if (world === 'hp') return {ids: hpRuntimeIds(), people: []};
+    if (!['lotm', 'mol'].includes(world)) throw new Error('world must be lotm, mol or hp');
     const ids = world === 'mol' ? MOL_IDS : LOTM_IDS;
     const locations = world === 'mol' ? MOL_LOCATIONS : LOTM_LOCATIONS;
     const keys = world === 'mol' ? MOL_KEYS : LOTM_KEYS;
@@ -330,7 +341,7 @@ export function run(argv) {
     const result = buildCrosswalk({registry, scenes, extras, world, slice: {from: flag('--from'), to: flag('--to')}, review, leadPovIds: personas.leadPovIds});
     result.crosswalk.personaReview = personas.unresolved;
     result.report.inputs = Object.fromEntries(['registry.jsonl', 'scenes.jsonl', 'extras.jsonl', ...(reviewPath ? [reviewPath] : [])].map(p => [p, hash(readFileSync(resolve(actual, p)))]));
-    result.report.runtimeInputs = Object.fromEntries(['src/book_world_lotm_ids.js', 'src/book_world_mol_ids.js', 'src/world_packs/book_mol_pack.js', 'scripts/lead_run/build_crosswalk.mjs'].map(p => [p, hash(readFileSync(new URL(`../../${p}`, import.meta.url)))]));
+    result.report.runtimeInputs = Object.fromEntries(['src/book_world_lotm_ids.js', 'src/book_world_mol_ids.js', 'src/world_packs/book_mol_pack.js', ...(world === 'hp' ? ['src/world_packs/book_hp_pack.js', 'src/world_packs/book_hp_life_data.js'] : []), 'scripts/lead_run/build_crosswalk.mjs'].map(p => [p, hash(readFileSync(new URL(`../../${p}`, import.meta.url)))]));
     result.crosswalk.inputs = {...result.report.inputs, ...result.report.runtimeInputs};
     for (const [name, value] of [['crosswalk.json', result.crosswalk], ['consumer_fitness.json', result.report]]) writeFileSync(resolve(actual, name), JSON.stringify(value, null, 2) + '\n');
     writeFileSync(resolve(actual, 'persona_review.json'), JSON.stringify({schema: 'lead-persona-review/1.0', candidates: personas.unresolved}, null, 2) + '\n');

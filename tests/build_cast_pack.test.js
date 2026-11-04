@@ -229,3 +229,7 @@ test('whole-book range covering every source locator keeps base routines and hou
     for(const section of ['routines','orderEdges','worldHours']) assert.deepEqual(pack[section],f.base[section]);
     assert.equal(report.routines.total,0);assert.equal(report.routines.unresolvedPlace,undefined);
 });
+
+test('an empty districts list is rejected with a clear error',()=>{
+    assert.throws(()=>buildCastPack({...fixture(),districts:[]}),/districts needs at least one/);
+});

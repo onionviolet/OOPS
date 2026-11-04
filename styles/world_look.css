@@ -14,3 +14,11 @@
 /* A voiced Reports line: the receipt stays first; flavour and the useful part sit under it. */
 .message_common > .report-voice { display: block; font-size: var(--ui-type-small); line-height: var(--ui-line-small); }
 .message_common > .report-voice > .report-voice-flavour { color: var(--world-accent, var(--ui-text)); }
+/* A world that keeps its own belongings and body (own_holdings.js): the native hero's items, purse figures and stat
+   sheet are hidden, not changed; the world's own notice shows in their place. Data layer untouched. */
+:root[data-own-holdings="on"] #inventory_div > :not([data-own-holdings-notice]):not(#money_div),
+:root[data-own-holdings="on"] #basic_character_info_div > :not([data-own-holdings-notice]),
+:root[data-own-holdings="on"] #main_content .parity-inventory-controls,
+:root[data-own-holdings="on"] #proto23_character .shell-core-stats,
+:root[data-own-holdings="on"] #proto23_character .shell-character-tools { display: none; }
+:root[data-own-holdings="on"] [data-own-holdings-notice] { margin: var(--ui-space-hairline) 0; padding: 0 var(--ui-space-hairline); color: var(--ui-text); font-size: var(--ui-type-small); line-height: var(--ui-line-small); }

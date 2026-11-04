@@ -8,6 +8,8 @@ import {createHash} from 'node:crypto';
 import {tmpdir} from 'node:os';
 import {buildCrosswalk, inSlice, hasTime, routineBand, relativeTiming, matchesRoleHours} from './build_crosswalk.mjs';
 import {parseLocator} from './world_profiles.mjs';
+export const DEFAULT_PLACE_PREFIX = 'lotm.place.';
+export const DEFAULT_DISTRICTS = ['evernight','storm','machinery'];
 const list = v => Array.isArray(v) ? v : [];
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
     ? Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])])) : value;
@@ -29,7 +31,9 @@ const outsideBand = (value, slice) => {
     });
 };
 
-export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false, placeSeed = null, wholeBook = false}) {
+export function buildCastPack({book, slice, registry, scenes, extras, crosswalk, base, placesOnly = false, placeSeed = null, wholeBook = false, placePrefix = DEFAULT_PLACE_PREFIX, districts = DEFAULT_DISTRICTS}) {
+    if (!Array.isArray(districts) || !districts.length) throw new Error('build_cast_pack: --districts needs at least one district (the first is the provisional fallback).');
+    // placePrefix: the world's place-id prefix; districts: its travel districts (first is the provisional fallback). Defaults are LOTM.
     inSlice({locator: slice.from}, slice); // Validate even empty inputs.
     if (crosswalk.world !== book || json(crosswalk.slice) !== json(slice)) throw new Error('Crosswalk world/slice mismatch; rebuild it for this slice');
     const routineBandBuild = wholeBook && !placesOnly && outsideBand([registry,scenes,extras],slice);
@@ -139,30 +143,30 @@ export function buildCastPack({book, slice, registry, scenes, extras, crosswalk,
         if(rows.length) selectedEvidence.set(id,sorted(rows));
     }
     const addAncestors = id => {
-        const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith('lotm.place.'));
+        const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith(placePrefix));
         if(row && !referenced.has(row.within) && extrasById.has(row.within)) { referenced.add(row.within); selectedEvidence.set(row.within,(extrasById.get(row.within)||[]).filter(r=>inSlice(r,slice))); addAncestors(row.within); }
     };
     for(const id of [...referenced]) addAncestors(id);
     const registryPlaceById = new Map(registryPlaces.map(r=>[r.id,r]));
-    const explicitDistricts = new Set(['evernight','storm','machinery','lotm.place.evernight','lotm.place.storm','lotm.place.machinery']);
+    const explicitDistricts = new Set([...districts,...districts.map(d => placePrefix + d)]);
     const isSubplace = row => /(^|[ ._-])(desk|corner|tabletop|shelf|drawer)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
     const isRegion = row => /(^|[ ._-])(city|county|continent|realm|world|district|province|kingdom|land|ocean)([ ._-]|$)/i.test(`${row.id} ${row.label||''}`);
     const byParent = id => {
-        const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith('lotm.place.'));
+        const row=selectedEvidence.get(id)?.find(r=>typeof r.within==='string' && r.within.startsWith(placePrefix));
         return row?.within || null;
     };
     const districtFor = id => {
         const seen=new Set(); let at=id;
         while(at && !seen.has(at)){
             seen.add(at);
-            if(explicitDistricts.has(at))return at.replace(/^lotm\.place\./,'');
+            if(explicitDistricts.has(at))return at.startsWith(placePrefix) ? at.slice(placePrefix.length) : at;
             const authored=base.places.find(p=>p.id===at||p.indexId===at);
             if(authored?.travel?.district) return authored.travel.district;
             at=byParent(at);
         }
         return null;
     };
-    const fallbackDistrict = wholeBook ? null : (base.places.find(p=>p.travel?.district)?.travel.district || 'evernight');
+    const fallbackDistrict = wholeBook ? null : (base.places.find(p=>p.travel?.district)?.travel.district || districts[0]);
     for (const indexId of [...referenced].sort()) {
         const resolved=placeId(indexId) || target(indexId) || indexId;
         if(placeIds.has(resolved)) continue; // authored base rows win
@@ -272,7 +276,8 @@ export function run(argv) {
     const registry=read('registry.jsonl'),scenes=read('scenes.jsonl'),extras=read('extras.jsonl');
     const slice={from:flag('--from'),to:flag('--to')};
     const crosswalk = existsSync(resolve(dir,'crosswalk.json')) ? JSON.parse(readFileSync(resolve(dir,'crosswalk.json'),'utf8')) : buildCrosswalk({registry,scenes,extras,world:book,slice}).crosswalk;
-    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only'),wholeBook:argv.includes('--whole-book'),placeSeed:argv.includes('--place-seed')?JSON.parse(readFileSync(flag('--place-seed'),'utf8')):null});
+    const result=buildCastPack({book,slice,registry,scenes,extras,crosswalk,base:JSON.parse(readFileSync(flag('--base'),'utf8')),placesOnly:argv.includes('--places-only'),wholeBook:argv.includes('--whole-book'),placeSeed:argv.includes('--place-seed')?JSON.parse(readFileSync(flag('--place-seed'),'utf8')):null,
+        ...(argv.includes('--place-prefix')?{placePrefix:flag('--place-prefix')}:{}),...(argv.includes('--districts')?{districts:flag('--districts').split(',').filter(Boolean)}:{})});
     writeFileSync(out,JSON.stringify(result.pack,null,2)+'\n');
     writeFileSync(resolve(parent,'build-report.json'),JSON.stringify(result.report,null,2)+'\n');
     console.log(JSON.stringify(result.report));return result;
