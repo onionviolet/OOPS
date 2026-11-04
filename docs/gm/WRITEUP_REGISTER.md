@@ -194,11 +194,11 @@ Read-only reconciliation of the idle/cultivation implementation packets against 
 
 ## Afflictions and weapon properties, 2026-11-03
 
-Staged-affliction and corrosion seams (Tetanus, Rusting, a resistant festering wound) plus a d20 palette AFW1-AFW36: [considerations](../AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md). State: New. Round 2 wires the affliction seam into the HP Polyjuice bench (staged animal features, hospital-wing care), agent-verified, not human-reviewed. Next: a disease consumer with exposure and a terminal stage, or AFW-L2 corrosion in combat.
+Staged-affliction and corrosion seams (Tetanus, Rusting, a resistant festering wound) plus a d20 palette AFW1-AFW36: [considerations](../AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md). State: New. Round 2 wires the affliction seam into the HP Polyjuice bench (staged animal features, hospital-wing care), agent-verified, not human-reviewed. Next: a disease consumer with exposure and a terminal stage, or AFW-L2 corrosion in combat. Round 3 (same day) folds in the collected d20 rules: calibration checks, a real-disease ladder, AFW37-AFW42.
 
 ## Polyjuice and perceived identity, 2026-11-03
 
-Identity as layers (looks, credentials, knowledge, true self) and which layers each gate reads, with d20 disguise and detection ideas, PJI1-PJI30: [considerations](../worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md). State: New. Next: PJI-L1, a dose that passes one gate. The d20 rules data is collected: [receipt](../research/d20/D20_RULES_COLLECTION_2026-11-03.md).
+Identity as layers (looks, credentials, knowledge, true self) and which layers each gate reads, with d20 disguise and detection ideas, PJI1-PJI30: [considerations](../worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md). State: New. Round 2 folds in the collected PF2 rules (PJI7-13 cited, PJI31-36). Next: PJI-L1, a dose that passes one gate. The d20 rules data is collected: [receipt](../research/d20/D20_RULES_COLLECTION_2026-11-03.md).
 
 ## UI copy pass, 2026-11-03
 

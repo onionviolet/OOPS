@@ -53,13 +53,13 @@ removes the *appearance* roll and leaves the *acting* roll.
 
 | Code | Mechanism | d20 source idea |
 |---|---|---|
-| PJI7 | **Appearance check skipped**: Polyjuice is a perfect physical match, so no disguise roll for looks | PF1 Disguise skill penalties (sex, race, age) and PF2 Impersonate apply to non-magical disguise only |
-| PJI8 | **Acting check by familiarity**: when someone interacts, roll your acting against their perception, harder the better they know the donor (stranger, recognises on sight, friend, intimate) | PF1 Disguise: observers who know the person get +4/+6/+8 |
-| PJI9 | **Only checked when it matters**: passing in a crowd needs no roll; conversation, a request or odd behaviour triggers one | PF1: checks happen on attention, not every round |
-| PJI10 | **Degree of success**: critical success (they trust you more), success (passes), failure (suspicion, a question you must answer), critical failure (exposed) | PF2 degrees; reuse `degreeOf` from the affliction seam |
-| PJI11 | **Suspicion is a scoped fact, not a global alarm**: it lives with that observer or group and spreads only by a real report route | Matches the witness-scoped exposure rule in rivals and identities |
-| PJI12 | **True sight and identity readers**: some things ignore appearance entirely | PF2 *true seeing*, *see the unseen*; in HP the Marauder's Map, the Thief's Downfall, possibly Dumbledore's own judgment |
-| PJI13 | **Disguise magic families beside Polyjuice**: illusion (seen through on inspection), shapechange (real body), possession and mind control (Imperius: the real person acts) | PF2 *illusory disguise*, *humanoid form*, PF1 *alter self*, hat of disguise; HP Metamorphmagus, Imperius |
+| PJI7 | **Appearance check skipped**: Polyjuice is a perfect physical match, so no disguise roll for looks | PF2 Impersonate ([Actions ID 46](https://2e.aonprd.com/Actions.aspx?ID=46)) needs a disguise kit and 10 minutes for a specific person; Polyjuice replaces the kit, not the acting |
+| PJI8 | **Acting check by familiarity**: when someone interacts, roll your acting against their perception, harder the better they know the donor | PF2 Impersonate: the GM may give observers a circumstance bonus by how well they know the person, with no fixed number, so the size is a per-world dial. PF1's Disguise familiarity table is waiting on the d20pfsrd collection; cite it once it is in |
+| PJI9 | **Only checked when it matters**: passing by needs no roll; observers catch you only if they actively look (Seek) or you interact with them | PF2 Impersonate: detection needs a Seek, or a secret Deception check when you interact |
+| PJI10 | **Degree of success**: critical success (they trust you more), success (passes), failure (they know you are not who you claim), critical failure (they also recognise who you really are, if they would know you) | PF2 Impersonate's own degrees; reuse `degreeOf` from the affliction seam |
+| PJI11 | **Suspicion is a scoped fact, not a global alarm**: it lives with that observer or group and spreads only by a real report route | Matches the witness-scoped exposure rule in rivals and identities; PF2 Lie ([ID 47](https://2e.aonprd.com/Actions.aspx?ID=47)) rolls once against each listener's own Perception DC |
+| PJI12 | **True sight is a contest, not a switch**: a revealing effect tries to see through a disguise and, if it succeeds, sees the true form without ending it | PF2 *true seeing* ([Spells 344](https://2e.aonprd.com/Spells.aspx?ID=344)) and *truesight* ([1727](https://2e.aonprd.com/Spells.aspx?ID=1727)) roll a secret counteract check; *see the unseen* ([1663](https://2e.aonprd.com/Spells.aspx?ID=1663)) gives +2 to disbelieve illusions. In HP the Marauder's Map is the absolute case and the Thief's Downfall ends the effect outright |
+| PJI13 | **Disguise magic families beside Polyjuice**: illusion (seen through on inspection), shapechange (real body), possession and mind control (Imperius: the real person acts) | PF2 *illusory disguise* ([159](https://2e.aonprd.com/Spells.aspx?ID=159)) and *veil* ([355](https://2e.aonprd.com/Spells.aspx?ID=355)) hide an identity but cannot copy a specific person or the voice, scent or mannerisms; *humanoid form* ([153](https://2e.aonprd.com/Spells.aspx?ID=153)) changes kind but no statistics or abilities. Polyjuice beats both on a specific face and voice; HP Metamorphmagus, Imperius |
 
 ### C. Getting into places: what each gate reads
 
@@ -98,10 +98,24 @@ check decides whether the gate believes you are the donor.
 | PJI29 | Heist: the Gringotts route with layered checks | Shows every layer in one place |
 | PJI30 | Other worlds: LOTM Faceless pathway and persona digestion, Mother of Learning's shapeshifting and soul magic, D&D *alter self* and *disguise self* | Same layer table, different defaults per world |
 
+### F. Round 2: what the collected d20 rules add (2026-11-03)
+
+| Code | Mechanism | Source record |
+|---|---|---|
+| PJI31 | **Hiding who you are is easier than being someone**: an anonymous disguise needs only to pass, a specific impersonation must survive people who know the donor | PF2 *illusory disguise* and *veil* vs Impersonate; *face in the crowd* ([421](https://2e.aonprd.com/Spells.aspx?ID=421)) gives +2 to go unnoticed in a crowd |
+| PJI32 | **Exposure is not identification**: being caught as "not the donor" and being recognised as yourself are separate results | PF2 Impersonate critical failure only; feeds PJI25 |
+| PJI33 | **Behaviour change re-opens the check**: a passed check holds until you act out of character | PF2 Impersonate: "a new check if your behavior changes" |
+| PJI34 | **Senses beyond sight**: voice, scent and manner are layers too; a dog, a house-elf or a familiar may read scent where people read faces | PF2 illusion disguises leave voice, scent and mannerisms; whether Polyjuice copies scent is not stated, so it is a per-world dial |
+| PJI35 | **Hiding the magic itself**: a detection effect can read that a disguise is magical even when it cannot see through it; a counter-trick masks the aura | PF2 *disguise magic* ([1491](https://2e.aonprd.com/Spells.aspx?ID=1491)); HP analogue: a Sneakoscope or a suspicious teacher noticing something is off |
+| PJI36 | **Stealing an identity as an attack**: taking someone's face and voice while silencing them is one hostile act, not two | PF2 mythic *seize identity* ([MythicSpells 2161](https://2e.aonprd.com/MythicSpells.aspx?ID=2161)); the canon version is a captive donor in a trunk (PJI3) |
+
 ## ACT NOW (done this round)
 
 - Saved this palette and linked it from the sibling afflictions palette and
   the writeup register. No runtime change.
+- Round 2 (same day): folded the collected Pathfinder 2e records into PJI7-13
+  with citations and added PJI31-36. PF1's Disguise familiarity numbers wait
+  for the d20pfsrd collection; PJI8 no longer states them.
 
 ## ACCOUNT FOR NOW
 
@@ -122,7 +136,7 @@ check decides whether the gate believes you are the donor.
 | PJI-L2 | `presented identity` input on institution gates (PJI14-21) | Seam | Small to medium | Focused test: the same grant opens for the donor and the disguised player, and not for a check that reads the true self |
 | PJI-L3 | Suspicion as scoped witness facts with report routes (PJI11, PJI25) | Runtime | Medium | One observer's suspicion does not reach another without a report |
 | PJI-L4 | Blame on the donor's name (PJI22, PJI23) | Runtime | Medium | A deed done in disguise appears in the donor's record |
-| PJI-L5 | ~~Collect the d20 rule texts for disguise, illusion and the affliction families~~ Done 2026-11-03, see the [collection receipt](../research/d20/D20_RULES_COLLECTION_2026-11-03.md). Next: fold PF2 Impersonate, Seek and the disguise spells into PJI7-13 with citations | Research | Small | Each PJI7-13 row cites a collected record |
+| PJI-L5 | ~~Collect the d20 rule texts for disguise, illusion and the affliction families~~ Done 2026-11-03, see the [collection receipt](../research/d20/D20_RULES_COLLECTION_2026-11-03.md). PF2 records folded into PJI7-13 and PJI31-36 (round 2); PF1 Disguise table still to cite | Research | Small | PJI8 cites the PF1 familiarity table |
 
 ## Collecting the wikis
 

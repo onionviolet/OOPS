@@ -66,6 +66,46 @@ untreated tail can run long (a rare case passes 30 weeks); the dial is the DC or
 Corrosion (Rusting) has no HP consumer: nothing in the HP slices fights with iron. It waits
 for AFW-L2 (native combat) or a D&D world.
 
+## Round 3: the collected d20 rules, 2026-11-03
+
+Source: the [d20 collection receipt](research/d20/D20_RULES_COLLECTION_2026-11-03.md)
+(Archives of Nethys records, d20pfsrd pages). Counts are unique names; many
+Pathfinder 2e entries appear twice, as the original and the remastered printing.
+
+**Checks against what is built.** Tetanus matches `src/affliction_catalogue.js`
+(DC 14, onset 10 days, the same four stages;
+[Diseases ID 3](https://2e.aonprd.com/Diseases.aspx?ID=3), the old ID 28
+redirects). Pathfinder 1e Rusting matches `RUSTING`: a +1 bonus, trade a
+confirmed critical's extra damage for *rusting grasp* on the target or its
+armor, never against unattended objects, the weapon itself rust-immune
+([d20pfsrd](https://www.d20pfsrd.com/magic-items/magic-weapons/magic-weapon-special-abilities/rusting/)).
+PF2 has no exact Rusting rune. The nearest is the Corrosive property rune,
+whose critical hit puts 3d6 acid damage into the target's armor or raised
+shield (the same crit-to-armor shape), then Decaying and Rusting Ammunition (rust monster saliva, damages metal,
+[Equipment 4434](https://2e.aonprd.com/Equipment.aspx?ID=4434)).
+
+**Calibration ladder for real diseases (PF2, level, Fortitude DC, onset).**
+Scarlet fever 1, 13, 2 days; tetanus 1, 14, 10 days; tuberculosis 1, 15, a week;
+malaria 2, 16, 10 days; bubonic plague 3, 17, a day. A world needing a
+mundane disease starts from these numbers (AD49) and changes them only with a
+reason. Seven of 29 diseases are virulent (two successes per step down, which
+the seam already supports): blueblisters, scarlet leprosy, swamp guts, velstrac
+tetanus, sewer haze, brain worms, crimson ooze.
+
+| Code | Mechanism | Source record |
+|---|---|---|
+| AFW37 | **A disease that ruins gear**: at a late stage the afflicted person's armor and carried items break as the rot spreads; one affliction calls the corrosion seam | PF2 Rust Creep ([Diseases 25](https://2e.aonprd.com/Diseases.aspx?ID=25)), DC 15, seven stages ending in death; stage 4 breaks items of its level or lower |
+| AFW38 | **Afflictions with a non-Fortitude save**: a disease of the mind is resisted by will, not body | PF2 Nightmare Fever (Will DC 25); the seam's `dc` is save-agnostic, so the consumer picks the body or mind modifier |
+| AFW39 | **Exposure routes as poison traits**: injury, ingested, inhaled and contact routes, each with its own delivery and counter | 248 PF2 poisons: injury 79, ingested 68, inhaled 31, contact 31 records; 20 virulent. Maps to `routes` beside the wound routes |
+| AFW40 | **Curses as items and as afflictions**: most PF2 curses are magical, many are mental, some ride on a cursed item | 58 PF2 curses (85 of 92 records magical, 22 mental, 25 with the Cursed trait); feeds AFW-L3 |
+| AFW41 | **Persistent damage as a condition**: bleeding, burning or acid that ticks each turn and ends on a flat check or help | PF2 Persistent Damage condition (a DC 15 flat check after each tick); the Wounding rune adds persistent bleed. A combat-scale cousin of the stage track |
+| AFW42 | **Property runes as the weapon-property catalogue**: 141 weapon and 115 armor property runes give mechanisms to borrow (Corrosive, Decaying, Wounding, Bane, Ghost Touch, Keen) | Runes group; PF1 has 184 weapon special abilities collected for the same purpose |
+
+**Condition names to reuse** (PF2, 57 unique): clumsy, enfeebled, drained,
+stupefied, sickened, fatigued, doomed, wounded and dying are the ladders
+AFW10-AFW12 point at. PF2 has no "mute" condition; tetanus's "can't speak" is
+plain text, so `mute` in the catalogue stays a consumer-named effect.
+
 Polyjuice's other uses (perceived identity, getting into places) have their own palette: [Polyjuice and perceived identity](worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md).
 
 ## The palette (round 1)

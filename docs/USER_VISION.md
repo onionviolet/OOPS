@@ -7253,6 +7253,8 @@ He then said: “Commit and push, consider other aspects of using polyjuice, suc
 
 He then asked: “Scraping wiki of the two D&D wikis”, and after Archives of Nethys refused the polite transport: “Archives of Nethys, we can do the in browser version”. Recorded as his request and his authorization of the browser route for that site. Scope and results: [d20 collection receipt](research/d20/D20_RULES_COLLECTION_2026-11-03.md).
 
+Offered folding the collected rules into the two palettes, he answered: “Yes, fold them in”, and added: “For d20pfsrd, we consider stuff beyond weapons too” and “can send seperate chat for that”. Recorded as his request: the fold is round 3 of the afflictions palette and round 2 of the identity palette (proposals, AD32); the wider d20pfsrd collection runs in its own session.
+
 ## UI copy pass: inventory first (2026-11-03)
 
 
