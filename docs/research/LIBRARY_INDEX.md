@@ -132,18 +132,20 @@ Trigger: Weibao, “for the wiki we can look for other routes, or use chrome ext
 
 | Rulebook | How to get it | Feeds |
 |---|---|---|
-| Ars Magica 5th edition core | Free PDF from Atlas Games (open licence, to verify) | Warping and Twilight (AB14 loss of control), vis as conserved power (AB15), magical bloodline Virtues (AB12), longevity rituals |
-| Vampire: The Masquerade 5th edition | Buy | Clans and bloodlines (AB12), Hunger and frenzy (AB14), blood bonds (AB18) |
-| GURPS Basic Set and GURPS Powers | Buy (GURPS Lite is free) | The most granular advantage, limitation and resistance pricing: Resistant, Unusual Background (AB11, AB12, AB21) |
-| Mutants & Masterminds 3e | Free SRD (OGL, d20herosrd) | Immunity, Enhanced Trait, Variable powers (AB11, AB21) |
-| D&D System Reference Document 5.2 | Free (CC-BY-4.0) | Attunement (AB21), conditions, pacts (AB18) |
-| Blades in the Dark SRD | Free (CC-BY 3.0) | Progress clocks, stress and trauma (AB14), downtime |
-| Call of Cthulhu 7e Quick-Start | Free from Chaosium | Sanity loss (AB14) |
-| Fate Core or Fate Condensed SRD | Free (CC-BY) | Aspects and consequences |
-| Mage: The Ascension 20th, Exalted 3rd, Nobilis | Buy | Paradox and rule spaces (AB20), Limit Break (AB14), names and domains (AB23) |
+| Ironsworn, and the Starforged reference guide | Free from the author (shawn-tomkin.itch.io, ironswornrpg.com). The full text is CC BY-NC-SA 4.0; the SRD and the reference guide are CC BY 4.0 | Sworn vows as the core loop: progress tracks, the cost of a broken vow (AB18) |
+| Basic Roleplaying ORC Content Document | Free PDF from Chaosium (`content/orclicense/BasicRoleplaying-ORC-Content-Document.pdf`), ORC licence | Sanity and other generic powers, magic and psychic rules (AB14, AB21) |
+| Delta Green: Need to Know | Free quick-start from Arc Dream (core rules under OGL) | Sanity with breaking points and bonds that erode (AB14, AB16) |
+| Eclipse Phase 1st edition, and the 2nd edition quick-start | Free from the publisher. 1st edition is CC BY-NC-SA; the 2nd edition core is sold | Backups, resleeving and forks: a soul anchor as technology (AB17), body swaps (AB12 carrier mismatch) |
+| Cypher System Reference Document | Free under the Cypher open licence (csol or col.montecookgames.com) | Cyphers: one-use power objects with a carry limit (AB15, AB21) |
+| Pathfinder 2e beyond the current scope | Archives of Nethys, the browser route already authorized for that site | Sorcerer bloodlines, ancestries and heritages (AB12), curses (AB14) |
+| Warhammer Fantasy Roleplay 4e | Buy | Corruption and mutation from exposure (AB14, AB27) |
+| Unknown Armies 3e | Buy | Obsession-fuelled magick and five madness meters (AB19, AB14) |
+| Shadowrun (any edition) | Buy | Essence lost to implants: capacity as a body budget (AB21) |
+| Legend of the Five Rings | Buy | Shadowlands Taint (AB14), clan and family techniques (AB12) |
+| Vampire 5e, GURPS Powers, Mage 20th, Exalted 3e, Nobilis 3e | Buy (from round 2) | as above |
 
 Next steps, ranked:
-1. Choose rulebooks to buy; the free ones are fetched.
+1. Choose rulebooks to buy; the free ones are fetched, and the free next wave above waits on your yes.
 2. Choose which of the 40 missing wikis to pull through Chrome.
 3. Read the held LOTM wiki against the mechanism lane (AB13, AB14), and give a lane owner the go.
 
@@ -158,3 +160,5 @@ Next steps, ranked:
 | Fate SRD, Fate Condensed included | `fate-srd/fate-srd-content`, the official SRD organisation that Evil Hat endorses (commit `93ed848`, 2025-08-08) | `docs/markdown/Fate-Condensed-SRD-CC-BY.md` plus the Core and Accelerated SRDs | CC-BY 3.0 | shallow clone; its build scripts are never run |
 | GURPS Lite 4th edition | free from Steve Jackson Games, but only through a Warehouse 23 checkout with an account | not fetched | free distribution | Weibao's to grab: agents do not create accounts or check out |
 | Mutants & Masterminds 3e SRD, scoped | d20herosrd.com through the lncrawl-polite transport: the powers chapter, character creation and the OGL page | 74 pages as text plus `manifest.jsonl` (body SHA-256 per page). They include Immunity, Enhanced Trait, Variable, Modifiers, Descriptors, the effect descriptions and the sample powers | OGL Open Game Content | the run stopped on a 404 from a site-internal link (`/6-powers/effects/sample-powers/mimic`), which closes the host in the transport for good. Seven queued pages were not fetched. Reopening the host needs Weibao's say-so, or the Chrome route |
+
+**Next rulebook wave, 2026-11-03 (not fetched).** Weibao asked for “more rulebooks”. Free status was checked by web search on 2026-11-03; licence pages still need opening before any fetch. Ranked by the AB seams each one feeds ([round 3](../ABILITY_RULES.md#round-3-2026-11-03-in-world-reasons-per-world-ars-magica-read-more-rulebooks)).
