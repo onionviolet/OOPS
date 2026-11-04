@@ -168,6 +168,21 @@ Evidence label: **unchecked recall.** These come from memory of the games, not f
 | L5 | A1 design note: perception-filtered text with two worlds' examples | sonnet, medium | A palette section naming the states, the filter and the cost |
 | L6 | Lint additions: tense mix per kind, fragment joins, raw "game minutes" | haiku, small | Report-only lines in the inventory output |
 
+### L1 done: runtime log capture (2026-11-03)
+
+Weibao: "Log capture". `node scripts/ui_log_capture.mjs` plays three headless routes on the full game: the scripted village route, an idle day and a Tingen crossing as a Nighthawk probationer (seed 20261014). It reads every message-log line from the DOM with its kind, compact form, tooltip and fold count. Report: [UI_LOG_CAPTURE_2026-11-03](../reviews/UI_LOG_CAPTURE_2026-11-03.md). 50 lines, so this is a sample of real play, not a census, and the static floor (F9) still applies.
+
+| Code | Finding | Evidence |
+| --- | --- | --- |
+| F15 | **Spec voice is not in the log.** 0 of 50 lines carry a CPY1 word; the log reads close to YAIR (median 7 words, 18% "you", no semicolons). F1 lives in panels, refusals and tooltips, so the log slice is about weight, kinds and folding, not wording. The one spec line is the tooltip on every date line. | Date-line tooltip: "Authored legacy numeric calendar; not a sourced civil date." |
+| F16 | **Navigation chatter fills the first minutes.** 14 of 50 lines (28%) are "X is now available in navigation."; the Tingen day logged five of them and nothing from the world itself. | "Statistics is now available in navigation."; "Leads is now available in navigation." |
+| F17 | **Lines with no kind.** 12 of 50 log as kind `undefined` (quest started, item obtained, manual save), so the kind filters cannot sort them and they carry no repeat key. | "Started a new quest: Lost memory"; "Hero obtained "Old axe x1"" |
+| F18 | **Repeats fold only when keyed and adjacent.** Folding for non-combat lines already exists (`report_repeats.js`, ×N): gathering folded "Gained "Rough wood log" x1" ×2. "Saved the game manually" shows four times, twice back to back, because it has no kind. CPY21 narrows to: give every line a kind, and fold near repeats into a total. | Village route |
+| F19 | **One action, two lines.** A craft writes "Craft settled: Low quality iron ingot ×1 from 1 attempt." and then "Created Low quality iron ingot x1". | Village route |
+| F20 | **Receipts mix voices.** "Hero obtained …" (third person, hero name) sits beside "You have gained …"; "x1" beside "×1"; item names in quotes in some lines, not others. | Village route |
+
+Disposition: F16, F17 and F19 go to L3 (CPY20 weights: navigation unlocks become one folded notable line or a badge) and L4 (folding). F20 joins the log rewrite under CPY13 and CPY19. The tooltip in F15 is a one-line fix for the next refusals or tooltip slice. Agent-verified, not human-reviewed; the routes are headless (no viewport), which is fine for text capture and makes no layout claim.
+
 ## Slice 1: home-world refusals (2026-11-03)
 
 Weibao chose "Yes, refusals slice". Scope: refusal and reason lines in `src/main.js` and the Frontier files, the world a fresh game opens in. 28 rewrites in six files (`main.js`, `crafting_frontier_runtime.js`, `original_frontier_field_content.js`, `original_frontier_campaign_ui.js`, `village_career_ui.js`, `village_content.js`), applying CPY1, CPY3, CPY4, CPY13, CPY14 and CPY19.
