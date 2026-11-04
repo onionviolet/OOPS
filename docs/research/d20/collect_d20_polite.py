@@ -36,7 +36,15 @@ AON = 'https://2e.aonprd.com'
 
 def rx(pattern):
     r = re.compile(pattern)
-    return lambda u: bool(r.fullmatch(u))
+    return lambda u: bool(r.fullmatch(u)) and plausible(u)
+
+# Canonical d20pfsrd paths are lowercase slug segments. The site also carries
+# broken links (run-3: '/magic-armor/-Armor-Special-Abilities/' got 404 and
+# closed the host again), so anything else is refused before a request.
+SLUG = re.compile(r'(?:/[a-z0-9][a-z0-9-]*)*/')
+def plausible(u):
+    p = urlsplit(u)
+    return p.hostname != 'www.d20pfsrd.com' or (not p.query and bool(SLUG.fullmatch(p.path)))
 
 P = re.escape(PF1)
 SECTIONS = {
@@ -45,9 +53,10 @@ SECTIONS = {
                              'keep': rx(rf'{P}/magic-items/magic-weapons/magic-weapon-special-abilities/[^/]+/')},
     # Wider scope, 2026-11-04. Seeds are all site-linked; follow/keep paths
     # past the seed are unverified until --probe shows the catalogue.
-    'pf1-armor-abilities': {'index': [f'{PF1}/magic-items/'],
-                            'follow': rx(rf'{P}/magic-items/magic-armor/(?:[^/]+/)?'),
-                            'keep': rx(rf'{P}/magic-items/magic-armor/[^/]*special-abilit[^/]*/[^/]+/')},
+    # Index verified by run-3 probe (200); 117 children. The broad follow that
+    # reached the site's broken '-Armor-Special-Abilities/' link is gone.
+    'pf1-armor-abilities': {'index': [f'{PF1}/magic-items/magic-armor/magic-armor-and-shield-special-abilities/'],
+                            'keep': rx(rf'{P}/magic-items/magic-armor/magic-armor-and-shield-special-abilities/[^/]+/')},
     'pf1-cursed-items': {'index': [f'{PF1}/magic-items/'],
                          'follow': rx(rf'{P}/magic-items/cursed-items/'),
                          'keep': rx(rf'{P}/magic-items/cursed-items/[^/]+/')},
@@ -136,8 +145,8 @@ def main():
             """One guarded fetch. Returns the page's links, or None if refused/closed."""
             host = urlsplit(url).hostname
             if host in closed: return None
-            if url not in linked:
-                print('REFUSE (not site-linked)', section, url, flush=True); return None
+            if url not in linked or not plausible(url):
+                print('REFUSE (not site-linked or malformed)', section, url, flush=True); return None
             try:
                 if kind == 'page':
                     with c.chapter(url):

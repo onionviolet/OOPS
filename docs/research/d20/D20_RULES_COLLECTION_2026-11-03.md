@@ -36,6 +36,20 @@ under the OGL (1e) or ORC (2e) as each site states.
   offline with no Client and no network: the 404 URL is refused, and all 13
   PF1 seeds are site-linked. The hand-typed disguise set is dropped. The skills
   and spell sections now find the same pages through the site's own links.
+- Reopened 2026-11-04 on Weibao's "Yes, clear it". Only the d20pfsrd entry was
+  removed from `state.json`; the other nine closed hosts were left as they
+  were, and a `reopened` row went into `requests.jsonl`.
+- **Closed again**, same day, during the run-3 probe. Five catalogue pages
+  returned 200: magic items, magic armor, *magic armor and shield special
+  abilities*, specific armor and specific shields. Then a broken link on the
+  site's own magic-armor page, `/magic-items/magic-armor/-Armor-Special-Abilities/`,
+  got HTTP 404. A follow pattern that was too broad had picked it up as a
+  catalogue page. The closure stands and has not been cleared again. Fix: a
+  lint now refuses any PF1 path that is not lowercase slug segments, before a
+  request. All 190 earlier 200 URLs pass it and both broken links fail it. The
+  armor section now starts at the verified index, which lists 117 ability
+  pages, all lint-clean. Remaining risk: any dead link that looks normal still
+  closes the host, because the transport treats every 404 as a closure.
 - Wider plan (Weibao, 2026-11-03: "For d20pfsrd, we consider stuff beyond
   weapons too"). This is waiting on the reopening. Counts below are what the
   cached link graph already shows. They are not `--probe` results, so each
@@ -43,7 +57,7 @@ under the OGL (1e) or ORC (2e) as each site states.
 
   | Section | Seed | Already seen in cache |
   |---|---|---|
-  | pf1-armor-abilities | `/magic-items/` | 0; path unknown until probe |
+  | pf1-armor-abilities | `/magic-items/magic-armor/magic-armor-and-shield-special-abilities/` | **117 pages (run-3 probe)** |
   | pf1-wondrous-items | `/magic-items/` | 0; likely large, probe first |
   | pf1-cursed-items | `/magic-items/` | 0 |
   | pf1-afflictions (diseases, poisons, curses, drugs, madness, infestations) | `/gamemastering/` | 2 catalogue pages (diseases, poison) |
