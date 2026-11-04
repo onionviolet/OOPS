@@ -22,8 +22,8 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
             const controls=[],disabled=!v.canWrite||v.busy;held=!v.canWrite?'Finish current work in the writable game tab.':v.busy?'Finish your current activity, work or occupation first.':'';
             const w=v.study;
             study.textContent=`Watchcraft: known ${w.known?'yes':'no'} · practiced ${w.practiced?'yes':`no (${w.practiceMinutes}/${WATCHCRAFT_PRACTICE} meditation minutes)`} · executable now ${w.executable?'yes, loaned lantern and baton held on this round':'no'}.`;
-            outcome.textContent=s.loan?.status==='active'?(w.executable?`This full round: 50 coins + ${WATCHCRAFT_BONUS} for a clear report = 60 coins. Leaving early pays nothing.`:'This full round: 50 coins. Watchcraft bonus unavailable on this round.'):
-                w.nextPatrol?`Next full patrol with the loaned lantern and baton: 60 coins. Without that kit the method cannot execute.`:
+            outcome.textContent=s.loan?.status==='active'?(w.executable?`This full round: 50 coins + ${WATCHCRAFT_BONUS} for a clear report = 60 coins. Leaving early pays nothing.`:'This full round: 50 coins. No watchcraft bonus: you don\'t have the lantern and baton this round.'):
+                w.nextPatrol?`Next full patrol with the loaned lantern and baton: 60 coins. Without that kit, watchcraft won't work.`:
                 s.debt?'Next patrol blocked by kit debt. Return the kit or pay before borrowing another.':
                 'Next full patrol: 50 coins. Read Tessa’s notes or learn from her in person, then rehearse calm sector scanning during five minutes of Village meditation for the tool-dependent report bonus.';
             junior.hidden=s.rank<2;

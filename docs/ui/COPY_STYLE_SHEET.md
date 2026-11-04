@@ -168,6 +168,30 @@ Evidence label: **unchecked recall.** These come from memory of the games, not f
 | L5 | A1 design note: perception-filtered text with two worlds' examples | sonnet, medium | A palette section naming the states, the filter and the cost |
 | L6 | Lint additions: tense mix per kind, fragment joins, raw "game minutes" | haiku, small | Report-only lines in the inventory output |
 
+## Slice 1: home-world refusals (2026-11-03)
+
+Weibao chose "Yes, refusals slice". Scope: refusal and reason lines in `src/main.js` and the Frontier files, the world a fresh game opens in. 28 rewrites in six files (`main.js`, `crafting_frontier_runtime.js`, `original_frontier_field_content.js`, `original_frontier_campaign_ui.js`, `village_career_ui.js`, `village_content.js`), applying CPY1, CPY3, CPY4, CPY13, CPY14 and CPY19.
+
+| Before | After |
+| --- | --- |
+| Restore writable saving. (5 places) | Saving is paused, so this can't run right now. |
+| Saving is unavailable. (run, investigate) | Saving is paused, so you can't practice running. / … you can't investigate. |
+| Requires 2 stamina for a journey; travel falls back to walking. | Too tired to run: you need 2 stamina. You'll walk instead. |
+| Requires free accessible housing, Sleeping 5 and your meal. | To rest here you need a free bed you can use, Sleeping 5 and a packed meal. |
+| Requires an accessible alchemy station before crafting. | Crafting this needs an alchemy station you can use. Around you lists the stations here. |
+| The selected observer needs present consent, a living usable body and their own real rope. | Your observer must agree, be here, be fit to climb and bring their own rope. |
+| The held batch needs N more played minutes before collection. | The batch on the brazier needs N more minutes (1 minute when N is 1). |
+
+"Saving is paused, so …" matches the wording LotM already uses. Save-validation messages in `village_career.js`, `village_family.js` and the brazier checks are developer text (CPY2, CPY26) and stay as they are. A later pass moves them off screen if any reach it. Left for the next slice: the "Restore writable saving before …" errors (two in `main.js`, one in `hp_brewing_domain.js`) and "Recover above one HP", which several worlds share (UR74).
+
+Checks:
+- 15 focused test files that cover these modules or strings: 112 of 112 pass.
+- `npm run build`: passes.
+- The rebuilt bundle was checked in headless Chrome at 1920×1080. Setup: scenario fresh-day3, seed 7, Running and Perception XP added to the save, and a second tab on the same origin. In that tab, Practiced actions shows "Saving is paused, so you can't practice running." and "… you can't investigate." The first tab shows the normal lines. No page errors.
+- Not exercised on screen: the low-stamina, rest, alchemy, brazier, field-trial and watchcraft lines. They are implemented and covered by tests, but no screen check yet.
+
+Agent-verified, not human-reviewed.
+
 ## Not decided here
 
 The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Nothing in the game has been rewritten yet.

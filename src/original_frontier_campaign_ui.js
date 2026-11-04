@@ -12,7 +12,7 @@ const reasonsOf = values => (values || []).map(textOf).filter(Boolean).join(' ')
 const cancellationText = cancellation => cancellation === 'refund'
     ? 'Cancellation returns reserved inputs.'
     : cancellation === 'forfeit' ? 'Cancelling forfeits spent inputs.'
-    : cancellation === 'none' || !cancellation ? 'This accepted work cannot be cancelled.'
+    : cancellation === 'none' || !cancellation ? 'Once started, this work can\'t be cancelled.'
     : `Cancellation: ${cancellation}.`;
 
 // The host owns discovery, eligibility and all state changes. Render only its

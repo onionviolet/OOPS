@@ -674,7 +674,7 @@ function mistglassFrame(){
     const raw=expansionState.simulation?.conditions?.player?.[MISTGLASS.blockedConditionId],actions=[];
     if(inside){actions.push({id:'exit',label:'Return to Village'},{id:'trade',label:'Trade with conservatory keeper'});
         if(!known.enrolled)actions.push({id:'learn',label:'Learn the conservatory method (explicit opt-in)'});
-        else actions.push({id:'sluice',label:`Clear the jammed outflow sluice · ${known.sluice.cost/1000} condensate, ${known.sluice.pays==='reputation'?'+1 Village standing':`+${known.sluice.wageCoins} coins`}`,enabled:known.sluice.eligible,reason:known.sluice.reasons.join(' ')},{id:'trial',label:'Purify one paid Cloudseed dose',enabled:known.preview.eligible&&skills.Meditation.canGainXP(get_context()),reason:!skills.Meditation.canGainXP(get_context())?'Learn native Meditation first.':known.preview.reasons.join(' ')});
+        else actions.push({id:'sluice',label:`Clear the jammed outflow sluice · ${known.sluice.cost/1000} condensate, ${known.sluice.pays==='reputation'?'+1 Village standing':`+${known.sluice.wageCoins} coins`}`,enabled:known.sluice.eligible,reason:known.sluice.reasons.join(' ')},{id:'trial',label:'Purify one paid Cloudseed dose',enabled:known.preview.eligible&&skills.Meditation.canGainXP(get_context()),reason:!skills.Meditation.canGainXP(get_context())?'Learn Meditation first.':known.preview.reasons.join(' ')});
     }else if(expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village')actions.push({id:'enter',label:'Enter Mistglass conservatory',enabled:!!expansionState.simulation?.people.player,reason:followLocalPeopleFirst()});
     return {visible:inside||actions.length>0,inside,view:known.view,preview:known.preview,sluice:known.sluice,history:known.history,rawRemaining:Math.max(0,(raw?.expiresAt||0)-expansionState.clock),disabled:!mistglassCanAct(),actions};
 }
@@ -805,15 +805,15 @@ function growthFrame() {
     const c=growthContext(),view=p23Growth&&growthView(p23Growth,c),actions=[],lines=[];
     const unavailable=!c.bodySupported||c.worldId!==PROFILE.worldId;
     if(unavailable)return {visible:true,sequence:expansionState.sequence,lines:['This known method is dormant in the current body or world. Saved progress is retained.'],actions};
-    const disabled=!c.ownsSave||c.saveBlocked?'Restore writable saving.':!c.nativeEligible?'Current native body, place or preparation blocks study conditioning.':'';
+    const disabled=!c.ownsSave||c.saveBlocked?'Saving is paused, so this can\'t run right now.':!c.nativeEligible?'Current native body, place or preparation blocks study conditioning.':'';
     if(!p23Growth){lines.push('You learned the optional visitor method. Enrollment is a separate choice; background starts off.');actions.push({id:'enroll',label:'Enroll in study conditioning',reason:disabled||(!c.idle?'Finish current work.':'')});}
     else {
         lines.push(`Study conditioning level ${view.level}; ${view.totalXP} local XP; next total ${view.nextTotalXP??'beyond current numeric storage'}; ${view.pendingXP} pending XP.`);
         lines.push(`Earned local native skill XP since enrollment: ${(p23GrowthEarned?.earnedUnits||0)/100} / ${GROWTH_EARNED_THRESHOLD}. Older XP is not backfilled. ${p23GrowthEarned?.awardedUnits ? `${p23GrowthEarned.awardedUnits/(GROWTH_EARNED_THRESHOLD*100)} threshold rewards frozen. `:''}Each further150000 genuinely earned XP can fund another reward after pending work settles.`);
         lines.push(`${view.tonics} tonics consumed. Each adds 2 permanent raw max-health to this profile, with no healing.`);
         lines.push(`Background ${p23Growth.background.enabled?'on':'off'}: ${view.background.reason}`);
-        actions.push({id:'background',label:`Turn background conditioning ${p23Growth.background.enabled?'off':'on'}`,reason:!c.ownsSave||c.saveBlocked?'Restore writable saving.':!p23Growth.background.enabled?disabled:''});
-        if(view.pendingXP)actions.push({id:'settle',label:'Settle pending XP: next eight steps',reason:!c.ownsSave||c.saveBlocked?'Restore writable saving.':!c.nativeAlive?'A living supported body is required.':''});
+        actions.push({id:'background',label:`Turn background conditioning ${p23Growth.background.enabled?'off':'on'}`,reason:!c.ownsSave||c.saveBlocked?'Saving is paused, so this can\'t run right now.':!p23Growth.background.enabled?disabled:''});
+        if(view.pendingXP)actions.push({id:'settle',label:'Settle pending XP: next eight steps',reason:!c.ownsSave||c.saveBlocked?'Saving is paused, so this can\'t run right now.':!c.nativeAlive?'You need to be alive for this.':''});
         actions.push({id:'buy',label:'Buy one native tonic at the visitor counter: 25 coins',reason:disabled||(!c.idle||!c.shopEligible?'Use the known visitor counter while free at Village Center.':'')});
         actions.push({id:'consume',label:'Consume one owned tonic: +2 max-health, no healing',reason:disabled||(!c.idle?'Finish current work.':!(character.getItems()[GROWTH_TONIC_KEY]?.count>0)?'Carry your own tonic.':'')});
     }
@@ -887,14 +887,14 @@ function craftSalvage(recipe,itemKey,toolKey){
 }
 function studyFrame(){
     const context=studyContext(),view=readingPresentation(expansionState.p23Reading,context),actions=[],lines=[];
-    const disabled=!workLedgerCanWrite()?'Restore writable saving.':'';
+    const disabled=!workLedgerCanWrite()?'Saving is paused, so this can\'t run right now.':'';
     if(view.visible){if(view.current)lines.push(`${view.current.label}: ${view.current.status}, ${view.current.remaining.toFixed(2)} remaining.`);
         if(!view.current&&context.knownAnthology)actions.push({id:'startRead',label:'Read Tales of the Lantern Road',reason:disabled||(!context.available||!context.ownedAnthology?'Hold your book and finish other work.':'')});
         else if(view.current.kind==='read')actions.push({id:view.current.status==='paused'?'resumeRead':'stopRead',label:view.current.status==='paused'?'Resume saved read':'Stop and retain read',reason:disabled});
         else actions.push({id:'cancelRest',label:'Cancel long rest (meal stays consumed)',reason:disabled});
         for(const row of view.records)lines.push(`#${row.id}: ${row.text}`);
     }
-    if(context.housingAccessible||context.ownedRestMeal){actions.push({id:'startRest',label:'Use one packed meal for 18-hour rest',reason:disabled||(!context.available||view.current||!context.housingAccessible||context.sleepingLevel<5||!context.ownedRestMeal?'Requires free accessible housing, Sleeping 5 and your meal.':'')});}
+    if(context.housingAccessible||context.ownedRestMeal){actions.push({id:'startRest',label:'Use one packed meal for 18-hour rest',reason:disabled||(!context.available||view.current||!context.housingAccessible||context.sleepingLevel<5||!context.ownedRestMeal?'To rest here you need a free bed you can use, Sleeping 5 and a packed meal.':'')});}
     if(current_location.id==='Village'&&character.getTotalSkillLevel('Cooking')>=1)actions.push({id:'prepareMeal',label:'Pack rest meal: 2 bread + 2 herbs, 4 minutes',reason:disabled||(!context.available?'Finish current work.':'')});
     const c=salvageContext(),tools=Object.keys(c.gameplay.player.inventory).filter(k=>getItemFromKey(k).id===SALVAGE.tool);
     if(tools.length&&current_location.id==='Village'){
@@ -999,7 +999,7 @@ function trainingFrame() {
         {id:'defensive',label:'Use Defensive Measures',disabled:!stances.defensive.isUnlocked()||!current_combat},
         {id:'normal',label:'Use normal stance',disabled:!current_combat},
         {id:'leave',label:'Leave alive for the dojo · no training rewards'}];
-    const tower=domainRegistry.command('dojoTower','presentation')?.(at);if(tower){lines.push(...tower.lines);actions.push(...tower.actions);}if(!stances.defensive.isUnlocked())lines.push('Defensive Measures is still locked. Learn it through your existing native route; this rung grants no stance.');
+    const tower=domainRegistry.command('dojoTower','presentation')?.(at);if(tower){lines.push(...tower.lines);actions.push(...tower.actions);}if(!stances.defensive.isUnlocked())lines.push('Defensive Measures is still locked. This rung doesn\'t teach it, so learn it the usual way.');
     return {visible:true,lines,actions,disabled:!trainingContext().nativeEligible||(at===PROTO23_LOCATIONS.dojo&&!!current_combat)};
 }
 function trainingHooks() {
@@ -2205,7 +2205,7 @@ function harvestContext(){
     return {clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Butchering'),tool};
 }
 // First failing native gate, in the existing wording, so a blocked action can say which one holds.
-function harvestWriteReason(){return restoringNativeSave?'Wait for the save to finish restoring.':!ownsSave?'This tab is read-only. Close the other game tab and reload to save progress.':foundationSaveBlocked||importProbeToken||is_loading_error||lifeStorageFailure?'Restore writable saving.':!character.is_alive?'A living supported body is required.':expansionState.actors.player.worldId!=='base.frontier'?'Return to the frontier world first.':'';}
+function harvestWriteReason(){return restoringNativeSave?'Wait for the save to finish restoring.':!ownsSave?'This tab is read-only. Close the other game tab and reload to save progress.':foundationSaveBlocked||importProbeToken||is_loading_error||lifeStorageFailure?'Saving is paused, so this can\'t run right now.':!character.is_alive?'You need to be alive for this.':expansionState.actors.player.worldId!=='base.frontier'?'Return to the frontier world first.':'';}
 function harvestWritable(){return !harvestWriteReason();}
 function harvestAutomaticReady(){
     return !current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason();
@@ -2240,7 +2240,7 @@ function nativeOccupationReason() {
     if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) return "Finish your living-world work or decision first.";
     if(usesJoinedClock() && ((!ownsSave && !restoringNativeSave) || foundationSaveBlocked || expansionError)) return "Progress is paused until saving is restored. Reload before continuing.";
     if(expansionState.chronicle?.session || nativeLifeEnded()) {
-        return "Finish or withdraw from the elder encounter; an ended mortal life cannot begin a new activity.";
+        return "This life has ended. Finish or leave the elder encounter before starting anything new.";
     }
     if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) {
         return "Finish or cancel your current expedition or technique drill before starting another activity.";
@@ -2717,7 +2717,7 @@ let heirPreviewLines = null;
 function previewHeir() {
     if(heirRequest?.error) return [heirRequest.error];
     if(heirPreviewLines || expansionState.chronicle?.life.endedAt == null || !ownsSave) return heirPreviewLines || [];
-    const serialized = create_save(); if(!serialized) return ["What this life left cannot be counted while saving is unavailable."];
+    const serialized = create_save(); if(!serialized) return ["Saving is paused, so what this life left can't be counted yet."];
     return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law}), lessonLabels(), key => getItemFromKey(key).getName());
 }
 function beginHeir() {
@@ -4019,10 +4019,10 @@ const recipeLesson=createAcquisitionLesson({
     refresh:()=>{update_displayed_crafting_recipes();practicePanel?.render();updateWorkspace();}
 });
 function practiceRunReason({toggle=false}={}){
-    if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is unavailable.';
-    if(expansionState.actors.player.worldId!=='base.frontier')return 'Run is practiced for frontier travel.';
+    if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is paused, so you can\'t practice running.';
+    if(expansionState.actors.player.worldId!=='base.frontier')return 'You practice running on the roads around the Village.';
     if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||nativeOccupationReason())return 'Finish your current activity before running.';
-    if(character.getFullStats().stamina<2 && !(toggle && revealFacts()['reveal.run']===true))return 'Requires 2 stamina for a journey; travel falls back to walking.';
+    if(character.getFullStats().stamina<2 && !(toggle && revealFacts()['reveal.run']===true))return 'Too tired to run: you need 2 stamina. You\'ll walk instead.';
     return '';
 }
 function do_reading() {
@@ -5518,7 +5518,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     //reload all recipe tooltips of matching category, except it's kinda pointless if reload happens anyway?
                 }
             } else {
-                nativeCraftMessage(selected_recipe.get_availability().materials.find(m=>m.heat&&!m.heat.ok)?.heat.reason||"Not enough materials.","notification");
+                nativeCraftMessage(selected_recipe.get_availability().materials.find(m=>m.heat&&!m.heat.ok)?.heat.reason||"Not enough materials. The recipe shows what's missing.","notification");
             }
             
         } else if(subcategory === "components" || selected_recipe.recipe_type === "component" || selected_recipe.recipe_type === "componentless" ) {
@@ -9767,7 +9767,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             visible:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier'&&!current_dialogue&&!current_combat,
             ready:workLedgerCanWrite()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_dialogue&&!current_combat&&!is_sleeping&&!is_reading&&!is_in_trade()}),act:performMixtureAction});
     const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);
-    workLedgerPanel=createWorkLedgerUI({container:document.getElementById('location_actions_div'),readSettings:()=>getCustomizationSettings(customization,'ledger',{season:current_game_time.getSeason()}),cancelExternalEffects:()=>workLedgerCraftEffects?.cancel(),read:()=>({...workLedgerPresentation(workLedger,workLedgerContext()),canWrite:workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village',reason:!workLedgerCanWrite()?'Saving unavailable; ledger is read-only.':workLedgerContext().busy?'Finish current work before choosing.':''}),command:actWorkLedger});
+    workLedgerPanel=createWorkLedgerUI({container:document.getElementById('location_actions_div'),readSettings:()=>getCustomizationSettings(customization,'ledger',{season:current_game_time.getSeason()}),cancelExternalEffects:()=>workLedgerCraftEffects?.cancel(),read:()=>({...workLedgerPresentation(workLedger,workLedgerContext()),canWrite:workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village',reason:!workLedgerCanWrite()?'Saving is paused, so the ledger is read-only for now.':workLedgerContext().busy?'Finish current work before choosing.':''}),command:actWorkLedger});
     const customizationHost=document.createElement('div');customizationHost.id='customization_host';
     const effectsHost=document.createElement('div');effectsHost.id='customization_effects_host';
     const rulesHost=document.createElement('div');rulesHost.id='customization_rules_host';
@@ -9906,8 +9906,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     update_displayed_money();
     practicePanel=createPracticePanel({register:registerWorkspaceModule,update:updateWorkspace,
         read:()=>{const context=localLifeContext(),found=localLife.searches[current_location?.id]?.found;
-            return {hints:context.worldId==='base.frontier'?knownPracticeHints(character.getLevelableComponent().skill_progress,character.getItems(),revealFacts()['reveal.herbLesson']):[],progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason({toggle:true}),runFallback:character.getFullStats().stamina<2,recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
-                search:{on:localLife.looking,text:localSearchMethod(context).text,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is unavailable.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'Investigate is practiced in Village and Shack.':found?'Nothing remains to find here.':''}};},
+            return {hints:context.worldId==='base.frontier'?knownPracticeHints(character.getLevelableComponent().skill_progress,character.getItems(),revealFacts()['reveal.herbLesson']):[],progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason({toggle:true}),runFallback:character.getFullStats().stamina<2,recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Crafting this needs an alchemy station you can use. Around you lists the stations here.',
+                search:{on:localLife.looking,text:localSearchMethod(context).text,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is paused, so you can\'t investigate.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'You can investigate in the Village and the Shack.':found?'You\'ve found everything here.':''}};},
         toggleRun:()=>{if(practiceRunReason({toggle:true}))return;const next=structuredClone(expansionState);next.sequence++;next.actors.player.facts['reveal.run']=!revealFacts()['reveal.run'];persistExpansion({state:next,gameplay:gameplaySnapshot(),external:{money:character.money},messages:[]});},
         investigate:()=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),'look')),
         craft:()=>{if(!accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy)return;open_crafting_window();switch_crafting_recipes_page('alchemy');}});

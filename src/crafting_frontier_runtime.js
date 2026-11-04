@@ -164,7 +164,7 @@ export function validateFiring(f,owner,clock){
 }
 function collectFiring(owner,depth,clock){
  const f=validateFiring(depth?.firing,owner,clock);if(!f)fail('No batch is held on the brazier.');
- if(clock<f.due)fail(`The held batch needs ${f.due-clock} more played minutes before collection.`);
+ if(clock<f.due)fail(`The batch on the brazier needs ${f.due-clock} more ${f.due-clock===1?'minute':'minutes'}.`);
  const p=owner.products[f.product],late=Math.min(12,clock-f.due),process=p.process.map(([op,level])=>({op,level}));
  if(late)process.push({op:'heat',level:late});
  return resolveBatch(p.law===tabletLaw.ref?tabletLaw:layeredLaw,{inputs:p.inputs.map(([role,id,,qty])=>({role,material:owner.materials[id]??catalogue.materials[id],qty})),process,stations:p.stations,recipe:p.recipe?{ref:p.recipe}:null,order:p.order,control:p.thermal.control});

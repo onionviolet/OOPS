@@ -53,7 +53,7 @@ export const villageActions = [
     action({id: "village.route_deduction", label: "Make sense of the drainage marks in the field", duration: 5,
         description: "Compare the marker with the inspected crossing. Needs Perception 3; five minutes, no fee or booklet. You learn from the ground itself, with no book completion or Literacy XP.",
         visibleWhen: {all: [discovered, anchors, routeUnknown]}, requires: {all: [village, discovered, anchors, routeUnknown,
-            {fact: "perception", op: "gte", value: 3, reason: "Needs Perception 3; a lesson or the booklet gives another way to learn."}]},
+            {fact: "perception", op: "gte", value: 3, reason: "Needs Perception 3. A lesson or the booklet teaches it another way."}]},
         durationModifiers: [{when: eq("village.playerUnsettled", true), minutes: 6, label: "The awkward exchange makes concentration slower"},
             {when: eq("village.playerReassured", true), minutes: 4, label: "A settled mind makes the field comparison quicker"}],
         outcomes: done("Your field comparison reveals the dry-bank route", [fact("village.routeKnown", true), fact("village.routeOrigin", "field")])}),

@@ -30,16 +30,16 @@ const hands = eq("originalFrontier.playerHandsUsable", true, "This task needs tw
 // This is the declared cargo limit, not a new universal weight simulation.
 const light = eq("originalFrontier.unloadedBody", true, "Leave Rough wood logs and Prepared survey kits in storage before personal footing. Ordinary gear and a rope can remain carried.");
 const rat = all(eq(`technique.${RAT}.observed`), eq(`technique.${RAT}.understood`), eq(`technique.${RAT}.owned`),
-    gte(`technique.${RAT}.proficiency`, 6), gte("agility", 8), eq(`technique.${RAT}.executable`, true, "Owned Rat-step needs proficiency six and Agility eight."));
-const masteredRat = all(rat, gte(`technique.${RAT}.proficiency`, 12, "Reach the existing Rat-step cap of twelve through its own practice."));
-const step = all(eq(`power.${STEP}.owned`), eq(`faculty.${STEP}.active`, true, "Restore the actual learned Load-bearing Step source."), hands);
-const driveStep = all(step, gte(`power.${STEP}.mastery`, 2, "Practice the existing loaded application to mastery two."));
-const ropeSkill = all(hands, gte("native.skill.Climbing.level", 2, "The inspected rope route needs native Climbing level two."));
+    gte(`technique.${RAT}.proficiency`, 6), gte("agility", 8), eq(`technique.${RAT}.executable`, true, "Rat-step needs proficiency 6 and Agility 8."));
+const masteredRat = all(rat, gte(`technique.${RAT}.proficiency`, 12, "Practice Rat-step up to its cap of 12."));
+const step = all(eq(`power.${STEP}.owned`), eq(`faculty.${STEP}.active`, true, "Your Load-bearing Step isn't active. Restore it first."), hands);
+const driveStep = all(step, gte(`power.${STEP}.mastery`, 2, "Practice the loaded Step to mastery 2."));
+const ropeSkill = all(hands, gte("native.skill.Climbing.level", 2, "This rope route needs Climbing 2."));
 const guarded = (requires, coLocated = false) => ({completionRequires: requires, completionCoLocated: coLocated, completionFailure: "refund"});
 const dossier = actor("explore.dossier"), feat = actor("mastery.feat"), inquiry = all(eq(`power.${INQUIRY}.owned`), gte(`power.${INQUIRY}.mastery`, 2), eq(`faculty.${INQUIRY}.active`));
 const homeConsent = eq("originalFrontier.homeParticipantSupported", true, "Mira must still consent, be present and have her own usable body for this trial.");
-const fieldSupport = eq("originalFrontier.fieldParticipantSupported", true, "The selected observer needs present consent, a living usable body and their own real rope.");
-const frameKit = eq("originalFrontier.frameKitAvailable", true, "The selected observer needs an owned, unborrowed Prepared survey kit for the frame.");
+const fieldSupport = eq("originalFrontier.fieldParticipantSupported", true, "Your observer must agree, be here, be fit to climb and bring their own rope.");
+const frameKit = eq("originalFrontier.frameKitAvailable", true, "Your observer needs their own Prepared survey kit for the frame, not a borrowed one.");
 const fieldSite = "original_frontier.field_crossing", homeSite = "original_frontier.home_trial";
 const places = [
     {key: "forest", location: "Forest road", worker: NEA, name: "Nea", zone: "Forest", site: "original_frontier.forest_stage", access: "native.zone.Forest road.accessible",
