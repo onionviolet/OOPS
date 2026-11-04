@@ -5,7 +5,7 @@
 // adjacent pair is read left to right, an ordered entry `a>b` beats the
 // unordered pair, so swapping two runes can change the talisman. Learning by
 // contrast reuses craft_experiment_log.deduce (one authority for deduction).
-// Pure; the player's pair record is plain JSON `magic.runes@1`. Not wired yet.
+// Pure; the player's pair record is plain JSON `magic.runes@1`. Wired through pledges.js (Rune bench); recarve cost goes through exchange_ledger.js.
 import {natural as nat, positive as pos} from './basics.js';
 import {compareCodePoints} from './gen_kit.js';
 import {deduce} from './craft_experiment_log.js';

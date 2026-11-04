@@ -1,0 +1,29 @@
+{
+  "origin": "http://127.0.0.1:51310/",
+  "checks": [
+    "1920x14: seeded 6 wood",
+    "1920x14: first carve quotes full price, no release",
+    "1920x14: first carve spends 3, stock 3",
+    "1920x14: recarve preview shows worn tablet covers 2, spend 0",
+    "1920x14: recarve spends no wood and mints none",
+    "1920x14: reload keeps stock 3 and worn tablet gale>tide",
+    "1920x14: literal import keeps stock and tablet",
+    "1536x14: seeded 6 wood",
+    "1536x14: first carve quotes full price, no release",
+    "1536x14: first carve spends 3, stock 3",
+    "1536x14: recarve preview shows worn tablet covers 2, spend 0",
+    "1536x14: recarve spends no wood and mints none",
+    "1536x14: reload keeps stock 3 and worn tablet gale>tide",
+    "1536x14: literal import keeps stock and tablet",
+    "1536x21: seeded 6 wood",
+    "1536x21: first carve quotes full price, no release",
+    "1536x21: first carve spends 3, stock 3",
+    "1536x21: recarve preview shows worn tablet covers 2, spend 0",
+    "1536x21: recarve spends no wood and mints none",
+    "1536x21: reload keeps stock 3 and worn tablet gale>tide",
+    "1536x21: literal import keeps stock and tablet",
+    "no browser runtime errors"
+  ],
+  "runs": [],
+  "errors": []
+}

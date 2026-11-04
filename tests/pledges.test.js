@@ -109,6 +109,10 @@ test('domain: save omits an untouched slice, commands run through ports and publ
     failSave = false;
     D.commands.carve(['ember', 'gale']);
     assert.equal(wood.count, 2);
+    // Recarving dissolves the worn tablet: its 2 unspent wood cover the new 2-rune tablet, nothing is minted back.
+    wood.count = 0; D.commands.carve(['gale', 'tide']); assert.equal(wood.count, 0);
+    assert.throws(() => D.commands.carve(['ember', 'gale', 'root']), /Need 1 wood and carry 0/); assert.equal(wood.count, 0);
+    D.commands.carve(['ember', 'gale']); assert.equal(wood.count, 0); wood.count = 2;
     const saved = domainRegistry.save({});
     assert.equal(saved.pledges.family, 'progression.pledges@1');
     domainRegistry.validate(saved); domainRegistry.load({}); assert.equal(D.pledgesState().trial.stage, 0);

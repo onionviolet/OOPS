@@ -47,7 +47,7 @@ export const commands = {
     combatBindings:()=>[{get:()=>state,set:v=>{state=v;applied='';}}],
     resolvedCharge({fighter,target,damage}){const outgoing=!!fighter?.tags?.main_character,incoming=!!target?.tags?.main_character;if(!outgoing&&!incoming)return {multiplier:1,heal:0};const hero=ports?.actor?.();if(!hero||!hero.is_alive)return {multiplier:1,heal:0};const full=hero.getFullStats(),r=P.useCharged(state,{direction:outgoing?'outgoing':'incoming',binding:chargeBinding(),health:full.health,maxHealth:full.max_health,damage});state=r.state;if(r.heal){full.health+=r.heal;domainRegistry.command('combatReview','recovered')?.({key:`charged:${state.charged.mode}:${state.charged.serial||0}:${state.charged.at}:${state.charged.uses}`,amount:r.heal});}return r;},
     resolvedSiphon(args){if(state.charged?.mode==='siphon'&&args.fighter?.tags?.main_character)return commands.resolvedCharge(args);},
-    carveCharged(runes,mode){need();transact(P.carveCharged(state,runes,mode,clock(),chargeBinding()),CARVING_WOOD,runes.length*runeGrammar.perRuneCost);},
+    carveCharged(runes,mode){need();const next=P.carveCharged(state,runes,mode,clock(),chargeBinding()),q=P.carveQuote(state,'charged',runes,clock(),ports.count(CARVING_WOOD));if(!q.ok)throw Error(q.reason);transact(next,CARVING_WOOD,q.debit);},
     routine(options){if(options.enabled)need();else if(ports?.writable?.()===false)throw Error('Use the writable game tab.');transact(configureTrialRoutine(state,options));},
     previewRoutine(options){const draft=configureTrialRoutine(state,{...options,enabled:true}),trial=P.trialView(draft,skills()),stock=ports?.count?.(RATION)??0;return {...quoteTrialRoutine(draft,trial,stock,routineContext()),stock,next:trial.next};},
     guarded(){need();transact(P.guardedTempering(state,skills(),clock()),RATION,5);},
@@ -71,8 +71,9 @@ export const commands = {
     calm() { need(); transact(P.calm(state), RATION, 1); ports.logMessage('You sit with the fear until it eases a little.', 'notification'); },
     carve(runes) {
         need();
-        const r = P.carve(state, runes, clock());
-        transact(r.state, CARVING_WOOD, runes.length * runeGrammar.perRuneCost);
+        const r = P.carve(state, runes, clock()), q = P.carveQuote(state, 'talisman', runes, clock(), ports.count(CARVING_WOOD));
+        if(!q.ok) throw Error(q.reason);
+        transact(r.state, CARVING_WOOD, q.debit);
         ports.logMessage(`You carve ${runes.join(', ')} and wear the talisman for ${TALISMAN_MINUTES / 60} hours.`, 'notification');
         return r.read;
     },
@@ -84,7 +85,7 @@ const view = () => {
     return {state, now: t, rations: ports?.count?.(RATION) ?? 0, wood: ports?.count?.(CARVING_WOOD) ?? 0, ready: !!ports,
         vows: Object.values(vowRules.vows).map(v => ({...v, kept: !!state.vows.kept[v.id], broken: state.vows.broken[v.id] ?? null})),
         trial: P.trialView(state, skills()),sharedLearning:(state.trial.learning||0)+(skills().fieldLearning||0), ordeal:P.ordealView(state,skills()),ordealKinds:P.ordealKinds(skills()),routineContext:routineContext(),routine:state.routine?quoteTrialRoutine(state,P.trialView(state,skills()),ports?.count?.(RATION)||0,routineContext()):null, maxKept: vowRules.maxKept, keptCount: Object.keys(state.vows.kept).length,
-        runes: {...P.runeView(state), total: totalPairs(runeGrammar), minutesLeft: state.talisman ? Math.max(0, state.talisman.until - t) : 0,
+        runes: {...P.runeView(state, t), total: totalPairs(runeGrammar), minutesLeft: state.talisman ? Math.max(0, state.talisman.until - t) : 0,
             effectText: EFFECT_TEXT, knownPair: (a, b) => known.has(`${a}>${b}`) || known.has(`${b}>${a}`) ? readPair(runeGrammar, a, b).effect : null}};
 };
 registerDomain({id: 'pledges', deps: [], initialState: () => null,
