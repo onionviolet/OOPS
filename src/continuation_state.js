@@ -8,6 +8,8 @@ import {check, copy, natural} from './basics.js';
 import {carryCheats} from './cheat_cards.js';
 import {HARM_WORLDS,HARM_DEATH_CAUSES,resolveDeath} from './harm_state.js';
 import {scopedRestart} from './harm_restart_scope.js';
+import {loopKey,loopPlan} from './harm_loops.js';
+import {loopStartOf,monthEnded,afterRunRestart} from './mol_zorian_loop.js';
 export const CONTINUATION_SCHEMA = 1;
 export const STUDY_MINUTES = 10;
 // Worlds whose lives may pause and resume through the connection (RET4). Early Tingen joined 2026-10-27.
@@ -36,7 +38,8 @@ export function continuationEligibility(save,{travelOnly=false}={}) {
         return 'This embodiment needs its own capability adapter. The current continuation route supports an adult human; your life is preserved.';
     // A snapshot keeps the whole save, so a life in a world listed here can pause and resume (travel); rewinds stay Frontier-only.
     const world=save.expansion?.actors?.player?.worldId;
-    if(world !== 'base.frontier' && !(travelOnly && TRAVEL_WORLDS.has(world))) return 'Return from this world needs its own temporal means. This slice supports the Frontier.';
+    // A start with its own loop row may rewind its seat's world through the scoped restart (G2/G7); the world's other starts may not.
+    if(world !== 'base.frontier' && !(travelOnly && (TRAVEL_WORLDS.has(world) || loopStartOf(save)))) return 'Return from this world needs its own temporal means. This slice supports the Frontier.';
     if(!travelOnly&&Object.keys(save.expansion?.worlds||{}).some(world=>world!=='base.frontier'))
         return 'Other retained worlds need a compatible temporal boundary. Their state is preserved; this first slice cannot rewind them.';
     if(!travelOnly&&(save.content_packs?.structured || save.content_packs?.pendingStructured ||
@@ -142,7 +145,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     check(!life.ended||command.startsWith('restart:')||command.startsWith('die:')||command.startsWith('resume:'),
         'This life has ended. Restart from its initial point or checkpoint, or continue as a living tethered life.');
     if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
-    else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('die:')||command.startsWith('restart:')||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
+    else if(command!=='continue'){const travelOnly=command==='fresh'||command==='loop-end:date'||command.startsWith('die:')||command.startsWith('restart:')||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('branch:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
     if(command.startsWith('die:')) {
         check(!(c.deaths||[]).some(entry=>entry.token===token),'This return has already been applied.');
         check(!life.ended,'This life has already ended.');
@@ -152,16 +155,25 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         check(outcome==='final',"This world's outcome is not a death.");
         life.ended={cause,outcome,at:nativeMoment(source)};
         c.deaths=[...(c.deaths||[]),{lifeId:c.active,...life.ended,token}].slice(-64);
-    } else if(command.startsWith('restart:')) {
+    } else if(command.startsWith('restart:')||command==='loop-end:date') {
         check(!(c.deaths||[]).some(entry=>entry.token===token),'This return has already been applied.');
-        const anchor=command.slice(8);check(['initial','checkpoint'].includes(anchor),'Choose an initial or checkpoint restart.');
-        check(life.ended,'This life has not ended.');
+        // The date end is a restart without a death: the start's loop row must carry a date trigger and the calendar must have reached it.
+        const dateEnd=command==='loop-end:date',startId=loopStartOf(source),world0=source.expansion?.actors?.player?.worldId;
+        if(dateEnd){
+            check(startId&&loopPlan(world0,{trigger:'date',startId}),'This world has no month that ends a run.');
+            check(!life.ended&&monthEnded(source.expansion),'The month has not ended yet.');
+        } else if(startId)check(loopPlan(world0,{trigger:'death',lifeEnded:true,startId}),'This start has no restart after a death.');
+        const anchor=dateEnd?'initial':command.slice(8);check(['initial','checkpoint'].includes(anchor),'Choose an initial or checkpoint restart.');
+        check(dateEnd||life.ended,'This life has not ended.');
         const target=anchor==='initial'?life.initial:life.checkpoint;
         check(target,'There is no later checkpoint in this life.');
         check(nativeMoment(target)<=nativeMoment(source),'That recorded point lies in an abandoned future. This connection does not grant forward travel.');
-        const at=nativeMoment(source);next=restore(source,scopedRestart(source,target,source.expansion?.actors?.player?.worldId),c);
+        const at=nativeMoment(source),world=source.expansion?.actors?.player?.worldId;
+        next=restore(source,scopedRestart(source,target,world,startId?loopKey(world,startId):world),c);
+        // The new run starts on day 1, undiverged, and the ended run's dated events become day-stamped foreknowledge.
+        if(startId)afterRunRestart(source.expansion,next.expansion);
         delete life.ended;c.arrivalPaused=false;
-        c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at,token}].slice(-64);
+        c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at,token,...(dateEnd?{trigger:'date'}:{})}].slice(-64);
     } else if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
     else if(command.startsWith('intent:')){anchorIntent(source,c,command.slice(7));}
     else if(command.startsWith('law:')){purchaseLawAnchor(source,c,command.slice(4));}

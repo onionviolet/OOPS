@@ -28,8 +28,8 @@ export const LOOP_RESETS=freeze({
   budget:{unit:'tries',spentPer:1,effectWhenLow:'a short budget makes the first run a scouting run'},
   reason:'Proposed archetype: knowledge-only carry, so skill must be rebuilt; a world widens carry per its mechanism.'},
  // Row v2 (AB11, proposal): the seat's month loop, keyed per start so the visitor start keeps no loop. Sources: progression gates MLG24-MLG28.
- 'book.mol.cyoria#zorian':{label:'Month loop',trigger:'date',command:'cycle',anchor:'initial',
-  triggers:[{kind:'date',anchor:'initial',command:'cycle'},{kind:'death',anchor:'initial',command:'restart:initial'},{kind:'switch',anchor:'initial',command:'restart:initial'}],
+ 'book.mol.cyoria#zorian':{label:'Month loop',trigger:'date',command:'restart:initial',anchor:'initial',
+  triggers:[{kind:'date',anchor:'initial',command:'restart:initial'},{kind:'death',anchor:'initial',command:'restart:initial'},{kind:'switch',anchor:'initial',command:'restart:initial'}],
   carry:[
    {what:'Memory of every run',class:'soul-bound',carrier:'the self',reason:'The soul crosses the cut, so memory rides on it (c6 p3, c55).'},
    {what:'Trained skill and reserve',class:'soul-bound',carrier:'the self',reason:'Proposed first-slice default; soul-bound or an aptitude multiplier is Weibao\'s open call (R2), so this entry names the class and a world may swap it for multiplier.'},

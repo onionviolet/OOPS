@@ -2,6 +2,7 @@ import {hpCalendarBinding} from './book_world_hp_facts.js';
 import {check as assert, natural} from './basics.js';
 import {WORLD_CALENDAR_PROFILES, WORLD_DAY_EVENTS} from './world_calendar_content.js';
 import {legacyClimateEnvironment} from './world_climate.js';
+import {MOL_START_ZORIAN} from './book_world_mol_starts.js';
 const pad = n => String(n).padStart(2, '0');
 const seasons = ['Spring', 'Summer', 'Autumn', 'Winter'];
 
@@ -57,7 +58,14 @@ function visitorCalendarBinding(state) {
     if (!profile || worldId === 'base.frontier') return null;
     const domain = worldId === 'book.mol.cyoria' ? state.motherOfLearning : state.bookWorldCampaign;
     const visit = domain?.visits?.find(v => v.id === domain.activeVisitId && v.status === 'active');
-    const instance = domain?.instances?.find(i => i.id === visit?.instanceId && i.worldId === worldId);
+    let instance = domain?.instances?.find(i => i.id === visit?.instanceId && i.worldId === worldId);
+    // The Zorian seat lives in the world with no visit record: its run clock is the expansion clock since the run began
+    // (`runStartedAt`, else the start's own `initializedAt`), so no second clock and no visit invented.
+    if (!visit && worldId === 'book.mol.cyoria' && domain?.entryProfile === MOL_START_ZORIAN && natural(state.clock)) {
+        const base = domain.instances?.find(i => i.worldId === worldId);
+        const since = state.clock - (domain.runStartedAt ?? domain.initializedAt);
+        if (base && natural(since)) instance = {...base, clock: {...base.clock, elapsed: since}};
+    }
     if (!instance || domain.definitionRevision !== 1 || instance.definitionId !== profile.definitionId ||
         instance.definitionRevision !== profile.definitionRevision) return null;
     return {worldId, profile, instance};

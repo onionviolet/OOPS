@@ -119,7 +119,7 @@ export function knownPeopleView(state, facts = {}) {
 // `carried: {stampDay, carrier, sourceKind, decaysAfterDays, prediction?}`; nothing else is stored. `today` is
 // {day, divergedOnDay}: the current absolute local day and the day the world first left the stamped timeline (null while it has not).
 // It widens what the lead can anticipate and check; it grants no stat, resource or skill.
-export const CARRIERS = ['self', 'notebook', 'code_phrase'];
+export const CARRIERS = ['self', 'notebook', 'code_phrase', 'memory_packet'];
 export function carriedKnowledgeView(state, today) {
     const known = state.simulation?.knowledge?.player || {}, rows = [];
     for(const [id, r] of Object.entries(known)) {

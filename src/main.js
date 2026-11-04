@@ -479,7 +479,7 @@ function commitLocalDateHeader() {if (!restoringNativeSave) localDateLog.commit(
 import {prepareV06Save} from "./save_migration.js";
 
 import {beginContinuation, observeContinuation, continuationView, continuationEligibility} from './continuation_state.js';
-import {createContinuationHost} from './continuation_host.js';
+import {createContinuationHost} from './continuation_host.js';import {createZorianLoopHost} from './mol_zorian_loop_host.js';
 import {createContinuationUI} from './continuation_ui.js';
 let continuationState=null, continuationPanel=null, continuationArrivalRelease=null;
 
@@ -6251,7 +6251,7 @@ async function commandContinuation(action) {
     observeContinuationLearning();
     return continuationHost.command(action,{expectedSequence:continuationState.sequence,token:crypto.randomUUID()});
 }
-function maybeRepeatContinuation() {
+const zorianLoop=createZorianLoopHost({state:()=>expansionState,continuation:()=>continuationState,command:action=>commandContinuation(action),alive:()=>character.is_alive===true, writable:()=>continuationCanWrite()&&!authorityOperationBusy,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue),report:text=>log_message('The month loop paused: '+text,'notification')});function maybeRepeatContinuation() {
     const c=continuationState;
     if(!c?.loop.enabled||authorityOperationBusy||!continuationCanWrite()||c.arrivalPaused)return;
     // Only a persisted opt-in starts a new cycle. Replaying the same event cannot.
@@ -9981,7 +9981,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     setInterval(()=>{if(!deferWhileHidden(refreshSiteEditor,refreshSiteEditor))refreshSiteEditor();},500);
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
-    setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();}},500);
+    setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();zorianLoop.tick();}},500);
     mountWorkspace();
     mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();

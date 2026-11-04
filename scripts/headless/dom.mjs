@@ -152,7 +152,7 @@ export function createDom(options = {}) {
         get _html() {return `<!--${this.data}-->`;}
     }
     class ParentNode extends Node {
-        get children() {return this.childNodes.filter(c => c.nodeType === 1);}
+        get children() {const list = this.childNodes.filter(c => c.nodeType === 1); list.item = i => list[i] ?? null; return list;}
         get childElementCount() {return this.children.length;}
         get firstElementChild() {return this.childNodes.find(c => c.nodeType === 1) ?? null;}
         get lastElementChild() {return this.childNodes.findLast(c => c.nodeType === 1) ?? null;}

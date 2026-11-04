@@ -1,0 +1,73 @@
+// Zorian's month loop (G7/G8/G11/G13 of the stage record, proposal under AD32). The loop row, the restart machinery, the calendar
+// event feed and the knowledge store already exist; this module only wires them for the Zorian start. No clock of its own: the run
+// clock is the expansion clock minus the run's start marker, read through the one calendar profile.
+import {MOL_START_ZORIAN} from './book_world_mol_starts.js';
+import {loopRule} from './harm_loops.js';
+import {WORLD_CALENDAR_PROFILES,WORLD_DAY_EVENTS} from './world_calendar_content.js';
+import {resolveWorldCalendar,dayEventsDue} from './world_calendar.js';
+
+export const MOL_WORLD='book.mol.cyoria';
+export const ZORIAN_LOOP_START='zorian';
+// Same situation the seat's other knowledge rows use (the knowledge store needs a real situation context).
+export const ZORIAN_RUN_SITUATION='book.mol.visitor_branch';
+// G13: commands whose choice differs from the earlier run's day. Committing one sets the run's divergence day (once).
+export const DIVERGING_COMMANDS=new Set(['book.mol.zorian.s1.skip_class_drill']);
+// The row names carriers in prose; the knowledge view names them as codes. One map, tested against the row.
+export const CARRIER_CODE=Object.freeze({'the self':'self','notebook':'notebook','code phrase':'code_phrase','memory packet':'memory_packet'});
+// The Zorian start's loop-row start id for a save or expansion state, else null (the visitor and every other world have no loop here).
+export function loopStartOf(saveOrState){
+ const state=saveOrState?.expansion??saveOrState;
+ return state?.actors?.player?.worldId===MOL_WORLD&&state.motherOfLearning?.entryProfile===MOL_START_ZORIAN?ZORIAN_LOOP_START:null;
+}
+export const runStartOf=d=>d.runStartedAt??d.initializedAt;
+const dayEvents=state=>{
+ const view=resolveWorldCalendar(state,null);
+ return view?{view,due:dayEventsDue(WORLD_CALENDAR_PROFILES[MOL_WORLD],view,WORLD_DAY_EVENTS[MOL_WORLD])}:null;
+};
+// The run's own day, as `carriedKnowledgeView` reads it: day of the month, and the day this run first left the earlier timeline.
+export function todayFor(state){
+ const e=loopStartOf(state)&&dayEvents(state);
+ return e?{day:e.view.day,hour:e.view.hour,divergedOnDay:state.motherOfLearning.divergence?.day??null}:null;
+}
+// The date end is the calendar's own month_end event (one owner for the date); a trigger row without it never ends the run.
+export function monthEnded(state){
+ const e=loopStartOf(state)&&dayEvents(state);
+ return !!e&&e.due.some(x=>x.id==='mol.month_end');
+}
+// G13: the first thing in a run that differs from the earlier timeline sets the divergence day once; routine repeats do not.
+export function markDivergence(state,cause){
+ const d=state.motherOfLearning,t=todayFor(state);
+ if(!t||d.divergence)return false;
+ d.divergence={day:t.day,cause};return true;
+}
+const rowOf=()=>loopRule(MOL_WORLD,ZORIAN_LOOP_START);
+// Foreknowledge written at a restart: each dated event that fell due in the ended run becomes a day-stamped prediction the seat can check.
+// The record sits in the existing knowledge store (no new store); an older stamp is never replaced by a later copy.
+function writeForeknowledge(ended,next){
+ const e=dayEvents(ended),row=rowOf(),known=next.simulation?.knowledge;
+ if(!e||!known)return [];
+ const bag=known.player??={},carrier=CARRIER_CODE['the self'],written=[];
+ for(const ev of e.due){
+  if(ev.dateBasis==='unknown'||ev.day==null||ev.day<=1)continue; // day 1 is where every run starts; nothing to foresee
+  const id=`book.mol.foreknowledge.${ev.id.replace(/^mol\./,'')}`;
+  if(bag[id])continue;
+  bag[id]={value:`${ev.label}: ${ev.text}`,at:next.clock,stage:'understood',cause:'book.mol.zorian.restart',basis:{kind:'recollection',attributedTo:'player',situationId:ZORIAN_RUN_SITUATION,
+   carried:{stampDay:ev.day,carrier,sourceKind:'foreknowledge',decaysAfterDays:row.staleness.reliableDays,
+    prediction:{day:ev.day,hour:ev.hour??null,text:ev.text}}}};
+  written.push(id);
+ }
+ return written;
+}
+// Applied to the restored save after scopedRestart: a new run starts undiverged on day 1, and the earlier run's events become foreknowledge.
+export function afterRunRestart(endedExpansion,nextExpansion){
+ const d=nextExpansion.motherOfLearning;
+ d.runStartedAt=nextExpansion.clock;
+ d.runs=(endedExpansion.motherOfLearning?.runs??1)+1;
+ delete d.divergence;
+ return {foreknowledge:writeForeknowledge(endedExpansion,nextExpansion)};
+}
+// Player-facing run line for the campaign section: where the seat is in the month, and what a restart keeps.
+export function runText(state){
+ const t=todayFor(state),d=state.motherOfLearning;
+ return t?`Run ${d.runs??1}, day ${t.day} of 30${d.divergence?`; this run left the timeline you remember on day ${d.divergence.day}`:''}. The month ends on day 30 and so does your body: money, items and other people reset, what you remember and can do stays.`:'';
+}
