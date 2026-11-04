@@ -97,7 +97,7 @@ These are reference categories, not fifteen tasks the player must complete.
 | S10 | Situations, dialogue and narrative | Causes, quests, character voice, choices, refusal, abstention, timings, variants, remembered responses | Local CAMPAIGN/INTERACTIONS, [dialogue](worlds/DIALOGUE_AND_INTERACTIONS.md) |
 | S11 | Timelines, endings and continuing life | Independent events, divergence, closure, maturity, aftermath, ongoing play, succession where relevant | Local TIMELINE_AND_ENDINGS, [timelines](TIMELINES_AND_DIVERGENCE.md) |
 | S12 | Travel, other worlds and other lives | Departure, carriers, cargo, companions, obligations, reentry, absence, inheritance, loops, reset/retention | [campaign framework](worlds/CAMPAIGN_FRAMEWORK.md), [simulators](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md) |
-| S13 | Presentation and usability | Native panels, text/VFX, known costs, feedback, hidden identities, focus, keyboard access, recovery controls | [presentation](PRESENTATION_AND_FOURTH_WALL.md), local UI bindings |
+| S13 | Presentation and usability | Native panels, text/VFX, known costs, feedback, hidden identities, focus, keyboard access, recovery controls | [presentation](PRESENTATION_AND_FOURTH_WALL.md), [per-world basic kit DSG19](../DESIGN.md#the-per-world-contract) and [kit census](audits/WORLD_UI_KIT_CENSUS_2026-10-30.md), local UI bindings |
 | S14 | Persistence, integration and acceptance | Sole state writers, migrations, save publication, old saves, build identity, browser journeys, performance, director review | [engine authoring](ENGINE_AUTHORING.md), [playtest](PLAYTEST.md), local acceptance backlog |
 
 ## Preserve the little details

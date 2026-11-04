@@ -241,3 +241,7 @@ AB11-AB26 in the [ability abstraction round](../ABILITY_RULES.md#round-2-2026-11
 Abstraction direction (AD51) and the shared-seam round AB1-AB10, 2026-11-03: [USER_VISION](../USER_VISION.md#reasonable-things-get-abstracted-2026-11-03), [ABILITY_RULES round](../ABILITY_RULES.md#abstraction-round-2026-11-03). State: New (proposal round; AD51 recorded as Weibao's direction). Next: Weibao decides whether to send out AB8.
 
 Next world after Mother of Learning, 2026-11-03: [ranked world proposal](dispatch/NEXT_WORLD_AFTER_MOL_PROPOSAL_2026-11-03.md) (Harry Potter first, JJK runner-up with a canon-first-order deviation, Naruto and Hunter x Hunter need text). State: New (proposal, none accepted). Next: Weibao decides D1-D4.
+
+## World implementation rules map, 2026-11-04
+
+Nine-stage map of the rule sets for implementing a world (source to done), status colors, and findings F1-F9 with proposals A1-A5, saved as [the audit](../audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md). Main gap: no single list of what a new world ships for UI. Proposal only (AD32); extends the 2026-10-30 reconciliation audit.

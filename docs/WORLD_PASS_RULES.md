@@ -62,7 +62,7 @@ source-grounded reason; unavailable source is unknown, not proven absence.
 | WPR14 | **Power and growth subtleties** | Costs, limits, side effects, misuse, stacking, rank gates, failure modes, loopholes the text itself shows, what the power does to its holder |
 | WPR15 | **Starts and entry** | First-day experience, arrival at each start (including starts that are not first arrival), what the start knows, what carries over (WA13-WA14) |
 | WPR16 | **Failure, recovery and aftermath** | What losing, dying, defaulting or offending costs; how each is recovered; what the world remembers |
-| WPR17 | **Surfaces** | What the player sees and when (UI lens, log, panels), what is hidden until discovered, what an idle player misses |
+| WPR17 | **Surfaces** | What the player sees and when (UI lens, log, panels), what is hidden until discovered, what an idle player misses. A world's first UI slice answers the six basic-kit questions ([DESIGN DSG19](../DESIGN.md#the-per-world-contract), [kit census](audits/WORLD_UI_KIT_CENSUS_2026-10-30.md)); Reports voice follows RPT13 |
 
 ### Reviews
 
