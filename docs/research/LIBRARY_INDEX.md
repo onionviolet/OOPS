@@ -110,6 +110,7 @@ Archives of Nethys, scoped to afflictions, weapon and armor properties,
 conditions, poisons, runes and disguise. Private data in
 `docs/research/d20/private/`; scope, counts and hashes in the
 [collection receipt](d20/D20_RULES_COLLECTION_2026-11-03.md).
+- Pathfinder 1e scope widened 2026-11-04 (browser route): armor abilities, cursed items, afflictions, conditions, environment, haunts, skills, crafting, universal monster rules, and transmutation and illusion spells are in. Other spell schools are partial and wondrous items are not started; see the receipt.
 
 ## Wikis and rulebooks: acquired, missing and routes, 2026-11-03
 

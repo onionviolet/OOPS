@@ -50,27 +50,50 @@ under the OGL (1e) or ORC (2e) as each site states.
   armor section now starts at the verified index, which lists 117 ability
   pages, all lint-clean. Remaining risk: any dead link that looks normal still
   closes the host, because the transport treats every 404 as a closure.
-- Wider plan (Weibao, 2026-11-03: "For d20pfsrd, we consider stuff beyond
-  weapons too"). This is waiting on the reopening. Counts below are what the
-  cached link graph already shows. They are not `--probe` results, so each
-  section takes a `--probe` first.
+- Scope (Weibao, 2026-11-03): "For d20pfsrd, we consider stuff beyond
+  weapons too".
+- **Browser route, 2026-11-04** (Weibao: "try opening in extension or
+  something"; recorded in [source acquisition tools](../SOURCE_ACQUISITION_TOOLS.md)).
+  A background built-in-browser tab fetches same-origin pages one at a time,
+  4-8 s after each response. Text is extracted in the page and no raw HTML is
+  kept. Dumps go to `private/browser-dumps/` and are folded into the manifest
+  with `--import-browser`; those rows carry `route: browser`. Every catalogue
+  URL came from links on pages the site served. Catalogue pages: magic items,
+  gamemastering, conditions, skills, feats, magic, universal monster rules,
+  cursed items, wondrous items, afflictions, environment, haunts, magic item
+  creation, Craft, alternate crafting and item creation feats, plus the
+  sorcerer/wizard spell list (1,493 spells, mapped to school from its
+  headings).
 
-  | Section | Seed | Already seen in cache |
+  | Section | Collected | Not collected and why |
   |---|---|---|
-  | pf1-armor-abilities | `/magic-items/magic-armor/magic-armor-and-shield-special-abilities/` | **117 pages (run-3 probe)** |
-  | pf1-wondrous-items | `/magic-items/` | 0; likely large, probe first |
-  | pf1-cursed-items | `/magic-items/` | 0 |
-  | pf1-afflictions (diseases, poisons, curses, drugs, madness, infestations) | `/gamemastering/` | 2 catalogue pages (diseases, poison) |
-  | pf1-haunts | `/gamemastering/` | 0 |
-  | pf1-conditions | `/gamemastering/conditions/` | 1 page |
-  | pf1-environment (heat, cold, starvation, thirst, suffocation) | `/gamemastering/` | 0 |
-  | pf1-skills | `/skills/` | 13 of the skill pages, including Disguise, Bluff, Perception and Heal |
-  | pf1-crafting | `/feats/`, `/magic-items/` | 2 item-creation feats |
-  | pf1-spells-transmutation, then -illusion, then the other schools | `/magic/` | 173 spell pages linked; the school index paths are unknown |
-  | pf1-universal-monster-rules | that page | 1 page; per-rule children unknown |
+  | pf1-weapon-abilities | 184 + index | |
+  | pf1-armor-abilities | 117 + 5 catalogue | |
+  | pf1-cursed-items | the cursed-items page itself (all items inline, 61k characters) | its 40 child links are dead relative links (404) |
+  | pf1-afflictions | curses, diseases, drugs, infestations, madness, pharmaceuticals, poison, hazards and disasters (third party): 8 | |
+  | pf1-conditions | the conditions page (all conditions inline) | |
+  | pf1-environment | 17 (environmental rules, weather, terrains, dungeons, urban, planes) | |
+  | pf1-haunts | 6 (haunts by CR) | |
+  | pf1-skills | 32 | |
+  | pf1-crafting | 22 (Craft, alternate crafting rules, item creation feats, magic item creation) | 2 dead links |
+  | pf1-universal-monster-rules | the one page (all rules inline, 106k characters) | |
+  | pf1-spells-transmutation | 393 of 394 | 1 dead link |
+  | pf1-spells-illusion | 144 (spells in both schools are filed under transmutation) | |
+  | other sorcerer/wizard schools (batch C) | 180 of 955 | **stopped**: see below |
+  | pf1-wondrous-items | 0 of 2,354 linked | **not started**: queued after batch C |
 
-  Order after reopening: probe every section in one session, review the
-  counts, then run in the table's order. One session per 300 pages.
+  At this point the manifest holds 1,125 rows (935 browser, 190 transport).
+- Stops on the browser route. (1) Batch B stopped itself at 02:43 UTC on a
+  network error (`Failed to fetch`). The cause was hidden-tab timer throttling:
+  gaps grew from about 7 s to 658 s. The site never refused anything. It
+  resumed at about 6.7 s per page after the pacing timer moved into a Web
+  Worker and the Mac was kept awake. (2) The browser pane was closed while
+  batch C was running, between the last dump at 04:03 UTC and 04:33 UTC. Pages after the last dump were only
+  in the tab's memory and are lost; they must be refetched. Reopening the pane
+  and resuming C and the wondrous items is waiting on Weibao. Each catalogue
+  page needs one refetch, and the manifest skips everything already held.
+- Polite transport state for `www.d20pfsrd.com`: closed (second 404, see
+  above). Not cleared again.
 - Publisher per page (AFW-R4-2, 2026-11-04). d20pfsrd mixes Paizo and
   third-party rules, so each PF1 manifest row now has `publisher` (`Paizo`,
   `third party`, `mixed` or `unknown`), `publishers` (the names) and
@@ -79,7 +102,7 @@ under the OGL (1e) or ORC (2e) as each site states.
   d20PFSRD" title form. `unknown` means no notice was found, which is mostly
   hub and index pages. Cite a PF1 page with its publisher. The tagging is
   offline (`--publishers`) and runs after every `--import-browser`. Count at
-  408 rows: 363 Paizo, 9 third party, 3 mixed, 33 unknown.
+  1,125 rows: 1,007 Paizo, 9 third party, 5 mixed, 104 unknown.
 - Output: `private/manifest.jsonl` (one row per page: URL, title, HTTP status,
   SHA-256, text path) and `private/<section>/<hash>.txt`. Reader budget is 300
   pages per session, so the run resumes across sessions; rerun the same
