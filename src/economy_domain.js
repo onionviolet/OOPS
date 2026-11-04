@@ -3,7 +3,10 @@ import {current_game_time} from './game_time.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {namedMoneySource as named} from './money.js';
 import {isGrained} from './currency_subunits.js';
-const grained = v => { if(typeof v === 'number' && !isGrained(v, 2)) throw Error('Money must be on the halfpenny grain.'); return v; };
+let grainOf = () => 1;
+// The dial: grain 1 is off (any number, as before); a world with grain 2 refuses writes off the halfpenny.
+export const bindMoneyGrain = fn => { grainOf = fn; };
+const grained = v => { const g = grainOf(); if(g > 1 && typeof v === 'number' && !isGrained(v, g)) throw Error('Money must be on the world grain.'); return v; };
 export {setSavedPurse, addSavedPurse} from './money.js';
 // One money seam (ECX1, ECR16) and a faucet/sink ledger (ECL2, ECR15), 2026-10-19.
 // Every write to the hero's coin purse (`character.money`) goes through setPurse/addPurse with a
@@ -13,7 +16,7 @@ export {setSavedPurse, addSavedPurse} from './money.js';
 // (`plan.external.money`, `plan.money`, `p.native.money`) are not the purse; a plan's net change
 // is recorded once when it commits. The seam keeps today's arithmetic exactly (no rounding or
 // range rule yet), so behavior is unchanged. R2: a halfpenny is 0.5 of a pence on the same purse
-// (src/currency_subunits.js); a write that is not on the halfpenny grain throws.
+// (src/currency_subunits.js), only in a world whose grain dial is 2; there an off-grain write throws.
 //
 // The ledger is debug and read-only: memory only, never saved, the last LIMIT rows. Baseline rows
 // (load, new game, start layers) set the purse without being a faucet or sink.

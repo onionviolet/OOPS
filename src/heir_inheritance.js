@@ -7,6 +7,7 @@ import {deriveHomeEstate,applyHomeEstate,validateHomeEstate} from './home_inheri
 // as recipient when one was taught.
 import {check, positive as count} from './basics.js';
 import {setSavedPurse} from './money.js';
+import {isGrained} from './currency_subunits.js';
 import {kinFromRelationships} from './family_tree.js';
 import {passHeirloomKey, readMaterialLineage} from './material_lineage.js';
 import {calendarMinutes} from './world_rhythm.js';
@@ -92,7 +93,7 @@ export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = D
     merge(belongings, carried); merge(belongings, Object.entries(worn));
     const chest = rows(previous.inventories?.storage?.player);
     const residences=deriveHomeEstate(previous);
-    const purse = (Number.isSafeInteger(previous.character?.money) && previous.character.money > 0 ? previous.character.money : 0)+(residences?.money||0);
+    const purse = (Number.isFinite(previous.character?.money) && isGrained(previous.character.money, 2) && previous.character.money > 0 ? previous.character.money : 0)+(residences?.money||0);
     // The estate settles a recorded Village kit debt before anything passes.
     // A shortfall is written off (proposal; the career ledger has no heir row).
     const owed = Number.isSafeInteger(previous.village_career?.debt) && previous.village_career.debt > 0 ? previous.village_career.debt : 0;
@@ -140,7 +141,7 @@ export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = D
 }
 
 export function validateHeirLeftovers(l) {
-    check(object(l) && l.schema === 1 && ['kin', 'apprentice'].includes(l.recipient) && Number.isSafeInteger(l.money) && l.money >= 0 &&
+    check(object(l) && l.schema === 1 && ['kin', 'apprentice'].includes(l.recipient) && Number.isFinite(l.money) && isGrained(l.money, 2) && l.money >= 0 &&
         typeof l.home === 'boolean' && typeof l.archiveLine === 'boolean' && typeof l.empty === 'boolean', 'Invalid inheritance.');
     for(const list of [l.belongings, l.chest]) check(Array.isArray(list) && list.length <= MAX_ROWS && list.every(r => Array.isArray(r) && typeof r[0] === 'string' && count(r[1])), 'Invalid inherited goods.');
     for(const list of [l.papers, l.apprentice]) check(Array.isArray(list) && list.length <= 3 && new Set(list).size === list.length && list.every(id => LESSON_IDS.includes(id)), 'Invalid inherited lessons.');

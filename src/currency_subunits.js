@@ -5,6 +5,10 @@
 // Rounding is a dial: `fee` rounds up to the next grain so a nonzero fee never reads as free, `tender`
 // rounds to nearest, `floor` is for credits. Amounts are exact in binary for grains 1, 2, 4, 8.
 export const TINGEN_GRAIN = 2;
+// The grain dial lives here, per world: default 1 (off, today's arithmetic, no purse check); only the
+// Tingen/Loen purse (the BE seat) runs on halfpence. src/main.js binds it to the live world (bindMoneyGrain).
+export const WORLD_GRAIN = Object.freeze({'book.lotm.tingen': TINGEN_GRAIN});
+export const grainFor = worldId => WORLD_GRAIN[worldId] ?? 1;
 export const ROUNDING = Object.freeze({fee: 'up', credit: 'down', nearest: 'nearest'});
 const MODES = new Set(['up', 'down', 'nearest']);
 const grainOk = g => Number.isInteger(g) && g >= 1 && g <= 8 && (g & (g - 1)) === 0;
