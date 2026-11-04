@@ -143,6 +143,7 @@ Result: **planned, not implemented.** Below floor is not claimed; nothing was bu
 P1 and P2 were paper-tested the same day: [results](ZORIAN_P1_P2_PAPER_TEST_2026-11-03.md) (proposal: new world key for the seat; reset row v2 fills for LOTM and Perfect Run unchanged).
 
 S0 and S1 stage record (on disk, seam probe, gap codes G1-G16): [ZORIAN_S0_S1_STAGE_RECORD](ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md).
+S2-S6 stage record (c14-c55, gap codes H1-H18) and scene table: [ZORIAN_S2_S6_STAGE_RECORD](ZORIAN_S2_S6_STAGE_RECORD_2026-11-03.md), [ZORIAN_S2_S6_SCENE_TABLE](ZORIAN_S2_S6_SCENE_TABLE_2026-11-03.md).
 
 Weibao decisions: (a) soul-bound carry versus an aptitude multiplier for a restart (shown in the seam note); (b) whether the visitor and Zorian
 share one Cyoria pack or split. Both are reversible prototype choices until a slice ships.
