@@ -90,6 +90,8 @@ Latest round is the newest reviewed round or part in the file, with its review d
 | [Batch reading PLAN](dispatch/batch-reading-2026-10-27/PLAN.md) | Reading campaign and batch-specific execution | Original “nothing submitted” is historical; later reading results are recorded | [READING_STATUS](dispatch/protagonist-life-2026-10-27/READING_STATUS.md), batch PLAN and run files | Original round 1; routing reconciled 2026-10-31 | Future submissions retain their own explicit run approval and budget; no authorization inferred here | Read current per-book/source/grade state and exact run approval. Acquisition, reading, lint/grade, merge and gameplay remain distinct; this row launches nothing (AD32). |
 | [READING_GAP_MAP](../research/READING_GAP_MAP_2026-10-28.md) | Game gaps (GM1-GM21) mapped to what batch readings can supply, pipeline gaps PG1-PG9, book priority by gaps per dollar, first five | New | BOOK_WORLD_FEATURE_GAPS, MASTER_PLAYABILITY_PLAN | Round 1 | Order of books (Weibao's call) | Weibao reads; first lane picks F1 after merging MoL rows (Weibao). |
 | [LOCAL_AI_READER_TEST_2026-10-27](../research/LOCAL_AI_READER_TEST_2026-10-27.md) | Local Ollama models and dsh as LOTM lead-run readers: none replaces haiku; a table-derived census script does the mechanical part | Written | LOTM volume 1 reading ([READING_STATUS](dispatch/protagonist-life-2026-10-27/READING_STATUS.md)), AU5, AU15 | First | A4 (Anthropic API key route needs Weibao's yes) | A1: reading coordinator adds a known-name census script to protocol v3; done check: name accuracy 1.0, lint clean, measured tokens per shard (A2) |
+| [END_RUN_THREATS_LORE_SWEEP_2026-11-03](../research/END_RUN_THREATS_LORE_SWEEP_2026-11-03.md) | Rules audit (A1-A16) and lore sweep of run-ending threats capable characters exploit (LOTM, RI, HP, D&D, cyberpunk); proposes RLEE10-RLEE13 | New; research, AD50 added, uncommitted (AD32) | RELATIONSHIPS_AND_CANON round 5 (RLEE1-RLEE9); DEATH_AND_RESET; ABUSE_AND_LIMITS | Initial, 2026-11-03 | Review of the AD50 wording; which candidate mechanisms are wanted | Weibao reads; AD50 and RLEE10-RLEE13 stand as accepted on his 2026-11-03 instruction, wording adjustable. Done: RULES_INDEX router row and AD50 match the owner. |
+| [CYBERPUNK_WORLD_SCOUT](../research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md) and [CYBERPUNK_COMMUNITY_SCOUT](../research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md) | Cyberpunk source worlds and community scout; ECR21 wording corrected 2026-11-03; candidate mechanisms CW35-CW37 added | New; research and proposals, uncommitted, Reddit mostly unreachable (community scout section 0) | Lore sweep above; BHR20; ECR21-ECR24 | Initial, 2026-11-03 | Whether a cyberpunk world is wanted and in what order (Weibao) | Weibao reads; world order stays Weibao's call. Done: none until selected. |
 
 ## 5. Decisions waiting for Weibao (rolling)
 
@@ -196,6 +198,16 @@ Whole-source family census of the held MoL text against the built visitor world 
 
 Read-only reconciliation of the idle/cultivation implementation packets against `src/`, with a tested C1-C7 re-trace and a bundle-level Climb read: [reconciliation](../research/PACKET_RECONCILIATION_2026-11-03.md), [C1-C7 re-trace](../research/PACKET_RETRACE_C1_C7_2026-11-03.md), [Climb source read](../research/CLIMB_SOURCE_READ_2026-11-03.md). Proposals only (AD32); nothing accepted.
 
+## Skills round 6, 2026-11-03
+
+Proposal round on milestone ladders, titles and perks in a lead's playthrough, with more-skill candidates and four delegable deep dives (SLC112-SLC122): [skills palette, Round 6](../SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-6-2026-11-03-milestone-ladders-titles-and-perks-in-a-leads-playthrough-more-skills-proposal-only). State: New. Next: Weibao picks which of SLC119-SLC122 to start.
+
+Skills round 6 deep dives, same day (all New, proposals, none human-reviewed): [source-game skill catalogue SLC119](../research/proto23/SKILL_CATALOGUE_2026-11-03.md); [lead skill timelines SLC120](dispatch/protagonist-life-2026-10-27/LEAD_SKILL_TIMELINES_2026-11-03.md) (Klein and Zorian; no row seat-neutral yet); [deed titles with witnesses SLC122](dispatch/protagonist-life-2026-10-27/DEED_TITLES_WITNESSES_2026-11-03.md) (Klein, design only); SLC121 ladder slice built and committed on branch `worktree-agent-a99cafb056410fd34`, not merged. Next: Weibao decides whether to merge the slice.
+
+Abstraction direction (AD51) and the shared-seam round AB1-AB10, 2026-11-03: [USER_VISION](../USER_VISION.md#reasonable-things-get-abstracted-2026-11-03), [ABILITY_RULES round](../ABILITY_RULES.md#abstraction-round-2026-11-03). State: New (proposal round; AD51 recorded as Weibao's direction). Next: Weibao decides whether to send out AB8.
+
+Next world after Mother of Learning, 2026-11-03: [ranked world proposal](dispatch/NEXT_WORLD_AFTER_MOL_PROPOSAL_2026-11-03.md) (Harry Potter first, JJK runner-up with a canon-first-order deviation, Naruto and Hunter x Hunter need text). State: New (proposal, none accepted). Next: Weibao decides D1-D4.
+
 ## Afflictions and weapon properties, 2026-11-03
 
 Staged-affliction and corrosion seams (Tetanus, Rusting, a resistant festering wound) plus a d20 palette AFW1-AFW36: [considerations](../AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md). State: New. Round 2 wires the affliction seam into the HP Polyjuice bench (staged animal features, hospital-wing care), agent-verified, not human-reviewed. Next: a disease consumer with exposure and a terminal stage, or AFW-L2 corrosion in combat. Round 3 (same day) folds in the collected d20 rules: calibration checks, a real-disease ladder, AFW37-AFW42.
@@ -207,7 +219,6 @@ PF1 data absorption candidates, PFA1-PFA9 (proposal; exposure without a wound an
 Identity as layers (looks, credentials, knowledge, true self) and which layers each gate reads, with d20 disguise and detection ideas, PJI1-PJI30: [considerations](../worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md). State: New. Round 2 folds in the collected PF2 rules (PJI7-13 cited, PJI31-36). Next: PJI-L1, a dose that passes one gate. The d20 rules data is collected: [receipt](../research/d20/D20_RULES_COLLECTION_2026-11-03.md).
 
 ## UI copy pass, 2026-11-03
-
 
 Interface wording inventory and house rules: [string inventory](../reviews/UI_STRING_INVENTORY_2026-11-03.md) (generated by `node scripts/ui_string_inventory.mjs`) and [copy style sheet](../ui/COPY_STYLE_SHEET.md) F1-F8, reference voices V1-V8 (YAIR, Proto23), CPY1-CPY18. State: New (proposals, none accepted). Next: Weibao reviews CPY1-CPY18; then the report-only copy lint and the refusals slice (CPY3).
 
@@ -234,13 +245,14 @@ Per-book source, design, implementation and next-slice rows for the LOTM, COI, M
 
 Coverage of the 36 detail families (CW01-CW36) across four world clusters by reader pass, seven real gaps R1-R7, shared joins J1-J6, twelve hard cross-world features H1-H12 with a state check and floor check, and the H12, H7 and H8 results: [CROSS_WORLD_DETAIL_PASS](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md). All proposals (AD32), docs only except the H7 and H8 slices, which are agent-verified, not human-reviewed.
 
+
+## Cross-world detail pass, round 2, 2026-11-03
+
+Round 2 of the same audit: spot-checks of R1-R3 and CW04, a 16-world by 36-family grid for D&D, Fullmetal Alchemist, Skyrim, Fallout, Elden Ring and ten anime and manga worlds ([matrix](../audits/CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md)), new gaps R8-R10, sixty small details SD1-SD60 with their second systems, X1-X18 resolved or sharpened, joins J7-J11 and hard features H13-H15, in [CROSS_WORLD_DETAIL_PASS](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md#round-2-2026-11-03-proposal). Proposals (AD32), docs only, source-spot-checked for the locators opened; not rules-reconciled, built or browser-verified. Next: G8-G14 in that doc.
+
 ## Shared mechanisms from one world, adaptation seam, 2026-11-03
 
 AB11-AB26 in the [ability abstraction round](../ABILITY_RULES.md#round-2-2026-11-03-mechanisms-from-one-world-that-serve-all-and-the-adaptation-slice): bloodline through AB1 provenance, LOTM digestion and loss of control left to their lane, conserved power, upkeep, soul anchors, enforced vows, emotion fuel, rule spaces, capacity, felt rank, names. AB11 built: `src/adaptation_ledger.js`, `src/adaptation_catalogue.js`, `tests/adaptation_ledger.test.js` (9 pass), calibrated in [E8E](../emergent/E8E_ADAPTATION.md#source-calibration-2026-11-03). Implemented, below floor (no consumer, route or UI). Proposals (AD32).
-
-Abstraction direction (AD51) and the shared-seam round AB1-AB10, 2026-11-03: [USER_VISION](../USER_VISION.md#reasonable-things-get-abstracted-2026-11-03), [ABILITY_RULES round](../ABILITY_RULES.md#abstraction-round-2026-11-03). State: New (proposal round; AD51 recorded as Weibao's direction). Next: Weibao decides whether to send out AB8.
-
-Next world after Mother of Learning, 2026-11-03: [ranked world proposal](dispatch/NEXT_WORLD_AFTER_MOL_PROPOSAL_2026-11-03.md) (Harry Potter first, JJK runner-up with a canon-first-order deviation, Naruto and Hunter x Hunter need text). State: New (proposal, none accepted). Next: Weibao decides D1-D4.
 
 ## World implementation rules map, 2026-11-04
 
