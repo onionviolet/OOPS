@@ -4,6 +4,7 @@ import {deepFreeze as freeze, natural, object as record} from './basics.js';
 import {backlogAssert as assert, backlogRecord, backlogActor, backlogInventory,
     backlogItem, backlogTransfer, backlogLog, assertBacklogBoundary} from './backlog_expansion_core.js';
 import {simulationOccupiesActor} from './simulation.js';
+import {isGrained} from './currency_subunits.js';
 
 const keys = (value, expected, label) => assert(record(value) && Object.keys(value).length === expected.length &&
     expected.every(key => Object.hasOwn(value, key)), `Invalid ${label} record.`);
@@ -217,7 +218,7 @@ export function stageOpportunityCommand(plan, command, context) {
         } else if(id === 'backlog.ecology_supply') {
             assert(ecology.supplied < ecology.harvested && ecology.supplied < CYCLES && resources[I.purseResource] >= PAY,
                 'Harvest another finite round before taking its funded supply order.');
-            assert(natural(plan.external.money) && Number.isSafeInteger(plan.external.money + PAY), 'Bind the actual native coin owner before settling supplies.');
+            assert(Number.isFinite(plan.external.money) && plan.external.money >= 0 && isGrained(plan.external.money, 2) && Math.abs(plan.external.money + PAY) < Number.MAX_SAFE_INTEGER, 'Bind the actual native coin owner before settling supplies.');
             backlogTransfer(plan, 'player', I.keeper, K.herbs, YIELD);
             resources[I.purseResource] -= PAY; plan.external.money += PAY;
             const round = ecology.history[ecology.supplied];

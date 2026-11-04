@@ -18,6 +18,7 @@ import {causeCommands,causeSteadyCommand,causeFlags,causeFacts} from './book_wor
 import {brokerCommands,lotFlags,brokerFacts} from './book_world_lotm_broker.js';
 import {clearanceCommands,clearanceFacts,LOTM_ROLE_OF} from './book_world_lotm_clearance.js';
 import {beClientFacts} from './book_world_lotm_be_clients.js';
+import {payFacts} from './book_world_lotm_pay.js';
 import {BE_SEER_FLAGS,BE_SEER_ENERGY,beSeerSources,beSeerFacts} from './book_world_lotm_be_seer.js';
 import {beFirearmFacts} from './book_world_lotm_be_firearm.js';
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
@@ -153,7 +154,7 @@ export function lotmFacts(state,ctx={}){
  for(const id of [I.supervisor,I.stormOfficer,I.machineryOfficer,I.seniorDeacon,I.stormDeacon,I.evernightDeacon,I.member])f[`lotm.attention.${id}`]=state.actors?.[id]?.resources?.['book.lotm.attention']??0;
  beSeerFacts(state,f,{enrolled,flag});
  beFirearmFacts(state,f,{enrolled});
- beClientFacts(state,f);
+ beClientFacts(state,f);payFacts(state,f);
  f['lotm.supervisorAttention']=state.actors?.[I.supervisor]?.resources?.['book.lotm.attention']??0;
  return f;
 }

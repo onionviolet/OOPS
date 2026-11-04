@@ -6,7 +6,7 @@ import {createFurniturePanel} from './home_furniture_panel.js';
 import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
 import {configureCraftingDomain} from './crafting_domain.js';import './dnd_phandalin_domain.js';
 import {configureNativeToolDomains} from './native_tool_domains.js';
-import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
+import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding,bindMoneyGrain} from './economy_domain.js';import {grainFor} from './currency_subunits.js';import {currentWorldId as moneyWorldId} from './world_look.js';bindMoneyGrain(()=>grainFor(moneyWorldId())); // R2 dial: halfpence only in a world listed in WORLD_GRAIN
 import './harm_state.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';

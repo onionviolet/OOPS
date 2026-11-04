@@ -20,6 +20,7 @@ import {PROVENANCE_CODES} from './constraint_store.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {beClientAssertions} from './book_world_lotm_be_clients.js';
+import {payAssertions} from './book_world_lotm_pay.js';
 import {beSeerAssertions,BE_SEER_ENERGY_ID} from './book_world_lotm_be_seer.js';
 import {beFirearmAssertions} from './book_world_lotm_be_firearm.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
@@ -108,6 +109,6 @@ export function validateLotmState(state){
  // The book life's own Seer chain (B1): its own source, flags and pool, so the Tingen invariants above stay as they were.
  beSeerAssertions(state,{a,has,assert});
  beFirearmAssertions(state,{a,has,assert});
- beClientAssertions({a,assert});
+ beClientAssertions({a,assert});payAssertions({a,assert});
  return true;
 }
