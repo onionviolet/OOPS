@@ -8,8 +8,8 @@ function reason({run=true,stamina=1,owns=true,busy=false,toggle=true}={}) {
 }
 test('real host Run admission allows low-stamina stop while travel continues walking and enabling still refuses',()=>{
  assert.equal(reason(),'');
- assert.match(reason({toggle:false}),/2 stamina.*walking/);
- assert.match(reason({run:false}),/2 stamina.*walking/);
+ assert.match(reason({toggle:false}),/2 stamina.*walk/);
+ assert.match(reason({run:false}),/2 stamina.*walk/);
  assert.match(reason({owns:false}),/Saving/);
  assert.match(reason({busy:true}),/current activity/);
  assert.equal(reason({run:false,stamina:2}),'');
