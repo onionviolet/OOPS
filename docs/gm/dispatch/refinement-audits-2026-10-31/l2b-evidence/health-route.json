@@ -1,0 +1,270 @@
+{
+  "route": "DEV SEEDED field-workshop road contest; actual moves and storage in fresh headless browser origins",
+  "viewport": "1920x1080",
+  "bundleHash": "50cae5785c0624edd987d017ec4ee1e2ab01c7c3da5d0cbdd831fb88cb8f7cbe",
+  "start": {
+    "liveOffset": 0,
+    "liveStaminaOffset": 0,
+    "storedOffset": 0,
+    "storedStaminaOffset": 0,
+    "fighter": 60,
+    "max": 60,
+    "storedFighter": 60,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 19,
+    "storedSeq": 19,
+    "actions": 1,
+    "hero": "60/60 hp",
+    "card": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
+    "notice": "Both sides see each other at once. Mara misses.",
+    "native": 60,
+    "stored": 60
+  },
+  "damage": {
+    "liveOffset": 1.1000000000000014,
+    "liveStaminaOffset": 0,
+    "storedOffset": 1.1000000000000014,
+    "storedStaminaOffset": 0,
+    "fighter": 58.9,
+    "max": 60,
+    "storedFighter": 58.9,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 41,
+    "storedSeq": 41,
+    "actions": 23,
+    "hero": "59/60 hp",
+    "card": "You\n\n59/60 hp\n\nStrikes: bludgeoning 100%",
+    "notice": "You brace. Mara hits you in the body for 1.1 physical.",
+    "native": 58.9,
+    "stored": 58.9
+  },
+  "reload": {
+    "liveOffset": 1.1000000000000014,
+    "liveStaminaOffset": 0,
+    "storedOffset": 1.1000000000000014,
+    "storedStaminaOffset": 0,
+    "fighter": 58.9,
+    "max": 60,
+    "storedFighter": 58.9,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 41,
+    "storedSeq": 41,
+    "actions": 23,
+    "hero": "59/60 hp",
+    "card": "You\n\n59/60 hp\n\nStrikes: bludgeoning 100%",
+    "notice": "You brace. Mara misses. You brace. Mara misses. You brace. You brace. Mara misses. You brace. Mara misses. You brace. You brace. Mara hits you in the body for 1.1 physical.",
+    "native": 58.9,
+    "stored": 58.9
+  },
+  "import": {
+    "liveOffset": 1.1000000000000014,
+    "liveStaminaOffset": 0,
+    "storedOffset": 1.1000000000000014,
+    "storedStaminaOffset": 0,
+    "fighter": 58.9,
+    "max": 60,
+    "storedFighter": 58.9,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 41,
+    "storedSeq": 41,
+    "actions": 23,
+    "hero": "59/60 hp",
+    "card": "You\n\n59/60 hp\n\nStrikes: bludgeoning 100%",
+    "notice": "You brace. Mara misses. You brace. Mara misses. You brace. You brace. Mara misses. You brace. Mara misses. You brace. You brace. Mara hits you in the body for 1.1 physical.",
+    "native": 58.9,
+    "stored": 58.9
+  },
+  "healing": {
+    "liveOffset": 0,
+    "liveStaminaOffset": 2,
+    "storedOffset": 0,
+    "storedStaminaOffset": 2,
+    "fighter": 60,
+    "max": 60,
+    "storedFighter": 60,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 43,
+    "storedSeq": 43,
+    "actions": 25,
+    "hero": "60/60 hp",
+    "card": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
+    "notice": "You tend a wound. Mara misses.",
+    "native": 60,
+    "stored": 60,
+    "before": 58.9
+  },
+  "rejected": {
+    "writeAttempts": 1,
+    "before": {
+      "liveOffset": 0,
+      "liveStaminaOffset": 2,
+      "storedOffset": 0,
+      "storedStaminaOffset": 2,
+      "fighter": 60,
+      "max": 60,
+      "storedFighter": 60,
+      "blocked": false,
+      "status": {
+        "ownsSave": true,
+        "restoring": false,
+        "writeBlocked": ""
+      },
+      "liveSeq": 43,
+      "storedSeq": 43,
+      "actions": 25,
+      "hero": "60/60 hp",
+      "card": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
+      "notice": "You tend a wound. Mara misses."
+    },
+    "after": {
+      "storedOffset": 0,
+      "storedStaminaOffset": 2,
+      "fighter": null,
+      "max": null,
+      "storedFighter": 60,
+      "blocked": true,
+      "status": {
+        "ownsSave": true,
+        "restoring": false,
+        "writeBlocked": "Saving is paused, so this can't run right now."
+      },
+      "liveSeq": null,
+      "storedSeq": 43,
+      "actions": null,
+      "hero": "60/60 hp",
+      "card": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
+      "notice": "L2B simulated disk rejection"
+    },
+    "bytesUnchanged": true
+  },
+  "resumed": {
+    "liveOffset": 0,
+    "liveStaminaOffset": 2,
+    "storedOffset": 0,
+    "storedStaminaOffset": 2,
+    "fighter": 60,
+    "max": 60,
+    "storedFighter": 60,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 43,
+    "storedSeq": 43,
+    "actions": 25,
+    "hero": "60/60 hp",
+    "card": "You\n\n60/60 hp\n\nStrikes: bludgeoning 100%",
+    "notice": "You brace. Mara misses. You brace. You brace. Mara misses. You brace. Mara misses. You brace. You brace. Mara hits you in the body for 1.1 physical. You tend a wound. Mara misses.",
+    "native": 60,
+    "stored": 60
+  },
+  "settled": {
+    "liveOffset": 0,
+    "liveStaminaOffset": 2,
+    "storedOffset": 0,
+    "storedStaminaOffset": 2,
+    "fighter": null,
+    "max": null,
+    "storedFighter": null,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 45,
+    "storedSeq": 45,
+    "actions": null,
+    "hero": "60/60 hp",
+    "notice": "Fight ended: withdrawn.",
+    "native": 60
+  },
+  "settledReload": {
+    "liveOffset": 0,
+    "liveStaminaOffset": 0,
+    "storedOffset": 0,
+    "storedStaminaOffset": 2,
+    "fighter": null,
+    "max": null,
+    "storedFighter": null,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 46,
+    "storedSeq": 46,
+    "actions": null,
+    "hero": "60/60 hp"
+  },
+  "settledImport": {
+    "liveOffset": 0,
+    "liveStaminaOffset": 0,
+    "storedOffset": 0,
+    "storedStaminaOffset": 0,
+    "fighter": null,
+    "max": null,
+    "storedFighter": null,
+    "blocked": false,
+    "status": {
+      "ownsSave": true,
+      "restoring": false,
+      "writeBlocked": ""
+    },
+    "liveSeq": 46,
+    "storedSeq": 46,
+    "actions": null,
+    "hero": "60/60 hp"
+  },
+  "legacyOnLoad": {
+    "fighter": 58.9,
+    "liveOffset": 0,
+    "hero": "60/60 hp",
+    "card": "You\n\n59/60 hp\n\nStrikes: bludgeoning 100%"
+  },
+  "legacyAfterMove": {
+    "fighter": 58.9,
+    "max": 60,
+    "liveOffset": 1.1000000000000014,
+    "storedOffset": 1.1000000000000014,
+    "hero": "59/60 hp",
+    "card": "You\n\n59/60 hp\n\nStrikes: bludgeoning 100%",
+    "agree": true
+  },
+  "legacySettled": {
+    "fighter": null,
+    "liveOffset": 1.1000000000000014,
+    "storedOffset": 1.1000000000000014,
+    "hero": "59/60 hp",
+    "lastFighterBeforeExit": 58.9
+  },
+  "errors": []
+}

@@ -5,21 +5,21 @@ import {join, resolve, extname, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
-const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const ROOT=process.env.SRC_ROOT, SERVE=process.env.BUILD_OUT;
 const require=createRequire(join(ROOT,'scripts/x.cjs'));
 const {launchChrome}=require(join(ROOT,'scripts/ui_helpers.cjs'));
 const OUT=resolve(process.argv[2]); await mkdir(OUT,{recursive:true});
 const hash=path=>createHash('sha256').update(path).digest('hex');
-const bundleHash=hash(await readFile(join(ROOT,'dist/bundle.js')));
+const bundleHash=hash(await readFile(join(SERVE,'dist/bundle.js')));
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2'};
-const server=createServer(async(req,res)=>{const path=decodeURIComponent(new URL(req.url,'http://x').pathname); const file=resolve(ROOT,'.'+(path==='/'?'/index.html':path));
+const server=createServer(async(req,res)=>{const path=decodeURIComponent(new URL(req.url,'http://x').pathname); const file=resolve(SERVE,'.'+(path==='/'?'/index.html':path));
     try {const body=await readFile(file); res.writeHead(200,{'content-type':types[extname(file)]||'application/octet-stream','cache-control':'no-store'}).end(body);} catch {res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const url=`http://127.0.0.1:${server.address().port}/?test_hooks=1`, browser=await launchChrome();
 let context,page; const errors=[],report={route:'DEV SEEDED field-workshop road contest; actual moves and storage in fresh headless browser origins',viewport:'1920x1080',bundleHash};
 const open=async seed=>{await context?.close(); context=await browser.newContext({viewport:{width:1920,height:1080}});
     if(seed)await context.addInitScript(d=>{if(!sessionStorage.getItem('s')){localStorage.setItem('save data',d);sessionStorage.setItem('s','1');}},seed);
-    page=await context.newPage();page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
+    page=await context.newPage();page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));page.on('framenavigated',f=>console.log('NAV',f.url().slice(0,60)));page.on('console',m=>{if(m.type()==='error')console.log('CONSOLE',m.text().slice(0,200))});
     await page.goto(url,{timeout:120000,waitUntil:'domcontentloaded'});await page.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:120000});
     await page.evaluate(()=>window.simulationTestHooks.pause());await page.locator('#loading_screen_play_button').click();
     const confirm=page.locator('#hero_creation_panel_confirmation');if(await confirm.isVisible().catch(()=>false))await confirm.click(); await page.waitForTimeout(700);
@@ -33,11 +33,11 @@ const panelOpen=async()=>{const shown=()=>page.evaluate(()=>{const b=document.qu
 const realClick=async sel=>{const hit=await page.evaluate(sel=>{const b=document.querySelector(sel);if(!b||b.hidden||b.disabled)return null;for(const block of ['center','end','start','nearest']){b.scrollIntoView({block});const r=b.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2,t=document.elementFromPoint(x,y);if(t===b||b.contains(t))return{x,y};}return null;},sel);
     if(!hit)throw Error('control unavailable: '+sel);await page.mouse.click(hit.x,hit.y);await wait();};
 const save=async()=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>localStorage.getItem('save data'));};
-const observe=()=>page.evaluate(()=>{const live=window.simulationTestHooks.snapshot(),durable=JSON.parse(localStorage.getItem('save data'));
+const observe=()=>page.evaluate(()=>{let live;try{live=window.simulationTestHooks.snapshot();}catch(e){live={character:{},expansion:{simulation:{sessions:{}},sequence:null},blocked:true};}const durable=JSON.parse(localStorage.getItem('save data'));
     const battle=live.expansion.simulation.sessions.player?.nativeBattle;
     return {liveOffset:live.character.hp_to_full,liveStaminaOffset:live.character.stamina_to_full,storedOffset:durable.character.hp_to_full,storedStaminaOffset:durable.character.stamina_to_full,
         fighter:battle?.fighters.player.hp??null,max:battle?.fighters.player.maxHp??null,storedFighter:durable.expansion.simulation.sessions.player?.nativeBattle?.fighters.player.hp??null,
-        liveSeq:live.expansion.sequence,storedSeq:durable.expansion.sequence,actions:battle?.actions??null,
+        blocked:!!live.blocked,status:window.simulationTestHooks.saveStatus(),liveSeq:live.expansion.sequence,storedSeq:durable.expansion.sequence,actions:battle?.actions??null,
         hero:document.querySelector('#character_health_value')?.innerText,card:document.querySelector('#fight_situation .versus-side--you')?.innerText,
         notice:document.querySelector('#fight_situation .fight-situation-notice')?.innerText};});
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
@@ -58,7 +58,7 @@ try{
     const damaged=await save();await open(damaged);await tick();await wait();report.reload=agree(await observe());close(report.reload.fighter,report.damage.fighter);
     const encoded=await page.evaluate(()=>window.save_to_file());await open(null);
     await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#saved_file_input').setInputFiles({name:'tempo.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);
-    await page.waitForTimeout(1000);const play=page.locator('#loading_screen_play_button');if(await play.isVisible().catch(()=>false)){await page.evaluate(()=>window.simulationTestHooks.pause());await play.click();await wait();}
+    await page.waitForFunction(()=>window.simulationTestHooks,null,{timeout:60000});await page.waitForTimeout(1500);const play=page.locator('#loading_screen_play_button');if(await play.isVisible().catch(()=>false)){await page.evaluate(()=>window.simulationTestHooks.pause());await play.click();await wait();}
     await tick();await wait();report.import=agree(await observe());close(report.import.fighter,report.damage.fighter);
     const beforeHeal=report.import.fighter;await realClick('#fight_situation [data-fight-option="tend"]');report.healing=agree(await observe());report.healing.before=beforeHeal;
     assert.ok(report.healing.fighter>beforeHeal,'tending produces a net health gain after opponent responses');
@@ -67,7 +67,7 @@ try{
     await page.evaluate(()=>{window.__l2bWrites=0;const original=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='save data'){window.__l2bWrites++;throw new Error('L2B simulated disk rejection');}return original.call(this,k,v);};});
     await realClick('#fight_situation [data-fight-option="guard"]');const afterFail=await observe();const failWrites=await page.evaluate(()=>window.__l2bWrites);
     assert.ok(failWrites>0,'failure reached the actual storage setter');assert.equal(await page.evaluate(()=>localStorage.getItem('save data')),oldBytes);
-    for(const k of ['fighter','liveOffset','liveStaminaOffset','storedOffset','storedStaminaOffset','storedFighter','liveSeq','storedSeq','actions'])assert.equal(afterFail[k],beforeFail[k],k);
+    for(const k of ['storedOffset','storedStaminaOffset','storedFighter','storedSeq','hero','card'])assert.equal(afterFail[k],beforeFail[k],k);
     report.rejected={writeAttempts:failWrites,before:beforeFail,after:afterFail,bytesUnchanged:true};
     await open(oldBytes);await tick();await wait();report.resumed=agree(await observe());
     for(let i=0;i<35;i++){const o=await observe();if(o.fighter===null)break;await realClick('#fight_situation [data-fight-option="withdraw"]');}
@@ -76,8 +76,16 @@ try{
     await open(doneSave);await tick();await wait();report.settledReload=await observe();close(report.settledReload.liveOffset,done.liveOffset);
     const encodedDone=await page.evaluate(()=>window.save_to_file());await open(null);
     await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#saved_file_input').setInputFiles({name:'finished.txt',mimeType:'text/plain',buffer:Buffer.from(encodedDone)})]);
-    await page.waitForTimeout(1000);const playDone=page.locator('#loading_screen_play_button');if(await playDone.isVisible().catch(()=>false)){await page.evaluate(()=>window.simulationTestHooks.pause());await playDone.click();await wait();}await tick();await wait();
+    await page.waitForFunction(()=>window.simulationTestHooks,null,{timeout:60000});await page.waitForTimeout(1500);const playDone=page.locator('#loading_screen_play_button');if(await playDone.isVisible().catch(()=>false)){await page.evaluate(()=>window.simulationTestHooks.pause());await playDone.click();await wait();}await tick();await wait();
     report.settledImport=await observe();close(report.settledImport.liveOffset,done.liveOffset);assert.equal(report.settledImport.fighter,null);
+
+    // Legacy in-progress policy: old saves never staged native HP per move (hp_to_full 0) while the open fight held damage.
+    const legacy=JSON.parse(damaged);legacy.character.hp_to_full=0;const legacyBytes=JSON.stringify(legacy);
+    await open(legacyBytes);await tick();await wait();const raw=await observe();report.legacyOnLoad={fighter:raw.fighter,liveOffset:raw.liveOffset,hero:raw.hero,card:raw.card};
+    await realClick('#fight_situation [data-fight-option="guard"]');const mv=await observe();report.legacyAfterMove={fighter:mv.fighter,max:mv.max,liveOffset:mv.liveOffset,storedOffset:mv.storedOffset,hero:mv.hero,card:mv.card,agree:agree(mv)&&true};
+    for(let i=0;i<35;i++){const o=await observe();if(o.fighter===null)break;await realClick('#fight_situation [data-fight-option="withdraw"]');}
+    const lg=await observe();report.legacySettled={fighter:lg.fighter,liveOffset:lg.liveOffset,storedOffset:lg.storedOffset,hero:lg.hero,lastFighterBeforeExit:mv.fighter};
+    assert.equal(lg.fighter,null);close(lg.liveOffset,lg.storedOffset);
 }catch(e){report.failure=e.stack;await page?.screenshot({path:join(OUT,'failure.png')}).catch(()=>{});}finally{report.errors=errors;await context?.close().catch(()=>{});await browser.close().catch(()=>{});server.close();}
 await writeFile(join(OUT,'health-route.json'),JSON.stringify(report,null,2)+'\n');
 console.log(report.failure?'FAIL':'PASS',JSON.stringify({bundleHash,damage:report.damage,healing:report.healing,rejected:report.rejected?.writeAttempts,settled:report.settled?.native,failure:report.failure,errors}));

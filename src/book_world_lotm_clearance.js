@@ -49,3 +49,10 @@ export function clearanceFacts(state,f,{profile,ingested,here,peopleAt}){
  return {role,present};
 }
 export const clearanceView=(role,present,known=true)=>Object.keys(LOTM_CLEARANCE.grades).sort().map(g=>({grade:Number(g),...clearanceFor(LOTM_CLEARANCE,g,{role,present,known})}));
+// R6 (ch65 P052): reading clearance for documents, keyed by the Sequence a page describes. Source-stated: the lead's clearance stops at
+// Sequence 7 [ch65 P052] and the Demoness file sits with the Cathedral beyond that [ch66]. That a captain clears Sequence 6 and the
+// Cathedral file is an authored default (WPR5): the source names only the stop. Levels are derived from grants the arc earned, never set.
+export const LOTM_RECORDS_CLEARANCE=defineClearance({id:'lotm.records',roles:['uncleared','cleared_7','captain'],grades:{
+ 7:{needs:{atLeast:'cleared_7'},line:'The armory papers up to Sequence 7 are open to you on Dunn\'s note.',vague:'You were told some papers are open to you.'},
+ 6:{needs:{atLeast:'captain'},line:'Papers on Sequence 6 and above need a captain\'s clearance; yours stops at Sequence 7.',vague:'Your clearance stops short of these pages.'},
+ 5:{needs:{atLeast:'captain'},line:'The Holy Cathedral keeps this file; you would need a captain\'s clearance.',vague:'The Cathedral keeps this file.'}}});

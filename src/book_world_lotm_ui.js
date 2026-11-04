@@ -52,6 +52,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  // A control on another workroom tab is brought into view first; focusing a tab-hidden row did nothing.
  const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
  const findControl=(id,{focusAction=false}={})=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return false;for(let a=b.parentElement;a&&a!==panel;a=a.parentElement)if(a.tagName==='DETAILS')a.open=true;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;(focusAction&&!b.disabled?b:r).focus();r.scrollIntoView({block:'nearest'});return true;};
+ const findWork=id=>{const status=[...panel.querySelectorAll('[data-lotm-job]')].find(n=>n.dataset.lotmJob===id);if(!status)return false;showTabOf(status);status.focus();status.scrollIntoView({block:'nearest'});return true;};
  const restoreControl=id=>{if(findControl(id,{focusAction:true}))return;const next=id.startsWith('wait.until.')&&actions.querySelector('button[data-lotm^="wait.until."]');if(next)findControl(next.dataset.lotm,{focusAction:true});};
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
@@ -121,6 +122,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
   const next=JSON.stringify([signatureView,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
   const focused=document.activeElement,focusId=panel.contains(focused)?focused?.dataset?.lotm||(focused?.hasAttribute?.('data-panel-row')?focused.querySelector('[data-lotm]')?.dataset?.lotm:null):null;
+  const taskFocus=panel.contains(focused)?['lotmTaskLink','lotmTaskWaitLink','lotmTaskWorkLink','lotmJob'].map(key=>[key,focused?.dataset?.[key]]).find(([,id])=>id):null;
   waitButtons.clear();
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
@@ -225,7 +227,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    const refund=j.cancellation==='refund',returns=refund&&j.refundsInputs;
    const label=returns?'Stop (reserved inputs returned)':refund?'Stop work':'Stop (cost not returned)';
    const consequence=returns?'Reserved inputs were returned; elapsed time stays spent.':refund?'The work stopped; elapsed time stays spent.':'What this work cost is gone.';
-   jobsHome.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[
+   const jobStatus=node('p',`${j.label} · ${j.left} min left`);jobStatus.dataset.lotmJob=j.id;jobStatus.tabIndex=-1;
+   jobsHome.append(row(jobStatus,...(j.cancellable?[
     button(label,'cancel',()=>run(()=>cancel(j.id),`You stopped. ${consequence}`),false,returns?'Stopping returns the reserved inputs; elapsed time stays spent.':refund?'Stopping ends this work; elapsed time stays spent.':'Stopping forfeits what this spent.'),
     node('span',returns?'Stopping returns reserved inputs; elapsed time stays spent.':refund?'Stopping keeps elapsed time spent.':'Stopping keeps the paid cost spent.')]:[])));
   }
@@ -234,7 +237,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    commonActions.append(node('h3','Common actions'),node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
    for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);commonActions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
   }
-  if(v.arc)actions.prepend(renderLotmTaskSummary(v,{findControl}));
+  if(v.arc)actions.prepend(renderLotmTaskSummary(v,{findControl,findWork}));
   for(const stock of v.stockViews||[]){
    const supplies=node('section');supplies.dataset.lotmStock='true';supplies.append(node('h3',stock.title));
    for(const r of stock.rows)supplies.append(node('p',`${r.label}: ${r.amount??'unknown'}`));
@@ -276,6 +279,18 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
     altar.append(rite);
    }
    actions.append(altar);
+  }
+  if(v.sealedRecords?.length){
+   // Sealed records (R6): the stack is fetched, then each page is its own read; a page above the lead's clearance shows why it stays shut.
+   const sealed=node('details');sealed.dataset.lotmSealedRecords='';sealed.dataset.perspective='player';sealed.append(node('summary','Sealed records · Your reading'));
+   for(const a of v.sealedRecords){
+    const line=a.status==='read'?'Read.':a.status==='ready'?`${a.duration} min. ${a.costText}`:a.reasons.join(' ');
+    const item=node('div');item.dataset.lotmRecordRow=a.id;item.dataset.status=a.status;
+    item.append(node('p',`${a.label} · ${a.status==='read'?'read':a.status==='ready'?'ready':a.status==='withheld'?'withheld':'not yet'}`),node('p',line),
+     ...(a.status==='read'?[]:[row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' ')))]));
+    sealed.append(item);
+   }
+   actions.append(sealed);
   }
   if(v.exchanges?.length){
    const exchange=node('details');exchange.dataset.lotmExchanges='';exchange.dataset.perspective='player';exchange.append(node('summary','Belongings · Your exchange'));
@@ -325,6 +340,13 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
   tabsUi.update(v);
   if(focusId&&!focused.isConnected)restoreControl(focusId);
+  // A review link is navigation, not the native command it points at. Retain
+  // that exact target across refresh; never transfer a pending click to a new task.
+  if(taskFocus&&!focused.isConnected){
+   const [attr,id]=taskFocus;
+   const same=[...panel.querySelectorAll('[data-lotm-task-link],[data-lotm-task-wait-link],[data-lotm-task-work-link],[data-lotm-job]')].find(n=>n.dataset[attr]===id);
+   (same||panel.querySelector('#lotm-current-task-title'))?.focus({preventScroll:true});
+  }
  }
  definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,perspective:'book.lotm.tingen',discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};
