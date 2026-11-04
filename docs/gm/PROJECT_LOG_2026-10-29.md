@@ -2342,3 +2342,7 @@ Replaced in PROJECT.md item 1: the KJ3Y endpoint (Sunday noon on Zouteland Stree
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw17, first window of the ch55-84 arc)
 
 The Klein line now names the KJ3AA endpoint (Sunday 10:50 p.m. at the flat after Anna's first paid divination and the night notes, English v1 ch55 P001 through ch57 P068; 21 acts, 29 slices, 452 stages; native on the master bundle `65a3b122`, purse 799, pool 2/3). The KJ3Z receipt keeps the volume-1 closing summary. First native use of B4/B5/R1 (method gate, dream divination cost) and B6/R9 (stated 12-pence fee, favor). The club share and tip (2 pence) are a pending card until R2 (halfpence) is on master; backlog row C1. Agent-verified, not human-reviewed.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw18)
+
+The Klein line now names the KJ3AB endpoint (Monday 4:04 p.m. at the flat after the third gathering and the leave ritual, English v1 ch58 P001 through ch61 P071; 16 acts, 30 slices, 468 stages; native on the master bundle `65a3b122`, purse 799, pool 2/3). KJ3AA keeps Anna's first paid divination and the night notes. A third pack remote session was added (KJ3Q precedent). Agent-verified, not human-reviewed.
