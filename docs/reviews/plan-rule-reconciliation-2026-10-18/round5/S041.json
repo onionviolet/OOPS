@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "shard": "S041",
+  "reader": "content_s041; gpt-6-luna low",
+  "payload_sha256": "ad99103e17baac35d079498c0232ef79571d43abcb601a5a870fa461b15e7e97",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0427",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md",
+      "input_sha256": "1fcecc621cc90a8d73f1b4f213b62e15cbac7ce1edbaa6a5fdba90025018d9ad",
+      "read_ranges": [
+        [
+          1,
+          322
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Harry Potter full-dump reader checkpoint",
+        "Unbreakable Vow",
+        "Wizengamot",
+        "Gryffindor",
+        "Slytherin",
+        "Ravenclaw",
+        "Hufflepuff",
+        "Harry Potter",
+        "Ronald Weasley",
+        "Hermione Granger",
+        "Draco Malfoy",
+        "Neville Longbottom",
+        "Lavender Brown",
+        "Seamus Finnigan",
+        "Parvati Patil",
+        "Dean Thomas",
+        "Fred and George Weasley",
+        "Ginevra Weasley",
+        "Arthur Weasley",
+        "Molly Weasley",
+        "William Weasley",
+        "Percy Weasley",
+        "Sirius Black",
+        "Minerva McGonagall",
+        "Severus Snape",
+        "Nicholas de Mimsy-Porpington",
+        "Bloody Baron",
+        "Fat Friar",
+        "Helena Ravenclaw",
+        "Peeves",
+        "Poppy Pomfrey",
+        "Irma Pince",
+        "Argus Filch",
+        "Sybill Trelawney",
+        "Rubeus Hagrid",
+        "Dolores Umbridge",
+        "Bartemius Crouch Junior",
+        "Alastor Moody",
+        "Remus Lupin",
+        "Gilderoy Lockhart",
+        "Quirinus Quirrell",
+        "Filius Flitwick",
+        "J. K. Rowling",
+        "Hogwarts School of Witchcraft and Wizardry",
+        "Durmstrang Institute",
+        "Beauxbatons Academy of Magic",
+        "Myrtle Warren",
+        "Ghost",
+        "Harry Potter and the Philosopher's Stone",
+        "Harry Potter and the Chamber of Secrets",
+        "James Potter (I)",
+        "Regulus Black",
+        "Horcrux",
+        "Parseltongue",
+        "Harry Potter and the Half-Blood Prince",
+        "1980",
+        "1981",
+        "1979",
+        "1978",
+        "1982",
+        "1983",
+        "1977",
+        "1976",
+        "1973",
+        "{{fact}}",
+        "{{COG|S}}",
+        "{{HL}}",
+        "{{WBP}}",
+        "{{MA}}",
+        "{{MagicAwakenedSpoiler}}",
+        "{{DP}}"
+      ],
+      "mechanism_and_interactions": "The secondary-wiki checkpoint separates mechanisms and their gates/counters: school access wards, transport and memory effects, continuity-specific time devices, soul fragments/possession/vessels, transformations, case-specific healing and institutional decrees/legal records. Wolfsbane preserves a transformed wolf’s mind without preventing transformation; direct versus mediated gaze, counters and recovery are separate causal effects. Book, film, stage, game and supplementary claims retain distinct attribution. Literal source markers remain unresolved; contradiction, inference and unknown operation are explicit. The 148 reported completed pages do not close the 24,634-retained-input queue; biography and credit entries are scope flags, not independent mechanics.",
+      "disposition": "Historical content checkpoint is a secondary-source extraction and continuity/scope ledger, not canon authentication, a present design decision, or runtime evidence. The content is useful as bounded claims with attribution and uncertainty preserved; no claims should be promoted to universal rules from this record. It explicitly leaves later scope repair and dependency triage open.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md; frozen source manifest docs/research/power-systems/wiki-digests/full-dumps/harrypotter_SOURCES.json and raw saved-text reader/ledger described by the checkpoint. No current game consumer is assigned in this record.",
+      "evidence_state": "Assigned checkpoint text lines 1–322 were read completely through three sequential prepared parts. The checkpoint reports hashes/ranges against frozen raw payload and manifest; this reader did not inspect those raw inputs or independently verify the checkpoint’s historical actions. This is not primary canon authentication or current runtime proof.",
+      "remaining_check": "If any claim is selected for any selected world or runtime work, inspect the owning source/consumer and qualify the exact primary or continuity-specific source, unresolved templates, chronology conflicts, scope/dependency coverage, and actual mechanism. The checkpoint itself says the retained queue is mostly unread and later scope-repair/dependency triage remain open; no archive-closure inference follows.",
+      "evidence_lines": [
+        [
+          7,
+          16
+        ],
+        [
+          129,
+          199
+        ],
+        [
+          249,
+          319
+        ]
+      ],
+      "repair_status": "No correction applied by this reader; the checkpoint itself records the accepted attribution repair at L00011 and retains unresolved literal source markers."
+    }
+  ],
+  "repairs": [
+    "Coordinator normalized labeled evidence strings to numeric ranges, shortened the summary while preserving causal/continuity distinctions, and removed an unneeded LOTM reference."
+  ],
+  "cross_record_findings": [
+    "U0427 itself flags internal and inter-page source tension: the 1981 timeline says Harry “became a Horcrux,” while the Horcrux entry distinguishes an accidental pseudo-Horcrux; the checkpoint preserves that wording conflict rather than silently normalizing it.",
+    "The checkpoint distinguishes real-world archive/version history from fictional events (for example Wizards Unite shutdown) and separates main book continuity from stage, film, game and supplementary claims; collapsing those boundaries would change the recorded evidence."
+  ],
+  "unresolved_questions_source_gaps": [
+    "This is a secondary wiki checkpoint; no primary-canon authentication occurred in this reader pass.",
+    "The checkpoint says the Harry Potter retained queue is mostly unread and later scope-repair/dependency triage are open; its 148-page completion count is not archive completion.",
+    "Literal templates remain unresolved where named, and many individual mechanics, legal procedures, chronology details and continuity-specific claims are expressly unknown, contradictory, inferred, speculative, or source-bound.",
+    "No current game consumer, runtime behavior, save behavior, or implementation acceptance is evidenced by this historical content record."
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "schema": 1,
+  "shard": "S016",
+  "reader": "content_s016; gpt-6-luna low",
+  "payload_sha256": "f265949a05e5d2097a14a2d4d28d54a7c91cc3b1e16fcff13efecadacdb5387c",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0229",
+      "path": "docs/gm/trailblaze/world-instances/CHECKPOINT.md",
+      "input_sha256": "b2beba1be6a50948973b390af5e33c45f44ff962e90887b638ca2030116c6e84",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The lane exports persistent miniworld definitions and planners for schema, construction, validation, clock, departure, update and view, plus Glasshouse commands/caretaker/sites/controller. Inspected paid work reuses native owner references, Load-bearing Step mastery/output, and drive cost/strain; there is no automatic stock/source/actor enrollment or copied native inventory/body/quests. The current master host consumes constructors, clock, mappings and private fact projection, while save namespace/migration and live actor/fact/site/claim/job/cargo/position bindings remain Engine-owned.",
+      "disposition": "Finite source/integration objective completed and released; native game rebuild and behavior remain explicitly unverified. The checkpoint chronologically reports code modules and integration, but distinguishes those from native build/gameplay evidence.",
+      "owner_or_consumer": "docs/gm/trailblaze/world-instances/REPORT.md; src/realm_state.js and src/pocket_realm_host.js are named actual consumers; native build remains master-owned.",
+      "evidence_state": "Checkpoint reports syntax/import/declarative registry checks, integration reviews and in-memory ESM compilation. No behavior tests, browser/save checks, or native game bundle mutation occurred in this lane.",
+      "remaining_check": "Master-owned native rebuild and separate playable acceptance remain open; save compatibility and actual realm bindings require their Engine owner.",
+      "evidence_lines": [
+        [
+          9,
+          11
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "record_id": "U0230",
+      "path": "docs/gm/world-completion-2026-10-06/CHECKPOINT.md",
+      "input_sha256": "bf317937cba826b9e5429833558b6f6125035b5b05f8382bc53e256e1d99f469",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "base.frontier"
+      ],
+      "mechanism_and_interactions": "The expanded home-world delivery connects native travel/access/time and lot escrow with joined opening, fresh registry-aware source/native/body/tool facts, accepted native victory contribution and one-use reservation/refund, mature careers/material/control/inquiry/insight, funded willing Jun work/report/handoff, endings and return. Simulation4 adds selected frozen completion support and reservation-return semantics while preserving old schemas/jobs/expansion/realm meanings; absent realm support freezes new decisions without changing legitimate prepaid clocks.",
+      "disposition": "The finite source/native/UI/compatible-state/current-build objective is reported complete as implemented-unverified. The record explicitly defers gameplay/save/failure/keyboard/director acceptance; it does not claim those gates passed.",
+      "owner_or_consumer": "docs/gm/world-completion-2026-10-06/DELIVERY.md, WORLD_DEFINITION_OF_DONE.md, COVERAGE.json, EVIDENCE.json, BUILD.json, ENGINE_GAPS.md, ACCEPTANCE_BACKLOG.md.",
+      "evidence_state": "Historical checkpoint reports static source/build/map and serving evidence for a named bundle; it says no browser/gameplay controls were exercised. Not current runtime verification.",
+      "remaining_check": "The external acceptance phase owns generated journey/director review and deferred gameplay, save, failure, keyboard and regression scenarios.",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0231",
+      "path": "docs/gm/world-implementation/CHECKPOINT.md",
+      "input_sha256": "926047da4adbbbc13a77292bf7ab261480fdf3716bc031391e64158022f7b038",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1\u2013P5",
+        "MW01\u2013MW04"
+      ],
+      "mechanism_and_interactions": "The selected audited remainder added admitted world candidates and causal artifacts while preserving native owners: optional audit/cause additions, battle/native-causal proposals, and forfeit support coexist with old work plans, frozen jobs, one shared clock/publisher and the existing opening/prestige. Unsupported bodies disable causal human operations; no implicit enrollment or stock refill is claimed.",
+      "disposition": "Historical source/native/UI/build delivery is explicitly implemented-unverified. The checkpoint reports static checks and completed isolated work, while gameplay/unit/browser/save/failure/regression/keyboard/director checks remain deferred.",
+      "owner_or_consumer": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md, RUN.json, docs/gm/audit-implementation/remainder/DELIVERY.md, COVERAGE.md, BUILD.md, ACCEPTANCE_BACKLOG.md; Engine owns shared integration.",
+      "evidence_state": "Checkpoint reports source/syntax/import/definition/link/compiler/build/map checks and three reviews; no behavioral acceptance ran.",
+      "remaining_check": "Any future selection must use the named acceptance backlog for playable, persistence, failure, regression, keyboard and director proof; no present merge/runtime status follows from this historical record.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ],
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "U0232",
+      "path": "docs/gm/world-implementation/abilities/CHECKPOINT.md",
+      "input_sha256": "80a84774b844492c387e07ea0180ce81866a205354a01e6d51ab669f95e02b23",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "frontier.brace_control",
+        "frontier.trail_reading",
+        "frontier.timber_judgment",
+        "frontier.shared_inquiry",
+        "S2",
+        "S3"
+      ],
+      "mechanism_and_interactions": "Four skills add nineteen commands, four method powers/sources and one nonlethal consenting press encounter, reusing existing Equilibrium/Perception/Woodworking XP. Native unlock is staged in a completed lesson before later XP work; no new XP, stock, clock, discovery or persistence owner is added. Integration feedback repaired metadata aliases and visible cost/cancellation descriptions; Engine reports native registration/context/results/UI consumers and progressive Practice/skill/technique disclosure.",
+      "disposition": "Historical source/native integration and matching build completed, but generated-state gameplay and save/failure checks remain deferred. Import/registration/build evidence is reported separately from gameplay/human acceptance.",
+      "owner_or_consumer": "docs/gm/world-implementation/abilities/SKILL_RETURN.md, COVERAGE.md, REQUIREMENTS.md and INTERFACE.md S3; native registry, main/context/action bindings and Notebook Practice are named consumers.",
+      "evidence_state": "Checkpoint reports syntax/import/definition registry checks and Engine build/source-map/hash evidence; no gameplay/unit/browser/save/reload/failure/regression check ran.",
+      "remaining_check": "The return lists generated-state discovery/acquisition/use/mastery/scarcity/participant/source/custody/cancellation/revisit/reload/failed-publication/keyboard gates for later authorized acceptance.",
+      "evidence_lines": [
+        [
+          11,
+          13
+        ],
+        [
+          17,
+          21
+        ]
+      ]
+    },
+    {
+      "record_id": "U0233",
+      "path": "docs/gm/world-implementation/depth/macro/CHECKPOINT.md",
+      "input_sha256": "084a73c1c7fc2e21aaf8b22820f63506c66d77058c21f229203c51b4a03b990a",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Macro depth work is a planning package: a graph, world-loop matrix with five cases and lived hub, engine requirements, and amendments/report. API and source reviews corrected export/link/reputation/reset/recovery details and qualified source claims; the assignment says runtime remained held.",
+      "disposition": "Bounded planning delivery and document checks are complete for master/director review. Proposed amendments are not runtime implementation or accepted design; source/canon scope is qualified and restricted.",
+      "owner_or_consumer": "docs/gm/world-implementation/depth/macro/REPORT.md, SYSTEM_GRAPH.md, WORLD_LOOP_MATRIX.md, ENGINE_REQUIREMENTS.md, EVIDENCE.md; assigning master owns plan review.",
+      "evidence_state": "Checkpoint reports linked-document/fingerprint and output checks plus worker reviews; it claims no gameplay, runtime or source-book expansion.",
+      "remaining_check": "Master review of proposed amendments is the next owner action; implementation requires a later selected/authorized scope and source/gameplay proof.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ],
+        [
+          7,
+          11
+        ]
+      ]
+    },
+    {
+      "record_id": "U0234",
+      "path": "docs/gm/world-implementation/depth/micro/CHECKPOINT.md",
+      "input_sha256": "d2fbf3cd9f2fb0e2330c70f81ed18e68723895e58645e73de4bcd841c6dd01cb",
+      "read_ranges": [
+        [
+          1,
+          108
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "ME02",
+        "SG01\u2013SG03"
+      ],
+      "mechanism_and_interactions": "Micro depth planning contains five linked cases, proposed component/effect contracts, engine requirements, source gaps and canonical-plan amendments. Naruto and Mother of Learning inputs are bounded; actual source qualifications remain explicitly limited. Contract/API review corrected ME02 to identify createInventoryKey as a method on exported Item, not a standalone export.",
+      "disposition": "The six-report planning assignment is complete for master/director review, but runtime implementation remains held. Proposed fiction/numbers are not accepted design, and source authenticity/full runtime compatibility are not claimed.",
+      "owner_or_consumer": "docs/gm/world-implementation/depth/micro/REPORT.md, WORKED_CASES.md, COMPONENT_AND_EFFECT_CONTRACTS.md, ENGINE_REQUIREMENTS.md, SOURCE_GAPS.md; canonical plan remains master-owned.",
+      "evidence_state": "Checkpoint reports document arithmetic/conservation/API/fingerprint/link checks and three reviews; no runtime/source edits or game tests/build/browser/save checks ran.",
+      "remaining_check": "Exact Naruto qualification, physiology/specimen/lot/host constraints, action ordering and native battlefield/body/adulthood/project/clock publication remain implementation prerequisites.",
+      "evidence_lines": [
+        [
+          3,
+          3
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          105,
+          108
+        ]
+      ]
+    },
+    {
+      "record_id": "U0235",
+      "path": "docs/gm/world-implementation/engine/HOLD_CHECKPOINT_2026_10_04.md",
+      "input_sha256": "c6c535a7bfb9d0c64d90fe016f28ef46f23c05d2766a5cedd5eb58dffab68181",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "INTERFACE.md"
+      ],
+      "mechanism_and_interactions": "The Engine lane is held at planning stage: shared runtime/native/UI/save work awaits a concrete plan review. An interrupted Glasshouse follow-on has only an initial seven-input fingerprint and paused host goal; no settling_rack source or interface exists. Existing built Frontier/observation commands are described as built-unverified.",
+      "disposition": "Hold checkpoint states direct instruction superseded the expanded implementation dispatch: plan first, parallel work after review. It documents no new expanded worker, shared runtime edit or catalogue integration.",
+      "owner_or_consumer": "docs/gm/world-implementation/engine/HOLD_CHECKPOINT_2026_10_04.md; INTERFACE.md was explicitly absent and is not a delivered supplier; assigning master owns plan review and later selection.",
+      "evidence_state": "Historical checkpoint reports inspected inputs and matching baseline fingerprints, with no new behavioral tests/save/import checks; reported status is time-bound.",
+      "remaining_check": "Resume only after plan review and authorization, then select interfaces/consumers and reconcile held Glasshouse scope; current permission to implement cannot be inferred from this old hold record.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          13,
+          15
+        ]
+      ]
+    },
+    {
+      "record_id": "U0236",
+      "path": "docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md",
+      "input_sha256": "951f8981f7786f6a1865c9a677fc8b05c35f4d3eba04c8e42ac4ba1bc53245b6",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "INC-P1",
+        "Simulation4",
+        "Simulation4"
+      ],
+      "mechanism_and_interactions": "Frontier runtime delivery registers commands and opt-in people, maps parent IDs to steps/endings/adapters, and connects travel/access/time, escrow, source/body/tool facts, accepted victory contribution and one-use consumer/refund, work/careers/materials, funded Jun activity and retained endings/return. Simulation4 adds selected frozen completion support/reservation returns while absent-state defaults and old-build rejection preserve older semantics.",
+      "disposition": "The assigned code/native/UI/build goal is reported delivered, but new gameplay remains implemented-unverified and behavior/director acceptance remains pending. Static registration/build evidence is not world-complete proof.",
+      "owner_or_consumer": "docs/gm/world-implementation/frontier-runtime/DELIVERY.md, COVERAGE.json, BUILD.json and acceptance owners; native travel, registry, source/body/tool, contribution, career and return surfaces are named consumers.",
+      "evidence_state": "Checkpoint reports syntax/import/definition/registry/build/sourcemap/serving checks and a matching bundle; unit/browser/gameplay/save-failure/regression/keyboard/director checks were deferred.",
+      "remaining_check": "The acceptance backlog owns generated behavioral/save/failure/keyboard/regression/director journeys; no full world-complete or present human acceptance is established.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          9,
+          15
+        ]
+      ]
+    },
+    {
+      "record_id": "U0237",
+      "path": "docs/gm/world-implementation/second-pass/absorption-incorporation/CHECKPOINT.md",
+      "input_sha256": "ec31e6912609bfda07b9b9e6e51e63c715c84c01f8c83b844045045c54df7d7f",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "E01\u2013E09",
+        "O01\u2013O05"
+      ],
+      "mechanism_and_interactions": "The finite absorption-incorporation pass reconciles bank/fork/gap findings into a coverage map and ranks five engine packets with conditional alternatives. It preserves the established Frontier and skills scope and assigns no runtime, body, time, death, private-save or source/library work. Gap review and canonical owner alignment are report-level coordination mechanisms.",
+      "disposition": "Documentation reconciliation is complete with reported static validation and all assigned reviews released. Packets remain proposals for later Engine selection; the checkpoint expressly bars inferring gameplay or implementation authorization.",
+      "owner_or_consumer": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json, ENGINE_PACKETS.md, REPORT.md, appendix-validation.json; canonical owners and Engine own later selection.",
+      "evidence_state": "Checkpoint reports owner/input/output fingerprint and link/anchor/JSON checks, but no new runtime/gameplay proof; it recounts historical source/build artifacts.",
+      "remaining_check": "Engine selection must freeze exact packet consumers/files/version/removal and preserve deferred gameplay/save/failure/keyboard/regression/director gates; do not restart generic bank/book review.",
+      "evidence_lines": [
+        [
+          3,
+          7
+        ],
+        [
+          9,
+          11
+        ]
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Several world-lane checkpoints report substantial source or integration delivery while explicitly reserving gameplay, persistence, failure or director proof; source/build status must stay separate from playable acceptance.",
+    "The depth macro and micro records are planning outputs, while the Engine hold preserves a plan-first boundary; none of those proposals alone authorizes runtime execution.",
+    "Integration evidence is owner-specific: Engine/master, Frontier acceptance, skill generated-state acceptance, and canonical-plan review remain distinct follow-on owners."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0229: native rebuild, behavior, save compatibility and actual realm bindings remain separately owned and unverified.",
+    "U0230, U0231, U0232 and U0236: deferred generated gameplay/persistence/failure/browser/director scenarios remain open under their named backlogs or returns.",
+    "U0233\u2013U0235 and U0237: proposal review/selection, source qualification, held interfaces and exact implementation consumers remain outside these completed historical document scopes."
+  ],
+  "coordinator_review": "Reviewed findings/gaps and selected records; resolved remainder owner path and directly checked the held-engine source, which explicitly says INTERFACE.md is absent. That planned supplier is not treated as a delivered API.",
+  "coordinator_code_corrections": [
+    [
+      "U0233",
+      "G1\u2013G16",
+      "removed: not an explicit assigned-block code"
+    ]
+  ]
+}

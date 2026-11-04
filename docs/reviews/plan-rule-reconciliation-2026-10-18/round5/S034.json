@@ -1,0 +1,483 @@
+{
+  "schema": 1,
+  "shard": "S034",
+  "reader": "content_s034; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "34152b5eadb40089f13dc2c7b4795bacab4493b865f4bf01312fad9bbeedfafb",
+  "rows": [
+    {
+      "record_id": "U0394",
+      "path": "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md",
+      "input_sha256": "5a4f144e9d4be4814b12b11e7607fc02848b9c67b619f6d3965e3284f3ba9a56",
+      "read_ranges": [
+        [
+          510,
+          639
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "C1",
+        "C2",
+        "B2",
+        "B3"
+      ],
+      "mechanism_and_interactions": "The continuation proposes immobile-body channels through shade, fruit, timber, medicine, shelter, omens, being cut down or a human listener. It keeps grove bodies, living vehicles, cursed fungal hosts, transformed people, haunted zones, symbiotic two-voice starts and dormancy as distinct possibilities. Five strongest ideas are seasonal currency/shared sun with neighbor shade, channels to people, a competitive network market, a day/night place-spirit hinge with appearance-as-health, and staged parasite progression. These are source-linked synthesis and authored proposals, not established world rules.",
+      "disposition": "Research synthesis proposes several distinct plant/fungus/place-start patterns and flags evidence strength. Strong channel/clock concepts are mechanic proposals, not accepted game rules. It explicitly preserves source gaps, does not claim lab results, and reports no book or game download.",
+      "owner_or_consumer": "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md; no runtime consumer named in assigned range",
+      "evidence_state": "Assigned text labels shown, stated, inferred and recalled, with consulted pages and reliability notes. Sources were not independently re-opened in this review.",
+      "remaining_check": "The seven source questions remain: Tree of Aeons movement/senses; Demonic Tree reward tables; another non-English tree-spirit source; a full-translation check of the recalled Journey to the West episode; documented Shinto pollution rules; plant/fungus offline-clock examples; and a playtest for proxy limits. No current-source or gameplay qualification follows.",
+      "evidence_lines": [
+        [
+          541,
+          556
+        ],
+        [
+          558,
+          576
+        ],
+        [
+          578,
+          639
+        ]
+      ]
+    },
+    {
+      "record_id": "U0395",
+      "path": "docs/research/open-idle-games-2026-10-09/CHECKPOINT.md",
+      "input_sha256": "a51dd7773ff71832c1fe455de7f0c15d657a8670d64eafea153ddd2b6cfcdb6d",
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1",
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "mechanism_and_interactions": "The finished research compares reset/carryover and offline policies across Progress Knight, Idle Loops and Evolve, with mapped vanilla touches and ranked proposals. Findings distinguish one-task training from concurrent unlocked training, Idle Loops learning/town knowledge retention from supply/raw-stat resets and reload discard, and Evolve civilization systems from follower/heir simulation. Banked acceleration differs from absent-time tick replay.",
+      "disposition": "Finite research delivery is complete; all proposals remain proposals. It reports no browser playthrough or measured balance, and static validation only proves locators/counts, not interpretation. Its older one-realm/one-prestige comparison authority is historical and superseded by current project direction; treat content as a research comparison, not a present gate.",
+      "owner_or_consumer": "docs/research/open-idle-games-2026-10-09/REPORT.md; comparison also points to docs/research/open-idle-games-2026-10-09/YAIR_BASELINE.md",
+      "evidence_state": "Checkpoint reports review of three dossiers and selected original mechanics, static validation, and no browser/gameplay or persistence exercise; not independently revalidated.",
+      "remaining_check": "If selecting a proposal, inspect current native owners and establish the chosen player loop, offline policy and persistence behavior in a separately authorized slice.",
+      "evidence_lines": [
+        [
+          19,
+          29
+        ],
+        [
+          31,
+          39
+        ]
+      ]
+    },
+    {
+      "record_id": "U0396",
+      "path": "docs/research/orb-of-creation/CHECKPOINT.md",
+      "input_sha256": "cf02b2b21a810335089467634cbb217a64ac909d336d19d0938f6b04cf0feca9",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "100 finding records",
+        "23 dependency edges",
+        "65 spells",
+        "47 glyphs",
+        "P01"
+      ],
+      "mechanism_and_interactions": "The finite Orb pass connects selected production, research, ritual, rune, tree and spell paths through prerequisite, choice, cost, time, mutation, consumer and aftermath edges. It separates semantic findings from field-only asset inventories, names unread branches/questions, and records a mastered-cast validator receipt gap in P01. Historical source pin and recovery details identify a specific Steam build and recovered managed sources; this is not whole-game coverage.",
+      "disposition": "Research delivery and internal integration review are reported complete, with static source/hash/reference validation. Proposals remain unaccepted; runtime ritual/reporting anomalies are explicitly unverified. Gameplay, browser, persistence, failure and regression gates remain deferred. Historical pause/release language is not present authority.",
+      "owner_or_consumer": "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md and docs/research/orb-of-creation/COVERAGE.json",
+      "evidence_state": "Checkpoint reports private pinned source, inspected reader artifacts, parent sampling and passing document/source checks; no game launch or runtime proof.",
+      "remaining_check": "Any future selected packet must refresh source hashes/native consumers and close its observable gameplay, browser and persistence gates; deeper source work should follow exact unread queries in COVERAGE.",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          21,
+          29
+        ]
+      ]
+    },
+    {
+      "record_id": "U0397",
+      "path": "docs/research/outer-wilds/CHECKPOINT.md",
+      "input_sha256": "9f6714a5165061e0621dcca7d4a3e235b14bef99ff01cd79a847305e8671bb06",
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "The research maps New Horizons ship-log schemas/builders/handlers and OWML storage APIs to clue states, distinguishing rumored, unread and unfinished cues. It stresses that schema affordance is not tested implementation and compares these mod contracts with developer design materials. Community-source read was selected-file-only; wiki evidence is excerpt-only, talk coverage abstract/sample level.",
+      "disposition": "Bounded static research delivered; P1-P5 remain proposals. Access denials and source gaps were recorded without retry. No game playthrough, proprietary code inspection, or implementation is claimed; future connected-clue slice is conditional on authorization and requires rebuilt desktop play plus persistence and sealed-text checks.",
+      "owner_or_consumer": "docs/research/outer-wilds/REPORT.md; source owners in New Horizons and OWML repositories, inspected files listed in checkpoint",
+      "evidence_state": "Historical checkpoint reports pinned community code/schema and selected developer material review, plus limited static validation; current source/runtime not checked here.",
+      "remaining_check": "If selected, verify chosen clue-state semantics against a permitted fuller source route and exercise one connected known-clue slice at desktop with save/reload/import; wiki and full talk gaps remain.",
+      "evidence_lines": [
+        [
+          3,
+          18
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          45,
+          45
+        ]
+      ]
+    },
+    {
+      "record_id": "U0398",
+      "path": "docs/research/oxygen-not-included/CHECKPOINT.md",
+      "input_sha256": "90de4602264da40c30c41d0663e8acc797fde0f465604c8b56371e2b1ed2789c",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "39 findings",
+        "62 evidence locators",
+        "23 path semantic ledger",
+        "DLC_COVERAGE.json"
+      ],
+      "mechanism_and_interactions": "Oxygen Not Included source research recovered managed code and selected rules/DLC bundles, then documented representative causal chains and DLC axes. It explicitly distinguishes extraction completeness from semantic coverage: 23 representative dependency chains, no native solver semantics, and unread module/solver/ecology/social/late-game branches. Findings are mapped to proposed implementation packets, not gameplay.",
+      "disposition": "Finite representative source dossier is complete and released. Static JSON/hash/link/locator checks passed; runtime, builds, private saves and gameplay/persistence tests were not run. Existing uninstalled/deferred claims should not be generalized to whole game or whole DLC.",
+      "owner_or_consumer": "docs/research/oxygen-not-included/REPORT.md, COVERAGE.json, DLC_COVERAGE.json, IMPLEMENTATION_PACKETS.md",
+      "evidence_state": "Historical checkpoint reports pinned Steam build and extraction receipts plus static validation only; this review did not inspect underlying code or test game behavior.",
+      "remaining_check": "A selected mechanic needs its specific unread branch/source path qualified and an independently authorized implementation proof; installation cleanup belongs to parent/user, not this leaf.",
+      "evidence_lines": [
+        [
+          5,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "U0399",
+      "path": "docs/research/path-of-achra/CHECKPOINT.md",
+      "input_sha256": "4b6c47e9b7d743753f146c942c13a7fe8cfe03a03dcacb47a3ae9cff852d0b83",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Checkpoint summarizes a bounded Path of Achra source audit: five connected source paths in REPORT/FINDINGS, with COVERAGE separating those semantic paths from 126 recovered token/line renderings. Proposals are in IMPLEMENTATION_PACKETS; no individual mechanic is described in the assigned lines, so none can be inferred here.",
+      "disposition": "Finite research is complete and writer scope released. Verification is limited to source/hash/range, JSON and linkage checks; gameplay acceptance remains open.",
+      "owner_or_consumer": "docs/research/path-of-achra/REPORT.md, FINDINGS.json, COVERAGE.json, IMPLEMENTATION_PACKETS.md",
+      "evidence_state": "Historical checkpoint only; underlying report and source are outside assigned content. No game execution, browser play, rebuild or save access.",
+      "remaining_check": "A future selected idea requires report-level mechanism review and separate playable proof; this checkpoint provides no specific mechanism to validate.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "U0400",
+      "path": "docs/research/planescape-torment/CHECKPOINT.md",
+      "input_sha256": "34ce4f61b8f56bc5530d7c14f02879cc54220600e38a656bc45cf1b54cf01b60",
+      "read_ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Section C",
+        "25 small touches"
+      ],
+      "mechanism_and_interactions": "Planescape: Torment section C reports findings about return, incarnation carriers, memory recovery, witnesses, enemy responses and identity, with contradictory amnesia testimony/current-life evidence retained. Static parsing covered dialogue states/transitions and selected resource types; semantic scope is the targeted coverage ledger. Native return HP/inventory, alignment classification, effect opcodes and full branch reachability were not verified.",
+      "disposition": "Targeted source pass completed with historical static validation and corrected BCS/IDS mapping. Proposals are not implementation. The record itself marks gameplay and full-branch semantics unverified; later native UI/save claims remain requirements, not evidence supplied by this checkpoint.",
+      "owner_or_consumer": "docs/research/planescape-torment/REPORT.md, COVERAGE.md, IMPLEMENTATION_PACKETS.md; private extracted inputs under ~/.codex/research/planescape-torment/",
+      "evidence_state": "Checkpoint reports pinned installed container and parser outputs, targeted semantic ledger, and 2,881 static checks; not a fresh source or gameplay inspection.",
+      "remaining_check": "If adapting a finding, inspect its targeted branch and test return state, identity/knowledge and the relevant native effects; do not treat extraction counts as complete semantic coverage.",
+      "evidence_lines": [
+        [
+          25,
+          35
+        ],
+        [
+          45,
+          50
+        ],
+        [
+          57,
+          60
+        ]
+      ]
+    },
+    {
+      "record_id": "U0401",
+      "path": "docs/research/potionomics/CHECKPOINT.md",
+      "input_sha256": "cd7e90f83e07147d3d6ac91119f5f90c3482b6ce8b44fb5c31d5ae632b116cc0",
+      "read_ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [],
+      "mechanism_and_interactions": "Potionomics checkpoint records an Unreal asset inventory and targeted Blueprint/table extraction, including barter/dialogue rows, proposed mechanics and aspects. It distinguishes shown versus installed text versus inference; direct failed-sale penalties, exact native magimin/RNG computation, overnight settlement, durable collection guard and native save semantics remain unresolved. Full subsystem logic and runtime layout/gameplay were excluded.",
+      "disposition": "Lane remains PARTIAL despite completed bounded feature answers and successful parser receipts. The checkpoint names specific unknown consumers/reducers instead of claiming runtime behavior from assets; the aspects subcheckpoint separately says native guarantees, timing/RNG and full logic remain unread.",
+      "owner_or_consumer": "docs/research/potionomics/CHECKPOINT.md and docs/research/potionomics/aspects-2026-10-14/CHECKPOINT.md; native settlement/save owners not inspected or named in assigned range",
+      "evidence_state": "Historical checkpoint reports parser/inventory validation and private extracted references; no game launch or native reducer execution.",
+      "remaining_check": "Resolve only the selected consequence through the failed-sale customer-selection flow, magimin composition/result reducer, overnight/time settlement or native save library; no user saves or runtime claims.",
+      "evidence_lines": [
+        [
+          10,
+          13
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          31,
+          33
+        ]
+      ]
+    },
+    {
+      "record_id": "U0402",
+      "path": "docs/research/potionomics/aspects-2026-10-14/CHECKPOINT.md",
+      "input_sha256": "0fa5ac6e69e9eb70be6ccb74fdd58668e0bb9afbc834762095ac2898d3ef05e4",
+      "read_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A01-A12",
+        "A01",
+        "A03",
+        "A04"
+      ],
+      "mechanism_and_interactions": "This five-line aspect checkpoint says all aspect keys and supporting inventories exist; A01/A03 and A04 are prioritized routes. It provides no aspect mechanics. Native save guarantees, timing/RNG and full subsystem logic remain unread, and runtime launch was not authorized.",
+      "disposition": "Partial documentation handoff, subordinate to the main Potionomics checkpoint. Its artifact existence and prioritization do not prove mechanism coverage or playability.",
+      "owner_or_consumer": "docs/research/potionomics/aspects-2026-10-14/ASPECTS.md, SYSTEM_INVENTORY and DEEPER_SYSTEMS; parent lane checkpoint ../CHECKPOINT.md",
+      "evidence_state": "Only the assigned brief checkpoint was reviewed; supporting aspect files are not in this range.",
+      "remaining_check": "Use the parent checkpoint and named prioritized aspect routes if an aspect is selected; close relevant native-save/timing/RNG gaps separately.",
+      "evidence_lines": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "record_id": "U0403",
+      "path": "docs/research/power-scaling-2026-10-08/CHECKPOINT.md",
+      "input_sha256": "befe08c412d881f5f867a82fd1c08841af06df159019b75d9a7cc2ef8e31e251",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "O1",
+        "O2"
+      ],
+      "mechanism_and_interactions": "Power-scaling report covers community methods, multiversal progression/stakes, infinity concepts and game uses, while retaining world-local ladders. Checkpoint says automatic ascension resets, blanket weakening and absolute-tier precedence remain proposal tensions; no universal rank is adopted. Novel claims are source-qualified and coverage is partial.",
+      "disposition": "Finite research/ideation complete, none selected or implemented. Wiki/Reddit failures were routed to excerpts/old.reddit; no full survey or whole-book read. Static validation is document evidence, not gameplay. O1 plus one O2 consumer is described as a possible smallest proof, still pending direction/assignment historically.",
+      "owner_or_consumer": "docs/research/power-scaling-2026-10-08/REPORT.md, PROPOSALS.md and VALIDATION.json",
+      "evidence_state": "Historical checkpoint reports source coverage limits, reconciliation against live owners at that time and static checks only.",
+      "remaining_check": "Any chosen cosmology/progression proposal requires actual consumer mapping and authorized build/browser/persistence proof; resolve named book-source gaps before direct adaptation.",
+      "evidence_lines": [
+        [
+          15,
+          19
+        ],
+        [
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "U0404",
+      "path": "docs/research/power-systems/anime-manga/CHECKPOINT.md",
+      "input_sha256": "b7d4daac642caee543259c24e5a046e0f422a793df6a41411f8c0fbc6db28cbe",
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "P1-P15",
+        "J1-J10",
+        "D1-D5",
+        "E8B",
+        "E8D"
+      ],
+      "mechanism_and_interactions": "The lane surveyed 20 series and maps each to eight path parts, source/delivery, ten axes, costs/contracts and abuse examples; it reports 42 takeaways, 61 reference-supported claims and 11 remembered/unverified claims. Japanese manga/anime proposals refine shared E8-to-E8D families, but source claims vary: mostly indexed secondary wiki excerpts, one opened JoJo reference and selected official distributor descriptions. It explicitly preserves continuity and variant limits.",
+      "disposition": "Bounded research and validation complete; proposals and folds remain unaccepted. Thirteen optional series and full-franchise reading were not covered; direct adaptation requires primary-scene checks for eleven U claims and continuity pinning. No gameplay acceptance applies.",
+      "owner_or_consumer": "docs/research/power-systems/anime-manga/REPORT.md, SERIES.json, SOURCES.md; shared proposal destination E8 owners is a future fold-in",
+      "evidence_state": "Historical report says final evidence review and structural/reference checks passed; it does not establish primary-canon adjudication or playable behavior.",
+      "remaining_check": "Before adapting, qualify the eleven remembered/unverified claims against named primary scenes and pin continuity/edition for variants; choose an actual consumer afterward.",
+      "evidence_lines": [
+        [
+          20,
+          29
+        ],
+        [
+          39,
+          52
+        ],
+        [
+          56,
+          61
+        ]
+      ]
+    },
+    {
+      "record_id": "U0405",
+      "path": "docs/research/power-systems/broad-scout/CHECKPOINT.md",
+      "input_sha256": "0b9f73fbb5ceea07dd078908c97ce335935db514c52c96560c25cc14b22ec537",
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "S6-S15"
+      ],
+      "mechanism_and_interactions": "Broad scout maps 50 web-fiction candidates to path/axis and cost/vow slots using public metadata and indexed synopses; it names no read chapters. Exact triggers, prices, carriers, exceptions and breach rules for S6-S15 are explicitly unverified and routed to SOURCE_REQUESTS. A Making Magic metadata page was opened; one 403 ended that host route.",
+      "disposition": "Documentation scout complete, but source acquisition and exact-rule verification remain open. All adaptations remain proposals; candidate summaries are leads, not source-grounded mechanics.",
+      "owner_or_consumer": "docs/research/power-systems/broad-scout/CANDIDATES.json, SERIES.json, REPORT.md, SOURCE_REQUESTS.md",
+      "evidence_state": "Checkpoint reports metadata/indexed synopsis basis, validation and reconciliation only; no book/chapter body read.",
+      "remaining_check": "For a selected S6-S15 title, acquire permitted user-accessible text and verify the exact listed rules before adapting; preserve null/unknown rather than treating it as absence.",
+      "evidence_lines": [
+        [
+          3,
+          15
+        ],
+        [
+          21,
+          27
+        ]
+      ]
+    },
+    {
+      "record_id": "U0406",
+      "path": "docs/research/power-systems/novel-crawl/CHECKPOINT.md",
+      "input_sha256": "9c4712c97951d89e65cbcdf6ac3e1846ab8c3542a8369b9ccab7a33d46684c3d",
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "S16-S88",
+        "S89-S94",
+        "S6-S15",
+        "E8-E8D"
+      ],
+      "mechanism_and_interactions": "Novel crawl kept title metadata separate from chapter claims and acquired 11 chapters across five books, with private reading notes and claims. Polite acquisition used official author/publisher HTML where accessible and offline FanFicFare packaging; host denials/stops, redirects and challenges were recorded without reopening. Ten titles lacked novel body, and acquired openings do not verify later mechanics.",
+      "disposition": "Finite available-source research is complete while full-text source gates remain open. Validation covers selection, source/leaf hashes, locators, packaging and request IDs, not gameplay. Proposals extend concurrent shared E8 refinements without acceptance. Transport control/research evidence does not imply installed adapter support.",
+      "owner_or_consumer": "docs/research/power-systems/novel-crawl/REPORT.md, SOURCES.md, SOURCE_REQUESTS.md; shared E8 fold-in belongs to Claude per checkpoint",
+      "evidence_state": "Historical checkpoint reports 11 chapters/5 books and one reviewed leaf reader, plus static artifact validation; not a full-text or runtime check.",
+      "remaining_check": "When permitted text arrives or a separately authorized continuation starts, verify edition and read matched missing passages; preserve stopped-host state and unknown later rules.",
+      "evidence_lines": [
+        [
+          13,
+          19
+        ],
+        [
+          21,
+          23
+        ],
+        [
+          25,
+          31
+        ]
+      ]
+    }
+  ],
+  "repairs": [
+    {
+      "coordinator_removed_nonliteral_or_out_of_span_original_ids": {
+        "U0394": [
+          "F1-F7",
+          "A1-A13",
+          "Q1-Q7"
+        ],
+        "U0395": [],
+        "U0396": [],
+        "U0397": [
+          "P1-P5"
+        ],
+        "U0398": [],
+        "U0399": [
+          "five connected source paths"
+        ],
+        "U0400": [
+          "eight ranked proposals"
+        ],
+        "U0401": [
+          "A01-A12",
+          "A01",
+          "A03",
+          "A04"
+        ],
+        "U0402": [],
+        "U0403": [
+          "P1-P8"
+        ],
+        "U0404": [],
+        "U0405": [
+          "S1-S15"
+        ],
+        "U0406": []
+      },
+      "qualification": "Navigation metadata only, no additional source/proof credit."
+    },
+    "Coordinator removed board-game details belonging to the earlier span from the continuation summary and enumerated its actual seven open questions."
+  ],
+  "cross_record_findings": [
+    "Historical research checkpoints repeatedly separate artifact/extraction counts from semantic coverage and gameplay evidence; the strongest rows name exact unverified consumers or source gaps rather than promoting inventory into proof.",
+    "Proposal status, isolated or bounded delivery, shared-owner integration, runtime/browser/persistence proof and user acceptance remain separate states across these records; obsolete historical holds do not establish present authority.",
+    "Source reliability varies materially: some dossiers report pinned code or installed assets, while others rely on blurbs, indexed excerpts, metadata, remembered folklore or bounded chapter samples. Claims must retain those source boundaries."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0394: Questions Q1-Q7 remain, including web-novel mechanics, the recalled JTTW episode, Shinto pollution rules, idle clock playtests and proxy limits.",
+    "U0397: full wiki, vanilla log/parser, DLC rules and runtime persistence remain unread; P1-P5 are proposals.",
+    "U0401-U0402: Potionomics native reducers, save guarantees, timing/RNG and full subsystem logic remain unresolved.",
+    "U0404-U0406: remembered manga claims, metadata-only scout candidates and ten novel titles without acquired body retain source gaps. No current runtime or whole-source qualification was performed."
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "schema": 1,
+  "shard": "S015",
+  "reader": "repair_r002_s015; gpt-6-luna low",
+  "payload_sha256": "cb4710ceacacc0a421c71ed26ae21469f4cd32e1bf347206075066eabff67574",
+  "scope": "Complete assigned historical content spans; recorded mechanisms and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0217",
+      "path": "docs/gm/nethack/CHECKPOINT.md",
+      "input_sha256": "42e71ac1f35f867e82e3fd28768b9d64746b2e934c3c893f2bf15a00d75525ec",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "NetHack-inspired finite fieldcraft",
+        "expansion9/referenceGameplay1"
+      ],
+      "mechanism_and_interactions": "Finite fieldcraft uses separately discovered reed oil, real container transformations, dog care/training/help spending finite stock and effort, and manual or dog-assisted recovery of finite fitting pins; it reuses no-strike conduct. Four modules and an isolated preview were released, but main adoption/build was unobserved. A later compatibility repair transferred to Features; native meal use was inspected and marked covered.",
+      "disposition": "Historical implementation/preview delivered and released; later compatibility repair transferred. Main adoption/build remained unobserved.",
+      "owner_or_consumer": "docs/gm/nethack/DELIVERY.md, ACCEPTANCE_BACKLOG.md, FOLLOWUP_SOURCE.md; adoption owner docs/gm/book-world-player-agency/FIELDCRAFT_ADOPTION.json and Features/Book-world GM.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          9,
+          13
+        ],
+        [
+          19,
+          23
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00009-L00013",
+        "L00019-L00023"
+      ]
+    },
+    {
+      "record_id": "U0218",
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/CHECKPOINT.md",
+      "input_sha256": "3ab1a607a4f1740373d3f6fb5c0696bc244685759f8c5d1d3d5b35a4cf414d99",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "DF",
+        "BOH",
+        "ONI",
+        "Lamb",
+        "schema unchanged"
+      ],
+      "mechanism_and_interactions": "Combined four-game delivery joins 16 leaves, three aggregators and existing registry/facts/validators/scheduler/Here/single publisher. Per-game evidence covers paid jobs, cancellations/refunds, support, preparation, cooking and import. Expansions5–11 and simulation1–5 were supported without schema bump. The report records BOH primary runner exit1 from an overbroad final resource assertion after gameplay checks; followthrough passed.",
+      "disposition": "Finite combined delivery and bounded browser/build outcomes reported complete; backlog and BOH assertion failure remain accurately scoped.",
+      "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/REPORT.md, ACCEPTANCE_BACKLOG.md and per-game BROWSER.json; integration was root-owned.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00009",
+        "L00011-L00013"
+      ]
+    },
+    {
+      "record_id": "U0219",
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/CHECKPOINT.md",
+      "input_sha256": "495baf0038264ddc4abfb440aa03d382205c3dce2dc8edc48aea0bdca5d8321f",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "BOH-P01",
+        "body.sore_hands",
+        "bodyConditions",
+        "schema11/simulation5"
+      ],
+      "mechanism_and_interactions": "BOH uses retained supplies for paid copies, disclosed deterministic failed trial, rest/expiry, funded guidance, prepared reading, and actual survey-kit work with held manual plus owned knife returned dulled. Losing the manual preserves the learned procedure and permits replacement. Fixture first failed on unregistered body.sore_hands; validator now prevents deleting fatigue before completed rest/expiry.",
+      "disposition": "Leaf complete; shared integration/build/browser/native persistence remained root gates.",
+      "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/boh/DELIVERY.md, CHECKS.json, SOURCE_HASHES.json; root owns integration/proof.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00009",
+        "L00011-L00013"
+      ]
+    },
+    {
+      "record_id": "U0220",
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/df/CHECKPOINT.md",
+      "input_sha256": "054fac50ba383260c5811c1452ee7524af814553e481fbf2db6599365626bbdb",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "DF-P04/DF-A03",
+        "A01/A02",
+        "guardSteamDFAdmission",
+        "stampSteamDFAcceptedJob",
+        "steamDFCompletionContext",
+        "recordSteamDFStockMutation"
+      ],
+      "mechanism_and_interactions": "DF offers 1 coin/1 minute/1 Eda stamina estimate, 2/3/2 full count and 4 native coin for two existing sound staves. Timed admission requires willing living co-located Eda, owned bench, current native body/hands/location/clock and unchanged stock plus mutation witness; cancel/lost support refunds. Frozen report JSON pairs with knowledge at issue time.",
+      "disposition": "Leaf complete with 11 bounded checks; shared runtime/browser/native save proof remained parent gates.",
+      "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/df/DELIVERY.md and RELEASE.json; root owns shared hooks/native publication.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00009"
+      ]
+    },
+    {
+      "record_id": "U0221",
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/lamb/CHECKPOINT.md",
+      "input_sha256": "5eaf2c9f915e0919f9a64e63be92b7c3723579bbcbc7f87bd281abfc1a4edc36",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "LAMB-P02",
+        "schema11/simulation5"
+      ],
+      "mechanism_and_interactions": "Lamb adds actual Eda office, static held fine/fineDull inspection, one class approval, finite real-purse order and explicit ending. Bounded checks use real reducers/refunds/previews and cancellation/ending host, preserving optional absence and schema11/simulation5 contracts.",
+      "disposition": "Leaf complete; shared scheduler, rebuild, browser and persistence remained root gates.",
+      "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/lamb/DELIVERY.md and RELEASE.json; root owns shared joins/proof.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00011"
+      ]
+    },
+    {
+      "record_id": "U0222",
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/oni/CHECKPOINT.md",
+      "input_sha256": "b215a641433011985e31d9c09003da497b4ce63c59f6742741f038e95029aa5f",
+      "read_ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "E28–E32",
+        "E06",
+        "schema3",
+        "schema5"
+      ],
+      "mechanism_and_interactions": "ONI adds optional sheltered nursery at existing Shack, separate from Nell’s finite plot: paid build and repeated herb-plus-sap cycles yield ordinary Cooking herbs. No population, autonomous renewal, upkeep, new inventory/clock or schema bump. One player-only idle-phase situation meets shared schema3 causal contract; no biological truth/timer stored there.",
+      "disposition": "Four leaves and bounded checks complete; shared ticking/native publication/browser/save acceptance remained root-owned.",
+      "owner_or_consumer": "docs/gm/non-factorio-absorption-2026-10-07/oni/DELIVERY.md and RELEASE.json; root owns aggregation/proof.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          11
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00011"
+      ]
+    },
+    {
+      "record_id": "U0223",
+      "path": "docs/gm/observation-power/trailblaze/CHECKPOINT.md",
+      "input_sha256": "6fdeeb2530182c7397ea023fff48b78a571385af2331df4489f9c344205d9351",
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "schema1",
+        "realmPrototype2/compiled definition2",
+        "observation1/activityClock1"
+      ],
+      "mechanism_and_interactions": "Pure schema1 passage/boundary plans validate source/body/method/cost/authority/anchor/endpoint/cargo/position and preserve interiors/residents/stock at closure. Native Glasshouse route costs one coin, carries same body and complete bag/equipment, binds exact custody/endpoints and requires return. Paid view uses local Joss/source/body/power, device, public sample, detection and notice; local time/resident decisions join, unsupported absence freezes them, committed jobs retain due times.",
+      "disposition": "Finite source/native integration and rebuild reported delivered; gameplay/planner and named acceptance remain unverified.",
+      "owner_or_consumer": "docs/gm/observation-power/trailblaze/REPORT.md, INTEGRATION_REVIEW.md, BUILD_READBACK.json, PLAYTEST.md; Engine owns native integration.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          11,
+          17
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00011-L00017",
+        "L00026-L00032"
+      ]
+    },
+    {
+      "record_id": "U0224",
+      "path": "docs/gm/reference-gameplay/CHECKPOINT.md",
+      "input_sha256": "a041f557bf3eb75fa3c9d035c36ee5ea6e76a3e1055f073eee294387896c132b",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "schema9",
+        "referenceGameplay1",
+        "workshop1"
+      ],
+      "mechanism_and_interactions": "Integrated 12 feats, nine cooling/service commands, four native item specs and one max-three mastery plan with native/state/UI consumers. Optional expansion9/referenceGameplay1/workshop1 activates explicitly; absent/5–8 and frozen schema3 sluice sessions remain supported; new enrolled encounters use4. Feat cursor is sluice-only; only substantive player/Lio actions count.",
+      "disposition": "Finite source/native/UI/save/build wave delivered historically; behavior suites and director acceptance deferred; next integration belongs to Features.",
+      "owner_or_consumer": "docs/gm/reference-gameplay/DELIVERY.md, COVERAGE.json, BUILD.json, ACCEPTANCE_BACKLOG.md, BOOK_WORLD_HANDOFF.json; Features owns next integration.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          17
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00009",
+        "L00011-L00017"
+      ]
+    },
+    {
+      "record_id": "U0225",
+      "path": "docs/gm/status-care-2026-10-06/CHECKPOINT.md",
+      "input_sha256": "cab73ee5ea6b16be9f455e3651759602883b3d9113557f26e2a193e4156567b0",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Wet",
+        "bodyConditions",
+        "11 actions",
+        "five timed conditions"
+      ],
+      "mechanism_and_interactions": "Optional connected care/exposure/preparation/recovery has five timed conditions, 11 actions, real materials/native kits and stats/weather/status UI. Saved simulation.conditions owner, derived Hero reader, Effects descriptors and opt-in host connect warmed/steady/tired/focused stats, rain/snow lining reduction, real kit materials and drying. Drying admission checks Wet; completion retains shelter/body support.",
+      "disposition": "Finite delivery and static/build checks reported complete; gameplay and persistence checks did not run.",
+      "owner_or_consumer": "docs/gm/status-care-2026-10-06/DELIVERY.md, EVIDENCE.json, ACCEPTANCE_BACKLOG.md; canonical current section and authoring owner are linked there.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00009",
+        "L00011-L00013"
+      ]
+    },
+    {
+      "record_id": "U0226",
+      "path": "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+      "input_sha256": "ac5ce879839875b0cd5d5063278ac93761c1480d853be5596625073aa5ac3c35",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "A1/A2",
+        "Notebook"
+      ],
+      "mechanism_and_interactions": "Village slice aims at integrated commands, grounded scenes, played-time watching and conversation after received ending. Model checks cover three command/scheduler loops and native skill keys; browser reached opening, enrollment, intro cards and manual save/restored meeting. Watch/account/conversation, timed reload/import, keyboard/performance and shared Notebook work-attention join stayed open.",
+      "disposition": "Source/model delivery complete, but browser connection prevented full gate; status remains implemented-unverified.",
+      "owner_or_consumer": "docs/gm/story-life-2026-10-07/DELIVERY.md, RELEASE.json, BUILD.json, SHARED_FOLLOWUP.md, ACCEPTANCE_BACKLOG.md; shared integrator peer owns joins.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint reports partial browser observations and unavailable full browser route.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          15
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00003-L00009",
+        "L00011-L00015"
+      ]
+    },
+    {
+      "record_id": "U0227",
+      "path": "docs/gm/trailblaze/dialogue/CHECKPOINT.md",
+      "input_sha256": "75916ffd1008b8343431be9e1008ec2ad1d1e44fe8b736485a2519d8b0dc5566",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "wrapper2/definition2",
+        "18 declarations",
+        "12 ordinary commands",
+        "nine observer commands"
+      ],
+      "mechanism_and_interactions": "Frozen scene module has 18 declarations/four families, ordinary facts, observer-only projection and pure proposed constructor. Engine binds 12 ordinary and nine observer commands; selected receipt adds local calibration, crafted device, paid 12-minute view/public sample/anonymous notice, deliberate claim, co-located cooperation, shutter/expiry/support-loss and replay bypass.",
+      "disposition": "Finite native integration receipt delivered; gameplay built-unverified, with behavior and human gates open.",
+      "owner_or_consumer": "docs/gm/trailblaze/dialogue/REPORT.md, NATIVE_INTEGRATION_RECEIPT.json, COMPLETION_AUDIT.json; Engine owns shared source/UI/save/bundle.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          5,
+          9
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00005-L00009",
+        "L00011-L00013"
+      ]
+    },
+    {
+      "record_id": "U0228",
+      "path": "docs/gm/trailblaze/traveler-profiles/CHECKPOINT.md",
+      "input_sha256": "e7320e6de60e413b24091648c2876f207eab49332d5100ca708fceac17361c26",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "REALM_TRAVELER_SCHEMA",
+        "REALM_TRAVELER_MODES",
+        "validateRealmTraveler",
+        "validateRealmTravelerSupport",
+        "previewRealmTraveler",
+        "planRealmProjection",
+        "realmTravelerView",
+        "realmTravelerCases"
+      ],
+      "mechanism_and_interactions": "Pure traveler snapshot separates identity/memory/method/source/body/fuel/cargo/consent/obligations; plans cover physical passage, retained-home projection, exclusive alternate body and shared bodies. Shared bodies share mind/pool/source but have independent position/condition; weapons stay singular. Source declaration can substitute control only when it says so. Engine adapter calls one-body preview; cargo indexing fix preserves full arrays across null/zero entries.",
+      "disposition": "Pure module and one-body native source integration completed with static checks/repairs; runtime/persistence/human gates unrun.",
+      "owner_or_consumer": "docs/gm/trailblaze/traveler-profiles/REPORT.md, INTEGRATION.md, INTEGRATION_RECEIPT.json, REVIEW.md; Engine owns native adapter/host.",
+      "evidence_state": "Historical checkpoint claims reviewed only in assigned span; no contemporary runtime, source-canon or save verification performed by this reader. Checkpoint itself reports the listed historical checks/evidence.",
+      "remaining_check": "No current gate was completed by this pass; use the named owner and preserve its stated deferred checks.",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          21
+        ]
+      ],
+      "evidence_line_annotations_before_normalization": [
+        "L00007-L00013",
+        "L00015-L00021"
+      ]
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "Leaf module checks and isolated previews do not establish shared integration or browser/persistence acceptance; BOH, DF, Lamb and ONI checkpoints explicitly leave those gates to root.",
+    "Several larger records report integrated source/build evidence while preserving behavioral gaps: passage planner/gameplay, Village timed interaction, dialogue scenarios, and traveler physiology/persistence remain unverified.",
+    "Historical owner handoffs matter: NetHack adoption belongs to Features; story-life and traveler integration have shared peer/Engine owners; completed predecessors do not authorize reopening their released scopes."
+  ],
+  "unresolved_questions_source_gaps": [
+    "No current source/runtime/build/browser/save state was inspected; all delivery evidence is historical checkpoint reporting.",
+    "U0217 main adoption receipt was absent at last check; source and current integration state require the named Features receipt if reselected.",
+    "U0226 full browser route was unavailable and latest browser command effects were uncertain; timed interaction and shared Notebook join remain unresolved."
+  ],
+  "coordinator_review": "Reviewed findings/gaps and selected long/end records. Completed source/native passage and traveler descriptors retain body/custody/clock distinctions; browser/persistence gates remain historical/unrun. Zero-source lookup failure and exact ignored recovery copies remain recorded in plan.",
+  "schema_normalization": [
+    "Coordinator normalized original line locators to numeric ranges; retained prior annotations, no semantic reading or evidence upgrade."
+  ]
+}

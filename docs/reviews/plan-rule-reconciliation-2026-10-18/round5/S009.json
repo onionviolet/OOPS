@@ -1,0 +1,624 @@
+{
+  "schema": 1,
+  "shard": "S009",
+  "reader": "content_s009; gpt-6-luna low",
+  "payload_sha256": "dfdec3901ca7313b048954b6a99008314dde1ec870133cdcd5cfed27ff0a0e77",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "rows": [
+    {
+      "record_id": "U0125",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r3/CHECKPOINT.md",
+      "input_sha256": "4387622370cb38d64e5045d308728571c9258c4dc461e9d36c6f803629ad1729",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          6,
+          11
+        ],
+        [
+          14,
+          19
+        ],
+        [
+          21,
+          25
+        ]
+      ],
+      "original_ids": [
+        "G01-G36",
+        "G37-G51",
+        "G-C1-G-C5",
+        "B3/C21"
+      ],
+      "mechanism_and_interactions": "The research packet compared source mechanics/structures against YAIRPG mappings, including defaults, dials, exact part-22 codes and old-save compatibility. Its separate access ledger distinguishes primary/community sources, editions and retrieval limits; integration maps 51 rows to owner sections without promoting proposals.",
+      "disposition": "Docs-only research delivery complete. The Skies installed-XP/developer-description discrepancy and edition-specific evidence remain qualified; proposal rows are not accepted mechanics or gameplay.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r3/REPORT.md, SOURCES.md, INTEGRATION.md; Claude is named as integration owner",
+      "evidence_state": "Checkpoint reports extensive local owner/source review and structural checks; no live reference game or YAIRPG acceptance run was made.",
+      "remaining_check": "Selected defaults/dials need an authorized owner decision, compatible implementation and rebuilt desktop/save evidence; uncovered source formulas/exceptions and indexed-only pages remain qualified."
+    },
+    {
+      "record_id": "U0126",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r4/CHECKPOINT.md",
+      "input_sha256": "cc3aa2e4dcaa7a9ff956597e491be37c29baaf10eb99203ac32271162a65ab7e",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          13,
+          17
+        ],
+        [
+          19,
+          23
+        ]
+      ],
+      "original_ids": [
+        "R1",
+        "NE1-NE9",
+        "ND5",
+        "W-coded"
+      ],
+      "mechanism_and_interactions": "The report extends succession by separating death-screen choice from era-bounded entry and route outcomes. Its 15 world rows and 19 route matrices track evidence, costs/unknowns, terminal limits, recognition and integration; D&D Reincarnate, Mother of Learning copied pocket worlds, and post-manga Bleach source families are explicit scope corrections.",
+      "disposition": "Historical research packet complete, with local integration reportedly completed for R1 and reconciled into this packet. A documented finale publication/closure does not prove repeatable rewind; no gameplay or accepted decision follows.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r4/REPORT.md, SPOILERS.md, INTEGRATION.md; existing succession owner is the target",
+      "evidence_state": "Checkpoint reports targeted source research and document validation, not runtime, build, browser or save verification.",
+      "remaining_check": "Exact prices, afterlives, recognition and ancient starts remain unknown where marked; later mechanics stop at inspected snapshots, and future authored behavior still needs implementation and rebuilt acceptance."
+    },
+    {
+      "record_id": "U0127",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r5/CHECKPOINT.md",
+      "input_sha256": "1db2d9d9d5671f2811af31850f010ff8a04f5c7ce1b5588a3959805bad8e27a1",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          10
+        ],
+        [
+          12,
+          15
+        ]
+      ],
+      "original_ids": [
+        "NP1-NP4",
+        "T22",
+        "T24",
+        "T25",
+        "C1-C6",
+        "P40-P70"
+      ],
+      "mechanism_and_interactions": "The source comparison distinguishes other-world rebirth from same-world regression and flags an unsupported atlas example. Proposed records T22/T24/T25 connect source models to retained identity/state; C1-C6 describe a summary/projection procedure with storage and migration considerations. New P rows are proposed mappings, not runtime contracts.",
+      "disposition": "Docs-only source survey and integration map complete. Several source claims have bounded or secondary support; all proposed models await selection and implementation.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r5/REPORT.md and INTEGRATION.md; part 22 sections 8-13 are named integration targets",
+      "evidence_state": "Checkpoint reports source inspections, simulation records and document checks; no gameplay tests were run for proposals.",
+      "remaining_check": "Qualify the indexed/secondary-supported Steins;Gate/Braid details, the regressor example and publisher descriptions; any selected model needs compatible migration and rebuilt desktop/save/reload/import proof."
+    },
+    {
+      "record_id": "U0128",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r6/CHECKPOINT.md",
+      "input_sha256": "516906b8655f1950897f6724619ed78fbd8d0a6f575e9003e6825b3693a74ce4",
+      "read_ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          6,
+          12
+        ],
+        [
+          14,
+          21
+        ],
+        [
+          24,
+          30
+        ]
+      ],
+      "original_ids": [
+        "H rows",
+        "H gap rows",
+        "H secret IDs",
+        "sections 8-22"
+      ],
+      "mechanism_and_interactions": "The paper simulation traces four whole-save decision/event chains across 54 steps, then records gaps after each save. It compares proposed contracts against sections 8-17 and reconciles newer sections 18-22 and peer answers, routing each H row to existing owners rather than assuming a new missing mechanic.",
+      "disposition": "Docs-only stress test complete and ready for owner review. H entries and secret IDs are paper proposals/placeholders; the simulation does not establish runtime behavior or full-story acceptance.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r6/REPORT.md, INTEGRATION.md, SPOILERS.md; Claude is named to integrate selected residual contracts",
+      "evidence_state": "Historical checkpoint reports consistency/reference checks; no runtime, build, browser, migration or save checks were run.",
+      "remaining_check": "Exact book-era initialization, true-ending story, director taste and any selected saved-state contract remain open; future implementation needs rebuilt play and persistence proof."
+    },
+    {
+      "record_id": "U0129",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r7/CHECKPOINT.md",
+      "input_sha256": "09f3fd078d8c103cdf9aec6b6923005285330a6abd5a7b8c5263589f41fa589d",
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          11
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "original_ids": [
+        "N",
+        "N1",
+        "N2",
+        "N3",
+        "N4"
+      ],
+      "mechanism_and_interactions": "A four-strategy, ten-cycle illustrative simulation compared long-life entitlement, repeated resets and grind at equal time. Separate concave payout on each reset rewarded splitting identical deeds, prompting a proposed test of cumulative payout and a distinction between deeper-arc completion rewards and merely surviving. Sensitivity reversals were observed under rising payout, faster completion and mortality.",
+      "disposition": "Mathematical/accounting proposal research complete; assumptions are illustrative and not measured game balance. No shared owner or runtime changes were made.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r7/REPORT.md, INTEGRATION.md, TABLES.md, simulation outputs; Claude may review proposed rows",
+      "evidence_state": "Checkpoint reports 27 mathematical/accounting checks and reproducible generated outputs; it explicitly disclaims gameplay/economy calibration.",
+      "remaining_check": "Any selected rewards require source-world economy calibration, retained-compatibility choice, and gameplay/balance verification; exact source formulas and reset exceptions remain unaudited."
+    },
+    {
+      "record_id": "U0130",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r8/CHECKPOINT.md",
+      "input_sha256": "d1348ccdb3f0f7f9a7e517642791896daf95d7b90c5696f805922db17b4a71aa",
+      "read_ranges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          6,
+          10
+        ],
+        [
+          12,
+          14
+        ]
+      ],
+      "original_ids": [
+        "E01-E15",
+        "E20-E33",
+        "E34-E43",
+        "E50-E75",
+        "E80-E89",
+        "E90-E95"
+      ],
+      "mechanism_and_interactions": "The lane compares 15 paths (with five internal TTKS profiles), 14 strategy games and ten catalogue idle examples, then proposes 26 missing considerations, ten smallest later slices and defaults/dials. Its integration map joins proposals to existing section-18 rows and sections 8-12; two sources received targeted manual evidence inspection.",
+      "disposition": "Source comparison and proposal packet complete, but source dossiers and options remain proposals; current private-book ceilings and exact automation algorithms stay unknown.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r8/REPORT.md, INTEGRATION.md, SOURCES.md; Claude is named as integration reviewer",
+      "evidence_state": "Checkpoint reports structural/reference checks and limited targeted source inspection; no gameplay/build/browser/save evidence for proposals.",
+      "remaining_check": "Source-depth caveats remain for secondary claims and indexed-only descriptions; selected mechanics need owner choice, implementation and rebuilt desktop/save acceptance."
+    },
+    {
+      "record_id": "U0131",
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r9/CHECKPOINT.md",
+      "input_sha256": "8a435e1e6a6852c4c56f06a2d5b1bea2cd065111f86f75acfc94dc70658b13f1",
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          22
+        ],
+        [
+          24,
+          27
+        ]
+      ],
+      "original_ids": [
+        "D2-D33",
+        "551 coded rows",
+        "257 duplicates",
+        "249 refinements",
+        "26 conflicts",
+        "15 R1 metadata rows"
+      ],
+      "mechanism_and_interactions": "The document audit inventories part-22 sections 8-20, maps coded rows against an 84-file/33,603-line owner corpus, then performs a manual final pass. Peer integrations altered named row codes during the audit, so changed text and cited public records were reread and a final inventory separated from baseline. Search matches are leads, not inferred authority.",
+      "disposition": "R9 audit and validation are complete for the stated section scope; its compact replacement and integration notes remain proposals for Claude. Sections 21 onward were excluded.",
+      "owner_or_consumer": "docs/gm/dispatch/runs-and-endings-2026-10-14/r9/DEDUPE_TABLE.md, REPORT.md, COMPACT_REPLACEMENT_OUTLINE.md, INTEGRATION.md, VALIDATION.json",
+      "evidence_state": "Checkpoint reports 551/551 structural coverage, owner locator checks and document validation; no runtime, build, browser or save checks.",
+      "remaining_check": "Owner integration must preserve peer corrections/current rows and proposal status; this checkpoint supplies no authority for sections outside 8-20 or contemporary gameplay."
+    },
+    {
+      "record_id": "U0132",
+      "path": "docs/gm/dispatch/settings-pass-2026-10-13/CHECKPOINT.md",
+      "input_sha256": "cd99dbcccea1703689a4fed1b6a2cbc085f335989df431cc15c6fe85634bbce7",
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          1,
+          7
+        ],
+        [
+          8,
+          13
+        ]
+      ],
+      "original_ids": [
+        "S1-S7",
+        "S2",
+        "S6",
+        "Effects"
+      ],
+      "mechanism_and_interactions": "The settings gate passed its full check after correcting S2 so combat hit-shake no longer counted as a reveal animation; the coordinator approved a combat_display.js guard making Effects off stop hit/start shakes. main.js refreshCustomization mirrors save-level effects to the document data-effects attribute. Reduced-effects reveal/coin float, scheme-switch color inputs and level-up vitals were left unverified.",
+      "disposition": "Historical focused implementation/checkpoint reports a pass and coordinator-approved guard within that task; no commit was made. Later product status is not established here.",
+      "owner_or_consumer": "src/ui/combat_display.js (resolved path for the checkpoint basename); main.js refreshCustomization; docs/gm/dispatch/settings-pass-2026-10-13/CHECKPOINT.md",
+      "evidence_state": "Checkpoint reports check.sh and npm totals after the last edit; no current source or browser reinspection in this content pass.",
+      "remaining_check": "If these settings behaviors are selected again, exercise reduced effects on reveal/coin float, color inputs after scheme switching, and vitals after an actual level-up against current source."
+    },
+    {
+      "record_id": "U0133",
+      "path": "docs/gm/dispatch/soldiers-life-world-2026-10-09/CHECKPOINT.md",
+      "input_sha256": "44966551a5a46be21120a319c575fcc7a264bd2a7832210f033aa57e9cf97fb4",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          10
+        ],
+        [
+          11,
+          15
+        ]
+      ],
+      "original_ids": [
+        "schema-1",
+        "Village choices revision 4",
+        "four premises",
+        "two storage modes"
+      ],
+      "mechanism_and_interactions": "The delivered pack uses runtime manifest fetch and validated atomic registry registration, native location/center controls, optional schema-1 save state, custody/local-wage publication, and dormant fallback for a removed pack. Reported journeys cover four premises, ordinary and two storage modes, one duty loop, colleague receipts, local recognition, old schema-3 save, reload/file import and missing/removed/restored pack behavior.",
+      "disposition": "The checkpoint reports source/build and fresh-origin browser evidence, then releases its source paths after final checks. This establishes the historical slice evidence only; director acceptance remains open and unexercised branches are recorded in ACCEPTANCE_BACKLOG.md.",
+      "owner_or_consumer": "src/content_packs.js, src/content_pack_ui.js, narrow main/save/expedition UI integration; docs/gm/dispatch/soldiers-life-world-2026-10-09/REPORT.md and ACCEPTANCE_BACKLOG.md",
+      "evidence_state": "Historical checkpoint reports 273/273 tests, build, fresh-origin browser, timer and save/import evidence; this shard did not rerun them or establish current integration.",
+      "remaining_check": "Director review is optional feedback under current AD42; remaining gameplay branches are implemented-unverified/design-only in the backlog and need their named journey if later selected."
+    },
+    {
+      "record_id": "U0134",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/comics/CHECKPOINT.md",
+      "input_sha256": "6f5b8c84e95505425437e04c8adfc718dbe3f6b79851264f962b36fcedc08ac1",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          10
+        ],
+        [
+          12,
+          15
+        ]
+      ],
+      "original_ids": [
+        "CX",
+        "T22 original Watchmen #1-12",
+        "CM1-CM5"
+      ],
+      "mechanism_and_interactions": "The source-mapping report relates 13 comic features to eight start kinds and 12 cheat lenses, then proposes a small Watchmen #1-12 investigation packet. It adds no graph or gameplay implementation; the finite range and synopsis are explicitly secondary/source-selection evidence.",
+      "disposition": "Research/proposals complete for the assigned map. No primary comic issues were read in this lane; the pilot and five suggestions await coordinator review.",
+      "owner_or_consumer": "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md; checkpoint names no implementation owner",
+      "evidence_state": "Reported document/link/count checks establish mapping coverage, not issue-level scene/timing/identity/return/rewrite rules or gameplay.",
+      "remaining_check": "Any selected mapping requires primary-scene/source qualification and later implementation/desktop acceptance; local issue-corpus availability was not established."
+    },
+    {
+      "record_id": "U0135",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/games/CHECKPOINT.md",
+      "input_sha256": "eda67bbba18172ee82a7c9022a83eca7a06d6ccb835bdbb33fe3259847e4f6e8",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ],
+        [
+          13,
+          17
+        ]
+      ],
+      "original_ids": [
+        "OGR1-OGR16",
+        "OS",
+        "NS",
+        "VS",
+        "VM",
+        "LK",
+        "SA",
+        "RX",
+        "UI"
+      ],
+      "mechanism_and_interactions": "The comparison covers 35 game cases (with installments separated), 16 patterns and eight YAIRPG mapping families, including three additions: Sunless Sea, DCSS and Cavernous II. It separates source descriptions, player complaints and inferred friction; tags alone were not treated as evidence.",
+      "disposition": "Document/web research complete; five ranked suggestions remain proposals. Memory-labeled gaps and unknown complaint fields are not source-verified or claimed as surveyed sentiment.",
+      "owner_or_consumer": "docs/research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md; coordinator may review proposals",
+      "evidence_state": "Checkpoint reports coverage, links and source mix; no game launch or source recovery was performed, and retail parity/balance are not established.",
+      "remaining_check": "Selected patterns need source qualification, world fit, implementation and rebuilt desktop/persistence acceptance; memory claims, absent-game proof and named unknown openings remain unresolved."
+    },
+    {
+      "record_id": "U0136",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/ideas/CHECKPOINT.md",
+      "input_sha256": "9e834a9233baa5f97c43f809054aa0620cc6ddd545e2622fa0f732c3aee4be2c",
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          8,
+          15
+        ],
+        [
+          17,
+          24
+        ]
+      ],
+      "original_ids": [
+        "B1-B5",
+        "V1-V9",
+        "O1-O8",
+        "VX",
+        "OX"
+      ],
+      "mechanism_and_interactions": "The lane joins existing body-lineage, identity/control, villain-MC, enemy-protagonist/clone, selves/echoes and timeline owners into source/world start palettes. It separates world identities from scaffold/audit folders and uses alternative thematic owners where requested dossiers are absent; proposals preserve original identity-world candidates without asserting mechanics for unrelated books.",
+      "disposition": "The bounded document comparison and proposal palette are complete. Proposed defaults remain proposals; gaps in the Knight dossier, partial source samples and LOTM/other later mechanics are retained rather than filled from adjacent material.",
+      "owner_or_consumer": "docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md; docs/IDEA_INDEX.md for routing; five suggestions are coordinator review items",
+      "evidence_state": "Checkpoint reports roster/count/link/style checks and local note inspection, not full-book/source-canon verification or runtime acceptance.",
+      "remaining_check": "Source selection/qualification, any selected start contract, compatibility and rebuilt desktop/save acceptance remain future work; missing or partial dossier evidence must stay explicit."
+    },
+    {
+      "record_id": "U0137",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/identity/CHECKPOINT.md",
+      "input_sha256": "4daf63f12691804b56489180840d833edf9a082f55ea953c80633eb7a9ca6ef9",
+      "read_ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          5,
+          11
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "original_ids": [
+        "IL1-IL35",
+        "171 coverage rows",
+        "126 UNKNOWN"
+      ],
+      "mechanism_and_interactions": "The identity matrix covers 171 source/world/volume rows, including 119 digest subjects and separately bounded volumes, plus 12 priority notes and IL1-IL35. UNKNOWN operation coverage is explicit for 126 rows; source rows include motifs/rulebooks and are not 171 unique authored worlds.",
+      "disposition": "Local research/proposal scope complete, with no ordinary dial default changes proposed. Coverage counts do not certify source-complete laws; exceptional starts depending on named unknown mechanisms remain unqualified.",
+      "owner_or_consumer": "docs/worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md; current matrix is the source coverage owner",
+      "evidence_state": "Checkpoint reports local dossier/digest/brief inspection and structural checks; it did not open sealed files, acquire sources or implement gameplay.",
+      "remaining_check": "The listed HP, Bleach, LOTM, Roshar and Elden Ring identity/return laws and thinner comparative worlds require their named source work before dependent exceptional starts are qualified."
+    },
+    {
+      "record_id": "U0138",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/idgaps/CHECKPOINT.md",
+      "input_sha256": "0898bd8a9f68e4e4920bcbcba4975c0937bb487c13b46b2ebc721d6a19214a80",
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          13
+        ],
+        [
+          15,
+          23
+        ]
+      ],
+      "original_ids": [
+        "IL34",
+        "IX/BW",
+        "19 world entries",
+        "25 route rows",
+        "10 unresolved worlds"
+      ],
+      "mechanism_and_interactions": "IL34 checks identity gaps across 19 entries, resolving or narrowing 25 route rows in nine worlds while retaining named UNKNOWN scopes for all 19. It checks selected Bleach/JJK payloads and corrects LOTM locator drift, but explicitly treats missing caches/manifest metadata as absent evidence and proposes no ordinary dial changes.",
+      "disposition": "Bounded local gap-resolution pass complete; it is not a franchise-complete source audit or playable implementation. Original identity matrix was checked unchanged by hash.",
+      "owner_or_consumer": "docs/worlds/IDENTITY_LAWS_GAPS_2026-10-14.md; original identity matrix remains the linked owner",
+      "evidence_state": "Checkpoint reports full matrix review, selected local payload inspections and 52 resolving links; no gameplay/build/browser/save verification.",
+      "remaining_check": "Roshar laws, HP temporal/self-coexistence and full-copy laws, Bleach copying/merger, LOTM avatar synchronization/former-person fate, and absent Elden evidence remain open."
+    },
+    {
+      "record_id": "U0139",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/index/CHECKPOINT.md",
+      "input_sha256": "776369679e18cbde9e8cd9deb7db152f421371429d80da32caee25af2172cbf9",
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          4,
+          12
+        ],
+        [
+          14,
+          22
+        ],
+        [
+          24,
+          39
+        ]
+      ],
+      "original_ids": [
+        "62 code families",
+        "rounds 1-16",
+        "round 17"
+      ],
+      "mechanism_and_interactions": "The index routes 58 intro and four lane code families, recorded direction/proposals/tensions/evidence, and ten first-slice candidates. It keeps work-specific status distinctions: the Mother of Learning lessons file was absent at read time and the checkpoint still showed graph/scenario authoring; isolated snapshot probes did not prove native integration or persistence.",
+      "disposition": "The index is complete only for requested rounds 1-16 and named families. A concurrently appended round 17 stayed outside scope; contradictions are flagged rather than resolved, and peer/checkpoint counts were not independently rerun.",
+      "owner_or_consumer": "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md; named lane and start-record owners retain their own evidence",
+      "evidence_state": "Checkpoint reports index/link/coverage checks and a scoped localhost probe; no full runtime tests or source/canon certification from this index pass.",
+      "remaining_check": "Resolve contradictions at their owning lanes and establish source or runtime proof only for selected work; retain the round-17 cutoff and unverified snapshot/persistence boundaries."
+    },
+    {
+      "record_id": "U0140",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/lout-synth/CHECKPOINT.md",
+      "input_sha256": "b457dd5dc69a882ed5799be3a60aae3923efb56bc4e07a342ff16aad4e30f5dc",
+      "read_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          8,
+          15
+        ],
+        [
+          17,
+          24
+        ]
+      ],
+      "original_ids": [
+        "SA",
+        "VS",
+        "OS",
+        "RV",
+        "RO",
+        "NS",
+        "PN",
+        "IX",
+        "BW",
+        "MT",
+        "SP",
+        "LD",
+        "OL"
+      ],
+      "mechanism_and_interactions": "Three reader notes/ledgers are synthesized over 81 unique units, with matching chunk/character totals and a shared source hash. The private report separates arrival/knowledge, original-occupant continuity, reputation, acquisition/operation and people links; the public proposal maps lessons to an ORIGINAL layered start record and dials. Source-ledger consistency is not a second full read or EPUB authenticity certification.",
+      "disposition": "Synthesis and public proposal completed; source claims and gameplay design remain bounded to supplied volumes 1-9, with original occupant outcome UNKNOWN. Later-volume detail stays private.",
+      "owner_or_consumer": "Private docs/research/novels/lout-of-counts-family/SYNTHESIS_2026-10-14.md and public docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md",
+      "evidence_state": "Checkpoint reports reader-ledger/hash consistency and link checks; it does not claim raw source reread, source authenticity, full-series coverage or gameplay.",
+      "remaining_check": "Original entry/occupancy mechanisms, listed source inconsistencies and later volumes remain unresolved; proposal requires source selection and authorized gameplay implementation/acceptance."
+    },
+    {
+      "record_id": "U0141",
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/micro/CHECKPOINT.md",
+      "input_sha256": "cabf2ffc4dbf893c9913da24d69bcd135de92f359d0eee566ea6461de47f1425",
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          8,
+          16
+        ],
+        [
+          18,
+          25
+        ],
+        [
+          27,
+          29
+        ]
+      ],
+      "original_ids": [
+        "MD1-MD144",
+        "MD145-MD198",
+        "MD199-MD214",
+        "MD215-MD234",
+        "T/D placement"
+      ],
+      "mechanism_and_interactions": "The palette supplies six details per each of 24 start kinds and nine entry kinds, then extends canon events/substitutes/branches/endings and routes 20 cheapest ideas to existing text/data homes. It avoids inferring a 24-by-9 Cartesian requirement; 175 details are no-new-system text/data placement and 59 name hooks.",
+      "disposition": "Document-only ORIGINAL PROPOSAL complete. Static text placement was source-assessed, not runtime-tested; hook mechanics remain unimplemented proposals, and the isolated probe is not assumed integrated.",
+      "owner_or_consumer": "docs/worlds/START_MICRO_DETAILS_2026-10-14.md; existing text/data homes named by MD215-MD234; probe source remains an isolated worktree",
+      "evidence_state": "Checkpoint reports local-source inspection and document/count/link checks; no gameplay/build/browser/save proof for proposed details.",
+      "remaining_check": "Selected T/D placements and hooks need content revision/compatibility decisions; probe integration and any persistence change require rebuilt desktop acceptance and save/reload/import."
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "The shard contains a reported settings implementation/check (U0132) and a source-pack slice with historical browser evidence (U0133); the other records are primarily research, proposal, mapping or audit artifacts. These claims are bounded to checkpoint inputs and date, not current runtime state.",
+    "Mechanism detail is preserved at different levels: source-world comparisons and identity matrices identify modeled questions or proposals, while the pack and settings checkpoints report specific consumers/guards. Counts and document validation do not promote proposals to accepted mechanics.",
+    "Across the start/source lanes, several boundaries are explicit: absent dossiers/caches stay absent evidence, source editions and volumes remain distinct, and proposal, fixture, isolated probe, browser proof, integration and director feedback are separate states."
+  ],
+  "unresolved_questions_source_gaps": [
+    "U0125-U0131 are bounded comparison/audit outputs; they do not provide present runtime proof, and source formulas/editions, later scopes and selected owner integration remain distinct gaps.",
+    "U0132's reduced-effects behavior on reveal/coin float, color input after scheme switch and vitals after actual level-up were unverified in its checkpoint.",
+    "U0133 reports a tested historical pack slice, but its checkpoint retains implemented-unverified branches and design-only follow-ons; current integration and director feedback were not established here.",
+    "U0134-U0141 retain source and scope gaps including issue-level comic evidence, game/source parity, incomplete or missing dossiers, exceptional identity laws, round-17 cutoff/contradictions, original entry/occupancy outcomes and runtime-unverified micro details."
+  ],
+  "coordinator_review": "Read the worker findings/gaps and selected long/end rows; owner/code checks prompted actual R7/R8/settings and start-index/micro source clauses. Removed neighbor-only codes, preserved split source ranges, and resolved combat_display.js to actual src/ui path without claiming current behavior."
+}

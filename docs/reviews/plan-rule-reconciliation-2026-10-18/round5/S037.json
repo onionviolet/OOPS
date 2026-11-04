@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "shard": "S037",
+  "reader": "content_s037; gpt-6-luna low",
+  "scope": "Assigned historical checkpoint content reviewed in full; reported source-reading and proof claims are not independently verified; no current runtime or source-canon qualification.",
+  "payload_sha256": "05426c1412d1de820465ec465ad6fb3f54e5a707629c52b9e5b1de570a1283cd",
+  "rows": [
+    {
+      "record_id": "U0419",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
+      "input_sha256": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
+      "read_ranges": [
+        [
+          1,
+          369
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "evidence_lines": [
+        [
+          7,
+          18
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          158,
+          162
+        ]
+      ],
+      "original_ids": [
+        "E8C"
+      ],
+      "mechanism_and_interactions": "The checkpoint aggregates Fallout wiki work across moral Karma, faction reputation/access, skills and quest checks, radiation/FEV variants, equipment and weapons, access tools, and facility power/control. It repeatedly separates source types, editions, actors, observed effects, hypotheses, and unknown thresholds; examples include Fallout 76 faction ranks as access progression, strain-specific FEV routes/effects, and power-control components with unresolved limits. It reports reading full retained pages or only assigned biography spans, with manifest/hash checks and ledger/note outputs; these are checkpoint claims, not inspected source evidence.",
+      "disposition": "Assigned lines contain a dated 2026-10-13 priority-pause annotation at the front, plus undated earlier queue authorization and progress through row86. Document order alone does not date that authorization after the pause, so it supplies no evidence that the pause was reversed. These retained progress entries are historical receipts; no current restart, aggregate/source-request status or runtime/build/save authority follows.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md; the checkpoint names fallout_SOURCES.json, READ_LEDGER.jsonl, and NOTES.jsonl as source manifest and outputs. No runtime consumer is assigned.",
+      "evidence_state": "Directly read the complete assigned checkpoint span. Its claims include frozen-manifest character/hash/revision checks and paraphrased ledger notes; underlying wiki payloads, manifest, ledger, and notes were not inspected in this shard. No contemporary runtime evidence was reviewed.",
+      "remaining_check": "Respect the live priority owner before any separate source resumption; the undated queue authorization is not proof of a post-pause reversal. To use a selected source claim, inspect its manifest, note and payload, then separately select world/edition consumers and runtime proof."
+    }
+  ],
+  "repairs": [
+    "Coordinator corrected inference that lower-in-document authorization was chronologically later than the dated pause; reviewed only header/control clauses for this correction."
+  ],
+  "cross_record_findings": [
+    "This span separates moral Karma, faction standing/access, individual knowledge and edition-specific mechanisms; broad wiki reading does not establish a universal law or progression rule.",
+    "A dated front-door pause and retained undated authorization/progress are not evidence of a later reversal."
+  ],
+  "unresolved_questions_source_gaps": [
+    "Queue authorization is undated and cannot be ordered after the explicit 2026-10-13 pause merely from physical document position; no later dated reversal is established in this assigned span.",
+    "Underlying frozen wiki payloads, manifest, READ_LEDGER.jsonl, and NOTES.jsonl were not independently checked; reported content and hashes remain unverified here.",
+    "The record does not establish current source-canon qualification, current runtime behavior, or gameplay integration."
+  ]
+}

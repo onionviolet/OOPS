@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "shard": "S038",
+  "reader": "content_s038; gpt-6-luna low",
+  "scope": "Complete assigned historical content spans; recorded claims and proof boundaries reviewed, not contemporary runtime or source-canon validation",
+  "payload_sha256": "57e9ce76df517a596f161ca383f2d674b0811ee7cbc8a5215609294943986223",
+  "rows": [
+    {
+      "record_id": "U0419",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
+      "input_sha256": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
+      "read_ranges": [
+        [
+          370,
+          745
+        ]
+      ],
+      "coverage": "assigned-range-content-read",
+      "original_ids": [
+        "Stealth Boy",
+        "Power armor",
+        "K-9",
+        "Mentats",
+        "Psycho",
+        "Jet",
+        "Fallout 2",
+        "Fallout Tactics: Brotherhood of Steel",
+        "Hit Points",
+        "Action Points",
+        "Damage Resistance",
+        "Fallout 3",
+        "Steal",
+        "Traps",
+        "Critical Chance",
+        "Poison Resistance",
+        "Radiation Resistance",
+        "Miria",
+        "Sequence"
+      ],
+      "evidence_lines": [
+        [
+          370,
+          386
+        ],
+        [
+          390,
+          430
+        ],
+        [
+          454,
+          518
+        ],
+        [
+          522,
+          570
+        ],
+        [
+          582,
+          602
+        ],
+        [
+          626,
+          662
+        ],
+        [
+          674,
+          742
+        ]
+      ],
+      "mechanism_and_interactions": "The historical worker checkpoint records a wiki-digest pass preserving edition boundaries: Stealth Boy has base camouflage, side effects, and distinct Mark II/III, Phantom and Railroad variants; power armor is a frame/core/part system with edition-specific training and vehicle-like use, while AT-0M scanning/mind field is tabletop-only. Drug summaries distinguish base effects, strains/recipes, addiction, withdrawal and treatment; Jet’s production-origin conflict remains unresolved. Fallout stat and combat summaries separate classic, later-game and tabletop formulas, including classic sequential DT/DR, New Vegas DR/DT and later nonlinear mitigation. Skills can gate specific actions or authored dialogue, while overview pages often omit formulas or defer to edition-specific child pages. These are recorded source summaries, not implemented game mechanics.",
+      "disposition": "Historical documentation delivery reports completed reads for full pages and retained mechanic spans, generally with frozen-manifest hash matches. Entries explicitly mark limited retained spans, dependency pages, text inconsistencies, scope-review flags and source-version conflicts. Completion describes checkpointed digest coverage; it does not independently verify the wiki claims, canon, current project rules or implemented behavior.",
+      "owner_or_consumer": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md; specific edition/model child pages are named as dependencies but their paths are not supplied in this span.",
+      "evidence_state": "Only the assigned historical checkpoint lines were reviewed. Its read/hash statements and mechanic summaries are reported evidence, not direct inspection of underlying wiki pages, the frozen manifest, source canon or current runtime.",
+      "remaining_check": "If a summary is reused, inspect its specific edition/model source page and resolve its recorded dependency or conflict, including the Jet origin disagreement, incomplete Fallout 76 formulas and scope-review flags. Then establish the selected world mechanism and consumer independently."
+    }
+  ],
+  "repairs": [],
+  "cross_record_findings": [
+    "The checkpoint describes secondary wiki notes and worker read receipts. A reported complete read/hash validates the capture workflow, not the accuracy of the notes, franchise canon or a project mechanic.",
+    "Edition and format boundaries materially change the summarized systems: classic, later-game, Tactics, tabletop and canceled-project material are kept distinct, with child pages and conflicts left open where the overview cannot support an exact rule.",
+    "No implementation or present runtime evidence is recorded here; any future mechanic needs its selected source page and actual in-world consumer checked separately."
+  ],
+  "unresolved_questions_source_gaps": [
+    "The assigned span is a checkpoint summary, not the underlying wiki pages or frozen manifest; source-claim accuracy was not independently checked.",
+    "Many details are deferred to edition/model child pages. The checkpoint retains conflicts and incomplete formulas, including Jet origin, Fallout 76 resistance math and several scope-review flags.",
+    "No current implementation, browser journey, save/reload/import proof or whole-franchise canon qualification is supplied."
+  ]
+}

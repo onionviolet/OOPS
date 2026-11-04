@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scope": "Publication snapshot:519/519 full content records; all source/canon/runtime limits retained",
+  "checks": [
+    {
+      "command": "python3 tests/plan_review_status_test.py",
+      "result": "PASS5/5 on unchanged helper/test bytes"
+    },
+    {
+      "command": "npm test",
+      "result": "FAIL shared checkout:4875pass/5fail/9cancelled",
+      "gap": "Other runtime/fixture owners; not a clean publication-candidate full-suite result",
+      "private_log": "/tmp/oops-historical-content-npm-test.log"
+    },
+    {
+      "command": "npm run check:docs",
+      "result": "FAIL shared checkout:19 diagnostics outside task; zero diagnostics in task Markdown after corrections",
+      "gap": "Refinement-audit and DOWNLOAD_SCOUT owners; log /tmp/oops-historical-content-final-docs.log. This is a shared-tree result, not candidate runtime proof."
+    },
+    {
+      "command": "per-shard span/hash/original-ID/schema integration",
+      "result": "PASS519 complete records/48 accepted shards",
+      "gap": "No headings/hash-only promotion; current source-canon and runtime not reverified"
+    }
+  ],
+  "publication": {
+    "branch": "codex/historical-content-reconciliation",
+    "base": "origin/master; excludes18 unpublished primary-master ancestors",
+    "primary_checkout": "untouched branch/index/unrelated paths"
+  },
+  "remaining": 0,
+  "final_content_validation": {
+    "scope": "Historical document content only; no current runtime/source-canon qualification",
+    "records": 519,
+    "shards": 48,
+    "review_rows": 523,
+    "source_words": 242181,
+    "exact_disjoint_line_coverage": "PASS",
+    "current_checkpoint_hashes": "PASS519/519",
+    "payload_hashes": "PASS48/48",
+    "evidence_line_bounds": "PASS; early pilot locators explicitly coarse",
+    "unrelated_inventory_rows_unchanged": 259,
+    "retained_local_raw_inputs_excluded": 30,
+    "inventory": {
+      "section_reviewed": 589,
+      "indexed_only_grouped_controls": 189,
+      "ungrouped_indexed_only": 0
+    },
+    "repair_invocations": 2,
+    "regular_reader_invocations": 46,
+    "maximum_concurrent_readers": 2
+  }
+}
