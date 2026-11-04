@@ -5,7 +5,7 @@ import {entryMethodOf} from './book_world_lotm_entry.js';
 
 export function lotmThresholdView(v, pick, {onConfirm, onBack}) {
     const era = v.axes?.find(a => a.id === 'era')?.options.find(o => o.available)?.label;
-    const blocked = !v.startable ? v.startReasons.join(' ') : pick.available === false ? 'A fresh book life is unavailable in this host.' : '';
+    const blocked = !v.startable ? v.startReasons.join(' ') : pick.available === false ? 'This life isn\'t open to you yet.' : '';
     return {
         id: pick.key, attrs: {lotmEntryAnswers: pick.key},
         from: 'Village', to: 'Tingen', title: pick.label.replace(/^Begin /, ''), era: pick.independent ? undefined : era,
@@ -14,7 +14,7 @@ export function lotmThresholdView(v, pick, {onConfirm, onBack}) {
         answers: pick.answers, rowAttrs: question => ({lotmAnswer: question}),
         options: [
             {id: 'confirm', label: pick.independent ? 'Start this new life' : 'Confirm and cross to Tingen', attrs: {lotm: pick.key === 'probationer' ? 'enroll' : `enroll_${pick.key}`},
-                cost: pick.independent ? '' : v.returnable ? 'Your Village life pauses' : 'Cannot be undone on this save', blocked, onChoose: onConfirm},
+                cost: pick.independent ? '' : v.returnable ? 'Your Village life pauses' : 'Can\'t be undone on this save', blocked, onChoose: onConfirm},
             {id: 'back', label: 'Back to the lives', attrs: {lotm: 'entry_back'}, affects: 'Nothing changes', onChoose: onBack},
         ],
     };

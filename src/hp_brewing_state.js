@@ -121,7 +121,7 @@ export function resolveBrew(lots, condition) {
 
 const need = (ok, why) => { if(!ok) fail(why); };
 const lotOf = (s, id) => s.lots[id] ?? fail('Choose a lot you hold.');
-const spend = (s, n) => { need(n <= s.purse, `That costs ${n} coins and you hold ${s.purse}.`); s.purse -= n; };
+const spend = (s, n) => { need(n <= s.purse, `That costs ${n} ${n === 1 ? 'coin' : 'coins'}. You have ${s.purse}.`); s.purse -= n; };
 // Retained paid terms, not a second clock or native lot authority. Legacy completed
 // batches stay usable; unknown consumed history is never reconstructed from grade.
 function checkHistory(h) {
@@ -152,7 +152,7 @@ function checkPending(b, s) {
 }
 const batchOf = (s, id) => s.batches[id] ?? fail('Choose a batch you hold.');
 const carried = b => need((b.custody ?? 'carried') === 'carried', 'Retrieve this portion from the bench before using it.');
-const retained = b => { need(b.cohortId && b.history, 'This older batch has no retained cohort history for pouring.'); checkHistory(b.history); };
+const retained = b => { need(b.cohortId && b.history, 'This older batch can\'t be poured. Its brewing record is missing.'); checkHistory(b.history); };
 
 
 const conditionWord = n => n >= R.cauldronOkFrom ? 'clean' : n >= R.cauldronBadBelow ? 'sooty' : 'badly fouled';
@@ -223,7 +223,7 @@ export function act(s, ctx, req) {
             if(ing === 'book.hp.ing.fluxweed') { lot.truth.provenance = chance(s, `lot:${s.serial}:prov`, route.fluxweedOkPermille) ? 'full_moon' : 'other'; lot.claim = 'Sold as picked at the full moon.'; }
             if(prepared) { lot.form = 'stewed'; lot.truth.stewedMinutes = chance(s, `lot:${s.serial}:stew`, R.preparedStewOkPermille) ? F.slots[0].minStewMinutes : F.slots[0].nearStewMinutes; lot.claim = 'Sold as stewed twenty-one days.'; }
         } else if(route.kind === 'loan') {
-            need(s.master.standing >= -1, 'The Potions master will not lend to you now.');
+            need(s.master.standing >= -1, 'The Potions master won\'t lend to you while your standing is this low.');
             need(s.debts.filter(d => d.status === 'open').length < 2, 'Settle an open loan before asking again.');
             lot = newLot(s, now, ing, route);
             s.debts.push({id: lot.id, ingredient: ing, dueAt: now + R.loanDueMinutes, repay: R.loanRepay[ing], status: 'open'});
@@ -234,8 +234,8 @@ export function act(s, ctx, req) {
             lot.claim = 'Taken from the private stores without leave.';
         } else if(route.kind === 'harvest') {
             need(ing === 'book.hp.ing.fluxweed', 'Only fluxweed grows here.');
-            need(s.harvestAt === null || now - s.harvestAt >= R.harvestCooldownMinutes, 'The patch has not regrown.');
-            need(typeof ctx.moon === 'string', 'The sky cannot be read right now.');
+            need(s.harvestAt === null || now - s.harvestAt >= R.harvestCooldownMinutes, 'The patch hasn\'t grown back yet.');
+            need(typeof ctx.moon === 'string', 'You can\'t tell the moon\'s phase right now.');
             s.harvestAt = now;
             lot = newLot(s, now, ing, route);
             lot.truth.provenance = ctx.moon === R.moonFull ? 'full_moon' : 'other';
@@ -258,7 +258,7 @@ export function act(s, ctx, req) {
     }
     case 'removeStew': {
         const lot = lotOf(s, req.lotId);
-        need(lot.stew, 'That lot is not stewing.');
+        need(lot.stew, 'That lot isn\'t stewing.');
         const spent = now - lot.stew.startedAt;
         lot.stew = null; lot.truth.stewedMinutes = spent; lot.known.stewed = spent >= F.slots[0].nearStewMinutes;
         if(spent >= F.slots[0].nearStewMinutes) lot.form = 'stewed';
@@ -268,7 +268,7 @@ export function act(s, ctx, req) {
         const donor = s.donors[req.donorId] ?? fail('Choose a donor.');
         need(req.route === 'ask' || req.route === 'brush', 'Choose how to get the sample.');
         if(req.route === 'ask') {
-            need(donor.standing >= R.donorAskMinStanding, `${donor.name} will not oblige you now.`);
+            need(donor.standing >= R.donorAskMinStanding, `${donor.name} won't help you right now.`);
             need(donor.askedAt === null || now - donor.askedAt >= R.donorAskCooldownMinutes, `${donor.name} has already helped you recently.`);
             donor.askedAt = now;
         }
@@ -294,15 +294,15 @@ export function act(s, ctx, req) {
         }
         const inputs = Object.entries(picked).map(([slot, lot]) => ({slot, lot: clone(lot)}));
         const externalMaterials = suspension ? clone(ctx.externalMaterials ?? []) : [];
-        need(seen.size > 0 || suspension && externalMaterials.length > 0, 'Add at least one lot or held native portion.');
+        need(seen.size > 0 || suspension && externalMaterials.length > 0, 'Add at least one lot, or a portion you\'re carrying.');
         const out = resolveBrew(picked, s.cauldron.condition);
         let minutes = HP_PROCESS.minutes, producedDoses = R.doses, abrasivePlan;
         if(suspension) {
             abrasivePlan = planHpAbrasiveMixture({localInputs: inputs, externalMaterials, process: ABRASIVE.steps,
                 apparatus: {station: 'cauldron', carrier: 'water-suspension', application: 'manual-scour'}});
-            if(ctx.abrasivePlan) need(JSON.stringify(ctx.abrasivePlan) === JSON.stringify(abrasivePlan), 'The selected suspension changed. Review the actual current portions.');
+            if(ctx.abrasivePlan) need(JSON.stringify(ctx.abrasivePlan) === JSON.stringify(abrasivePlan), 'The suspension you picked has changed. Check the portions again.');
             minutes = abrasivePlan.process.minutes; producedDoses = abrasivePlan.process.producedDoses; out.grade = 'original';
-        } else need(!req.materialInputs?.length && !ctx.externalMaterials?.length, 'External solids need the explicit original suspension method.');
+        } else need(!req.materialInputs?.length && !ctx.externalMaterials?.length, 'Solids from other worlds only go in with the suspension method.');
         const history = {revision: 1, process: suspension ? ABRASIVE.id : HP_PROCESS.id, clock: 'played-calendar', startedAt: now, minutes, readyAt: now + minutes,
             producedDoses, cauldronCondition: s.cauldron.condition, inputs, resolution: clone(out),
             ...(suspension ? {externalMaterials, abrasivePlan: clone(abrasivePlan)} : {})};
@@ -360,7 +360,7 @@ export function act(s, ctx, req) {
     }
     case 'transferBatch': {
         const b = batchOf(s, req.batchId); retained(b);
-        need(['carried', 'bench'].includes(req.custody), 'This bench supports carried portions and private bench storage. Recipient and native chest transfers are not connected.');
+        need(['carried', 'bench'].includes(req.custody), 'You can carry portions or keep them on your bench. Giving them away or moving them to a chest isn\'t possible yet.');
         need(req.custody !== b.custody, 'That portion is already there.');
         b.custody = req.custody;
         return req.custody === 'bench' ? 'The portion is set aside at your bench. Retrieve it before use.' : 'Retrieved the same portion from your bench.';
@@ -394,8 +394,8 @@ export function act(s, ctx, req) {
     }
     case 'seekCare': {
         need(s.condition, 'Nothing here needs the hospital wing.');
-        need(s.condition.track, 'These features follow the older fixed recovery; care does not change it.');
-        need(!s.condition.care, 'You are already in the hospital wing.');
+        need(s.condition.track, 'These features fade on the old fixed schedule. Care won\'t speed them up.');
+        need(!s.condition.care, 'You\'re already in the hospital wing.');
         s.condition.care = true; s.condition.careSince = now;
         log(s, now, 'care', 'You checked into the hospital wing. The features will be looked after until they clear.');
         return 'Admitted to the hospital wing. Weekly checks now get the healer\'s help.';

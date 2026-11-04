@@ -48,7 +48,7 @@ export function createHpBrewingPanel({read, quote, execute}) {
         const parts = [];
         if(!v.begun) {
             const intro = section('Begin', el('p', v.waiting ? 'The game clock is not ready yet.' : 'Set up a small bench, a purse of slice coins and three classmates who might lend a sample. Lots, prices and consequences are original proposals around the sourced formula.'));
-            button('Begin the Polyjuice slice', {type: 'begin'}, intro, {id: 'begin'}); parts.push(intro);
+            button('Set up the Polyjuice bench', {type: 'begin'}, intro, {id: 'begin'}); parts.push(intro);
         } else {
             parts.push(el('p', `Purse ${v.purse} coins · moon: ${v.moon ?? 'unknown'} · cauldron ${v.cauldron.condition}, ${v.cauldron.residue}${v.cauldron.brewing ? `, ${v.cauldron.activity} (${v.cauldron.readyInMinutes < 60 ? `${v.cauldron.readyInMinutes} min` : `${v.cauldron.readyInHours} h`} left)` : ''} · Potions master: ${v.master}`, 'hp-status'));
             // 1. Obtain
@@ -112,7 +112,7 @@ export function createHpBrewingPanel({read, quote, execute}) {
                 }, 'comparison-option'));
                 const selected = v.substitution.choices.find(c => c.id === sel.choiceId);
                 if(selected) for(const row of selected.debits) brew.append(el('p', `${row.name}${row.key.startsWith('hp:') ? '' : ` [${stockHandle(row.key)}]`} · ${row.qty} selected · ${row.custody}${row.stockReason ? ` · ${row.stockReason}` : ''}`, 'hp-note'));
-                if(selected) for(const fact of selected.evidence.uncertainConditions) brew.append(el('p', fact.reason || 'This proposed physical arrangement is not a demonstrated result.', 'hp-note'));
+                if(selected) for(const fact of selected.evidence.uncertainConditions) brew.append(el('p', fact.reason || 'Nobody has tried this mix yet, so the result is unknown.', 'hp-note'));
                 if(sel.choiceId && !selected) brew.append(el('p', 'The selected comparison option is no longer available. Its exact request is retained; clear or replace the selected inputs.', 'hp-note'));
                 if(sel.materialInputs.length) brew.append(el('p', `Native portions selected: ${sel.materialInputs.map(x => `${x.qty} from carried stock ${stockHandle(x.key)}`).join(', ')}. Native amounts are rechecked before payment.`, 'hp-note'));
             }

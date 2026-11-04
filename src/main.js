@@ -772,7 +772,7 @@ function stageTonicPurchase(context) {
 }
 function actGrowth(action,sequence) {
     if(sequence!==expansionState.sequence)throw Error('Study controls changed. Review the current offer.');
-    if(!workLedgerCanWrite())throw Error('Restore writable saving before study conditioning.');
+    if(!workLedgerCanWrite())throw Error('Saving is paused, so study conditioning can\'t change right now.');
     const context=growthContext();
     if(action==='buy')return stageTonicPurchase(context);
     const state=structuredClone(expansionState),gameplay=gameplaySnapshot();let next;
@@ -853,7 +853,7 @@ function publishStudy(plan){
     readingSalvagePanel?.render();
 }
 function actStudy(type){
-    if(!workLedgerCanWrite())throw Error('Restore writable saving before study.');
+    if(!workLedgerCanWrite())throw Error('Saving is paused, so you can\'t study right now.');
     if(type==='prepareMeal'){
         if(current_location.id!=='Village'||character.getTotalSkillLevel('Cooking')<1||!studyContext().available)throw Error('Cooking 1 and free Village work are required.');
         return startExpedition('p23.reading.pack_rest',expansionState.sequence);

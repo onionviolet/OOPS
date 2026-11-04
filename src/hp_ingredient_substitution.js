@@ -64,7 +64,7 @@ export function planNativeHpMaterials({inputs = [], inventory, world, assertSpen
 export function planHpAbrasiveMixture({localInputs = [], externalMaterials = [], process, apparatus} = {}) {
     need(Array.isArray(localInputs) && Array.isArray(externalMaterials), 'Suspension inputs must be actual selected portions.');
     need(apparatus?.station === P.station && apparatus.carrier === 'water-suspension' && apparatus.application === 'manual-scour',
-        'This suspension needs the cauldron, paid water service and manual scouring route.');
+        'This suspension needs the cauldron, paid water and scouring by hand.');
     const rows = localInputs.map(({slot, lot}) => {
         need(typeof slot === 'string' && typeof lot?.id === 'string' && !lot.stew, 'Choose a current, non-stewing HP lot.');
         return {kind: 'local', key: localKey(lot.id), lotId: lot.id, slot, qty: 1, material: profileForLot(lot)};
@@ -112,7 +112,7 @@ export function projectHpIngredientChoices({lots = [], nativeHoldings = [], sele
         evidence: {lot: {id: lot.id, form: lot.form, custody: lot.custody}}}));
     holdings.push(...nativeHoldings);
     const candidates = [], requests = {};
-    const evidence = {conditions: [{id: 'treatment-result', status: 'unknown', reason: 'A proposed physical arrangement is not a demonstrated result.'}],
+    const evidence = {conditions: [{id: 'treatment-result', status: 'unknown', reason: 'Nobody has tried this mix yet, so the result is unknown.'}],
         consumer: {id: 'hp-cauldron-abrasion', description: 'A trial uses one dose against actual cauldron residue; no canonical transformation is predicted.', source: P.source}};
     const add = (id, label, kind, local, native) => {
         const request = {type: 'brew', method: P.ref, slots: Object.fromEntries(local.map((lot, i) => [['bicorn', 'knotgrass'][i], lot.id])),

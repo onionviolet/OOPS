@@ -21,7 +21,7 @@ export const lotmSpellAdapter = (overrides = {}) => defineSpellAdapter({
 export function spellFromTyped(row, {sourceId, sequenceFact}) {
     const rec = recordFromTyped(row, {sourceId});
     return {key: rec.key, label: rec.label, sourceId, locator: rec.locator,
-        origin: {kind: 'sequence', gate: {label: 'Holds the sequence', reason: 'You do not hold the sequence this ability comes from.', requires: {fact: sequenceFact, op: 'eq', value: true}}},
+        origin: {kind: 'sequence', gate: {label: 'Holds the sequence', reason: 'This ability comes with a sequence you don\'t have.', requires: {fact: sequenceFact, op: 'eq', value: true}}},
         formula: rec.conditions, blockedBy: rec.blockedBy, cost: rec.cost, limit: rec.limit, effects: rec.effects, stated: rec.stated, unstated: rec.unstated};
 }
 

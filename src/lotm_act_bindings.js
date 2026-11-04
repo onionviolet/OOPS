@@ -23,7 +23,7 @@ export const LOTM_ACT_BINDINGS = {
     },
     'lotm.aid.ritual-oil-bath': {
         place: 'fixture.workroom', steps: {add: {minutes: 15, costs: [{type: 'item', key: K.essenceOil, amount: -1}]}}, inputs: {},
-        requires: {fact: `item.${K.essenceOil}`, op: 'gte', value: 1, reason: 'Hold the prepared oil.'},
+        requires: {fact: `item.${K.essenceOil}`, op: 'gte', value: 1, reason: 'You need the prepared oil.'},
         owners: {'inventory-consumption': [], 'mood-state': [fact('actor.lotm.mood.relaxed', true)]},
     },
     // Volume 2: a sacrifice that sends a box and carries a backlash risk.

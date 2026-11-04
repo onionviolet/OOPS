@@ -32,7 +32,7 @@ const discharge = () => item(K.empty, 1, 'player', true);
 const live = all(eq('absorption.assay.supported', true, 'Return to the Village with your living native body, stock and local clock.'),
     eq('absorption.assay.handsUsable', true, 'Recover your usable hands before bench work.'),
     eq('absorption.assay.siteSupported', true, 'Use Eda\'s actual fitting bench under her retained external-trial permission.'),
-    {fact: 'vital.health', op: 'gte', value: 2, reason: 'Recover above one HP before work.'});
+    {fact: 'vital.health', op: 'gte', value: 2, reason: 'You\'re too badly hurt to work. Heal until your health is at least 2.'});
 const opened = eq('absorption.assay.opened', true, 'Hear Eda\'s closed-batch terms first.');
 const eda = eq('absorption.assay.edaSupported', true, 'Eda needs present consent, usable hands, health and free attention.');
 const own = kind => eq(`absorption.assay.own.${kind}`, true, 'Carry your own unencumbered, unequipped matching input, or retain this job\'s exact reservation.');

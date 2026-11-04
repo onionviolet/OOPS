@@ -98,7 +98,7 @@ const recovery=cmd('recover_dock_manifest','Recover the submerged harbour manife
  visibleWhen:all(eq('lotm.enrolled'),eq('lotm.district.storm'),has('reportedIn')),
  costs:[attention(-1,I.stormOfficer)],requires:recoverySupport,duration:5,cancellation:'refund',completionRequires:recoverySupport,completionCoLocated:true,completionFailure:'refund',
  effects:[money(24),know('work.submerged_manifest','You recovered the harbour manifest from beneath the quay and the duty officer paid 24 pence. Your Sailor breath made the submerged work possible; preparing it spent stamina and left the scales behind. This particular manifest is back in the office.','player','player','observation','understood')]});
-recovery.requires.reason='Need Sailor, breath & duty officer.';
+recovery.requires.reason='You need the Sailor\'s long breath working and the duty officer here.';
 districtCommands.push(recovery);
 
 // M4 A2: ordinary completed work can supply an in-role experience. Reflection
@@ -114,7 +114,7 @@ export const roleOutcomeCommands=LOTM_ROLE_OUTCOMES.map(r=>{
  const c=cmd(`reflect_work_${r.key}`,r.label+' · one in-role act',r.place,{alone:true,once:false,
   visibleWhen:all(eq('lotm.enrolled'),eq(`lotm.${r.key}Supported`),gte(`lotm.roleOutcome.${r.key}.completed`,1)),
   requires:eq(`lotm.roleOutcome.${r.key}.ready`),effects:[{type:'resource',actor:'player',key:`book.lotm.${r.key}.acting`,amount:1},know(reflected(r),r.text,'player','player','observation','understood')]});
- c.requires.reason='Need fresh work & an unsettled potion.';return c;
+ c.requires.reason='You need freshly finished work and a potion that hasn\'t settled yet.';return c;
 });
 districtCommands.push(...roleOutcomeCommands);
 export function roleOutcomeFacts(state,f){

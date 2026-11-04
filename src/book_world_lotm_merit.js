@@ -16,7 +16,7 @@ export const NIGHTHAWKS=defineInstitution({id:'nighthawks',world:'lotm',name:'Ni
  evidence:['institutions pass F1, F2','canon: churches pay merit and check it before a Sequence 8 handover'],
  proposals:['Assignments, pay, prices and stock are authored; scale them per world.'],
  missions:[
-  {id:'cold_room_watch',label:'Stand a night watch over the cold room for Warden Hale',pay:2,minutes:60,issuer:'Warden Hale',risk:'Sleepless hours; nothing you cannot walk away from, but the watch is not logged as done until the hour ends.',text:'You sat with the covered dead while the lamps burned low. Hale initialled the watch book.'},
+  {id:'cold_room_watch',label:'Stand a night watch over the cold room for Warden Hale',pay:2,minutes:60,issuer:'Warden Hale',risk:'Sleepless hours. You can walk away, but the watch only counts once the hour ends.',text:'You sat with the covered dead while the lamps burned low. Hale initialled the watch book.'},
   {id:'case_file_copy',label:'Copy a closed case file into the church records',pay:1,minutes:30,issuer:'Warden Hale',risk:'None beyond a cramped hand.',text:'You copied the file in a plain hand. Hale did not say what the case was.'}],
  store:[
   {id:'sun_8_sheet',label:'A recovered copy of the Sequence 8 Light Supplicant formula',kind:'formula',price:8,gate:{rule:no('bf.sun_8.formula'),text:'You already hold this formula copy.'},grants:{flag:'bf.sun_8.formula'},
