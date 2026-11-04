@@ -1,0 +1,309 @@
+{
+ "checks": [
+  "Level 4: row 3 active, row 5 waiting, sealed row shows a level only, edge +4% on the Sleeping panel",
+  "Level 5 earned by sleeping: row 5 active, edge +5%, Sound Sleeper granted at 552",
+  "Patience trained by native resting (72 xp); its panel shows the same edge row",
+  "Save, reload, Export and literal Import: save unchanged, no replayed title grant, title date kept",
+  "Rust to level 4: row 5 rests, edge +4%, title and its date unchanged",
+  "Reload and literal Import while rusted: same level 4 view, no double perk, title kept",
+  "Inspector lists each ladder row, the edge and the title for max stamina and Patience xp; Titles panel shows Sound Sleeper"
+ ],
+ "errors": [
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  }
+ ],
+ "fixture": "tests/fixtures/perf/mid.json with Shack and Sleeping seeded to 30990 xp; rust earned by 21000 stepped minutes with the dial on"
+}
