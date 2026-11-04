@@ -103,3 +103,5 @@ TQ7/TQ10 shorthand without changing standing direction or runtime behavior.
 adds PC44–PC60 for weather/exposure, ecology, lore and targeted idea sources,
 plus A13–A15 proposals and the requested independent other-systems audit chat.
 The source scout is a bounded entry-point/mechanism check, not new gameplay proof.
+
+**2026-11-04 repair of F1/F2 (A1, runtime only):** reproduced on HEAD dc5f00240 by a failing regression (quote `eligible:true`, commit refuses). `checkMethod` now runs once, in the `quoteCrafting` craft branch with its actual lots; the duplicate call in `stageCrafting` is removed (stage re-quotes first) and the misplaced treatment-branch call (F2) is gone. Check: `node --test tests/crafting_runtime.test.js tests/craft_reference.test.js tests/crafting_home_refresh.test.js` → 18 pass, 0 fail (new test: `crafting_runtime.test.js` named-method quote/commit parity). Gaps: full `npm test`, `check:arch`, and the rebuilt 1920×1080 method journey were not run; not committed or pushed.

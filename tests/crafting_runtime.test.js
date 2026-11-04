@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {quoteCrafting,stageCrafting,validateCraftingEnvelope,projectCrafting,validateCraftedExposure,craftedExposure,bindingExposure,shortenPoison,BIND_ID,materialKey,catalogue,materialFromKey} from '../src/crafting_frontier_runtime.js';
+import {SALT_STEEP} from '../src/craft_reference_content.js';
 const context={blocked:'',world:'base.frontier',location:'Village',clock:51000000,root:123};
 function apply(inventory,plan){const next={...inventory};for(const i of plan.items){next[i.key]=(next[i.key]||0)+i.amount;if(!next[i.key])delete next[i.key];}return next;}
 function gather(){const p=stageCrafting(null,{},quoteCrafting(null,{},{type:'harvest'},context),context);return {owner:p.state,inventory:apply({},p)};}
@@ -69,4 +70,16 @@ test('an herbal tonic with no ash binds nothing and keeps its own effect',()=>{
  const {owner,inventory}=gather(),ctx=context,p=stageCrafting(owner,inventory,quoteCrafting(owner,inventory,{type:'craft',inputs:[{key:Object.keys(inventory)[0],qty:1}]},ctx),ctx);
  const used=stageCrafting(p.state,apply(inventory,p),quoteCrafting(p.state,apply(inventory,p),{type:'use',key:p.items.find(i=>i.amount>0).key},ctx),ctx);
  assert.equal(used.binding,null);assert.ok(used.effect);
+});
+test('a named-method quote refuses exactly what its commit refuses (one method check)',()=>{
+ const {owner,inventory}=gather(),key=Object.keys(inventory)[0],base={type:'craft',inputs:[{key,qty:1}]};
+ const free=quoteCrafting(owner,inventory,base,context);assert.equal(free.eligible,true);
+ const request={...base,recipe:SALT_STEEP.id};
+ // No access and unfit lots: the quote must say what stage will say.
+ const q=quoteCrafting(owner,inventory,request,context);
+ assert.equal(q.eligible,false);assert.match(q.reason,/no access to this method|do not fit/);
+ assert.throws(()=>stageCrafting(owner,inventory,{...q,eligible:true},context),new RegExp(q.reason.slice(0,20)));
+ // Funded treatment never carries a method; a stray recipe must not crash the quote.
+ const t=quoteCrafting(owner,inventory,{type:'treatment',action:'x',recipe:SALT_STEEP.id},context);
+ assert.doesNotMatch(t.reason,/lots is not defined/);
 });
