@@ -188,3 +188,23 @@ Next steps, ranked:
 | Fate SRD, Fate Condensed included | `fate-srd/fate-srd-content`, the official SRD organisation that Evil Hat endorses (commit `93ed848`, 2025-08-08) | `docs/markdown/Fate-Condensed-SRD-CC-BY.md` plus the Core and Accelerated SRDs | CC-BY 3.0 | shallow clone; its build scripts are never run |
 | GURPS Lite 4th edition | free from Steve Jackson Games, but only through a Warehouse 23 checkout with an account | not fetched | free distribution | Weibao's to grab: agents do not create accounts or check out |
 | Mutants & Masterminds 3e SRD, scoped | d20herosrd.com through the lncrawl-polite transport: the powers chapter, character creation and the OGL page | 74 pages as text plus `manifest.jsonl` (body SHA-256 per page). They include Immunity, Enhanced Trait, Variable, Modifiers, Descriptors, the effect descriptions and the sample powers | OGL Open Game Content | the run stopped on a 404 from a site-internal link (`/6-powers/effects/sample-powers/mimic`), which closes the host in the transport for good. Seven queued pages were not fetched. Reopening the host needs Weibao's say-so, or the Chrome route |
+
+## Acquisition round 2026-11-04 (Weibao: "go ahead", "use the rest of today's usage")
+
+Receipts and runners: `docs/research/novels/wave-2026-11-04/` (gitignored: `receipts*.jsonl`, `wave*.py`, search outputs). 72 of 73 receipts verified by file (ZIP CRC for EPUB/CBZ, `%PDF-` header for PDF); the 73rd, Mushoku Tensei 10, failed twice as a corrupt copy and landed from a third copy (ZIP CRC clean). Anna's MD5 matched on every Anna's file. Nothing was opened for reading; PDFs still need `pdf-screen` before any reader. Source Library holds 2,791 assets after regeneration.
+
+| Group | Held now | Route | Notes |
+|---|---|---|---|
+| Solo Leveling (Chugong) | Official Yen On novels 1-8, plus "Whole Story + Side Stories" web compilation (chapters 1-270) | Anna's fast; vol 3 Z-Library | Keep the web compilation as a separate edition from the official novels. One older "Solo Leveling" record predates this and is unidentified |
+| Riordan companions | *Percy Jackson and the Singer of Apollo*, *Camp Jupiter Classified*, *Kane Chronicles Survival Guide*, *Percy Jackson and the Olympians: The Ultimate Guide* | Anna's fast | Rest of Riordan was already held (PJO 1-5, HoO 1-5, Trials of Apollo 1-5, Kane omnibus, Magnus Chase 1-3) |
+| Naruto novels | Sasuke's Story: Star Pupil, Shikamaru's Story: Mourning Clouds, Kakashi's Story: The Sixth Hokage and the Failed Prince, Naruto's Story: Uzumaki Naruto and the Spiral Destiny, Sasuke Retsuden | Anna's fast | Itachi/Sasuke/Kakashi/Shikamaru earlier editions were already held as the Shinden/Hiden titles |
+| Mushoku Tensei LN | Volumes 1-26 (all English volumes the search returned) | 1-9, 11-16 Anna's fast; 10, 17-26 Z-Library | Embedded titles for 15, 18 and 25 do not carry "Vol."; check by shelf, not title regex |
+| Meadowreach Homestead | 1-8 | Z-Library | Supersedes the "Anna's lacks 5-8" note; Z-Library had all four |
+| Sword Art Online Progressive | 1-9 | Z-Library | Newly held |
+| Pathfinder 2e | Player Core, Player Core 2, GM Core, Monster Core | Anna's fast (GM Core and Monster Core on the second try) | PDF; Kingmaker (145 MB) not fetched |
+| Other tabletop | Exalted core (Onyx Path), Pendragon Core Rulebook, GURPS Infinite Worlds (4e), Traveller Core Rulebook Update 2022, Burning Wheel Gold Revised | Anna's fast | PDF; Torg Eternity in English not found |
+| JJK / Dungeon Meshi | JJK Modulo 1, 7, 9, 10 (CBZ); JJK Official Character Guide (PDF); Delicious in Dungeon World Guide (CBZ) | Anna's fast | Modulo 2-6 and 8 not fetched. The Dungeon Meshi guide MOBI was rejected by Source Library (unsupported format) and cost a download; take CBZ/PDF/EPUB only |
+
+Corrections to earlier lines in this file: Tree of Aeons 8, Path of Ascension 9 and Overlord 1-3 were already held (the "Still Z-Library only" and "books 5+" lines are stale). Quotas at end of run: Anna's fast 1 of 50 left; Z-Library 4 of 30 left. Not found: Naruto official databooks, Torg Eternity (English), JJK Official Fanbook (English; a Spanish PDF exists).
+
+Operating notes from this run: the manga governor's `source-library download` holds the shared download lock chapter after chapter, so a Z-Library `acquire` starves until `governor.py work-on` pauses it (then `work-off`); the governor's loop, runner and OCR died at 19:47 on 2026-11-03 and were restarted at 22:46 (Naruto at 3626 of the 3376-4076 range, about 36%). Source Library rejects `.mobi`. A wrapper that records `ok` from `acquire` must read the result's own `ok`: `acquire` returns `ok: false` without raising.
