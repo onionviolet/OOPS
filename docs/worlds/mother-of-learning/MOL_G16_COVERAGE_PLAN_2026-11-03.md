@@ -94,3 +94,12 @@ I drew 20 random scene-beat rows from these chapters (seed 7) and compared each 
 
 - No pilot, no reader launches, no fold into COVERAGE_CENSUS; G16's row is updated to point here.
 - Mechanics fields (carry, trust gates, foreknowledge) remain unextracted.
+
+## Pilot ledger (2026-11-03, Weibao's yes to "pilot first")
+
+Shard P1 = c56 + c57, 13,632 words (6% over the 12,000 target; chapter boundaries). Payload with locators: 76,574 characters. Reader: haiku, one source read, one write, 2 tool calls, no truncation, no quotes. Output (private, gitignored): `docs/research/novels/mother-of-learning/private/g16-2026-11-03/pilot_c056-057.md`, 99 items over six fields.
+
+- **Quality.** I checked 11 locators against the EPUB text (c56 p64, p89, p125, p202, p205, p211; c57 p20, p74, p106, p157, p166): all 11 are on the claimed paragraph and support the item. Weak spot: DATED holds relative timing ("two days after", "next three days"), not loop-day numbers, because the chapters give none. The undated beats will mostly stay undated; the gain is in LOOP, TEACHERS, TRUST and FOREKNOWLEDGE.
+- **Cost.** Reader tokens reported by the host: 105,068 (input and output, cache split not given). Meter around the pilot: 5-hour window 43% to 44%, weekly all-models 33% to 33%. The meter moves in whole points and my coordinator turns share the window, so this is an upper bound for one shard, not a measurement.
+- **Projection.** 28 shards would be about 2.9M reader tokens. If a shard costs up to one point of the 5-hour window, the pass is up to about 28 points there; the weekly cost is below the meter's resolution per shard, likely single-digit points in total.
+- **AU7 position.** Starting reading 42% (5-hour); now 44%, so about 2 of the 5 points are gone and about 3 shards fit under the default ceiling. The default ceiling cannot cover 28 + 3 invocations. Stopped under AU7/AU8 for a specific larger ceiling. Remaining: 27 shards + 3 repair.
