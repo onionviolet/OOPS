@@ -1,0 +1,14 @@
+{
+  "command": "node docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/evidence/boundary-probes.mjs",
+  "result": "PASS expected F1/F2 counterexamples before W1 repair",
+  "F1": {
+    "long": {
+      "age": 1,
+      "drift": 3
+    },
+    "split": {
+      "age": 0,
+      "drift": 4
+    }
+  }
+}

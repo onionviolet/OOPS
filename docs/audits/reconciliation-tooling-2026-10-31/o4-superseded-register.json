@@ -1,0 +1,81 @@
+{
+  "scope": "Exact superseded hunks from this O4 pass; other unchanged material was not semantically reconciled.",
+  "hunks": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "registered writeups is accepted until PROJECT.md records it.",
+      "replacement": "registered writeups gains acceptance from registration. Under AD32, direction is established by Weibao\u2019s words and the owning rulebook/AD line; PROJECT.md summarizes current focus and priorities.",
+      "before_sha256": "c2e3d97c91d30864f3c359fa277342569cd6157a7db80d291b55eeb8058f6146"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "Owners stay where they\nare (USER_VISION for Weibao's words, PROJECT.md for accepted decisions, the master\nplan for rounds, IDEA_INDEX for idea routing);",
+      "replacement": "Owners stay where they\nare (USER_VISION for Weibao's words, rulebooks/AD lines for accepted direction, PROJECT.md for current focus,\nthe master plan for its rounds, IDEA_INDEX for idea routing);",
+      "before_sha256": "74e77e2eea41e9c5a29bd1d4e7673a3dbcf31c99e229db7017fbae455af9f7f4"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "| Done | A card passed the AD43 floor, or the writeup was fully absorbed | The coordinator |",
+      "replacement": "| Done | A named card met its applicable floor, or a writeup was fully routed at its declared scope; neither closes unrelated cards | The coordinator |",
+      "before_sha256": "4d449e0143eb1325358cba22a7d74fbd4ecf1cd4ef64c7b65b93ce13c5c298ae"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "Latest round is the newest appended round or part in the file. All rows below were\nwritten 2026-10-27 and are proposals unless the next-action cell says otherwise.",
+      "replacement": "Latest round is the newest reviewed round or part in the file, with its review date. Rows retain their own dates and scopes. The October 27 adoption in section 5b applies to its then-selected material, not later additions. Unrefreshed rows remain dated snapshots: verify their current owner before acting (AD32, AD36).",
+      "before_sha256": "0e02223086da585925e103be614dbdd0eb306be8deddae283ea9cf11418a079a"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "| [CANON_PROTAGONIST_INTERACTIONS](../research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md) | Playing as, beside, apart from the original protagonist; lead-first authoring and autonomous pipeline; PX1 to PX64 | New | WER1 to WER17; NPC absence clocks; time travel and seeded worlds (DT1) | Part H (round 5) | LOTM start month, HP cohort offset; fanfic census needs Weibao's yes; bulk source acquisition and private-pack placement for named canon | Run the Village mini-line first (PX64): lead-run table, pack data, same-verb bot, null-player and poke tests, bystander smoke test. Done: the eight checks in Part H.6 pass, agent-verified, not human-reviewed. |",
+      "replacement": "| [CANON_PROTAGONIST_INTERACTIONS](../research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md) | Lead/beside/other seats and source pipeline | Historical palette; later lead-first direction governs (AD44) | LEAD_LIFE_RULES; LEAD_LIFE_GUIDE; current refinement tracker | Part H retained; routing reconciled 2026-10-31 | LOTM opening date and main-line lead seat resolved; HP cohort premise remains with the HP plan | Follow current world plan and runtime tracker; do not relaunch the old Village mini-line as a universal prerequisite. Source/permission gaps retain their original owners. |",
+      "before_sha256": "b7e61837316857e7a93d8574d83297d5e6575500e26007b01dec3c9355ac15d8"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "| [PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md) | Brief for a GM session: implement the protagonist's life, then open the seat and transfer to the rest of the world | Plan rounds 1-13 done 2026-10-27 ([PLAN](dispatch/protagonist-life-2026-10-27/PLAN.md), [schema](dispatch/protagonist-life-2026-10-27/LEAD_RUN_SCHEMA.md)); reader protocol v2 built and gated; volume 1 reading approved; chapters 1-120 read and graded (waves 1-3 and two wave-4 shards, all A or B since the gate); handed to a cheaper coordinator with a protocol v3 design ([handoff](dispatch/protagonist-life-2026-10-27/READING_HANDOFF.md)) ([status](dispatch/protagonist-life-2026-10-27/READING_STATUS.md)); engine lanes PL-E0, B1, E2, E3, E1, H1 committed 2026-10-27, all implemented below floor ([checkpoint](dispatch/protagonist-life-2026-10-27/ENGINE_LANES_CHECKPOINT.md)) | Canon protagonist Parts G and H; time travel C1/C2; CAE-E1/E2/E4; WA22-WA24 | Round 14 (after wave 1; WA25-WA41 accepted, adjustable; WA42-WA47 proposed) | Q3 private placement; Q4 LOTM start month; yes to WA42-WA47; Q5 WER11 wording; AD33 order for allies; HP and MoL reading plans | Reading of volume 1 is paused for the [batch route](dispatch/batch-reading-2026-10-27/PLAN.md) (2026-10-27); earlier plan: read volume 1 in 7 waves under protocol v2, audited per wave, paced by AU7; engine lanes run in pilot-engine-lanes. Done: all 63 shards graded A or B with headers, then the lead-run table assembly (P2). |",
+      "replacement": "| [PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md) | Historical launch/reader/engine brief | Superseded launch/read-count snapshot; work has launched, not whole-life complete | [reading status](dispatch/protagonist-life-2026-10-27/READING_STATUS.md), [lead guide](../LEAD_LIFE_GUIDE.md), [runtime tracker](dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md) | Original round 14 retained; routing reconciled 2026-10-31 | LOTM opening date resolved in USER_VISION 2026-10-28; WA42\u2013WA47 retain their mixed current statuses in RULES_INDEX | Readers use current READING_STATUS and its qualification limits; runtime uses the incumbent tracker, including L2b below floor. No old launch vote, shard count, blanket WA adoption or fresh budget follows from this row (AD32/AD36). |",
+      "before_sha256": "8ea793cae4d1173e9fea9bc882d189bb060cf5b1c68b6e3daeb00d764ac57936"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "| [Batch reading PLAN](dispatch/batch-reading-2026-10-27/PLAN.md) | Message Batches campaign for the most important books: scored table, per-book plans, LOTM volume 1 remainder and A/B (dry run), runner scripts | Proposed; nothing submitted | READING_STATUS | Round 1 | Which books; go phrase per batch; 10% repair reserve vs AU13 cap | Weibao says the go phrase after storing the key (Weibao). Done when the A/B grade and recall are recorded. |",
+      "replacement": "| [Batch reading PLAN](dispatch/batch-reading-2026-10-27/PLAN.md) | Reading campaign and batch-specific execution | Original \u201cnothing submitted\u201d is historical; later reading results are recorded | [READING_STATUS](dispatch/protagonist-life-2026-10-27/READING_STATUS.md), batch PLAN and run files | Original round 1; routing reconciled 2026-10-31 | Future submissions retain their own explicit run approval and budget; no authorization inferred here | Read current per-book/source/grade state and exact run approval. Acquisition, reading, lint/grade, merge and gameplay remain distinct; this row launches nothing (AD32). |",
+      "before_sha256": "f9deef351ff64e33e8aef8555572cb969966a11dc02cf6dbf67fd806c0c69295"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "Rank by what each unblocks. Keep to the five most useful at any time; the rest stay in\nthe writeups with their codes. Default recommendations are proposals, not accepted.\n\n| # | Decision | Default if he says nothing | Unblocks |\n| --- | --- | --- | --- |\n| 1 | Launch the protagonist-life lanes ([prompt](PROTAGONIST_LIFE_IMPLEMENTATION_PROMPT_2026-10-27.md)): plan pass done ([PLAN](dispatch/protagonist-life-2026-10-27/PLAN.md)), LOTM vol 1 proposed as pilot, Village mini-line kept as the PL-H1 harness | Yes: lanes wait for his launch yes and plan Q2, Q3, Q4, Q8 | Lead-first pipeline, golden run, every later world |\n| 2 | First engine slice: keyed Village shop-stock test (time travel C1/C2) with the reference resolver (CAE-E1/E2/E4) right after | Yes: smallest change, no save change | Repeatable days, golden runs, seeded NPCs, name abilities |\n| 3 | Clock shape: schedules by default, deadlines only from an in-world source, scoped to life facts, cap on firm visible clocks (C1/C2) | Adopt as working shape | Village cards N1/N2/N4, per-world clock sets |\n| 4 | Canon start settings: LOTM start month, HP cohort offset (D3), WER11 rewording (D2), default seat `beside` (D1) | D1 `beside`; D2 and D3 wait for his yes | Beat data for LOTM and HP |\n| 5 | Catch-up feel and cap; Known Face threshold; Proto23 port branch and credits wording | Uncapped bank with world friction; keep the current threshold until played; port on its own branch, push waits | Offline cards, Village standing gates, VC9 pack |\n",
+      "replacement": "Review date: 2026-10-31. These are dispositions of the earlier five asks, not five new questions for Weibao. Original wording is preserved in the [O4 history](../audits/reconciliation-tooling-2026-10-31/o4-superseded-register.json). Current ownership and finite authorization are checked at the selected task (AD32/AD36).\n\n| # | Earlier ask | Reconciled disposition and owner | Next action |\n| --- | --- | --- | --- |\n| 1 | Launch protagonist-life lanes | Resolved: work launched; current [tracker](dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md) records delivered and below-floor slices | Resume only the selected coordinator-owned task under its current scope/allowance; no repeated launch vote. |\n| 2 | Select the first seeded-shop/reference-resolver slice | Historical sequencing proposal, superseded as a global next action by PROJECT current focus and the [runtime tracker](dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md) | Reopen a specific seed/reference seam when a selected consumer needs it; do not claim the old proposed pilot is verified. |\n| 3 | Pick one clock shape | USER_VISION\u2019s many-clock direction and current time/away owners apply; this register selects no global cap or universal clock | Resolve the chosen life\u2019s clock/support boundary in its own plan; historical default recommendations are not new approval. |\n| 4 | LOTM date, default seat, HP cohort and WER wording | LOTM uses the book opening date (USER_VISION \u201cCast lives: batched defaults accepted\u201d, 2026-10-28); lead is the main line (AD44). HP cohort/era specifics and any WER wording change stay with [HP plan](dispatch/refinement-audits-2026-10-31/HP_UI_ENGINE_PLAN.md) and WER owner | No question repeats resolved LOTM/seat direction. Qualify unresolved premise values only when the selected HP/WER task depends on them. |\n| 5 | Catch-up, Known Face and Proto23 settings | Mixed tuning/delivery proposals; no global answer inferred. Current domain owner and existing authorization govern each selected card | Use current away/standing/port owners and actual receiving consumer. Push/submission remains separately authorized; no runtime tuning selected by this reconciliation. |\n",
+      "before_sha256": "ea2cf9caaa4fe0638642db6a302149355aaa4e902d2295a351863ce04719154e"
+    },
+    {
+      "path": "docs/LEAD_LIFE_GUIDE.md",
+      "superseded": "holds the lines Weibao has accepted. This guide is a reading aid with an implementation order\nand does not replace it.",
+      "replacement": "holds the lines Weibao has accepted. This guide is a reading aid with a proposed implementation order; the current coordinator tracker owns live sequencing. It does not replace either owner.\n\n**Coverage route (reconciled 2026-10-31):** the explanatory LSD matrix remains scoped to LSD1\u2013LSD256; LSD257\u2013LSD470 stay in the design source and are not claimed reviewed by this guide. Current UI/engine mappings live in the [MC1\u2013MC134 map and MC135\u2013MC173 supplement](gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md#incremental-supplement-mc135mc173). A mapped code is not a completed mechanic. Use the [runtime tracker](gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md) for current ownership and unfinished proof (AD32/AD36).",
+      "before_sha256": "b3bbcff53e43246169018a53ae21999710d4cf9517bc0bda84a9aca5eb8cc86e"
+    },
+    {
+      "path": "docs/systems/README.md",
+      "superseded": "If a cell says \"none\", that layer is a gap (see [Gaps](#gaps)).",
+      "replacement": "If a cell says \"none\", that documentation or inspection layer was not mapped in the stated snapshot (see [Gaps](#gaps)); it does not establish missing gameplay. Recheck the linked owner and selected consumer before implementing a replacement (AD36).",
+      "before_sha256": "3eff2fbed1157aa9e7e54b62f209ff5e52b180b87cc47687923fe94249766e35"
+    },
+    {
+      "path": "docs/systems/README.md",
+      "superseded": "## Cross-cutting owners",
+      "replacement": "For current task selection, PROJECT and the coordinator tracker outrank dated maturity labels here. The [writeup register](../gm/WRITEUP_REGISTER.md) routes report follow-up; the [lead-life guide](../LEAD_LIFE_GUIDE.md) explains its declared source/design horizon. The [engine map and incremental supplement](../gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md#incremental-supplement-mc135mc173) route selected UI claims. These links add navigation, not a second queue or rulebook (AD32).\n\n## Cross-cutting owners",
+      "before_sha256": "441d94be7b33b6624563559490a897ecedcebaf89a98309228ce901fd82afe8c"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "| New | Written, committed, not yet read by Weibao or a reviewer |",
+      "replacement": "| New | Written/registered, not yet read by Weibao or a reviewer; commit state recorded separately |"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "superseded": "In the same commit that adds or substantially extends a writeup, add or update one",
+      "replacement": "In the same change that adds or substantially extends a writeup, add or update one"
+    }
+  ]
+}

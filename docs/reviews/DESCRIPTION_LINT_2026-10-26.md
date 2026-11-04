@@ -1,8 +1,8 @@
 # Description lint inventory (generated)
 
-Generated from the current authored source tree. Source SHA-256: `f6e2eb03fb83e45d947f7eacffae4ac4b2c66d699a259b32f6e84a2e420a75f5`.
+Generated from the current authored source tree. Source SHA-256: `063e98a81d8335d24f7693477c385e041808242d663637df091e6f3a3245d9ae`.
 
-Descriptions checked: 1439. With mechanical flags: 1. Missing description fields inventoried for applicability review: 1985.
+Descriptions checked: 1440. With mechanical flags: 1. Missing description fields inventoried for applicability review: 1992.
 
 Flags are drafting leads only. The check does not score narrative quality or rewrite copy.
 Scanned definitions come from the frozen `expeditionRegistry` content and simulation Maps plus built-in schema-2 factories compiled through `compileStructuredPack`; optional user packs are excluded because they are private runtime inputs.
@@ -14,7 +14,7 @@ Missing fields are not silently skipped or automatically defects: some structura
 
 | World | Source file | Descriptions | Flagged |
 | --- | --- | ---: | ---: |
-| base.frontier | `src/expedition_content.js` | 1201 | 1 |
+| base.frontier | `src/expedition_content.js` | 1202 | 1 |
 | book.lotm.tingen | `src/expedition_content.js` | 72 | 0 |
 | book.mol.cyoria | `src/expedition_content.js` | 34 | 0 |
 | book.paradise.goa | `src/expedition_content.js` | 15 | 0 |
@@ -815,6 +815,8 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `promise.begin` | simulation.commands | `src/expedition_content.js` |
 | `promise.check_name` | simulation.commands | `src/expedition_content.js` |
 | `promise.test_cart` | simulation.commands | `src/expedition_content.js` |
+| `promise.press_craftsman` | simulation.commands | `src/expedition_content.js` |
+| `promise.offer_craftsman` | simulation.commands | `src/expedition_content.js` |
 | `promise.repair_declined` | simulation.commands | `src/expedition_content.js` |
 | `promise.repair_unanswered` | simulation.commands | `src/expedition_content.js` |
 | `promise.meet_evidence` | simulation.commands | `src/expedition_content.js` |
@@ -868,6 +870,11 @@ Missing fields are not silently skipped or automatically defects: some structura
 | `village.interrupt_work` | simulation.commands | `src/expedition_content.js` |
 | `village.give_space` | simulation.commands | `src/expedition_content.js` |
 | `village.practical_apology` | simulation.commands | `src/expedition_content.js` |
+| `village.ask_quiet` | simulation.commands | `src/expedition_content.js` |
+| `village.ask_promise` | simulation.commands | `src/expedition_content.js` |
+| `village.pay_quiet` | simulation.commands | `src/expedition_content.js` |
+| `village.threaten_quiet` | simulation.commands | `src/expedition_content.js` |
+| `village.swear_quiet` | simulation.commands | `src/expedition_content.js` |
 | `village.word_after_work` | simulation.commands | `src/expedition_content.js` |
 | `village.ask_between_cuts` | simulation.commands | `src/expedition_content.js` |
 | `village.habit_pause` | simulation.commands | `src/expedition_content.js` |

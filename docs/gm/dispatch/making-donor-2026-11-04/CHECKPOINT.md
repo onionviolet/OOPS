@@ -1,5 +1,16 @@
 # Making donor: equivalent-exchange slice (2026-11-04)
 
+```receipt
+build: n/a
+route: fixture(rune bench carve and recarve, test hooks)
+state: built
+viewport: 1920x1080 and 1536-wide desktop
+persistence: checked
+tests: 18 and 12 focused tests pass (exchange_ledger, pledges, rune_grammar, progression_pledges); headless run tests/exchange_bench_browser.mjs
+review: none
+surface: rune bench recarve credit; build SHA-256 was not recorded, so the state stays built, not browser-verified
+```
+
 Approved by Weibao 2026-11-04 (playability plan round 12 addendum, row 7). One mechanic, not a new world (WR9). MAW stages 0, 4, 5, 7.
 
 ## Fit (stage 0)

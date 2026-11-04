@@ -16,6 +16,8 @@ Rulebook 2-3, sealed secrets.
 
 ## Kit header
 
+**Bounded source follow-up, 2026-10-31:** [OW4 Arc6 note](../../../gm/dispatch/refinement-audits-2026-10-31/OW4_REZERO_RESEARCH.md) supports separating an actor's recall from other observers' recognition/history in the captured WN ch34/ch37 windows. It does not establish the cause, physical-record persistence or a universal name/reset rule. Keep those exact gaps and WN/LN boundaries in the selected future memory/knowledge consumer. The proposed counterexample tests one observer retaining recognition while personal recall differs; a record needs its own actual source check. No runtime or upgrade of the earlier full-read claims follows from this targeted review.
+
 | Field | Fill in |
 |---|---|
 | World identity / player mark | An ordinary life in a kingdom where one stranger keeps dying and coming back. Living here feels like logistics, contracts and trust under timed disasters you cannot rewind. |

@@ -1,0 +1,103 @@
+{
+  "scope": "MC174\u2013MC179 exactly once as identities; MC179 has two retained source sections. Planning reconciliation only.",
+  "source": "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md",
+  "source_sha256": "d6c41707d7c81ed6fd375ed5307a76865bb445a7c22a7befeb0c0dc30da2b8e4",
+  "checkpoint": "docs/gm/dispatch/lotm-whole-life-2026-11-01/CHECKPOINT.md",
+  "checkpoint_sha256": "1f2c3a29075b6d4d07da935da1b9d51fd96492f6ed5307575451f789ec266f31",
+  "rows": [
+    {
+      "code": "MC174",
+      "families": [
+        "A",
+        "K",
+        "N"
+      ],
+      "classification": "coverage workflow",
+      "owner_locator": "LOTM_SITUATION_UI_COVERAGE.md; LOTM_SITUATION_UI_CONTRACTS.json; whole-life CHECKPOINT.md",
+      "disposition": "Offline contract/mapping entry point; receiver retains source/mapper/coverage writes. No engine or journey proof.",
+      "next_distinguishing_check": "Inspect source-specific operation, supplier, command/result and return on selected exact row.",
+      "source_blocks": 1,
+      "source_locators": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1131"
+      ]
+    },
+    {
+      "code": "MC175",
+      "families": [
+        "A",
+        "K"
+      ],
+      "classification": "evidence correction",
+      "owner_locator": "LOTM coverage; whole-life checkpoint CP4/CP5",
+      "disposition": "16,679 retained historical steps are a join denominator, not qualified actors or playable situations. Current checkpoint records 39 qualified proposals and zero established engine/journey rows.",
+      "next_distinguishing_check": "Retain original step ID; qualify actual actor/edition and concrete command/result independently.",
+      "source_blocks": 1,
+      "source_locators": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1133"
+      ]
+    },
+    {
+      "code": "MC176",
+      "families": [
+        "A",
+        "K"
+      ],
+      "classification": "scope correction",
+      "owner_locator": "LOTM coverage; whole-life checkpoint CP4/CP5",
+      "disposition": "337 was a candidate opening selection, not independently qualified opening coverage; checkpoint now records strict qualified opening 39. Historical all-volume chapter-only 1\u201324 output stays historical.",
+      "next_distinguishing_check": "Require explicit volume/chapter/source binding; no activation from a bare chapter number.",
+      "source_blocks": 1,
+      "source_locators": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1135"
+      ]
+    },
+    {
+      "code": "MC177",
+      "families": [
+        "A"
+      ],
+      "classification": "owner consolidation",
+      "owner_locator": "LOTM coverage section 5; existing per-world plans",
+      "disposition": "Prior findings retain original codes/owners and proposed exceptions; family consolidation creates no new world law or bulk acceptance.",
+      "next_distinguishing_check": "Reconcile changed relevant source blocks before refreshing individual claim status.",
+      "source_blocks": 1,
+      "source_locators": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1137"
+      ]
+    },
+    {
+      "code": "MC178",
+      "families": [
+        "A",
+        "K"
+      ],
+      "classification": "historical dispatch and incomplete source qualification",
+      "owner_locator": "lotm-whole-life BRIEF.md and CHECKPOINT.md",
+      "disposition": "Prepared/startup wording is historical: live checkpoint records PARTIAL and stopped at observed 75% ceiling. Whole-novel qualification remains incomplete.",
+      "next_distinguishing_check": "Use receiver checkpoint for exact unread range and input identity; no competing source pass or renewed allowance from this crosswalk.",
+      "source_blocks": 1,
+      "source_locators": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1143"
+      ]
+    },
+    {
+      "code": "MC179",
+      "families": [
+        "X",
+        "K",
+        "T",
+        "M"
+      ],
+      "classification": "cross-life proposal and evidence refinement",
+      "owner_locator": "CHEAT_COSMOLOGY.md GP16\u2013GP20; DAILY_LIFE_AND_SHARED_CONTRACTS.md DL43; COORDINATOR_HANDOFF.md",
+      "disposition": "Both source sections are one original ID. Body/learning, living companions, observer histories, duty clocks and durable task return have distinct unresolved joins. Injected continuation publish is not durability proof.",
+      "next_distinguishing_check": "Exercise actual carrier/admission/writer and failed preflight/stale revision, then save/reload/import and useful old-task return when a runtime slice is assigned.",
+      "source_blocks": 2,
+      "source_locators": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1147",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md:1151"
+      ]
+    }
+  ],
+  "unmapped_residue": "Any code appended after MC179; source qualification/engine/journey gaps remain with current owners."
+}

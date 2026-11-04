@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-26T18:26:22.117151+00:00",
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "hashes": {
+    "src/drying_exposure.js": null,
+    "src/book_world_paradise_drying.js": null,
+    "tests/drying_exposure.test.js": null,
+    "tests/paradise_drying.test.js": null,
+    "src/book_world_paradise_campaign_content.js": "c2543099494355dd83ffb7855a3616e6431b0653a31c6fdec60f7d978d599328",
+    "src/book_world_paradise_campaign_facts.js": "a67a26d0be9c02b46b3d04ed5ed7429a1641bbed4df454bda9704fa9259ddc5b",
+    "src/book_world_paradise_campaign_host.js": "e8f57a262267183364897b73ee4f4a4c7098d4bd6337c8817ae9b381ad7f2489",
+    "src/book_world_paradise_campaign_runtime.js": "2bb2692c043253f8422d5c257d9b77f265a8ce49dfaad6235056cab4f61e0787",
+    "src/simulation_content.js": "ecaf39e7222766ed65b4ed9bafe7363bb1b15a977579fabc74bc04f5d2490751"
+  },
+  "state": "read-only baseline before explicit slot transfer; recapture if inputs drift"
+}

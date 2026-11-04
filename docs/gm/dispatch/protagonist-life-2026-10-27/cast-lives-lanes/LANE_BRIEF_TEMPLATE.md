@@ -16,6 +16,9 @@ Model: `<model>`, `<effort>`. Publication class: public code (name-free) / priva
 - Files owned: <exact paths>
 - Publication class per output: <class and path>
 - Seam and location authority (CLR10): <owner, call site, clock/record authority>
+- Later-source pressure lookup (WA48/WA54–WA60): <owning world plan/assumption section; touched producer/export and operation; applicable LR/MC/MD IDs, or bounded lookup found none; use the [lead-life procedure](../../../../LEAD_LIFE_GUIDE.md#10-lotm-first-ui-and-engine-implementation-procedure-2026-10-31)>
+- Specific scene/process uptake: <reuse the [bounded scene procedure](../../../../research/SOURCE_DEEP_DIVE_PLAYBOOK.md#specific-scene-and-process-audits); relevant integrated world-plan row IDs, e.g. LOTM UT-N1-UT-N5, or lookup found none; source candidate versus qualified case; actual supplier/consumer/UI action and return; no new scene audit if existing evidence suffices>
+- Applied constraint and unresolved scope: <qualified source window, evidence type and occurrence/disclosure era; preserve shape / defer mechanism with reopen trigger / qualify before changing this result; compatibility and distinguishing failure case; no all-world reread or unrelated late-feature prerequisite>
 - Save fields, compatibility or migration, economy source and sink: <none or details>
 - Design lines (LSD): cast, clock, save, pack or draw work cites the LSD lines it applies from [LEAD_LIFE_SYSTEMS_DESIGN](../LEAD_LIFE_SYSTEMS_DESIGN.md) (tiers LSD126-LSD137, engine LSD138-LSD147); cast draws are keyed, never ordinal (LSD139).
 - Modularity (AD45, MD1-MD3): new cross-cutting code goes in its own module behind a ports object with at most one registration line in `main.js`; tests pin behavior at the port so a later replacement can pass the same tests.

@@ -91,7 +91,7 @@ acceptance. A settled production change does not require a new mockup.
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
 | UR1 | **Declare a surface type** (routine, place service, threshold screen, quick confirm, obligations, reference, settings, proposals drawer, ambient log) and a home before writing UI. [Surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md) | About 28 modules each dropped a block into Local actions, mixing routine actions, proposals, settings and services in one column |
-| UR2 | **Unaccepted features go to the Projects drawer.** Only Weibao promotes a feature onto the main surface | Proposal panels ("Meadow pen · care proposal") crowding the place where the player acts |
+| UR2 | **Default: unaccepted features go to the Projects drawer.** Only Weibao promotes a feature onto the main surface. His existing direction can already authorize that home (AD32); an authorized slice proceeds on required agent-side evidence without a separate human review (AD42). Agent proof alone does not promote an unaccepted proposal | Proposal panels ("Meadow pen · care proposal") crowding the place where the player acts |
 | UR3 | **Respect the main-surface budget:** about seven routine entries in Local actions, one level deep. Adding one means demoting or grouping another | Nested boxes inside boxes and a column that scrolls forever |
 | UR4 | **Give it in-world logic:** who runs it, where it is, when it is open and why it exists in this world. Workstations live at places; most places have a keeper | An abstract "Village mixing counter" with no person or place behind it |
 | UR5 | **Weighty, rare decisions get a full screen; modals only for one-question confirms** | World entry and beginnings sitting in a permanent side panel |
@@ -325,7 +325,7 @@ Source: moved 2026-10-29 from the cast-lives plan (sections 15-18 and 21), codes
 | SUI9 | **Lead with meaning** (UR70): the card's first line says what is at stake for you in one sentence; mechanics follow (UR71) | UR70, UR71 |
 | SUI10 | **People on the card are links** to their person view (CL36, CL37): where they usually are, why they act toward you as they do | UR43, UR47 |
 | SUI11 | **The log line is the receipt.** Every settled scene writes one compact subject-first log line (UR44) through the name resolver, so a missed scene is still traceable | UR44, CAE-E1 |
-| SUI12 | **Each new scene kind earns browser evidence** at 1920×1080 on a populated save before it is called done (AD43) | AD43, UR rules |
+| SUI12 | **Each new scene kind earns browser evidence** at 1920×1080 on a populated save before it is called done (AD43)  Common delivery floor and evidence states: [AD43](RULES_INDEX.md#definition-of-done-the-floor-ad43); check selection/reuse: AD36. | AD43, UR rules |
 
 | Code | Rule (proposed, extends SUI1-SUI12) |
 | --- | --- |
@@ -350,7 +350,7 @@ Source: moved 2026-10-29 from the cast-lives plan (sections 15-18 and 21), codes
 | RPT4 | **Names as the player knew them then.** Someone not yet introduced is "a tall officer" until you learn the name, and the old line keeps what you knew when it was written. Names resolve through the reference resolver at read time (PL-E2's known limit: the chronicle renders at write time with an empty context, so a read-time render is needed) | CAE-E1/E4, MC note on recorded subject |
 | RPT5 | **Movement is not news.** Cast moving by schedule writes nothing. Leaving or arriving writes a line only when the player sees it and knows the person; repeats in one band fold into one line ("Morning: Melissa left for school; the bakery opened.") | MC2, MC3 |
 | RPT6 | **Coming back gets a digest.** After idle or away time, one "While you were away" row lists what you could know, grouped by person, with the raw lines kept in the stream | MC4, NPC absence report |
-| RPT7 | **No canon labels, no future.** Reports never say what the book did or will do; the "what the book did" overlay is the only place for that | SUI4, sealed-secrets rule |
+| RPT7 | **No canon labels, no future.** Apply SUI4 to Reports; its book-comparison overlay exception stays there. The sealed-secrets owner governs discovery. | SUI4, sealed-secrets rule |
 | RPT8 | **Reports are written once, by the settling event.** Previews, syncs, reloads, re-filters and replays write nothing and never duplicate a line | MC note on re-expansion, AR3 |
 | RPT9 | **The log forgets; the person view remembers.** The stream prunes by kind, so a person's history lives in the person view and chronicle (CL38); a report row links there | UR43, CL38 |
 | RPT10 | **Book text stays out of the log by default.** The line is the receipt and is ours (SUI11); quoted book text belongs on the scene card and in descriptions (CL144-CL145). Dial: a private-pack world may show a short quoted line for a canon scene the player was present at, marked as from the book | CL144, AD1 |
@@ -358,3 +358,84 @@ Source: moved 2026-10-29 from the cast-lives plan (sections 15-18 and 21), codes
 | RPT12 | **Varied but deterministic wording.** Routine lines draw their wording from the world's texture rows keyed by place, band and day, so the same moment reads the same after a reload and different days read differently | CL49, WA37 |
 | RPT13 | **Every world speaks in Reports** (*standing, Weibao 2026-10-30: "make long standing rules"*). Default: a world the player can enter ships, in the same change, a general voice row (day and night flavour pools plus its real way to move) and place rows for at least its start and main work place, in [world_report_voice.js](../src/world_report_voice.js); titles get the world's own line. `tests/world_look.test.js` fails when a new `*_LOCATIONS` table has no voiced place. Dial: a world may stay generic for a stated reason (no enterable places yet, or a sealed route that any flavour would hint at). Reason: generic lines everywhere made every world read the same | DSG13, RPT12 |
 | RPT14 | **The flavour is seen; the useful half is a real control.** Default: flavour says only what is in front of the player (no rumours, no future, no feelings assigned to others); the useful half names a panel, action or route that exists for that world, in the game's own words, checked in play or against the code that renders it. Dial: a world's voice may be terse or chatty. Reason: a voice that points at a missing control, or tells the player what they could not know, is worse than the generic line | RPT2, RPT7, UR73, UR74 |
+
+### Common controls and automation placement, 2026-11-01 (proposal)
+
+**Procedural-life application, proposal:** [BF105–BF109](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#proposed-ui-applications-bf105bf109) maps activity cards, policy controls, known-only forecasts, workload summaries and real start coverage to existing UR43/UR44/UR64/UR70–UR75 and SUI/RPT rules. It adds no UR code or universal world layout. Target is the existing functional desktop shell at 1920×1080, with larger-text behavior checked when implemented; mobile remains deferred. This is saved design, not rebuilt UI evidence.
+
+[CA1 in DESIGN](../DESIGN.md#common-actions-and-task-automation-2026-11-01) records Weibao’s question and the proposed separation of scene choices, shared common actions and current-work controls. [CA2–CA5](gm/dispatch/procgen-2026-10-13/cr3/AUTOMATION.md#common-actions-and-useful-task-automation-2026-11-01) distinguish real task automation from waiting and developer replay. Apply existing UR43/UR44/UR64, SUI7 and AD15–AD17; this adds no new UR code or blanket action availability. Layout/queue implementation is not claimed by saving it.
+
+### Concrete LOTM starts and procedural-life UI, 2026-11-01 (proposal)
+
+**Selected runtime uptake:** [KJ3A](gm/dispatch/refinement-audits-2026-10-31/KJ3A_IMPLEMENTATION_RECEIPT.md) verifies native food/sleep work, visible stopping terms, restored pence labels, and retained versus forgotten Notebook findings at 1920×1080 and actual 14/21 px. Its receipt distinguishes the complete earned route from final changed-consumer checks. The start/livelihood examples below retain their proposal status; this is no blanket adoption, new UR code or ordinary-start rollout.
+
+
+Weibao requested: “Flesh out the UI rules with concrete LOTM examples for different starts and procedural lives. More subtle interactions between these systems to consider? Save and reconcile accordingly.” This section elaborates BF105–BF109 using existing UR/SUI/RPT rules; it adds no standing UR code and claims no implemented screen. [Round 6, BF110–BF119](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-6-concrete-lotm-ui-and-interaction-boundaries-2026-11-01) owns the new interaction cases and implementation follow-up. These are proposed copy/scenarios, not primary-source qualification of careers, institutions, prices, opening hours or powers.
+
+**Surface and scope.** Use the existing functional shell: You/current focus, current place and actions, inventory and full-height Reports. Candidate homes are existing start confirmation, place services, current-work controls, Notebook and relevant person/item inspection. Current obligations and known opportunities can use existing contextual views rather than a permanent new career dashboard. Primary target is a populated 1920×1080 desktop, including larger-text behavior when implemented. Mobile, a new loading/start-menu replacement, spatial redesign and a universal job-board layout are deferred. Klein-first build order stays with the campaign owner.
+
+#### BF109: five starting situations, five useful first views
+
+Each start uses its actual known body, funds, property rights, support and commitments. A hypothetical template below is selectable after its gameplay route exists and its source/era is qualified. An example's wording does not promise an unbuilt activity.
+
+| Candidate start | Example player-facing overview | First useful actions and proposed distinctions |
+| --- | --- | --- |
+| Ordinary Tingen local seeking work | “You have a rented room and no regular work. Your rent is due in three days.” | Inspect the known tenancy; read a discovered vacancy; ask a known contact about work. Show personal spendable cash and the actual obligation. “Apply for the clerk vacancy” starts an application, not employment, clearance or supernatural initiation. The three-day term is illustrative fixture data. |
+| Already-employed civil clerk | “You work at the office. Your next wages are due Friday; your room payment falls due Thursday.” | Inspect contract, perform the available duty, arrange payment or seek help through a supported route. Distinguish pay accrued, collectible and actually received according to the real contract. Unpaid wages do not enter spendable cash by being displayed. Friday/Thursday are illustrative fixture dates. |
+| Supervised novice | “Your supervisor offers a control lesson. You need their attention and enough strength to practise.” | Inspect the offered lesson, cost and current support; practise, rest or decline through actual commands. Holding a source, learning a method, receiving clearance and being competent remain separate states. A visible teacher offer is not a global skill tree or a promise that every beginner has this route. |
+| Independent local craftworker/service provider | “A customer asks you to inspect a damaged instrument. You can examine it before agreeing a price.” | Inspect the customer's request and entrusted object, quote supported work, negotiate terms where implemented, or refuse. Money paid on completion differs from a deposit; a client's item remains theirs. No unsupported instrument or profession is declared implemented by this example. |
+| Newcomer outdoors | “You wake beside a road. Your coat is wet; you do not recognise the place.” | Inspect observed condition and possessions, seek visible shelter, follow a known route or ask a reachable person. Unknown papers/rights/location remain unknown until a supported observation. A hidden host history or danger is absent from the preview's text, counts, icons and filters; it is not silently cured. |
+
+For all five, ask “what can I usefully do now?” rather than present every profession or future power. Default grouping follows current subjects and known places; a player may deliberately open broader reference or opportunity lists. Do not require every start to be safe, wealthy or equally easy. A precarious premise exposes known immediate problems and actual first responses under WER/ST, not an omniscient warning about its secret cause.
+
+#### BF105: activity rows, methods and a stable quote
+
+Use compact rows with stable inspect/act routes, rather than adding cards inside cards. One illustrative archive action could read:
+
+> **Search the address register** · about 30 min
+>
+> Look for the address named in your note. Reading-room access required.
+>
+> Copying allowance: up to 4 pence. **Choose method** · **Start search**
+
+The time/budget are fixture values, not measured or canon prices. Offer methods when the actor has learned or been offered them: records search, a reachable witness, or a supported supernatural method can differ in access, duration, expense, evidence and exposure. No menu enumerates undiscovered methods for comparison. “No entry found in this register” describes a bounded negative result, not proof that the person does not exist.
+
+Preview reads the real command and admitted knowledge. Starting revalidates target, terms, support and funds; it commits the action the player inspected. If a fee changes while the quote is open, show “The copying fee changed. Review the new terms” and preserve the selected question/method where valid. Do not silently spend more, change the recipient or substitute a different task. A no-longer-valid method gets a known explanation, or a neutral refreshed view when explaining the hidden cause would reveal it.
+
+#### BF106: current work, boundaries and policy
+
+An illustrative current-work block could read:
+
+> **Searching the register** · 12 of about 30 min worked
+>
+> Reserved: 4 pence. Spent: 1 penny. The reading room closes in 10 min.
+>
+> Stop after this search. **Review plan** · **Stop work**
+
+Use this reserved/spent split when the operation actually supports phased spending; current generic job behavior does not establish it for every LOTM activity. If the selected operation pays upfront, say “Paid: 4 pence” instead. The cancellation preview states what stops, what remains learned, any returned means and the actual cost policy. Closing a panel changes no job, refund or elapsed time.
+
+A plan edit could request “Spend up to 4 pence; stop if the next payment would leave less than my chosen reserve; stop when a new lead is found.” These controls appear after a real policy consumer supports them. Cash reserve and known scheduled bills are separate options; an undiscovered obligation is not forecast as a bill. Show when an edit takes effect and revalidate each repeat rather than silently accepting a new price or audience. “Stop if I notice danger” needs the actor's actual detection channel, not hidden-world inspection. It is not guaranteed protection from fast or undetectable harm.
+
+Respect actual clocks, attendance and SUI7 windows: a work plan stopping does not imply the world pauses or every appointment waits. Present detected/announced boundaries in the upcoming strip; losses of support and other world events still settle under their owning rules. A new discovery can warrant a notice without forcing a scene to open or dismissing an existing decision.
+
+#### BF107: findings, sharing and forecasts
+
+Notebook example: “The porter says the tenant moved last week. Heard today at the lodging house.” Keep a statement's source, date and relevant uncertainty visible through inspection. Later evidence can add “This account conflicts with the lease record” without erasing the original. Unless the actor has a supported reason to judge it, the UI does not label the porter mistaken from hidden truth.
+
+Reporting is a separate action. A preview can say “Tell the employer the address you found” while a deliberate detail choice includes a witness name or sensitive method. The recipient gains the communicated content, not automatic access to the player's entire Notebook or supernatural faculty. The disclosure preview and resulting report agree on actual recipient and scope; changing selected person clears/requotes the incompatible draft. Reading a note, forwarding it, understanding it and possessing its physical carrier can have distinct effects.
+
+Forecasts distinguish a fixed charge, an estimate and an unknown. “About 30 minutes” is not an exact countdown when outcomes can change duration. “Your present method cannot answer that question” appears when the actor knows that limitation; undiscovered explanations do not leak through odds, ordering, comparison baselines or accessible labels. Internal eligibility diagnostics stay outside player copy under UR73. All such statements remain projections, not a new permission system that overrides an available mechanism.
+
+#### BF108: results, obligations and recovery
+
+Routine work can condense into “Copied six entries; spent 3 pence,” with a route to retained results. New lead, different subject, changed obligation, injury or interrupted support remains distinguishable. A summary links to the relevant job/person/item/finding, not an unrelated newest event. Opening it marks/read-navigates according to its owner; it does not collect wages, accept a contract or advance time.
+
+Example interruption: “The reading room closed. You searched the first section; the remaining records are unexamined.” Offer another visit or another known method if available. Avoid relabelling partial coverage as “Case solved” or the entire effort as meaningless failure. A failed inquiry can still merit payment when contracted for effort; a result-contingent contract can differ. Show those terms, not a universal success-to-reward rule.
+
+Keep selected work stable while new offers arrive; refresh readiness/terms from current state without changing the row under the player's pointer or keyboard focus. Distinguish “no known offers here,” a user filter hiding known offers, a lost connection to the view, and unimplemented content. Counts and sorting apply after observer-safe admission. An empty view does not announce a secret organization's membership or the number of undiscovered opportunities.
+
+#### Applying the examples without creating a second specification
+
+The producer/state/consumer chains remain in [engine/UI contracts](gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md) K/T/I/X and the BF palette, not new UI-owned jobs, accounts or knowledge. `src/ui/lotm_task_summary.js` currently projects an authored arc's next action. Its “Next” is not a generic life planner; ordinary-life suggestions should read actual known work/opportunities without importing the protagonist's future stages. `src/book_world_lotm_ui.js` is a presentation consumer, not a source of access, fees or true case results.
+
+For a later selected UI slice, use the existing command guards and real projections, keep one writer per shared area, and exercise a meaningful changed-state case. The example-specific checks are BF110–BF119; choose the relevant ones rather than making every example a universal release gate. Browser claims require a rebuilt disposable desktop route, including larger text and affected save/reload/export/import where state changes. This document supplies design examples, not that evidence.

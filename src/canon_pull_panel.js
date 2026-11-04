@@ -6,14 +6,17 @@ import {readPort, whenPortsReady} from './ui_ports.js';
 import {node, syncList, visibleRenderer} from './reference_kit.js';
 import {PULL_SLICE, deviationChronicle} from './canon_pull.js';
 import {canonPullRead} from './canon_pull_host.js';
+import {seatOf} from './seat_profiles.js';
 
 const LEAN_FILL = {'holds firm': 90, leans: 65, loosening: 35, drifting: 12};
 const awayNow = () => readPort('expansion')?.lotm?.pullAway === true;
 const sliceNow = () => domainRegistry.project(PULL_SLICE);
-const active = () => { const s = sliceNow(); return !!s && (s.beats?.day > 0 || s.records.length > 0); };
+export const canonPullVisible = (state,slice) => state?.actors?.player?.worldId==='book.lotm.tingen' &&
+    !!slice && (slice.beats?.day > 0 || (slice.records?.length||0) > 0);
+const active = () => canonPullVisible(readPort('expansion'),sliceNow());
 
-export function canonPullView(slice = sliceNow(), away = awayNow()) {
-    const read = canonPullRead(slice, {away});
+export function canonPullView(slice = sliceNow(), away = awayNow(), seat = seatOf(readPort('expansion'))) {
+    const read = canonPullRead(slice, {away, seat});
     return {headline: read.headline, rows: read.upcoming.map(u => ({id: u.id, label: u.label, lean: u.lean, pressed: u.pressed, fill: LEAN_FILL[u.lean]})),
         deviations: deviationChronicle(slice).map(d => ({key: `${d.beat}@${d.day}`, text: d.text}))};
 }
@@ -36,7 +39,7 @@ function createPanel() {
     whenPortsReady(() => render(true));
     setInterval(() => render(false), 2000);   // repaints only while visible and only when the view changed
     definePanel({id: 'canon-pull', title: 'The story', role: 'records', node: panel, home: document.getElementById('main_content'),
-        discovered: active, eligible: active, emptyText: 'The story has not started pulling at your days'});
+        perspective: 'book.lotm.tingen', access: active, discovered: active, eligible: active, emptyText: 'The story has not started pulling at your days'});
     return panel;
 }
 

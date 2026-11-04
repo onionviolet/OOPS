@@ -1,0 +1,9 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "paths": {
+    "src/book_world_lotm_ui.js": "411fa14c096d51a4fbb177f97a28e0e177d92bdd0f09f02a1d9bc8e9a275e37f",
+    "src/people_knowledge.js": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+    "src/people_ui.js": "1770c0753def136ca9f83ec326b8044b1068d96fc1570b095385fc3933cbd605",
+    "tests/people_knowledge.test.js": "a93cc87c53ac8bbe851044bdb622b7b8e9828bb4d71314bab2a6357e5476ff9d"
+  }
+}

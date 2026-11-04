@@ -89,7 +89,7 @@ is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-pot
 | --- | --- | --- |
 | MR34 | **Prove determinism:** golden snapshots for three seeds, a seed sweep with invariants, and the same next value after save, reload and import. | Determinism bugs found by Weibao in play |
 | MR35 | **Prove the canon boundary when a canon pack exists:** the exact formula makes the canon product, a near miss makes degraded, free mixing makes originals, and cited rows have locators. | Canon packs that drift from the source |
-| MR36 | **Playable proof follows AGENTS.md:** rebuild, fresh origin at 1920×1080, and Save, reload, Export and literal Import for persistence. Unit tests alone are source evidence, not gameplay. | Claiming engine code is a playable feature |
+| MR36 | **Playable proof follows [AD43](RULES_INDEX.md#definition-of-done-the-floor-ad43)** for rebuild, fresh-origin desktop play and persistence proof. AD36 owns check selection/reuse. Unit tests alone are source evidence, not gameplay. | Claiming engine code is a playable feature |
 
 ## Application reconciliation, 2026-10-18
 

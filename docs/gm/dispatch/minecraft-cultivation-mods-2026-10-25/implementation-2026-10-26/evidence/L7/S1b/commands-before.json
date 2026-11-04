@@ -1,0 +1,538 @@
+[
+  {
+    "id": "book.ss.apprentice.study",
+    "revision": 1,
+    "label": "Study your lattice keepsake · 5 min, 2 essence",
+    "group": "structured_local",
+    "worldId": "book.ss.apprentice.world",
+    "actorId": "player",
+    "location": "book.ss.apprentice.workroom",
+    "audience": [
+      "$actor"
+    ],
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "faculty.book.ss.apprentice.weave_sight.active",
+          "op": "eq",
+          "value": true,
+          "reason": "This work needs the acquired weave sight declared by this beginning."
+        },
+        {
+          "all": [
+            {
+              "fact": "claim.book.ss.apprentice.donor_title.held",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "claim.book.ss.apprentice.donor_title.owner",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        }
+      ]
+    },
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"book.ss.apprentice.donor\"}",
+        "amount": -1
+      },
+      {
+        "type": "energy",
+        "energyId": "book.ss.apprentice.essence",
+        "operation": "use",
+        "output": 2,
+        "control": 1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"book.ss.apprentice.donor\"}",
+        "amount": 1
+      },
+      {
+        "type": "knowledge",
+        "key": "book.ss.apprentice.pattern",
+        "stage": "understood",
+        "value": "A simple protective lattice: spread impact through a compatible protective carrier. This authored pattern needs one prepared Awakened shard and three essence per fitting."
+      },
+      {
+        "type": "knowledge",
+        "key": "book.ss.apprentice.pattern_state",
+        "stage": "understood",
+        "value": "You traced and understood the protective lattice. The pattern can be fitted to the unfinished coat or gloves; destructive patterns would need a different compatible carrier."
+      }
+    ],
+    "description": "Reserve your own specimen for five played minutes. Acquired sight and prior practice let you understand its protective pattern; seeing it alone teaches nothing. Completion returns that same specimen and records the learned pattern.",
+    "once": true,
+    "duration": 5,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "faculty.book.ss.apprentice.weave_sight.active",
+          "op": "eq",
+          "value": true,
+          "reason": "This work needs the acquired weave sight declared by this beginning."
+        },
+        {
+          "all": [
+            {
+              "fact": "claim.book.ss.apprentice.donor_title.held",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "claim.book.ss.apprentice.donor_title.owner",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "completionFailure": "refund"
+  },
+  {
+    "id": "book.ss.apprentice.fit_coat",
+    "revision": 1,
+    "label": "Fit the protective lattice to your coat · 5 min, 3 essence, 1 shard",
+    "group": "structured_local",
+    "worldId": "book.ss.apprentice.world",
+    "actorId": "player",
+    "location": "book.ss.apprentice.workroom",
+    "audience": [
+      "$actor"
+    ],
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "faculty.book.ss.apprentice.weave_sight.active",
+          "op": "eq",
+          "value": true,
+          "reason": "This work needs the acquired weave sight declared by this beginning."
+        },
+        {
+          "all": [
+            {
+              "fact": "claim.book.ss.apprentice.coat_title.held",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "claim.book.ss.apprentice.coat_title.owner",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "item.{\"id\":\"book.ss.apprentice.coat\"}",
+          "op": "gte",
+          "value": 1,
+          "reason": "Keep the selected owned carrier in your bag while working on it."
+        },
+        {
+          "fact": "knowledge.book.ss.apprentice.pattern.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Study your specimen until you understand its pattern first."
+        },
+        {
+          "fact": "actor.book.ss.apprentice.coat_fitted",
+          "op": "eq",
+          "value": false,
+          "reason": "This exact carrier already has the fitting."
+        }
+      ]
+    },
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"book.ss.apprentice.shard\"}",
+        "amount": -1
+      },
+      {
+        "type": "energy",
+        "energyId": "book.ss.apprentice.essence",
+        "operation": "use",
+        "output": 3,
+        "control": 1
+      }
+    ],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "book.ss.apprentice.coat_fitted",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "key": "book.ss.apprentice.coat_receipt",
+        "stage": "understood",
+        "value": "The protective lattice is fitted to your same coat. Equip it through Inventory to use its stronger impact protection; loose storage supplies no worn benefit."
+      }
+    ],
+    "description": "Work on your own carried coat, retaining its exact key and title. The known compatible pattern raises this piece’s worn protection from 4 to 8. Keep it in your bag until completion; loss of custody, sight or work support refunds the reserved shard and essence. These work values are proposals.",
+    "once": true,
+    "duration": 5,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "faculty.book.ss.apprentice.weave_sight.active",
+          "op": "eq",
+          "value": true,
+          "reason": "This work needs the acquired weave sight declared by this beginning."
+        },
+        {
+          "all": [
+            {
+              "fact": "claim.book.ss.apprentice.coat_title.held",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "claim.book.ss.apprentice.coat_title.owner",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "item.{\"id\":\"book.ss.apprentice.coat\"}",
+          "op": "gte",
+          "value": 1,
+          "reason": "Keep the selected owned carrier in your bag while working on it."
+        },
+        {
+          "fact": "knowledge.book.ss.apprentice.pattern.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Study your specimen until you understand its pattern first."
+        },
+        {
+          "fact": "actor.book.ss.apprentice.coat_fitted",
+          "op": "eq",
+          "value": false,
+          "reason": "This exact carrier already has the fitting."
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "completionFailure": "refund"
+  },
+  {
+    "id": "book.ss.apprentice.fit_gloves",
+    "revision": 1,
+    "label": "Fit the protective lattice to your gloves · 5 min, 3 essence, 1 shard",
+    "group": "structured_local",
+    "worldId": "book.ss.apprentice.world",
+    "actorId": "player",
+    "location": "book.ss.apprentice.workroom",
+    "audience": [
+      "$actor"
+    ],
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "faculty.book.ss.apprentice.weave_sight.active",
+          "op": "eq",
+          "value": true,
+          "reason": "This work needs the acquired weave sight declared by this beginning."
+        },
+        {
+          "all": [
+            {
+              "fact": "claim.book.ss.apprentice.gloves_title.held",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "claim.book.ss.apprentice.gloves_title.owner",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "item.{\"id\":\"book.ss.apprentice.gloves\"}",
+          "op": "gte",
+          "value": 1,
+          "reason": "Keep the selected owned carrier in your bag while working on it."
+        },
+        {
+          "fact": "knowledge.book.ss.apprentice.pattern.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Study your specimen until you understand its pattern first."
+        },
+        {
+          "fact": "actor.book.ss.apprentice.gloves_fitted",
+          "op": "eq",
+          "value": false,
+          "reason": "This exact carrier already has the fitting."
+        }
+      ]
+    },
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"book.ss.apprentice.shard\"}",
+        "amount": -1
+      },
+      {
+        "type": "energy",
+        "energyId": "book.ss.apprentice.essence",
+        "operation": "use",
+        "output": 3,
+        "control": 1
+      }
+    ],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "book.ss.apprentice.gloves_fitted",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "key": "book.ss.apprentice.gloves_receipt",
+        "stage": "understood",
+        "value": "The protective lattice is fitted to your same gloves. Equip it through Inventory to use its stronger impact protection; loose storage supplies no worn benefit."
+      }
+    ],
+    "description": "Work on your own carried gloves, retaining its exact key and title. The known compatible pattern raises this piece’s worn protection from 2 to 4. Keep it in your bag until completion; loss of custody, sight or work support refunds the reserved shard and essence. These work values are proposals.",
+    "once": true,
+    "duration": 5,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "faculty.book.ss.apprentice.weave_sight.active",
+          "op": "eq",
+          "value": true,
+          "reason": "This work needs the acquired weave sight declared by this beginning."
+        },
+        {
+          "all": [
+            {
+              "fact": "claim.book.ss.apprentice.gloves_title.held",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "claim.book.ss.apprentice.gloves_title.owner",
+              "op": "eq",
+              "value": "player"
+            }
+          ]
+        },
+        {
+          "fact": "item.{\"id\":\"book.ss.apprentice.gloves\"}",
+          "op": "gte",
+          "value": 1,
+          "reason": "Keep the selected owned carrier in your bag while working on it."
+        },
+        {
+          "fact": "knowledge.book.ss.apprentice.pattern.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Study your specimen until you understand its pattern first."
+        },
+        {
+          "fact": "actor.book.ss.apprentice.gloves_fitted",
+          "op": "eq",
+          "value": false,
+          "reason": "This exact carrier already has the fitting."
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "completionFailure": "refund"
+  }
+]

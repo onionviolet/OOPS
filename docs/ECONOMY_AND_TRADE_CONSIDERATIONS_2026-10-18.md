@@ -331,3 +331,10 @@ filtered by game minute.
 - Code collision: `ECX1` also names "Debug eye" in
   `ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md` after its
   CX→ECX rename the same day.
+
+
+## RI application routing: living capital, stock and due payments (2026-10-31)
+
+The [RI comparison, round 2](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md#round-2-the-gu-portfolio-and-the-world-economy-2026-10-31) owns X1–X12, G10–G14 and a proposed connected care-and-work trial. This applies ECR2–ECR9, ECR12–ECR18, ECR20–ECR23 and ECR26/ECR30; it adds no economy rules. In that world's proposed loop, cash received, due obligations, optional expected sales, usable food lots, participant availability and injury downtime answer different questions. A living set can produce the means of its upkeep; starting refinement can tie up those same means. A margin estimate is not physical stock, liquidity before the next meal or an enforceable contract.
+
+Account for those dependencies through the existing stock, transaction, command, energy and knowledge owners when an RI slice is selected. Preserve intended profitable engines/arbitrage and resolve prices through one quote, rather than adding a universal balancing tax or requiring a regional logistics simulator for ordinary trade. Later work and its reopen triggers remain in that report. No shared runtime or rulebook change in this pass.

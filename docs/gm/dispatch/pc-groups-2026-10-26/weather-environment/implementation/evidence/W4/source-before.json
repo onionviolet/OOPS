@@ -1,0 +1,8 @@
+{
+  "src/book_world_paradise_campaign_content.js": "aaf6c1ae3a39fc08a7c2f233f3fdc846c49220877e98905b385d096ec27c6796",
+  "src/book_world_paradise_campaign_facts.js": "d53cd989099760c0bad14a23d1a5e136468b0c3b8b09c3884ba50e30c45c03b2",
+  "src/book_world_paradise_campaign_host.js": "421d0d788ad72be1e7cb64613afe5e0268028699f5eb720f4d6b99e897543e84",
+  "src/book_world_paradise_content.js": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+  "src/book_world_paradise_environment_inputs.js": null,
+  "tests/paradise_environment_inputs.test.js": null
+}

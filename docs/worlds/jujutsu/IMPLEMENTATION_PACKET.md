@@ -1,5 +1,7 @@
 # Proposed staged proof: JJK curtain dispatch and actor-scoped evidence
 
+**Effort/start comparison, 2026-11-01:** [World slices and abstraction review](../../reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md) estimates this noncombat packet separately from a technique/exorcism loop and a regional campaign. It records alternate-start costs and a proposed timed-investigation model. These are planning estimates, not runtime proof or selection of this parked build.
+
 **Status: `P` proposal for future review. The JJK runtime build remains PARKED until Weibao selects it; this packet and its audit do not unpark it or authorize implementation.** This is not a gameplay result. Scope follows the [campaign framework](../CAMPAIGN_FRAMEWORK.md) and [world completion contract](../templates/WORLD_COMPLETION_TEMPLATE.md). Source anchors: Barrier r74038 and Curtain r77658, with the revisions listed in [SOURCE_LEDGER.md](SOURCE_LEDGER.md).
 
 ## Filled bounded packet

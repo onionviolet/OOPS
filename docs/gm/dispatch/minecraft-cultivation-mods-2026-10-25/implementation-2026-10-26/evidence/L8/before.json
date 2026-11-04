@@ -1,0 +1,12 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "paths": {
+    "src/cultivation_guidance.js": "a7cf8bef694ca4d88fa69b33cf5fc8845f134137e77bf3d9217f866518f333e4",
+    "src/absorb_p23/host_joins/world_adaptation_ui.js": "f14e2c268ddd84071036c06b021a3be277f5004426c2f8b6874d62d4baa00db2",
+    "tests/cultivation_guidance.test.js": "7cf2f6c31ff01a8bd21520b81f0ff8eb2233c61c035d9c405421c3f38c8a6c65",
+    "src/absorb_p23/host_joins/world_adaptation.js": "28e42f22afbcbc366ea337487efd789e80143aed59c81d3caa28754087291d83",
+    "src/absorb_p23/world_adaptation/index.js": "d86c2f78b099b78fe26cb29bf50898fac9a11c9eab63d8738a3926b021edee0f",
+    "src/absorb_p23/world_adaptation/away.js": "7185fc79c6b6ea17187ca2ff793839c4c2b8b5da127a54f8fb4430dde7adba47",
+    "src/absorb_p23/world_adaptation/techniques.js": "fa69471244337734fa256c72bd728ef1c2f46f36c6a76d381249c8cd956ab467"
+  }
+}

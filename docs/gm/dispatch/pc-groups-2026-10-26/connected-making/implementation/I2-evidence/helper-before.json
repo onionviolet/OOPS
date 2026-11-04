@@ -1,0 +1,6 @@
+{
+  "src/craft_experiment_log.js": "6f3b88beb952987f867069033956697c84897f285e90c1506d900e2ed68bec61",
+  "src/craft_reference.js": "8c6a15bb43257352ca9f8bc533c5fec609b9279956060e9728dcbbed3f89829e",
+  "tests/craft_depth_rules.test.js": "9ff758460696fd483fe44111fcbdfa80bfdf19f670a693122adb70ebd878fb64",
+  "tests/craft_reference.test.js": "a29dcac93db84b4792337ff4c92cbc90ba27d74cab35166742c64631dc2a353f"
+}

@@ -185,6 +185,9 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     const base = fightSituation({source: 'tempo', opponents}, {name: 'You', health: Number.isFinite(me.hp) ? {current: me.hp, max: me.maxHp} : undefined,
         sideSize: 1 + (f.allies?.length || 0)}, {place});
     if (!base.active) return {active: false, mode: 'tempo', result: f.result || null};
+    // Match the native hero's whole-number HP label; the meter still uses the
+    // precise health value for its fill and combat calculations.
+    if (base.versus.you.hp && Number.isFinite(me.maxHp)) base.versus.you.hp.text = `${Math.ceil(me.hp)}/${Math.ceil(me.maxHp)} hp`;
     const byId = new Map(f.foes.map(o => [o.id, o]));
     for (const o of base.versus.opponents) {
         const foe = byId.get(o.id);

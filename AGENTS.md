@@ -180,7 +180,7 @@ sealed; a changed or randomized truth is.
 Before searching for or acquiring any book, check the [library index](docs/research/LIBRARY_INDEX.md)
 (prime books, the five TTKS titles, Calibre IDs, what is missing) and the
 [Calibre](docs/research/CALIBRE_CATALOGUE.md) and
-[Source Library](docs/research/SOURCE_LIBRARY_CATALOGUE.md) catalogues (regenerate: `python3 -I scripts/library_catalogue.py`). Name TTKS books by title, never "TTKS" alone.
+[Source Library](docs/research/SOURCE_LIBRARY_CATALOGUE.md) catalogues (regenerate: `python3 -I scripts/library_catalogue.py`). Name TTKS books by title, never "TTKS" alone. Before listing any gap or download wave, run `python3 -I scripts/library_coverage.py --series "<name>"`: a gap is an uncovered chapter range, not a missing volume number ([AR36b](docs/research/SOURCE_ACQUISITION_TOOLS.md)).
 
 Start at [the shared tool registry](docs/TOOL_REGISTRY.md) or
 `python3 scripts/toolsets.py list` for current REA/Ghidra, managed/Unity,

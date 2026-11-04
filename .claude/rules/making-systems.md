@@ -4,6 +4,11 @@ paths:
   - "src/**/*workshop*.js"
   - "src/**/*alloy*.js"
   - "src/**/*invention*.js"
+  - "src/**/*potion*.js"
+  - "src/**/*dose*.js"
+  - "src/**/*mixture*.js"
+  - "src/**/*rune*.js"
+  - "src/**/*brew*.js"
   - "docs/MAKING_RULES.md"
 ---
 

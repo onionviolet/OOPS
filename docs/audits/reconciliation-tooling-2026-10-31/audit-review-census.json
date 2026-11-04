@@ -1,0 +1,1447 @@
+{
+  "scope": "Non-private Markdown under docs/audits and docs/reviews only; excludes other docs, dispatches and worktrees. Round locators require a numeric round in a heading, so other rounds/parts are omitted. Counts are navigation, not reviewed or implemented features.",
+  "files": [
+    {
+      "path": "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+      "sha256": "f6a9af39d07e2d610ac75e9ff1585fc106354ccf66bc36ca1a527a8d1ddf8c5e",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/CHEAT_CORE_AUDIT.md",
+      "sha256": "dc45d9c60be93f92ca96f975683988c2bdb3e85819118927c5bdc95e40f2e6dd",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 35
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/COMBAT_CORE_AUDIT.md",
+      "sha256": "73eb3ce00ec0053296c6ab56bbdd7aeb8f0432a840996c0f13daa9fba5103f2c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/COMPANIONS_CORE_AUDIT.md",
+      "sha256": "b5f5599d28d78f3fdb993163bb7e72f7a3b9e826cc278d711dfa5187c6fd07f3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/DISCORD_ABSORPTION_CHECK_2026-10-21.md",
+      "sha256": "744820040c968425b503f97dda7605e773a648dba864ec1e26d0cee0ffc7afd5",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/DISCORD_RESEARCH_AND_UI_STATUS_2026-10-21.md",
+      "sha256": "2bc727026f4013d0ccf42c0e0e69c363a0450575cf6fc2dbbd2b23381a6a94da",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md",
+      "sha256": "06a1a81ee6d8d6dba7f5d362dcc5c6850a4c235c24d66f87301ef5cf30fbbc7d",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/DONE_CHATS_AUDIT_2026-10-30.md",
+      "sha256": "8f1ec2469fc7b5652117d45cc23bae02d9fe82075a7bee5757f75cbb80890a6b",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/ECONOMY_CORE_AUDIT.md",
+      "sha256": "a2ec9befd23d73797aa29c70a72de7510ff224987a7862872e5e737bca08e7e2",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/EQUIVALENCE_LEDGER_SPIKE_2026-10-23.md",
+      "sha256": "bee218937bb9933aac6d053c2271bb0340e0179f57d4ec1d01f67a9b5a9e3d8e",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/GALLERY_FORM_AUDIT_2026-10-30.md",
+      "sha256": "29b3e4ac2c578eb48d116d0637eb747ab3b9cc0f85e588e4bf9aea99035e49bd",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 103
+        },
+        {
+          "round": 2,
+          "line": 146
+        },
+        {
+          "round": 2,
+          "line": 201
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/GAP_AUDIT_2026-10-30.md",
+      "sha256": "ac4efe9a8ac50af877f673fe492f0895ba41a24a9aee0f932928b71aa1e60508",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md",
+      "sha256": "35c59124433a01281f705b2302b1871dda7ec9532016222ffb9757f08cc08477",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "sha256": "2b6d7ee0c15dfd32f3c4051dec15175e2af2b737d47fc744cd02f1e68c5a510a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/IDEAS_NESTED_TRIAGE_2026-10-26.md",
+      "sha256": "7a5bc762d8e254c12892264a2f44bd6a6b61e8a1d214ad91c97a76ab90ec6e53",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+      "sha256": "439fe91e78563f326a5f4a3cb09f649a5f56b39c697aa249681ba8ea20492eee",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md",
+      "sha256": "e4cf195d0ed40f282d828dc27156b5ddac15614b0f850c0882eb3b08fcbd7d68",
+      "round_locators": [
+        {
+          "round": 1,
+          "line": 16
+        },
+        {
+          "round": 2,
+          "line": 98
+        },
+        {
+          "round": 3,
+          "line": 155
+        },
+        {
+          "round": 4,
+          "line": 244
+        },
+        {
+          "round": 5,
+          "line": 287
+        },
+        {
+          "round": 6,
+          "line": 354
+        },
+        {
+          "round": 7,
+          "line": 400
+        },
+        {
+          "round": 8,
+          "line": 451
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/IMPOSSIBILITIES_2026-10-30.md",
+      "sha256": "3aff76e2682f5a27764f538c7af9d374a6b84b679d2064a654fc746301e6afe6",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/MODULAR_CHAINS_CORE_AUDIT.md",
+      "sha256": "84abee411f60eaa85042c92a449fbf41c5220072b7a29af49b65f465a2c87969",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/OTHER_SYSTEMS_DEPTH_CORE_AUDIT.md",
+      "sha256": "a362c4dc428ea87eb0e662b9dee062b5b4e08bf4462f2666fe2c33cbe92ac10c",
+      "round_locators": [
+        {
+          "round": 1,
+          "line": 14
+        },
+        {
+          "round": 1,
+          "line": 285
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/OWNER_DOCS_AUDIT_2026-10-30.md",
+      "sha256": "e4671877f6ad3d9f7ead94a542f160f240f800a14331166420ed097743bdc004",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md",
+      "sha256": "cedfe14cb9f8e6ff5b30365fffc3422779c8f00944b86490c1612f8551cb053a",
+      "round_locators": [
+        {
+          "round": 14,
+          "line": 48
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/PROGRESSION_GATE_INVENTORY_2026-10-23.md",
+      "sha256": "89e4b4663898e6a67671aa45f310b5745cfeb4a9d89fc27f11369268934f6134",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md",
+      "sha256": "bac834c91553a6920590b8cd0ccfc624e8013d0b822fd00c2698c85d1db84b64",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 85
+        },
+        {
+          "round": 2,
+          "line": 121
+        },
+        {
+          "round": 3,
+          "line": 187
+        },
+        {
+          "round": 3,
+          "line": 220
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/REFINEMENT_PRIORITIES_2026-10-31.md",
+      "sha256": "8bef289cb60a6875d7578f47bb9e33eecbe28b663940acebcc95e8f852b4a680",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 62
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+      "sha256": "b1209498e02ff3ef0e882d16a6c54d3a8c235a7f394aa9073f533e3150ba3d3a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/RULES_RECONCILIATION_AUDIT_2026-10-30.md",
+      "sha256": "d653a7ab841e346cdb705dcdf776b9dd7a37433d062db887f7011297fe51b4a3",
+      "round_locators": [
+        {
+          "round": 1,
+          "line": 144
+        },
+        {
+          "round": 2,
+          "line": 175
+        },
+        {
+          "round": 3,
+          "line": 199
+        },
+        {
+          "round": 4,
+          "line": 239
+        },
+        {
+          "round": 5,
+          "line": 269
+        },
+        {
+          "round": 6,
+          "line": 295
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md",
+      "sha256": "2c6a68a908edd66c1b1be0ce37b4a3e6bb9a1a0f2d8cc7fd9df7aed6b19fd8f4",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+      "sha256": "8e17dea26a8808d0039ce3e3d41c76fa4587245740317a62f9ebde20f31d65ed",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md",
+      "sha256": "a72c388541f7754b9864ddd2daac2f11da38cf006020169303744b1e4bbabce4",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "sha256": "e4043dcf04e8b6ff9dd6e5a16b54862351b7240226fec206de3b1d2feae88af9",
+      "round_locators": [
+        {
+          "round": 1,
+          "line": 9
+        },
+        {
+          "round": 2,
+          "line": 109
+        },
+        {
+          "round": 3,
+          "line": 211
+        },
+        {
+          "round": 4,
+          "line": 254
+        },
+        {
+          "round": 3,
+          "line": 262
+        },
+        {
+          "round": 5,
+          "line": 321
+        },
+        {
+          "round": 6,
+          "line": 363
+        },
+        {
+          "round": 7,
+          "line": 410
+        },
+        {
+          "round": 8,
+          "line": 442
+        },
+        {
+          "round": 9,
+          "line": 497
+        },
+        {
+          "round": 9,
+          "line": 535
+        },
+        {
+          "round": 10,
+          "line": 544
+        },
+        {
+          "round": 11,
+          "line": 647
+        },
+        {
+          "round": 12,
+          "line": 681
+        },
+        {
+          "round": 13,
+          "line": 708
+        },
+        {
+          "round": 14,
+          "line": 743
+        },
+        {
+          "round": 15,
+          "line": 777
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+      "sha256": "4cfa39ed1c5573c8b8896f518e199c833028651a2f50a1a6dfbee6cbd50db983",
+      "round_locators": [
+        {
+          "round": 8,
+          "line": 28
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/UI_FORM_FIT_2026-10-30.md",
+      "sha256": "463bf77cbcb24a3f49004c0a1a9374fc6458e605074055458b4e7369f1d04a00",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md",
+      "sha256": "49bef255b6462475d86902cec71bb135f0162243c4cbaf7da01126d2d01d75dc",
+      "round_locators": [
+        {
+          "round": 9,
+          "line": 45
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+      "sha256": "870fe4b3dc2a2fb2fa3c0ed2b01c748c2f31f6ddb0edfd5fbe66d4f216ee2118",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md",
+      "sha256": "b80c30946ca4aebf3ae19d2fa9076cc0bab6410323cfd08be305be10ec7a3ec1",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 52
+        },
+        {
+          "round": 3,
+          "line": 65
+        },
+        {
+          "round": 4,
+          "line": 69
+        },
+        {
+          "round": 5,
+          "line": 75
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md",
+      "sha256": "e9c5d86db3356af4e2c5fe8391b909ec9a7bda3d91c15fdd69669e868f34d90b",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 503
+        },
+        {
+          "round": 3,
+          "line": 525
+        },
+        {
+          "round": 4,
+          "line": 557
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/WORLD_UI_KIT_CENSUS_2026-10-30.md",
+      "sha256": "1a19068b3c1e2f8bd15a3a8e5b2662682527443868eaa0d7161ca224382cfad4",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/REPORT.md",
+      "sha256": "d7e86ce70f3ffadfb877793449f23c069e67279fa32dc86525386131c9dab2cc",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/A_code_primitives.md",
+      "sha256": "dd6912ae405a1f473714878968fb2689e8913dd77d8d801c37ec123f87f7d202",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+      "sha256": "5ec431d155b332f0883d8d7242c3d4134e48e75a0f0f1e8b28e88eb19d43ae55",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/C_feasibility.md",
+      "sha256": "aa1365113fa84e787feedda23cee02e6aea4348e87be01d7d68e83cf5d835a35",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md",
+      "sha256": "57d7d7e7f446738f4320736d26240c2c74ec1476033109250538f2f7259242c7",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/discord_absorption_2026-10-21/RULE_FOLD.md",
+      "sha256": "ff85c360224fc3d54b4eb4ef093479b438d8d64168eb104978e271dcd39436dc",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+      "sha256": "6fa0194957a82626d9c6cfdbe8b77f7064737dce4e74ee16ddfd8568a91ff485",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+      "sha256": "2e5ff8b0aae5f822fe25731e40298fce3f26006aafaee2a2640823814bb7c72a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/research_cov.md",
+      "sha256": "82e6960b28172731b65b817ff7254499ff97a6f0ae9d9068765dff6a4d66d0bd",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/ui_cov.md",
+      "sha256": "b36f001ef029e7ae754a7a5e91d8162f9395cc957fbcf21ebbff7cae2fd56e7a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_1.md",
+      "sha256": "e3c5e635f5161b0c49178692863f3db27a111890c16a6de89bef645be48b50ac",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_2.md",
+      "sha256": "e9f81f83ef10e06402c8cc0d5c695cf768a5cd33aab1ba7c3fd2406b07571af1",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_3.md",
+      "sha256": "e874c7b20ececfbc234423197e472341788e51f82d1a6d15472d7a9f69387df8",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_4.md",
+      "sha256": "abead48da279765c890d1a3e3fee555afeae5353da09f19fec4080986a45e092",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_5.md",
+      "sha256": "f7a5183da4c7688009f533a6b721f49181905f72bf5105bcfd6b7ceb68d851aa",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/headless_check_visibility_2026-10-21/REPORT.md",
+      "sha256": "2727c5e33ee01914e778d44b3db7b2aee8bb0edf21219a50449b329847df7099",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/TRIAGE.md",
+      "sha256": "6bd7fd2826179ff74491a75162918c0510f8431b1b1f12dbfa888b7732eca3ea",
+      "round_locators": [
+        {
+          "round": 3,
+          "line": 15
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-absence.md",
+      "sha256": "5e82f027a0cd7b7a99b65eca19c72e1b8dc97840b135bf594fdbe4b95943b95d",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-fidelity.md",
+      "sha256": "7230ef616e5681758f9d08b6e07fe7b25de8e314d90a085d6aac629f3b350ab2",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-legibility.md",
+      "sha256": "7857a700830a41b4d86b37d37b473f69101d374b5ac4ae8a79d93e3c32d5cf06",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-longplay.md",
+      "sha256": "13ddbaeb57ce09bc8d4bcfd9397d4a002685dc40cc459b6ab38b45d4db52b70e",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-reuse.md",
+      "sha256": "35a54808c38b1ac4460345fee8023b2ba23d4bb0b1d2f374657eddc609ed05a0",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-verify.md",
+      "sha256": "dd8d12ed0673c878131795135e7a2b1866009d7a33cc172c62f9373e930555c1",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-volume.md",
+      "sha256": "a428860cc15c070a267ec986c6f8fdfcd0db584bffb384fcbb0660a4e8d76040",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-absence.md",
+      "sha256": "7558e5e9027d2ed45bb5a524ce83560a210f3792f25bdb83e7707803d700acb1",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-fidelity.md",
+      "sha256": "535c69accadf1563ddce133a23190b9fcea5546c85e114e82ebdf4b2cbc63316",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-legibility.md",
+      "sha256": "3d6f85c3b00d6d4418989aa7c5c9487c825174bb528930a83382cc3a3f27ed83",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-longplay.md",
+      "sha256": "b62209e03ee0f5422c39f7a89d74960a44a0de79ed5fa25ca9282871afcfff9f",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-reuse.md",
+      "sha256": "a391308da37d732e8a358478dc7e7cbf340adaf11b549a0fdbe72f045eea5b75",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-verify.md",
+      "sha256": "5cfcf23917f01ee4737371e3eeef2e124d85a0160d0e56d3b879e83e363ed186",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-volume.md",
+      "sha256": "6946fb78cd6c06da28bbc328f97e558c482ad44ade847b960efb6448fede62a3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-absence.md",
+      "sha256": "0eb9e6a4be1e6128ec536d3006592d46dbb82b69bae57b223a40e502b4c4322c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-fidelity.md",
+      "sha256": "bf4753025ca23011d5b0bedc797030ffaf61fb914f8f53f3101bf9d269141128",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-legibility.md",
+      "sha256": "d82ee7f88947805beec1416e74bc0f6fdcfa1837b31892eef2f7200c1918926f",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-longplay.md",
+      "sha256": "a4a7d0cf8c3c0e4ef58f46cbc8d3d1474c435f2dbf546e36848d8c30cd602448",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-reuse.md",
+      "sha256": "0a4b7d7bbee265e150d55d1162735e2dac296ffafab760e2e94fce05dc1cc526",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-verify.md",
+      "sha256": "e10811f6e47c00b5da15b24165135535c0357756fe82d9702c780678dcd4df4a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-volume.md",
+      "sha256": "926c86bf741b138b8bc0923ebd2aea8db80a93b65a7a3a4d2b3728f45a2644a5",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/IX_A_INTERACTION_MODEL.md",
+      "sha256": "3db61a04fd1db9cbedb609918234f33365cbf84053fc92bd829ed1b6cc0c7e4c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/MQ_A_TAG_INVENTORY.md",
+      "sha256": "fafc53e1e738e7def448f99e8301382fb32f24469ef76f9d20b1ca11bfc28df4",
+      "round_locators": [
+        {
+          "round": 6,
+          "line": 3
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/MQ_B_DISPLAY_PLACEMENT.md",
+      "sha256": "115830655c580b47d92670a71c31972ecb794c4608ab671b32c60d165a48655b",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md",
+      "sha256": "db5e78a5019113ae518d92788a98fa30de06e563e89d388ea2bd6b0ee434b176",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/toolsets_2026-10-21/IMPLEMENTATION.md",
+      "sha256": "bf74ad0c683a6912f86a9e99af308c848c56b1ded6962a13ea1c3d7bd7d30809",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_A_BOOK_WORLDS.md",
+      "sha256": "bd76420e89397fb7fd8a03ad2fa4d2b442d2ad148c860cf66b6721f3d785cb41",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_B_ANIME_AND_OTHERS.md",
+      "sha256": "95490c584c074850d06d7c459aff7ee2ee79da9c34e4b2c6f22865332dac7b6d",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/L1_FACT_VOCABULARY.md",
+      "sha256": "5d1efe49222f3eee863baf6e32818afade9c81242e2cf72709482ac145e0583f",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/L2_RESOLVER_FEASIBILITY.md",
+      "sha256": "637c5ab4be9e40bcc49dbf74cc6c170a728f812af938e9cea24e708501947787",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/M1_VITALS_READERS.md",
+      "sha256": "b3f0671a61b4d6c9b69ceb2aa2a788c9c2cc1e82dbacc085befd75a156be150e",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_grammar_2026-10-19/DG_A1_HP_GRAMMAR.md",
+      "sha256": "b1fee4026f1c1e8862a1fcb5689fa66f60d5a44a5a9e7fa6e83ea55114a95da3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_grammar_2026-10-19/DG_A2_SRD_DERIVATION.md",
+      "sha256": "5a68e1a7f4f035b8228c34b44ca7614bd6b0802f6b744008c9916e6afcbc629c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/CHECKPOINT.md",
+      "sha256": "957fc72388e4a210b869c631052121e895da270e94d7abdb320aa23903c44ff9",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+      "sha256": "d03fa75c65daa25e3cb01c71e453ae312bb2f871cca12d0742a842e5bd143781",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L1.md",
+      "sha256": "474f0e93ff4a1c508e9fb5911f27eb4faa918d7eca289f90d53e9ad6d382636c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L2.md",
+      "sha256": "5f48f888ccc4425524a69262e1ab58ac4c1379edbe67d4dabf617e17e7fcb062",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L3.md",
+      "sha256": "609522d8765667316cbee2f1a56c76703218cad5e04138d551f982256ecfb50d",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L4.md",
+      "sha256": "ddfa0daa8f1990d991e30a4e0cf089721ab6a52ca0fb5114b68c033af71acffb",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+      "sha256": "916539d6b98ac7ed5e6c57373eab01a5415461f53bf4142b5a800db950f6c973",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/ACCEPTANCE_PREP_2026-10-19.md",
+      "sha256": "bd455fa6b7caccdf874f3a116e33f412403aba9b9194046b7593d90c49758251",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/BOOK_RESEARCH_USAGE_AUDIT_2026-10-16.md",
+      "sha256": "e432ade49af85b95bce748e60daf61c6503a40f53ea657499ebb4ddceba6fbcd",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 39
+        },
+        {
+          "round": 3,
+          "line": 61
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/CLAUDE_CHAT_GRIPES_AND_NEXT_STEPS_2026-10-18.md",
+      "sha256": "eaf13a2233a4566c6fab391ba3572deb99c020eda66c4b0703d834b2861f189c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/CODEX_GRIPES_REVIEW_2026-10-18.md",
+      "sha256": "af79446d4d79007e76c0c30fa89b3c5868e7bcdd395cb1ecc255ffcac3b63d52",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/CORC_UI_2026-10-21.md",
+      "sha256": "3675bb76be94a68d62746c4ccc9193bfa73ef2263b91ed5b12cc72f192d75ee9",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/CORE_ENGINE_AND_RUNTIME_CONSIDERATIONS_2026-10-16.md",
+      "sha256": "62000b5d5b2e191659d1c3632020b2391d220991901834e2343e7bbe8b7498a5",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 146
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "sha256": "341f8a13ebd6e3522d121724a39a4814a45644cb9abca0fc9cb2dc6345597ec8",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/CYCLE_LEDGER_2026-10-26.md",
+      "sha256": "5fdc7967ad489428563e8be1d402b67995b2f43369a2039f4e687d5155850597",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D1.md",
+      "sha256": "0efc7682091783d6a2b1b2ae722f0aecd3a6a96229cd9cae4d620507020a814b",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D2.md",
+      "sha256": "0b503f6dec8b2c006d169a1ab9bfb37f225e467715491095253efd763aed87a5",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D3.md",
+      "sha256": "a132b5b2f2b9c0f39d6e469ecb76dd19dd0f02746dd2f275940eef3962b5c1d3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D4.md",
+      "sha256": "a7de16cf18ecfbfa84ddfa8617e23f5ef14204fc138910790618e9162d780a62",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D5a.md",
+      "sha256": "ea16f1ad0605401b85387814bfd0b1626725a5b4ee1681f50940e26ad3ac397a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D5b.md",
+      "sha256": "b416e7458123a79e53b7597e3887582b8f2542834ac9a2ce816392d18fbc42be",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D6.md",
+      "sha256": "3343af258a56497c771db1d7c288d5e99821ac378496208a98dbd21277411704",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FIXES_DOCS.md",
+      "sha256": "3c98065c595db4f91e455431a1f364ab54bcb48082f2e16f4ea774c7c985a983",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FIXES_RUNTIME.md",
+      "sha256": "4b4293e6f6580b4b6e2b7a616e61ca87d378ed18a6e48946e1d9e51d3e82c121",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md",
+      "sha256": "1d29176bb8c5e887108981735fb8bc9fcb0da43af1a7ec11a7aeef4f9f7d07e0",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L1_REPORT.md",
+      "sha256": "9f3117ffeba74499814ca92b9904259fc5c595438fe61770a8f2078dc957c99c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L2_REPORT.md",
+      "sha256": "7d60f1b1825f990c8390842acf78df3e30eb120f2c68776404e984abf8d6f2d3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L3_REPORT.md",
+      "sha256": "83cb9df92c68b6b9c4fae447562d956c7f08f850a9ba1cc3c57a12db1a9b4faa",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L4_REPORT.md",
+      "sha256": "2dff14aa935dc7efd27151f77f5886d2cda9e19bab68eaac390ecb562bf4b506",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L5_REPORT.md",
+      "sha256": "b2e15beb4db1ebe09b0717cd5ac70f01993628b6fd6b9dc1ef9118b742051750",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L6_REPORT.md",
+      "sha256": "daeaf6ccb4f30c412d269acd93c03e36097055f0d83b5b84143221c266a77de9",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S1.md",
+      "sha256": "838cd97a8ad62825425427b5264cfb9205bb2883361d75c5b1d19cb65658e40b",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S2.md",
+      "sha256": "2d6fbcae108074099b8fdfad54117a341402ba6f6c65ca82bc08f50bdb275361",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S3.md",
+      "sha256": "3076aef7cc66d6c0fc35c767193465a5750ecda9a2028b903ec16bd317582987",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S4.md",
+      "sha256": "5171fc6bda06cb26a92ae07fd802eb200e09cf258061d75ffba0f2fd58c35dd1",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "sha256": "f72576869fd2a8acb40376cb4c20821a42b1b789c2ea558cfd55f417dc2bf8aa",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/T.md",
+      "sha256": "9601154a1234a51989a6a4034b32e37a00439c61fca81e05372e09c70daef79a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DESCRIPTION_LINT_2026-10-26.md",
+      "sha256": "dbcd18ba8defd389e9f675ebcb1fdb061fa538340fed773ca580baad6f865964",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/DESKTOP_ICON_2026-10-25.md",
+      "sha256": "5190fd3691cffd8e9bd942320bbab0d2c59f9e5470c2d220c60ae3d0d4dc4884",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md",
+      "sha256": "4efd3548e81763d3111f4bb497b5ec01a29a39394569b9333d4b83984bf2694d",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "sha256": "6f824c30f9521c942e27eb2a968da9f84a6ea1e13498a145feab0e27d234d9c5",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/FOUNDATION_CONSIDERATIONS_2026-10-16.md",
+      "sha256": "cb07f52efec4530a530430321ceac0d516c3bc41c85d12bfbb05a4f32e3edfae",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/FOUNDATION_FRESH_PERSPECTIVE_PACKET_2026-10-12.md",
+      "sha256": "8daa2296fe66de963aa4f5174fb8427348247e9ee93df8542e250611ba3508c5",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/GENERATOR_CENSUS_2026-10-26.md",
+      "sha256": "246c8a3d6ef9076311fb82044e0fed4c290f0fb4bb5d7d6a56d37294192d6ca1",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md",
+      "sha256": "588689f765b91fef8d06614a43a1f56d9bbf244d6719fc932b2a4324448183b7",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+      "sha256": "8bebf37cc0f2e0a4b759dd37ff55cc193a3fc936576daf523712bd866a6b9cdc",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/LONG_TERM_GAME_VISION_FRESH_PERSPECTIVE_PACKET_2026-10-12.md",
+      "sha256": "fd7a730645624b6dfad68399c8cec8dc4690268dfe32972bfd3de2dcf3d7aa5c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/LUNA_WORLD_CONTENT_ASSESSMENT_2026-10-20.md",
+      "sha256": "6b0cfc55ce5bb083e9b40b30770d15807389d53702a3c1943c2a6d57c9d9d331",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/MASTER_READY_REVIEW_2026-10-22.md",
+      "sha256": "c51e860c25644c6a24455a7a6312fe887c07d4107790cfdbe43ee2e4d38fb681",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md",
+      "sha256": "139d52aadfd543187d0749b0f983e6ba6a282858455d5b680dec981fc27ae844",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/MODULARITY_IMPLEMENTATION_2026-10-21.md",
+      "sha256": "2b85ee00e64c60192c7d89fe22146bd257576cc7a21e9f1120eed1756a2f2e01",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/NEXT_MILESTONE_PROMPT_IMPROVEMENT_PACKET_2026-10-12.md",
+      "sha256": "6fa4b237d0be012cc3b64d15595a3517d3796b1ea4c1dbcee4ca41d584810029",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/ODD_POWERS_POLYJUICE_NOITA_TRACE_2026-10-13.md",
+      "sha256": "b99e839c892d2025057a6e6cbf51805635d3efe1468ef12db0d7acdf37a7412f",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+      "sha256": "e316b7572e221a8b7b23e3692f34930a69afedfaebcd59ca30b3a60274652865",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/OVERARCHING_RECONCILIATION_2026-10-23.md",
+      "sha256": "c82fea8f0f5af618d65f035bde371daed220df53d1e9d8ef5519edaaca6c871e",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/P1_BASELINE_2026-10-19.md",
+      "sha256": "76de0f0715b6f8c8a8337e960d45fa419b74442f9a14da17d7a00a41e680c4b1",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md",
+      "sha256": "03f179d771048da085d8e97c9b7b6332278327ce0ecdbf1073b85d86c6ef3100",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PARALLEL_RUNS_OUTCOMES_2026-10-26.md",
+      "sha256": "4e8371d5f2d5bd442bc87f769ff758b44ee672c383c92231cc3cf5a712fda8c0",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "sha256": "626c596b8167295de2107671d7c658e93741a887fe3549ec09c1f55797b3c6fd",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 123
+        },
+        {
+          "round": 3,
+          "line": 216
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PLAYTEST_SWEEP_2026-10-25.md",
+      "sha256": "454aae658c020e9ff0fb67f91cf42b6e8a225128f016805fec29377f4c367ae8",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PLAY_QUEUE_2026-10-24.md",
+      "sha256": "abe4f912b1d842a5bf11e34a435c9771f59a5fdfd35a3b91b6e94e2b45c61ad4",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md",
+      "sha256": "a597ab5b5fbf145246e8a3dd34aff47106140ec2b205840e3c9d49607fbb73c7",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PROTO23_PERISHABLE_2026-10-21.md",
+      "sha256": "b8d70b32882f26cec5f431c97e6ed6b3de9cfe5f1253dee174dfb1d7bca2bb76",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md",
+      "sha256": "c4ed656b34f5c530187f3e077cc1ad1bd960ab73b03d07813cd4d21cd31b8f42",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/PROTO23_WIDGETS_2026-10-21.md",
+      "sha256": "6a06a1d30122879eb5b551ac331c8e8f43453585672e855fb175072c976e7b53",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/QUEUE_PLAN_SUPERSEDED_2026-10-18.md",
+      "sha256": "c6b6cdae36f7e782a410ac31b4356dc3c85d27ec6f3136b8d64d7a9bb65c3628",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 1
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/QUEUE_REFRESH_2026-10-18.md",
+      "sha256": "7a3b6210dffcda99b5581723157dd35e7a684515e2c00a53847f7bfdc8be358c",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 80
+        },
+        {
+          "round": 2,
+          "line": 140
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md",
+      "sha256": "07e4a61cd04a9e048e16dbc10e09d5443dc7e57afca811d18e8e79fb34ae244b",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/RULE_IMPLEMENTATION_CHECKS_2026-10-16.md",
+      "sha256": "99125aa02d029ab9015133991f94f720746eaa20492d11abc708464f55fe9076",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md",
+      "sha256": "91183117da2bf9da4e9c1efe7d50a8d414e427affb64a89842f9ef5730f950b0",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/SUBTLE_RULE_GAPS_2026-10-18.md",
+      "sha256": "a4fac1886e890340d9ca9934d8cda6456a7ea45f1f7e54b6b7c48dd8a489ff17",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 34
+        },
+        {
+          "round": 3,
+          "line": 84
+        },
+        {
+          "round": 4,
+          "line": 155
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/TEST_SUITE_LEANNESS_AUDIT_2026-10-25.md",
+      "sha256": "a44c3d4a805b459e02cbde4e5ca737df725562dc863e8e1890e6d2f7a640391b",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/UI_CHARACTER_DIRECTION_2026-10-26.md",
+      "sha256": "a6700010aeca1ff4662971bf9ae226d2760216c34ec4fbdcdefab1d0c1602712",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/UI_CHARACTER_RERUN_2026-10-26.md",
+      "sha256": "030df69447e43853a632610ea7ce6ad1b4ba07742691bc1b2a85e5d99fe90299",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/UI_DESCRIPTION_RULES_EXPANSION_2026-10-26.md",
+      "sha256": "9439e32079dc6077c295f5d23f950266e5ed2430d8468e5a8439a0b519faeaef",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/UI_ENGINE_MODULARITY_2026-10-21.md",
+      "sha256": "3a8cec3cd03f4bf17bc92de92defe9c08d5b8451e2bf5439230f01eea5ff9497",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md",
+      "sha256": "e5dd146be324f72043e484062a42d3dc6859ea2a3f6c94726a308be70be6a830",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/UNFINISHED_GAME_PRIORITIES_2026-10-26.md",
+      "sha256": "fc2a6bb67c6e492ca6640cf898cfcbf6bfd3d6aef78b58bce2297739024c364e",
+      "round_locators": [
+        {
+          "round": 2,
+          "line": 21
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+      "sha256": "6cf0c1026aa987c1d16817456adaa1e7cfd73691753b5874f57a1f058756e4e3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/WORLD_RULES_AUDIT_2026-10-25.md",
+      "sha256": "8256e9b7cf85b133c33e40d852ef7a9ad294995460d43500de682d2b36c41d60",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/launch_menu_2026-10-20/REPORT.md",
+      "sha256": "f67b9484b8b9a3d231b9579c1b56c2bdbbe8ff391c92ba90243de0ddf1301964",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+      "sha256": "a93f9239bbe84283cc43c9f68d79127f3391758e6a3d8f6cb773ba41a196a751",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/code-fix-final/REPORT.md",
+      "sha256": "06986c4a77d923a576cf9b735bc0884bce8e399031fb30739b07e00a01d877c8",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md",
+      "sha256": "85f3a145782c84105709c825b0057db97ea218e09d83527662086b2fb8fc00c6",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/local-scripts-SKILL.md",
+      "sha256": "8644485141c5c8adf34d52a1cb779912a5fad13c43b81da26512b4d48c988acf",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-bounded/inventory.md",
+      "sha256": "e3b695d341b8ecf0e08bbf61be4a63c45340e12fb2ebfc0faef8b97ec35742ac",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-bounded/local-scripts-SKILL.md",
+      "sha256": "ff3a0b4075accffbeb5ba8f88909fefa6e520d39c47f5abfcc8fcb5024c352a2",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md",
+      "sha256": "5f492ac0eb8c445ae40671554dbd8f4da58c8d40d16c7d35c84083e0535a17e2",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-finished/inventory.md",
+      "sha256": "123b0a095dbd464d4fd1665e36bba86e34ca92e2648a632b642f7f0c61744746",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-finished/local-scripts-SKILL.md",
+      "sha256": "15390ef1e94c3ed598eb670f6e87ec4608e1737b6642d46b919aaba3194e0bb8",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-fixed/REPORT.md",
+      "sha256": "fda04198aa33ce0a1e88c632607c1e8cf5c87e1f454d019c6cff53bb5cbbdf7a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-fixed/inventory.md",
+      "sha256": "6994edaf465cff75851fe7c9aaf1cdc3bb3ef8d64f655c6085c777faed7f565c",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md",
+      "sha256": "1a495ae37e7fdbdaa94e1b0828cdb2a4398c0850ee8f06eb7705c562b0d604f4",
+      "round_locators": [
+        {
+          "round": 1,
+          "line": 74
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/real-task/inventory.md",
+      "sha256": "5edc531017a29fbc251bf239d291e6be486f1fa174f7ca16bd2cc26ffb6316f8",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/workflow-improvement/local-scripts-SKILL.md",
+      "sha256": "72aa65d34f942ed32a600877e7653ca1e8dd68204cc64752dd50532ec947e0e6",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/workflow-improvement-final/REPORT.md",
+      "sha256": "8109e3ab1cc13a882404748bcf6a8633cf80237f070418c1679ee75aa8aaa1c3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND2_SUPERSEDED_TEXT.md",
+      "sha256": "6068fd338df831b355fcb3c8f8db5987c0ebc7537ceb2f4b0896d327f2431398",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND3_SUPERSEDED_TEXT.md",
+      "sha256": "857255b29918e615b88018ba9149d7f3519996f179125c2b3572bfea9412e29a",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSEDED_TEXT.md",
+      "sha256": "0407dff36c4b1f8d41bd89aa0d3e2d32d4971e14240d5e7ee02fc31fe90be6c3",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md",
+      "sha256": "545a50535658149a51b51bd7d518444e6324b728036db68b0de0683d5470ab93",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/ui-density-2026-10-13/README.md",
+      "sha256": "ae173428333f2ec44eb95713da3fa704475018fb356c2fc39583802be3128d61",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md",
+      "sha256": "4d65a7dd858f4719729f5a632b53385275fa5365c537ffc1d6696314f867b352",
+      "round_locators": [],
+      "coverage": "indexed-only; not semantic review"
+    },
+    {
+      "path": "docs/reviews/ui-descriptions-2026-10-25/REPORT.md",
+      "sha256": "7f8186e255d4ffe9dde32196d217b168402d29859a5fb33273eb8a5cad0dc436",
+      "round_locators": [
+        {
+          "round": 1,
+          "line": 107
+        }
+      ],
+      "coverage": "indexed-only; not semantic review"
+    }
+  ]
+}

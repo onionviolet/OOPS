@@ -1,0 +1,39 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const {launchChrome}=require('/Users/weiwei/code/yet-another-idle-rpg/scripts/ui_helpers.cjs');
+const root='/tmp/yairpg-b1',out='/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/cast-evidence-2026-10-28/b1';fs.mkdirSync(out,{recursive:true});
+const log=(...a)=>console.log(...a);
+(async()=>{let browser;try{browser=await launchChrome();const context=await browser.newContext({viewport:{width:1920,height:1080},acceptDownloads:true});const origin='http://127.0.0.1:'+(20000+crypto.randomInt(30000));
+let packOff=false;
+await context.route(origin+'/**',async route=>{const name=decodeURIComponent(new URL(route.request().url()).pathname),f=path.join(root,name==='/'?'index.html':name);if(packOff&&name.includes('private_packs'))return route.fulfill({status:404,body:''});try{await route.fulfill({path:f,contentType:({'.js':'text/javascript','.json':'application/json','.css':'text/css','.html':'text/html','.svg':'image/svg+xml'})[path.extname(f)]||'application/octet-stream'});}catch{await route.fulfill({status:404,body:''});}});
+const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push('console: '+m.text());});
+const snap=()=>page.evaluate(()=>{try{return simulationTestHooks.snapshot();}catch{return null;}});
+const play=async()=>{await page.locator('#loading_screen_play_button').waitFor({state:'visible'});await page.locator('#loading_screen_play_button').click();if(await page.locator('#hero_creation_panel_confirmation').isVisible())await page.locator('#hero_creation_panel_confirmation').click();};
+await page.goto(origin+'/?test_hooks=1');await play();await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm');
+const panel=page.locator('#lotm_panel:visible').first();
+const stable=async loc=>{await page.evaluate(()=>simulationTestHooks.pause());try{await loc.evaluate(e=>{for(let d=e.closest('details');d;d=d.parentElement?.closest('details'))d.open=true;});await page.waitForTimeout(300);await loc.click({timeout:5000});}finally{await page.evaluate(()=>{try{simulationTestHooks.resume()}catch{}});}};
+const tokens=await panel.locator('[data-lotm]').evaluateAll(es=>es.map(e=>e.dataset.lotm+':'+(e.disabled?'off':'on')+':'+e.textContent.trim().slice(0,50)));log('start tokens',JSON.stringify(tokens.filter(t=>/pick|enroll/.test(t))));
+await page.screenshot({path:out+'/00-start-list.png'});
+await stable(panel.locator('[data-lotm="pick_be"]:visible').first());await page.screenshot({path:out+'/01-be-picked.png'});
+const t0=Date.now();
+await Promise.all([page.waitForEvent('load',{timeout:90000}),stable(panel.locator('[data-lotm="enroll_be"]:visible').first())]);
+log('reload after',Date.now()-t0,'ms');
+await play().catch(()=>{});await page.waitForTimeout(3000);
+let s=await snap();const L=s?.expansion?.lotm||{};
+log('profile',L.entryProfile,'runMode',L.runMode,'entry',JSON.stringify(L.entry||null),'continuation',!!s?.continuation,'location',s?.['current location']||s?.expansion?.simulation?.people?.player?.location);
+const know=Object.keys(s?.expansion?.simulation?.knowledge?.player||{});log('history knowledge',know.filter(k=>k.includes('history')).length,'known names',know.filter(k=>k.includes('cast.known')).length);
+await page.screenshot({path:out+'/02-be-life.png'});
+// menus and panels visible
+const opts=await page.getByRole('combobox',{name:'Other known panels'}).locator('option').allTextContents().catch(()=>[]);log('other panels',JSON.stringify(opts));
+const navs=await page.locator('nav button:visible, .menu_button:visible, [role=tab]:visible').allTextContents();log('visible nav',JSON.stringify(navs.map(x=>x.trim()).filter(Boolean)));
+const body=await page.locator('body').innerText();for(const w of ['Village','Continuing connection','Worlds','Travelers','Beginning','cheat','Cross'])log('text has',w,body.includes(w));
+await page.getByRole('combobox',{name:'Other known panels'}).selectOption('lotm').catch(e=>log('no lotm panel option',e.message));await page.waitForTimeout(800);await page.screenshot({path:out+'/03-be-panel.png'});
+const ptxt=await page.locator('#lotm_panel:visible').first().innerText().catch(()=>'');log('panel head',JSON.stringify(ptxt.slice(0,600)));
+log('not how it happened count',(ptxt.match(/Not how it happened/g)||[]).length);
+// persistence
+const strip=o=>{o=structuredClone(o);delete o?.expansion?.clock;if(o?.expansion?.simulation)delete o.expansion.simulation.clock;delete o['current time'];return JSON.stringify(o?.expansion?.lotm)+JSON.stringify(o?.expansion?.simulation?.knowledge);};
+const before=strip(await snap());await page.reload();await play().catch(()=>{});await page.waitForTimeout(3000);const after=strip(await snap());log('reload keeps lotm+knowledge',before===after);
+// missing pack
+packOff=true;await page.reload();await play().catch(()=>{});await page.waitForTimeout(4000);s=await snap();log('pack absent: profile',s?.expansion?.lotm?.entryProfile);const b2=await page.locator('body').innerText();log('pack absent reason shown',/pack|Restore the private/i.test(b2));await page.screenshot({path:out+'/04-pack-absent.png'});
+packOff=false;
+log('errors',JSON.stringify(errors.slice(0,8)));
+}catch(e){console.error('FAIL',e.stack);}finally{await browser?.close();}})();

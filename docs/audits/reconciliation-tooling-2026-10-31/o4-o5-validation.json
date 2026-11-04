@@ -1,0 +1,26 @@
+{
+  "original_codes": 134,
+  "delta_codes": 39,
+  "artifact_matches_table": true,
+  "source_hash_current": true,
+  "family_references_valid": true,
+  "links_checked": 594,
+  "link_issues": [],
+  "classification_counts": {
+    "workflow": 4,
+    "constraint": 3,
+    "historical dispatch": 3,
+    "feature refinement": 9,
+    "source-dependent refinement": 9,
+    "standing-contract routing": 2,
+    "coordination": 2,
+    "readiness correction": 1,
+    "source-question routing": 1,
+    "coverage correction": 1,
+    "cross-screen constraint": 1,
+    "cross-owner constraint": 1,
+    "run-mode constraint": 1,
+    "coverage workflow": 1
+  },
+  "limits": "Documentation structure and exact source identity only; no semantic lore/runtime verdict. Fragment matching follows the project checker\u2019s underscore-stripping convention; no live link-click claim."
+}

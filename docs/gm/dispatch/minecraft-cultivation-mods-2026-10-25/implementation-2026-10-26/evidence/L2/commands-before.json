@@ -1,0 +1,1971 @@
+[
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "actorId": "player",
+    "group": "field",
+    "uiSection": "lever",
+    "location": "Village",
+    "visibleWhen": {
+      "fact": "actor.field.introduced",
+      "op": "eq",
+      "value": true
+    },
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "key": "stamina",
+        "amount": -3
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      }
+    ],
+    "id": "field.lp1.hand",
+    "label": "Free wedged timber by hand · 1 log + 3 stamina · 6 min",
+    "duration": 6,
+    "cancellation": "refund",
+    "requires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+    },
+    "completionRequires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+    },
+    "completionFailure": "refund",
+    "description": "Known task: free and sort your wedged timber into one Prepared survey kit. Hand work takes six minutes. Each new supplied log allows another job."
+  },
+  {
+    "revision": 2,
+    "worldId": "base.frontier",
+    "actorId": "player",
+    "group": "field",
+    "uiSection": "lever",
+    "location": "Village",
+    "visibleWhen": {
+      "fact": "actor.field.introduced",
+      "op": "eq",
+      "value": true
+    },
+    "costs": [],
+    "effects": [
+      {
+        "type": "situation",
+        "situationId": "field.lp1.lesson",
+        "operation": "begin"
+      },
+      {
+        "type": "knowledge",
+        "key": "field.lp1.demonstration",
+        "stage": "seen",
+        "value": "In Village, the old craftsman demonstrates a pivot beside the wedged timber: brace the near end, then lift the far end. He offers instruction when willing and available.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "oldCraftsman",
+          "situationId": "field.lp1.lesson"
+        }
+      }
+    ],
+    "id": "field.lp1.demonstrate",
+    "label": "Ask the craftsman to demonstrate lever-setting",
+    "once": true,
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "participants": [
+      "$actor",
+      "$target"
+    ],
+    "requires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "target.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the craftsman settle before asking for instruction."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman teaches between 08:00 and 18:00."
+            },
+            {
+              "fact": "lp1.teacher",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman needs usable hands and must be here in Village."
+            }
+          ],
+          "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+    },
+    "description": "A free safe demonstration, with the craftsman present. Watching alone grants no usable method. Assignment evidence: finish a hand-work timber job and watch this demonstration, in either order. Then return both records to the craftsman."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "actorId": "player",
+    "group": "field",
+    "uiSection": "lever",
+    "location": "Village",
+    "visibleWhen": {
+      "fact": "actor.field.introduced",
+      "op": "eq",
+      "value": true
+    },
+    "costs": [],
+    "effects": [
+      {
+        "type": "knowledge",
+        "key": "field.lp1.returned",
+        "stage": "seen",
+        "value": "The craftsman checked your completed hand-work timber job and lever demonstration. Both assignment records are accepted. Explain the pivot rule, then complete paid supervised practice to learn the method.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "oldCraftsman",
+          "situationId": "field.lp1.lesson"
+        }
+      }
+    ],
+    "id": "field.lp1.return",
+    "label": "Return the hand-work and demonstration records to the craftsman",
+    "once": true,
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "participants": [
+      "$actor",
+      "$target"
+    ],
+    "requires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "target.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the craftsman settle before asking for instruction."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman teaches between 08:00 and 18:00."
+            },
+            {
+              "fact": "lp1.teacher",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman needs usable hands and must be here in Village."
+            }
+          ],
+          "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+        },
+        {
+          "fact": "lp2.evidence",
+          "op": "eq",
+          "value": true,
+          "reason": "Finish one hand-work timber job and watch the lever demonstration, in either order."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village. Finish one hand-work timber job and watch the lever demonstration, in either order."
+    },
+    "description": "Both known evidence steps can be done in either order. Returning them grants no method, kit, money or practice credit."
+  },
+  {
+    "revision": 2,
+    "worldId": "base.frontier",
+    "actorId": "player",
+    "group": "field",
+    "uiSection": "lever",
+    "location": "Village",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.introduced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "knowledge.field.lp1.demonstration.seen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "reason": ""
+    },
+    "costs": [],
+    "effects": [
+      {
+        "type": "situation",
+        "situationId": "field.lp1.lesson",
+        "operation": "advance",
+        "expected": [
+          "demonstrated"
+        ],
+        "phase": "explained"
+      },
+      {
+        "type": "knowledge",
+        "key": "field.lp1.rule",
+        "stage": "understood",
+        "value": "The old craftsman checked your explanation in Village: the brace stays near the pivot, your hands lift the far end, and you stop if the timber slips. Paid supported practice is still needed.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "oldCraftsman",
+          "situationId": "field.lp1.lesson"
+        }
+      }
+    ],
+    "id": "field.lp1.explain",
+    "label": "Explain the rule: brace near the pivot, lift the far end",
+    "once": true,
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "participants": [
+      "$actor",
+      "$target"
+    ],
+    "requires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "target.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the craftsman settle before asking for instruction."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman teaches between 08:00 and 18:00."
+            },
+            {
+              "fact": "lp1.teacher",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman needs usable hands and must be here in Village."
+            }
+          ],
+          "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+        },
+        {
+          "fact": "knowledge.field.lp1.demonstration.seen",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "lp2.returned",
+          "op": "eq",
+          "value": true,
+          "reason": "Return both assignment records to the craftsman before explaining the rule and practicing."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village. Return both assignment records to the craftsman before explaining the rule and practicing."
+    }
+  },
+  {
+    "revision": 2,
+    "worldId": "base.frontier",
+    "actorId": "player",
+    "group": "field",
+    "uiSection": "lever",
+    "location": "Village",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.introduced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "knowledge.field.lp1.rule.seen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "reason": ""
+    },
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Lever practice brace\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "native": true,
+        "key": "money",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "power",
+        "powerId": "field.lp1.lever",
+        "operation": "learn"
+      },
+      {
+        "type": "situation",
+        "situationId": "field.lp1.lesson",
+        "operation": "advance",
+        "expected": [
+          "explained"
+        ],
+        "phase": "learned"
+      },
+      {
+        "type": "knowledge",
+        "key": "field.lp1.method",
+        "stage": "understood",
+        "value": "The old craftsman taught you lever-setting in Village after your pivot explanation and three minutes of supervised practice. You used one Lever practice brace and spent one coin and one stamina. You can now free timber with a spare log as a lever; actual hands and the held tool remain required.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "oldCraftsman",
+          "situationId": "field.lp1.lesson"
+        }
+      }
+    ],
+    "id": "field.lp1.practice",
+    "label": "Practice lever-setting with the craftsman · 1 practice brace + 1 coin + 1 stamina · 3 min",
+    "once": true,
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "participants": [
+      "$actor",
+      "$target"
+    ],
+    "duration": 3,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "requires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "target.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the craftsman settle before asking for instruction."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman teaches between 08:00 and 18:00."
+            },
+            {
+              "fact": "lp1.teacher",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman needs usable hands and must be here in Village."
+            }
+          ],
+          "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+        },
+        {
+          "fact": "knowledge.field.lp1.rule.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Watch the demonstration, then explain the pivot rule."
+        },
+        {
+          "fact": "lp2.returned",
+          "op": "eq",
+          "value": true,
+          "reason": "Return both assignment records to the craftsman before explaining the rule and practicing."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village. Watch the demonstration, then explain the pivot rule. Return both assignment records to the craftsman before explaining the rule and practicing."
+    },
+    "completionRequires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "target.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the craftsman settle before asking for instruction."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman teaches between 08:00 and 18:00."
+            },
+            {
+              "fact": "lp1.teacher",
+              "op": "eq",
+              "value": true,
+              "reason": "The craftsman needs usable hands and must be here in Village."
+            }
+          ],
+          "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+        },
+        {
+          "fact": "knowledge.field.lp1.rule.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Watch the demonstration, then explain the pivot rule."
+        },
+        {
+          "fact": "lp2.returned",
+          "op": "eq",
+          "value": true,
+          "reason": "Return both assignment records to the craftsman before explaining the rule and practicing."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village. Watch the demonstration, then explain the pivot rule. Return both assignment records to the craftsman before explaining the rule and practicing."
+    },
+    "completionCoLocated": true,
+    "completionFailure": "refund",
+    "description": "Untimed choice, then three played minutes of supervised practice. Supply one Lever practice brace from Eda’s Fitting tools & materials bench (one sound stave + one sap, two minutes); it is used up in practice. Teacher attention is reserved. Cancellation or lost support refunds costs and teaches nothing."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "actorId": "player",
+    "group": "field",
+    "uiSection": "lever",
+    "location": "Village",
+    "visibleWhen": {
+      "fact": "actor.field.introduced",
+      "op": "eq",
+      "value": true
+    },
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -2
+      },
+      {
+        "type": "vital",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      }
+    ],
+    "id": "field.lp1.lever_work",
+    "label": "Free wedged timber with lever-setting · 1 log + spare log lever + 1 stamina · 2 min",
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "automatable": true,
+    "powerId": "field.lp1.lever",
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "location",
+              "op": "eq",
+              "value": "Village",
+              "reason": "Return to the Village timber stack."
+            },
+            {
+              "fact": "lp1.body",
+              "op": "eq",
+              "value": true,
+              "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+            },
+            {
+              "fact": "knowledge.field.lp1.method.understood",
+              "op": "eq",
+              "value": true,
+              "reason": "Complete the lever-setting practice with the craftsman first."
+            }
+          ],
+          "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first."
+        },
+        {
+          "fact": "lp1.tool",
+          "op": "eq",
+          "value": true,
+          "reason": "Carry a second Rough wood log as your lever, alongside the log being worked. The lever is held during work and returned."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first. Carry a second Rough wood log as your lever, alongside the log being worked. The lever is held during work and returned."
+    },
+    "completionRequires": {
+      "all": [
+        {
+          "fact": "location",
+          "op": "eq",
+          "value": "Village",
+          "reason": "Return to the Village timber stack."
+        },
+        {
+          "fact": "lp1.body",
+          "op": "eq",
+          "value": true,
+          "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+        },
+        {
+          "fact": "knowledge.field.lp1.method.understood",
+          "op": "eq",
+          "value": true,
+          "reason": "Complete the lever-setting practice with the craftsman first."
+        }
+      ],
+      "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first."
+    },
+    "completionFailure": "refund",
+    "description": "Same known task, one kit. Reserve two actual carried logs: one becomes the kit, the other stays held as the lever and returns. Two minutes and one stamina. Each idle repeat checks support and reserves fresh inputs."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.introduced",
+        "value": true
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.member",
+        "value": false
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.method",
+        "value": false
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.facility",
+        "value": false
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.started",
+        "value": false
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.parts",
+        "value": false
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.survey",
+        "value": false
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.assembly",
+        "value": false
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "situation.field.road.stage",
+        "value": "quiet"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.member",
+        "value": true,
+        "actor": "oldCraftsman"
+      },
+      {
+        "type": "power",
+        "actor": "oldCraftsman",
+        "powerId": "field.load_step",
+        "operation": "learn"
+      },
+      {
+        "type": "power",
+        "actor": "oldCraftsman",
+        "powerId": "field.load_step",
+        "operation": "refine",
+        "amount": 2
+      },
+      {
+        "type": "site",
+        "siteId": "field.route",
+        "operation": "open"
+      },
+      {
+        "type": "site",
+        "siteId": "field.assembly",
+        "operation": "open"
+      }
+    ],
+    "id": "field.begin",
+    "label": "Ask about a shared field workshop",
+    "once": true,
+    "uiSection": "association",
+    "requires": {
+      "fact": "village.craftsmanMet",
+      "op": "eq",
+      "value": true
+    }
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.member",
+        "value": true
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.entry",
+        "value": "survey"
+      }
+    ],
+    "id": "field.join_survey",
+    "label": "Join with your route findings · 2 min",
+    "once": true,
+    "uiSection": "association",
+    "duration": 2,
+    "cancellation": "forfeit",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.introduced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": false
+        }
+      ]
+    },
+    "requires": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "any": [
+            {
+              "fact": "campaign.anchor",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "actor.town.returned",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "description": "Explain an actual crossing inspection or your returned town ledger. Two minutes; no fee. Cancellation grants no membership."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -2
+      },
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.member",
+        "value": true
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.entry",
+        "value": "craft"
+      }
+    ],
+    "id": "field.join_craft",
+    "label": "Join by making a brace · 2 logs + 1 coin · 3 min",
+    "once": true,
+    "uiSection": "association",
+    "duration": 3,
+    "cancellation": "refund",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.introduced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": false
+        }
+      ]
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": false
+    },
+    "description": "Supply two real logs and one coin for an inspected association brace. Cancellation returns both materials and payment."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [],
+    "effects": [
+      {
+        "type": "energy",
+        "energyId": "field.focus",
+        "operation": "learn"
+      }
+    ],
+    "id": "field.learn_focus",
+    "label": "Learn measured focus · 2 min",
+    "uiSection": "methods",
+    "once": true,
+    "duration": 2,
+    "cancellation": "forfeit",
+    "visibleWhen": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "description": "Precision over force: four units held, one output, two control. One output costs two units. Recovery takes two minutes."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Shack",
+    "costs": [],
+    "effects": [
+      {
+        "type": "energy",
+        "energyId": "field.focus",
+        "operation": "recover",
+        "amount": 4,
+        "cooling": 3
+      }
+    ],
+    "id": "field.recover_focus",
+    "label": "Recover focus · 2 min",
+    "uiSection": "methods",
+    "duration": 2,
+    "cancellation": "refund",
+    "automatable": true,
+    "visibleWhen": {
+      "fact": "energy.field.focus.known",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "fact": "energy.field.focus.known",
+      "op": "eq",
+      "value": true
+    }
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "vital",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "energy",
+        "energyId": "field.drive",
+        "operation": "learn"
+      }
+    ],
+    "id": "field.learn_drive",
+    "label": "Learn breath drive · 3 min",
+    "uiSection": "methods",
+    "once": true,
+    "duration": 3,
+    "cancellation": "forfeit",
+    "visibleWhen": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "description": "Force over precision: six units held, three output, one control. Learning spends two stamina. Recovery takes four minutes and two stamina."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Shack",
+    "costs": [
+      {
+        "type": "vital",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "energy",
+        "energyId": "field.drive",
+        "operation": "recover",
+        "amount": 6,
+        "cooling": 3
+      }
+    ],
+    "id": "field.recover_drive",
+    "label": "Recover drive · 4 min + 2 stamina",
+    "uiSection": "methods",
+    "duration": 4,
+    "cancellation": "refund",
+    "automatable": true,
+    "visibleWhen": {
+      "fact": "energy.field.drive.known",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "fact": "energy.field.drive.known",
+      "op": "eq",
+      "value": true
+    }
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "power",
+        "powerId": "field.load_step",
+        "operation": "learn"
+      },
+      {
+        "type": "power",
+        "powerId": "field.load_step",
+        "operation": "refine",
+        "amount": 1
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.method",
+        "value": true
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.methodOrigin",
+        "value": "teaching"
+      },
+      {
+        "type": "source",
+        "sourceId": "field.load_step",
+        "operation": "grant",
+        "origin": "trained",
+        "awakened": true,
+        "active": true
+      },
+      {
+        "type": "knowledge",
+        "key": "field.step",
+        "stage": "understood",
+        "value": "The craftsman taught the steadying step; applied practice remains yours."
+      }
+    ],
+    "id": "field.teach_step",
+    "label": "Learn Load-bearing Step · 1 coin + 2 min",
+    "uiSection": "methods",
+    "once": true,
+    "duration": 2,
+    "cancellation": "refund",
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "participants": [
+      "$actor",
+      "$target"
+    ],
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "fact": "actor.field.method",
+          "op": "eq",
+          "value": false
+        }
+      ]
+    },
+    "requires": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "village.craftsmanBusy",
+              "op": "eq",
+              "value": false,
+              "reason": "Wait for his work to finish."
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the earlier exchange settle first."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "He teaches between 08:00 and 18:00."
+            }
+          ]
+        }
+      ]
+    },
+    "description": "Reserve the craftsman's attention for two minutes. Learn his steadying method; cancellation returns the fee."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "source",
+        "sourceId": "field.pattern_imprint",
+        "operation": "grant",
+        "origin": "acquired",
+        "awakened": true,
+        "active": true
+      }
+    ],
+    "id": "field.discover_imprint",
+    "label": "Explore an observed pattern · 2 coins + 3 min",
+    "uiSection": "methods",
+    "once": true,
+    "duration": 3,
+    "cancellation": "refund",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "fact": "energy.field.focus.known",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "description": "Develop an optional, narrowly defined pattern-imprint faculty. It can reproduce the craftsman's demonstrated Load-bearing Step; it grants no unseen methods."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "energy",
+        "energyId": "field.focus",
+        "operation": "use",
+        "output": 1,
+        "control": 2
+      }
+    ],
+    "effects": [
+      {
+        "type": "power",
+        "powerId": "field.load_step",
+        "operation": "copy",
+        "target": "$target",
+        "copyMastery": true
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.method",
+        "value": true
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.methodOrigin",
+        "value": "imprint"
+      },
+      {
+        "type": "source",
+        "sourceId": "field.load_step",
+        "operation": "grant",
+        "origin": "acquired",
+        "awakened": true,
+        "active": true
+      },
+      {
+        "type": "knowledge",
+        "key": "field.step",
+        "stage": "understood",
+        "value": "You reproduced the demonstrated step. The craftsman still owns his own method."
+      }
+    ],
+    "id": "field.copy_step",
+    "label": "Imprint the demonstrated step · 2 focus units",
+    "uiSection": "methods",
+    "once": true,
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "fact": "actor.field.method",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "fact": "faculty.field.pattern_imprint.active",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "requires": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "village.craftsmanBusy",
+              "op": "eq",
+              "value": false,
+              "reason": "Wait for his work to finish."
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the earlier exchange settle first."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "He teaches between 08:00 and 18:00."
+            }
+          ]
+        },
+        {
+          "fact": "faculty.field.pattern_imprint.active",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "description": "Observe the willing craftsman's demonstration and copy his two points of mastery. He retains his method; no unseen methods are acquired."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "vital",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "power",
+        "powerId": "field.load_step",
+        "operation": "refine",
+        "amount": 1
+      }
+    ],
+    "id": "field.practice_step",
+    "label": "Practice the loaded application · 2 min + 1 stamina",
+    "uiSection": "methods",
+    "once": true,
+    "duration": 2,
+    "cancellation": "forfeit",
+    "powerId": "field.load_step",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.method",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "power.field.load_step.mastery",
+          "op": "eq",
+          "value": 1
+        }
+      ]
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "description": "The taught ordinary step already supports careful work. This practice raises mastery to two, opening its forceful three-output application. Cancellation forfeits stamina."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -4
+      }
+    ],
+    "effects": [
+      {
+        "type": "spawn",
+        "personId": "fieldSurveyor",
+        "definitionId": "fieldSurveyor"
+      },
+      {
+        "type": "transfer",
+        "from": "$actor",
+        "to": "$target",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "count": 2
+      },
+      {
+        "type": "transfer",
+        "from": "$actor",
+        "to": "fieldSurveyor",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "count": 1
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.partsOrder",
+        "value": true,
+        "actor": "$target"
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.started",
+        "value": true
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "field.workshop.owner",
+        "value": "player"
+      }
+    ],
+    "id": "field.project_start",
+    "label": "Commission both specialists · 3 logs + 4 coins",
+    "uiSection": "workshop",
+    "once": true,
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "visibleWhen": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "requires": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "fact": "village.craftsmanBusy",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "fact": "village.shackUnlocked",
+          "op": "eq",
+          "value": true,
+          "reason": "Earn ordinary access to the Shack first."
+        }
+      ]
+    },
+    "description": "Two logs go to the craftsman; one goes to the pathfinder. Four coins pay their agreed work. Each contribution starts independently. The later assembly costs one coin and can be cancelled; this supplied commission is final."
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [],
+    "effects": [
+      {
+        "type": "observation",
+        "scope": "world",
+        "key": "project.field.workshop.parts",
+        "as": "field.project.parts"
+      },
+      {
+        "type": "observation",
+        "scope": "world",
+        "key": "project.field.workshop.survey",
+        "as": "field.project.survey"
+      },
+      {
+        "type": "observation",
+        "scope": "world",
+        "key": "project.field.workshop.assembly",
+        "as": "field.project.assembly"
+      },
+      {
+        "type": "observation",
+        "scope": "world",
+        "key": "situation.field.road.stage",
+        "as": "field.roadKnown"
+      }
+    ],
+    "id": "field.inspect",
+    "label": "Ask for the agreed project and road report",
+    "uiSection": "workshop",
+    "visibleWhen": {
+      "fact": "world.project.field.workshop.started",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    },
+    "description": "Learn the current contributions and reported road condition. Reading this report accepts no promise and spends no supplies."
+  },
+  {
+    "id": "field.workshop.parts",
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "oldCraftsman",
+    "label": "Shape the workshop's measured parts",
+    "duration": 4,
+    "location": "Village",
+    "siteId": "village.workbench",
+    "once": true,
+    "claim": "project.field.workshop.parts",
+    "cancellation": "none",
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -2
+      }
+    ],
+    "uiSection": "workshop",
+    "requires": {
+      "all": [
+        {
+          "fact": "world.project.field.workshop.started",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.busyOrder",
+          "op": "eq",
+          "value": false
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.partsOrder",
+        "value": false
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.parts",
+        "value": true
+      }
+    ]
+  },
+  {
+    "id": "field.workshop.survey",
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "fieldSurveyor",
+    "label": "Survey the workshop's approach",
+    "duration": 6,
+    "location": "Village road",
+    "siteId": "field.route",
+    "once": true,
+    "claim": "project.field.workshop.survey",
+    "cancellation": "none",
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "key": "focus",
+        "amount": -1
+      }
+    ],
+    "uiSection": "workshop",
+    "requires": {
+      "all": [
+        {
+          "fact": "world.project.field.workshop.started",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "relocate",
+        "location": "Village"
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.survey",
+        "value": true
+      }
+    ]
+  },
+  {
+    "id": "field.workshop.assembly",
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "label": "Assemble the field workshop · 3 min + 1 coin",
+    "duration": 3,
+    "location": "Shack",
+    "siteId": "field.assembly",
+    "once": true,
+    "claim": "project.field.workshop.assembly",
+    "cancellation": "refund",
+    "costs": [
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -1
+      }
+    ],
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.project.parts",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.field.project.survey",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.field.facility",
+          "op": "eq",
+          "value": false
+        }
+      ]
+    },
+    "uiSection": "workshop",
+    "requires": {
+      "all": [
+        {
+          "fact": "world.project.field.workshop.started",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.project.field.workshop.parts",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.project.field.workshop.survey",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.facility",
+        "value": true
+      },
+      {
+        "type": "event",
+        "eventId": "field.road.developing",
+        "delay": 3
+      },
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "project.field.workshop.assembly",
+        "value": true
+      }
+    ]
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Shack",
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -1
+      },
+      {
+        "type": "energy",
+        "energyId": "field.focus",
+        "operation": "use",
+        "output": 1,
+        "control": 2
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      }
+    ],
+    "id": "field.pack_focus",
+    "label": "Use the workshop with focus · 1 log + 1 coin · 2 min",
+    "uiSection": "workshop",
+    "duration": 2,
+    "cancellation": "refund",
+    "automatable": true,
+    "powerId": "field.load_step",
+    "output": 1,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.facility",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "energy.field.focus.known",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    }
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Shack",
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "key": "money",
+        "native": true,
+        "amount": -1
+      },
+      {
+        "type": "energy",
+        "energyId": "field.drive",
+        "operation": "use",
+        "output": 3,
+        "control": 1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      }
+    ],
+    "id": "field.pack_drive",
+    "label": "Use the workshop with drive · 1 log + 1 coin · 1 min",
+    "uiSection": "workshop",
+    "duration": 1,
+    "cancellation": "refund",
+    "automatable": true,
+    "powerId": "field.load_step",
+    "output": 3,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "actor.field.facility",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "energy.field.drive.known",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "requires": {
+      "fact": "actor.field.member",
+      "op": "eq",
+      "value": true,
+      "reason": "Join through a field result or a supplied brace."
+    }
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [
+      {
+        "type": "item",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "world",
+        "worldId": "base.frontier",
+        "key": "situation.field.road.stage",
+        "value": "repaired"
+      },
+      {
+        "type": "observation",
+        "scope": "world",
+        "key": "situation.field.road.stage",
+        "as": "field.roadKnown"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "key": "field.roadOutcome",
+        "value": "repaired"
+      },
+      {
+        "type": "source",
+        "sourceId": "field.road_support",
+        "operation": "grant",
+        "origin": "acquired",
+        "awakened": true,
+        "active": true
+      },
+      {
+        "type": "knowledge",
+        "key": "field.road.aftermath",
+        "stage": "understood",
+        "value": "Your later repair restored the short route. Its reliable markers remain useful."
+      }
+    ],
+    "id": "field.repair_later",
+    "label": "Support the later road repair · 1 log + 2 min",
+    "uiSection": "road",
+    "duration": 2,
+    "cancellation": "refund",
+    "once": true,
+    "visibleWhen": {
+      "fact": "actor.field.roadKnown",
+      "op": "eq",
+      "value": "detour"
+    },
+    "requires": {
+      "fact": "world.situation.field.road.stage",
+      "op": "eq",
+      "value": "detour"
+    }
+  },
+  {
+    "revision": 1,
+    "worldId": "base.frontier",
+    "group": "field",
+    "actorId": "player",
+    "location": "Village",
+    "costs": [],
+    "effects": [],
+    "id": "field.assess",
+    "label": "Try a nonlethal loaded-frame assessment",
+    "uiSection": "assessment",
+    "once": true,
+    "claim": "field.assessment",
+    "targetId": "oldCraftsman",
+    "coLocated": true,
+    "participants": [
+      "$actor",
+      "$target"
+    ],
+    "encounterId": "field.assessment",
+    "visibleWhen": {
+      "fact": "actor.field.method",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "all": [
+        {
+          "fact": "actor.field.member",
+          "op": "eq",
+          "value": true,
+          "reason": "Join through a field result or a supplied brace."
+        },
+        {
+          "all": [
+            {
+              "fact": "village.craftsmanMet",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "village.craftsmanBusy",
+              "op": "eq",
+              "value": false,
+              "reason": "Wait for his work to finish."
+            },
+            {
+              "fact": "village.craftsmanIrritated",
+              "op": "eq",
+              "value": false,
+              "reason": "Let the earlier exchange settle first."
+            },
+            {
+              "fact": "village.teacherHours",
+              "op": "eq",
+              "value": true,
+              "reason": "He teaches between 08:00 and 18:00."
+            }
+          ]
+        }
+      ]
+    },
+    "description": "A practice spar checks balance under pressure. Choose ordinary stamina, precise focus or forceful drive. It pauses played time until you answer; withdrawal retains spent inputs."
+  }
+]

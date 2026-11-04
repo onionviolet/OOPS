@@ -45,6 +45,14 @@ links a saved EPUB, detailed full-read notes, coverage and exact historical
 prompts. It illustrates preservation and traceability. Its historical reader
 sizes and execution cost are not budget defaults for future books.
 
+### Source exposure preflight
+
+Before emitting a new primary-source window, calculate its conservative word count plus the cumulative exposure already recorded in the assigned budget, including unsuccessful or irrelevant reads. Apply that budget's declared counting convention; loading/counting a local file mechanically is not semantic reading. Compare the total with the remaining source allowance **before** returning prose to a reader. If it would exceed the cap, return locator/count metadata and select a smaller complete contextual window within the allowance for a targeted query. Reserve room for necessary context; a full-read assignment that cannot fit stops at a recorded boundary rather than turning a sample into full coverage. Preserve actual exposure, truncation, overlaps and overruns honestly; discarding a read window cannot undo its exposure.
+
+This procedure applies [AU1–AU15](../AGENT_USAGE_RULES.md) to the declared source cap; it does not raise a budget or claim host-enforced tooling. Worked boundary: with 5,800 words exposed under a 6,000-word cap, a 300-word window is withheld before output, while a 150-word complete window fits. An irrelevant exposed window remains counted. The [LR2 amendment record](../gm/dispatch/refinement-audits-2026-10-31/LORE_EXCEPTION_WORKFLOW_AMENDMENTS.md#wfa3-enforce-a-bounded-source-budget-before-exposing-prose) records the 6,443/6,000 failure that motivated this correction and Weibao's instruction to apply it. This is a retrieval workflow instruction, not a change to world lore or a completed retrieval-tool patch.
+
+Include primary prose returned by **every route**, including web excerpts, supplemental author articles and authenticated author replies, in the declared source budget. A local extractor's passing counter does not establish whole-pass compliance when another route emits unmetered prose. Where possible, keep a fetched response outside model context and expose a counted, contextual excerpt; if the route cannot bound exposure, record that limitation and stop expansion rather than claiming the aggregate stayed within the cap. The [LR3 route-accounting correction](../gm/dispatch/refinement-audits-2026-10-31/LORE_EXCEPTION_RESEARCH_ROUND3.md#bound-coverage-and-deduplication) records this distinction. Do not erase actual exposure by reclassifying a primary author page as mere discovery metadata.
+
 ## Historical examples
 
 A reusable method for turning a book, series, game or wiki into
@@ -83,9 +91,10 @@ Historical lessons from the nine-book batch, superseded by the usage gate below:
   place of revision ids.
 
 This playbook is a method, not accepted design. It sits beside the
-[book audit pipeline](novels/WORLD_AUDIT_PIPELINE.md) (private), which
-covers bounded world audits. Use this playbook when the question is "how do
-we implement this whole system", not "what does one scene establish".
+book audit pipeline (`docs/research/novels/WORLD_AUDIT_PIPELINE.md`, private and gitignored), which
+covers bounded world audits. Whole-system questions use the selected modules;
+one-scene or multi-chapter process questions use the bounded procedure below
+without inheriting a whole-book reading assignment.
 
 ## Usage gate before reading or dispatch
 
@@ -122,6 +131,80 @@ Pick the modules the question needs. Most runs use M1, M2 and M5.
 Other module ideas that fit the same frame: an economy and prices pass, a
 timeline and canon-event clock pass, a cast schedule pass, a locations and
 travel pass.
+
+## Specific-scene and process audits
+
+Reusable working procedure, 2026-11-01, applying WA48/WA54-WA60 and WPR1-WPR5/WPR19/WPR24/WPR26-WPR28. Weibao requested that Utopia's account-for-now findings enter the LOTM plans and asked whether this becomes a long-term workflow for other books. The general later-source requirement already existed; this procedure makes specific-scene selection, extraction and implementer uptake explicit. It adds no world law, universal audit quota or new delivery gate.
+
+**When useful:** before fixing a consequential early schema/control contract, or when an actual implementation exposes a named source uncertainty. Choose a source process capable of disproving an assumption: an ordinary use, later scale/form, failure/recovery or an unusual supported alternative. A scene may span preparation, simultaneous activity, outcome and aftermath across chapters. Reuse qualified examples first; do not start another full-book pass merely because one case is missing. Select for the touched mechanism and prospective consequence, not just fame or spectacle.
+
+| Step | Save in the existing world/task owner | Check |
+| --- | --- | --- |
+| Select and bound | Assumption under test, current producer/consumer/UI decision, scene or process, source edition/era, finite source budget and output owner. | A heading/keyword candidate remains unreviewed until its causal passages are inspected. An existing qualified case can satisfy this step. |
+| Inspect primary context | Exact displayed volume/chapter plus member/page/paragraph scheme, immutable source identity, coverage/excerpts/unread residue and evidence labels. Include needed preparation/failure/aftermath within budget. | Distinguish depicted result, narrator statement, character assessment and author note. Validate displayed headings rather than guessing from EPUB filenames or chapter offsets. Follow the source exposure preflight for every route. |
+| Trace process to play | Intent -> actual means/preparation -> acting body/controller/target -> concurrent/support activity -> commit -> result -> next use and aftermath. Map relevant readouts/actions/return and actual incumbent supplier/state owner. | Separate truth, observed evidence, capability, permission and current implemented degree. Select relevant fields; do not demand every field for a simple act. |
+| Account early, defer detail | ACT NOW corrections; ACCOUNT FOR NOW contract pressure with owning seam, qualified scope, UI/compatibility consequence and distinguishing scenario; LATER with level/effort, dependency/reopen trigger and observable done check. | A later requirement informs early shape without requiring the entire later mechanic now. Share mechanisms only where semantics and consumers justify it; preserve each world's differing law. |
+| Fold and hand off | Integrate the pressure in the live world engine/UI plan and affected shared-family map. The research report remains evidence; briefs cite the integrated row and its disposition. | A backlink alone is not uptake. A task can explicitly find no applicable pressure. Current source gaps and unselected proposals stay visible. |
+
+Compact reusable row: `scene/process + edition/locator + evidence/era -> assumption tested -> incumbent producer/consumer + missing join -> UI action/read/return -> preserve/change/defer -> save/in-flight consequence -> distinguishing check -> reopen trigger`.
+
+Community discussion is optional gap-finding under WA58, not a required site checklist. Preserve direct URL/access date and competing interpretations; verify consequential claims in primary scenes. Do not turn popularity, agreement or an unverified attributed author statement into a world rule. Keep project secrets sealed even when source fiction is discussed openly.
+
+**Revisit at implementation:** read the applicable integrated rows, qualify only unresolved inputs that affect the selected result, choose actual commands and projections, and run the existing AD36/AD43 checks when changing runtime. Record source edit, focused tests, rebuilt journey, persistence, installation and review separately. Exact layout, numerical tuning and unsupported late mechanisms can remain deferred until their consumers are selected. A static scene audit proves no playable behavior.
+
+Worked case: [Utopia source audit](../gm/dispatch/refinement-audits-2026-10-31/UTOPIA_ENGINE_UI_AUDIT.md), [integrated LOTM UT-N1-UT-N5](../gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md#utopia-requirements-folded-into-the-current-plan-2026-11-01) and [shared-family routing](../gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md#utopia-pressure-routing-2026-11-01). Other books reuse this method, not Utopia's actors, resources, ritual conditions, UI composition or inferred thresholds. The [lead-life guide](../LEAD_LIFE_GUIDE.md#10-lotm-first-ui-and-engine-implementation-procedure-2026-10-31) and [lane template](../gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/LANE_BRIEF_TEMPLATE.md) route implementers here. No automated research, new chat, bulk reader, acquisition or runtime dispatch is scheduled by documenting the workflow.
+
+### Comparative process checks
+
+2026-11-01, requested during the first-gathering/Old-Neil audit: compare related operations so one famous scene, one teacher or one ritual template does not define every process. This extends the bounded scene procedure under WA54-WA60/WPR24/WPR26, without new rule codes or a fixed cross-book quota.
+
+For a selected consequential contract, reuse one ordinary case and enough differing cases to test its specific assumption, such as another stage, practitioner, respondent, purpose or failure. Keep the source/era and reading budget explicit. A ritual can compose several operations; category labels are search aids, not exclusive capability lists. Missing primary coverage stays a named gap. Do not require every category for every book or before every early slice.
+
+| Compare | Preserve in the actual engine/UI contract |
+| --- | --- |
+| Intent, method and actual result | What was requested/known versus what happened, and the next practical consumer. A shared prayer string or ritual name does not establish common outcomes. |
+| Participants and direction | Performer, respondent, target, recipient, supplier, payer, witness and controller can differ. Separate perceived authority, consent/terms, actual power and enforcement. |
+| Stage and active support | Preparation, request, acceptance, short/long channel, response, effect, collection/use and closure only where meaningful. Symbolic timing differs from responder availability; a protection can obstruct a required connection. |
+| Custody, transformation and aftermath | Reserve/consume/transfer/support/learn/transform are different mutations. Item receipt is not rank gain, body presence is not cargo, symbolic destruction is not legal settlement, instruction is not mastery. Bind actual output and retained traces. |
+| Failure, return and compatibility | Actual irreversible boundary, no/late/misleading response, support loss, partial delivery, recovery, saved jobs/settled legs and exact UI return. Do not inherit a blanket refund, secrecy, safety, offline or time-ratio rule. |
+
+Save a compact matrix: `source case/qualification -> common incumbent primitives -> differing law/operation/result -> UI controls/evidence/return -> distinguishing changed input -> source/implementation gap -> early constraint or later trigger`. Shared shapes do not certify common semantics. Prefer a local adapter over incumbent owners until real consumers justify extraction, and fold qualified pressures into the live world plan and affected dependency-family row. The implementation brief cites those IDs rather than independently reinventing the comparison.
+
+[Worked LOTM comparison](../gm/dispatch/refinement-audits-2026-10-31/TAROT_GATHERING_AND_RITUAL_SCENE_AUDIT.md#what-can-be-shared-and-what-needs-different-behavior): sacrifice, bestowment, summoning, divination and advancement share identity/context, transaction/evidence and lifecycle infrastructure, while transfer, consumption, manifestation/return, information interpretation and bodily/source transformation have distinct consumers. Delayed ordinary petition and trade provide further contrasts. This is a method other books can reuse; it adopts none of LOTM's ritual laws for them. New audits should investigate the named difference, not reread every ritual or duplicate an unchanged qualified case.
+
+### Difficult concepts across worlds
+
+Use the [difficult-concept palette](../gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md) when a selected scene changes identity, chronology, authority, topology, information, law or collective agency. Apply GC1-GC5 to the relevant fields: subject/change, means/dependency, scope/settlement, outcome/retention and observer/play. Reuse qualified cases first. Compare one ordinary use, one relevant failure and its aftermath, then one actual composition that challenges the current implementation assumption. Similar labels are not evidence of identical mechanisms.
+
+Share proven lifecycle/provenance machinery; preserve local semantics and source uncertainty. No universal rules interpreter, full-world replay or ten-family audit is required. Record proposed defaults with a world dial and reason, the current consumer and distinguishing check; integrate early pressure and reopen detailed work when that consumer needs it.
+
+**Book-specific exception intake:** name a concrete unusual operation, not just “time magic” or “clones.” Use [NC1-NC18](../gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md#round-2-niche-mechanisms-in-individual-books-2026-11-01) as candidate examples with their evidence states. Test which familiar assumption fails, whether an ordinary same-book case already resolves it, and what early contract it changes. For temporal mechanics distinguish elapsed time, reference source, travel coordinate and retained history; qualify rate-change effects on benefits, hazards and upkeep separately. Preserve a character's explanation as attributed evidence rather than engine truth. Apply new findings to that world's owner before promoting shared semantics; do not inherit another world's named river, loop, soul or narrative laws.
+
+**Cross-book contrasts:** use [NC19-NC30](../gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md#round-3-contrasts-across-books-2026-11-01) to test stage-specific trigger order and per-domain/recipient retention. A skill acquired during an event, a memory kept across a reset, a suppressed effect and a changed disclosure role require their own operation/era evidence. Publication descriptions and snippets qualify only their exposed premise; preserve remaining trigger, failure and aftermath gaps before declaring a shared mechanic.
+
+### Temporary means and lasting consequences
+
+For borrowing, copying, summons, remote bodies and similar abilities, compare an ordinary use, a dependent/nested use and a support-loss case. Record original identity, selected snapshot, manifestation, controller, occupant, payer and recipient separately. Distinguish attempt cost, upkeep, concurrency allocation, duration and recovery; quoted endurance is not automatically a daily quota. Trace who pays when a supported actor starts another action.
+
+For each output, state what actually needs continued support: temporary matter, real carried property, ongoing effect, completed recipient change, learned information, obligation and exhaustion. Read the aftermath rather than assuming expiry rewinds every consequence. Distinguish physical containment from support dependence. Record source-specific grouping/eligibility and numeric limits at their actual stage; unresolved edge cases stay consumer-triggered gaps. Community analogies generate questions, not world law. [LOTM worked audit](../gm/dispatch/refinement-audits-2026-10-31/HISTORICAL_BORROWING_AND_PROJECTION_AUDIT.md).
+
+### Persistent lore across a long story
+
+Working application, 2026-11-01, of [lore/timeline L2](LORE_TIMELINE_AUDIT_CONTRACT.md#l2-build-two-timelines-and-a-knowledge-ledger), WA54-WA60 and WPR24/WPR26: when a diary, chronicle, prophecy, inherited object, oral tradition or other recurring source matters across the story, trace one consequential entry/claim from its first actual receipt to a later use, contradiction or reinterpretation. Reuse saved qualified evidence and open exact gaps; a full work/collection census is not the default. This does not turn every piece of flavor into a tracked quest or mechanic.
+
+| Preserve when relevant | Distinguish and test |
+| --- | --- |
+| Work/entry versus carrier/copy | Original, transcription, remembered expression, provenance/fidelity, actual custody and access. A copied unknown script can exist without comprehension; destroying/returning a copy need not erase learned material. |
+| Recorded statement versus writer knowledge | Date/condition/intent of the author, omissions, error, reported experience, rhetoric and corroboration. A trusted or valuable writer need not be complete or correct about every event. Missing text is not evidence of absence. |
+| Multiple times and evidence versions | Writing date, described occurrence, acquisition/reading, later corroboration and current interpretation. Preserve unknown years and relative order; new source editions do not retroactively change world history or what an actor knew then. |
+| Received content, interpretation and useful action | Observation/read/comprehension, attributed claim, uncertainty, revised interpretation and actual method/question/contact/obligation/result. A clue can become useful later without becoming a power grant or a mandatory collection gate. |
+| Disclosure, exposure and retention | Who actually received which content, by which mechanism and with which support. Voluntary imprint, involuntary articulation, hazardous acquisition, ordinary recall and actual forgetting have different producers. Pure UI redraw is not another acquisition or a character thought. |
+
+Compact row: `entry/claim + source/era -> actual copy/access/comprehension -> original evidence and interpretation -> later supporting/contradicting evidence -> revised meaning and practical consumer -> observer-safe UI/return -> retention/compatibility -> distinguishing test/reopen trigger`.
+
+Fold the required distinctions into the live world plan and selected implementation brief. Default UI is acquired content/provenance and linked questions/interpretations in existing Reference/Knows/document/task homes, with uncertain chronology retained. A scrapbook, timeline or hypothesis board is an optional view when it helps a decision; none is a second truth store. Preserve an old account and its source when adding a new interpretation rather than overwrite the record with later omniscience. A same-key knowledge update needs an explicit history/compatibility decision if a real consumer relies on both versions.
+
+[Worked case: Hall, mausoleum and Roselle's diary](../gm/dispatch/refinement-audits-2026-10-31/HALL_MAUSOLEUM_AND_PERSISTENT_LORE_AUDIT.md). Early imperfect, partly dated diary copies support practical ideas; later evidence changes the significance/trust of some claims. The method also compares different source carriers and information mechanisms, rather than treating a diary, power-bearing card, mural and dangerous notebook as interchangeable. Exact unreached truths and project secrets stay out of player search, counts, labels and reports. This is a reusable audit procedure, not an automated lore monitor or new reading wave.
 
 ## Steps
 
@@ -203,6 +286,8 @@ coordinator can use it directly when targeted checking needs no generated reader
 You are a research reader for a game-design project (a browser idle RPG).
 Task: [requested result; chosen modules and relevant P1–P5 tracks].
 BUDGET: [whole-book ledger; reserved slot/max; exact range <=12,000 words].
+PREFLIGHT: count requested prose plus cumulative exposure BEFORE emitting it;
+withhold over-cap prose, report locators/counts, retain actual exposure/unread gaps.
 Fresh context; one shard only. Maximum SIX model responses including final.
 Target: load complete prepared payload, write one consolidated artifact, return.
 No next-shard follow-up, polling, repeated coverage edits or full-parent history.
@@ -632,3 +717,7 @@ slightly better OCR evidence); Qwen 3.8 27B for reasoning-heavy steps
 (translation, interpreting stat tables, turning facts into engine records). Both
 fit in memory at once. Re-run this check on the first real pages and swap if the
 real error rates disagree. The abliterated Qwen variant adds nothing for this work.
+
+### Top-down uptake at arc boundaries (2026-11-01)
+
+Apply the [lead-life workflow](../LEAD_LIFE_GUIDE.md) at preflight and acceptance: select existing later-case pressures, trace the early assumption through producer, actual owner, observer/UI, command, settlement and save/recovery, and reconcile ACT NOW / ACCOUNT FOR NOW / LATER in the existing arc plan. Qualify unknown source spans and version/refactor when evidence changes. The full trajectory informs contracts; later powers gain implementation when their first actual consumer needs it. Other books use their own source laws. [LOTM worked integration](../gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md#top-down-contract-review-and-kj2-reconciliation-2026-11-01).

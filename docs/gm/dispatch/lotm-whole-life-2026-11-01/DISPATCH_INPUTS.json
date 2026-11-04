@@ -1,0 +1,8 @@
+{
+  "evidence": "Dispatch byte snapshot, not source/gameplay verification",
+  "sha256": {
+    "docs/gm/dispatch/lotm-whole-life-2026-11-01/BRIEF.md": "a7ad8773044eef103944c5ea0758fc6e8d2f9355f4fa07f974f8585c672243f9",
+    "scripts/lead_run/build_situation_ui_map.py": "eb1505419aacd958704e2c1abb3d107f93893fe48773fa50a9d0d9186b47bb89",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_CONTRACTS.json": "a2f1116379276ec768d935c972ba14c2ce025a5952981eaa8436f9c105fefd44"
+  }
+}

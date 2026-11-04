@@ -1,0 +1,181 @@
+# Run-ending threats a capable character can use: rules audit and lore sweep (2026-11-03)
+
+Status: research. No runtime changed. After this was written Weibao asked for rules built on the foundational ones; the result is [AD50](../RULES_INDEX.md#accepted-direction-rules-ad), whose wording is the agent's first statement and adjustable (AD32). Part 1's proposal labels describe the state when the audit ran; the cyberpunk mechanisms CW35-CW37 and the Part 3 item 5 patterns remain proposals.
+
+Scope: one rules audit (Part 1) and one lore sweep over Lord of the Mysteries, Reverend Insanity, Harry Potter, D&D and the cyberpunk sources (Part 2), using WPR14 and WPR16 as the lens. Cyberpunk lore reuses [the world scout](CYBERPUNK_WORLD_SCOUT_2026-11-03.md) and [the community scout](CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md).
+
+**Spoiler note.** The Lord of the Mysteries rows T2 and C1 use late-book public canon. It is not a sealed game secret (public franchise twists are not sealed), and no sealed secret was opened or stated. Skip those rows if you want to avoid book spoilers.
+
+## Part 1. Rules audit
+
+Idea (Weibao, 2026-11-03, his words, recorded in [USER_VISION](../USER_VISION.md#run-ending-threats-a-capable-character-can-use-2026-11-03)): “it can trigger events that tries to end the game but if you are capable enough you can use that to your advantage?” Working reading: a lethal-looking threat that is announced, foreseeable and has real exits a capable character can exploit.
+
+Method: reconcile-project. Classification is one of **allows** (already supports the idea), **compatible variant** (different scope, no clash), **gap** (says nothing where it should), **stale or loose wording**. Evidence reached: current owner text read at the locator. Nothing here was run in the game; no runtime claim is made.
+
+**Result: no rule conflicts with the idea.** One rule was read too widely (ECR21), one family has a real gap (RLEE has no "threat as a lever" line), and the rest already allow it.
+
+| ID | Rule and locator | Classification | Notes |
+|---|---|---|---|
+| A1 | AD19 forgiving recovery, harsher play optional or forewarned ([RULES_INDEX](../RULES_INDEX.md#danger-recovery-and-settings)) | allows | "Forewarned" is the announced half of the idea. |
+| A2 | AD20 locally unwinnable situations may need going elsewhere or restarting | compatible variant | Covers threats with no exit in place. The idea covers threats with exits; both can exist, per world. |
+| A3 | AD21 difficulty changes explained, affect future play; AD22 firm lines are save integrity only, other limits are adjectives | allows | Strictness is a setting, not a firm line. |
+| A4 | AD5 / AD38 anything is possible reasonably; things work by how they work | allows, and supports | An exit that reasonably works by the mechanisms in play works. Stated absolutes describe the ordinary case. |
+| A5 | AD6 means decide on both sides; AD9 forecasts reflect knowledge; AD14 known-consequence warnings | allows | How readable the warning is depends on the character's means. This is the capability gate. |
+| A6 | AD11 / AD12 memories and base cheat carry; fresh life has its own history; ECR28 (see what carries before an ending); GTR28 / SLR31 (a reset names what carries per class) | allows | Retire-and-inherit and hard-end continuations are already specified as carry tables. |
+| A7 | AD16 / BHR18 / RLEE8 lethal transitions wait at a reviewable boundary while away | allows, with a design note | Exploit windows must be reachable by a player decision, not time out offscreen. |
+| A8 | BHR14-BHR17 (defeat forgiving, lasting injury is a setting, no hunger death, unconscious / critical / dead are different states); CBR4-CBR7 | allows | BHR16 is the ordinary case under AD5, an exception needs Weibao plus a reason and forewarning. |
+| A9 | ABR15 drawbacks (loss of control, mental strain) are conditions with consumers ([ABILITY_RULES](../ABILITY_RULES.md)) | allows; gap | Closest existing home for "loss of control as a resource". Says nothing about a character spending it on purpose. |
+| A10 | OD11 / OD12 in [USER_VISION](../USER_VISION.md) | compatible variant | OD12 explicitly chooses no permadeath, no mandatory penalty and no automatic enemy scaling, so hard termination stays an open dial. |
+| A11 | ECR21 credit has dated terms; missing a payment never a hidden game over ([DOMAIN_RULES](../DOMAIN_RULES.md)) | stale or loose reading | Scope is credit and debt. The key word is "hidden". Scouts and a chat summary read it as a ban on hard endings. Fixed by a clarifying note (wording unchanged). |
+| A12 | RLEE1-RLEE9 ([RELATIONSHIPS_AND_CANON](../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#rlee-actions-that-can-end-a-run-early)) | allows; gap | RLEE2 (forewarned), RLEE6 (near-ends over ends), RLEE7 (ending on purpose) are the base. Missing: threat as a lever, several real exits, hard end as a high dial, capability gate. Proposed as RLEE10-RLEE13. |
+| A13 | [DEATH_AND_RESET](../research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md) R1-R6, D1-D4, E1-E5; [FIRST_CHEATS_AND_DEATH_REWARDS](../worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md) A5 | allows | Death already works as an acquisition event and a reset with dials. Does not cover threats that stop short of death. |
+| A14 | [ABUSE_AND_LIMITS](../ABUSE_AND_LIMITS.md) T4-T6, T11-T12; AD22 | allows | Using a threat is not free: heat, adaptation, escalation and legend answer it. No exploit hardening beyond save integrity. |
+| A15 | WPR14 / WPR16 ([WORLD_PASS_RULES](../WORLD_PASS_RULES.md)) | allows | Coverage lens only. This sweep is the first pass to use WPR16 for exploitable threats. |
+| A16 | Rows not found to touch ending or removal: ABUSE per-system rows, PROGRESSION_GATE GTR other than GTR28, COMBAT_RULES, MAKING_RULES, SITE_AND_EXPLORATION_RULES, WORLD_ENTRY_RULES (WER entry-death cases ST5-ST7 concern arrival, not threats) | says nothing | Residue not read line by line; unmapped. |
+
+### Edits made (at audit time proposals; RLEE10-RLEE13 later stated as AD50)
+
+| Edit | Owner | Status |
+|---|---|---|
+| RLEE10 threat as a lever; RLEE11 several real exits; RLEE12 hard termination as a high announced dial; RLEE13 exploiting follows capability | RELATIONSHIPS_AND_CANON round 5 | Proposal, added |
+| ECR21 clarification note (credit and debt only; "hidden" is the key word) | DOMAIN_RULES | Note added, wording unchanged |
+| Router row for run-ending threats | RULES_INDEX router | Added |
+| Cyberpunk candidate mechanisms CW35-CW37 | CYBERPUNK_WORLD_SCOUT | Added |
+| New AD line | RULES_INDEX | Added later as AD50 after his instruction “Build rules based on foundational rules…”; at audit time it was not added because the idea was a question (AD32). |
+
+## Part 2. Lore sweep
+
+Labels: **shown** (the source does it), **stated** (a character, narrator or named project doc says it), **inferred** (agent reading). Two Sonnet lanes ran read-only: lane A (LOTM, Reverend Insanity) and lane B (Harry Potter, D&D, cyberpunk). Each lane's own table, counterexamples, patterns and gaps follow unchanged apart from heading levels; lane A reopened 11 passages marked [V], lane B reopened none of the Harry Potter books.
+
+### Lane A: Lord of the Mysteries and Reverend Insanity
+
+
+Lens: WPR16 (failure, recovery, aftermath), WPR14 (power costs, misuse). Research and proposals only, not accepted decisions. Sealed secrets: none touched; I did not open WORLD_SECRETS_AND_DISCOVERY.md.
+
+Labels: **shown** = source text plays it; **stated** = a character or narrator says it, or a project doc states it (named); **inferred** = my deduction. Locators: "LOTM chN" = English Webnovel edition chapter number (file ch = N+4 in this copy). Project digests use the Chinese index (for example 0165), so the two differ. "RI chN" = chapter in the held English EPUB. I reopened every locator marked [V]; the rest come from project digests and are not reopened.
+
+#### 1. Table
+
+| # | World | Threat | Warning / foreseeability | Exits | Exploit or gain | Cost | Enforcer | Label + locator |
+|---|---|---|---|---|---|---|---|---|
+| T1 | LOTM | Quarantine, then real loss of control, from a faked near-loss | Symptoms follow about two days of an empty spirituality pool; a stage-1 case clears in days to under 20 days | (a) stop suppressing, recover within a week; (b) spire-bottom treatment; stage 2 clears within 18 months or the patient is purged | Alger coaches The Sun to dodge a dangerous expedition by pushing himself to the brink, timed 2-3 days ahead | Repeat use could cause real loss (Klein's thought); lock-up; one cell-mate held 42 years | City of Silver elders and Keepers | shown+stated [V] LOTM ch342 (Alger tip), ch355 (three stages, 18-month limit), ch358 (Sun recovering) |
+| T2 | LOTM | The Lord of the Mysteries awakening in Klein (total loss of control, resurrection of a god) | Shown as it builds: uncontrollable tentacles, Uniquenesses and Sefirah Castle pulling together; Klein knows it will tip within minutes | (a) anchors disrupt and slow the convergence; (b) Evernight Goddess drops stillness on the mask and his will sleeps; (c) a credible willingness to wake the Celestial Worthy himself, which made Amon flee | The standoff is "a battle of courage"; Amon is obliterated and cosmic attention shrinks back from Klein's state | Most of his consciousness sleeps; patron dependence; miracle revival is closed because the god also holds Miracles | The god's will; the converging Uniquenesses; a patron | shown [V] LOTM ch1387, file ch1413 lines 30-70 |
+| T3 | LOTM | Loss of control at promotion | Five stated causes (LOTM_RULES s2); Seq 5 rites are known in advance | Ritual as counterweight (Marionettist: mermaid song at sea; any similar sound could substitute, inferred by Klein); ritual as anchor (Trickmaster staged drama, which also kills a demigod); anchors of people | Promotion without collapse; a rite used as a weapon | World-scale conditions (stage, sea, crowd) | The potion's own residue and divinity | stated/inferred, project doc LOTM_RULES.md:43-44, :85, :93, :30 (cites 0254, 0684, 0871, 0975); not reopened |
+| T4 | LOTM | Switching pathways | Rule is known to the churches (neighbour swap at Seq 4) | Neighbour swap without madness; a special method may clear half-madness | A build change at a fixed gate | Non-neighbour switch: half-mad, advancement ends; a second potion causes outright loss | The potion | stated, LOTM_RULES.md:43, :92; PATHWAYS_DEEP_DIVE L8 |
+| T5 | LOTM (sequel, Circle of Inevitability) | Death inside a loop | Loop length and key points are stated (twelve days, Cordu, a forbidden act) | Self-Circle with a "fatal hit" trigger resets the user; trigger an enemy's range Circle to undo a lost fight; break one by rank | Death becomes a rewind | 9 uses, 3-9 resets per Circle, 3-minute cooldown, bad luck after each use, "destined fate" at the fourth reset; outside, the church razes unsolved zones | Inevitability power; the Church of Storms | stated, COI_RULES.md:71-85 (cites 0873, 0881, 0886, 0037); not reopened |
+| T6 | LOTM (sequel) | Permanent death | None given | Roselle revives every 100 years while his order stands and no new Black Emperor exists; holding the Uniqueness guarantees it. Magician substitutes and wound transfer | Undying at a price | Revival is conditional on a world state; substitute costs not recorded | The rules themselves | stated, COI_PATHWAYS_2.md:211; COI_PATHWAYS_1.md:28 |
+| R1 | RI | Self-detonation to rebirth (Spring Autumn Cicada) | Foreseeable: the Gu's aura grows and can burst a small aperture if unused (ticking bomb) | (a) rebirth with variable depth: about 500 years, minutes, hours, a bit over a year; (b) reverse-refine it by Shadow Sect's method; (c) a Gu Master can order other Gu to self-destruct to deny loot | A second life with memory; Fang Yuan's whole arc | Cultivation, flesh and other Gu destroyed; under 10% odds at rank 3 peak; luck lowered; River of Time retribution | Heaven's will; the River of Time | shown+stated [V] RI ch196 (odds, retribution), ch1362; project doc WORLD_FATE_PROTAGONIST.md:116-126 (ch2, ch187, ch399, ch970) |
+| R2 | RI | Heaven's will turns hunter on the rebirther | He reads the shift himself; the Gu holds heaven's will | Fang Yuan lists: use the Gu (suicide); reverse-refine (no time); speed the aperture's clock to refine (rejected: calamities fall under heaven's will, skill too low); cooperate with the other side | Past help from heaven's will made earlier rebirths possible | An exit that kills if used | Heaven's will; Heavenly Court; Giant Sun's will | shown [V] RI ch1362; stated, WORLD_FATE_PROTAGONIST.md:132, SYSTEMS_DEEP_DIVE R12, N1 |
+| R3 | RI | Ascension assimilation | The three-qi balance is known beforehand | Collect others' human qi with a man-qi Immortal Gu (one case tenfold) or accumulate more | Immortal rank | Too little human qi means heaven and earth swallow you | Heaven and earth qi | stated [V] RI ch600; RANKS_ECONOMY.md:98 (ch608) |
+| R4 | RI | Scheduled calamity and tribulation | Calendar by rank on aperture time (rank 6: calamity every 10 aperture-years, tribulation every 100) | Outgrow it (Fang Yuan passed the fifth earthly calamity because his strength outpaced it); annex a nine-heavens fragment so calamities shrink; skip past ones by annexing | Dao marks per survival (about 9,000 dark marks once) | Hu Immortal died on the 5th; speeding the aperture clock draws them early | Heaven's will | shown [V] RI ch1165; stated, RANKS_ECONOMY.md:118-135; PATHS_DAO_VENERABLES.md:104-105 |
+| R5 | RI | Land spirit rejects an unqualified owner and self-detonates | Requirements to own are knowable | Meet them, or do not annex | Blessed land as post-death life extension | Effort wasted | The land spirit's obsession | stated [V] RI ch610; RANKS_ECONOMY.md:116 |
+| R6 | RI | Death of the main body | None | Spectral Soul self-detonated yet kept a main body in the Door of Life and Death; a clone rebirthed through the Gu using heaven's will | A death-defying plan | Myriad tribulations keep coming while he lives [V] | Heaven's will | stated, PATHS_DAO_VENERABLES.md:195; WORLD_FATE_PROTAGONIST.md:147; shown RI ch1017 for the tribulations |
+
+#### 2. Counterexamples (kept, not smoothed)
+
+- **C1 Old Neil, LOTM ch163-164 [V].** A capable Seer teacher with shown pre-signs (ch163). A voice of the Hidden Sage god fed him a resurrection rite for his dead wife; he denied the signs, was stilled by sealed item 3-0611, and died to silver bullets; his characteristic became flesh with eyes. Capability, warning and a rescuing team did not make an exit.
+- **C2 Klein's grey-fog divination of a sealed Sun item** nearly killed him: overreach by a capable man (stated, LOTM_RULES.md:53, 0142; not reopened).
+- **C3 RI witness kills.** Ge Yao's death was "guaranteed" the moment she saw the Immortal Gu (RI ch436 [V]). The enforcer was the protagonist.
+- **C4 Capable RI deaths.** Rank-8 Bi Chen Tian and Wei Ling Yang, Feng Jiu Ge, and Ma Hong Yun despite luck protection (RI ch1362 [V]); Hu Immortal (calamity, R4).
+- **C6 A Nighthawk father "sacrificed himself in an accident"** (LOTM ch17 [V], Rozanne): a sacrificial end with no advantage shown.
+- **Contradictions kept.** (1) LOTM: loss of control is "terminal" in the digest (PATHWAYS L7) but ch342/ch355 show stage 1 and 2 as treatable; the terminal line is stage 3. (2) RI: heaven's will helped rebirths (ch1362) yet "divine retribution" is feared from the start (ch196); both stand, and ch1022 says it flipped when he grew too free.
+
+#### 3. Recurring patterns
+
+1. **Staged loss of control as a budgeted resource (T1, T2, C1).** Default: three stages, the first reversible within days and treatable by an institution, the last terminal and spawning a monster or item. Dial: window length, treatment quality, how often a stage can be entered. In-world reason: the potion's residue, the institution's quarantine, and the cost that repeat use really can tip over. Overlaps RLEE2, RLEE6; new: the player may enter stage 1 on purpose.
+2. **Credible willingness to end it as leverage (T2, R1(c)).** Default: the threat works only if the player has a real, costed ability to carry it out and the opponent is not willing to. Dial: the opponent's courage. In-world reason: a "battle of courage" in ch1387; a dying Gu Master wrecks the loot. Extends RLEE7 (ending on purpose) to a bargaining chip.
+3. **Scheduled catastrophe with a reward (R3, R4).** Default: the calendar is visible, the reward scales with the threat, and at least two exits exist (outgrow, annex, accumulate help) with a price each. Dial: how fast severity grows versus the character; accelerating the clock brings it early. In-world reason: ch1165 and ch1362. Extends RLEE1 and RLEE2.
+4. **Reset with a fuel gauge and an interested enforcer (R1, R2, T5).** Default: limited uses, variable depth, a luck or ruin debt, and an enforcer that can turn from help to hunt. Dial: reliability and whether you can refine the enforcer out. In-world reason: heaven's will sits inside the Gu; the Circle's bad luck. Overlaps DEATH_AND_RESET R/F/D and RLEE5; new: the enforcer's flip.
+5. **Exits are relational and priced (T2, T3).** Default: anchors (people, worshippers, a staged audience), a patron's mercy, or a counterweight ritual, each costing standing, autonomy or a world-scale condition. Dial: how many anchors you hold. In-world reason: gods stabilise through worship and humans need anchors by about Seq 2 (stated, LOTM_RULES.md:30). Fits RLEX and RLFC naming of the force or actor.
+
+#### 4. Gaps I could not verify
+
+- RI ch1362 resolution (how Fang Yuan got out of the three-way battle) was not read.
+- RI ch419, ch609 and ch1022-1023 are cited from project digests only.
+- LOTM Marionettist, Trickmaster and Azik locators (T3) come from LOTM_RULES.md and were not reopened.
+- "Dunn's sacrifice" (PATHWAYS_DEEP_DIVE M5, line 333) has no locator or detail anywhere in the digests; I found no support and could not identify it.
+- COI claims (T5, T6) rest on reader notes; the sequel text was not opened.
+- Chinese index versus English chapter numbering differ throughout; reconcile before citing a digest locator in a rule.
+- Not searched (WPR23): LOTM Seq 2-0 deaths, the Antigonus notebook, other RI Immortal deaths.
+
+### Lane B: Harry Potter, D&D and cyberpunk
+
+
+Lens: WPR16 (failure, recovery, aftermath) and WPR14 (power costs, misuse). Idea under study: an announced, foreseeable threat with real exits that a capable character can turn to advantage. Proposal only; nothing here is accepted direction. No sealed truth touched (no world secret was needed; public franchise canon only).
+
+Labels: shown = the source does it; stated = a project doc states it; inferred = my reading. Harry Potter rows are shown from recalled canon with book/chapter locators; the books were NOT reopened this pass (gap G1). D&D numbers were fetched from an SRD 5.1 mirror (5thsrd.org); edition note in G2. Cyberpunk rows reuse the two 2026-11-03 scouts (S = world scout section/CW code, C = community scout) and add recalled canon.
+
+Overlaps already recorded (not repeated): RLEE1-RLEE9 (RELATIONSHIPS_AND_CANON_CONSIDERATIONS, forewarned by means, near-ends better than ends, ending on purpose); DEATH_AND_RESET R1-R6 and D1-D4; HP engine rows E4 (Unforgivables) and E10 (Ministry limits) and F13-F17 in HARRY_POTTER_INSTITUTIONS_..._2026-10-23; D&D C04, DND15 and DS04 (telegraphPolicy=showKnownStakesBeforeCommit, rescuePolicy=onlyEstablishedMeans) in docs/worlds/dnd; CW1, CW22, CW26, CW29, G9 in the cyberpunk scout.
+
+#### 1. Table
+
+| World | Threat | Warning | Exits | Exploit or gain | Cost | Enforcer | Label + locator |
+|---|---|---|---|---|---|---|---|
+| HP | Triwizard tasks (binding contract once entered) | Dumbledore and Moody state the entry is binding; tasks announced weeks ahead | cheat via helpers (Hagrid's dragons tip, Cedric's egg clue, Dobby's gillyweed); out-think the task (summoning charm); no withdrawal | Harry survives and ties for the win; ally trades (clue for clue) | Cedric killed at the end; ill-gotten help weighs on the fair-play norm | the Goblet's contract magic; school and Ministry officials | shown, GF ch.17-31, 37; recalled |
+| HP | Horcrux logic: Voldemort cannot die while pieces survive | Long, readable: rumours of his survival, Dumbledore's lessons | for Voldemort: split the soul by murder; for Harry: be the unintended vessel and die once voluntarily, with the Stone as company | Voldemort survives the 1981 rebound; Harry walks out of the Forest alive because the piece in him dies and Lily's protection, tied to Voldemort's use of Harry's blood, holds | Voldemort's soul is mutilated and he loses humanity; Harry's walk is a real sacrifice | no enforcer; it is a mechanism of the soul | shown, HBP ch.23; DH ch.34-35; GF ch.33; recalled |
+| HP | Dumbledore's ring curse (a timed lethal wound) | he has a year, tells Snape in advance | contain it (Snape slows it), plan a use for the remaining time | Dumbledore arranges his death at Snape's hand, which also ends the Draco task and shifts the Elder Wand's allegiance | his life, the secret kept from Harry | the curse's clock; the Unbreakable Vow | shown/inferred, HBP ch.2, 27-28; DH ch.27, 33; recalled |
+| HP | Unbreakable Vow (lethal clause) | Spinner's End: terms are spoken aloud | keep the letter, change the means; make the vow's goal coincide with a plan | Snape keeps the vow by killing Dumbledore on Dumbledore's order | a life lived under the vow | the vow's magic; Bellatrix as witness | shown, HBP ch.2; recalled |
+| HP | Time-Turner (reach the past to avoid a loss) | Hermione's strict rules: don't be seen | use it to save Buckbeak and Sirius with knowledge of events | one run undoes an execution and a Kiss | exhaustion, aging, risk of meeting oneself; the Ministry later loses the stock in the Department of Mysteries | rule of non-interference; the Ministry | shown, PA ch.21; OotP ch.34-35; recalled |
+| HP | Expulsion and criminal hearing | official owl and warning letter | a witness (Mrs Figg), the Decree's own Clause Seven, Dumbledore's presence | Harry is cleared; a Patronus counts as proof | tension with the Ministry; Fudge's grudge | Wizengamot, Minister | shown, OotP ch.8; matches F13-F14; recalled |
+| HP | Azkaban and the Dementor's Kiss | announced as a punishment; Dementors guard | break out (Sirius as an Animagus; the 1996 breakout); Patronus defence | Sirius lives on the run; Crouch Jr. escapes by a Polyjuice swap | Sirius loses twelve years; Kiss victims are left soulless | Ministry, Dementors | shown, PA ch.5, 17-21; GF ch.27, 36; OotP ch.? (breakout, not located); recalled |
+| HP | Imperius and the Unforgivables regime | Moody's lecture; sentence stated (F15) | strength of will (Harry resists); counter-curse; avoid the line | Harry throws it off in class; Moody and Crouch Jr. use it as a tool for years | Azkaban for users; a controlled victim has no exit unless strong | Ministry law; Death Eater ranks | shown, GF ch.14, 36; stated F15 |
+| HP | Flamel's Elixir (death postponed) | the Philosopher's Stone's story is in the open | brew the Elixir; or choose to destroy the Stone | The Flamels choose an ending when the Stone is destroyed | needs the Elixir forever; at the end, deliberate death | their own decision | shown, PS ch.13, 17; recalled |
+| D&D | Dropping to 0 HP | the hit points track is visible; the rule is explicit | stabilise with a DC 10 Medicine check; healing resets death saves; knock out instead of kill; allies shield the downed | Player stays alive with a free 1 HP on a natural 20; Death Ward gives a second chance | a failure counts at every hit taken at 0 HP; a critical counts as two | the rules and dice (no actor); stated by SRD (project C04, DND15) | shown, 5thsrd.org/combat/damage_and_healing; SRD 5.2.1 pp17-18 per SOURCE_CONTRACT |
+| D&D | Instant death: leftover damage at or above max HP | none beyond a high-damage monster's known reputation | Death Ward blocks it once; max HP buys margin | with Death Ward a lethal blow drops the target to 1 HP | spell uses a slot and 8 hours | rules | shown, same pages; 5thsrd.org Death Ward |
+| D&D | Death itself: Revivify, Raise Dead, Resurrection, True Resurrection | the window is a published number | Revivify within 1 minute (300 gp diamond); Raise Dead within 10 days (500 gp, then -4 on rolls, shrinking per long rest); Resurrection within a century (1,000 gp, caster weakened if dead a year or more); True Resurrection within 200 years (25,000 gp; can make a new body; soul must be free and willing) | A well-funded party treats death as a bill; lost limbs and old curses must be dealt with before | diamond cost, caster penalty, willingness of the soul, old age excluded, curses and diseases return | the spell lists; the soul's will; a priest who has the diamond | shown, 5thsrd.org spells; edition note G2 |
+| D&D | Lich's phylactery | the lich's lair and the phylactery are the known quest | destroy the phylactery; the body reforms within 1d10 days if it survives | the lich stays a campaign villain who returns | none for the lich besides hiding the object; heroes pay to find it | the phylactery rule | shown, 5thsrd.org Lich (the page did not say how a phylactery is destroyed) |
+| D&D | Wish (reshape reality) | spell text lists the safe uses and the risk | copy a spell of 8th level or lower; the safe list (heal 20, resistance, immunity, reroll); beyond that the GM decides | revive via a duplicated Resurrection with no cost in diamonds | stress: necrotic damage on later spells, Strength drop for days, a one-in-three chance of never casting it again; literal-minded backfire | the GM | shown, 5thsrd.org Wish |
+| D&D | Level drain, petrification | known from the monster (wight, medusa) | Restoration spells; save after a day (3.5); Death Ward does not stop drain | the party gets a recovery quest | days and money | monster rules | inferred; not fetched (G3) |
+| D&D | Campaign doom clocks (curse that kills, ticking weight) | usually an NPC or a stated date | defeat the source; delay by ritual | the party gets stakes | time | the module | not in the SRD; recalled only (G4) |
+| Cyberpunk | Empathy zero (2020) | the stat declines in tens of Humanity; the player sees it | stop installing; therapy (recovery rules unconfirmed) | none: the character is taken over by the GM | Humanity | the GM, the stat | shown, S table 2020 row; C section 4 |
+| Cyberpunk | Essence zero (Shadowrun) | the Essence track | grade of ware (alpha, beta, delta) to trade nuyen for Essence; cybermancy to hold off death | rich runners stay human | nuyen; magic capacity drops | the Essence rule | shown, S Shadowrun row, CW3 |
+| Cyberpunk | 2077 police heat (five levels, MaxTac) | visible meter | leave sight; break pursuit | the pursuit ends when you are out of sight | no bribe or surrender | the police AI | shown, S 2077 row, CW22 |
+| Cyberpunk | 2077 Relic chip (a terminal clock on V) | the clock is plain from the heist | shortcut via the corp offer, a ghost-in-the-net escape, or leave the city | multiple ends in the story | memory, body, loyalty | the plot | recalled; not in the scouts; Wikipedia Cyberpunk_2077 |
+| Cyberpunk | Neuromancer poison clock | Case's sacs are named at the start | do Wintermute's job | Case is cured and keeps his skill; the flatline construct (Dixie) helps in the matrix and asks to be erased after | the AI's agenda; Dixie's end | Wintermute; the Turing Registry | shown, S Neuromancer row, CW12; Dixie's request recalled |
+| Cyberpunk | Altered Carbon real death | stack destruction is the only way | backups; sleeve swap; holding a rival on stack | the rich (Meths) stay alive for centuries | wealth; sleeve law; Catholics refuse | UN law, courts | shown, S AC row, CW26 |
+| Cyberpunk | Blade Runner four-year life | the replicant knows its date | seek the maker; hide; kill | Roy Batty gets his answer; his last act spares Deckard | the makers' clock holds | Tyrell; blade runners | shown/recalled, S BR row, CW29 |
+
+#### 2. Counterexamples (terminal or not exploitable)
+
+- HP: the Killing Curse on someone with no protection or Horcrux (Cedric, Lily, Lupin, Fred, Snape's death by Nagini) has no exit; capable characters (Dumbledore, Sirius, Moody, Dobby) still died. Sirius's death is a hard counterexample even though he had prior escapes: the veil. The Dementor's Kiss (Crouch Jr.) is unremedied. Imperius on a weak will has no exit. Shown, recalled (OotP ch.36; GF ch.36; DH ch.24-36). Where Dumbledore's death is turned to advantage, the cost is his life, so it is a sacrifice, not an escape.
+- D&D: failed third death save when no one can help; instant-death damage; a body gone more than the spell window; a soul that refuses (True Resurrection needs a free, willing soul); old age (every revival spell excludes it). Shown.
+- Cyberpunk: 2020 Empathy zero (a character becomes an NPC); Shadowrun Essence zero; 2077 police give no surrender or bribe once caught. Shown. The community scout shows complaints that cyberpsychosis in 2077 is toothless for V (C section 2b), so the genre does not hold one answer.
+- Contradiction kept: the sources disagree on whether the floor of the cyberpunk budget kills, takes the character or only debuffs (S CW1). Do not smooth it.
+
+#### 3. Recurring mechanism patterns (default, dial, in-world reason)
+
+1. **Announced clock with a priced exit ladder.** Default: the threat has a readable clock (a date, a meter, a window) and at least two ways out of different kinds (money, skill, ally, sacrifice). Dial: how many exits and how visible; in the strict setting the player chose, fewer. Reason: Triwizard tasks, D&D revival windows, Case's poison, Relic chip all show it; matches RLEE2 and DS04.
+2. **Revival as a priced window, not a ban.** Default: the window and price are published per tier (1 minute / 10 days / century / 200 years, 300 to 25,000 gp); each tier adds an aftermath (penalty, a caster's weakness, willing soul). Dial: window length, price, who offers it; in a poor world the price is a favour. Reason: the D&D spell ladder is itself the pattern; fits WPR16 and RLEE9.
+3. **Sacrifice as the exit.** Default: the capable character may spend the end itself (Dumbledore's timed death, Harry's walk, Batty's last act, Dixie's erasure, Flamel's choice) to gain an effect the survivor cannot; aftermath for those left is full (RLEE7). Dial: whether the run continues (heirs, next life) or the branch is archived. Reason: shown across all four families.
+4. **Mechanism cheat with a body or soul bill.** Default: any workaround (Horcrux, phylactery, Wish, sleeves, Time-Turner) is a real mechanism that works and carries a named cost (soul mutilated, stress, a hidden object, wealth gate, exhaustion). Dial: how large and how reversible the bill; who can find the weak point. Reason: WPR14; matches CW1 and AD38 (things work by how they work).
+5. **Terminal by the plain rule, even for the capable.** Default: a few ends stay hard (Kiss, Unprotected Killing Curse, Essence zero, soul refuses, instant-death damage) so exits matter. Dial: strictness setting (AD19); in a gentler setting these become near-ends with a scar (RLEE6). Reason: counterexamples above.
+
+#### 4. Gaps not verified
+
+- G1: HP chapter numbers are recalled, not reopened; the books are in the library (hp1-hp7, LIBRARY_INDEX). One locator (Azkaban breakout in OotP) is not located. Reopen only to cite exact text.
+- G2: Spell numbers come from a 5.1 SRD mirror (5thsrd.org); the project binds 5.2.1 (S02 pp17-18 for zero HP). The 5.2.1 wording of Wish, Raise Dead and Revivify was not read and may differ (5.2 reworked Wish's stress). Death-save numbers match the project's C04 only in outline.
+- G3: Level drain and petrification: one fetch of d20srd.org returned 403; I switched routes and did not retry. Wight/specter maximum-HP reduction and 3.5 negative levels are recalled, not checked.
+- G4: Doom clocks (Curse of Strahd-style, Tomb of Annihilation's death curse) are adventure content outside the SRD; not verified.
+- G5: Cyberpunk: Relic, Rogue and Soulkiller are recalled, not in either scout. Exact therapy rules in RED, 2077 cyberpsychosis in 2.0 and Neuromancer chapter locators were not read. The scouts themselves say secondary pages and forum posts carry the numbers.
+- G6: Burned identity and surviving a corp hit: only Shadowrun SIN lack (CW25) and 2077 heat (CW22) are in the scouts; no sourced case of selling a hit or flipping a burn notice was found.
+
+URLs: https://5thsrd.org/combat/damage_and_healing/ ; https://5thsrd.org/spellcasting/spells/{raise_dead,revivify,resurrection,true_resurrection,death_ward,wish}/ ; https://5thsrd.org/gamemaster_rules/monsters/lich/ ; https://www.dndbeyond.com/srd ; https://en.wikipedia.org/wiki/Cyberpunk_2077 ; other cyberpunk links in the two scout files, section 6.
+
+## Part 3. What the two parts say together
+
+Proposals only. They are the basis for RLEE10-RLEE13 in [the RLEE section](../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#rlee-actions-that-can-end-a-run-early).
+
+1. **The idea is in the sources, in several forms.** Shown across all five worlds: an announced clock with a priced ladder of exits (Triwizard tasks, D&D revival windows, Neuromancer's poison, RI calamities); staged loss of control entered on purpose (LOTM ch342, ch355); willingness to end it as a bargaining chip (LOTM ch1387, Dumbledore's timed death); resets with a fuel gauge (RI rebirth, the Circle). This supports RLEE10 and RLEE11.
+2. **Exploiting is rarely free.** The exploiters usually pay with a body, a soul, standing or their life (Harry's walk, Dumbledore, the Horcrux bill, RI rebirth losses). The default dial for gain should be a priced edge, not a free one, and the ABUSE counter-pressures (heat, adaptation, escalation, legend) apply.
+3. **Hard ends stay.** Counterexamples show capable characters still dying (Old Neil, Sirius, RI Immortals killed by calamity), and D&D keeps instant death and unwilling souls. Not every threat is exploitable, so hard termination as a high, announced dial (RLEE12) matches the sources.
+4. **Capability gates the exit.** Alger's tip works only for someone with the skill to time it; revival spells need money and a willing soul. This supports RLEE13 and AD6 (means decide).
+5. **New to the project, not yet mapped to a rule:** staged loss of control the player may enter on purpose (gap in ABR15); an enforcer that flips from help to hunt (RI heaven's will, a candidate for RLFC); credible willingness as leverage (extends RLEE7). Candidate, not proposed rows.
+6. **Cyberpunk.** The sources give two hard-end precedents (Cyberpunk 2020 zero Empathy, Shadowrun zero Essence) and little on turning a collector or corp hit to advantage (lane B gap G6). Candidate mechanisms CW35-CW37 in the world scout are therefore mostly extrapolation from community requests, not source-shown.
+
+## Verification state and open gaps
+
+- Sources: LOTM and RI partly reopened (lane A, 11 passages); the rest from project digests. Harry Potter chapter locators are recalled, not reopened (the books are in the library). D&D numbers come from a 5.1 SRD mirror, while the project binds 5.2.1, so spell numbers may differ. Level drain, petrification and doom clocks were not checked.
+- Rules audit: the files named in Part 1 were read at the cited rows; A16 lists the residue not read line by line.
+- Not done: no game play, no test, no runtime change; `check:rules` was run on the final tree (result in the session report). Not committed.
+- Open for Weibao: review of the AD50 wording, and whether any of the candidate mechanisms CW35-CW37 or the new patterns in Part 3 item 5 are wanted.
+- Budget (WPR7): two Sonnet lanes, about 290k subagent tokens in total, no retries.

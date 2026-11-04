@@ -133,3 +133,20 @@ The scout's premises were wrong for three of its top five: Dungeon Defense
 (no reset known), Absolute Regression (one earned regression, no loops) and
 The World After the Fall (the regression stone is fake). Verify a premise
 in the text or a wiki before ranking a source by it.
+
+## U. Similar-games notes, 2026-10-30 (proposals, AD32)
+
+From the [protolike fork survey](PROTOLIKE_FORKS_AND_SIMILAR_GAMES_2026-10-30.md) F10 and the
+[wider survey](SIMILAR_GAMES_BEYOND_PROTOLIKE_2026-10-30.md) F9; ranked in the
+[absorption plan](ABSORPTION_PLAN_SIMILAR_GAMES_2026-10-30.md). Extends B4 (bonds across resets) and the heir rules.
+
+- **U1. The world and the person persist differently.** Hundred Lives to Ascend keeps the world calendar, NPCs and regions moving
+  while cash and level reset, and its heirlooms do not duplicate (README, documented, unread source). This matches B4 and the
+  P4 "legacy" row of the starts palette. Action: when a reset profile (R) is chosen, name what the world keeps and what the
+  person keeps as two lists; reopen when a multi-life slice is selected.
+- **U2. A failed attempt costs time and preparation but keeps what was discovered** (Lowbridge README). Already the
+  shape of the knowledge rules; record as support, not new work.
+- **U3. Death can be a bought, located branch** (Fabled Lands resurrection stores a respawn address). Default: off. Dial: price
+  and where it can be bought. Reason: some worlds have priests, gods or contracts for it; others do not. LATER.
+- **U4. Persistence scope names.** Dao Tree compiles resets from three scopes (tree, life, eternal). Compare with our save
+  slices before any rename; no change proposed.

@@ -1,0 +1,3565 @@
+{
+  "people": [
+    {
+      "id": "glasshouse.main.caretaker",
+      "revision": 1,
+      "label": "Joss, Glasshouse caretaker",
+      "worldId": "pocket.folded_glasshouse",
+      "location": "Folded Glasshouse",
+      "inventory": "simulation",
+      "provision": false,
+      "resources": {
+        "coins": 6
+      },
+      "body": {
+        "hands": 2
+      },
+      "vitals": {
+        "health": 20,
+        "max_health": 20,
+        "stamina": 10,
+        "max_stamina": 10
+      }
+    }
+  ],
+  "sites": [
+    {
+      "id": "glasshouse.main.glasshouse.frame",
+      "revision": 1,
+      "label": "Entrance-frame repair",
+      "capacity": 1
+    },
+    {
+      "id": "glasshouse.main.glasshouse.refuge",
+      "revision": 1,
+      "label": "Dry sitting corner",
+      "capacity": 1
+    },
+    {
+      "id": "glasshouse.main.glasshouse.bench",
+      "revision": 1,
+      "label": "Folding workbench",
+      "capacity": 1
+    }
+  ],
+  "situations": [
+    {
+      "id": "glasshouse.main.glasshouse.repair",
+      "revision": 1,
+      "label": "A frame worth keeping",
+      "context": {
+        "worldId": "pocket.folded_glasshouse",
+        "instanceId": "glasshouse.main",
+        "continuityId": "frontier.glasshouse.branch",
+        "eraId": "frontier.present",
+        "regionId": "glasshouse.room"
+      },
+      "privateTruth": {
+        "damageCause": "ordinary_settling",
+        "caretakerAim": "keep_a_useful_shared_workshop"
+      },
+      "participants": [
+        "player",
+        "glasshouse.main.caretaker"
+      ],
+      "initialPhase": "offered",
+      "responseWindow": 8,
+      "phases": [
+        "offered",
+        "repaired",
+        "declined",
+        "caretaker_repaired",
+        "report_heard"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "glasshouse.main.glasshouse.lead",
+      "revision": 1,
+      "label": "Ask Iona about the folded workshop frame",
+      "worldId": "base.frontier",
+      "actorId": "player",
+      "targetId": "exchangeClerk",
+      "location": "Village",
+      "coLocated": true,
+      "group": "glasshouse",
+      "once": true,
+      "requires": {
+        "all": [
+          {
+            "fact": "knowledge.exchange.pattern.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "exchange.clerkWilling",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.lead",
+          "stage": "seen",
+          "value": "Iona knows a folded-glass doorway used by a caretaker and visiting artisans. A lead is not permission or passage.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "exchangeClerk",
+            "situationId": "exchange.parcel"
+          }
+        }
+      ]
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "location": "Folded Glasshouse",
+      "coLocated": false,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "spawn",
+          "personId": "glasshouse.main.caretaker",
+          "definitionId": "glasshouse.main.caretaker"
+        },
+        {
+          "type": "fact",
+          "scope": "actor",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.willing",
+          "value": true
+        },
+        {
+          "type": "situation",
+          "situationId": "glasshouse.main.glasshouse.repair",
+          "operation": "begin"
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": 6,
+          "actor": "glasshouse.main.caretaker"
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 3,
+          "actor": "glasshouse.main.caretaker"
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Sealing template\"}",
+          "amount": 1,
+          "actor": "glasshouse.main.caretaker"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.caretaker.met",
+          "value": true
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.status",
+          "value": "offered"
+        },
+        {
+          "type": "site",
+          "siteId": "glasshouse.main.glasshouse.frame",
+          "operation": "open"
+        },
+        {
+          "type": "site",
+          "siteId": "glasshouse.main.glasshouse.refuge",
+          "operation": "open"
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.meeting",
+          "stage": "seen",
+          "value": "Joss has six logs, three kits and one template. The dry corner is usable; the loose frame keeps the bench shut. You can help, decline or leave. Joss waits eight minutes spent here before using personal supplies.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.meet",
+      "label": "Meet the caretaker · no repair promise",
+      "once": true,
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.caretaker.met",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.caretaker.met",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.status",
+          "value": "repaired"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.route",
+          "value": "ordinary"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.bench.open",
+          "value": true
+        },
+        {
+          "type": "site",
+          "siteId": "glasshouse.main.glasshouse.bench",
+          "operation": "open"
+        },
+        {
+          "type": "situation",
+          "situationId": "glasshouse.main.glasshouse.repair",
+          "operation": "advance",
+          "expected": [
+            "offered"
+          ],
+          "phase": "repaired",
+          "text": "Glasshouse repair: offered → repaired."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.repair",
+          "stage": "seen",
+          "value": "Your supplied brace and kit fixed the frame. The ordinary method spent more fittings and no drive.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "duration": 4,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.frame",
+      "participants": [
+        "$target"
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "offered"
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "offered"
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "The caretaker is not offering help now."
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Your actual hands cannot do this work now."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.repair_ordinary",
+      "label": "Fit an ordinary frame brace · 2 logs + kit + 2 stamina · 4 min"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        },
+        {
+          "type": "energy",
+          "energyId": "field.drive",
+          "operation": "use",
+          "output": 3,
+          "control": 1
+        }
+      ],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.status",
+          "value": "repaired"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.route",
+          "value": "step"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.bench.open",
+          "value": true
+        },
+        {
+          "type": "site",
+          "siteId": "glasshouse.main.glasshouse.bench",
+          "operation": "open"
+        },
+        {
+          "type": "situation",
+          "situationId": "glasshouse.main.glasshouse.repair",
+          "operation": "advance",
+          "expected": [
+            "offered"
+          ],
+          "phase": "repaired",
+          "text": "Glasshouse repair: offered → repaired."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.repair",
+          "stage": "seen",
+          "value": "Your learned Step held the real frame while its brace set. Three drive units and strain were paid; no method was acquired here.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "duration": 2,
+      "cancellation": "forfeit",
+      "siteId": "glasshouse.main.glasshouse.frame",
+      "participants": [
+        "$target"
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "offered"
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance first."
+              },
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "offered"
+              },
+              {
+                "fact": "person.glasshouse.main.caretaker.willing",
+                "op": "eq",
+                "value": true,
+                "reason": "The caretaker is not offering help now."
+              },
+              {
+                "all": [
+                  {
+                    "fact": "glasshouse.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Your actual hands cannot do this work now."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2
+                  },
+                  {
+                    "fact": "strength",
+                    "op": "gte",
+                    "value": 6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "actor.field.member",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "power.field.load_step.owned",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "power.field.load_step.mastery",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "faculty.field.load_step.active",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.repair_step",
+      "label": "Brace with Load-bearing Step · log + 3 drive + 1 stamina · 2 min",
+      "powerId": "field.load_step",
+      "output": 3
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.status",
+          "value": "declined"
+        },
+        {
+          "type": "situation",
+          "situationId": "glasshouse.main.glasshouse.repair",
+          "operation": "advance",
+          "expected": [
+            "offered"
+          ],
+          "phase": "declined",
+          "text": "Glasshouse repair: offered → declined."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.declined",
+          "stage": "seen",
+          "value": "You declined the repair. Joss owns the remaining supplies and may spend them; no repair debt was accepted.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.decline",
+      "label": "Leave the repair to Joss · no debt",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "offered"
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "offered"
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "glasshouse.main.caretaker",
+      "targetId": "glasshouse.main.caretaker",
+      "coLocated": false,
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -2
+        },
+        {
+          "type": "resource",
+          "key": "coins",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.status",
+          "value": "repaired"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.repair.route",
+          "value": "caretaker"
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.bench.open",
+          "value": true
+        },
+        {
+          "type": "site",
+          "siteId": "glasshouse.main.glasshouse.bench",
+          "operation": "open"
+        },
+        {
+          "type": "situation",
+          "situationId": "glasshouse.main.glasshouse.repair",
+          "operation": "advance",
+          "expected": [
+            "offered",
+            "declined"
+          ],
+          "phase": "caretaker_repaired",
+          "text": "Joss completed a repair from personal supplies."
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.own_repair",
+          "stage": "seen",
+          "value": "I used two of my logs, a kit, two stamina and one coin to fix the frame.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "audience": [
+        "$actor"
+      ],
+      "id": "glasshouse.main.glasshouse.caretaker_repair",
+      "label": "Joss funds a slower frame repair",
+      "duration": 5,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.frame",
+      "requires": {
+        "all": [
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "The caretaker is not offering help now."
+          },
+          {
+            "any": [
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "declined"
+              },
+              {
+                "all": [
+                  {
+                    "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                    "op": "eq",
+                    "value": "offered"
+                  },
+                  {
+                    "fact": "glasshouse.offerExpired",
+                    "op": "eq",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "fact": "body.hands",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.caretaker.reportHeard",
+          "value": true
+        },
+        {
+          "type": "situation",
+          "situationId": "glasshouse.main.glasshouse.repair",
+          "operation": "advance",
+          "expected": [
+            "caretaker_repaired"
+          ],
+          "phase": "report_heard",
+          "text": "Glasshouse repair: caretaker_repaired → report_heard."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.repair",
+          "stage": "seen",
+          "value": "Joss reports using personal stock and a coin. You did not supply the repair; the opened bench still offers paid study and work.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.hear_repair",
+      "label": "Ask how Joss fixed the frame",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "caretaker_repaired"
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+            "op": "eq",
+            "value": "caretaker_repaired"
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1,
+          "actor": "$target"
+        }
+      ],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.research.complete",
+          "value": true
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.packing",
+          "stage": "understood",
+          "value": "Joss demonstrated a counted dry-packing pattern. Two logs and an owned reusable sealing template make two ordinary survey kits; the pattern is instruction, not a new power.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.study",
+          "stage": "seen",
+          "value": "We tested a kit and compared its seals together. The visitor paid materials and we each spent stamina.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.study",
+      "label": "Test dry packing with Joss · kit + 1 stamina each · 3 min",
+      "once": true,
+      "duration": 3,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "participants": [
+        "$target"
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "any": [
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "repaired"
+              },
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "report_heard"
+              }
+            ]
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "any": [
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "repaired"
+              },
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "report_heard"
+              }
+            ]
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "The caretaker is not offering help now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Your actual hands cannot do this work now."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "transfer",
+          "key": "{\"id\":\"Sealing template\"}",
+          "from": "glasshouse.main.caretaker",
+          "to": "player",
+          "count": 1
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.export",
+          "stage": "seen",
+          "value": "Joss transferred the one actual template. It is yours; reopening the door grants no second copy. Joss no longer holds that tool.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.gift",
+          "stage": "seen",
+          "value": "I gave the visitor my one template after our packing trial.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.export_template",
+      "label": "Receive Joss’s one template · unique gift",
+      "once": true,
+      "participants": [
+        "$target"
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.research.complete",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "The caretaker is not offering help now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.research.complete",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "location": "Folded Glasshouse",
+      "coLocated": false,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 2
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.pack_kits",
+      "label": "Pack two dry survey kits · 2 logs + 2 stamina · 3 min",
+      "duration": 3,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.packing.seen",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Your actual hands cannot do this work now."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.packing.basis",
+            "op": "eq",
+            "value": "instruction"
+          },
+          {
+            "fact": "glasshouse.templateAvailable",
+            "op": "eq",
+            "value": true,
+            "reason": "Carry a real owned, unencumbered template."
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "location": "Folded Glasshouse",
+      "coLocated": false,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": 2
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.rest",
+      "label": "Rest in the dry corner · 4 min · recover 2 stamina",
+      "duration": 4,
+      "cancellation": "forfeit",
+      "siteId": "glasshouse.main.glasshouse.refuge",
+      "visibleWhen": {
+        "fact": "worldVisit.instanceId",
+        "op": "eq",
+        "value": "glasshouse.main",
+        "reason": "Enter this actual Glasshouse instance first."
+      },
+      "requires": {
+        "fact": "worldVisit.instanceId",
+        "op": "eq",
+        "value": "glasshouse.main",
+        "reason": "Enter this actual Glasshouse instance first."
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.bench.open",
+          "value": false
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.bench",
+          "stage": "seen",
+          "value": "The bench is covered. This does not destroy the interior or close its passage.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.shut_bench",
+      "label": "Cover the bench against dust",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.repair.status",
+            "op": "eq",
+            "value": "repaired"
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "participants": [
+        "$target"
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "The caretaker is not offering help now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.repair.status",
+            "op": "eq",
+            "value": "repaired"
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "glasshouse.benchIdle",
+            "op": "eq",
+            "value": true,
+            "reason": "Finish or cancel the reserved bench work first."
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.bench.open",
+          "value": true
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.bench",
+          "stage": "seen",
+          "value": "The same bench is open again. Prior repairs, stock, study and the template gift remain.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.reopen_bench",
+      "label": "Uncover the repaired bench",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.repair.status",
+            "op": "eq",
+            "value": "repaired"
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "participants": [
+        "$target"
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "The caretaker is not offering help now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.repair.status",
+            "op": "eq",
+            "value": "repaired"
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "glasshouse.benchIdle",
+            "op": "eq",
+            "value": true,
+            "reason": "Finish or cancel the reserved bench work first."
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.return",
+          "stage": "seen",
+          "value": "Joss welcomes you back to the same room. Its repairs and supplies remain as you left them.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "id": "glasshouse.main.glasshouse.return_greeting",
+      "label": "Ask Joss about your earlier visit",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "worldVisit.returning",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance first."
+          },
+          {
+            "fact": "worldVisit.returning",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.caretaker.met",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.welcome",
+          "stage": "seen",
+          "value": "Joss offers the dry corner and paid bench work after the frame is repaired. Asking accepts no tenancy, repair or debt. A funded job uses a real bench slot; you may leave between commitments.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.saying",
+          "stage": "seen",
+          "value": "Joss said: 'A chair is somewhere to sit. A commission is something you agreed to do.'",
+          "basis": {
+            "kind": "recollection",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.welcome",
+      "once": true,
+      "label": "Ask Joss what staying here involves"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        },
+        {
+          "type": "resource",
+          "actor": "glasshouse.main.caretaker",
+          "key": "coins",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1,
+          "actor": "glasshouse.main.caretaker"
+        },
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": 2
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.work",
+          "stage": "seen",
+          "value": "You made one real kit for Joss and received two coins from the agreed reserved wages. Joss holds the kit; the wages are payment for this job.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.work",
+          "stage": "seen",
+          "value": "The visitor supplied wood and labor for my kit. I paid the agreed two coins.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "relationship",
+          "actor": "glasshouse.main.caretaker",
+          "target": "player",
+          "axis": "familiarity",
+          "amount": 1,
+          "text": "Paid for an actual kit-making shift; the worker kept the terms."
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance."
+              },
+              {
+                "fact": "world.glasshouse.main.glasshouse.bench.open",
+                "op": "eq",
+                "value": true,
+                "reason": "The repaired bench must be uncovered."
+              }
+            ]
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "The repaired bench must be uncovered."
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "This work needs supported hands."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "fact": "glasshouse.scene.caretakerTemplateAvailable",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss must supply the actual working template for supervised production."
+          }
+        ]
+      },
+      "duration": 4,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "participants": [
+        "$target"
+      ],
+      "id": "glasshouse.main.glasshouse.scenes.paid_work",
+      "label": "Make Joss a kit · log + 1 stamina · 4 min · wages 2 coins"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Wet seal blank\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.failed_trial",
+          "stage": "seen",
+          "value": "The damp blank warped in the clamp. The declared trial consumed it and one stamina; no sound fitting was produced. Force was not the missing preparation. An earlier validated fitting remains valid.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.failed_trial",
+          "stage": "seen",
+          "value": "I watched the visitor's damp sample warp. The paid result does not establish every possible material failure.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance."
+              },
+              {
+                "fact": "world.glasshouse.main.glasshouse.bench.open",
+                "op": "eq",
+                "value": true,
+                "reason": "The repaired bench must be uncovered."
+              }
+            ]
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "The repaired bench must be uncovered."
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "This work needs supported hands."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      },
+      "duration": 2,
+      "cancellation": "forfeit",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "participants": [
+        "$target"
+      ],
+      "id": "glasshouse.main.glasshouse.scenes.damp_trial",
+      "once": true,
+      "label": "Test a damp blank · blank + 1 stamina · 2 min · expected failure"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Sound seal blank\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Fitted parcel seal\"}",
+          "amount": 1
+        },
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.scenes.preparation",
+          "value": "validated"
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.sound_trial",
+          "stage": "seen",
+          "value": "A sound blank and the taught pattern produced one fitted seal. The paid craft result uses the actual tool; recalling the instruction alone cannot supply it.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.sound_trial",
+          "stage": "seen",
+          "value": "I witnessed the visitor fit a sound specimen with the taught pattern.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance."
+              },
+              {
+                "fact": "world.glasshouse.main.glasshouse.bench.open",
+                "op": "eq",
+                "value": true,
+                "reason": "The repaired bench must be uncovered."
+              }
+            ]
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "The repaired bench must be uncovered."
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "This work needs supported hands."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.packing.basis",
+            "op": "eq",
+            "value": "instruction"
+          },
+          {
+            "fact": "glasshouse.templateAvailable",
+            "op": "eq",
+            "value": true,
+            "reason": "Use your actual unencumbered template."
+          }
+        ]
+      },
+      "duration": 3,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "participants": [
+        "$target"
+      ],
+      "id": "glasshouse.main.glasshouse.scenes.sound_trial",
+      "once": true,
+      "label": "Fit a sound calibration seal · blank + 1 stamina · 3 min"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1,
+          "actor": "glasshouse.main.caretaker"
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1,
+          "actor": "glasshouse.main.caretaker"
+        }
+      ],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.scenes.preparation",
+          "value": "validated"
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.joint_trial",
+          "stage": "seen",
+          "value": "You and Joss each supplied a real kit and stamina for a controlled packing comparison. It validates this preparation, not a source or universal permission.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.joint_trial",
+          "stage": "seen",
+          "value": "I agreed to use my own kit and stamina after our actual paid work.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "relationship",
+          "actor": "glasshouse.main.caretaker",
+          "target": "player",
+          "axis": "familiarity",
+          "amount": 1,
+          "text": "Agreed to and funded one joint comparison after a remembered shift."
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance."
+              },
+              {
+                "fact": "world.glasshouse.main.glasshouse.bench.open",
+                "op": "eq",
+                "value": true,
+                "reason": "The repaired bench must be uncovered."
+              }
+            ]
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "The repaired bench must be uncovered."
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "This work needs supported hands."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.scenes.work.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "glasshouse.scene.glasshouse.main.caretaker.workRemembered",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss must actually remember and agree to the shared work; your own recollection is insufficient."
+          }
+        ]
+      },
+      "duration": 3,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "participants": [
+        "$target"
+      ],
+      "id": "glasshouse.main.glasshouse.scenes.cooperative_trial",
+      "once": true,
+      "label": "Ask for a joint packing trial · kit each + 1 stamina each · 3 min"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Fitted parcel seal\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "world",
+          "worldId": "pocket.folded_glasshouse",
+          "key": "glasshouse.main.glasshouse.scenes.shelfBuilt",
+          "value": true
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.shelf",
+          "stage": "seen",
+          "value": "The funded shelf holds ordinary calibration stock. It is useful research furniture, not a lens, a detector or a passage. Later instruments need their actual components and support.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.shelf",
+          "stage": "seen",
+          "value": "The visitor funded a fitted shelf. I can choose to use my own stock for a later bench trial.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance."
+              },
+              {
+                "fact": "world.glasshouse.main.glasshouse.bench.open",
+                "op": "eq",
+                "value": true,
+                "reason": "The repaired bench must be uncovered."
+              }
+            ]
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "The repaired bench must be uncovered."
+          },
+          {
+            "all": [
+              {
+                "fact": "glasshouse.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "This work needs supported hands."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              },
+              {
+                "fact": "strength",
+                "op": "gte",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.scenes.preparation",
+            "op": "eq",
+            "value": "validated"
+          }
+        ]
+      },
+      "duration": 5,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "participants": [
+        "$target"
+      ],
+      "id": "glasshouse.main.glasshouse.scenes.shelf",
+      "once": true,
+      "label": "Build a calibration shelf · fitted seal + 2 logs + 2 coins · 5 min"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "glasshouse.main.caretaker",
+      "coLocated": false,
+      "audience": [
+        "glasshouse.main.caretaker"
+      ],
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        },
+        {
+          "type": "resource",
+          "key": "coins",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.private_research",
+          "stage": "seen",
+          "value": "My paid kit test held a fold under load. I have a result I may choose to report; the visitor has not heard it.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "glasshouse.instanceClockActive",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "The repaired bench must be uncovered."
+          },
+          {
+            "fact": "actor.glasshouse.willing",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "body.hands",
+            "op": "gte",
+            "value": 2
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.scenes.shelfBuilt",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.private_research",
+      "once": true,
+      "label": "Joss tests a private packing hypothesis",
+      "duration": 4,
+      "cancellation": "forfeit",
+      "siteId": "glasshouse.main.glasshouse.bench"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "glasshouse.main.caretaker",
+      "targetId": "player",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "audience": [
+        "glasshouse.main.caretaker",
+        "player"
+      ],
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.research_offer",
+          "stage": "seen",
+          "value": "Joss says he has a bench result he is willing to discuss. You have heard the offer, not the result of his private trial.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.scenes.research_offer",
+          "stage": "seen",
+          "value": "I offered to discuss my completed bench trial with the visitor here.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "glasshouse.instanceClockActive",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.scenes.private_research.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "actor.glasshouse.willing",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.offer_research",
+      "once": true,
+      "label": "Joss offers to discuss a bench result"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.research_report",
+          "stage": "seen",
+          "value": "Joss reports a separately funded kit trial. This is a report from its operator, not your witnessed experiment or a gift of the remaining stock.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main",
+                "reason": "Enter this actual Glasshouse instance."
+              },
+              {
+                "fact": "knowledge.glasshouse.main.glasshouse.scenes.welcome.seen",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "glasshouse.scene.researchReportOffered",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss has not offered a result to share yet."
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.hear_research",
+      "once": true,
+      "label": "Ask what bench work Joss wants to share"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.return",
+          "stage": "seen",
+          "value": "You compare your earlier heard work records with Joss and the same room. A declined repair is not your contribution; a covered bench is not a destroyed interior. No wages, consumed sample, first gift or source are restored by this conversation.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          },
+          {
+            "fact": "worldVisit.returning",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.scenes.welcome.seen",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.return",
+      "label": "Compare this visit with the earlier work"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.refusal",
+          "stage": "seen",
+          "value": "You declined the offered new work. No tenancy, wage, project payment or further obligation was accepted. Joss may continue only independently funded work.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.refuse",
+      "label": "Decline new residence work · no debt"
+    },
+    {
+      "revision": 1,
+      "worldId": "pocket.folded_glasshouse",
+      "actorId": "player",
+      "targetId": "glasshouse.main.caretaker",
+      "location": "Folded Glasshouse",
+      "coLocated": true,
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.scenes.leave_terms",
+          "stage": "seen",
+          "value": "Joss explains that departure needs the actual route and settled or cancelled work. Closing the route preserves the room, its occupants, cargo and earlier work; destroying its anchor would be a different authored event.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main",
+            "reason": "Enter this actual Glasshouse instance."
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering this work now."
+          }
+        ]
+      },
+      "id": "glasshouse.main.glasshouse.scenes.leave_terms",
+      "label": "Ask about leaving or closing the route · no commitment"
+    },
+    {
+      "id": "pocket.open_payment",
+      "revision": 1,
+      "label": "Open the folded doorway · 1 wooden coin",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "location": "Village",
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "resource",
+          "key": "money",
+          "amount": -1,
+          "native": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.door",
+          "stage": "seen",
+          "value": "You paid for one opening of the folded doorway. The same interior remains when its route is closed."
+        }
+      ]
+    },
+    {
+      "id": "pocket.enter_receipt",
+      "revision": 1,
+      "label": "Enter the folded doorway",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "location": "Village",
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.entered",
+          "stage": "seen",
+          "value": "You carried your own body and belongings into the Folded Glasshouse. The doorway remains available for return."
+        }
+      ]
+    },
+    {
+      "id": "pocket.exit_receipt",
+      "revision": 1,
+      "label": "Return through the folded doorway",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "location": "Folded Glasshouse",
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.returned",
+          "stage": "seen",
+          "value": "You returned with the same carried inventory. Joss, the bench, stored supplies and prior work remain in the Glasshouse."
+        }
+      ]
+    },
+    {
+      "id": "pocket.close_receipt",
+      "revision": 1,
+      "label": "Close the folded doorway",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "location": "Village",
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.closed",
+          "stage": "seen",
+          "value": "You closed access to the Glasshouse. Its interior and possessions remain; no current view of Joss arrives through a closed route."
+        }
+      ]
+    },
+    {
+      "id": "pocket.fund_bench",
+      "revision": 1,
+      "label": "Contribute to Joss’s bench fund · 1 wooden coin",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "location": "Folded Glasshouse",
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "glasshouse.main.caretaker",
+          "key": "coins",
+          "amount": 1
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.contribution",
+          "stage": "seen",
+          "value": "You transferred one real wooden coin to Joss’s bench fund. It is a contribution, not a purchase of the remaining stock or faculty."
+        }
+      ],
+      "targetId": "glasshouse.main.caretaker",
+      "coLocated": true,
+      "visibleWhen": {
+        "fact": "world.glasshouse.main.glasshouse.scenes.shelfBuilt",
+        "op": "eq",
+        "value": true
+      },
+      "requires": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main"
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.scenes.shelfBuilt",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "pocket.frontier_pack",
+      "revision": 1,
+      "label": "Pack with Joss’s pattern · 2 logs + 2 stamina · 3 min",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "location": "Shack",
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 2
+        }
+      ],
+      "duration": 3,
+      "cancellation": "refund",
+      "requires": {
+        "all": [
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.packing.basis",
+            "op": "eq",
+            "value": "instruction"
+          },
+          {
+            "fact": "glasshouse.templateAvailable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "visibleWhen": {
+        "fact": "knowledge.glasshouse.main.glasshouse.packing.seen",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "glasshouse.main.glasshouse.supply_logs",
+      "revision": 1,
+      "label": "Give Joss 2 logs · replenish his workshop stock",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "location": "Folded Glasshouse",
+      "group": "glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "transfer",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "from": "player",
+          "to": "glasshouse.main.caretaker",
+          "count": 2
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.supply_logs",
+          "stage": "seen",
+          "value": "You gave Joss two real logs for his workshop. They remain his stock when you leave; this gift grants no withdrawal rights or wages."
+        }
+      ],
+      "targetId": "glasshouse.main.caretaker",
+      "coLocated": true,
+      "participants": [
+        "$target"
+      ],
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main"
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "reason": "Meet willing Joss inside this Glasshouse to give him workshop supplies.",
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering supplies or bench work now."
+          }
+        ]
+      }
+    },
+    {
+      "id": "glasshouse.main.glasshouse.commission_kits",
+      "revision": 1,
+      "label": "Order 2 survey kits · 2 coins · Joss’s 2 logs + 1 stamina · 3 min",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "location": "Folded Glasshouse",
+      "group": "glasshouse",
+      "costs": [
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "actor": "glasshouse.main.caretaker",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "vital",
+          "actor": "glasshouse.main.caretaker",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "glasshouse.main.caretaker",
+          "key": "coins",
+          "amount": 2
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.commission_kits",
+          "stage": "seen",
+          "value": "Joss packed two survey kits from his two logs and reusable template while you supervised. He spent one stamina and received your two coins. Both kits are in your bag for survey work; the template remains his."
+        }
+      ],
+      "targetId": "glasshouse.main.caretaker",
+      "coLocated": true,
+      "participants": [
+        "$target"
+      ],
+      "duration": 3,
+      "cancellation": "refund",
+      "siteId": "glasshouse.main.glasshouse.bench",
+      "reservationReturns": 1,
+      "completionRequires": {
+        "reason": "Uncover the repaired bench; Joss must be here, willing and holding his actual reusable template. After his gift, use your taught packing pattern instead.",
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering supplies or bench work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "Uncover the repaired bench before ordering kits."
+          },
+          {
+            "fact": "glasshouse.scene.caretakerTemplateAvailable",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss needs his actual unencumbered reusable template. After his gift, use your taught packing pattern instead."
+          }
+        ]
+      },
+      "completionCoLocated": true,
+      "completionFailure": "refund",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main"
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "reason": "Uncover the repaired bench; Joss must be here, willing and holding his actual reusable template. After his gift, use your taught packing pattern instead.",
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "knowledge.glasshouse.main.glasshouse.meeting.seen",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss is not offering supplies or bench work now."
+          },
+          {
+            "fact": "world.glasshouse.main.glasshouse.bench.open",
+            "op": "eq",
+            "value": true,
+            "reason": "Uncover the repaired bench before ordering kits."
+          },
+          {
+            "fact": "glasshouse.scene.caretakerTemplateAvailable",
+            "op": "eq",
+            "value": true,
+            "reason": "Joss needs his actual unencumbered reusable template. After his gift, use your taught packing pattern instead."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pocket.observation.earn_listener",
+      "revision": 1,
+      "label": "Calibrate Joss’s Frame listener here · 1 coin",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "costs": [
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "glasshouse.main.caretaker",
+          "key": "coins",
+          "amount": 1
+        },
+        {
+          "type": "body",
+          "actor": "glasshouse.main.caretaker",
+          "key": "form",
+          "value": "human"
+        },
+        {
+          "type": "body",
+          "actor": "glasshouse.main.caretaker",
+          "key": "frameSense",
+          "value": true
+        },
+        {
+          "type": "fact",
+          "scope": "actor",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.observation.listenerInstalled",
+          "value": true
+        },
+        {
+          "type": "source",
+          "actor": "glasshouse.main.caretaker",
+          "sourceId": "glasshouse.main.glasshouse.scenes.frame_listener",
+          "operation": "grant",
+          "origin": "trained",
+          "awakened": true,
+          "active": true
+        },
+        {
+          "type": "power",
+          "actor": "glasshouse.main.caretaker",
+          "powerId": "glasshouse.main.glasshouse.observation.notice_power",
+          "operation": "learn"
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.observation.listener",
+          "stage": "seen",
+          "value": "You paid for a local calibration after Joss’s funded frame work. Joss acquired the Frame listener and its notice; you acquired neither source nor power.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.observation.listener",
+          "stage": "seen",
+          "value": "I completed the paid calibration and acquired my own frame faculty and notice power.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "once": true,
+      "location": "Folded Glasshouse",
+      "targetId": "glasshouse.main.caretaker",
+      "coLocated": true,
+      "participants": [
+        "$target"
+      ],
+      "group": "glasshouse",
+      "visibleWhen": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "person.glasshouse.main.caretaker.willing",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "knowledge.glasshouse.main.glasshouse.packing.seen",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "person.glasshouse.main.caretaker.willing",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "glasshouse.observation.listenerEligible",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "pocket.observation.craft_device",
+      "revision": 1,
+      "label": "Craft your paired viewing device here · template + 2 logs + kit + 2 stamina",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "fact",
+          "scope": "actor",
+          "key": "glasshouse.observation.deviceOwned",
+          "value": true
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.observation.device",
+          "stage": "understood",
+          "value": "You used your owned reusable template, two logs, one kit and two stamina to craft your paired viewing device. The template remains yours; the device carries only images and notices.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "once": true,
+      "location": "Folded Glasshouse",
+      "group": "glasshouse",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "worldVisit.instanceId",
+            "op": "eq",
+            "value": "glasshouse.main"
+          },
+          {
+            "fact": "person.glasshouse.main.caretaker.willing",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "person.glasshouse.main.caretaker.willing",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "glasshouse.observation.deviceEligible",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "glasshouse.handsUsable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "pocket.observation.activate",
+      "revision": 1,
+      "label": "Activate the Village viewing slit · 1 coin · 12 played min",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "costs": [
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.observation.activation",
+          "stage": "seen",
+          "value": "You paid once for a twelve-minute anonymous live view. Your body and bag remain in the Village.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "location": "Village",
+      "requires": {
+        "fact": "glasshouse.observation.canActivate",
+        "op": "eq",
+        "value": true
+      },
+      "group": "glasshouse"
+    },
+    {
+      "id": "pocket.observation.sample",
+      "revision": 1,
+      "label": "Sample the paired live slit",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "costs": [],
+      "effects": [],
+      "location": "Village",
+      "requires": {
+        "fact": "glasshouse.observation.sampleSupported",
+        "op": "eq",
+        "value": true
+      },
+      "group": "glasshouse"
+    },
+    {
+      "id": "pocket.observation.detect",
+      "revision": 1,
+      "label": "Joss notices one incoming live sample",
+      "actorId": "glasshouse.main.caretaker",
+      "worldId": "pocket.folded_glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.observation.detected",
+          "stage": "seen",
+          "value": "An anonymous live trace reached my actually supported frame. I learned no sender identity.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "audience": [
+        "glasshouse.main.caretaker",
+        "player"
+      ],
+      "requires": {
+        "fact": "glasshouse.observation.detectionSupported",
+        "op": "eq",
+        "value": true
+      },
+      "group": "glasshouse"
+    },
+    {
+      "id": "pocket.observation.notice",
+      "revision": 1,
+      "label": "Joss sends one zero-fuel return notice",
+      "actorId": "glasshouse.main.caretaker",
+      "worldId": "pocket.folded_glasshouse",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.observation.notice",
+          "stage": "seen",
+          "value": "I notice someone at the frame. You need not give a name.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.observation.notice_sent",
+          "stage": "seen",
+          "value": "I sent one notice through my actual return path; no sender identity was disclosed.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "audience": [
+        "glasshouse.main.caretaker",
+        "player"
+      ],
+      "requires": {
+        "fact": "glasshouse.observation.noticeSupported",
+        "op": "eq",
+        "value": true
+      },
+      "powerId": "glasshouse.main.glasshouse.observation.notice_power",
+      "group": "glasshouse"
+    },
+    {
+      "id": "pocket.observation.shutter",
+      "revision": 1,
+      "label": "Shut your actual viewing device",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.observation.closure",
+          "stage": "seen",
+          "value": "You closed the viewing slit. Earlier text, Joss, stock and the physical doorway remain.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "location": "Village",
+      "requires": {
+        "fact": "glasshouse.observation.canShutter",
+        "op": "eq",
+        "value": true
+      },
+      "group": "glasshouse"
+    },
+    {
+      "id": "pocket.observation.claim",
+      "revision": 1,
+      "label": "Send the deliberate claim “visiting artisan”",
+      "actorId": "player",
+      "worldId": "base.frontier",
+      "costs": [],
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.observation.claim",
+          "stage": "seen",
+          "value": "The anonymous sender deliberately claimed to be a visiting artisan. This is a claim, not verified identity.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "location": "Village",
+      "requires": {
+        "fact": "glasshouse.observation.claimSupported",
+        "op": "eq",
+        "value": true
+      },
+      "group": "glasshouse"
+    },
+    {
+      "id": "pocket.observation.cooperate",
+      "revision": 1,
+      "label": "Introduce locally for calibration · 1 coin",
+      "actorId": "player",
+      "worldId": "pocket.folded_glasshouse",
+      "costs": [
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "glasshouse.main.caretaker",
+          "key": "coins",
+          "amount": 1
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "glasshouse.main.glasshouse.observation.cooperation",
+          "stage": "understood",
+          "value": "You introduced yourself here as a visiting artisan and paid for local calibration. Joss’s listener remains his.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        },
+        {
+          "type": "knowledge",
+          "actor": "glasshouse.main.caretaker",
+          "key": "glasshouse.main.glasshouse.observation.local_claim",
+          "stage": "seen",
+          "value": "The present visitor claimed the artisan role and paid one actual coin here.",
+          "basis": {
+            "kind": "observation",
+            "attributedTo": "glasshouse.main.caretaker",
+            "situationId": "glasshouse.main.glasshouse.repair"
+          }
+        }
+      ],
+      "once": true,
+      "location": "Folded Glasshouse",
+      "targetId": "glasshouse.main.caretaker",
+      "coLocated": true,
+      "participants": [
+        "$target"
+      ],
+      "group": "glasshouse",
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "worldVisit.instanceId",
+                "op": "eq",
+                "value": "glasshouse.main"
+              },
+              {
+                "fact": "person.glasshouse.main.caretaker.willing",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "glasshouse.observation.localCooperation",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    }
+  ],
+  "controllers": [
+    {
+      "id": "glasshouse.main.glasshouse.caretaker_plan",
+      "revision": 1,
+      "label": "Joss’s finite repair plan",
+      "actorId": "glasshouse.main.caretaker",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "glasshouse.main.glasshouse.caretaker_repair",
+          "priority": 1,
+          "when": {
+            "any": [
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "offered"
+              },
+              {
+                "fact": "situation.glasshouse.main.glasshouse.repair.phase",
+                "op": "eq",
+                "value": "declined"
+              }
+            ]
+          },
+          "targetId": "glasshouse.main.caretaker"
+        }
+      ]
+    },
+    {
+      "id": "glasshouse.main.glasshouse.scenes.caretaker_controller",
+      "revision": 1,
+      "label": "Joss's own finite research and trace response",
+      "actorId": "glasshouse.main.caretaker",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "glasshouse.main.glasshouse.scenes.offer_research",
+          "targetId": "player",
+          "priority": 2
+        },
+        {
+          "commandId": "glasshouse.main.glasshouse.scenes.private_research",
+          "priority": 1
+        }
+      ]
+    }
+  ],
+  "powers": [
+    {
+      "id": "glasshouse.main.glasshouse.observation.notice_power",
+      "revision": 1,
+      "label": "Frame listener notice",
+      "model": "practice",
+      "capacity": 1,
+      "cooldown": 0,
+      "execution": {
+        "all": [
+          {
+            "fact": "faculty.glasshouse.main.glasshouse.scenes.frame_listener.active",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "body.frameSense",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "actor.life",
+            "op": "eq",
+            "value": "alive"
+          },
+          {
+            "fact": "glasshouse.observation.returnSupported",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}

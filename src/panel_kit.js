@@ -5,12 +5,12 @@ const roleIcons = {actions: '⚔', character: '◆', records: '▤', log: '≡',
 
 // Keep discovery, reveal and layout ownership in the workspace registry.
 export function definePanel({id, title, group, role, node, home, discovered, eligible,
-    unavailableReason, settings = [], emptyText, after, defaultDock, perspective}) {
+    unavailableReason, settings = [], emptyText, after, defaultDock, perspective, access}) {
     if (!node.parentNode && home?.append) home.append(node);
     if (!Object.hasOwn(roleIcons, role)) throw new Error(`Unknown panel role: ${role}`);
     let settingsRegistered = false;
     return registerWorkspaceModule({id, title, group, role, node, home, discovered, eligible,
-        unavailableReason: unavailableReason || (emptyText ? () => emptyText : undefined), after, defaultDock, perspective, decorateShell(shell, known) {
+        unavailableReason: unavailableReason || (emptyText ? () => emptyText : undefined), after, defaultDock, perspective, access, decorateShell(shell, known) {
             if (known && settings.length && !settingsRegistered) {
                 settingsRegistered = true; registerPanelSettings({id, title, settings});
             }

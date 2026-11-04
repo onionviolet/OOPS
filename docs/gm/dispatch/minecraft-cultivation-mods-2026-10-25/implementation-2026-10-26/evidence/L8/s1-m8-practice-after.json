@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "lane": "m8-practice-after",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "b5134ed72ccfaed2963de16dc43b637b95561c78de45b52df6ae5d9c52b54789",
+  "gates": [
+    "unspent-absence-bank: native Save/reload/Export/literal-file Import",
+    "spent-absence-receipt: native Save/reload/Export/literal-file Import",
+    "Actual capped/outside display, return to active body, real closed-document absence bank, same-clock spend with actual signed reserve delta and retained bank, literal imports"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

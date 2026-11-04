@@ -1,0 +1,8 @@
+{
+  "src/pledges_domain.js": "dc83d8b676a61a8cbdae617ccb54953823f0c091b9d9a2de3dde13deef85a0b0",
+  "src/pledges_ui.js": "a08cf58078fd0be6d3b9ee8491af16946e46b7cfdecbc426db8073a2aa6df760",
+  "tests/trial_routine.test.js": "05e58a01d6f2c3b633c9b72eaea3c7076b3bcb1b49acc2958d11d4260bf4e2ba",
+  "src/trial_routine.js": "ca239bf1022db7d6ff384eccab37c9d1b75fb1166afbca2803c2f28add14520d",
+  "src/pledges.js": "d9cd9875d7581e61fc5b687d65b4a3aa2f221348c357c7e92019fc6c9a922ed1",
+  "src/pledges_content.js": "595cabe8d0533496e6e12d4eab16c621f4673a1e4a3397350630d113f2281185"
+}

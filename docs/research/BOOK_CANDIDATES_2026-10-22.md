@@ -437,7 +437,7 @@ and 'Animation Illust Works Re:START' are Japanese (section 9).
 | Bleach | Can't Fear Your Own World Vol 1 to 3: Z-Library `16821022`, `16821024`, `16821025`; Bookracy `14c804169` (Vol 1), `869bd57e4`, `a05ad9574` (Vol 2). Spirits Are Forever With You I and II, Japanese: Z-Library `11875564`, `11875563`; Bookracy `336c9b5da`, `d9e910c19` |
 | Naruto | Shikamaru Hiden: Bookracy `b80ce125c`, Z-Library `26736488`. Sakura Hiden: `de11cd3cd`, `26736489`. Konoha Hiden: `da612287d`, `118802365`. Itachi Shinden Book of Bright Light and Dark Night: `613096b6e`, `f6e7cf18d`; Z-Library `17085313`, `17085308`. Sasuke Shinden: `7d91200bc`, `808336663`; Z-Library `17085309`, `26736493` |
 | Fullmetal Alchemist | Under the Faraway Sky (Bookracy `7ad655559`, Z-Library `21926789`), The Valley of White Petals (`b45737526`, `21528120`), A New Beginning (Z-Library `128548413`), The Abducted Alchemist (`21044959`), Land of Sand (held candidate, section 2). Ashes of the Phantom not surfaced |
-| Hunter x Hunter, Jujutsu Kaisen | No official novels surfaced for either |
+| Hunter x Hunter, Jujutsu Kaisen | No official novels surfaced for either (Jujutsu Kaisen superseded 2026-11-03: two VIZ English novels, *Summer of Ashes, Autumn of Dust* and *Thorny Road at Dawn*, are held; see [library index BC7](LIBRARY_INDEX.md#browser-captures-riordan-round-and-arc-cleanup-2026-11-03)) |
 
 ### Bookworm, Dungeon Meshi, Shadow Slave
 

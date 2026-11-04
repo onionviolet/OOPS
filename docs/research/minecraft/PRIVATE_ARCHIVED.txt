@@ -1,0 +1,3 @@
+The untracked `private/` bulk for this folder was archived on 2026-11-03.
+Archive: ~/Archive/yair-research-minecraft-itch-private-2026-11-03.tar.zst
+Restore: tar -I zstd -xf <archive> -C ~/code/yet-another-idle-rpg/docs/research

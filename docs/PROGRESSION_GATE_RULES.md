@@ -22,7 +22,7 @@ It composes existing owners and adds only what none of them covers.
 | [Cheat library US1–US6, ST11–ST17](CHEAT_LIBRARY.md#unlocking-the-optional-start-and-keeping-progression-intact-2026-10-13), [UP1–UP10](CHEAT_LIBRARY.md#more-to-consider-the-status-window-unlock-progress-and-random-starts-2026-10-13) | Start and cheat unlocks, unlock progress | Meta gates (GTR19) |
 | [Shounen world gating G1–G8](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#world-gating-and-similar-world-fixtures-2026-10-17) | Gating worlds by fit | World entry gates (GTR19) |
 | [World pass rules](WORLD_PASS_RULES.md) WPR14, WPR31 | Rank gates in coverage, mechanism over item list | Absorbing gates in a pass (GTR5, GTR7) |
-| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1–WA53, WAC9 | Laws as rules and gate modules | Where absorbed gates land (GTR7) |
+| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA (current range in owner), WAC9 | Laws as rules and gate modules | Where absorbed gates land (GTR7) |
 | [Domain rules](DOMAIN_RULES.md) SLR, CBR, ECR, BHR | Skills and rust, queued outcomes, quotes, bodies | Gate kinds' own mechanisms (GTR3) |
 
 Status: proposed 2026-10-23 from Weibao's request. Defaults for agents; a world
@@ -89,7 +89,7 @@ So a gate here is a mechanism with costs, not a permission lock.
 | GTR24 | **Hiding is a knowledge decision, not a display filter.** An option is hidden because the character cannot know it exists (GTR10, AD6); otherwise it shows as waiting, with what the character can tell about why. | Per world, how much a status window reveals | Silent display filters that make reachable progress look absent |
 | GTR25 | **Credentials are records held by their institution.** A rank, tier, grade or membership is a fact owned by the issuing institution, with its rights and duties, not derived from level; other institutions decide whether they recognise it (GTR8). | Per institution | Rank computed from level, so revocation, forgery and foreign recognition cannot exist ([Paradise RPG48–RPG55](worlds/paradise-hub/PROGRESSION_GATES_2026-10-23.md#8-proposals-p)) |
 | GTR26 | **Attempt limits are adjectives and visible when known.** A gate with limited attempts (trials, exams, breakthroughs) states how often, the cooldown or cost per attempt and the failure ladder, and shows "n of m" where the character would know it (AD22). | Per world and per gate | Unannounced one-strike walls; unlimited free retries that empty the gate of meaning |
-| GTR27 | **A gate module counts once a player journey crosses it.** Descriptor, inspector row and test do not make a gate live; integration does (AR, AGENTS verification). An unwired gate is listed as such in the inventory. | None | Treating `breakthrough_trial`-style unwired modules as shipped progression |
+| GTR27 | **A gate module counts once a player journey crosses it.** Descriptor, inspector row and test do not make a gate live; integration does (AR, AGENTS verification). An unwired gate is listed as such in the inventory.  Common delivery floor and evidence states: [AD43](RULES_INDEX.md#definition-of-done-the-floor-ad43); check selection/reuse: AD36. | None | Treating `breakthrough_trial`-style unwired modules as shipped progression |
 
 ### Found across book worlds (round 3, 2026-10-23)
 

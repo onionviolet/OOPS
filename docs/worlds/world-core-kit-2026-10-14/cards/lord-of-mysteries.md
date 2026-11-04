@@ -1,5 +1,7 @@
 # World core kit: Lord of the Mysteries (2026-10-14, consolidated proposals)
 
+Later bounded case (2026-11-01, source-spot-checked; design proposed): [Utopia engine/UI audit](../../../gm/dispatch/refinement-audits-2026-10-31/UTOPIA_ENGINE_UI_AUDIT.md). Selected primary scenes and community cross-checks identify early contract pressures and later implementation tests; no kit level or runtime coverage is upgraded.
+
 ## CHECKPOINT
 
 Status: documentation consolidation complete, runtime gates OPEN. Writer: W19 (`01a13b8f-dc03-7651-ba36-ba4046e09c77`). Owns this card, cards/README.md and W19_REPORT.md only. Checked at `be8658af29e10467481c5ab9e373d1499ab35084` on `2026-10-14T18:14:05+00:00` against hashed dirty-tree inputs in the report. Last completed: W1-W18 plus W20 row routing, template and contradictions. Next bounded step: owning GM binds one selected profile and its existing OPEN gate. W21-W23 were active at discovery and are excluded from this completed tranche.
@@ -956,3 +958,5 @@ whole-source reading status. Native profile is still a proposed original early
 Tingen branch; no protagonist exception/guaranteed potion entitlement. Full
 digestion/promotion, broad ritual/potion engine and cross-world execution stay
 separate. This is a recommendation, not a new runtime assignment or accepted start.
+
+**Current lead situation/UI planning, 2026-10-31:** [reconciled LOTM coverage](../../../gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md) is the entry point for the scoped cross-chat UI/engine/lore findings, volume-qualified opening table, all-reader-step map and missing work. Offline family assignment is not individual source qualification or current play proof; existing world/rule owners retain authority.

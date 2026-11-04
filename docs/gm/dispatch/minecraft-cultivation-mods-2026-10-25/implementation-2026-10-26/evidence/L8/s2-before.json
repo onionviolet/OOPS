@@ -1,0 +1,11 @@
+{
+  "src/continuation_baggage.js": "e94eeba60f43cfda104d1701e65d84349414db9915d2e6a02ea3d2fe4047d74d",
+  "src/continuation_ui.js": "f9622582c04657c073be436f2e42f6bdff1c2c822a092c8b9ed0cb24bae214bd",
+  "src/home_building_panel.js": "4c463dec07d23accc8c6ac2e32fe345158ca4f37158a90e0f849c69ae66c0ed6",
+  "src/home_household_panel.js": "100222b5e37876f19bfe2224cfc3619a3ab7f66712b930a294d032409a49fcac",
+  "tests/continuation_state.test.js": "019742fb514f5372a44ffeb6a49fc54dc8f7a44429a3e0e14dd508d895bd428a",
+  "src/action_legibility.js": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+  "src/home_work_content.js": "a2676545755aab1f22123dce2366afb253d531b52188d3c6d7ea9b10a029b9eb",
+  "tests/home_household.test.js": "77ef12d50dc0f9f32041a2852f8af3b4d6295520966515a773a3c7c3e92b5480",
+  "src/peer_standing_domain.js": "027aa33028b445410957c20d407c0e464702808a6285f6b9ad7b8aea063330b7"
+}

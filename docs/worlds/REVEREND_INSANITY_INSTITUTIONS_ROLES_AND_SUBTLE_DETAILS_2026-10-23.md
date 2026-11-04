@@ -257,3 +257,16 @@ Not in these windows (searched, WPR23): Gu fighting zones, battle stages, the au
 Corrections and tensions. (1) Bone spike: no error. Fang quoted 7,000 and settled at 6,700 (ch0262 p25-27); 17,920 + 16,000 + 6,700 equals the stated 40,620 (ch0262 p29). Keep quote and sale separate. (2) The third-gate "six hundred" is one total for two people, not per person. (3) Section 4's note that a rank one Gu retails near 220 (strength Gu, ch442) sits beside ordinary rank one at about 250 (ch262 p05); both stand as retail anchors. (4) The recipe offers of 500,000 and 680,000 carry no unit on the line; stones inferred.
 
 Budget used: two Haiku readers (agents `a0b057b5d7dbc7b60`, `abc12854568296ff3`), 7 of 12 allowed responses, 19,000 text words (limit 36,000 total). Still unread: ch259-265 show the outer city and inner districts only to the third inner city; second inner city, courtesan houses proper and Shi Zi's restaurant debt labor are not read.
+
+
+## 16. Gu portfolio and economy interaction routing (2026-10-31)
+
+Research/proposals, not new institutional laws or implementation. The [cross-game comparison, round 2](../research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md#round-2-the-gu-portfolio-and-the-world-economy-2026-10-31) owns X1–X12 and the revised P1 care-and-work trial. Use X7–X10 for payment timing, Gu custody/services, merchant knowledge and recipe access; X1/X5/X6 connect them to feed, productive Gu and refinement downtime. Its B1–B5 current-code crosswalk supersedes broad runtime-absence inferences from this dated pass, without changing the source rows above.
+
+The source profile's C12/C17 keeps caretaking and commissioned refinement separate; food inclusion, healing, liability, control transfer and retrieval terms remain unqualified there. C13 records a future-order request, not proof of payment or fulfillment. C24 records one stock with feed/refinement/sale alternatives. These are relayed from `src/feature_expansion_book_cultivation.js`, not new chapter reads here. Actual provider terms and physical stock need qualification before a later slice uses them. The keeper's stipend coverage, authored rewards and unlimited food grants are not a complete Shang market simulation.
+
+Done state: owner routing and current-status qualification recorded; source/history retained. No institution, new credit service or refinement guarantee was implemented. Proposals remain proposals under AD32. The separate [fan-mod scout](../research/REVEREND_INSANITY_MOD_SCOUT_2026-10-31.md) retains its own findings and ownership.
+
+## 17. Bounded refinement-language qualifier (2026-10-31)
+
+ACCOUNT FOR NOW: [OW3 source note](../gm/dispatch/refinement-audits-2026-10-31/OW3_RI_RESEARCH.md) checks three English compilation windows. Early resistance/partial-progress evidence concerns held-Gu control acquisition; the later battle-will use of refinement is not enough to equate it with creature control or recipe manufacture. Manufacture is not source-qualified by this sample, and no universal time-to-control formula follows. Keep custody, actual control, effort/inputs and learned recipe distinct in future Gu-life/making consumers. Reopen with one exact control/manufacture or battle-will consumer and its meaningful interruption case; no terms, durations, institution guarantees or runtime were added.

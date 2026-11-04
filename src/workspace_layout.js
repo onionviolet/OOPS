@@ -111,16 +111,16 @@ export function setWorkspaceModuleTitle(id, title) {
     }
     updateWorkspace();
 }
-export function registerWorkspaceModule({ id, title, group, role, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason, perspective }) {
+export function registerWorkspaceModule({ id, title, group, role, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason, perspective, access }) {
     const listing = panelListing(id, { title, group, role }); title = listing.title; group = listing.group;
     // UIV1: every module can say what blocks it; the generic line is the last resort, never silence.
     unavailableReason = unavailableReason || (listing.reason ? () => listing.reason : () => 'Not available at this place or story yet'); 
     if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
     const old = registry.get(id);
-    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; old.perspective = perspective; updateWorkspace(); return old; }
+    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; old.perspective = perspective; old.access = access; updateWorkspace(); return old; }
     const placeholder = null;
     const dock = defaultDock || (typeof home === 'string' ? home : home?.dock);
-    const module = { id, title: String(title), group, node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason, perspective }; registry.set(id, module);
+    const module = { id, title: String(title), group, node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason, perspective, access }; registry.set(id, module);
     if (owner) { owner.layout = withDefaults(owner.layout); makeShell(module); updateWorkspace(); }
     return module;
 }
@@ -254,8 +254,14 @@ function revealArmed() {
     if (revealSettledAt == null) revealSettledAt = performance.now();
     return revealGesture || performance.now() - revealSettledAt >= 1200;
 }
+// Optional live scope is separate from sticky discovery and eligibility. It
+// closes a learned panel outside its actual owner without forgetting it.
+function panelAccessible(state,module) {
+    try { return seatAllowsPanel(state,module) && (typeof module.access!=='function'||module.access(state)!==false); }
+    catch { return false; }
+}
 function moduleKnown(module, eligible) {
-    if (!seatAllowsPanel(readPort('expansion'),module)) return false;
+    if (!panelAccessible(readPort('expansion'),module)) return false;
     if (module.known) return true;
     let found; try { found = module.discovered() !== false; } catch { found = false; }
     if (!(found || eligible)) return false;
@@ -288,6 +294,8 @@ const setData=(node,key,value)=>{if(node.dataset[key]!==value)node.dataset[key]=
 export function updateWorkspace() {
     if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
     if (!owner) return;
+    const expired=[...registry.values()].find(module=>module.expanded&&!panelAccessible(readPort('expansion'),module));
+    if(expired){centerModes().close(`workspace:${expired.id}`);expired.returnHome?.();return;}
     const densityToggle=owner.toolbar.querySelector('[data-workspace-action=toggle-density]');if(densityToggle){setProperty(densityToggle,'textContent',owner.layout.density==='compact'?'Compact':'Comfortable');setProperty(densityToggle,'title','Change spacing density. Keeps your chosen font size.');setAttribute(densityToggle,'aria-pressed',owner.layout.density==='compact');}
     setData(owner.root,'presentation',owner.shell&&owner.context==='play'?'proto23-shell':'');
     setData(owner.root,'parity',owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'');
@@ -586,7 +594,7 @@ export function openWorkspaceModule(requested) {
     const {id,section}=foldOf(requested)?.retired?resolvePanel(requested):{id:requested};if(id!==requested){const opened=openWorkspaceModule(id);if(opened)selectSection(id,section);return opened;}
     if(owner?.context==='play'&&id.startsWith('customization'))setWorkspaceContext('authoring');
     if(owner?.context==='authoring'&&!id.startsWith('customization'))setWorkspaceContext('play');
-    const module = registry.get(id); if (!module || !seatAllowsPanel(readPort('expansion'),module)) return false;
+    const module = registry.get(id); if (!module || !panelAccessible(readPort('expansion'),module)) return false;
     if (owner) apply(id, { hidden: false, collapsed: false });
     // A composed workspace parks panels that have no dock of their own (hidden); they open as a center view, as their navigation route does.
     if (module.shell?.dataset.compositionParked === 'true' && expandWorkspaceModule(id)) return true;
@@ -626,7 +634,7 @@ export function setWorkspaceContext(context) {
 
 // Focused views borrow the original node. No layout save, clone or second UI owner.
 export function knownWorkspaceModules() {
-    const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return seatAllowsPanel(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
+    const state=readPort('expansion');return [...registry.values()].filter(m=>{try{return panelAccessible(state,m)&&(m.known||m.discovered()!==false);}catch{return false;}}).map(m=>({id:m.id,title:m.title,group:m.group,perspective:panelPerspective(state,m),eligible:m.eligible()!==false,reason:m.unavailableReason?.()||'Return to the relevant place or finish the current conversation.'}));
 }
 export function expandWorkspaceModule(requested,{title}={}) {
     // COV5/COV12, UR13: a folded id opens its owner (and the owner's tab, when one is named).

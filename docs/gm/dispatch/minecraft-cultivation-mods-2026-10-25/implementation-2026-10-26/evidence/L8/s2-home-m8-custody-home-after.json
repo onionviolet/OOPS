@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "lane": "m8-custody-home-after",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "6118189f2c71b5fa506bf638e832761a0460764f3c84ec5f069032c02d72fd05",
+  "gates": [
+    "accepted-cook-custody: native Save/reload/Export/literal-file Import",
+    "meal-delivered-and-accepted: native Save/reload/Export/literal-file Import",
+    "Actual cook reservations, pending literal import, delivery to Iven kitchen rather than player bag, explicit accept-one transfer and cancellation refund; saved receipt uses unchanged jobs"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

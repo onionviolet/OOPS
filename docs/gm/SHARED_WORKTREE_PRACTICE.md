@@ -82,7 +82,10 @@ commit built from an older HEAD silently reverts whatever landed in between
 
 - Preferred: [commit_own_paragraphs.py](../audits/tools/commit_own_paragraphs.py)
   commits whole own files plus own paragraphs of shared docs, builds from HEAD in
-  a temporary index and moves the branch only if HEAD did not move.
+  a temporary index and moves the branch only if HEAD did not move. Marked
+  paragraphs append by default (headings repeat across rounds); put `--replace`
+  before a marker to update a HEAD paragraph, allowed only when exactly one has
+  the same first line. It prints +/- lines per file and refuses unaccounted removals.
 - Manual method, as a bash script with `set -euo pipefail`:
   1. Read `H=$(git rev-parse HEAD)` immediately before building.
   2. `GIT_INDEX_FILE=<scratch> git read-tree "$H"`, then add only your paths.
@@ -300,3 +303,7 @@ Suite and build share 2 slots, browser has 1 (`--slots N` overrides); locks live
 child's exit code passes through. A command run under a slot sets `YAIRPG_SLOT_HELD`, so a nested `slot_run` does not take a second slot. `node scripts/slot_run.mjs --status` lists holders.
 Focused single-file tests need no slot. Add `--max-load N` (or `YAIRPG_SLOT_MAX_LOAD`) to also hold the gate until
 the 1-minute load average is at or below N; overnight gates use `--max-load 40` so they do not time out under load.
+
+## Finished Q-lane cleanup, 2026-10-31
+
+Six adopted, terminal Q1/Q2/Q3/Q6/Q7/Q8 worktrees were retired under Weibao's current cleanup instruction, with branches retained and verified private recovery archives. The [tooling proposal, round 3](../audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md#round-3-reusable-helpers-built-and-finished-q-lanes-retired) records paths, checks and recovery locations. Other active/unmerged/uncertain lanes remain. This is an execution receipt under AD41, not a new cleanup rule.

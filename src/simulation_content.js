@@ -105,6 +105,7 @@ export const simulationDefinitions = {
     controllers: [...paradiseCampaignDefinitions.controllers,...(molDefinitions.controllers||[]),...(paradiseDefinitions.controllers||[]),...originalFrontierDefinitions.controllers,...pocketSimulationDefinitions.controllers,...exchangeDefinitions.controllers,...promiseDefinitions.controllers,{id: "village.craftsman_controller", revision: 1, label: "Craftsman's work plan", actorId: "oldCraftsman", interval: 1,
         actions: [{commandId:"field.workshop.parts",priority:2,when:requires("actor.field.partsOrder",true)}, {commandId: "village.craftsman_work", priority: 1, when: requires("actor.work.order", true)}]}, ...helperDefinitions.controllers,...fieldDefinitions.controllers],
     events: [...observationDefinitions.events,{id: "village.shower", revision: 1, label: "A short shower reaches the Village workbench", automatic: true, public: true, interval: 12,
+        requires: requires("actor.world", "base.frontier"),
         maxOccurrences: 1, chance: 1, lifetime: 8, mode: "offer", effects: [{type: "world", worldId: "base.frontier", key: "workbench.wet", value: true}],
         responses: [{id: "cover", label: "Cover the bench · 1 coin", costs: [money(-1)], effects: [{type: "world", worldId: "base.frontier", key: "workbench.wet", value: false},
             {type: "relationship", target: "oldCraftsman", axis: "respect", amount: 1, text: "Covered the bench during the shower."}]},

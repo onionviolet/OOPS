@@ -1,0 +1,10 @@
+{
+  "HEAD": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "paths": {
+    "scripts/playtest/shadow-slave-life.mjs": null,
+    "src/book_world_beginning_registration.js": null,
+    "src/main.js": "4cf77e27aed89292ddbaf5c0c97fd6385db0a49c6ead731d655b8ff8e2a93f68",
+    "src/world_packs/book_shadow_slave_life.js": null,
+    "tests/shadow_slave_life.test.js": null
+  }
+}

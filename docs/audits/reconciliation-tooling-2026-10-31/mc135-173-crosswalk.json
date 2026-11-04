@@ -1,0 +1,567 @@
+{
+  "scope": "Incremental source-record mapping of MC135\u2013MC173, not feature implementation or all-world coverage. Exact codes locate source paragraphs; family meanings remain in the original map.",
+  "source_sha256": "0f19a5d4fde1df08ed6155ee2d8e09ae7107e705a20c52cdbed254e61fbfc764",
+  "rows": [
+    {
+      "code": "MC135",
+      "families": [
+        "A"
+      ],
+      "classification": "workflow",
+      "chain": "Per-element producer/owner, body/world/clock, admitted projection, command/use and lifecycle.",
+      "owner_locator": "WA54\u2013WA57; guide section 10; original map",
+      "disposition": "Applied planning contract, not runtime proof. Check that one selected element has a real supplier and consumer; forecasts/records create no command.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC135",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC136",
+      "families": [
+        "A",
+        "P",
+        "X"
+      ],
+      "classification": "constraint",
+      "chain": "Later known requirements can change early resource, carrier/control and revision contracts.",
+      "owner_locator": "AD44\u2013AD46; world plans; WA56",
+      "disposition": "Source horizon remains qualified. Compare an early/late supported operation without leaking later knowledge; name in-flight compatibility risk.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC136",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC137",
+      "families": [
+        "A"
+      ],
+      "classification": "historical dispatch",
+      "chain": "One finite planner produced the original engine map and lead slice brief.",
+      "owner_locator": "ENGINE_UI_PLANNING_BRIEF.md; LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+      "disposition": "Dispatch is historical, not a new launch. Outputs exist; build readiness still depends on the named source/scene/carrier gap and runtime coordinator.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC137",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC138",
+      "families": [
+        "H",
+        "I",
+        "N"
+      ],
+      "classification": "feature refinement",
+      "chain": "Workroom joins actual duty, admitted people, services, work and notes.",
+      "owner_locator": "place_acts.js; LOTM host and lead slice brief",
+      "disposition": "Proposed joined workspace. A known absent provider cannot supply an executable service; keep off-duty reference distinct from presence.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC138",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC139",
+      "families": [
+        "K",
+        "N",
+        "X"
+      ],
+      "classification": "feature refinement",
+      "chain": "Historical address/appointment/method evidence resolves current Visit/Use through era/access owner.",
+      "owner_locator": "Knowledge and navigation owners; LOTM notebook/world plan",
+      "disposition": "Joined route unverified. Stale location/access disables the current route without deleting learned history; test era-qualified destination.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC139",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC140",
+      "families": [
+        "I",
+        "M",
+        "R"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Supervised operation binds actor, supervisor, site, support and physical custody.",
+      "owner_locator": "institution_access.js; cast_making_adapter.js; LOTM brief",
+      "disposition": "Selected source/support and host connection required. Removing supervision changes the actual operation, not retained knowledge; costs/aftermath follow its law.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC140",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC141",
+      "families": [
+        "K",
+        "I",
+        "T"
+      ],
+      "classification": "feature refinement",
+      "chain": "Private note, official job report and published account have distinct writers/recipients.",
+      "owner_locator": "Reports owner; person knowledge; institution command owner",
+      "disposition": "No report-submission mechanism inferred from a reader. Test actual filing once, correct pay/standing/knowledge, and absent-recipient nondisclosure.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC141",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC142",
+      "families": [
+        "I",
+        "S",
+        "T",
+        "N"
+      ],
+      "classification": "feature refinement",
+      "chain": "Region-qualified provider, stock/service, currency/hours and real route feed an offer.",
+      "owner_locator": "Institution/store, custody and travel owners",
+      "disposition": "Second-region service is proposed. Similar names do not merge stock or reset prior terms; revalidate one local offer and preserved commitment.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC142",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC143",
+      "families": [
+        "P",
+        "M",
+        "R",
+        "K"
+      ],
+      "classification": "feature refinement",
+      "chain": "One practical task can have two admitted methods with separate support/cost/result consumers.",
+      "owner_locator": "Selected ability/making/rite owner; world plan",
+      "disposition": "Reopen at a second real method. Compare both committed results and hidden alternatives; future-volume extraction grants no current ability.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC143",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC144",
+      "families": [
+        "A"
+      ],
+      "classification": "workflow",
+      "chain": "Whole-known-source fit \u2192 element contract \u2192 task/sections \u2192 complete loop \u2192 scoped proof.",
+      "owner_locator": "LEAD_LIFE_GUIDE section 10; WA48/WA54\u2013WA57",
+      "disposition": "Procedure already routed. A new selected brief must name supplier, command/use, world exception and evidence; no universal new schema.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC144",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC145",
+      "families": [
+        "A"
+      ],
+      "classification": "historical dispatch",
+      "chain": "World plans return shared-engine requests before bounded feature implementation.",
+      "owner_locator": "PRIORITY_WORLD_UI_PLANNING.md; coordinator",
+      "disposition": "Historical wave limits remain with their records; later scoped extensions are not a fresh runtime budget. No planner per checkbox or auto-launch of remaining worlds.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC145",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC146",
+      "families": [
+        "P",
+        "K",
+        "X"
+      ],
+      "classification": "feature refinement",
+      "chain": "Current executable method version is distinct from historical learning and borrowed/granted support.",
+      "owner_locator": "ability_records.js; world pathway/source owners; LOTM plan",
+      "disposition": "Joined transition unverified. Advance or lose support, quote current ability/use, retain the earlier learning record; rank label grants no full ability set.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC146",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC147",
+      "families": [
+        "K",
+        "B"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Present belief/recall can differ from an earlier physical report or witnessed receipt.",
+      "owner_locator": "Person-memory/knowledge owner; selected world effect",
+      "disposition": "No general mind-control backend established. Qualify effect/carrier/expiry; test a changed response without overwriting historical evidence or revealing its hidden cause.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC147",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC148",
+      "families": [
+        "R",
+        "K"
+      ],
+      "classification": "feature refinement",
+      "chain": "Intended addressee, actual response and verified identity are independent.",
+      "owner_locator": "Rite/report and identity-evidence owners",
+      "disposition": "Existing reply is not proof of delivery or identity. Qualify one request and inspect refusal/silence/answer cost and admitted attribution.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC148",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC149",
+      "families": [
+        "B",
+        "S",
+        "P"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Ongoing harm belongs to its actual body, object, source or supported connection.",
+      "owner_locator": "harm_state.js; body/custody/source owners",
+      "disposition": "Carrier-specific treatment/transfer not established here. Test one supported case; body or item transfer must not imply clearing every independent cause.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC149",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC150",
+      "families": [
+        "X",
+        "K",
+        "S"
+      ],
+      "classification": "feature refinement",
+      "chain": "Observation, messaging, object transfer and bodily crossing are separate boundary operations.",
+      "owner_locator": "Passage/knowledge/custody owner; LOTM plan",
+      "disposition": "Selected connection needs qualification and real commands. Information-only reach permits no physical transfer; refuse unsupported operation without disclosing hidden destination.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC150",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC151",
+      "families": [
+        "S",
+        "P",
+        "B"
+      ],
+      "classification": "feature refinement",
+      "chain": "Passive handling consequence and deliberate activation have distinct triggers/stop routes.",
+      "owner_locator": "Equipment/item event and ability/effect owners",
+      "disposition": "Qualified effect consumer required. Inspect/equip/move/activate/remove through actual events; unimplemented effect remains a gap, not active warning fiction.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC151",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC152",
+      "families": [
+        "A"
+      ],
+      "classification": "standing-contract routing",
+      "chain": "Per-element suppliers, exceptions, later-source pressure and coordinated writes.",
+      "owner_locator": "WA54\u2013WA57 in WORLD_ABSORPTION_RULES",
+      "disposition": "Standing authority is in WA, not this palette. A shared fixture demonstrates that seam\u2019s scoped behavior; second-world lore and delivery remain separately qualified.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC152",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC153",
+      "families": [
+        "A"
+      ],
+      "classification": "coordination",
+      "chain": "Reconcile HP and LOTM shared-owner integration requests.",
+      "owner_locator": "LOTM_HP_LORE_AND_ENGINE_REVIEW.md; both world plans",
+      "disposition": "Joint review exists; selected implementation still needs assigned writer and current readiness. No complete seven-book/whole-trajectory proof inferred from bounded samples.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC153",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC154",
+      "families": [
+        "A",
+        "M",
+        "K"
+      ],
+      "classification": "readiness correction",
+      "chain": "LOTM document packet needs source/scene/carrier; HP bounded assessed repair lacks its current route/persistence proof.",
+      "owner_locator": "Joint review JR1\u2013JR12; lead slice brief; HP_UI_ENGINE_PLAN.md",
+      "disposition": "Planning readiness correction retained. Verify the actual physical carrier and scene admission for LOTM; keep HP authored result/proof distinct from the before-letter candidate.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC154",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC155",
+      "families": [
+        "R",
+        "P",
+        "A"
+      ],
+      "classification": "constraint",
+      "chain": "Procedure, mechanism, hypothesis and implemented degree have separate evidence.",
+      "owner_locator": "WA58\u2013WA60; selected rite/operation owner",
+      "disposition": "A debate is a research lead, authored odds are not canon. Hold means/context fixed while qualifying one changed input; distinguish attempt, transformation and usable control.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC155",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC156",
+      "families": [
+        "M",
+        "S",
+        "K"
+      ],
+      "classification": "constraint",
+      "chain": "Visible structure and useful restoration/destruction are distinct practical outcomes.",
+      "owner_locator": "Joint review; HP repair plan; LOTM physical/knowledge owners",
+      "disposition": "Selected output needs a functional receiving consumer. No universal repairability flag or erasure inverse; preserve actual retained knowledge/history.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC156",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC157",
+      "families": [
+        "A"
+      ],
+      "classification": "standing-contract routing",
+      "chain": "Community-source qualification and operation/context/result distinctions.",
+      "owner_locator": "WA58\u2013WA60; guide source-exception supplement",
+      "disposition": "Rule routing already applied. Validate actual edition/member/paragraph crosswalk for a selected source; chapter number is not EPUB ordinal proof.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC157",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC158",
+      "families": [
+        "A"
+      ],
+      "classification": "coordination",
+      "chain": "JR1\u2013JR12 amend selected world briefs; newer MCs need incremental mapping.",
+      "owner_locator": "Joint review; existing map and world briefs",
+      "disposition": "This supplement closes the mapping request at MC135\u2013MC173, not the underlying feature gaps. Keep LOTM carrier/entry and HP bounded repair proof separate.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC158",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC159",
+      "families": [
+        "A"
+      ],
+      "classification": "historical dispatch",
+      "chain": "One dedicated new lore-exception research chat with exclusive outputs.",
+      "owner_locator": "LORE_EXCEPTION_RESEARCH_ROUND2_BRIEF.md; research report",
+      "disposition": "Research outputs exist. Preserve original scope and exclusions; this row grants no successor, runtime or paid fallback.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC159",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC160",
+      "families": [
+        "A",
+        "P",
+        "K",
+        "I"
+      ],
+      "classification": "source-question routing",
+      "chain": "Qualified perception/reach, temporary power, body agency, custody/attribution and agreements.",
+      "owner_locator": "LORE_EXCEPTION_RESEARCH_ROUND2.md; LR2-L1\u2013L3 and LR2-H1\u2013H3",
+      "disposition": "Questions are not asserted canon or six shipped mechanics. Reuse qualified findings and their limits; each selected consumer needs its distinguishing scenario.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC160",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC161",
+      "families": [
+        "A"
+      ],
+      "classification": "workflow",
+      "chain": "Record assumption, evidence/gap, affected contract, compatibility risk and reopen trigger in incumbent world plan.",
+      "owner_locator": "LORE_EXCEPTION_WORKFLOW_AMENDMENTS.md; guide; WA48\u2013WA60",
+      "disposition": "Long-term retention applied through named owners. Amendments remain scoped proposals unless standing direction adopts them; no all-world lore gate.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC161",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC162",
+      "families": [
+        "T",
+        "H",
+        "M"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Room design/revision, interior/exterior time, volume, occupants and supply determine the selected operation.",
+      "owner_locator": "MOL_DND_LORE_EXCEPTION_REVIEW.md MD1; MoL WORLD_BRIEF",
+      "disposition": "Prepared source distinctions, no full room host proved. Test changed admitted volume and blocked external resupply; energy curve/shutdown remain qualified gaps, not a global clock multiplier.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC162",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC163",
+      "families": [
+        "X",
+        "K",
+        "T"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Current endpoint pair and admitted live coordination enable a route.",
+      "owner_locator": "MoL/D&D review MD2; MoL world brief",
+      "disposition": "Prepared relay does not prove a later channel. A stale expedition report cannot satisfy current endpoint/communication requirements; test availability loss.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC163",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC164",
+      "families": [
+        "C",
+        "K",
+        "P",
+        "T"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Autonomous worker, shared payer/fuel and independently delivered knowledge.",
+      "owner_locator": "MoL/D&D review MD3; MoL world brief",
+      "disposition": "Worker mechanism not established by current visitor. Remove worker before report delivery: actual fuel spend remains without auto-publishing private discoveries.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC164",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC165",
+      "families": [
+        "P",
+        "B",
+        "T"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Suppression/function, elapsed duration, concentration and object layers use selected rules profile.",
+      "owner_locator": "MoL/D&D review MD4; D&D foundation",
+      "disposition": "No universal suppression implementation proved. Expire during suppression, reload, then leave; elapsed effect does not restart; preserve qualified exceptions.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC165",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC166",
+      "families": [
+        "P",
+        "X"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Resource recovery depends on actual method, participants and rules revision.",
+      "owner_locator": "MoL/D&D review MD5; D&D foundation",
+      "disposition": "Revised/SRD/supplemental methods stay distinct; uninspected recharge lead remains unresolved. Compare named method/profile, active copies and payer without importing MoL fuel law.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC166",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC167",
+      "families": [
+        "P",
+        "T",
+        "A"
+      ],
+      "classification": "source-dependent refinement",
+      "chain": "Self-dependent suppression can form a future event dependency cycle.",
+      "owner_locator": "MoL/D&D review MD6; incumbent ruling ledger",
+      "disposition": "Ruling unresolved, not a current reproduced loop defect. Reopen exact combination; bounded atomic settlement and round trip, no invented flicker or penalty.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC167",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC168",
+      "families": [
+        "A"
+      ],
+      "classification": "workflow",
+      "chain": "Retain method-stage/source/dependency findings in world-specific owners.",
+      "owner_locator": "MoL WORLD_BRIEF; D&D foundation; guide section 10",
+      "disposition": "Routing recorded, not comprehensive MoL/D&D planning or runtime. Existing retained visitor gains no implicit canonical reset; no rules selector inferred.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC168",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC169",
+      "families": [
+        "A"
+      ],
+      "classification": "coverage correction",
+      "chain": "Identified, UI-specified, engine-connected and journey-verified have distinct denominators.",
+      "owner_locator": "UI receipt round 14; field/system matrix; per-world plans",
+      "disposition": "An identified family is not a specified or playable feature. Reconcile one pinned situation window and report unmapped residue; no all-player-combination completeness claim.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC169",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC170",
+      "families": [
+        "K",
+        "N",
+        "V"
+      ],
+      "classification": "cross-screen constraint",
+      "chain": "Filter admitted results before badge/search/facet/accessibility/return aggregates.",
+      "owner_locator": "observer_view.js:observerView; change_badges.js:registerChangeCounter/pollBadges/paintBadge",
+      "disposition": "Candidate seam inspected; no current leak newly demonstrated. Change undisclosed state while admitted facts stay fixed; aggregate and detail output should agree without disclosing it.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC170",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC171",
+      "families": [
+        "T",
+        "M",
+        "I",
+        "K"
+      ],
+      "classification": "cross-owner constraint",
+      "chain": "One operation settlement ties consumed material, result/evidence, provider/payment and unfinished duty.",
+      "owner_locator": "simulation.js completionSupport; simulation_effects.js:applySimulationEffects",
+      "disposition": "Incumbent one-job policy is not arbitrary multi-phase work. Remove support after irreversible work, before delivery; actual owners settle once across reload/import without blanket refund/undo-learning.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC171",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC172",
+      "families": [
+        "P",
+        "X",
+        "K"
+      ],
+      "classification": "run-mode constraint",
+      "chain": "Practical eligibility, disclosed mode restriction and unsupported implementation are separate reasons.",
+      "owner_locator": "Lead-life guide; actual pack/constraint and command owners",
+      "disposition": "No runtime recheck or new free-play toggle here. Compare selected lead and qualified alternative fixture, preserving mechanical means/edition and unknown future events.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC172",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    },
+    {
+      "code": "MC173",
+      "families": [
+        "A"
+      ],
+      "classification": "coverage workflow",
+      "chain": "Pinned source situation/method/stage \u2192 intent \u2192 producer/command/result \u2192 UI/control/return \u2192 failure/alternative \u2192 proof/gap.",
+      "owner_locator": "Existing lead field/system matrix, crosswalk/replay records and world plans",
+      "disposition": "Selected-window reconciliation remains a proposed next task. Reuse incumbent rows; inspect mismatches and account for each residue ID without duplicating a source census.",
+      "source": "UI_FEEDBACK_AUDIT_RECEIPT.md",
+      "source_code": "MC173",
+      "verification": "source-record reconciliation; no runtime revalidation"
+    }
+  ]
+}

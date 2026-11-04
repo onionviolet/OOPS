@@ -4,6 +4,8 @@
 
 [Roblox adaptation audit, 2026-10-26](research/ROBLOX_ANIME_SCOUT_2026-10-26.md): F1-F34 screen including distinct Re:Zero incrementals, Reverend Insanity projects, Shadow Slave and other anime/novel adaptations; source-labelled evidence, existing-system crosswalk and O1-O12 proposals. Round 2 revises the initial ranking toward maintained powers, composed methods and branching continuity. Desk research; no runtime dispatch.
 
+[RI cross-game mechanics comparison, 2026-10-31](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md): fourteen game/mod references; latest [round 2](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md#round-2-the-gu-portfolio-and-the-world-economy-2026-10-31) connects Gu upkeep, work, combinations, refinement, stock, services and cash timing (X1–X12), with a revised connected P1 trial. Source-spot-checked research with documented external additions, no implementation or priority change; complements the separately owned [fan-mod scout](research/REVEREND_INSANITY_MOD_SCOUT_2026-10-31.md).
+
 [Gameplay loops and world ideas, 2026-10-26](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md): Proto23 and other saved game-loop research, thirteen book-world source families, original-world/test-bed ideas, shared-system audit ideas, OOPS's proposed moment/session/life loops and five concrete next-slice candidates. A readable guide to existing owners and proposals, not another build queue.
 
 [Ideas left inventory, 2026-10-25](audits/IDEAS_LEFT_INVENTORY_2026-10-25.md): D5 proposal crosswalk, remaining audit/world/chat ideas and ranked next playable slices; existing owner codes retained.
@@ -492,6 +494,8 @@ The [bookshelf detail map](#bookshelf-detail-map-2026-10-03) routes the newly pr
 ## Direction and progression
 
 [Bookshelf inspiration, 2026-10-03](BOOKSHELF_INSPIRATION.md) refines I01–I03/I05–I14/I16–I18/I24–I26/I28/I33/I36/I39 through the live 74-title discovery inventory and 21 inspected premises, with two copying-power scenes. It adds source-bounded acquisition, foreknowledge, institutional, collaborator and world-complementarity comparisons, plus five unselected playable proof candidates. Existing detail owners retain their specifications; this research adds no gameplay, favorite roster or implementation order. [User request](USER_VISION.md#bookshelf-inspiration-and-trope-absorption-2026-10-03) owns provenance.
+
+[Royal Road shelf inspiration, 2026-10-30](ROYAL_ROAD_SHELF_INSPIRATION_2026-10-30.md) clusters Weibao's 189 Royal Road follows and favorites by mechanism (RRF1-RRF10: cozy jobs, crafting paths, rule-testing, loops, ledgers, crossings, nonhuman bodies, System screens, lives beside the lead, canon fanfiction) and proposes how each shows on screen (RUI1-RUI12, built on the existing gathering and home panels). Proposal only; titles only, the dated list stays private.
 
 ## Bookshelf detail map, 2026-10-03
 

@@ -116,7 +116,7 @@ function finishFight(plan, registry, result) {
         const vitals = id === 'player' ? plan.vitals.player : state.simulation.people[id]?.vitals;
         if(vitals) {vitals.health = Math.max(1, Math.min(vitals.max_health ?? f.maxHp, f.hp)); vitals.stamina = Math.min(vitals.max_stamina ?? f.maxStamina, f.stamina);}
     }
-    plan.native = {hpToFull: plan.vitals.player.max_health - plan.vitals.player.health, staminaToFull: plan.vitals.player.max_stamina - plan.vitals.player.stamina};
+    stagePlayerVitals(plan);
     const held = Math.min(TEMPO_DIALS.heldCapMinutes.value, (b.held || 0) + takeTempoHold());
     const facts = state.actors.player.facts;
     facts[TEMPO_FACT_HELD] = Math.min(TEMPO_DIALS.heldCapMinutes.value, (facts[TEMPO_FACT_HELD] || 0) + held);
@@ -139,6 +139,14 @@ function finishFight(plan, registry, result) {
     delete state.simulation.sessions.player;
 }
 const publishers = {won: finishFight, lost: finishFight, withdrawn: finishFight, yielded: finishFight};
+
+// The existing native transaction writes these offsets into the save before
+// publishing them to the live character. Stage them for every visible turn,
+// as well as settlement, so the fight and the character share one health.
+function stagePlayerVitals(plan) {
+    const v = plan.vitals.player;
+    plan.native = {...plan.native, hpToFull: v.max_health - v.health, staminaToFull: v.max_stamina - v.stamina};
+}
 
 function resolveEnd(b, publish, mover, moverId) {
     const theirs = active(b, 'b').length;
@@ -249,6 +257,7 @@ function runMove(plan, registry, command, publish) {
     // One home for the player's contest vitals (R3-C11): every view reads the same value while the fight is open.
     const mine = b.fighters.player, pv = plan.vitals.player;
     pv.health = Math.max(1, Math.min(pv.max_health ?? mine.maxHp, mine.hp)); pv.stamina = Math.min(pv.max_stamina ?? mine.maxStamina, mine.stamina);
+    stagePlayerVitals(plan);
     if(move.kind === 'yield' && !mishap && f.status === 'left') publish(f.side === 'a' ? 'yielded' : 'won');
     else resolveEnd(b, publish, f, id);
 }

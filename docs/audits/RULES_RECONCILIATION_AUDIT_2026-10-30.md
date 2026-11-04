@@ -171,3 +171,155 @@ Open questions for Weibao: Q1 (Luna effort, A2), Q2 (SEAL codes and their prefix
 ## Checks
 
 Recorded in the final report of the session that wrote this file; see `npm run check:rules` and `npm run check:docs` output for this file and the 12 drift-fix files. Other sessions' files already fail `check:docs` and are out of scope here.
+
+## More to consider, round 2: live owners and caller drift (2026-10-31)
+
+Requested by Weibao after the October 30 work: consider the newly reconciled areas, their little interactions and a dedicated UI refinement audit. These are observations and proposals, not accepted rules (AD32). This pass read the current owners, selected callers and named receipts; it did not measure agent behavior or run the rules suite. The [broader review](REFINEMENT_PRIORITIES_2026-10-31.md#round-2-cross-system-interactions-and-reconciled-owners-2026-10-31) owns the ranked synthesis.
+
+| Code | Observation | Disposition |
+| --- | --- | --- |
+| RFX1 | **Correction to F3 above:** `UIV5` does exist as the [round-7 UI check](UI_DESIGN_CORE_AUDIT.md#round-7-2026-10-26-general-ui-after-the-parallel-wave), comparing visible text across save and import. The [acceptance packet](UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md#rulebook-upkeep-round-9) explicitly says it is a check, not a rule. It is therefore correct to omit it from a list of binding UI rule codes, but incorrect to say nobody used or defined the identifier. | Keep the identifier with its existing check; do not invent a new rule under it. Apply it when display or persistence behavior makes the comparison useful. |
+| RFX2 | `.claude/rules/player-ui.md` still names RPT1-RPT12, while the [UI rules](../UI_RULES.md#scene-and-report-rules-sui-rpt) and index also carry standing RPT13-RPT14. The path rule links the full rulebook and router, so this is a stale abbreviated range, not proof that a worker missed the later rules. | Next scoped instruction upkeep can update the abbreviated range and its dates, preserving the distinction between original and later standing lines. A narrowly targeted range check should allow intentional subsets and historical snapshots instead of treating all older ranges as errors. |
+| RFX3 | `UI_RULES` UR2 says Weibao promotes unaccepted features; DESIGN.md describes readiness for the main surface; AD42 makes human review optional. These concern direction, surface placement and verification, but read together can be mistaken for a new human sign-off on every implemented UI. | Honor explicit feature/surface direction and mark new design ideas as proposals; an authorized slice with the required agent-side evidence does not acquire a separate mandatory human taste gate. Clarify wording in the proper rule owners, without changing user direction or silently promoting proposals. |
+| RFX4 | [SAVES G1](../SAVES.md#6-open-gaps) asks whether unknown retired IDs should be dropped or an import refused, while Weibao's recorded [2026-10-18 decision](../USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18) already describes dropping an unknown content ID with a log line. The audit calls the current general implementation gap an inference, not a reproduced end-to-end defect. | Do not ask him to repeat the established default. Reproduce a retired ID and distinguish it from malformed, future-version or required cross-owner state; preserve the stored save on a failed import. A materially different compatibility choice still needs its own explicit decision. |
+| RFX5 | SAVES G8 says AGENTS, MR33 and AR6 all read as strict migration guarantees. Current AR6 says a compatibility decision may reset/drop old state; AGENTS offers migration **or** an explicit compatibility decision; the MR33 table's older text is immediately qualified by the documented 2026-10-17 override. | A reader must see both the original line and its override. Keep new-state round-trip, literal Import and protection of private saves; do not turn preservation of every old save into a universal new gate. Update the stale G8 wording when its owner next reconciles the section. |
+| RFX6 | [BALANCE](../BALANCE.md) correctly indexes adjustable dials and calls its numbers implemented defaults or proposals, but its final line says setting a felt-outcome target is Weibao's call. AD32 separates an agent's proposal from accepted direction; the project role also lets an implementer choose reversible prototype defaults. | For a selected slice, propose a world-specific range and observable comparison with a reason; invite feedback without treating routine tuning as mandatory approval. Do not impose equal difficulty, anti-exploit targets or one number across worlds. |
+| RFX7 | The [systems front door](../systems/README.md#cross-cutting-owners) still said DESIGN.md was on an unmerged branch after `1f40dd9e4` landed, and its S17 row called it in progress. The separate writing draft is older than later implementation changes. | Corrected the front-door status from git and linked DESIGN.md. Keep the voice draft proposed and recheck any implementation claims before incorporating it. Other rows remain October 30 snapshots. |
+| RFX8 | The RPT13 test matches literal source shapes and compares against a global set of voiced place names; it does not exercise a newly added world ID, its event carrier, and the useful control as one route. RPT13 itself permits stated exceptions. | When extending this coverage, test a real world descriptor and event against its own start/work location and reachable control. Include two worlds with a shared place name and a permitted no-voice case; do not invent a new registry solely for the test. |
+
+**ACT NOW (done).** RFX1-RFX8 recorded; the live DESIGN front-door status was corrected; the misattributed before/after screenshot was corrected in [CG3](UI_CAPABILITY_GAPS_2026-10-30.md#gaps). No rule was changed, no worker was sent and no runtime behavior was changed.
+
+**ACCOUNT FOR NOW.** Start from user direction, then the owning rule and actual caller. Separate a historical audit claim from live code; a rulebook name, source lookup or passing proxy test is not runtime coverage. Keep save-integrity and private-save boundaries even when old-save migration is deferred.
+
+**LATER / DELEGATE.** RPT caller-range pointer (Luna low, small): update the one path rule and check the cited ranges when that instruction area is owned. Unknown-ID behavior (Sol medium, small after a synthetic end-to-end reproduction): the intended retired-ID case drops and logs without corrupting the stored save; malformed or future envelopes retain their own guards. RPT13 coverage (Sol medium, small): the test fails on a world whose only apparent voice belongs to another world and passes a stated generic exception. Reopen each when a corresponding save, UI or rule-maintenance slice is selected; none blocks an unrelated playable slice.
+
+**Independent audit follow-through, 2026-10-31.** The [systems receipt](../gm/dispatch/refinement-audits-2026-10-31/SYSTEMS_RULES_AUDIT_RECEIPT.md#reconciled-routing-versus-runtime-follow-through) separates stale owner pointers from runtime gaps. The front door's rune row was corrected to the consolidated owner. Ordinary unknown simple inventory items already warn and skip; equipped and special IDs still need separate loader checks. Making rules already apply globally, while their automatic path pattern misses some rune, mixture and potion filenames. The second world-dial target is rejected today, making its missing target filter a future extension risk. No rule text or current compatibility decision changed.
+
+
+## Round 3: are the rules reconciled in the right places? (2026-10-31)
+
+Weibao: "Are all the rules reconciled in the right places and more?"
+
+**Answer: the main ownership structure is sound, but reconciliation is incomplete.** This is an audit under AD32, not adoption of the outstanding merge proposals or authorization to implement them. This round changes this audit record; rulebooks, runtime, saves and other sessions' edits remain as found. The instruction-audit and more-to-consider skills guided the pass. WPR2, WPR4, WPR22, WPR27 and AD36 apply as relevant audit guidance, preserving WPR's proposed status.
+
+Scope: startup documents, the complete rules index and path-rule text, selected live rule/provenance sections, earlier reconciliation findings and the checker implementation. A bounded structural scan covered 38 startup/registered-owner Markdown files and 974 relative link occurrences. A separate scan checked the maxima of 27 registered code families, including mixed ranges and three-letter families. This is not a fresh semantic reading of every rulebook, a cross-client auto-loading trial, or a gameplay compliance verdict. Evidence is the shared dirty checkout on October 31; later edits can change these findings.
+
+### Verified findings and dispositions
+
+| Code | Finding and evidence | Consequence and disposition |
+| --- | --- | --- |
+| RRV1 | **The latest direction has reached its core owners.** USER_VISION's October 31 top-down, LOTM-first and shared-engine requests agree with VISION_DIGEST, PROJECT current focus, LEAD_LIFE_RULES A, AD44–AD46, WA54–WA57 and LEAD_LIFE_GUIDE section 10. WA54–WA57 cite the actual request; earlier WA42–WA47 and WA51–WA53 remain marked proposed. | Keep this chain. Whole-known-source design does not require finishing all late systems before an early complete loop, and LOTM's mechanics do not become a template for other worlds. No new standing rulebook is needed. |
+| RRV2 | **Model-effort wording still disagrees.** AU5 and research-and-agents.md name Luna medium; the working agreement supplied in this chat names gpt-6-luna low for bounded work. The original F6/Q1 remains a documentation conflict. | For this chat, the supplied user instruction resolves the default to low when delegation is authorized. Do not ask Weibao to repeat that preference. Align the stale project copies in a scoped instruction edit; preserve substantive-judgment escalation and the finite usage budget. No agent was spawned in this audit. |
+| RRV3 | **The rules checker can pass a nonexistent UI citation.** Its register parser requires a whole-cell two-letter range; the UI cell contains standing/proposed qualifiers and is skipped. Its citation loop then warns that it cannot verify UR. Three-letter and mixed-family register cells are also outside that parser; citation checking uses a limited prefix list. | Disposable negative probes inserted UR999999 and AD999999 into the same router row. UR999999 passed with 13 cannot-verify-UR warnings; AD999999 failed as expected. Improve the existing checker rather than adding another universal gate. A green result currently proves its stated subset. |
+| RRV4 | **Two owner-navigation links are broken outside the index.** LEAD_LIFE_SYSTEMS_DESIGN line 650 links ../../TIMELINES_AND_DIVERGENCE.md, resolving under docs/gm instead of docs. The systems front door S15 links #s15-seeded-generation-gen_kit, while the heading's anchor is #s15-seeded-generation-genkit. | Correct targets are ../../../TIMELINES_AND_DIVERGENCE.md and #s15-seeded-generation-genkit respectively. These were manually checked after the bounded scan; they are source navigation defects, not evidence of missing mechanics. Neither is checked by the index's own-link scan. |
+| RRV5 | **WA summaries have drifted again.** WORLD_PASS_RULES line 20, WORLD_ENTRY_RULES line 25 and PROGRESSION_GATE_RULES line 25 advertise WA1–WA53 for the whole absorption book; the owner and register now reach WA57. | Update these summaries in the next scoped reconciliation. Keep historical snapshots and intentional subsets intact. The independent range scan found matching registered maxima across the 27 scanned families; apparent LSD15/LSD25 gaps were parser-shape misses, manually resolved to their plain-text definitions. |
+| RRV6 | **Consolidation is still partly a proposal, and the lint result is not an all-clear.** O1–O22 were an overlap map, not a completed merge. Core principles and delivery proof still have several restatements; DESIGN's readiness text overlaps UI_RULES. npm run check:docs fails on the current tree and implements wording/provenance checks, not link validation, despite the systems front door's update note saying it covers links. | Preserve useful domain applications and stable codes. Treat the remaining aliases/tiering/consolidation as proposals under AD32. Inspect lint diagnostics individually: a flagged source quotation or factual capability statement is not automatically an invalid design constraint. Do not claim all docs or links are clean. |
+
+### Earlier observations that are now closed at source level
+
+RFX2's Reports range is current in player-ui.md: RPT1–RPT14 with the dates split. RFX3's UR2 wording now recognizes existing authorization and optional human review under AD42. RFX4/RFX5 are reflected in SAVES G1/G8: the decided retired-ID default is drop and log, old MR33 wording is read with its override, and real-loader coverage remains a separate gap. RFX7's DESIGN and rune front-door pointers are current. The making path rule now includes potion, dose, mixture, rune and brew patterns. These observations do not establish runtime correctness or prove every filename matches a path rule.
+
+### More to consider: keep the next correction small
+
+**ACT NOW (done):** rechecked current owners, separated resolved findings from open ones, ran structural diagnostics and a checker negative control, and appended this round to the existing audit owner. No rule meaning changed.
+
+**ACCOUNT FOR NOW:** resolve precedence from the supplied user direction; keep direction, representation, runtime implementation and proof distinct. CLR9's no-commit instruction remains binding for its lanes, but its sandbox-cannot-write-.git rationale is not a current capability guarantee in this unrestricted host. DESIGN's "all six" readiness list should explicitly group DSG6–DSG11: DSG6–DSG10 occupy one table, while DSG11 is separated by a blank line. Neither observation authorizes dropping a user constraint or promoting a proposal.
+
+**LATER / DELEGATE (proposals, no dispatch):** repair the existing rules checker first (Sol medium, small; detect a bogus UR citation and a three-letter-family drift while preserving standing/proposed subsets). Follow with the two link corrections and three WA summaries (Luna low, small; bounded link/range scan clean). Consolidate overlapping wording when that owner is selected (Sol medium; preserve codes, authority and domain exceptions, and compare a routine UI task with a world-source task). These are maintenance opportunities, not prerequisites for unrelated gameplay.
+
+### Checks and limits
+
+- npm run check:rules: PASS, 29 register rows, 46 AD codes and 167 relative index links, with 17 warnings; receipt check PASS, 18 receipts and 317 explicit legacy paths skipped. The warnings include the UR verification gap above.
+- npm run check:docs before this append: FAIL on existing shared-tree additions, including the WA register provenance diagnostic and many absolute-word diagnostics. This is a wording diagnostic, not a semantic conflict count.
+- Disposable RULES_INDEX_ROOT probes: UR999999 exit 0; AD999999 exit 1. Temporary shadow roots were removed; the real index was unchanged.
+- Independent register scan: 27 families have matching maxima; LSD15/LSD25 exist in plain-text definitions missed by the simple scanner. Bounded link scan: 38 files, 974 relative links, two manually confirmed defects listed in RRV4. The checker's slug rules were reused; no live-renderer link-click trial was run.
+- No gameplay build, full runtime suite, app installation, browser run, private-save access, commit or push. Those checks do not answer this audit's structural question.
+- Post-append npm run check:docs: FAIL, 135 diagnostic lines in the shared tree, zero in this audit. git diff --check scoped to this audit: PASS. Other sessions' changes were preserved.
+
+## Round 4: reconciliation applied (2026-10-31)
+
+Weibao selected the fixes and owner reconciliation without changing accepted direction (AD32; [request](../USER_VISION.md#rule-owner-reconciliation-without-direction-changes-2026-10-31)). This supersedes round 3's open source-level findings for the paths below, not its historical observations. No runtime behavior or private saves changed.
+
+| Code | Applied disposition | Owner |
+|---|---|---|
+| RRV1 | Latest top-down and world-specific direction retained. No proposed WA or DSG lines promoted. | USER_VISION, AD44–AD46, WA54–WA57 |
+| RRV2 | Luna low now agrees across AU5 and the research path rule; named difficulty still permits explicit escalation. | AU5 and portable working agreement |
+| RRV3 | Checker parses mixed and three-letter families, combines the named owners, recognizes plain-text definitions and validates citations for discovered families. Auxiliary UIV definitions are included. | scripts/check_rules_index.mjs |
+| RRV4 | Corrected the timeline relative path and S15 anchor. Checker now follows registered-owner/startup/front-door links relative to their source, extending protection beyond index links. | Lead-life systems design and systems front door |
+| RRV5 | Three whole-book WA summaries point to the current range in their owner, avoiding another copied maximum. | World-pass, entry and progression-gate rulebooks |
+| RRV6 | Core digest points to GROUND_RULES instead of repeating authority/process; runtime floor routes to AD43 and check selection to AD36. DESIGN's six checks form one table and link interaction owners; UR2/AD42 retain authorization/review semantics. RPT7 aliases SUI4. Shared-principle routing now includes screen meaning, readers, custody/freeze and NPC domain applications. | GROUND_RULES, RULES_INDEX, UI_RULES, DESIGN |
+
+ACT NOW (done): the fixes above; removed CLR9's stale sandbox explanation while retaining its lane no-commit policy. Corrected the front door's claim that check:docs validates links. Preserved unrelated dirty work; no staging, commit or push.
+
+ACCOUNT FOR NOW: registered-owner link checks are deliberately bounded, not a recursive scan of every palette or historic report. Code ranges do not establish semantic consistency or runtime behavior. Missing definitions still warn for legacy owner shapes; the real register has no such warning after these changes. The dated LSD proposal owner remains a warning rather than being moved and breaking its historical role. Proposed PRF/FND prompts remain prompts, not extra stop gates.
+
+LATER / DELEGATE: consider a narrowly scoped caller-range check when another real drift appears (small, Sol medium; distinguish full-owner summaries from accepted/proposed or historical subsets). Do not compare every abbreviated citation with the owner's maximum. Under AD32, broader O1–O22 alias proposals remain a palette: shared domain applications keep their additions, and this pass does not flatten them into one universal rule or promote earlier proposals.
+
+Verification: the existing checker suite was extended with meaningful negative controls for bogus UI citations, three-letter range drift and owner-relative anchors, plus a passing standing/proposed split. Six focused tests pass. Final command results are recorded below. No gameplay build/full suite was required for instruction and tooling maintenance; no commit was requested.
+
+Final checks for round 4:
+
+- `node --test tests/check_rules_index.test.js`: PASS, six tests, including negative controls. Temporary fixture roots are cleaned up.
+- `npm run check:rules`: PASS, 29 register rows, 46 AD codes, 853 deduplicated-per-source relative links; one dated-LSD-owner warning. Receipts: PASS, 18 checked, 317 explicit legacy paths skipped.
+- `npm run check:docs`: FAIL, 138 shared-tree diagnostics at the final run. None in this pass's rule/checker/audit edits; other sessions' additions remain, including a USER_VISION community-lore paragraph. Existing AR10/CLR9 constraints carry explained lint exemptions rather than weakening their wording to satisfy an absolute-word heuristic.
+- `git diff --check` on the task's changed paths: PASS. No gameplay build, architecture scan, full runtime suite, app install, commit or push was performed.
+
+Concurrency note: another session added WA58–WA60 while this work ran. Those additions and their provenance were preserved. The three full-book summary rows now refer to the live owner's range instead of copying WA57 or WA60. The current focus and accepted vision digest required no direction change. Earlier audit wording remains dated evidence rather than being rewritten as if these fixes had already existed.
+
+## Round 5: remaining document lint failures (2026-10-31)
+
+Weibao: "Fix the remaining document lint failures too, without changing accepted direction or disturbing other chats’ work. More to consider? Save and update accordingly."
+
+AD32 and AD36 apply. The lint diagnostics were predominantly lexical false positives, not evidence that the cited documents had invented new world laws. The pass read the flagged wording and retained source observations, proposed slice constraints, history and verification states. No gameplay implementation, adoption decision or queue order changed.
+
+| Code | Correction | Evidence and boundary |
+|---|---|---|
+| DLINT1 | The wording checker distinguishes hyphenated coverage/state terms, conditional quantifiers, references to existing direction and in-world agreement terms from unconditional rules or project-adoption claims. | Regressions retain failure for a direct adoption assertion and for a universal quantifier in the same line as a conditional phrase. This remains a diagnostic heuristic, not a semantic authority. |
+| DLINT2 | The generated Source Library catalogue's bibliographic row shape does not treat an author's name as a design rule. | The exemption requires the generator marker, exact catalogue path and bibliographic row shape. Prose rules in that file still fail. The generated catalogue was not edited. |
+| DLINT3 | Seventy-four reviewed lines across 18 documents have explained, line-specific slip-ok comments. | Explanations distinguish factual holdings/tool observations, source-fidelity boundaries, historical evidence scope, and observer/transaction invariants of selected proposals. Visible prose was retained verbatim; no file-wide exemptions were added. An exemption does not certify the underlying claim as currently verified or accepted (AD32). |
+
+ACT NOW (done): corrected the diagnostic false positives and documented the remaining reviewed exceptions; added positive and negative regression cases in the existing checker test file. Edits to other chats' documents add comments to exact current lines, with a read-before-write equality guard. No staging, reset, source rewrite, private-save access or worker dispatch occurred.
+
+ACCOUNT FOR NOW: preserve strong observer, source-fidelity and save/transaction boundaries even when their wording contains an absolute. A proposal's scoped check remains proposed. An exception comment describes why lint is inapplicable to that line; it does not grant product authority. Later edits to the line should reassess the comment, rather than inheriting it as approval. A passing changed-line lint does not prove every historical document is consistent.
+
+LATER / DELEGATE: if recurring false positives appear, extend the existing focused cases with the actual wording and a nearby failing counterexample. Avoid broader path exemptions or a second documentation checker. No new universal review gate is proposed.
+
+Round 5 verification:
+
+- `node --test tests/check_doc_slips.test.js`: PASS, both tests, including multiple positive/negative fixtures, untracked-document coverage and line-local exemption isolation.
+- `npm run check:docs` after the audit append: PASS, no new hits across the current shared tree.
+- `npm run check:rules`: PASS, 29 register rows, 46 AD codes and 854 relative links; the existing dated-LSD-owner warning remains. Receipts: PASS, 18 checked and 317 explicit legacy paths skipped.
+- Exact-text preservation check: PASS for all 74 annotated lines. `git diff --check` scoped to this pass's paths: PASS.
+- No full gameplay suite/build, installation, commit or push. This pass changes documentation diagnostics and explanatory comments, not runtime behavior. Results describe the checked snapshot; later concurrent edits can introduce new diagnostics.
+
+## Round 6: proposal-source ownership and clean final gates (2026-10-31)
+
+Weibao: "Fix the remaining dated-owner warning too, and other problems to not have to go backand forth keeping proposals and accepted rules distinct and preserving other chats’ work. More to consider? Save and update accordingly."
+
+AD32/AD36 govern this maintenance pass. The previous warning exposed a classification problem: one register row combined binding cast-life defaults with the dated LSD proposal source. Moving the actively edited design would risk competing copies and broken citations. The register now separates these roles without moving the source or adopting its proposals.
+
+| Code | Applied correction | Boundary |
+|---|---|---|
+| OWN1 | Cast-lives registration retains CLR/SUI/RPT and their existing authority. A distinct LSD proposal row links the stable reading guide, explicitly labelled proposal source, and LEAD_LIFE_RULES as the direction owner. | LSD codes and historical source remain intact. A register entry does not promote a proposal (AD32). |
+| OWN2 | The dated-owner diagnostic recognizes an explicitly labelled proposal source when the register status is proposal, the source header confirms that status and an existing stable route is supplied. | An unlabelled dated owner, missing stable route/header, or standing/adopted status still warns. Link and code validation still cover the proposal source. No path-wide exemption was introduced. |
+| OWN3 | A registered range with no definitions now fails rather than warning and skipping citation checks; a reversed range fails explicitly. | Focused negative controls cover both. The fixture definitions in older warning tests now represent actual defined ranges. |
+| OWN4 | Three lint diagnostics appeared in concurrent additions. Two non-adoption statements now cite AD32; one research execution receipt has a line-specific scope explanation. | Source wording, research results and proposed workflow remain as written. No change to another chat's source or runtime implementation. |
+
+ACT NOW (done): OWN1–OWN4, focused regression coverage, and this record. The active LSD design was not moved or rewritten in this pass. Current index text was read and changed by the affected register hunk; other rows, including concurrent world-absorption direction, were retained.
+
+ACCOUNT FOR NOW: a dated proposal source is legitimate provenance, while an unexplained dated authority still deserves a warning. The checker verifies these explicit structural distinctions; it cannot authenticate a human decision from prose alone. Existing authority and source locators remain essential. Zero warnings applies to the checked snapshot, not every future edit or all semantic claims in the repository.
+
+LATER / DELEGATE: no further correction is known from these gates. If a newly selected task exposes a real owner ambiguity or unsupported acceptance claim, extend the same owners and focused regression rather than creating a parallel audit/checker. This is a reopen condition, not an extra approval gate or implementation queue.
+
+Checks:
+
+- `node --test tests/check_rules_index.test.js tests/check_doc_slips.test.js`: PASS, 11 tests. Proposal-source tests include invalid/missing labels, standing or adopted status, missing header and missing stable route, plus the valid case.
+- `npm run check:docs`: PASS, no new hits in the shared tree.
+- `npm run check:rules`: PASS, 30 register rows, 46 AD codes, 854 relative links, zero warnings; receipt check PASS, 18 checked, 317 explicit legacy paths skipped.
+- No runtime build, gameplay suite, app installation, commit or push. Accepted direction and proposal status were preserved. Final post-record document and whitespace checks follow below.
+
+Post-record verification: `npm run check:docs` PASS; `git diff --check` on this pass's six paths PASS. No additional diagnostics remain in the checked document/rules gates. Changes remain local and uncommitted.
+
+## Tooling follow-through proposal (2026-10-31)
+
+The [reconciliation tooling proposal](RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md) answers Weibao's follow-up about what to make for OOPS. It separates completed structural reconciliation from connected behavioral evidence and recommends extending existing rule/evidence and receipt routes. This is a proposal under AD32, not a new rule, runtime queue or resumption of stopped lanes.

@@ -1,5 +1,7 @@
 # Subsystem scope ladders: fishing, farming, ranching and other activities
 
+**Related application, 2026-11-01:** [World slices, alternate starts and activity abstraction](reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md#a1-abstract-routine-work-preserve-consequential-choices) applies MR18/MR29 and these proposed dials to routine investigation, study and rituals. It recommends summarized work with world-specific admission/results and consequential choices, records current code suppliers and gaps, and changes no ladder's status or build priority.
+
 2026-10-16. **Planning only; every ladder, budget, register entry and first-slice
 suggestion below is a proposal.** Weibao asked, after the Part 9 complexity pass:
 

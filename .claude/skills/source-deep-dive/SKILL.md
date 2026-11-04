@@ -16,9 +16,11 @@ Short version:
    `docs/research/novels/LOCAL_LIBRARY.md`). Extract it with
    `epub_to_json.py` into the session scratchpad, never into git.
 3. Verify the core laws yourself in the text first.
-4. Dispatch parallel Sonnet readers (Agent tool, `model: "sonnet"`, run in
-   background), each with its own output file. Add a WebSearch reader for
-   fan premises when the question involves the protagonist.
+4. Use bounded readers only when authorized and useful for the named gap. Follow
+   current host/project model routing and docs/AGENT_USAGE_RULES.md for model,
+   effort, budget and concurrency; do not inherit a fixed Sonnet/parallel default.
+   Each authorized reader owns one output. Include fan-premise research when
+   the question needs it, using an available authorized search route.
 5. Spot-check surprising reader claims directly.
 6. Cross-check the wiki in the in-app browser with
    `wiki_api_in_browser.js` (scripted fetches usually get 403). Record

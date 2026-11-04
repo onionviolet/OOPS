@@ -1,5 +1,7 @@
 # Similar games beyond the Proto23-likes, 2026-10-30
 
+World-specific follow-up: [cross-novel scout, 2026-10-31](CROSS_NOVEL_GAME_MECHANICS_SCOUT_2026-10-31.md) F1 corrects prior-research framing (including EVE); N1–N5 compare LOTM, MoL, Worm, HP and Shadow Slave against new references or a named new Sil-Q question. Research/proposals only; no acquisition or implementation selected.
+
 Research only. Weibao asked for "other similar games in general" that are not
 protolikes. Nothing was installed, bought, signed into or run; no runtime code
 changed. Findings are proposals (AD32), not decisions. Ranking measures research

@@ -658,3 +658,66 @@ LATER / DELEGATE
 |---|---|---|---|
 | SLC110 | Playable slice "study hours": a declared study queue (SLC108) spent through the away bank on a book already owned, with the absorption band (SLC107) showing why the third hour teaches less. Host: lead's life, Harry Potter or LOTM book study. | Sonnet, medium; waits for the away-bank lane to land | FLR1-FLR6: a fresh-life route to the queue, panel text in UR70-UR75 shape, an existing consumer (the skill level read by a check), save/reload/export/import. Reopen when `src/away_bank_domain.js` is committed. |
 | SLC111 | Read the Veloren skill curve constants and Severed Heaven's routine-wheel code before copying any number. | Haiku then sonnet, low | Raw file excerpts with paths; no number copied from the survey summaries. |
+
+## Round 6 (2026-11-03): milestone ladders, titles and perks in a lead's playthrough, more skills; proposal only
+
+Trigger: Weibao's screenshot of the source game's Sleeping panel (flat gains per level, cross-skill XP bonuses, "New Title" at
+levels 5 and 10, a `??????????` row at 11) and his ask for skill deep dives, protagonist interplay, other aspects and more skills.
+Read first: SLR40-SLR43, SLC-J/K, Round 5, LSD287/LSD301/LSD332 ([lead-life design](gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md)),
+and the runtime. All entries are proposals (AD32). Per AD46 the ladder is one world's form, not the template.
+
+Runtime facts this round rests on (read 2026-11-03, `src/`): `titles.js` grants a title from a counter (`kills`, `enemy_kinds`) as a saved
+`{at}` and derives bonuses from held titles (`titleBonuses`, which already has `xp_multipliers`). `skill_records.js` keeps rust as a
+derived, reversible penalty on the level and never lowers the peak. `skill_expansion_content.js` milestones are `{at, label}` rows
+tied to real consumers. No numbered perk ladder or cross-skill edge table exists yet.
+
+ACT NOW (done): this section.
+
+ACCOUNT FOR NOW
+
+| Code | Item | Default, dial and reason |
+|---|---|---|
+| SLC112 | **A ladder perk is derived from level; a title is a recorded recognition.** | Default: flat and XP perks read the current (rusted) level through the existing bonus bucket; "New Title" is a saved grant with its date. Rust then lowers the perk and leaves the title (SLR42). Dial: a world may read a perk from the peak when it is a lasting bodily change. Reason: `titles.js` already saves grants and `skill_records.js` already derives rust. Failure to prevent: a reload replaying the level-5 grant (SLR43). |
+| SLC113 | **A cross-skill edge is one owned row, shown on both ends.** "Sleeping gives Patience XP +5%" names source skill, target and size once; both panels read it. | Default: it multiplies the target's XP through the existing `xp_multipliers` path and reads the source's level, not its per-tick gains. Dial: size, and whether a world has chains at all. Reason: A feeding B feeding A is a growth loop, and one summing path (AR3) keeps the tooltip honest. |
+| SLC114 | **The ladder is how the lead is shown; everyone else reads the same table by band.** | Default: one milestone table per skill; the lead reads it by level, an NPC or canon figure by the band's representative level (LSD287). Reason: a lead-only table would drift from the one NPCs use, and checks stay seat-neutral. Failure: a view that states a threshold different from the effect's. |
+| SLC115 | **Canon titles are baseline; deeds earn separate ones, and recognition needs a recognizer.** | Default: the pack supplies canon titles at canon dates; the lead's deltas (LSD301) may earn a designation earlier, recorded as strain against the canon turning point and never silently granted or erased. A deed seen by no one trains the skill and grants no title. Dial: a world with a system window names its own. Reason: SLR42 separates what a title recognizes from what it supplies. |
+| SLC116 | **A locked row is a promise.** | Default: `??????` appears only where a real grant exists, showing its level and nothing else; the content is sealed by id and revealed by its discovery route (AD3, sealed-secrets rule). No decoy rows. Dial: a world may use decoys with an in-world reason (a trickster system). Reason: a decoy teaches the player to ignore real hints. |
+| SLC117 | **Editing a ladder is a visible event, not silent save drift.** | Default: save what was earned (counters, cause-dated deltas), derive the effects, and log "ladder revised" when a content update moves a perk. Extends SLC109. Reason: old saves then stay right without rewriting values; title ids still need AGENTS.md's compatibility decision. |
+| SLC118 | **One inspector line per effect.** | Default: "why is my max health 142" lists each ladder row, title and item with its source, extending `skill_inspector.js`. Scenario to pin: level 4 to 5 to 4 under rust, then reload; the perk follows the level, the title stays, nothing doubles. Reason: cross-edges and ladders otherwise hide double counting. |
+
+Other aspects the lead's playthrough touches
+
+| Aspect | Interaction to account for | Owner |
+|---|---|---|
+| Age and body | Learning rate and the body carrier change with years; expertise carries on its own clock. | BHR31-BHR34 |
+| Away bank and queue | Sleeping and Patience are the natural idle skills; time away is spent through the bank, not beside it. | SLC107, SLC108 |
+| Death and reset | The screenshot's "Death EXP" treats dying as practice. A world lets it persist only through a carrier it really has. | SLR20 |
+| Teaching and companions | Allies improve by living (LSD332); a taught skill follows the teacher's means. | SLC-D |
+| Conversation | Tells and reads are skills with their own consumers (LSD342, LSD383). | lead-life design |
+| Text | Descriptions explain experience and effect; a bare "HP +5" fails. | UR70-UR75 |
+
+More skills (candidates, each only where a real consumer reads it; a flavor label with no reader is a trait or title, CRL44)
+
+| Skill | Real consumer | Kind and carrier |
+|---|---|---|
+| Sleeping (built) | recovery, the title XP payoff | competence, body |
+| Patience / waiting | queue and away-bank rate, rash-action checks | habit, mind |
+| Reading people | tell and intent checks (LSD342, LSD383) | competence, mind |
+| Keeping quiet / lying | tells leak at the liar's skill | competence, mind |
+| Enduring (pain, hunger, cold) | injury and need thresholds | adaptation, body |
+| Knowing a place | route, site and rumor lookups | knowledge, memory; lost with the place |
+| Study method | reading pace (CRL49), SLC106-SLC110 | competence, mind |
+| Coping with loss | death and reset carryover | habit, mind; only where SLR20 allows |
+| Housekeeping, cooking, mending | everyday-life actions | competence, body |
+| Haggling and owing | price and credit checks | competence, mind |
+
+LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| SLC119 | **Source-game skill catalogue**: every skill's ladder, cross-edges and titles as a table, with the edge graph. | Haiku extract from saved reads and probes, then Sonnet synthesis; medium | Table with source paths; each row names the YAIRPG consumer or says none; no balance number copied (SLC111). |
+| SLC120 | **Lead skill timeline per book**: skills claimed by chapter, evidence band (LSD287), consumer and what each does at a turning point | Sonnet per book from existing readings (check the library index first); medium | Chapter-cited evidence rows and a seat-neutral check; no new downloads. |
+| SLC121 | **One playable slice**: Sleeping and Patience ladder with one cross-edge, one locked row and one deed title on a fresh life. | Sonnet, medium; below the floor until SLC112-SLC118 pass | FLR1-FLR6 route; rust, reload, save and import covered; each verification state named separately. |
+| SLC122 | **Deed titles with witnesses**: three titles in one lead's life that need a recognizer. | Sonnet, small to medium | A witness-free run grants the skill and no title. |
+
+Nothing here spawned workers or changed code.

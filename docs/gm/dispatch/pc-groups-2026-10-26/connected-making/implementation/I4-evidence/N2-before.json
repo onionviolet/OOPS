@@ -1,0 +1,9 @@
+{
+  "src/hp_brewing_state.js": "e4e201576a5cb9e3ae6caca467b4bb6eab4f7de52928117cea11394ab623b73f",
+  "src/hp_brewing_panel.js": "159b480179541126c2284053d6e6081d02a2b7491ae925e6f17c962426568fa1",
+  "src/hp_brewing_domain.js": "b9ee71301ab38a94a37011450ad3e7c1445b3547c982bf9db7dc61beaf330af3",
+  "src/world_packs/book_hp_pack.js": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+  "tests/hp_brewing.test.js": "3098bbc1e6f69e188fe6ca795b59fc7d4961074c32a85345a4a43eeeee97a2b1",
+  "tests/hp_brewing_domain.test.js": "689fed40d398f704f3166f7eef389fc527a99ba075776b3452a410731d244f83",
+  "tests/dose_process.test.js": "83453848fd07f1587bcf211dff63dd16008b44bc48bd9a485bee91a2e3f7a00c"
+}

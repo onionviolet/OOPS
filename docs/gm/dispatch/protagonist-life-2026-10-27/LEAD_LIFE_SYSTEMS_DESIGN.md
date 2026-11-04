@@ -3,7 +3,7 @@
 Weibao: "what about top down design for actions, and subtle systems like fights and results, relationships
 stuff and other stuff? alot more should be written somewhere". This is that place for the cast-lives work.
 
-**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD441 are this doc's (prefix checked unused). It applies
+**Status: proposal, with section 12 from Weibao's direction of 2026-10-28.** Codes LSD1-LSD470 are this doc's (prefix checked unused). It applies
 [WA45](../../../WORLD_ABSORPTION_RULES.md) (top-down calibrated choice systems, proposed) and AD44 (lead first) to
 the life of a book's protagonist. It links the owners that already exist and does not restate them; where an
 owner and this doc disagree, the owner wins and this doc is corrected. Every line is a default with a dial and
@@ -647,7 +647,7 @@ for the main character? But then extending the possbility by extending the range
 and create emergent behavior from rules and more? ... we can use that to implement 'fate' and other stuff like that
 in the future? but then consider butterfly affects".
 
-Owners this builds on, not restated: [TIMELINES_AND_DIVERGENCE](../../TIMELINES_AND_DIVERGENCE.md) (natural course,
+Owners this builds on, not restated: [TIMELINES_AND_DIVERGENCE](../../../TIMELINES_AND_DIVERGENCE.md) (natural course,
 inertia and disturbance C2, lazy resolution C3, motives outlive scripts C6, per-world dials, OD7, OD8), CL21 causal
 mass, CL22 world fate mechanisms, LSD104 (hard, weighted, none) and LSD107 conditioned draws.
 
@@ -777,6 +777,8 @@ battles are ordered moves through the conflict frame (`src/native_battle.js`); c
 (`src/check_resolver.js`, address of world, life, game time and event).
 
 ### 28.1 One ladder for every system
+
+**Later planning clarification, 2026-11-01:** [BF95–BF109](../../../worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-5-lotm-procedural-lives-abstraction-and-ui-2026-11-01) applies activity-specific abstraction to procedural LOTM lives. LSD278–LSD280 below remain historical proposals, not a requirement to implement three resolutions or a thousand-run calibration for every system. Default to one sufficient resolution for the selected activity; add another when a meaningful player choice needs it. If two resolutions are delivered, name their actual semantics and check relevant outcome/cost/knowledge consistency. Inspecting detail does not itself change policy, elapsed work or committed outcomes. The broader known-source design remains, with implementation following the current Klein-first campaign owner.
 
 | Code | Line | Disposition |
 | --- | --- | --- |

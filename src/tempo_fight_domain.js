@@ -11,6 +11,7 @@ import {rivalCombatant, rivalBrief} from './rival_memory.js';
 import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
+import {HANDOVER_LABEL, HANDOVER_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
 // Road-duel tempo route: the same pursuit and encounter, driven by the tempo clock (LSD307-LSD317).
 // Text-first (LSD314): one line per step, a who-acts-next strip, moves with their time cost.
@@ -98,15 +99,27 @@ function view() {
 }
 function mount() {
     const root = node('details'); root.id = 'tempo_fight_panel'; root.className = 'expedition_panel';
-    const body = node('div'), notice = node('p'); notice.setAttribute('role', 'status'); root.append(node('summary', 'Road contest · tempo'), notice, body);
-    let signature = '';
-    const act = (fn, request) => {try {fn(request); notice.textContent = '';} catch(error) {notice.textContent = error.message;} panel?.render(true);};
+    const body = node('div'), notice = node('p'); notice.setAttribute('role', 'status'); notice.tabIndex = -1; root.append(node('summary', 'Road contest · tempo'), notice, body);
+    let signature = '', previousLog = [];
+    const act = (fn, request) => {
+        const before = view().fight?.lines || [];
+        try { fn(request); notice.textContent = newTempoLines(before, view().fight?.lines || []).join(' '); }
+        catch(error) { notice.textContent = error.message; }
+        panel?.render(true);
+    };
     const button = (label, id, title, disabled, handler) => {const b = node('button', label); b.type = 'button'; b.dataset.tempo = id; b.title = title || ''; b.disabled = !!disabled; b.onclick = handler; return b;};
     const render = force => {
         if(!root.isConnected) return;
-        const v = view(), sig = JSON.stringify(v) + !!document.getElementById('fight_situation'); if(!force && sig === signature) return; signature = sig;
-        body.replaceChildren(); root.hidden = !v.visible;
-        if(!v.visible) return;
+        const v = view(), sig = JSON.stringify(v) + !!document.getElementById('fight_situation');
+        if(!force && sig === signature) { if(!v.visible && document.activeElement !== notice) root.hidden = true; return; }
+        signature = sig;
+        const previousFocus = captureTempoFocus(body, ['tempo']) || (document.activeElement === notice ? {} : null);
+        const added = newTempoLines(previousLog, v.fight?.lines || []); previousLog = [...(v.fight?.lines || [])];
+        body.replaceChildren(); root.hidden = !v.visible && !previousFocus;
+        if(!v.visible) {
+            if(previousFocus) { notice.textContent = v.last ? `Fight ended: ${v.last}.` : 'Fight controls are no longer available.'; notice.focus({preventScroll: true}); }
+            return;
+        }
         if(v.fight && document.getElementById('fight_situation')) {
             // One fight surface (COMBAT.md round 3, R3-O1): the open contest is shown and played in the Fight card.
             body.append(node('p', 'The contest is open in the Fight card below. The world clock holds until it ends.'));
@@ -127,9 +140,13 @@ function mount() {
                     }
                     body.append(row);
                 }
-                for(const m of f.moves) body.append(button(`${m.label} · ${m.cost} time${m.odds ? ' · ' + m.odds : ''}`, m.id, `${m.text}${m.why ? ' ' + m.why : ''}${m.safe ? ' Safe.' : ''}`, !m.usable || !ports.writable(), () => act(move, {moveId: m.id, aim: m.id === 'jab' || m.id === 'swing' ? aim : null})));
+                for(const m of f.moves) {
+                    const row = node('div'), description = `${m.text}${m.why ? ' ' + m.why : ''}`;
+                    row.append(button(`${m.label} · ${m.cost} time${m.odds ? ' · ' + m.odds : ''}`, m.id, description, !m.usable || !ports.writable(), () => act(move, {moveId: m.id, aim: m.id === 'jab' || m.id === 'swing' ? aim : null})), node('small', ' ' + description));
+                    body.append(row);
+                }
                 for(const o of f.orders) body.append(button(`${o.label} · ${o.cost} time · ${o.odds}`, `order:${o.orderId}:${o.allyId}`, `${o.text} Whether it is heard is not certain.`, !ports.writable(), () => act(move, {moveId: 'order', allyId: o.allyId, orderId: o.orderId})));
-                body.append(button('Let a careful policy take one safe turn', 'handover', 'Plays only brace, tend or back away for you; never a new attack.', !ports.writable(), () => act(move, {handOver: true})));
+                const handover = node('div'); handover.append(button(HANDOVER_LABEL, 'handover', HANDOVER_TEXT, !ports.writable(), () => act(move, {handOver: true})), node('small', ' ' + HANDOVER_TEXT)); body.append(handover);
             }
         } else {
             body.append(node('p', 'Settle the road challenge move by move. Quick moves cost little time and light harm; heavy ones leave you open longer. Who notices first sets the opening.'));
@@ -137,6 +154,11 @@ function mount() {
             if(v.last) body.append(node('p', `Last tempo contest: ${v.last}.${v.owed ? ` ${v.owed} minutes of held time are still owed to the world.` : ''}`));
             if(v.start.visible) body.append(button('Accept the road duel as a tempo contest', 'start', v.start.reason, !v.start.eligible, () => act(start)));
             if(v.start.visible && v.lio.offered) body.append(button('Accept it with Lio beside you', 'start_lio', v.lio.reasons.join(' ') || 'Lio fights by his own goals and hears orders by chance. The fee and terms are the party contest\'s.', !v.start.eligible || v.lio.reasons.length > 0, () => act(start, {withLio: true})));
+        }
+        if(previousFocus) {
+            if (!notice.textContent && v.fight) notice.textContent = added.join(' ') || 'The fight continues.';
+            if (!notice.textContent && !v.fight) notice.textContent = v.last ? `Fight ended: ${v.last}.` : 'Fight controls are no longer available.';
+            restoreTempoFocus(body, previousFocus, notice);
         }
     };
     document.getElementById('location_actions_div')?.append(root);

@@ -15,6 +15,7 @@ import {renderSceneCard} from './ui/scene_card.js';
 import {versusWithEngine} from './read_models/combat_situation_bridge.js';
 import {harmRung} from './harm_state.js';
 import {worldFamily, currentWorldFamily} from './world_look.js';
+import {HANDOVER_LABEL, HANDOVER_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
 const leaveChoice = () => pickLeaveChoice([...document.querySelectorAll('#location_actions_div .action_travel[data-travel]')]);
 
@@ -25,6 +26,9 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
     // The card and its Withdraw row are built once per fight and leave choice; ticks only swap the
     // stakes text, the lines and the drawing, so the button never moves or rebuilds under a pointer (UR52).
     let cardKey = '', textKey = '', stakes = null, lines = null, figure = null, notice = null, lastNotice = '';
+    notice = document.createElement('p'); notice.className = 'fight-situation-notice';
+    notice.setAttribute('role', 'status'); notice.tabIndex = -1;
+    let previousLog = [], previousNoticeWasError = false;
     // Tempo mode (COMBAT.md round 3, R3-O1): the same card, versus row and log, with the move area filled by the
     // tempo contest's own moves. Reads the 'tempo_fight' projection; moves go through its 'move' command, which keeps
     // the contest's own checks. The world family (DESIGN.md DSG11, DSG13) only picks type names.
@@ -39,23 +43,27 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         const key = `tempo\n${JSON.stringify(t)}`;
         if (section.hidden) section.hidden = false;
         if (key === cardKey) return true;
+        const previousFocus = captureTempoFocus(section, ['fightOption', 'fightAim']);
         cardKey = key; textKey = '';
         section.dataset.fightMode = 'tempo';
+        delete section.dataset.fightFinished;
         const command = domainRegistry.command('tempo_fight', 'move'), blocked = command ? '' : 'The contest cannot take moves right now.';
         // A refused move keeps the contest's own reason on the card (DSG10), and the card redraws on the next tick.
         const move = request => { try { command(request); lastNotice = ''; } catch (error) { lastNotice = error.message; } cardKey = ''; render(); };
         const wait = t.yourTurn ? '' : 'Not your turn yet.';
         const options = t.yourTurn ? [
-            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : '', m.safe ? 'Safe.' : ''].filter(Boolean).join(' '),
+            ...t.moves.map(m => ({id: m.id, label: m.label, time: `${m.cost} time`, affects: [m.text, m.mixText ? `Strikes ${m.mixText}.` : ''].filter(Boolean).join(' '),
                 attrs: {fightOption: m.id}, blocked: blocked || (m.usable === false ? m.why || 'Not possible now.' : ''), onChoose: () => move({moveId: m.id})})),
             ...t.orders.map(o => ({id: `order:${o.orderId}:${o.allyId}`, label: o.label, time: `${o.cost} time`, affects: `${o.text} Heard ${o.odds}; not certain.`,
                 attrs: {fightOption: `order:${o.orderId}:${o.allyId}`}, blocked, onChoose: () => move({moveId: 'order', allyId: o.allyId, orderId: o.orderId})})),
-            {id: 'handover', label: 'Let a careful policy take one safe turn', affects: 'Plays only brace, tend or back away for you; never a new attack.', attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
+            {id: 'handover', label: HANDOVER_LABEL, affects: HANDOVER_TEXT, attrs: {fightOption: 'handover'}, blocked, onChoose: () => move({handOver: true})},
         ] : [{id: 'wait', label: 'Wait', affects: 'The others are acting.', attrs: {fightOption: 'wait'}, blocked: wait}];
         section.replaceChildren();
         const card = renderSceneCard(section, {kind: 'fight', id: 'fight-situation', attrs: {fightMode: 'tempo'}, header: {title: view.fight.title || 'Fight', place}, stakes: t.summary, options});
-        notice = document.createElement('p'); notice.className = 'fight-situation-notice'; notice.setAttribute('role', 'status'); notice.textContent = lastNotice;
         card.querySelector('.scene-card-stakes').after(notice);
+        const added = newTempoLines(previousLog, t.log);
+        const feedback = lastNotice || (added.length ? added.join(' ') : previousNoticeWasError ? 'The fight continues.' : notice.textContent || 'The fight continues.');
+        previousLog = [...t.log]; previousNoticeWasError = !!lastNotice;
         const next = document.createElement('p'); next.className = 'fight-situation-next'; next.textContent = `Who acts next: ${t.next.join(' → ')}`;
         notice.after(next);
         const versus = document.createElement('div'); versus.className = 'fight-situation-versus'; next.after(versus);
@@ -88,6 +96,15 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
             for (const line of t.dev) { const li = document.createElement('li'); li.textContent = line; readout.append(li); }
             card.append(readout);
         }
+        // Keep the result beside the move being operated, including when large text
+        // puts the top of the card outside the scroll region.
+        if (previousFocus?.key === 'fightOption') {
+            const chosen = [...card.querySelectorAll('button[data-fight-option]')].find(button =>
+                !button.disabled && button.dataset.fightOption === previousFocus.value);
+            chosen?.parentElement.append(notice);
+        }
+        if (notice.textContent !== feedback) notice.textContent = feedback;
+        restoreTempoFocus(section, previousFocus, notice);
         return true;
     }
     function render() {
@@ -95,10 +112,25 @@ export function mountFightSituation({getCombat, readout, every = 400}) {
         let combat = null; try { combat = getCombat(); } catch { combat = null; }
         const actions = document.getElementById('location_actions_div');
         if (renderTempo(actions)) return;
-        if (section.dataset.fightMode === 'tempo') { delete section.dataset.fightMode; section.hidden = true; section.replaceChildren(); cardKey = textKey = ''; }
+        if (section.dataset.fightMode === 'tempo') {
+            const previousFocus = captureTempoFocus(section, ['fightOption', 'fightAim']);
+            let view = null; try { view = domainRegistry.project('tempo_fight'); } catch { /* status below remains honest */ }
+            delete section.dataset.fightMode; section.replaceChildren(); cardKey = textKey = '';
+            previousLog = []; previousNoticeWasError = false; lastNotice = '';
+            if (previousFocus) {
+                section.dataset.fightFinished = 'true'; section.hidden = false;
+                section.append(notice);
+                notice.textContent = view?.last ? `Fight ended: ${view.last}.` : 'Fight controls are no longer available.';
+                notice.focus({preventScroll: true}); notice.scrollIntoView({block: 'nearest'});
+            } else section.hidden = true;
+        }
         if (actions && section.previousElementSibling !== actions) actions.after(section);
         const shown = !!actions && !!combat && !combat.is_ended && combat.attackers?.[0]?.tags?.main_character && actions.checkVisibility?.() !== false;
-        if (!shown) { if (!section.hidden) section.hidden = true; cardKey = textKey = ''; return; }
+        if (!shown) {
+            if (section.dataset.fightFinished && section.contains(document.activeElement)) return;
+            delete section.dataset.fightFinished;
+            if (!section.hidden) section.hidden = true; cardKey = textKey = ''; return;
+        }
         const own = readout(combat, {fighter_index: 0, is_attacker: true}), board = fromCombatOpponentsProjection(domainRegistry.project('combat-opponents'));
         const place = document.getElementById('location_name_span')?.textContent.trim() || '';
         const situation = fightSituation(board, {name: 'You', health: own.health, speed: Number(own.speed), defense: own.defense,

@@ -1,0 +1,13 @@
+{
+  "sg09_unique_routes": 48,
+  "retained_checkpoint_owners": 15,
+  "delta_unique_codes": 6,
+  "delta_source_blocks": 7,
+  "local_links_and_fragments": 9,
+  "issues": [],
+  "input_hashes": "match",
+  "other_tracked_dirty_paths_changed_since_write_baseline": [],
+  "scope": "Selected routing and document integrity only; no source qualification or gameplay verification",
+  "saves_route": "PASS 3 existing tests",
+  "docs_check": "FAIL 2 diagnostics in DOWNLOAD_SCOUT_NEXT_2026-10-31.md outside task paths"
+}

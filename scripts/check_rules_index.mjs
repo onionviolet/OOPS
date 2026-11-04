@@ -25,7 +25,7 @@ const links = text => [...text.matchAll(/\[[^\]]*\]\(([^)\s]+)\)/g)].map(m => m[
 // Codes defined as a table row ("| UR12 |"), a bullet ("- **UR18.**") or a bold lead ("**UR47.").
 const definedCodes = (text, prefix) => {
   const out = new Set();
-  for (const m of text.matchAll(new RegExp(`^(?:\\|\\s*|[-*]\\s+\\*\\*|\\*\\*)(${prefix})(\\d+)(?:\\s*\\||\\.)`, 'gm'))) out.add(+m[2]);
+  for (const m of text.matchAll(new RegExp(`^(?:\\|\\s*|[-*]\\s+\\*\\*|\\*\\*|)(${prefix})(\\d+)(?:\\s*\\||\\.)`, 'gm'))) out.add(+m[2]);
   return out;
 };
 
@@ -49,32 +49,45 @@ for (const r of register) {
   for (const l of links(r[4] || '')) {
     if (/^(https?:|#)/.test(l)) continue;
     const target = resolve(docs, l.split('#')[0]);
-    if (target.startsWith(resolve(docs, 'gm', 'dispatch') + '/')) warn(`${name}: owner link ${l.split('#')[0]} is under docs/gm/dispatch/ (a dated working document)`);
+    if (target.startsWith(resolve(docs, 'gm', 'dispatch') + '/')) {
+      const labelled = [...(r[4] || '').matchAll(/proposal source:\s*\[[^\]]*\]\(([^)\s]+)\)/gi)].some(m => m[1] === l);
+      const proposalRow = /^proposal\b/i.test(r[2] || '') && !/\b(?:accepted|standing|binding)\b/i.test(r[2] || '');
+      const proposalHeader = existsSync(target) && /\bStatus:\s*(?:\*\*)?proposal\b/i.test(read(target).slice(0, 4000));
+      const stableRoute = links(r[4] || '').some(link => !/^(https?:|#)/.test(link) &&
+        !resolve(docs, link.split('#')[0]).startsWith(resolve(docs, 'gm', 'dispatch') + '/') &&
+        existsSync(resolve(docs, link.split('#')[0])));
+      if (!(labelled && proposalRow && proposalHeader && stableRoute)) warn(`${name}: owner link ${l.split('#')[0]} is under docs/gm/dispatch/ (a dated working document)`);
+    }
   }
 }
 
 // 2. Registered ranges vs highest defined code.
 const adDefined = definedCodes(sectionOf(index, 'Accepted direction rules \\(AD\\)').replace(/^### .*$/gm, ''), 'AD');
 const defined = {AD: adDefined};
+const ownerFiles = new Set();
 for (const r of register) {
-  const m = /^([A-Z]{2})(\d+)[–-]\1(\d+)$/.exec(r[1]);
-  if (!m) continue;
-  const [, prefix, lo, hi] = m;
-  if (prefix === 'AD') {
-    const nums = [...adDefined].sort((a, b) => a - b);
-    if (+hi !== nums.at(-1)) fail(`register says AD${lo}–AD${hi}, highest AD defined is AD${nums.at(-1)}`);
-    continue;
+  const files = links(r[4] || '').filter(l => !/^https?:/.test(l))
+    .map(l => l.startsWith('#') ? indexPath : resolve(docs, l.split('#')[0]))
+    .filter(f => existsSync(f) && f.endsWith('.md'));
+  files.forEach(f => ownerFiles.add(f));
+  const source = files.map(read).join('\n');
+  const families = new Set([...(r[1] || '').matchAll(/\b([A-Z]{2,4})\d+/g)].map(m => m[1]));
+  // Include auxiliary families defined in the same owner (for example UIV).
+  for (const m of source.matchAll(/^(?:\|\s*|[-*]\s+\*\*|\*\*|)([A-Z]{2,4})\d+(?:\s*\||\.)/gm)) families.add(m[1]);
+  for (const prefix of families) {
+    const codes = prefix === 'AD' ? adDefined : definedCodes(source, prefix);
+    defined[prefix] = new Set([...(defined[prefix] || []), ...codes]);
+    const ranges = [...r[1].matchAll(new RegExp(`\\b${prefix}(\\d+)[–-](?:${prefix})?(\\d+)`, 'g'))];
+    if (!ranges.length) continue;
+    const hi = Math.max(...ranges.map(m => +m[2]));
+    if (!codes.size) { fail(`${prefix}: no definitions found in registered owners`); continue; }
+    const max = Math.max(...codes);
+    if (max !== hi) fail(`register says ${prefix}1–${prefix}${hi}, highest in owner is ${prefix}${max}`);
+    for (const [, lo, end] of ranges) {
+      if (+lo > +end) fail(`register has reversed range ${prefix}${lo}–${prefix}${end}`);
+      for (let n = +lo; n <= +end; n++) if (!codes.has(n)) fail(`register cites ${prefix}${n}, which is not defined`);
+    }
   }
-  const ownerLink = links(r[4] || '').find(l => !/^(https?:|#)/.test(l));
-  const file = ownerLink && resolve(docs, ownerLink.split('#')[0]);
-  if (!file || !existsSync(file)) { warn(`${prefix}: owner file not found, range not checked`); continue; }
-  const codes = definedCodes(read(file), prefix);
-  defined[prefix] = codes;
-  if (!codes.size) { warn(`${prefix}${lo}–${prefix}${hi}: no ${prefix}n definitions in ${rel(file)}, range not checked`); continue; }
-  const max = Math.max(...codes);
-  if (max !== +hi) fail(`register says ${prefix}${lo}–${prefix}${hi}, highest in ${rel(file)} is ${prefix}${max}`);
-  const missing = [...Array(max)].map((_, i) => i + 1).filter(n => !codes.has(n));
-  if (missing.length) warn(`${prefix}: no definition for ${missing.map(n => prefix + n).join(', ')} in ${rel(file)}`);
 }
 
 // 3. AD contiguity/uniqueness, and cited codes exist.
@@ -85,10 +98,11 @@ adAll.forEach((n, i) => { if (n !== i + 1) fail(`AD codes not contiguous at posi
 const citationSections = ['Router: what applies to my task', 'Shared principles across rulebooks'];
 for (const title of citationSections) {
   const text = sectionOf(index, title.replace(/[()]/g, '\\$&'));
-  for (const m of text.matchAll(/\b(AD|UR|MR|SR|AR|GR)(\d+)(?:[–-](?:\1)?(\d+))?/g)) {
+  for (const m of text.matchAll(/\b([A-Z]{2,4})(\d+)(?:[–-](?:\1)?(\d+))?/g)) {
     const [, prefix, a, b] = m;
-    const set = defined[prefix] || (prefix === 'GR' ? (defined.GR = definedCodes(read(resolve(docs, 'GENERATION_FOUNDATION_RULES_2026-10-14.md')), 'GR')) : null);
-    if (!set) { warn(`cannot verify ${prefix} citations`); continue; }
+    const set = defined[prefix];
+    // Unregistered palette identifiers are outside this check's authority.
+    if (!set || !set.size) continue;
     for (let n = +a; n <= +(b || a); n++) if (!set.has(n)) fail(`${title}: cites ${prefix}${n}, which is not defined`);
   }
 }
@@ -120,14 +134,16 @@ const isTracked = file => {
   return tracked.get(file);
 };
 let linkCount = 0;
-for (const l of new Set(links(index))) {
+const linkSources = new Set([indexPath, ...ownerFiles,
+  ...['AGENTS.md', 'CLAUDE.md', 'DESIGN.md', 'PROJECT.md', 'docs/VISION_DIGEST.md', 'docs/systems/README.md'].map(p => resolve(root, p)).filter(existsSync)]);
+for (const source of linkSources) for (const l of new Set(links(read(source)))) {
   if (/^[a-z]+:/i.test(l)) continue;
   linkCount++;
   const [path, anchor] = l.split('#');
-  const file = path ? resolve(docs, path) : indexPath;
-  if (!existsSync(file)) { fail(`broken link: ${l}`); continue; }
-  if (path && !isTracked(file)) warn(`linked file exists but is not tracked by git: ${rel(file)}`);
-  if (anchor && statSync(file).isFile() && file.endsWith('.md') && !anchorsOf(file).has(decodeURIComponent(anchor).toLowerCase())) fail(`broken anchor: ${l}`);
+  const file = path ? resolve(dirname(source), decodeURIComponent(path)) : source;
+  if (!existsSync(file)) { fail(`${rel(source)}: broken link: ${l}`); continue; }
+  if (source === indexPath && path && !isTracked(file)) warn(`linked file exists but is not tracked by git: ${rel(file)}`);
+  if (anchor && statSync(file).isFile() && file.endsWith('.md') && !anchorsOf(file).has(decodeURIComponent(anchor).toLowerCase())) fail(`${rel(source)}: broken anchor: ${l}`);
 }
 
 console.log(`Rules index check: ${register.length} register rows, ${adAll.length} AD codes, ${linkCount} relative links`);

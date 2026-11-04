@@ -154,5 +154,195 @@
       }
     ],
     "fidelity": "sketch"
+  },
+  {
+    "id": "lotm-scene",
+    "title": "LOTM scene: panels / hybrid / walkable",
+    "question": "Which representation makes the same household errand clear and enjoyable at a sustainable content cost?",
+    "task": "Read the note, collect the purse, visit the bakery, buy one loaf, return and serve breakfast. Switch layouts on identical state.",
+    "surface": "Sketch of current panel composition, visual scene workspace, and walkable 2D locality.",
+    "fixture": "Spoiler-light household errand inspired by the opening arc; original paraphrase, invented 12-pence purse/4-pence bread, layout and timing. One shared command model.",
+    "limits": "Sketch, not a current native renderer or engine integration. Tile collision is illustrative; no NPC AI, native saves, combat, canon prices, installed app or full-world proof. Movement does not spend game time; travel commands do. Mobile deferred.",
+    "entry": "studies/lotm-scene/index.html",
+    "variants": [
+      {
+        "id": "panels",
+        "label": "Current panels"
+      },
+      {
+        "id": "hybrid",
+        "label": "Hybrid scene"
+      },
+      {
+        "id": "walk",
+        "label": "Walkable town"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "ready",
+        "label": "Morning errand"
+      },
+      {
+        "id": "short",
+        "label": "Short of money"
+      },
+      {
+        "id": "closed",
+        "label": "Bakery closed"
+      },
+      {
+        "id": "crowded",
+        "label": "Crowded inventory"
+      }
+    ],
+    "fidelity": "sketch"
+  },
+  {
+    "id": "lotm-investigation",
+    "title": "LOTM investigation / confrontation comparison",
+    "question": "How do panels, a hybrid caseboard and a gaslight cutaway handle evidence, preparation and combat decisions?",
+    "task": "Gather distinct evidence, compare accounts, establish focus, then contain or withdraw from an escalation. Compare the same state and costs.",
+    "surface": "Investigation service, notebook, field kit, confrontation and walkable storeroom sketch.",
+    "fixture": "Original LOTM-inspired case, not a canon event. Simulated Spirit Vision, focus, spirituality, ammunition, pressure, shelter and deterministic combat; all values authored for comparison.",
+    "limits": "Sketch, not native gameplay, source-authentic lore or an engine integration. Walking is presentation time; committed commands advance turns. No personal saves, NPC AI, physics, native combat or runtime completion claim. Desktop first; mobile deferred.",
+    "entry": "studies/lotm-investigation/index.html",
+    "variants": [
+      {
+        "id": "panels",
+        "label": "Current panels"
+      },
+      {
+        "id": "hybrid",
+        "label": "Hybrid caseboard"
+      },
+      {
+        "id": "walk",
+        "label": "Gaslight cutaway"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "investigate",
+        "label": "Investigation"
+      },
+      {
+        "id": "combat",
+        "label": "Prepared confrontation"
+      },
+      {
+        "id": "low",
+        "label": "Low spirituality"
+      }
+    ],
+    "fidelity": "sketch"
+  },
+  {
+    "id": "native-home",
+    "title": "Unfinished pictured home / superseded",
+    "question": "Can one clickable cottage improve navigation while the existing native shell and commands stay intact?",
+    "task": "Click the chest, bed and work table. Use current residence storage, native rest controls and home repairs. Pictured home returns to the scene.",
+    "surface": "Current native desktop shell and Homes panel, with a prototype-owned illustrated room and navigation links.",
+    "fixture": "Public fresh-base fixture, followed by the actual Cottage owner beginning. Existing native costs, storage, sleep and repair eligibility. Manual clock, fresh loopback origin.",
+    "limits": "Stopped after director feedback; unfinished and not a selected direction. Native UI on an isolated frozen bundle; prototype room placement/table are illustrative. No player saves, production integration, free placement or walking. Opening furniture does not commit a command. No simultaneous native mirroring. Mobile deferred.",
+    "entry": "built/native-home/index.html",
+    "variants": [
+      {
+        "id": "room",
+        "label": "Pictured home"
+      },
+      {
+        "id": "native",
+        "label": "Existing controls"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "home",
+        "label": "Current cottage"
+      }
+    ],
+    "fidelity": "native"
+  },
+  {
+    "id": "functional-home",
+    "title": "Functional home / current comparison",
+    "question": "Can a compact Proto23-style home panel make the existing effects and storage/rest/work controls easier to use?",
+    "task": "Inspect actual furnishing effects; store and take one item; rest and stop; perform an eligible native repair; compare the current panel on the same running state.",
+    "surface": "Current native desktop shell, with a scoped alternative Homes renderer.",
+    "fixture": "Public fresh-base fixture followed by actual Cottage owner beginning; same native save, costs, quote/command owners and manual clock across both layouts.",
+    "limits": "Cottage-scoped prototype, not production integration. Current versus improved switch on one native instance; simultaneous command mirroring unsupported. Pure existing cottage model functions provide effects. No personal saves or installed app changes. Other world/home bodies are not covered.",
+    "entry": "built/functional-home/index.html",
+    "variants": [
+      {
+        "id": "improved",
+        "label": "Functional home"
+      },
+      {
+        "id": "current",
+        "label": "Current home panel"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "cottage",
+        "label": "Same current cottage"
+      }
+    ],
+    "fidelity": "native"
+  },
+  {
+    "id": "home-replacement",
+    "title": "Home furniture replacement",
+    "question": "Can staged native replacement explain fit, before/after effects and real costs?",
+    "task": "Inspect tableware; review clay versus wooden effects; pack, then review and install. Compare the current panel without resetting.",
+    "surface": "Current native desktop shell, with a scoped alternative Homes renderer.",
+    "fixture": "Public native Cottage owner; native round trip to Village buys wooden (8 coins) and clay tableware (15 coins); wooden is installed. Travel uses native time. No personal saves.",
+    "limits": "Cottage-scoped staged pack/install, not atomic swap or a home shop. Uncarried catalogue options require native acquisition. Reusable review component has a home adapter; tools integration remains proposed.",
+    "entry": "built/functional-home/index.html?replacement=1",
+    "variants": [
+      {
+        "id": "improved",
+        "label": "Functional home"
+      },
+      {
+        "id": "current",
+        "label": "Current home panel"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "cottage",
+        "label": "Same current cottage"
+      }
+    ],
+    "fidelity": "native"
+  },
+  {
+    "id": "equipment-comparison",
+    "title": "Real tool repair / gear swap reviews",
+    "question": "Does one review component communicate native timed repair and immediate gear swaps without flattening their rules?",
+    "task": "Review and start/cancel a real tool repair; compare and commit a structural component swap; switch to current controls on the same life.",
+    "surface": "Current native desktop shell, with a scoped alternative Homes renderer.",
+    "fixture": "Disposable public midgame fixture with explicit worn tool, carried component-built sword and stock; prepared test stock, not earned acquisition.",
+    "limits": "Isolated native prototype, not installed integration. Timed probabilistic hand repair versus immediate component swap, native quote/execute owners. No personal saves.",
+    "entry": "built/equipment-comparison/index.html",
+    "variants": [
+      {
+        "id": "improved",
+        "label": "Comparison reviews"
+      },
+      {
+        "id": "current",
+        "label": "Current Gear workshop"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "native",
+        "label": "Village \u00b7 worn tool and carried gear"
+      }
+    ],
+    "fidelity": "native"
   }
 ]

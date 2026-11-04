@@ -1,0 +1,31 @@
+{
+  "paths": {
+    "src/craft_sources.js": "1ef9a07664b206d5f5eeecbb6d60a094e958f2d232848237c2e214036188f1da",
+    "tests/craft_engine.test.js": "2b354148211773d1e9f9b87bdf1212739af72474935926a8c415f90a1cf515db",
+    "src/book_world_paradise_ecology.js": null,
+    "tests/paradise_ecology.test.js": null,
+    "src/book_world_paradise_campaign_content.js": "00e40df9d97b2de395e2f8380cc9d37870b0ed270fe875c6c9c293009fb4d68f",
+    "src/book_world_paradise_campaign_host.js": "f3753b43122a51602b7d03c4cf4e82f25a7b636144171ddbc0f6ab1713a94868",
+    "src/book_world_paradise_campaign_facts.js": "5762aca433e7d2c3b8994438cfaff9867ce98fbe581c74b6b820eaa025ffa9a7"
+  },
+  "slot": {
+    "lane": "G6-W5",
+    "thread": "01a1794d-b879-75d3-a4b4-ad958b28d62b",
+    "phase": "acknowledged bounded ecological source/focused/snapshot",
+    "handoffFrom": "G6-W4",
+    "handoffFromThread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+    "at": "2026-10-26T19:05:40.261504+00:00",
+    "nextRequested": {
+      "lane": "G6-W4",
+      "thread": "01a1794d-b0ff-7b62-b6c9-996b3e139e8e",
+      "ready": true,
+      "phase": "frozen AD43 proof; W6 explicitly yielded field-source turn",
+      "following": {
+        "lane": "G6-W6",
+        "thread": "01a1794d-bfc2-7523-95a9-f21e107336a3",
+        "ready": true,
+        "phase": "field source; preserve W5 own later native proof request"
+      }
+    }
+  }
+}

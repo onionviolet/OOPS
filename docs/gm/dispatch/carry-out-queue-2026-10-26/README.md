@@ -99,3 +99,7 @@ G1 changed only this dispatch folder and queue state cells. No source/test/scrip
 ### q1-lane-build
 
 Branch `codex/q1-lane-build-2026-10-26`, HEAD `4bb8d9aa31dfcbeea0789d063c17fd601f4fe86e`. [Merge report](q1-lane-build.merge-report.json): ready=False; blocks: worktree has 8 tracked, staged, or untracked change(s). Merge-tree clean=True; no merge conflicts reported. Original focused sequential build, default parity, arch, rules and diff checks reported passed. Concurrent build and page-loading acceptance remain unproven; resume network-blocked.
+
+## Finished lane retirement, 2026-10-31
+
+Under Weibao's current trimming instruction and AD41, the adopted Q1/Q2/Q3/Q6/Q7/Q8 worktrees were removed after terminal/adoption, ancestry, visible process/open-file and verified-archive checks. Branches remain; the earlier worktree paths and stop-state tables are historical. [Recovery locations and execution checks](../../../audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md#round-3-reusable-helpers-built-and-finished-q-lanes-retired) replace those paths for local leftovers. No other lane was resumed or removed by this cleanup.

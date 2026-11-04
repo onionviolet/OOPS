@@ -1,0 +1,36 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "sha256": {
+    "src/native_rendering_recipes.js": "86a0d3f73ccd347f7bbe2ac91c959e222d29a3867a6d0c77fb058df3f5a5f9b4",
+    "src/native_material_catalogue.js": "7b4ad2c44b3472244da69e95f110544949495c897ae794df18a03b0261b2edfe",
+    "src/craft_material_fit.js": "c6180361216d9f87e91025638392aff8d2731cb738eef8e23d8ec9d9171f2813",
+    "src/craft_materials.js": "bea606cda53ef2bd2e8a2dd76c0b3ea8c9157b73f196aa81e94bffddfb3c2100",
+    "src/tag_store.js": "dfe5c6f2acc09ff72a1f6013efbd421a8f34a290d747209e3276ec9188b1a5af",
+    "src/material_lineage.js": "1c70cf1822c9ac7952be2b3be3a2a503f4eed545ccd1b9246622ecbae540a890",
+    "src/material_lineage_domain.js": "76b4af54db3dc308e0bbf0be1c8a8ef858e929b23c584d3a31d7815c8965483e",
+    "src/processed_materials.js": "ffefcfe725942d809f7ffe075ff43e33dcecc67ff4376b4b9799e9414b98bab3",
+    "tests/native_rendering.test.js": "6f4a6c2f33f0c7a803f4818a11fae365af88b8a34fe06a5bd47f856f0a426800",
+    "package.json": "08d9a7e861d38661014b35848c8d3d187bb4f9e2cf08a50fe58ca0e6e76ef19d",
+    "build.js": "d00680670936fdc024280b1c1dfcdef1df64d8b5b44a5d37a7a1e92adf261088"
+  },
+  "commands": {
+    "build": "node build.js",
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "ink:compile": "node scripts/compile_feature_ink.mjs",
+    "ink:check": "node scripts/compile_feature_ink.mjs --check",
+    "check:arch": "node scripts/check_architecture.mjs",
+    "check:rules": "node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs",
+    "check:receipts": "node scripts/check_receipts.mjs",
+    "check:docs": "node scripts/check_doc_slips.mjs",
+    "check:descriptions": "node scripts/check_descriptions.mjs",
+    "check:generators": "node scripts/check_generators.mjs",
+    "report:cycles": "node scripts/cycle_ledger.mjs",
+    "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
+    "build:preview": "node scripts/build_ui_preview.mjs",
+    "desktop": "npm run build && npm run desktop:snapshot && electron .",
+    "desktop:snapshot": "node desktop/snapshot.cjs",
+    "check:desktop": "node scripts/check_desktop.mjs",
+    "mcp:game": "node scripts/mcp/game_mcp.mjs"
+  }
+}

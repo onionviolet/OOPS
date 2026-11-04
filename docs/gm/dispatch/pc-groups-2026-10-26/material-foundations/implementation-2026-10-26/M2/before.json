@@ -1,0 +1,11 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "sha256": {
+    "src/material_lineage.js": "1c70cf1822c9ac7952be2b3be3a2a503f4eed545ccd1b9246622ecbae540a890",
+    "src/material_lineage_domain.js": "76b4af54db3dc308e0bbf0be1c8a8ef858e929b23c584d3a31d7815c8965483e",
+    "src/processed_materials.js": "ffefcfe725942d809f7ffe075ff43e33dcecc67ff4376b4b9799e9414b98bab3",
+    "src/material_treatment.js": "f4d8d8f9897026887cafe3383babf09a257a11fdbd70140e2d072e5e3b6f45d3",
+    "tests/material_lineage.test.js": "13a734a955bb41c1f6f9b43b71d4387fcff75a55e420909059eb08c1193cf666",
+    "tests/processed_materials.test.js": "929f1d0b19672a87b1d18f969b3c936020650e00a1278c4318da95bcc89e784d"
+  }
+}

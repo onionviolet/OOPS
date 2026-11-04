@@ -1,0 +1,11 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "files": {
+    "src/craft_materials.js": "bea606cda53ef2bd2e8a2dd76c0b3ea8c9157b73f196aa81e94bffddfb3c2100",
+    "src/craft_resolver.js": "044845f4edf8f6e668411e3f9a43ae83f4f4c72eb8e10b3d67593fa8f8d1636d",
+    "src/native_material_catalogue.js": "7b4ad2c44b3472244da69e95f110544949495c897ae794df18a03b0261b2edfe",
+    "tests/native_material_bridge.test.js": "a859ded7afd4f4abbf05ca62cbde5e48c1fd9c17e5676b913d88d57613463e63",
+    "src/craft_material_fit.js": "c6180361216d9f87e91025638392aff8d2731cb738eef8e23d8ec9d9171f2813",
+    "src/native_rendering_recipes.js": "375eef85d6d87566e291d32744e954b64dd0d61b41ae775a7eeb69556162ef1a"
+  }
+}

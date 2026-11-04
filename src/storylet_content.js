@@ -17,6 +17,7 @@ function card(id,deck,urgency,label,options={}) {
     return {id:`village.${id}`,revision:1,label,group:'storylet',interval:1,public:true,actorId:'player',targetId:neighbor,
         mode:urgency==='ambient'?'ambient':urgency==='soft'?'offer':'decision',
         lifetime:urgency==='ambient'?0:90,effects:[],responses:[],onExpire:[receipt(`${id}.passed`)],...event,
+        requires:all(is('actor.world','base.frontier'),...(event.requires?[event.requires]:[])),
         storylet:{deck:`village.${deck}`,urgency,weight:{base:weight,plus},cooldown,once,family,fallback}};
 }
 export const storyletEvents = [

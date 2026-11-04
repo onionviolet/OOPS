@@ -1,0 +1,5035 @@
+[
+  {
+    "id": "book.paradise.campaign.hub.begin",
+    "revision": 1,
+    "label": "Open the extended craft, danger and return terms · optional",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.enrolled",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.entry",
+        "stage": "understood",
+        "value": "This optional continuation represents the sid20 first-Goa fire, gate and immediate retained aftermath, beside an original paid hub workshop. Its 58–72 local-minute rescue window is a game proposal, not the source tomorrow18:00/midnight notices. People keep their own body, money, materials, attention and source knowledge. Your learned line procedure is ordinary physical craft, not Hunter talent or mana. Failure can kill the endangered Hank; no source restoration, free loot, save rewind, prestige or universal evacuation follows. Previously reserved jobs retain their original terms.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "fact": "paradiseCampaign.supported",
+          "op": "eq",
+          "value": true,
+          "reason": "Use the actual living, controlled human body in this retained source branch."
+        },
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.enrolled",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.enrolled",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "description": "Deliberately adopt this bounded new rescue/aftermath branch. Earlier completed work and frozen jobs retain their meanings. No source capability or physical supply is seeded."
+  },
+  {
+    "id": "book.paradise.campaign.goa.begin",
+    "revision": 1,
+    "label": "Open the extended craft, danger and return terms · optional",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.enrolled",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.entry",
+        "stage": "understood",
+        "value": "This optional continuation represents the sid20 first-Goa fire, gate and immediate retained aftermath, beside an original paid hub workshop. Its 58–72 local-minute rescue window is a game proposal, not the source tomorrow18:00/midnight notices. People keep their own body, money, materials, attention and source knowledge. Your learned line procedure is ordinary physical craft, not Hunter talent or mana. Failure can kill the endangered Hank; no source restoration, free loot, save rewind, prestige or universal evacuation follows. Previously reserved jobs retain their original terms.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "fact": "paradiseCampaign.supported",
+          "op": "eq",
+          "value": true,
+          "reason": "Use the actual living, controlled human body in this retained source branch."
+        },
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.enrolled",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.enrolled",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "description": "Deliberately adopt this bounded new rescue/aftermath branch. Earlier completed work and frozen jobs retain their meanings. No source capability or physical supply is seeded."
+  },
+  {
+    "id": "book.paradise.campaign.hub.bench",
+    "revision": 1,
+    "label": "Build your own paid-district bench · 2 logs + rope + 2 stamina · 5 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -2
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "site",
+        "operation": "open",
+        "siteId": "book.paradise.campaign.personal_bench",
+        "actor": "player"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.bench",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.bench",
+        "stage": "seen",
+        "value": "My two actual logs, rope, two stamina and five played minutes became one personally owned small bench. The original district permits this finite work surface. It supports personal kit repair and paid deliveries; it grants no room, employee office, World Source or automatic stock.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "world.book.paradise.hub.met",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.bench",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    },
+    "duration": 5,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "claim": "book.paradise.campaign.bench_claim",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.learn_paid",
+    "revision": 1,
+    "label": "Buy line-rigging instruction · 2 credits + paired effort · 4 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "resource",
+        "actor": "player",
+        "key": "book.paradise.coin",
+        "amount": -2
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      },
+      {
+        "type": "vital",
+        "actor": "book.paradise.employee",
+        "key": "stamina",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.attention",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "book.paradise.employee",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.coin",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "actor": "book.paradise.employee",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "source",
+        "actor": "player",
+        "sourceId": "book.paradise.campaign.line_rigging",
+        "operation": "grant",
+        "origin": "trained",
+        "awakened": true,
+        "active": true
+      },
+      {
+        "type": "power",
+        "actor": "player",
+        "powerId": "book.paradise.campaign.line_rigging",
+        "operation": "learn"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.taught",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.line_instruction",
+        "stage": "understood",
+        "value": "The employee taught an original line procedure after checking my actually acquired bracing method. We tested a held kit, a loaded rope path, an anchor and release order with our own bodies. I acquired my own zero-start line procedure, not the employee’s mastery, sword technique, Soul Eater, mana or Hunter source. Control still needs my own practice and real kit/rope.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "book.paradise.employee",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "world.book.paradise.hub.met",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.baseMethod",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.methodOwned",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.employee",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.employee",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "duration": 4,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "world.book.paradise.hub.met",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.baseMethod",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.methodOwned",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.employee",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "claim": "book.paradise.campaign.method_claim",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.learn_self",
+    "revision": 1,
+    "label": "Develop a line procedure at your own bench · log + held kit/rope + 4 stamina · 7 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -4
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "source",
+        "actor": "player",
+        "sourceId": "book.paradise.campaign.line_rigging",
+        "operation": "grant",
+        "origin": "trained",
+        "awakened": true,
+        "active": true
+      },
+      {
+        "type": "power",
+        "actor": "player",
+        "powerId": "book.paradise.campaign.line_rigging",
+        "operation": "learn"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.selfTaught",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.line_instruction",
+        "stage": "understood",
+        "value": "At my actually built bench I spent one log, four stamina and seven minutes testing a loaded line against my own learned bracing. My held kit and rope returned once. I developed this original ordinary procedure at zero mastery; no teacher’s hidden knowledge, magical faculty, city authority or stock was copied.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "world.book.paradise.hub.met",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.baseMethod",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.methodOwned",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.bench",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.ownTools",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "duration": 7,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.baseMethod",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.bench",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "siteId": "book.paradise.campaign.personal_bench",
+    "claim": "book.paradise.campaign.method_claim",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.practice",
+    "revision": 1,
+    "label": "Practice control of your own line · held kit/rope + 2 stamina · 3 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise paid training booth",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "power",
+        "actor": "player",
+        "powerId": "book.paradise.campaign.line_rigging",
+        "operation": "refine",
+        "amount": 1
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.practice",
+        "stage": "understood",
+        "value": "I practiced the anchor, tension, two-body load and release sequence with my own real kit and rope. Both held tools returned once; two stamina and three minutes stayed spent. Mastery up to three now changes my supported rescue, timber use and repeat workshop labor. This is ordinary technique control, with no mana reserve or borrowed talent.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.methodActive",
+              "op": "eq",
+              "value": true,
+              "reason": "Keep your own active taught line procedure and actual kit/rope."
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.practiceAvailable",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise paid training booth"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.methodOwned",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "powerId": "book.paradise.campaign.line_rigging",
+    "duration": 3,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.methodFaculty",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false
+  },
+  {
+    "id": "book.paradise.campaign.goa.practice",
+    "revision": 1,
+    "label": "Practice control of your own line · held kit/rope + 2 stamina · 3 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa provision pier",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "power",
+        "actor": "player",
+        "powerId": "book.paradise.campaign.line_rigging",
+        "operation": "refine",
+        "amount": 1
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.practice",
+        "stage": "understood",
+        "value": "I practiced the anchor, tension, two-body load and release sequence with my own real kit and rope. Both held tools returned once; two stamina and three minutes stayed spent. Mastery up to three now changes my supported rescue, timber use and repeat workshop labor. This is ordinary technique control, with no mana reserve or borrowed talent.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.methodActive",
+              "op": "eq",
+              "value": true,
+              "reason": "Keep your own active taught line procedure and actual kit/rope."
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.practiceAvailable",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa provision pier"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.methodOwned",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "powerId": "book.paradise.campaign.line_rigging",
+    "duration": 3,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.methodFaculty",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false
+  },
+  {
+    "id": "book.paradise.campaign.hub.pause_method",
+    "revision": 1,
+    "label": "Stop using your taught line procedure",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise paid training booth",
+    "costs": [],
+    "effects": [
+      {
+        "type": "source",
+        "actor": "player",
+        "sourceId": "book.paradise.campaign.line_rigging",
+        "operation": "activate",
+        "active": false
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.paused",
+        "stage": "seen",
+        "value": "I voluntarily stopped using my line procedure. Its source record and learned history remain mine; exact source activation is required again for its consumers. No tool, body or mastery changed.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.methodFaculty",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise paid training booth"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.methodFaculty",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.resume_method",
+    "revision": 1,
+    "label": "Resume your own learned line procedure",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise paid training booth",
+    "costs": [],
+    "effects": [
+      {
+        "type": "source",
+        "actor": "player",
+        "sourceId": "book.paradise.campaign.line_rigging",
+        "operation": "activate",
+        "active": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.resumed",
+        "stage": "seen",
+        "value": "I resumed my own already learned, awakened and unsuppressed ordinary line procedure. This did not grant a new source or restore missing supplies.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.methodResumable",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise paid training booth"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.methodOwned",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.methodFaculty",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.make_ordinary",
+    "revision": 1,
+    "label": "Make an ordinary bench kit · log + held rope + 3 stamina · 4 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -3
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.bench_production",
+        "stage": "seen",
+        "value": "My retained personal bench used one real log, one held-returned rope, three stamina and four minutes for one native Prepared survey kit. The ordinary route remains useful without the line procedure.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "duration": 4,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "siteId": "book.paradise.campaign.personal_bench",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.make_controlled",
+    "revision": 1,
+    "label": "Make a controlled bench kit · log + held rope + 1 stamina · 2 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.bench_production",
+        "stage": "seen",
+        "value": "My own mastered line procedure and retained personal bench used one real log, one held-returned rope, one stamina and two minutes for one native Prepared survey kit. No shop, purse or material was refilled.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.methodActive",
+              "op": "eq",
+              "value": true,
+              "reason": "Keep your own active taught line procedure and actual kit/rope."
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.mastered",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.methodFaculty",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.mastered",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "siteId": "book.paradise.campaign.personal_bench",
+    "powerId": "book.paradise.campaign.line_rigging",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.commission_1",
+    "revision": 1,
+    "label": "Supply district repair order 1 · one actual kit for 3 owned credits",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.coin",
+        "amount": -3
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "book.paradise.employee",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "resource",
+        "actor": "player",
+        "key": "book.paradise.coin",
+        "amount": 3
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.commission1",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.commission1",
+        "stage": "seen",
+        "value": "Completed original finite district repair order 1. My actual kit entered the employee’s inventory; three of their own credits entered my purse and their finite attention was spent. This physical supply and specific completed order grants no general rank, repeated payroll or new shop stock.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.employee",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.employee",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.employee",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.commission_1",
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.employee",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "siteId": "book.paradise.campaign.personal_bench",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.commission_2",
+    "revision": 1,
+    "label": "Supply district repair order 2 · one actual kit for 3 owned credits",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.coin",
+        "amount": -3
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "book.paradise.employee",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "resource",
+        "actor": "player",
+        "key": "book.paradise.coin",
+        "amount": 3
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.commission2",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.commission2",
+        "stage": "seen",
+        "value": "Completed original finite district repair order 2. My actual kit entered the employee’s inventory; three of their own credits entered my purse and their finite attention was spent. This physical supply and specific completed order grants no general rank, repeated payroll or new shop stock.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.employee",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.employee",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.book.paradise.campaign.commission1",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.employee",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.commission_2",
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.hub",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.bench",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.employee",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "siteId": "book.paradise.campaign.personal_bench",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.wrap",
+    "revision": 1,
+    "label": "Fit an ordinary smoke wrap · linen + 1 stamina · 2 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa provision pier",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Linen cloth\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "actor": "player",
+        "id": "book.paradise.campaign.smoke_wrap",
+        "operation": "apply",
+        "duration": 20
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.smoke_wrap",
+        "stage": "seen",
+        "value": "Spent one real Linen cloth and one stamina on an original twenty-minute smoke wrap. It supports the specifically authored sheltered escort and lowers that route’s injury. It grants no general fire/poison immunity, underwater breath, magical barrier or new body.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.wrapped",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    },
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa provision pier"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.recon",
+    "revision": 1,
+    "label": "Inspect the actual gate route · 2 stamina · 3 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa city gate",
+    "costs": [
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.gateSurvey",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.gate_survey",
+        "stage": "understood",
+        "value": "I physically inspected the gate-side line route and two reachable timber anchor positions. These original small geometric observations support a later braced or ordinary rescue, if the actual people and access still exist. I learned no private assassination task or future timing.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.gateInspectable",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "duration": 3,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.gateInspectable",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa city gate"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.observe_gate",
+    "revision": 1,
+    "label": "Look at the actual endangered guard and fleeing pirate at the gate",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa city gate",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.gateKnown",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.gate_notice",
+        "stage": "seen",
+        "value": "At the actual burned-district gate I saw Hank caught in a small dangerous crush and Krieg pressing for escape after his own operation. The original branch offers one bounded rescue through local minute72. I can use a studied line, ordinary timber, paid breathing room or an exposed attempt, and may retreat. The scene cannot restore the burned homes or guarantee any broad evacuation. No person’s private plan was disclosed.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.gateScenePresent",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa city gate"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.gateScenePresent",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.rescue",
+    "revision": 1,
+    "label": "Intervene in the bounded gate conflict · own and opposed means · three choices",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa city gate",
+    "costs": [
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "book.paradise.krieg",
+        "key": "stamina",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.krieg",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.gateKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.rescueContact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.rescueWindow",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.rescueFinished",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    },
+    "targetId": "book.paradise.krieg",
+    "coLocated": true,
+    "participants": [
+      "$target",
+      "book.paradise.hank"
+    ],
+    "claim": "book.paradise.campaign.gate_scene_claim",
+    "encounterId": "book.paradise.campaign.gate_rescue",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa city gate"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.gateKnown",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.rescueContact",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "description": "A bounded original physical contest during the source-motivated gate panic. Krieg spends his own finite body/attention on pressure; Hank remains his own living body. Each response discloses actual supplies, injury and effort. Withdrawal retains already spent costs and leaves the unrescued danger real. This is a scripted encounter, not general native person combat."
+  },
+  {
+    "id": "book.paradise.campaign.goa.recover",
+    "revision": 1,
+    "label": "Treat your actual smoke and bruising · linen + herb + ration · 5 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa provision pier",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Linen cloth\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Golmoon leaf\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Goa ration parcel\"}",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "actor": "player",
+        "id": "book.paradise.campaign.smoke_irritation",
+        "operation": "remove"
+      },
+      {
+        "type": "condition",
+        "actor": "player",
+        "id": "book.paradise.campaign.gate_bruising",
+        "operation": "remove"
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "health",
+        "amount": 3
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": 2
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.recovery",
+        "stage": "seen",
+        "value": "My actually spent linen, Golmoon leaf, food and five minutes eased this scene’s temporary smoke irritation and bruising, restoring at most three health/two stamina within my real maxima. Dead people, other effects, permanent marks, materials and source powers stayed separate.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.playerInjured",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "duration": 5,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "fact": "paradiseCampaign.supported",
+          "op": "eq",
+          "value": true,
+          "reason": "Use the actual living, controlled human body in this retained source branch."
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa provision pier"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.rest",
+    "revision": 1,
+    "label": "Rest away from smoke · time only · 6 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa provision pier",
+    "costs": [],
+    "effects": [
+      {
+        "type": "condition",
+        "actor": "player",
+        "id": "book.paradise.campaign.smoke_irritation",
+        "operation": "remove"
+      },
+      {
+        "type": "condition",
+        "actor": "player",
+        "id": "book.paradise.campaign.gate_bruising",
+        "operation": "remove"
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.quiet_recovery",
+        "stage": "seen",
+        "value": "Six quiet played minutes eased the temporary smoke and bruising. No food, health, stamina, attention, stock or dead person was restored.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.playerInjured",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "duration": 6,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "fact": "paradiseCampaign.supported",
+          "op": "eq",
+          "value": true,
+          "reason": "Use the actual living, controlled human body in this retained source branch."
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa provision pier"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.hank_care",
+    "revision": 1,
+    "label": "Offer surviving Hank actual supplied recovery at the gate · linen + herb + ration · 4 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa city gate",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Linen cloth\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Golmoon leaf\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Goa ration parcel\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "actor": "book.paradise.hank",
+        "id": "book.paradise.campaign.smoke_irritation",
+        "operation": "remove"
+      },
+      {
+        "type": "condition",
+        "actor": "book.paradise.hank",
+        "id": "book.paradise.campaign.gate_bruising",
+        "operation": "remove"
+      },
+      {
+        "type": "vital",
+        "actor": "book.paradise.hank",
+        "key": "health",
+        "amount": 3
+      },
+      {
+        "type": "vital",
+        "actor": "book.paradise.hank",
+        "key": "stamina",
+        "amount": 3
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.hankCared",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.hank_care",
+        "stage": "seen",
+        "value": "The surviving, present Hank consented to ordinary care. My counted linen, herb and food and his finite attention supported four minutes of recovery. His health/stamina improved within their actual maxima; the received care did not restore attention, rewrite the fire or reverse death.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.hank",
+          "situationId": "book.paradise.side_branch"
+        }
+      },
+      {
+        "type": "knowledge",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.campaign.received_care",
+        "stage": "understood",
+        "value": "I accepted actual supplied care from the traveler after surviving the gate. My own native health and stamina changed; my office, attention, possessions and witnessed history remain mine.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hankSheltered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.hankNeedsCare",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.hank",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "duration": 4,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hankSheltered",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa city gate"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.hank_order",
+    "revision": 1,
+    "label": "Supply recovered Hank’s personal duty-kit order · kit for 2 owned belli · 3 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa city gate",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.belli",
+        "amount": -2
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.attention",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "book.paradise.hank",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "book.paradise.hank",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "resource",
+        "actor": "player",
+        "key": "book.paradise.belli",
+        "amount": 2
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.hankOrder",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.hank_order",
+        "stage": "seen",
+        "value": "The living, present and actually recovered Hank commissioned one personal duty kit. My kit entered his own inventory; two of his actual belli paid me and his finite attention/body were spent. Smoke irritation or bruising would have blocked his careful acceptance. This private supply order grants no royal appointment, post-fire political authority or copied office.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.hank",
+          "situationId": "book.paradise.side_branch"
+        }
+      },
+      {
+        "type": "knowledge",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.campaign.received_kit",
+        "stage": "understood",
+        "value": "After my actual shelter and bodily recovery I commissioned and received the traveler’s real kit using my own money, attention and effort. This is my personal supplied duty work, not a new royal decree or a refilled purse.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.hankWorkReady",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.hank",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "duration": 3,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.hankWorkSupported",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa city gate"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.salvage",
+    "revision": 1,
+    "label": "Recover one sound cache beam after the burned arc · 2 stamina · 4 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": 1
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.cacheRecovered",
+        "value": true
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.goa.cache",
+        "value": false
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.cache_recovery",
+        "stage": "seen",
+        "value": "Recovered one sound beam from the actual small cache I had previously built and supplied. Its old timber has now changed custody; that cache no longer supplies an active material route. This is once-only recovery of previously spent property after the arc, not spontaneous salvage, shop refill or a reset of the warning history.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.recoverableCache",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "claim": "book.paradise.campaign.cache_recovery",
+    "duration": 4,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.recoverableCache",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.rebuild_ordinary",
+    "revision": 1,
+    "label": "Build retained district shelter ordinarily · 2 logs + rope + ration · 6 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -2
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Goa ration parcel\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -3
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.mia",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "site",
+        "actor": "player",
+        "siteId": "book.paradise.campaign.civil_shelter",
+        "operation": "open"
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.shelter",
+        "value": true
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.shelterCapacity",
+        "value": 2
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.shelter",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.shelter",
+        "stage": "seen",
+        "value": "Mia joined the actual two-person-scale shelter work with her own finite attention. My real timber, rope, ration and effort became a retained physical district support. Mastered rigging can save one log and two minutes; ordinary extra timber remains valid. No burned property or dead life was restored, and there is no compulsory daily maintenance.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.shelter",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.shelter_claim",
+    "duration": 6,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.rebuild_controlled",
+    "revision": 1,
+    "label": "Build retained district shelter with mastered rigging · log + rope + ration · 4 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Goa ration parcel\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.mia",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "site",
+        "actor": "player",
+        "siteId": "book.paradise.campaign.civil_shelter",
+        "operation": "open"
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.shelter",
+        "value": true
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.shelterCapacity",
+        "value": 2
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.shelter",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.shelter",
+        "stage": "seen",
+        "value": "Mia joined the actual two-person-scale shelter work with her own finite attention. My real timber, rope, ration and effort became a retained physical district support. Mastered rigging can save one log and two minutes; ordinary extra timber remains valid. No burned property or dead life was restored, and there is no compulsory daily maintenance.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.shelter",
+            "op": "eq",
+            "value": true
+          }
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.hands",
+              "op": "eq",
+              "value": true,
+              "reason": "Recover strained or injured hands before precise load work."
+            },
+            {
+              "fact": "paradiseCampaign.methodActive",
+              "op": "eq",
+              "value": true,
+              "reason": "Keep your own active taught line procedure and actual kit/rope."
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.mastered",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.shelter_claim",
+    "powerId": "book.paradise.campaign.line_rigging",
+    "duration": 4,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.methodFaculty",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.mastered",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.shelter_work",
+    "revision": 1,
+    "label": "Use your retained shelter bench · log + held rope + 2 stamina · 3 min",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Rough wood log\"}",
+        "amount": -1
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": -1
+      },
+      {
+        "type": "vital",
+        "actor": "player",
+        "key": "stamina",
+        "amount": -2
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Survey rope\"}",
+        "amount": 1,
+        "reservationReturn": true
+      },
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.shelter_work",
+        "stage": "seen",
+        "value": "My retained district shelter supported three minutes of useful personal work. One actual log and two stamina became one native kit; the held rope returned once. It remains usable after personal or contracted return without regenerating stock, pay, or the source arc.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": false,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.shelter",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "duration": 3,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.hands",
+          "op": "eq",
+          "value": true,
+          "reason": "Recover strained or injured hands before precise load work."
+        },
+        {
+          "fact": "paradiseCampaign.shelter",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": false,
+    "siteId": "book.paradise.campaign.civil_shelter",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.rin_order",
+    "revision": 1,
+    "label": "Supply Rin’s changed-district cargo order · one actual kit for 2 owned belli",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa provision pier",
+    "costs": [
+      {
+        "type": "item",
+        "actor": "player",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.porter",
+        "key": "book.paradise.belli",
+        "amount": -2
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.porter",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "item",
+        "actor": "book.paradise.porter",
+        "key": "{\"id\":\"Prepared survey kit\"}",
+        "amount": 1
+      },
+      {
+        "type": "resource",
+        "actor": "player",
+        "key": "book.paradise.belli",
+        "amount": 2
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.rinOrder",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.rin_order",
+        "stage": "seen",
+        "value": "Supplied one real prepared kit for Rin’s separate changed-district cargo order. Rin paid two owned local belli and spent one finite attention; the kit entered their actual inventory. Their old pier repair and wages are separate conserved work, and this order cannot pay again.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.porter",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.shelter",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.book.paradise.porterMet",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.porter",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.oldArcClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.shelter",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa provision pier"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.account_rescued",
+    "revision": 1,
+    "label": "Record the actual gate disposition with Mia",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescueAccount",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescue_account",
+        "stage": "seen",
+        "value": "Recorded my actual gate rescue and current wounds with the present Mia. Hank remains alive in his own body; his spent means, received accounts and the burned district persist.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.rescueAccountReady",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.book.paradise.campaign.rescueOutcome",
+          "op": "eq",
+          "value": "rescued"
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.rescue_account",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.rescueAccountReady",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.paradise.campaign.rescueOutcome",
+              "op": "eq",
+              "value": "rescued"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.account_retreated",
+    "revision": 1,
+    "label": "Record the actual gate disposition with Mia",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescueAccount",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescue_account",
+        "stage": "seen",
+        "value": "Recorded my actual retreat from the gate. Costs and damage already suffered remain spent. The endangered guard’s later own survival or death remains its physical outcome; retreat earned no rescue credit.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.rescueAccountReady",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.book.paradise.campaign.rescueOutcome",
+          "op": "eq",
+          "value": "retreated"
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.rescue_account",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.rescueAccountReady",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.paradise.campaign.rescueOutcome",
+              "op": "eq",
+              "value": "retreated"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.account_late",
+    "revision": 1,
+    "label": "Record the actual gate disposition with Mia",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescueAccount",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescue_account",
+        "stage": "seen",
+        "value": "Recorded that no supported rescue reached Hank before this original local danger window closed. His actual death and lost living contact persist; no return, craft outcome or report restores him.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.rescueAccountReady",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.book.paradise.campaign.rescueOutcome",
+          "op": "eq",
+          "value": "late"
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.rescue_account",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.rescueAccountReady",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.paradise.campaign.rescueOutcome",
+              "op": "eq",
+              "value": "late"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.account_earlier_shelter",
+    "revision": 1,
+    "label": "Record the actual gate disposition with Mia",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescueAccount",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescue_account",
+        "stage": "seen",
+        "value": "Recorded Hank’s actually completed earlier shelter. The gate rescue was unnecessary because a received route or contained ignition already supported his own survival. No new rescue fee, injury or achievement was manufactured.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.rescueAccountReady",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.book.paradise.campaign.rescueOutcome",
+          "op": "eq",
+          "value": "earlier_shelter"
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.rescue_account",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.rescueAccountReady",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.paradise.campaign.rescueOutcome",
+              "op": "eq",
+              "value": "earlier_shelter"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.goa.account_earlier_loss",
+    "revision": 1,
+    "label": "Record the actual gate disposition with Mia",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.goa",
+    "location": "Goa Gray Terminal",
+    "costs": [],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescueAccount",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.rescue_account",
+        "stage": "seen",
+        "value": "Recorded the existing loss of Hank before this new optional branch could intervene. His earlier committed death keeps its original cause and cannot become a newly claimed rescue-window failure, resurrected contact or repeated source event.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.mia",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.rescueAccountReady",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "world.book.paradise.campaign.rescueOutcome",
+          "op": "eq",
+          "value": "earlier_loss"
+        }
+      ]
+    },
+    "targetId": "book.paradise.mia",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "claim": "book.paradise.campaign.rescue_account",
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.goa",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Goa Gray Terminal"
+        },
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradiseCampaign.rescueAccountReady",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.paradise.campaign.rescueOutcome",
+              "op": "eq",
+              "value": "earlier_loss"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.hub.return_account",
+    "revision": 1,
+    "label": "Show the desk your own return work and attributed Goa account",
+    "actorId": "player",
+    "group": "book_paradise_campaign",
+    "worldId": "book.paradise.hub",
+    "location": "Paradise independent-contractor desk",
+    "costs": [
+      {
+        "type": "resource",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "player",
+        "key": "book.paradise.campaign.returnAccount",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.paradise.campaign.return_account",
+        "stage": "seen",
+        "value": "The present desk worker received my actual retained Goa account and shelter/work evidence after I physically returned. My bench, own learned method, materials, completed orders and the same changed Goa instance remain usable. This specific receipt grants no new survey payout, Hunter reward, source rank or employee office.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.employee",
+          "situationId": "book.paradise.side_branch"
+        }
+      },
+      {
+        "type": "knowledge",
+        "actor": "book.paradise.employee",
+        "key": "book.paradise.campaign.received_return",
+        "stage": "understood",
+        "value": "I received the traveler’s actual new Goa account at our desk. It reports their original shelter/craft work and their attributed gate outcome, not my own eyewitness knowledge of Goa, a whole-world safety claim or another person’s private mission.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "player",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "once": true,
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.returnedMature",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.bench",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "targetId": "book.paradise.employee",
+    "coLocated": true,
+    "participants": [
+      "$target"
+    ],
+    "duration": 2,
+    "cancellation": "refund",
+    "reservationReturns": 1,
+    "completionFailure": "refund",
+    "completionRequires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.hub",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.returnedMature",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.bench",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "completionCoLocated": true,
+    "visibleWhen": {
+      "all": [
+        {
+          "fact": "paradise.local.book.paradise.hub",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "actor.location",
+          "op": "eq",
+          "value": "Paradise independent-contractor desk"
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.npc.hank_gate",
+    "revision": 1,
+    "label": "Hank spends his own duty effort reaching the endangered gate",
+    "actorId": "book.paradise.hank",
+    "group": "book_paradise_campaign_npc",
+    "worldId": "book.paradise.goa",
+    "location": "Goa guardhouse",
+    "audience": [
+      "$actor"
+    ],
+    "once": true,
+    "costs": [
+      {
+        "type": "vital",
+        "actor": "book.paradise.hank",
+        "key": "stamina",
+        "amount": -1
+      },
+      {
+        "type": "resource",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.attention",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "relocate",
+        "actor": "book.paradise.hank",
+        "location": "Goa city gate"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.campaign.endangered",
+        "value": true
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.rescueOutcome",
+        "value": "pending"
+      },
+      {
+        "type": "knowledge",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.campaign.gate_arrival",
+        "stage": "understood",
+        "value": "I spent my own duty attention and effort reaching the actual gate after the district ignited. The original small crush is dangerous; I know neither the traveler’s unreceived route report nor a guaranteed future rescue.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "book.paradise.hank",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "visibleWhen": {
+      "fact": "paradiseCampaign.enrolled",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.goa",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.goa.fire",
+              "op": "eq",
+              "value": "burned"
+            },
+            {
+              "fact": "world.book.goa.hank",
+              "op": "eq",
+              "value": "on_duty"
+            },
+            {
+              "fact": "paradise.goaElapsed",
+              "op": "gte",
+              "value": 58
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.rescueFinished",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "fact": "paradise.support.book.paradise.hank",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.npc.krieg_gate",
+    "revision": 1,
+    "label": "Krieg spends his own remaining escape effort approaching the gate",
+    "actorId": "book.paradise.krieg",
+    "group": "book_paradise_campaign_npc",
+    "worldId": "book.paradise.goa",
+    "location": "Goa provision pier",
+    "audience": [
+      "$actor"
+    ],
+    "once": true,
+    "costs": [
+      {
+        "type": "vital",
+        "actor": "book.paradise.krieg",
+        "key": "stamina",
+        "amount": -1
+      }
+    ],
+    "effects": [
+      {
+        "type": "relocate",
+        "actor": "book.paradise.krieg",
+        "location": "Goa city gate"
+      },
+      {
+        "type": "fact",
+        "scope": "actor",
+        "actor": "book.paradise.krieg",
+        "key": "book.paradise.campaign.gatePressure",
+        "value": true
+      },
+      {
+        "type": "knowledge",
+        "actor": "book.paradise.krieg",
+        "key": "book.paradise.campaign.gate_escape",
+        "stage": "understood",
+        "value": "My own operation ignited the district and I now seek escape through the actually open gate. I spent my own body reaching this original bounded gate contact. My source-era aim is survival after the promised bargain fails, not an omniscient desire to punish this traveler.",
+        "basis": {
+          "kind": "instruction",
+          "attributedTo": "book.paradise.krieg",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "visibleWhen": {
+      "fact": "paradiseCampaign.enrolled",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "paradiseCampaign.supported",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Use the actual living, controlled human body in this retained source branch."
+                },
+                {
+                  "fact": "paradiseCampaign.enrolled",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "paradise.local.book.paradise.goa",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "world.book.goa.fire",
+              "op": "eq",
+              "value": "burned"
+            },
+            {
+              "fact": "world.book.goa.hank",
+              "op": "eq",
+              "value": "on_duty"
+            },
+            {
+              "fact": "paradise.goaElapsed",
+              "op": "gte",
+              "value": 58
+            },
+            {
+              "not": {
+                "fact": "paradiseCampaign.rescueFinished",
+                "op": "eq",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.gateOpen",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradise.support.book.paradise.krieg",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "book.paradise.campaign.npc.hank_late",
+    "revision": 1,
+    "label": "Hank’s unsupported gate danger ends in actual death",
+    "actorId": "book.paradise.hank",
+    "group": "book_paradise_campaign_npc",
+    "worldId": "book.paradise.goa",
+    "location": "Goa city gate",
+    "audience": [
+      "$actor"
+    ],
+    "once": true,
+    "costs": [],
+    "effects": [
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.goa.hank",
+        "value": "dead"
+      },
+      {
+        "type": "world",
+        "worldId": "book.paradise.goa",
+        "key": "book.paradise.campaign.rescueOutcome",
+        "value": "late"
+      },
+      {
+        "type": "vital",
+        "actor": "book.paradise.hank",
+        "key": "health",
+        "amount": {
+          "fact": "paradise.health.book.paradise.hank",
+          "scale": -1
+        }
+      },
+      {
+        "type": "life",
+        "actor": "book.paradise.hank",
+        "status": "dead",
+        "lethal": true,
+        "reason": "The original bounded gate rescue window closed after actual fire with no supported shelter/rescue."
+      },
+      {
+        "type": "knowledge",
+        "actor": "book.paradise.hank",
+        "key": "book.paradise.campaign.gate_loss",
+        "stage": "seen",
+        "value": "No supported rescue or own received-route shelter reached me before this bounded physical danger closed. My actual life ended; this is an authored alternative branch consequence, not an inevitable source restoration.",
+        "basis": {
+          "kind": "observation",
+          "attributedTo": "book.paradise.hank",
+          "situationId": "book.paradise.side_branch"
+        }
+      }
+    ],
+    "visibleWhen": {
+      "fact": "paradiseCampaign.enrolled",
+      "op": "eq",
+      "value": true
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            {
+              "fact": "paradiseCampaign.supported",
+              "op": "eq",
+              "value": true,
+              "reason": "Use the actual living, controlled human body in this retained source branch."
+            },
+            {
+              "fact": "paradiseCampaign.enrolled",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "paradise.local.book.paradise.goa",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        {
+          "fact": "paradiseCampaign.enrolled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "fact": "paradiseCampaign.hankDanger",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "not": {
+            "fact": "paradiseCampaign.rescueWindow",
+            "op": "eq",
+            "value": true
+          }
+        }
+      ]
+    }
+  }
+]

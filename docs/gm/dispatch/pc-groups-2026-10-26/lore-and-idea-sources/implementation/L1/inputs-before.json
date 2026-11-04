@@ -1,0 +1,17 @@
+{
+  "head": "712eaf7d7247bdc1369fa02f35b1a4df3335c994",
+  "paths": {
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "src/book_world_mol_lore.js": null,
+    "src/book_world_mol_state.js": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+    "src/world_packs/book_mol_pack.js": "eb1bec4a5e7a3eb0b158a40ae895926284e542f07302d5a39a8e52c908313f27",
+    "tests/mol_lore_documents.test.js": null
+  },
+  "locks": [
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/6adc1d5aebe77060515ecc6938f7cbecb941b0f27ff27519ff0ac9fb7332280d",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/ca391c7625a9921e71539cc2a3665ab9a42a9e1ff3ac438671efc898b2464852",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/33cd872b8f30f7c6de882ce6aad8df8634396cf26a2c7019b956e4f9c6fea02a",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/6c69a6236e5e1abe39f179467947cd1066bec955a6df209c84caef340680cf1d",
+    "/Users/weiwei/.codex/research/minecraft-implementation-2026-10-26/locks/dd55607211482b725daa9e4f502979cfbb0670b54316d62c7b2fce7da6a967a8"
+  ]
+}

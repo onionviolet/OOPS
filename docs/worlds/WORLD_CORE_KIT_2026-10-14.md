@@ -1,5 +1,7 @@
 # World core kit: what each world needs to play in depth (proposal, 2026-10-14)
 
+Research routing, 2026-10-31: [cross-novel game-mechanics scout](../research/CROSS_NOVEL_GAME_MECHANICS_SCOUT_2026-10-31.md) N1–N5 links the current LOTM, Mother of Learning, Worm, Harry Potter and Shadow Slave owners to evidence/investigation, loop shortcuts, bounded foresight, contextual practice and light/sense comparisons. These are proposals with source/access limits, not new world laws or a change to LOTM-first implementation.
+
 > Code namespace 2026-10-19 (no codes renamed): NX1-NX15 (kit backlog), OM3 (a K6 dispatch pointer) and CW3 (many power origins) are local to this file and repeat elsewhere (NX in NONHUMAN_STARTS_BY_WORLD, INTRO_FLOW and the UI plan; OM3 in CONTINUATION_CHOICE and technology; CW3 in NONHUMAN_STARTS_ENGINE_REQUIREMENTS and W16). Outside this file cite `WORLD_CORE_KIT_2026-10-14#NX8`. "Codes are never reused (F14)" holds only inside the kit. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
 
 Request (Weibao, 2026-10-14): "core stuff needed for each world to be
