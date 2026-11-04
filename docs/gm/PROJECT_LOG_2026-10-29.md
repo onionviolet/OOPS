@@ -2354,3 +2354,7 @@ The Klein line now names the KJ3AC endpoint (Tuesday 7:58 a.m. at the Blackthorn
 ## 2026-11-04: PROJECT.md endpoint line replaced (kjw20)
 
 The Klein line now names the KJ3AD endpoint (Tuesday 9 p.m. at the flat after the Beyonder records and the Theosophy Order, English v1 ch65 P001 through ch66 P047; 15 acts, 32 slices, 496 stages; native on the master bundle `4c9c0c2b`, purse 807, pool 1/2). KJ3AC keeps Glacis's and Joyce's paid sessions, the calling and the warrant for Tris. Agent-verified, not human-reviewed.
+
+## 2026-11-04: PROJECT.md endpoint line replaced (kjw21)
+
+The Klein line now names the KJ3AE endpoint (Wednesday 8 p.m. on Daffodil Street after the night above the grey fog and the underground market, English v1 ch67 P001 through ch69 P082; 19 acts, 33 slices, 515 stages; native on the master bundle `4c9c0c2b`, purse 684, pool 3/0). KJ3AD keeps the Beyonder records and the Theosophy Order. Agent-verified, not human-reviewed.
