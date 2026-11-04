@@ -88,7 +88,7 @@ Columns: source words from the EPUB; census rows with an `en b1 cN` locator in t
 
 ## Sample review (WA48 style, 20 rows against the source)
 
-I drew 20 random scene-beat rows from these chapters (seed 7) and compared each row's locator paragraph with the EPUB text, by eye on the first 220 characters. All 20 locators land on a paragraph that matches the beat's subject (for example c61 p72 the Eldemar visit with Zach's warnings, c60 p64 the lich teleporting at the party, c94 p66 Benisek and the Holakor villages, c105 p99 Jornak realizing nothing is real). This checks locator alignment only, not the beat's full claims. Paragraph numbering matches mine when counting from the first body paragraph after the two header lines.
+I drew 20 random scene-beat rows from these chapters (seed 7) and compared each row's locator paragraph with the EPUB text, by eye on the first 220 characters. All 20 locators land on a paragraph that matches the beat's subject (for example c61 p72 the Eldemar visit with Zach's warnings, c60 p64 the lich teleporting at the party, c94 p66 Benisek and the Holakor villages, and one sealed beat, lr.mol.main.10509, referred to by ID only). This checks locator alignment only, not the beat's full claims. Paragraph numbering matches mine when counting from the first body paragraph after the two header lines.
 
 ## Not done
 

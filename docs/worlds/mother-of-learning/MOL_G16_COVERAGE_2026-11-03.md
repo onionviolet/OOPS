@@ -15,12 +15,12 @@ All 44 chapters were loaded in full text (EPUB Calibre 21, 334,139 words) and ex
 | Concurrency | 2 | 2 |
 | Source words loaded | W = 334,139 + named repair spans | first pass 334,139; repair spans c103-104 (15,835), c101-102 (15,482), c60 loaded via shard c60-61 (15,145; c61 ignored) = 380,601 |
 | Shard size | at most 12,000 (AU10) | 16 of 28 shards over 12,000 words (largest 15,835, s27); P1 is 12,834 words by EPUB count (13,632 with locator tags, as the plan doc says); readers loaded each shard whole; s02's first read hit the host token cap and was re-read in full, no other truncation reported |
-| Reader responses | at most 6 each | 2 to 9 tool calls; none past the context stop |
+| Reader responses | at most 6 each (AU14) | Responses and context size were not measured; the host reports tool calls only. Tool calls ran 2 to 9. Highest: s03 9, s15 7, s21 7, s11 6, R2 6, so s03 likely and s15/s21 possibly exceeded AU14's 6 responses |
 | Host-reported reader tokens | not capped | 3,047,837 summed over 31 readers (per-response context counted each time; cache split not given, so not a quota figure) |
-| Meter, 5-hour window | pacing only | 42% to 61% (includes my coordinator turns and the earlier plan work) |
-| Meter, weekly all models | stop at +5 (38%) | 33% to 35%, **+2** |
+| Meter, 5-hour window | AU7 default: +5 points on any window | 42% to 61%, **+19**: over the default. Includes my own coordinator turns and the earlier plan work, and the meter cannot split them. I treated this window as pacing only; that was my reading, not his instruction |
+| Meter, weekly all models | +5 (to 38%) | 33% to 35%, **+2** |
 
-Deviations: shard cap raised to 16,000 words after the pilot (13.6k ran clean at about 25k tokens payload, far under the 60k context target) because chapters run 7-8k words and cap 12,000 would have forced 41 single-chapter shards. The user-confirmed ceiling was weekly +5, with the 5-hour window as a pacing signal.
+Deviations: shard cap raised to 16,000 words after the pilot (13.6k ran clean at about 25k tokens payload, far under the 60k context target) because chapters run 7-8k words and cap 12,000 would have forced 41 single-chapter shards. Ceiling: Weibao said the text did not look long enough to cost that much; I read that as a go-ahead and applied the 5-point AU7 ceiling to the weekly window, with the 5-hour window as a pacing signal. That narrowing was my choice, not his instruction. AU7 names any window, and the 5-hour one ended +19.
 
 ## Review (WA48-style, 20 items against the source)
 
