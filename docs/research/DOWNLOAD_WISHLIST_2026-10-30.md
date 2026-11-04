@@ -15,6 +15,24 @@ background), **C** Anna's search in Weibao's Chrome then A, **RR** paced Royal R
 of free chapters, **PD** public domain (Gutenberg). Files under a few weeks old are often
 Z-Library only.
 
+## How Anna's and Z-Library runs use this list (2026-11-04)
+
+Weibao: "make sure wishlist is known by anna and zlib runs". Every Anna's,
+Z-Library or Source Library download run follows these steps:
+
+1. **Pick from here.** Run `python3 -I scripts/wishlist_queue.py`, or
+   `--grep <text>` or `--json`. Take `open` rows, and recheck `partial` rows
+   against the holdings first, because some of their items are already held.
+   Titles Weibao names in chat come first, with the current acquisition
+   priority below them.
+2. **Check holdings** with `scripts/library_coverage.py` and the catalogues
+   before spending quota.
+3. **Write back.** The receipt names each row's DL code. In the same change,
+   update the row here: strike through what is now held (`~~title~~ held
+   <date>`), and name what is still wanted with "Still wanted:" or "Next:".
+   Then the queue shows the row as closed or partial instead of open.
+4. **New wants** get a DL row here, not only a line in the library index.
+
 ## Current acquisition priority, 2026-10-31
 
 **Current first priority: The Wandering Inn continuations, through all available published books.** **Main run acquired this session:** coverage through 19 plus the four newer split editions of 1-2. Books 18-19 use repaired web-text compilation reader copies; retail equivalence remains unverified. [Receipt and caveats](LIBRARY_INDEX.md#wandering-inn-published-run-acquisition-2026-10-31). Weibao clarified: "LOTM and RI as world depth and possibilities and more, but Wandering Inn should benext priority". Compare sources for world depth, breadth of possible lives and actions, interconnected systems, cultures and room for discovery. The earlier LOTM/mystery and RI/strategy split below was an agent interpretation, not his intended boundary.
@@ -133,11 +151,11 @@ Numenera; Eclipse Phase; Ironsworn; Godbound free; Rifts Megaverse Builder.
 | Code | Item | Why |
 |---|---|---|
 | DL8 | D&D 2024 Player's Handbook, Dungeon Master's Guide, Monster Manual | Current rules beside the held 2014 set; D&D is a canon-first world |
-| DL9 | Strixhaven: A Curriculum of Chaos | Magic-school life in D&D; direct comparison for the Harry Potter school year |
+| DL9 | ~~Strixhaven: A Curriculum of Chaos~~ held 2026-11-04 (Z-Library, second pass; PDF not yet screened) | Magic-school life in D&D; direct comparison for the Harry Potter school year |
 | DL10 | Eberron: Rising from the Last War (held since 2026-10-31, Source Library `9aa844f587`) | Magic as infrastructure and industry; making systems |
-| DL11 | Guildmasters' Guide to Ravnica; Acquisitions Incorporated | Guild membership and renown; running a business as a life |
-| DL12 | Mythic Odysseys of Theros | Gods, piety and divine favor as a progression track |
-| DL13 | Sword Coast Adventurer's Guide; Explorer's Guide to Wildemount; Van Richten's Guide to Ravenloft; Mordenkainen Presents: Monsters of the Multiverse (Monsters of the Multiverse held, Calibre 228) | Forgotten Realms base, a second setting, dread and curses, monster cultures |
+| DL11 | Guildmasters' Guide to Ravnica held 2026-11-04 (Z-Library). Still wanted: Acquisitions Incorporated | Guild membership and renown; running a business as a life |
+| DL12 | ~~Mythic Odysseys of Theros~~ held 2026-11-04 (Z-Library) | Gods, piety and divine favor as a progression track |
+| DL13 | Sword Coast Adventurer's Guide; Explorer's Guide to Wildemount still wanted. Van Richten's Guide to Ravenloft held 2026-11-04 (Z-Library); Monsters of the Multiverse held (Calibre 228) | Forgotten Realms base, a second setting, dread and curses, monster cultures |
 | DL14 | Pathfinder 2e Player Core, GM Core, Monster Core; Kingmaker (kingdom rules) | Second d20 frame; settlement and kingdom building |
 | DL15 | GURPS Infinite Worlds; GURPS Low-Tech Companion 3: Daily Life and Economics | Crossings between worlds; prices, wages and household economy |
 | DL16 | Pendragon core; Burning Wheel Gold | Generational play and inheritance; skills that improve by use |
@@ -525,3 +543,32 @@ Weibao: "send that into the to be obtained books, check reddit or other forms fo
 | DL91 | PF1 Core Rulebook, Advanced Player's Guide, Ultimate Magic, Ultimate Combat, Advanced Class Guide, Occult Adventures | Optional: DL82 already covers the rules data | A/Z |
 
 Order (proposal): DL83 and DL84 first, because they add the most distinct kinds of world. Then DL87 and DL88 for volume. Run DL91 only if a reader needs book layout or rules text that DL82 lacks.
+
+## W12. Procedures, everyday life and faction play, 2026-11-04
+
+Weibao: "More stuff to put into wishlist?" Each row adds a mechanism the held
+rulebooks lack, matched to a PROJECT.md consumer: daily life, the life-sim
+north star, settlements, generated worlds, or memory. Holdings were checked
+2026-11-04 against the Calibre and Source Library catalogues and the buying
+list, and none is held. Mythras is already on the [buying list](tabletop-library-2026-10-14/BUYING_LIST.md),
+so it is not repeated here. Free status and licences are from memory; open the
+publisher page before fetching. Buying needs Weibao's yes.
+
+| Code | Source | Why | Route |
+|---|---|---|---|
+| DL92 | *Worlds Without Number* (free edition) | Faction turns that move the world while the player is away; region and court generators | Free from the publisher (DriveThruRPG account, so Weibao's to grab), else A/Z |
+| DL93 | *Stars Without Number* Revised (free edition) | The same faction-turn engine at sector scale; tags that generate a world in a few rolls | as DL92 |
+| DL94 | *Old-School Essentials* SRD | Reaction rolls, retainer morale and loyalty, and wandering-encounter and hex procedures: compact rules for what the world does on its own | Free online SRD (check the licence page) |
+| DL95 | *Ryuutama* | Travel as a daily routine: weather, terrain, seasons, cooking and camp duties, each a check | A/Z, else buy |
+| DL96 | *Wanderhome* | A peaceful pastoral life: seasons, places and natures with no combat, close to the life-sim north star | A/Z, else buy |
+| DL97 | *Mouse Guard* 2e | A turn of the seasons with a town and recovery phase; weather as an opponent | A/Z, else buy |
+| DL98 | *Reign* (Greg Stolze) | Companies as characters: guilds, cities and cults with their own stats and actions; settlement and faction play | A/Z, else buy (an Enchiridion edition exists) |
+| DL99 | *The Quiet Year*; *Microscope* | A community across one year, and history built in eras: procedures for generating a world's past | A/Z, else buy |
+| DL100 | *Thousand Year Old Vampire* | Memories as a capped list that must be lost as new ones arrive: a model for the person-memory seams | A/Z, else buy |
+| DL101 | *Apocalypse World* 2e; *Dungeon World* | Moves, and fronts as threat clocks that advance off-screen | A/Z, else buy (the Dungeon World text is CC-BY; verify) |
+| DL102 | *Dungeon Crawl Classics* core | Patron bargains, spell corruption and misfire tables, and the zero-level funnel of many ordinary people | A/Z, else buy |
+| DL103 | Pathfinder 2e *Kingmaker* (kingdom rules) | Left over from DL14 (145 MB, not fetched): kingdom turns, settlement building and leadership roles | A/Z |
+
+Order (proposal): the free ones first (DL94, then DL92 and DL93 once Weibao
+grabs them). Then DL96 and DL95 for daily life, then DL98 and DL103 for
+settlements. The rest go when a world or pass needs them.

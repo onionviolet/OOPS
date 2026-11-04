@@ -43,6 +43,10 @@ Discord, book, media and verification routes. Use `show` and scoped
 `doctor --probe` before a launch; dated tool-fit reports are history, not
 current installation authority. Launchers do not install, register or sign in.
 
+Anna's, Z-Library and Source Library runs pick titles from the download wishlist
+(`python3 -I scripts/wishlist_queue.py`) and write fetched DL codes back to it
+([run procedure](docs/research/DOWNLOAD_WISHLIST_2026-10-30.md#how-annas-and-z-library-runs-use-this-list-2026-11-04)).
+
 Before collecting books or fanfiction, read
 [source acquisition tools](docs/research/SOURCE_ACQUISITION_TOOLS.md). Discover
 the existing `/Users/weiwei/code/lncrawl-polite` fork and project bridges before

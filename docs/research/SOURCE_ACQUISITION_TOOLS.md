@@ -4,6 +4,11 @@ Current routing guidance, refreshed 2026-10-21. Applies to selected novel/fanwor
 for this project. This is tool discovery and execution guidance, not permission
 to acquire everything in a catalogue or to implement the resulting ideas.
 
+**What to fetch.** Anna's, Z-Library and Source Library runs take their titles from the
+[download wishlist](DOWNLOAD_WISHLIST_2026-10-30.md) (`python3 -I scripts/wishlist_queue.py`
+lists the open and partial DL rows) and write each fetched row's DL code back
+there, following [its run procedure](DOWNLOAD_WISHLIST_2026-10-30.md#how-annas-and-z-library-runs-use-this-list-2026-11-04).
+
 Start at the [shared tool registry](../TOOL_REGISTRY.md) for launch commands,
 isolated environments and current readiness. It also routes Discord, REA,
 engine-specific extraction and verification tooling; the transport contract
