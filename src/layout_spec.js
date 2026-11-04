@@ -203,6 +203,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'quest-board': surface('ST6', {home: 'Reference dock beside Records; leads drawn from debts and wants', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'story-insight': surface('ST6', {home: 'Reference dock beside Records; recaps and world history from saved state', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'social-trust': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'people', 'inventory']}),
+        'dnd-phandalin': surface('ST2', {home: 'Records dock; opens with the named D&D test start', frequency: 'on demand', status: 'proposal', reads: ['body', 'inventory', 'time']}),
         'life-events': surface('ST6', {home: 'Reference dock; opens once the Village neighbors are known or a life moment is waiting', frequency: 'occasional', status: 'proposal', reads: ['people', 'time', 'inventory']}),
         'pledges': surface('ST6', {home: 'Reference dock; vows and tempering, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'time']}),
         'rune-bench': surface('ST6', {home: 'Reference dock; rune carving, always available', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time']}),

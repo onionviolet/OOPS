@@ -197,6 +197,8 @@ reading code on 2026-10-30; none is a decision.
 | G7 | Presentation keys outside the envelope | `yairpg.*` preference keys do not travel with Export (section 1a C). A player importing on a new browser loses layout, colors and hotkeys | Low priority; record any key that should travel |
 | G8 | Rule text still says "migration required" | AGENTS Safety, MR33 and AR6 read as strict while the 2026-10-17 decision relaxes them; lanes cite whichever they met first | This file is the reconciliation; cite section 4 |
 
+Compatibility decision, 2026-11-03: the `dnd_phandalin` slice (family `dnd.phandalin@1`) is new. A save without it loads clean and a life that never began writes no key; a slice with another family is dropped on load. No older save changes.
+
 ## 7. Links
 
 - Code map: [S12](systems/PROGRESSION_WORLD_STATE.md#s12-persistence); world packs [S8](systems/PROGRESSION_WORLD_STATE.md).
