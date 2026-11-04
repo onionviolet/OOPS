@@ -182,13 +182,13 @@ export function quoteCrafting(owner,inventory,request,context) {
    if(request.type==='begin_firing'&&(!request.layered||request.process?.length!==1||request.process[0].op!=='heat'))fail('A brazier hold starts with one layered heat step.');
    if(request.tablet&&!request.layered)fail('Conditioning tablets use the layered brazier process.');
    const lots=inputLots(request,owner,inventory);
+   if(request.recipe)checkMethod(owner,inventory,request,lots);
    if(request.layered&&!(inventory[JSON.stringify({id:'Charcoal'})]>0))fail('Layered brazier work spends one owned Charcoal per batch.');
    resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
   }else if(request.type==='collect_firing'){firing=collectFiring(owner,context.depth,context.clock).product.thermal;
   }else if(request.type==='abandon_firing'){if(!validateFiring(context.depth?.firing,owner,context.clock))fail('No batch is held on the brazier.');
   }else if(request.type==='treatment'){
    const t=startTreatment(context.depth?.body,request.action,context);if((inventory[JSON.stringify({id:t.spend.id})]||0)<t.spend.count)fail(`Needs ${t.spend.count} ${t.spend.id}.`);
-   if(request.recipe)checkMethod(owner,inventory,request,lots);
   }else if(request.type==='acquire'){
    if(!REFERENCES[request.ref])fail('Unknown shelf object.');
   }else if(request.type==='return'){if(!referenceIdOf(request.key)||!(inventory[request.key]>0))fail('You no longer carry this object.');
@@ -219,7 +219,7 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   next=freezeMaterials(next,catalogue,result.result.items.map(i=>i.material));next=setSourceNode(next,key,result.node);
   for(const i of result.result.items)items.push({key:materialKey(i.material,i.quality),amount:i.qty});
  }else if(request.type==='craft'||request.type==='begin_firing'){
-  const lots=inputLots(request,next,inventory);if(request.recipe)checkMethod(next,inventory,request,lots);const result=resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
+  const lots=inputLots(request,next,inventory);const result=resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
   if(request.layered)items.push({key:JSON.stringify({id:'Charcoal'}),amount:-1});
   for(const i of lots)items.push({key:i.key,amount:-i.qty});
   const rough=roughBatch(result.product);
