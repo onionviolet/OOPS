@@ -245,3 +245,7 @@ Next world after Mother of Learning, 2026-11-03: [ranked world proposal](dispatc
 ## World implementation rules map, 2026-11-04
 
 Nine-stage map of the rule sets for implementing a world (source to done), status colors, and findings F1-F9 with proposals A1-A5, saved as [the audit](../audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md). Main gap: no single list of what a new world ships for UI. Proposal only (AD32); extends the 2026-10-30 reconciliation audit.
+
+## Hunger Games institutions, WER answers and arena slice plan, 2026-11-04
+
+[Institutions, roles and subtle details](../worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md): 12 Haiku windows (about 135,000 of 580,000 words; Mockingjay unread), WER2-WER12 for four starts, one arena slice (T-HG1 water withdrawal, four exits) as the first AD50 consumer, missing seams M1-M8, and an evidence-labelled difficulty note (unknown). Proposal only (AD32); extends WPR9-WPR17, WER, SR and AD50 for Order 6 of the master plan. State: New (source-spot-checked, partial). Open: BHR16 exception for a full thirst end needs Weibao's yes. Next: read B4 after line 258, then B2 and B5 remainders (section 9); build only if the slice is selected. Done check: windows closed or restated.
