@@ -215,3 +215,8 @@ One design for body template, control and carrier records (H3) and claim, receip
 ## Book-world gaps, 2026-11-03
 
 Per-book source, design, implementation and next-slice rows for the LOTM, COI, MoL, Shadow Slave, Reverend Insanity, Harry Potter, D&D, A Soldier's Life, Reincarnation Paradise, Regressor's Tale, TTKS, Primordial Saint Sect, Fanren and BF43-BF57 worlds, with a cross-book section: [BOOK_WORLD_GAPS](../audits/BOOK_WORLD_GAPS_2026-11-03.md). Includes X1-X15 (contradictions and stale claims between inputs) and a refreshed H1-H12 native check with importer counts. State: New (proposals, none accepted). Next: Weibao or the GM routes X1-X10 library and doc corrections, the S9 reachability check, and the library-hygiene rows.
+
+## Cross-world detail pass, 2026-11-03
+
+Coverage of the 36 detail families (CW01-CW36) across four world clusters by reader pass, seven real gaps R1-R7, shared joins J1-J6, twelve hard cross-world features H1-H12 with a state check and floor check, and the H12, H7 and H8 results: [CROSS_WORLD_DETAIL_PASS](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md). All proposals (AD32), docs only except the H7 and H8 slices, which are agent-verified, not human-reviewed.
+
