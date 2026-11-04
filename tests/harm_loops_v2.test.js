@@ -35,7 +35,7 @@ test('R1: the earliest event wins, a tie is a date end, and a death before the l
  assert.equal(endingEvent([{kind:'death',at:31},{kind:'date',at:30}]).kind,'date');
  assert.equal(endingEvent([]),null);
  const tie=loopPlan('book.mol.cyoria',{startId:'zorian',events:[{kind:'death',at:30},{kind:'date',at:30}]});
- assert.equal(tie.trigger,'date');assert.equal(tie.command,'cycle');
+ assert.equal(tie.trigger,'date');assert.equal(tie.command,'restart:initial');
  const early=loopPlan('book.mol.cyoria',{startId:'zorian',events:[{kind:'date',at:30},{kind:'death',at:12}]});
  assert.equal(early.trigger,'death');assert.equal(early.command,'restart:initial');
  assert.equal(loopPlan('book.mol.cyoria',{startId:'zorian',trigger:'switch'}).trigger,'switch');
@@ -49,7 +49,7 @@ test('per-start keys: the visitor start keeps no loop, the Zorian start gets the
  assert.equal(loopRule('book.mol.cyoria','visitor'),LOOP_RESETS.default);
  assert.equal(loopRule('book.mol.cyoria','zorian'),LOOP_RESETS[ZORIAN]);
  assert.equal(loopPlan('book.mol.cyoria',{trigger:'date'}),null);
- assert.equal(loopPlan('book.mol.cyoria',{trigger:'date',startId:'zorian'}).command,'cycle');
+ assert.equal(loopPlan('book.mol.cyoria',{trigger:'date',startId:'zorian'}).command,'restart:initial');
  assert.equal(loopRule('book.lotm.tingen','klein'),LOOP_RESETS['book.lotm.tingen']);
 });
 

@@ -5934,6 +5934,123 @@ export default {
      "description": "Scene lr.mol.main.00205 (en b1 c2 p171, label T): eight magic-missile shots before the reserve is spent. The 8 is stated; this cast costs 1 of 8 and the stamina and duration are approximate (WA33/WA35). The reserve shows beside your crowns and falls with each cast."
     },
     {
+     "id": "book.mol.zorian.s1.skip_class_drill",
+     "revision": 1,
+     "label": "Skip the Invocations lecture you already know and drill the rod at the court · 1 cast of the reserve",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "fact",
+       "scope": "actor",
+       "actor": "player",
+       "key": "book.mol.loop.s1.skipped_invocations",
+       "value": true
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.skipped_class",
+       "stage": "understood",
+       "value": "You were not in the Invocations room when the lecture began; the class ran without you and Ilsa will have noticed the empty seat.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "visibleWhen": {
+      "fact": "mol.zorianSeat",
+      "op": "eq",
+      "value": true
+     },
+     "requires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "fact": "actor.book.mol.invocationStudied",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "duration": 2,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "mol.nativeBound",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.playerSupported",
+          "op": "eq",
+          "value": true
+         },
+         {
+          "fact": "mol.local.book.mol.cyoria",
+          "op": "eq",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "mol.zorianSeat",
+        "op": "eq",
+        "value": true
+       }
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": false,
+     "description": "G13 off-canon beat (proposal, AD32): in the earlier run you attended the Invocations lecture (lr.mol.main.00203, en b1 c2 p106-160, 2 h stated). Knowing it already, you drill the rod at the court during that slot instead, so the day differs from the one you remember. Cost, stamina and duration are approximate (WA33/WA35); the choice is the divergence, and its consequence is read by what you remembered about that day."
+    },
+    {
      "id": "book.mol.zorian.s0.rest_reserve",
      "revision": 1,
      "label": "Sleep a night and let the reserve refill · ~8 h (approximate)",
