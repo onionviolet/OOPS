@@ -364,6 +364,8 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 
 ---
 
+**Weapon runes and inscription (own entry, 2026-11-04).** Two owners, no common code. Pattern half: `rune_grammar.js` (pair table, ordered talisman, discord) is wired through `pledges*` and reachable as the Rune bench panel in the Frontier start, where ordinary play carves a worn talisman and a charged strip from `Rough wood log`. Weapon-affix half: `gear_workshop_domain.js` inscription reroll (above). Recarving now dissolves the replaced strip through `exchange_ledger.js`: its unspent wood pays toward the new one, nothing is returned to stock, no field is saved (FMA packet W22.W17, native accounting, proposal). Next consumer named, not wired: the craft engine. **Maturity.** Used in play (Rune bench, Frontier); rune-on-weapon inscription beyond the affix reroll is proposal only.
+
 ## 9. Consumables and effects
 
 **Use it for.** What happens when an item is used.

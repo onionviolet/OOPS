@@ -134,6 +134,7 @@ of what those searches surfaced, not a proof that every persistence change has a
 | 2026-10-30 | Person memory schema 2 | Schema 1 without `claims` still loads; new fields are optional | A | commits `b626a8c2c` (leaf, 2026-10-29), `a25844ea9`; `src/person_memory.js` |
 | 2026-10-30 | `returnDigest` marker slice | New slice `{schema 1, seenAt}`; absent baselines at the save's own clock; a future marker clamps; pre-slice save exercised | A | commit `a21533b62` |
 | 2026-10-30 | Cheat core round 2 | Derived presentation, no saved field changed | A | commit `812aef9b6` |
+| 2026-11-04 | Rune bench recarve exchange (`pledges`) | No saved field or schema change: the credit for a replaced strip is derived from the worn strip's own runes, charges and clock. Old saves load and quote identically. Exercised: fresh origin, reload, Export, literal Import at 1920x1080 and 1536x864 (14, 21 px) | A | `src/exchange_ledger.js`, `tests/exchange_bench_browser.mjs` |
 | not dated | Book pack revisions and save deltas | Per-pack sections with revision chain; a proposal in the lead-life systems design, code is tested but unwired | P | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js` |
 
 Reading the ledger: a row with Auth `A` restates what that lane did; it does not widen the

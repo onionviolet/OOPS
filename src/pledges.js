@@ -9,6 +9,7 @@ import {evaluateGate} from './progression_gates.js';
 import {createVowState, takeVow, breakVow, vowBonuses, vowScar, validateVowState} from './vow_rules.js';
 import {createTrialState, riskFor, quoteSafeBreakthrough, attemptBreakthrough, validateTrialState} from './breakthrough_trial.js';
 import {createRuneRecord, recordPair, readTalisman, readPair, coverage, validateRuneRecord} from './rune_grammar.js';
+import {quoteExchange, releasedUnits} from './exchange_ledger.js';
 import {vowRules, trialRules, runeGrammar, temperingGate, stageNeed, TRACK_STATS, STAGE_BONUS, DEMON_PENALTY, EFFECT_STATS, TALISMAN_MINUTES, STAGE_NAMES, RATION, ORDEAL_TERMS as O, ORDEAL_LOADS} from './pledges_content.js';
 
 export const PLEDGES_FAMILY = 'progression.pledges@1';
@@ -141,8 +142,15 @@ export function carve(s, runes, clock) {
     if(runes.length === 2) { const p = readPair(runeGrammar, runes[0], runes[1]); record = recordPair(record, runes[0], runes[1], p.effect, clock); }
     return {state: {...s, runes: record, talisman: {runes: [...runes], effects: read.effects, at: clock, until: clock + TALISMAN_MINUTES}}, read};
 }
+// Recarving dissolves the strip it replaces: its unspent share of wood pays toward the new one (native accounting, proposal).
+// Derived from the strip itself, no stored field. Nothing is returned to stock; see exchange_ledger.js.
+export function wornRelease(s, slot, clock) {
+    if(slot === 'talisman') return s.talisman && clock < s.talisman.until ? releasedUnits(s.talisman.runes.length * runeGrammar.perRuneCost, Math.min(TALISMAN_MINUTES, s.talisman.until - clock), TALISMAN_MINUTES) : 0;
+    const t = s.charged; return t ? releasedUnits(t.runes.length * runeGrammar.perRuneCost, t.charges, t.maxCharges) : 0;
+}
+export const carveQuote = (s, slot, runes, clock, stock) => quoteExchange({need: runes.length * runeGrammar.perRuneCost, released: wornRelease(s, slot, clock), stock});
 export const expire = (s, clock) => s.talisman && clock >= s.talisman.until ? {...s, talisman: null} : s;
-export const runeView = s => ({coverage: coverage(runeGrammar, s.runes), tried: s.runes.pairs, talisman: s.talisman, runes: runeGrammar.runes, maxLength: runeGrammar.maxLength, perRune: runeGrammar.perRuneCost});
+export const runeView = (s, clock = 0) => ({coverage: coverage(runeGrammar, s.runes), tried: s.runes.pairs, talisman: s.talisman, runes: runeGrammar.runes, maxLength: runeGrammar.maxLength, perRune: runeGrammar.perRuneCost, release: {talisman: wornRelease(s, 'talisman', clock), charged: wornRelease(s, 'charged', clock)}});
 
 const mult = (permille, row, stat) => { if(permille) row[stat] = Math.round(((row[stat] ?? 1) + permille / 1000) * 1000) / 1000; };
 // Named stat buckets {bucket: {stat: factor}}; empty buckets are omitted so the stat tooltip lists only live parts.
