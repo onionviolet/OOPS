@@ -143,6 +143,18 @@ Trigger: Weibao, “for the wiki we can look for other routes, or use chrome ext
 | Mage: The Ascension 20th, Exalted 3rd, Nobilis | Buy | Paradox and rule spaces (AB20), Limit Break (AB14), names and domains (AB23) |
 
 Next steps, ranked:
-1. Choose rulebooks to get; the free ones can be fetched on your yes.
+1. Choose rulebooks to buy; the free ones are fetched.
 2. Choose which of the 40 missing wikis to pull through Chrome.
 3. Read the held LOTM wiki against the mechanism lane (AB13, AB14), and give a lane owner the go.
+
+**Free rulebooks fetched, 2026-11-03.** Weibao said “Fetch the free ones”. Files are in `~/.codex/research/rulebooks/<slug>/`. None has been read or folded into a seam yet. Screen each PDF with `pdf-screen` before reading it.
+
+| Rulebook | Source | File | Licence | Check |
+|---|---|---|---|---|
+| D&D System Reference Document 5.2.1 | Wizards' own host, linked from dndbeyond.com/srd | `SRD_CC_v5.2.1.pdf`, 6.0 MB | CC-BY-4.0 | valid PDF; SHA-256 `8974902d109d6e63…` |
+| Call of Cthulhu 7e Quick-Start Rules | Chaosium's free PDF (chaosium.com/cthulhu-quickstart) | `CHA23131 … Quick-Start Rules.pdf`, 32 MB | free download from the publisher, not an open licence | valid PDF; SHA-256 `39b6a53915ddf9f4…` |
+| Blades in the Dark SRD | `amazingrando/blades-in-the-dark-srd-content`, linked from the official licensing page | one file each as markdown, HTML and TeX (commit `f141ed2`, 2022-04-08) | CC-BY 3.0, credit One Seven Design and John Harper | shallow clone |
+| Ars Magica 5th edition, the full open corpus | `OriginalMadman/Ars-Magica-Open-License`, linked from atlas-games.com/openars | 50+ official books as corrected markdown, including the Definitive Edition core rules (commit `6d61e5e`, 2026-10-31) | CC BY-SA 4.0 (the text was machine-extracted, then hand-fixed; the `reviewed` folder is the trusted set) | shallow clone |
+| Fate SRD, Fate Condensed included | `fate-srd/fate-srd-content`, the official SRD organisation that Evil Hat endorses (commit `93ed848`, 2025-08-08) | `docs/markdown/Fate-Condensed-SRD-CC-BY.md` plus the Core and Accelerated SRDs | CC-BY 3.0 | shallow clone; its build scripts are never run |
+| GURPS Lite 4th edition | free from Steve Jackson Games, but only through a Warehouse 23 checkout with an account | not fetched | free distribution | Weibao's to grab: agents do not create accounts or check out |
+| Mutants & Masterminds 3e SRD, scoped | d20herosrd.com through the lncrawl-polite transport: the powers chapter, character creation and the OGL page | 74 pages as text plus `manifest.jsonl` (body SHA-256 per page). They include Immunity, Enhanced Trait, Variable, Modifiers, Descriptors, the effect descriptions and the sample powers | OGL Open Game Content | the run stopped on a 404 from a site-internal link (`/6-powers/effects/sample-powers/mimic`), which closes the host in the transport for good. Seven queued pages were not fetched. Reopening the host needs Weibao's say-so, or the Chrome route |
