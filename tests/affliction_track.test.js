@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {degreeOf, expose, advance, isTerminal, exposuresFor, DAY, WEEK} from '../src/affliction_track.js';
+import {degreeOf, expose, advance, isTerminal, exposuresFor, exposuresVia, defineAffliction, DAY, WEEK} from '../src/affliction_track.js';
 import {corrode, critOptions, corrosionDamage} from '../src/material_corrosion.js';
-import {TETANUS, FESTERING_WOUND, RESISTANT_FESTERING_WOUND, AFFLICTIONS, RUSTING} from '../src/affliction_catalogue.js';
+import {TETANUS, FESTERING_WOUND, RESISTANT_FESTERING_WOUND, AFFLICTIONS, RUSTING, ARSENIC, CELLAR_SPORES, MINOR_ADDICTION, addictionFor} from '../src/affliction_catalogue.js';
 
 const fixed = (...rolls) => () => rolls.shift();
 
@@ -73,4 +73,38 @@ test('rusting trades crit damage for corrosion of iron gear or iron creatures on
     assert.deepEqual(critOptions(RUSTING, {normalDamage: 6, critDamage: 12, target: {material: 'iron'}}).map(o => o.id), ['damage', 'creature']);
     assert.deepEqual(critOptions(RUSTING, {normalDamage: 6, critDamage: 12, target: {unattended: true, gear: target.gear}}).map(o => o.id), ['damage']);
     assert.equal(corrosionDamage({dice: 10, level: 20}), 25);
+});
+
+test('PFA1: a swallowed or breathed agent exposes with no wound; a barrier stops only what it physically blocks', () => {
+    assert.deepEqual(exposuresVia({via: 'ingested', carries: ['arsenic']}, AFFLICTIONS).map(d => d.id), ['arsenic']);
+    assert.deepEqual(exposuresVia({via: 'ingested', carries: []}, AFFLICTIONS), [], 'clean food carries nothing');
+    assert.deepEqual(exposuresVia({via: 'inhaled', carries: ['spore cloud']}, AFFLICTIONS).map(d => d.id), ['cellar_spores']);
+    assert.deepEqual(exposuresVia({via: 'inhaled', carries: ['spore cloud'], barriers: [{blocks: ['inhaled']}]}, AFFLICTIONS), [], 'a sealed mask');
+    assert.deepEqual(exposuresVia({via: 'ingested', carries: ['arsenic'], barriers: [{blocks: ['inhaled']}]}, AFFLICTIONS).map(d => d.id), ['arsenic'], 'a mask does not stop a meal');
+    assert.deepEqual(exposuresFor({kind: 'puncture', depth: 3}, {carries: ['arsenic']}, AFFLICTIONS), [], 'an ingested poison on a blade is not an injury route');
+    assert.throws(() => defineAffliction({id: 'x', dc: 10, stages: [{terminal: true}], routes: [{via: 'osmosis'}]}), /via/);
+});
+
+test('PFA2: arsenic runs on the frequency dial: onset, a save a minute, each failure lands, it runs out', () => {
+    const {track} = expose(ARSENIC, {at: 0, total: 5});
+    assert.equal(track.nextAt, 10);
+    const r = advance(ARSENIC, track, {at: 100, draw: fixed({total: 5}, {total: 5}, {total: 5}, {total: 5})});
+    assert.deepEqual(r.events.map(e => e.type), ['onset', 'save', 'save', 'save', 'save', 'expired']);
+    assert.equal(r.events.filter(e => e.effects).length, 5, 'onset plus four failed saves each apply the effect');
+    assert.equal(r.track, null);
+    const cured = advance(ARSENIC, track, {at: 100, draw: fixed({total: 20})});
+    assert.deepEqual(cured.events.map(e => e.type), ['onset', 'save', 'recovered'], 'one success cures arsenic');
+});
+
+test('PFA2/PFA9: addiction needs consecutive saves, a failure resets the streak, and repeat doses raise the DC', () => {
+    const track = expose(MINOR_ADDICTION, {at: 0, total: 1}).track;
+    const r = advance(MINOR_ADDICTION, track, {at: 5 * DAY, draw: fixed({total: 15}, {total: 1}, {total: 15}, {total: 15})});
+    assert.deepEqual(r.events.map(e => e.type), ['onset', 'save', 'save', 'save', 'save', 'recovered']);
+    assert.equal(r.events[2].effects.length, 1, 'the failure in between reapplies the penalty');
+    const longRun = advance(MINOR_ADDICTION, track, {at: 30 * DAY, draw: () => ({total: 1})});
+    assert.ok(longRun.track && longRun.track.failures > 20, 'it never runs out on its own');
+    const saved = JSON.parse(JSON.stringify(longRun.track));
+    assert.ok(advance(MINOR_ADDICTION, saved, {at: 31 * DAY, draw: () => ({total: 1})}).track, 'a JSON round-trip keeps an endless track going');
+    assert.equal(addictionFor({id: 'pesh', label: 'Pesh', addictionDc: 14}, {dosesWhileDamaged: 2}).dc, 18);
+    assert.throws(() => defineAffliction({id: 'y', dc: 10, timing: 'frequency', frequency: 1, checks: 2, effects: [{condition: 'x'}], cure: 0}), /cure/);
 });

@@ -16,7 +16,7 @@ const LEARNED = new Set(['teacher', 'text', 'observed']);
 const text = v => typeof v === 'string' && v.trim().length > 0;
 const num01 = v => typeof v === 'number' && v >= 0 && v <= 1;
 const rowFields = new Set(['key', 'label', 'description', 'sourceId', 'origin', 'practice', 'masteryNeeded', 'signs', 'formula', 'prepare', 'cost', 'limit', 'effects', 'price',
-    'failure', 'strain', 'blockedBy', 'stated', 'unstated', 'locator', 'costBasis', 'fn', 'kind']);
+    'failure', 'strain', 'blockedBy', 'stated', 'unstated', 'locator', 'costBasis', 'fn', 'kind', 'tiers']);
 
 // adapter: {worldId, prefix, group?, actorId?, origins: {[kind]: {reason}}, failure: {chance: number|null, perMastery?, reason}, strain: {allowed, when, reason}}.
 // `origins` lists the kinds this world teaches by; `failure.chance` is the world default when a row states none (null: no failure modelled, labelled unstated).
@@ -33,6 +33,8 @@ export function defineSpellAdapter(a) {
 
 function validateSpell(row, ad) {
     assert(record(row) && Object.keys(row).every(k => rowFields.has(k)), 'Unsupported spell field; it needs its owning mechanism.');
+    assert(row.tiers == null || record(row.tiers) && Object.entries(row.tiers).every(([t, n]) => stableId(t) && Number.isInteger(n) && n >= 0 && n <= 20),
+        'Spell tiers map a tradition id to a whole number from 0 to 20.');
     const o = row.origin;
     assert(record(o) && SPELL_ORIGINS.includes(o.kind), 'A spell says where knowledge of it comes from.');
     assert(ad.origins[o.kind], `${ad.worldId} does not teach by "${o.kind}" (adapter dial).`);
@@ -80,7 +82,7 @@ export function defineSpells(rows, adapter) {
         else ab.acquisition = o.kind === 'inherited' ? 'innate' : 'acquired';
         abilityRows.push(ab);
         spells[k] = {key: k, origin: {kind: o.kind, gate: o.gate ? {label: o.gate.label, reason: o.gate.reason} : null}, prepare: row.prepare ? {minutes: row.prepare.minutes, keep: !!row.prepare.keep, label: row.prepare.label ?? `Prepare ${row.label}`} : null,
-            failure, strain: row.strain ? structuredClone(row.strain) : null, learned};
+            failure, strain: row.strain ? structuredClone(row.strain) : null, learned, tiers: Object.freeze({...(row.tiers ?? {})})};
         if(row.prepare) extra.push({id: prepareId(k), revision: 1, label: row.prepare.label ?? `Prepare ${row.label}`, group: ad.group, worldId, actorId, audience: ['$actor'], duration: row.prepare.minutes,
             cancellation: 'refund', costs: structuredClone(row.prepare.cost ?? []),
             requires: {all: [{fact: 'actor.life', op: 'eq', value: 'alive'}, ...(learned ? [{fact: `power.${powerId(k)}.owned`, op: 'eq', value: true, reason: 'Learn it first.'}] : []),
@@ -116,11 +118,18 @@ export function settleSpellCast(spell, spellId, {seed, castIndex, mastery = 0, m
     return {failed, chance, roll, outcome: failed ? structuredClone(spell.failure.outcome) : [], strain: strain?.weight > 0 ? strain : null};
 }
 
+// Tier is a fact about who teaches the spell: the same spell sits at different tiers for different traditions. An unlisted tradition stays unstated.
+export function spellTier(spell, tradition) {
+    const n = spell?.tiers?.[tradition];
+    return Number.isInteger(n) ? {tier: n, stated: true} : {tier: null, stated: false, reason: 'No tier stated for this tradition.'};
+}
+
 // Read model: ability and learning views plus origin, preparation and the failure line, shown by label and never by predicate or secret.
-export function spellView(set, key, {facts = {}, quote = null, mastery = null} = {}) {
+export function spellView(set, key, {facts = {}, quote = null, mastery = null, tradition = null} = {}) {
     const card = set.cards[key], spell = set.spells[key];
     const m = mastery ?? Number(facts[`power.${card.learn?.power}.mastery`] ?? 0), need = card.learn?.masteryNeeded ?? 0, chance = failureChance(spell, m, need);
     return {...abilityView(card, {facts, quote}), origin: spell.origin, learning: learnView(card, {facts}),
         prepared: spell.prepare ? facts[`actor.${set.adapter.prefix}.prepared.${key}`] === true : null,
-        failure: spell.failure.basis === 'none' ? 'not modelled' : `${Math.round(chance * 100)}% (${spell.failure.basis})`, strain: spell.strain ? 'strains the caster on failure or cast' : null};
+        failure: spell.failure.basis === 'none' ? 'not modelled' : `${Math.round(chance * 100)}% (${spell.failure.basis})`, strain: spell.strain ? 'strains the caster on failure or cast' : null,
+        ...(tradition != null ? {tier: spellTier(spell, tradition)} : {})};
 }

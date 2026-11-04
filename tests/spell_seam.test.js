@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {defineSpells, defineSpellAdapter, spellView, settleSpellCast, failureChance, spellRoll} from '../src/spell_seam.js';
+import {defineSpells, defineSpellAdapter, spellView, settleSpellCast, failureChance, spellRoll, spellTier} from '../src/spell_seam.js';
 import {hpSpellAdapter, hpFormula, spellFromLearnRow} from '../src/spell_adapter_hp.js';
 import {lotmSpellAdapter, spellFromTyped, spellFromDivination} from '../src/spell_adapter_lotm.js';
 import {LOTM_DIVINATION_ROWS} from '../src/lotm_divination_rows.js';
@@ -120,4 +120,17 @@ test('a pack row in the learnable-spells shape maps to a teacher-origin spell', 
         learn: {teacher: ability.origin.gate, practice: ability.practice, masteryNeeded: 2}};
     const set = defineSpells([spellFromLearnRow(pack)], hpSpellAdapter());
     assert.equal(set.spells.k.origin.kind, 'teacher');
+});
+
+test('spell tier is a fact about the tradition that teaches it; an unlisted tradition stays unstated', () => {
+    const set = defineSpells([{...hpRows()[0], tiers: {cleric: 1, wizard: 2}}, hpRows()[1]], hpSpellAdapter()), s = set.spells.lighten;
+    assert.deepEqual(spellTier(s, 'cleric'), {tier: 1, stated: true});
+    assert.deepEqual(spellTier(s, 'wizard'), {tier: 2, stated: true});
+    const none = spellTier(s, 'druid');
+    assert.equal(none.stated, false); assert.equal(none.tier, null); assert.match(none.reason, /No tier stated/);
+    assert.equal(spellTier(set.spells.ward, 'cleric').stated, false, 'a row with no tiers states none');
+    assert.equal(spellView(set, 'lighten', {tradition: 'wizard'}).tier.tier, 2);
+    assert.equal(spellView(set, 'lighten', {tradition: 'druid'}).tier.stated, false);
+    assert.equal('tier' in spellView(set, 'lighten', {facts: {}}), false, 'no tradition asked, no tier shown');
+    for(const bad of [-1, 'x', 1.5, 21, null]) assert.throws(() => defineSpells([{...hpRows()[0], tiers: {cleric: bad}}], hpSpellAdapter()), /Spell tiers/);
 });

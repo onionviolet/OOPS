@@ -61,8 +61,65 @@ pass.
 
 ## Handoff
 
-The seam changes for PFA1 and PFA2 touch files this session does not own.
-They are handed to the seam's owner through the shared notes folder, and
-nothing in `src/` was changed. There are no data gaps in the Foundry clone to
-add to wishlist W11. PF1 affliction text comes from d20pfsrd, which is
-already held.
+Superseded on the same day. PFA1 and PFA2 were handed to the seam's first
+owner, and then Weibao asked for everything to be done here, so this session
+built them. See below.
+
+## Implemented 2026-11-04 (Weibao: "address all of these right now")
+
+Every row is **implemented, below floor** (AD43). Each one has its seam and a
+focused test. Only PFA1 and PFA2 sit on a seam with a live consumer, the HP
+Polyjuice bench, and that bench uses the default stage timing, which is
+unchanged. No row is reached from a player journey yet (FLR2-FLR4), so there
+is no browser proof. No save slice changed, and `main.js` was not touched.
+The affliction seam was taken over from its first owner by Weibao's direct
+instruction, and the shared notes folder records the takeover.
+
+| ID | Where | What now exists | Check |
+|---|---|---|---|
+| PFA1 | `src/affliction_track.js` | `EXPOSURE_ROUTES`; routes take `via`; `exposuresVia(contact, catalogue)` with barriers that block by route; injury still goes through `exposuresFor` | `tests/affliction_track.test.js` |
+| PFA2 | `src/affliction_track.js`, `src/affliction_catalogue.js` | `timing: 'frequency'` with onset, frequency, checks (Infinity allowed and survives a JSON round trip), effects on each failure, and cure after N consecutive saves. Calibration: Arsenic (PF1, ingested), Cellar spores (original, inhaled) | same file |
+| PFA3 | `src/bonus_stacking.js` | `stackBonuses`: same-type bonuses keep the highest, untyped, dodge and circumstance add, the caller's table overrides, suppressed bonuses name their winner | `tests/bonus_stacking.test.js` |
+| PFA4 | `src/spell_seam.js` | row field `tiers: {tradition: 0-20}`, `spellTier()`, `spellView(..., {tradition})` | `tests/spell_seam.test.js` |
+| PFA5 | `src/condition_ladders.js` | `applyRung` and `easeRung`. Ladders: PF1 fear, fatigue and sickness (a sickness repeat refreshes, it does not stack); SRD 5.2.1 exhaustion | `tests/condition_ladders_riders.test.js` |
+| PFA6 | `src/weapon_riders.js` | `ridersFor` by trigger (hit or crit) and the target's real kind; `critStands` for fortification. Calibration: flaming, flaming burst, wounding (bleed), bane | same file |
+| PFA7 | `src/data/pf1/goods.json`, `ATTRIBUTION.md`, `docs/research/d20/build_pf1_goods.py` | 1,389 ordinary goods with name, category, price in gp, weight and product code only. Items with a caster level are dropped as magic | `tests/pf1_goods.test.js` |
+| PFA8 | `src/creature_layers.js` | `defineLayer`, `applyLayer`, `removeLayer`. Removal recomputes from base in any order, and permanent layers refuse removal. Calibration: ghostly, half-dragon | `tests/creature_layers.test.js` |
+| PFA9 | `src/affliction_catalogue.js`, `src/creature_layers.js` | Minor addiction as an endless frequency disease cured by two consecutive saves; `addictionFor(drug, {dosesWhileDamaged})` raises the DC by 2 per dose; implant capacity through `uses` and `fitsLayer`. Calibration: reflex wire (original) | both test files |
+
+## More to consider, round 1 (2026-11-04)
+
+ACT NOW (done):
+- The goods table had pulled in magic items (34 priced at 1,000 gp or more,
+  bags of holding among them). The generator now skips any record with a
+  caster level, leaving 1,389.
+
+ACCOUNT FOR NOW:
+- **One summing path.** `active_effects.js` already keeps "highest in group"
+  through `group_tags`. When stats consume `stackBonuses`, `group_tags` must
+  feed it, so that two stacking rules never both run.
+- **One owner per condition.** The ladders hold only which rung a body is on.
+  What a rung does stays with `conditions.js`, the SRD 5.2.1 DSL conditions
+  and the AFW10 valued conditions. Do not give a rung its own effects.
+- **Rusting is a rider too.** When riders reach combat (AFW-L2), wrap
+  `critOptions` from `material_corrosion.js` as a crit rider, rather than
+  adding a second crit hook.
+- **Saves.** A frequency track's `checksLeft` becomes null in JSON, and
+  `advance` restores Infinity. A world that saves these tracks needs no
+  migration, because old tracks have no `timing` field and run as stages.
+
+LATER / DELEGATE (each needs a world consumer to reach the floor):
+- **Ingested and inhaled exposure in a live world.** Candidates: HP potions
+  and a cellar or gas hazard in a site. Sonnet, medium effort. Done check: an
+  MCP walk from a fresh life eats or breathes the agent, sees the effect, and
+  keeps it through save and reload.
+- **Riders and fortification in native combat crits (AFW-L2).** Sonnet,
+  medium. Done check: a flaming or wounding weapon in a fight shows its extra
+  effect, and fortified armor turns a crit.
+- **Fear and fatigue ladders on the condition panel.** Sonnet, small. Done
+  check: a second fear shows frightened, with the reason.
+- **Goods prices as a world price table.** Use the goods for a D&D or
+  generic-fantasy trader, labelled `supplement` (WA3). Haiku for the
+  mapping, sonnet to wire it.
+- **An inspector.** A debug view listing a body's affliction tracks, rungs
+  and layers with their log. Small effort.

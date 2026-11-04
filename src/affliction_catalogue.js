@@ -32,7 +32,31 @@ export const RESISTANT_FESTERING_WOUND = defineAffliction({...FESTERING_WOUND, i
     routes: [{wound: {minDepth: 1}, carriedBy: 'resistant strain'}],
     stages: FESTERING_WOUND.stages.map(s => ({...s}))});
 
-export const AFFLICTIONS = Object.freeze([TETANUS, FESTERING_WOUND, RESISTANT_FESTERING_WOUND]);
+// Arsenic, Pathfinder 1e poison (OGL), on the frequency dial (PFA2) with an
+// ingested route (PFA1): onset 10 minutes, then a save each minute for 4
+// minutes, each failure costing Constitution; one success ends it.
+export const ARSENIC = defineAffliction({id: 'arsenic', label: 'Arsenic', kind: 'poison', dc: 13, timing: 'frequency',
+    onset: 10, frequency: 1, checks: 4, cure: 1, routes: [{via: 'ingested', carriedBy: 'arsenic'}],
+    effects: [{ability: 'con', damage: '1d2'}], source: 'Pathfinder 1e, Arsenic (OGL)'});
+
+// Original: spores that ride the air of a damp cellar. Inhaled, so a sealed
+// mask stops it and holding a breath for the walk through does too.
+export const CELLAR_SPORES = defineAffliction({id: 'cellar_spores', label: 'Cellar spores', kind: 'poison', dc: 12, timing: 'frequency',
+    onset: 0, frequency: 10, checks: 3, cure: 1, routes: [{via: 'inhaled', carriedBy: 'spore cloud'}],
+    effects: [{condition: 'sickened', value: 1}], source: 'original'});
+
+// Addiction, Pathfinder 1e drugs (OGL, PFA9): a disease on the frequency dial
+// that never runs out on its own. Minor: a daily save, a standing Constitution
+// penalty, two consecutive saves cure it. Its DC is the drug's, raised by 2
+// for each dose taken while the last one's damage still lingers.
+export const MINOR_ADDICTION = defineAffliction({id: 'minor_addiction', label: 'Minor addiction', kind: 'disease', dc: 10, timing: 'frequency',
+    onset: DAY, frequency: DAY, checks: Infinity, cure: 2, routes: [],
+    effects: [{ability: 'con', penalty: 2}], source: 'Pathfinder 1e, Addiction (OGL)'});
+export function addictionFor(drug, {base = MINOR_ADDICTION, dosesWhileDamaged = 0} = {}) {
+    return defineAffliction({...base, id: `${base.id}:${drug.id}`, label: `${base.label} (${drug.label})`, dc: drug.addictionDc + 2 * Math.max(0, dosesWhileDamaged)});
+}
+
+export const AFFLICTIONS = Object.freeze([TETANUS, FESTERING_WOUND, RESISTANT_FESTERING_WOUND, ARSENIC, CELLAR_SPORES, MINOR_ADDICTION]);
 
 // Rusting, Pathfinder 1e weapon special ability (OGL): +1 equivalent, the
 // wielder may trade a confirmed critical's extra damage for a rust touch on
