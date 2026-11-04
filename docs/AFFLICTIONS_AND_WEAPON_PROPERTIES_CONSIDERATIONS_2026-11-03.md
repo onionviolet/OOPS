@@ -106,6 +106,49 @@ stupefied, sickened, fatigued, doomed, wounded and dying are the ladders
 AFW10-AFW12 point at. PF2 has no "mute" condition; tetanus's "can't speak" is
 plain text, so `mute` in the catalogue stays a consumer-named effect.
 
+## Round 4: books or wikis, and more to consider, 2026-11-03
+
+Weibao asked: “are there books and stuff that cover these or is the wiki the
+most affective? More to ocnsider?”
+
+**Short answer.** For Pathfinder the wikis are effectively the books: Archives
+of Nethys and d20pfsrd reproduce the rules text Paizo publishes under the OGL
+and ORC, with source and page citations, and they are already searchable data.
+The rulebooks add layout, art and a few GM sidebars, not mechanics. We hold no
+Pathfinder books, and none are needed for the mechanics. Other systems are a
+different matter: several held books cover these topics from angles Pathfinder
+does not, and those are worth reading before buying anything.
+
+**What we already hold** (Calibre and the tabletop library's searchable text):
+
+| Source | What it adds to afflictions, properties and disguise | Licence for reuse |
+|---|---|---|
+| D&D 5e SRD 5.1 and 5.2.1 (text in the tabletop library) | Diseases, poisons with delivery types and prices, the six-level exhaustion ladder, conditions | CC BY 4.0; mechanics and text reusable with attribution |
+| D&D 5e Dungeon Master's Guide, Player's Handbook, Monster Manual (2014), Xanathar's, Tasha's (Calibre 128, 164, 133, 190, 191) | Madness tables, sample diseases, poison crafting, downtime and crafting rules, the Disguise Kit and Deception skill | Proprietary; paraphrase mechanics only |
+| GURPS Basic Set: Campaigns and Characters (tabletop library, text extracted) | The most simulation-minded: disease and poison resistance rolls repeated over days, contagion, starvation, cold and heat, injury and bleeding; Disguise and Acting as separate skills | Proprietary; paraphrase only |
+| Blades in the Dark player kit | Deception as position and effect, not a pass/fail mask | Its own licence |
+
+**Not held, worth knowing** (no purchase implied; buying needs Weibao's yes):
+Warhammer Fantasy Roleplay 4e (detailed diseases, festering wounds and
+infection; the held copy is damaged, already DL42-DL44); HârnMaster (injury,
+infection and bleeding as its own subsystem); Call of Cthulhu and Mothership
+(sanity and panic as afflictions of the mind).
+
+**Real medicine beats any game for real diseases.** For tetanus, plague or
+malaria in a world that copies our biology, public health sources (incubation
+periods, untreated fatality, what treatment changes) are the canon numbers
+under AD49. Pathfinder's are game numbers, already rounded for play.
+
+| Code | Finding | Disposition |
+|---|---|---|
+| AFW-R4-1 | **Archives of Nethys mixes printings**: 44 disease records are 29 diseases, because original and remastered printings both appear (likewise curses, poisons, runes). A consumer that takes "the" Tetanus must pick one | ACCOUNT FOR NOW: prefer the remastered printing (Player Core, GM Core) and record which; keep the legacy one only as a variant |
+| AFW-R4-2 | **d20pfsrd includes third-party content** beside Paizo's, labelled per page | ACCOUNT FOR NOW: every PF1 citation names its publisher; the d20pfsrd session has been told |
+| AFW-R4-3 | **Calibrate by level, not by monster**: Pathfinder 2e's GM Core has a table of standard DCs by level, which turns "how hard should this curse be in a level-5 life" into one lookup | LATER: collect that table through the authorized Archives of Nethys route; small; done when AFW numbers for a new world cite it |
+| AFW-R4-4 | **GURPS repeats the resistance roll on its own clock** (often daily) instead of stage ends; a world with slow, grinding illness may prefer that shape, which the seam can take as a stage with a short duration and `shift [0,0,-1,-1]` | ACCOUNT FOR NOW: no seam change; a world chooses the cadence |
+| AFW-R4-5 | **5e's exhaustion is one shared ladder** many sources feed (starvation, forced march, some diseases); Pathfinder spreads the same idea over fatigued, drained and doomed | LATER: AFW-L4 should read both before choosing a ladder, haiku reading of the held SRD text, done when the ladder row cites both |
+| AFW-R4-6 | **Real-disease numbers** for any world that uses our biology come from public health sources, not game books | LATER: when a world first needs a real disease, sonnet, cite one public source per number |
+| AFW-R4-7 | **Structured data beats parsing markdown**: the Archives records carry stages as prose, so a consumer must parse "Stage 2 ... (1 day)". The Foundry `pf2e` system's packs may hold the same stages more structurally (unverified assumption) | LATER: check one disease in that repository before writing a parser; small; done when the parser choice is recorded |
+
 Polyjuice's other uses (perceived identity, getting into places) have their own palette: [Polyjuice and perceived identity](worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md).
 
 ## The palette (round 1)
