@@ -1,0 +1,34 @@
+import {createServer} from 'node:http';
+import {readFile, writeFile, mkdir} from 'node:fs/promises';
+import {resolve, extname} from 'node:path';
+import {createRequire} from 'node:module';
+const require = createRequire('/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/youthful-visvesvaraya-379d2a/scripts/x.cjs');
+const {launchChrome} = require('./ui_helpers.cjs');
+const root = process.argv[2], out = process.argv[3];
+await mkdir(out, {recursive: true});
+const types = {'.html':'text/html','.js':'application/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2'};
+const server = createServer(async (req,res)=>{const p=resolve(root,'.'+new URL(req.url,'http://l').pathname.replace(/\/$/,'/index.html'));let b;try{b=await readFile(p);}catch{res.writeHead(404).end();return;}res.writeHead(200,{'content-type':types[extname(p)]||'application/octet-stream'}).end(b);});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const base=`http://127.0.0.1:${server.address().port}`;
+const browser=await launchChrome();
+const log={};
+try{
+ const page=await (await browser.newContext({viewport:{width:1920,height:1080}})).newPage();
+ await page.goto(`${base}/?test_hooks=1`);
+ await page.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});
+ await page.locator('#loading_screen_play_button').click();
+ if(await page.locator('#hero_creation_panel_confirmation').isVisible()) await page.locator('#hero_creation_panel_confirmation').click();
+ await page.waitForTimeout(700);
+ await page.screenshot({path:out+'/first.png'});
+ log.actions=await page.locator('#location_actions_div').innerText();
+ log.tabs=await page.evaluate(()=>[...document.querySelectorAll('[role=tab],.tab,button')].map(b=>b.innerText.trim()).filter(t=>/Options|Choices|Settings/i.test(t)));
+ await page.keyboard.press('Control+k'); await page.waitForTimeout(300);
+ log.palette=await page.evaluate(()=>[...document.querySelectorAll('#command_palette_list li')].map(li=>(li.getAttribute('role')||'')+':'+li.textContent.trim()).slice(0,60));
+ await page.screenshot({path:out+'/palette.png'});
+ await page.keyboard.press('Escape');
+ await page.locator('#location_actions_div').getByText('Cross to another world',{exact:false}).first().click();await page.waitForTimeout(500);await page.screenshot({path:out+'/entry.png'});log.entryText=await page.evaluate(()=>document.body.innerText.slice(0,0));
+ const panel=page.locator('#lotm_panel');log.entry=await panel.innerText().catch(()=>null);
+ await page.getByRole('button',{name:/Begin as a Nighthawk/}).first().click();await page.waitForTimeout(400);await page.screenshot({path:out+'/confirm.png'});log.confirm=await panel.innerText().catch(()=>null);
+ await writeFile(out+'/log.json',JSON.stringify(log,null,1));
+ console.log(JSON.stringify(log,null,1));
+}finally{await browser.close();server.close();}

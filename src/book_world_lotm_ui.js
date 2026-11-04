@@ -14,6 +14,7 @@ import {walkMapBlock} from './ui/walk_map.js';
 import {walkBoard} from './ui/walk_board.js';
 import {legsFromMoves} from './read_models/travel_legs_bridge.js';
 import {renderCrossingThreshold} from './ui/crossing_threshold.js';
+import {renderStartCompare} from './ui/start_compare.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
 import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
@@ -132,6 +133,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
     for(const axis of v.axes){const on=axis.options.find(o=>o.available),line=node('p',`${axis.label}: ${on.label}.`);line.dataset.lotmEntryAxis=axis.id;
      for(const o of axis.options.filter(o=>!o.available)){const off=node('small',` Also listed: ${o.label}. ${o.reason}`);off.dataset.lotmEntryUnwritten=o.id;line.append(off);}
      actions.append(line);}
+    renderStartCompare(actions,v.profiles); // CG5: compare the lives before picking one.
     for(const pr of v.profiles)actions.append(row(button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable||pr.available===false,pr.available===false?'This life isn\'t open to you yet.':v.startable?(pr.independent?'See this new life.':'See what this life keeps and leaves before crossing.'):v.startReasons.join(' '))),node('p',pr.blurb));
     if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));tabsUi.update(v);return;
    }

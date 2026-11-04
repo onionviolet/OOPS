@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {rankEntries, browseEntries} from '../src/command_palette.js';
-import {projectKnownThings} from '../src/known_things.js';
+import {projectKnownThings, reachableFrom} from '../src/known_things.js';
 
 const rows = (group, n) => Array.from({length: n}, (_, i) => ({label: `${group} ${i}`, group}));
 
@@ -28,4 +28,14 @@ test('typing still finds a Known row that browsing leaves out', () => {
 test('places that share a name and parent list once in Known things', () => {
     const places = [{id: 'a1', name: 'Practice yard', detail: 'Region'}, {id: 'a2', name: 'Practice yard', detail: 'Region'}, {id: 'b', name: 'Practice yard', detail: 'In Fort'}];
     assert.deepEqual(projectKnownThings({places}).places.map(p => p.key), ['place:a1', 'place:b']);
+});
+
+test('Known places keep to the map piece the player stands in, in both link directions', () => {
+    const village = {id: 'Village', connected_locations: [{location: {id: 'Cave'}, travel_time: 5}]};
+    const cave = {id: 'Cave', parent_location: village, connected_locations: []};
+    const pack = {id: 'Tingen.workroom', connected_locations: []};
+    const locations = {Village: village, Cave: cave, 'Tingen.workroom': pack, Orphan: {id: 'Orphan'}};
+    assert.deepEqual([...reachableFrom('Cave', locations)].sort(), ['Cave', 'Village']);
+    assert.deepEqual([...reachableFrom('Tingen.workroom', locations)], ['Tingen.workroom']);
+    assert.equal(reachableFrom(undefined, locations), null);
 });

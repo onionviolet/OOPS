@@ -55,6 +55,8 @@ export function createNextStepCard({host, read, show, enabled = () => true}) {
         const bar = host.querySelector(':scope > .workspace-context-bar');
         if (bar && card.previousElementSibling !== bar) bar.after(card);
         const step = enabled() ? nextStep(read()) : null;
+        // CG7: styles hide the optional world door until the elder is met; the attribute is the whole contract.
+        if (step?.id === 'ask-elder') host.dataset.firstHourStep = step.id; else delete host.dataset.firstHourStep;
         if ((step?.id ?? null) === (shown?.id ?? null)) return;
         shown = step; card.hidden = !step;
         line.textContent = step ? step.line : ''; how.textContent = step ? step.how : '';

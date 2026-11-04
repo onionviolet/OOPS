@@ -1,0 +1,47 @@
+{
+ "probe": {
+  "attr": "ask-elder",
+  "nextStep": true,
+  "hidden": false,
+  "disp": "none",
+  "withAttr": [
+   "main_content"
+  ]
+ },
+ "doorMinuteZero": {
+  "inDom": true,
+  "visible": false,
+  "text": "blur_onCross to another world: Tingen"
+ },
+ "actionsMinuteZero": "directions Move somewhere else | question_answer Talk to someone | work_outline Find work | Mix at the Village counter",
+ "knownPlaces": [
+  "Adventurer's guildPlace · Region",
+  "Antique storePlace · Region",
+  "Cat caféPlace · Region",
+  "Cave roomPlace · In Nearby cave",
+  "Crab spawning groundsPlace · In Waterfall basin",
+  "Fight the giant crabPlace · In Downstream from the village",
+  "Fight the giant crab again!Place · In Further downstream",
+  "ForestPlace · In Forest road",
+  "Nekomimi caféPlace · Region",
+  "Primeval forestPlace · In Motherwood",
+  "Riverbank shorePlace · In Riverbank",
+  "SlumsPlace · Region",
+  "The swamplandsPlace · In Swampland fields",
+  "Town farmsPlace · Region",
+  "Town outskirtsPlace · Region",
+  "VillagePlace · Region",
+  "Wild willow standPlace · Region"
+ ],
+ "doorAfterElder": {
+  "inDom": true,
+  "visible": true,
+  "text": "blur_onCross to another world: Tingen"
+ },
+ "afterProbe": {
+  "attr": null,
+  "next": "Next step\nKeep talking: say you want to leave.\nIn the conversation, pick the line about leaving, then \"But I want to leave\".\nShow me"
+ },
+ "compare": "Compare the lives: what each gives up or asks of you\nLife\tMoney and items\tName and papers\tWhat you owe\nas a Nighthawk probationer\tNothing physical crosses. The money you held stays behind with your Village life; the clerk's own purse, 2 pounds, is yours.\tThe clerk's name, papers and post are yours, and their colleagues expect them at work.\tThe clerk's post: report to Warden Hale and serve a probation under church supervision.\nas a Machinery team probationer\tNothing physical crosses. The money you held stays behind with your Village life; the clerk's own purse, 2 pounds, is yours.\tThe clerk's name, papers and post are yours, and their colleagues expect them at work.\tThe clerk's post: report to the Machinery team's records officer and serve a probation under church supervision.\nas a Mandated Punisher probationer\tNothing physical crosses. The money you held stays behind with your Village life; the clerk's own purse, 2 pounds, is yours.\tThe clerk's name, papers and post are yours, and their colleagues expect them at work.\tThe clerk's post: report to the Punishers' duty officer and serve a probation under church supervision.\nunder a new identity as civil staff\tOf 29 pounds funded before you came, papers, clothes and one passage took 24. You hold 5 pounds. The money you held before crossing stays behind with your Village life.\tA bought name on 8-pound papers. The church teams know your old ties.\tNo money debt. The Nighthawk office offers a civil post: 3 pounds a week, 5 years, secrecy for life. Later ocean passage needs an official certificate.",
+ "errs": []
+}

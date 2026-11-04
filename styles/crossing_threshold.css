@@ -4,3 +4,8 @@
 .crossing-carry-group[data-carry-group="crosses"] {border-left-color:var(--ui-accent);}
 .crossing-carry-label {margin:0;color:var(--ui-accent);font-size:var(--ui-type-small);line-height:var(--ui-line-small);font-weight:var(--ui-weight-strong);}
 .crossing-carry-row {margin:0;}
+/* CG5: the starts side by side; wide text wraps inside cells, never scrolls the page. */
+.start-compare {width:100%;border-collapse:collapse;table-layout:fixed;font-size:var(--ui-type-small);line-height:var(--ui-line-small);}
+.start-compare caption {text-align:left;color:var(--ui-accent);font-weight:var(--ui-weight-strong);padding:var(--ui-space-1) 0;}
+.start-compare :is(th, td) {text-align:left;vertical-align:top;padding:var(--ui-space-1) var(--ui-space-2);border-top:var(--ui-space-hairline) solid var(--ui-border, currentColor);overflow-wrap:anywhere;}
+.start-compare thead th {color:var(--ui-accent);}
