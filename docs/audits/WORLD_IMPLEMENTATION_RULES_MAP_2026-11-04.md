@@ -97,3 +97,49 @@ Evidence rows follow the reconcile skill: "read" means I read the cited owner te
 | L5 | A2-A5 from round 1 stay as listed; A3 now covers WPR, GTR, ABR alone | decision | one answer |
 
 Reopen L1-L3 when a new world's UI slice is selected.
+
+## Round 3: other levels, deeper dive (2026-11-04)
+
+Weibao asked whether everything was fixed, and about UI design and other levels. **Not everything is fixed.** This session changed two links and wrote this audit; the rest are proposals that need his yes or belong to other lanes (AD32). This round checks four levels below the documents: the instruction layer, enforcement, runtime and on-screen. New findings continue from F10. Evidence rows: **read** (source or owner text), **ran** (a command on the current tree), **probe** (one headless `yairpg-game` session, seed 1, fresh life, text only).
+
+### Corrections to Round 2
+
+- **A3 was narrowed too far.** The register still lists three groups as awaiting his yes (AD32): WPR1-WPR32, GTR1-GTR35 and ABR1-ABR22 (proposed from his requests, AD32); DSG6-DSG19 (lines proposed, apart from those restating an accepted rule); and WA42-WA47, WA51-WA53, WA61-WA68 (awaiting his yes). UR76-UR82 (his CHOICES 4) and WA54-WA60 (his 2026-10-31 request) stay compatible variants. One answer on these groups clears the status question for about 160 codes. A3 stands as: ask once, per group, whether to accept as defaults.
+- **The kit census's "Report voice: generic" column is stale.** Commit `336c43bd9` added voice rows after the census (`1f40dd9e4`). `VOICED_FAMILIES` now holds nine families (frontier, glasshouse, hp, lotm, mol, nested, paradise, proto23, tidemark). Stale document, not a defect. Its other cells remain "unchecked" and are unverified, not failing.
+
+### New findings
+
+| Code | Level | Finding | Class | Evidence | Disposition |
+|---|---|---|---|---|---|
+| F10 | Instruction | **F2 confirmed.** Reading `src/progression_gates.js` and `src/ability_records.js` attached `runtime-code.md` alone. Reading `src/world_report_voice.js` attached `runtime-code.md` and `sites-exploration.md` (via `src/world_*.js`), not any Reports-voice rule. | incomplete integration | ran: three file reads, rules attached by the harness | A2 stands, now with evidence. Smallest fix: one short path rule for gate, ability and voice files and a glob change. |
+| F11 | Enforcement | **RPT13 is a standing rule whose test misses two enterable worlds.** The live Beginning list offers Harry Potter (3 starts), Shadow Slave (3) and Reverend Insanity Gu (2). `VOICED_FAMILIES` has hp but neither Shadow Slave nor Gu, so those worlds fall back to generic lines. The test passes (10 of 10 in `tests/world_look.test.js`) because it scans six literal `*_LOCATIONS` tables and these worlds have none. This is the concrete case behind UIF6 and RFX8. | incomplete integration, missing proof | probe: Beginning panel; read: `world_report_voice.js` keys, test lines 92-102; ran: test file | LATER L2 sharpened: drive the test from the start records or the Beginning list instead of table shapes. Voice rows for Shadow Slave and Gu are world-lane work. |
+| F12 | Enforcement | **No check covers the per-world kit (DSG19) or the census.** `grep` over `tests/` and `scripts/` for DSG19, kit census and kit names found no hit. The project's rule-to-test map, `scripts/check_rule_behavior.mjs`, lists four groups (knowledge, transactions, saves, navigation: AD6, AD7, AR3, AR6-AR8, MR4, MR5, MR33, UR9) and none for UI-world rules, gates or abilities. Tests for gates and abilities exist (`progression_gates.test.js`, `ability_*.test.js`) but are not routed from a rule code. | missing proof | ran: greps; read: map file header | A new gate would be extra weight; optionally add one group to the existing map (RPT13, UR70-UR75) when UI rules next change. |
+| F13 | On screen | **CG7 reproduces on the current build.** A fresh Village life still lists "Cross to another world: Tingen" among the first verbs at minute zero. The Beginning panel itself reads clearly: eight named starts, "Keep my current opening", and a confirm that names what leaving costs. | owner-routed (UI_CAPABILITY_GAPS, routed to the GUI worlds lane) | probe: first screen and Beginning view | Keep CG7 open. Other CG1-CG9 and K1-K3 are "routed, unverified since 2026-10-30": CG1 and CG4 shipped in code that day, CG3, CG5, CG9 and K1-K3 were routed to other lanes, and I did not probe them. |
+| F14 | UI owners | **The UI queue already has owners; none needs a new one.** CG1-CG9 and K1-K3 sit in UI_CAPABILITY_GAPS and the kit census; UIF1-UIF8 in UI_DESIGN_CORE_AUDIT (round 7 and the focused-auditor packet); UI directions and form fit are proposals (AD32). UIF6 already covers the voice-coverage narrowing. | duplicate owners, no conflict | read: UI_DESIGN_CORE_AUDIT from line 779, REFINEMENT_PRIORITIES, UI_DIRECTIONS and UI_FORM_FIT headers | Route new UI observations into these codes. |
+
+### Levels table
+
+Each cell gives its evidence row; "none" means I found none.
+
+| Family | Doc owner | Path rule | Test or check | Runtime producer | On screen |
+|---|---|---|---|---|---|
+| World UI kit (DSG19) | DESIGN.md (read) | none for world files; `src/world_*.js` loads the sites rule (F10, ran) | none (F12, ran) | `world_look.js` flourish for lotm alone (read) | census 2026-10-30, mostly unchecked |
+| Reports voice (RPT13) | UI_RULES (read) | misrouted (F10) | `world_look.test.js`, six tables (F11, ran) | `world_report_voice.js`, nine families (read) | Gu and Shadow Slave generic by code (F11) |
+| Entry / starts (WER) | WORLD_ENTRY_RULES (read) | none | `foundation_start_content`, `frail_start` and others (read) | `start_records.js`, registered beginnings (read) | Beginning list reads clearly (F13, probe) |
+| Gates and abilities (GTR, ABR) | proposed rulebooks (read) | runtime-code solely (F10, ran) | `progression_gates.test.js`, `ability_*.test.js` (read) | `progression_gates.js`, `ability_*.js` (read) | not probed |
+| Runtime (AR) | ARCHITECTURE_RULES (read) | `runtime-code.md` (ran) | `check:arch` (read, not run) | n/a | n/a |
+
+### More to consider
+
+**ACT NOW (done).** A3 corrected, census column recorded as stale, F2 confirmed, F11 narrowed to two named worlds. This round and the rest of the file are docs only; no rulebook, AD line or runtime changed.
+
+**ACCOUNT FOR NOW.** The Beginning list is the best single producer of "enterable worlds" (WER13), so a coverage check should read it, not table shapes or ID prefixes (which mix worlds with action ids such as `pocket.exit`). Worlds reached by crossing (Tingen, Cyoria, Paradise) come from the Worlds panel and are a second list to include. The kit census needs a refresh before any "world has its kit" claim (L1).
+
+| Code | LATER / DELEGATE item | Level, effort | Done check |
+|---|---|---|---|
+| L6 | Voice rows for Shadow Slave and Gu (RPT13: a place row for the start and main work place, plus a general row) | Sonnet low, small, world lanes | `reportVoice` returns a voiced line for each family at 1920 |
+| L7 | Rework the RPT13 test to read the Beginning list and Worlds panel producers | Sonnet medium, small | Fails on an enterable world with no voice row; passes a stated exception (RPT13 allows one) |
+| L8 | Path rule for gate, ability, report-voice files; remove `world_report_voice.js` from the sites glob (A2 with L4) | Luna low, small | Reading each file attaches the intended rule |
+| L9 | Probe CG3, CG5, CG9 and K2 on the current build and mark each fixed or open in UI_CAPABILITY_GAPS | Haiku through the MCP, half a session | One dated status per code |
+
+No agents were spawned, no other chat was messaged, and nothing was committed in this round (AD32).
