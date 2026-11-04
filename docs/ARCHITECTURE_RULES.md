@@ -46,7 +46,7 @@ is a host layer, not one of these: it wraps the same web build.
 | --- | --- | --- |
 | AR10 | **A module is integrated only when a player journey crosses it.** State, command, UI and save/reload must all be exercised in a rebuilt browser. A pure module plus unit tests is "engine ready", not integrated | The crafting engine and other isolated modules reported as progress with no consumer |
 | AR11 | **A second, different case proves the seam.** Keep or extend a boundary if the second case needs less core work; revise or delete it if it only hid coupling | Abstractions designed around one feature that every later feature works around |
-| AR12 | **World variety stays in the domain.** The shared layer covers identity, custody, transactions, knowledge and save. Product and world rules stay local (MR envelope versus product logic) | A universal system that flattens potions, runes and cultivation into one rule shape |
+| AR12 | **World variety stays in the domain.** The shared layer covers at least identity, custody, transactions, knowledge and save, and widens to other mechanisms several worlds reasonably share ([AD51](RULES_INDEX.md#accepted-direction-rules-ad)). Product and world rules stay local (MR envelope versus product logic) | A universal system that flattens potions, runes and cultivation into one rule shape |
 | AR13 | **Judge by change surface, not by counts.** The measure is how many core-owner files a feature touched, duplicated eligibility or state, and task-specific adapters. File, test and document counts do not count | Agents producing many tidy modules and a growing tangle of bespoke joins |
 
 ## For coordinators and lane briefs

@@ -244,6 +244,26 @@ rung's use comes from what the source does give.
 | ABM10 | An "ability coverage" view for agents: census rows per world by rung (ABR3), kept out of player UI | Haiku low for the script over existing census files | One command prints rows per world and rung; no sealed field in its output |
 | ABM11 | Decide whether `effect_dsl.js` gets a consumer or is retired as a reading vocabulary | Sonnet low, after one world needs it | A named consumer exists, or the file is marked reference-only |
 
+## Abstraction round (2026-11-03)
+
+Proposal round, not accepted rules. Trigger: [AD51](RULES_INDEX.md#accepted-direction-rules-ad) (Weibao: reasonable things get abstracted). Evidence reached: docs and `src` filenames and selected lines read; nothing built or run. Mapped into existing families (ABR, WA, AR); no new code family.
+
+### ACT NOW (done)
+- Recorded the direction in USER_VISION, the digest, AD51 and AR12 (shared layer is a floor, not a closed list). Compatible variant of AR11, AR12, WA1, WA5, WA55 and ABR5, not a conflict: AR11/WA20 decide keep-or-revise after a second world, and ABR5 is a dial for Mistglass only.
+
+### ACCOUNT FOR NOW
+- **AB1 Source and assignment (incomplete integration).** `src/ability_records.js:91` collapses acquisition to innate or learned; `src/structured_ability_runtime.js:13` already accepts innate, learned, borrowed and acquired. First target: extend provenance (source, how assigned, what it permits or blocks, lost or copied), not a new bloodline module. Candidate users: JJK innate techniques, Naruto clans and natures, HxH Nen type, MHA quirks, Black Clover grimoires, Fate Servant class, Gu aperture grade, D&D race and class. HP blood status is social, not a power source. Owners: ABR provenance rows, `lineage_traits.js` (Frontier allele model) as an inheritance route to check.
+- **AB2 Reserve, output, control.** Keep these distinct (JJK brief); fits chakra, reiatsu, Nen aura, mana, Gu essence. Gu's `aptitudePercent` dial stays in its bespoke model and projects facts (ABR5).
+- **AB3 Vows that raise power.** JJK binding vows, HxH conditions, Fae bargains read as one mechanism; check against the existing bargain digests before a field list.
+- **AB4 Bonded companions** (Servants, zanpakuto, shikigami, Gu, familiars) through the existing companions owners; **AB5 organization ranks** through RPX18.
+- **AB6 Differences rows.** Each seam use lists the world's differing law, source and era (WA55) and its later-source pressure (WA56). Counterexamples to check: Sharingan copying and Mahoraga adaptation versus "innate means fixed"; HxH Nen type is a typed affinity, not inherited.
+- **AB7 LOTM lane.** The in-flight mechanism lane (B2-B6, B11, B12) names a shared seam in each slice where reasonable (WA48 and WA56 sibling-source sampling already ask for this). No new work.
+
+### LATER / DELEGATE (not dispatched)
+- **AB8** WA48-style whole-source family pass over the JJK, Bleach, Naruto and HxH wiki digests: group rows into mechanism families, mark has-seam, content-gap or mechanism-gap. Haiku low over prepared shards; done when each digest row has a family and the overlap count is printed. Needs Weibao's go-ahead for agents.
+- **AB9** Paper-test AB1 on JJK and HxH before any runtime slice (the core kit's F31 does this for bending). Sonnet medium; done when source, aptitude, resource and proficiency separate cleanly in both.
+- **AB10** World order effect (proposal): JJK seeds AB1-AB3, so HxH, Naruto and Bleach get cheaper; HxH is the best validating second case but no longer gates the seam. HxH and Naruto need held text first (no series records in the library).
+
 ### Round 2 (2026-11-03): mechanisms from one world that serve all, and the adaptation slice
 
 Proposal round, not accepted rules (AD32). Trigger: Weibao asked for "other world stuff that could be useful in all the worlds ... from like bloodlines and stuff", then "Save and try implementing with room to improve with source info, using the source stuff" ([USER_VISION](USER_VISION.md#mechanisms-from-one-world-for-all-worlds-and-adaptation-2026-11-03)). Neighbour audit, not a duplicate: [cross-world detail pass](audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md) covers detail families (CW, J, H codes); this round covers power mechanisms. Evidence: wiki digests for JJK, Naruto, HP and LOTM, the held JJK wiki page on the Ten Shadows' adaptive general (revision 79200, text SHA-256 `b3b971e7…cd197a4cad`, secondary source), `src` reads listed per row.
