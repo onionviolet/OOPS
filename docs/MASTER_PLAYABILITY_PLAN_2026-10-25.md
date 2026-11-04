@@ -4,6 +4,8 @@
 
 Status: proposed execution order, saved for review. This organizes existing selected work and names further proposals; it does not accept every palette, change world law, reserve runtime files, or authorize publication. Existing implementation authorizations and incumbent owners remain in force. No workers dispatched by this plan.
 
+For the October 30 work and a proposed next refinement order, see the [2026-10-31 refinement review](audits/REFINEMENT_PRIORITIES_2026-10-31.md); individual lane receipts remain the status owners.
+
 Rules applied: AD5/6–8/15–19/22/32–38/41; AR11–16; relevant UR/MR/domain rules at execution. Completion uses [S00–S14 and the connected-world guidance](WORLD_COMPLETION_STANDARD.md). The broader horizon remains several progression paths and mechanically distinct worlds; the retired one-realm/one-prestige milestone is not restored.
 
 ## Outcome
@@ -527,3 +529,35 @@ Research, per-world absence cards (Village, Proto23, YAIR, LOTM, HP) and proposa
 - Round 11 addition (2026-10-27): time travel kinds and a seeded-world determinism contract (same stock and events on a revisited day, with a delta log) are in [the time travel report](research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md). Proposals only.
 
 - Round 11 addition (2026-10-27): conceptual abilities (names, records, memory, claims, laws) as channel operations stored as deltas over the seeded base, with a layer order, an observer resolver and the `generated(kind, key)` seeding API, are in [the conceptual abilities engine audit](research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md). Proposals only.
+
+## Round 12: long-term horizon, world enablement and complexity floor (2026-11-04, proposals)
+
+Weibao (2026-11-04): asked to visualize the foundations and write a long-term to-do, consider which worlds once implemented make other worlds easier, and not to underestimate world complexity. Everything here is a proposal (AD32). It maps to M1-M5, OL, WR and the W22 kit parts, and adds no new rule family.
+
+**Enablement is per seam, not per world (AD51, VISION_DIGEST "no world is the template").** "A makes B easier" means A is the first consumer of a seam B's packet needs, and B validates or revises it. Matrix (inferred except where the BOOK_WORLD_GAPS sections 2-3 or W22.W rows are cited): S8 pack save is needed by every crossing; H1 canon pull and H4 recognition are built first by LOTM; H2 rewind by Mother of Learning, validated by Perfect Run; H7 and H3 by the Worm family; H5 by Reverend Insanity; G7 making by HP and LOTM, with `rune_grammar` (wired through pledges) as the donor for FMA arrays and Witch Hat Atelier; school life by HP, validated by Percy Jackson and Earthsea; AD50 exits by Hunger Games; the d20 rules layer by D&D, which then carries the deferred tabletop settings.
+
+**Horizon (default order, proposal).**
+- Now (PROJECT focus): Klein through the first novel; commit AD50 as one unit (X16); wire the built `canon_pull_panel` and `lotm_price_map`.
+- Next (mechanism slices, not new worlds, per WR9): H4 recognition receipt; CG3/CG5/CG7 lead first screen; S8 pack save; H2 rewind with Mother of Learning + Perfect Run; Hunger Games doc + AD50 slice.
+- Later, one deep world at a time: making donor (rune grammar, FMA, Witch Hat Atelier, whose source needs a separate yes); D&D d20 layer then the tabletop group; school-life reuse (Percy Jackson, Earthsea); Worm (H7 rest, H3); Reverend Insanity (H5).
+- Long term, decide on play evidence: anime worlds after canon-first; Glorantha and Harn (deferred, not held); default cosmology for our world (OD5, menu of ten); missing kit chains K21 belief and ritual, K27 comedy memory, K31 subtext, K32 tension rhythm.
+- Items that change current sequencing (LOTM first, canon-first) and need Weibao's yes: S8 pack save, H2 rewind, Hunger Games slice, the making donor, D&D d20 layer. Open decisions carried as questions: test-bed retirement, the Proto23 three-worlds push, Witch Hat Atelier acquisition, the AD50 commit.
+
+**Complexity floor (ACCOUNT FOR NOW).** W22 (2026-10-14 snapshot, not refreshed): of K1-K34, 29 were partial and 5 absent or missing; no priority world had a proved source-bound chain, LOTM included. The best-built world has 44 modules, 59 tests and 28 slices and is inside KJ3 of KJ1-KJ8 for one protagonist (PROJECT: 431 stages are not a denominator). Do not turn this into a percent or a chapter rate. Cost drivers to carry into any estimate: lives and seats per world, AD49 lore-number calibration (largest for high-power worlds), the per-world UI contract (WA54-WA57), sealed-secret discovery routes, parallel versions (OD5), institutions and cast size. Worlds without a design or institutions doc (Hunger Games, Percy Jackson, Earthsea) rate difficulty as unknown, not low. Difficulty is shown as separate components (complexity, depth, power headroom, build burden, source risk) next to gap leverage, never one score; SSD10's six dials and WR1/WR2 (world loop card, three good evenings) are the existing rubrics to adopt before inventing another.
+
+**Round 12 addendum, next steps per foundation gap (2026-11-04, proposals; Weibao approved sequencing the five marked mechanism slices).** Level and effort follow the executor-fit convention; each done check names a player-visible or test result. Evidence so far is grep, document and commit reads only.
+
+| Order | Gap (original code) | Next step | Level, effort | Done check | Blocked by |
+|---|---|---|---|---|---|
+| 1 | X16 AD50 missing at HEAD | Owner session commits register row, USER_VISION section and END_RUN research doc together | owner session, small | `check:rules` passes on a clean HEAD worktree | that session |
+| 2 | Built, 0 importers: H1 `canon_pull_panel`, G11/H8 `lotm_price_map`, H6 `invention_receipts`, H2 `anchor_snapshots` | Wire-or-retire pass, one writer: each module gets a consumer, or is marked banked-cold (WR10) | sonnet, medium | each wired one has an importer, a focused test and one native journey step | read the Klein "anchors" row and MoL loop lane before touching `anchor_snapshots` |
+| 3 | S8 pack save (`world_pack_save` 0 importers) and SYSTEMS_REGISTER top gap 4 (per-life pack state) | Wire the loader's save through the save envelope; one pack, save, reload, import | sonnet or Sol, medium-large | reload and import keep per-world state across a crossing | persistence needs a migration or explicit compatibility decision (AGENTS) |
+| 4 | H4 recognition receipt; CG3, CG5, CG7 lead first screen | Per-observer receipt for the next Klein windows; Next-step card and start-compare for the lead | Klein builders, existing lane | the lead's first screen answers what, where, why-not, at 1920x1080 | none |
+| 5 | H2 rewind (G5) | Shared checkpoint for Mother of Learning, validated by Perfect Run | sonnet, medium | a rewind restores the declared reset domain only | step 2 decision |
+| 6 | AD50 consumer (G1 adjacent) | Hunger Games institutions doc and WER answers, then one arena slice with two exits | haiku for the doc, sonnet for the slice | doc has WPR/WER codes; slice has two authored exits | step 1 |
+| 7 | G7 making, runes (front door has no maturity word) | Record `rune_grammar` maturity; absorb one mechanic from FMA packet; Witch Hat Atelier only after a separate yes and a source digest | sonnet, medium | one inscribed item with a consumer in play | Weibao yes for any acquisition |
+| 8 | H7 rest, H3, H5, H10 | Per-world, with Worm and Reverend Insanity; not before their institutions docs | later | per-seam checks | WR9 |
+| 9 | G2 generators (H11), G10 cheat presentation, G9 hosted gatherings, G8 character depth, G6 layered repair | Keep in palettes; promote only when a selected world consumes them (WR4) | later | a consumer exists | selection |
+| 10 | SYSTEMS_REGISTER top gaps 1, 2, 3, 5 (single-world crafting runtime, named-method parity defect, unread gate overflow, no legacy-command path) | Fix the parity defect first (a defect, not a feature); the rest wait for a second consumer | sonnet, small | preview matches commit for a named method | none |
+| 11 | Unmapped systems (about 15), K21/K27/K31/K32 | Add maturity words at the front door as each is touched; the four missing chains wait for a world that needs them | haiku | front-door row has a dated word | none |
+| 12 | H12 pack builder uncommitted | Owner commits `build_cast_pack.mjs` with its test or discards | owner session | exercised on a non-LOTM book | that session |
