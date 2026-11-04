@@ -10061,7 +10061,7 @@ document.addEventListener('visibilitychange', () => {if(document.hidden) flushDu
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
     window.fastForward = fastForward;
-    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,clock:()=>expansionState.clock,workTicks:n=>advanceTicks(n,{untilIdle:true}),snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
+    window.simulationTestHooks = Object.freeze({command:(id,name,...args)=>domainRegistry.command(id,name)(...args),pause:pauseEngine,resume:resumeEngine,clock:()=>expansionState.clock,workTicks:n=>advanceTicks(n,{untilIdle:true}),snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
 if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; },

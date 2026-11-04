@@ -7,6 +7,8 @@ import hpPack from './world_packs/book_hp_pack.js';
 import hpLeadPack from './world_packs/book_hp_lead_life.js';
 import {loadWorldPacks} from './world_pack_loader.js';
 import {registerDomain} from './domain_registry.js';
+import {emptyWorldPackSaves,reconcileWorldPackSaves,createSection,validateSection,revealPerson} from './world_pack_save.js';
+import {createPopulation} from './world_pack_population.js';
 
 export const BUNDLED_WORLD_PACKS=Object.freeze([molPack,hpPack]);
 export function loadBundledWorldPacks(raw=BUNDLED_WORLD_PACKS){return loadWorldPacks(raw);}
@@ -26,4 +28,28 @@ export function installedWorldPack(id,from=registry){
 }
 // Deep copy for definitions that were mutable before packs; callers re-freeze what they froze.
 export const packNative=(id,from)=>structuredClone(installedWorldPack(id,from).pack.native);
-registerDomain({id:'world_packs',deps:[],projection:()=>[...registry.packs.values(),...leadLifePackRegistry.packs.values()].map(p=>({id:p.id,revision:p.revision,fingerprint:p.fingerprint}))});
+// Per-life world-pack state (SAVES 2026-11-04): the `world_packs` slice holds the sections of
+// world_pack_save.js. Absent means no state and writes no key, so every older save is byte-identical.
+// Definitions stay in the packs; the slice stores only what play changed or revealed.
+const allPacks=()=>({packs:new Map([...registry.packs,...leadLifePackRegistry.packs]),dormantPacks:new Map([...registry.dormantPacks,...leadLifePackRegistry.dormantPacks])});
+let saves=null,dormant=[];
+const hasState=s=>s&&(Object.keys(s.sections).length>0||Object.keys(s.clusters||{}).length>0);
+// Throws only what reconcile itself refuses (an unsupported slice schema); a bad or unloadable
+// section is carried verbatim as dormant, never dropped and never a reason to refuse the save.
+const reconcileSlice=slice=>slice==null?{saves:null,dormant:[]}:reconcileWorldPackSaves(structuredClone(slice),allPacks());
+// Reveal a person in one instance of one pack. The instance id is the caller's stable key (one per played world).
+export function revealWorldPackPerson(packId,instanceId,personId,rung='met'){
+    const loaded=allPacks().packs.get(packId);
+    if(!loaded)throw Error(`World pack ${packId} is not loaded.`);
+    const population=createPopulation(loaded,{root:0,instanceId});
+    const base=saves??emptyWorldPackSaves();
+    const section=revealPerson(base.sections[packId]??createSection(loaded),population,personId,{rung});
+    saves={...base,sections:{...base.sections,[packId]:validateSection(section,loaded)}};
+    return structuredClone(saves.sections[packId]);
+}
+registerDomain({id:'world_packs',deps:[],initialState:()=>null,
+    save:()=>hasState(saves)?structuredClone(saves):undefined,
+    validate:slice=>{reconcileSlice(slice);},
+    load:slice=>{({saves,dormant}=reconcileSlice(slice));if(!hasState(saves))saves=null;},
+    projection:()=>[...registry.packs.values(),...leadLifePackRegistry.packs.values()].map(p=>({id:p.id,revision:p.revision,fingerprint:p.fingerprint})),
+    commands:{reveal:revealWorldPackPerson,view:()=>({saves:structuredClone(saves),dormant:structuredClone(dormant)})}});

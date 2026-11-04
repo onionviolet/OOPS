@@ -374,22 +374,23 @@ commands, state and panels, use S9 and keep packs for its catalog.
 **Consumers today.** Registry importers: `book_world_mol_actions.js:5`,
 `book_world_mol_content.js:2`, `hp_brewing_state.js:6`, `world_pack_population.js`
 (grep). Bundled packs: `book_mol_pack.js`, `book_hp_pack.js` (2). The registry
-registers a read-only domain `world_packs` with no save (`world_pack_registry.js:24`).
-**`world_pack_save.js` has no importer outside `src/world_pack_*`** (grep), and its
-header says "nothing writes yet".
+registers the `world_packs` domain (`world_pack_registry.js`), which since 2026-11-04 saves,
+validates and loads the `world_packs` slice through `world_pack_save.js` (its one importer);
+the only runtime writer is the `reveal` command (a person revealed in one instance of one pack).
+See [SAVES 6d](../SAVES.md).
 
 **Maturity.** Loader and registry: used in play (2 packs feed Cyoria content and
-brewing). Pack save sections and `createPopulation`: tested only.
+brewing). Pack save sections: wired to the `world_packs` slice (save, reload, Export, Import, crossing) with one writer, `reveal`; no gameplay trigger calls it yet. `createPopulation` is used by that writer only.
 
 **How to plug in.**
 1. Write `src/world_packs/<id>_pack.js` under its own id namespace (ids must start with the pack id, `inNamespace`, `world_pack_manifest.js:46`).
 2. Add it to `BUNDLED_WORLD_PACKS` (`world_pack_registry.js:10`); `npm test` lints every bundled pack.
 3. Read its data with `packNative(id)` in the world's content module (S9).
 4. Keep sealed text out of player-visible fields; list terms in `sealedTerms`.
-5. Do not store per-life state in the pack; that is S12 (planned `world_packs` save key).
+5. Do not store per-life state in the pack; that is S12 (the `world_packs` slice; write through `reveal`-style commands on that domain).
 
 **Gotchas.** Raising a pack `revision` is a save event (`packRevision` must match
-at `validateSection`, `world_pack_save.js:35`), but nothing saves it yet.
+at `validateSection`, `world_pack_save.js:35`), and a section whose pack revision changed runs the migration chain at load (`reconcileWorldPackSaves`).
 A changed `saveSchema` or axes fingerprint makes `migrateSection` return
 `schema-mismatch` or `profile-changed` unless a migration step exists
 (`:88-93`). Two packs with overlapping namespaces: the later one goes dormant
@@ -558,7 +559,7 @@ rejects a save from a newer game (`:100-103`); `encodeSaveFile`, `importSaveFile
 
 **Data shape.** One JSON envelope. Domains add `envelope[domainId]` (S7). Worlds
 add their own key with schema, `definitionRevision`, `sourceSnapshot`, `sourceHash`
-(S9). Pack sections (planned, unwired): `{packId, packRevision, schema, delta:{instances, retired}}`
+(S9). Pack sections (wired 2026-11-04 as the `world_packs` slice): `{packId, packRevision, schema, delta:{instances, retired}}`
 (`world_pack_save.js:19`).
 
 **Degrees of flexibility.**
@@ -844,7 +845,7 @@ timer; add a boundary (S10).
 | G2 | **Only 3 of 5 overflow policies run** (lost, banked, converted). Spill and pressure are vocabulary only. | `skill_overflow_domain.js:10-24`; [overflow doc](../PROGRESSION_GATE_OVERFLOW_2026-10-23.md) GTO9 | Spill and pressure need a consumer first. |
 | G3 | **Gates are barely adopted** (4 gates, 4 importers) while hand-written "requires" fact rules exist in every command. | grep `defineGate(` | A new gate is still a pilot; consider S1 inside a command first. |
 | G4 | **`definePath` has no OR crossing and `pathView` only walks forward one stage**, though shapes tree, web, wheel, stack and field validate. | `ascension_paths.js:8, 47, 128` | Non-ladder shapes have no reader. A branching path needs a new view or per-branch ladders (as Tingen does with one path per pathway). |
-| G5 | **World pack saves are not wired.** Population, delta sections and migrations are tested only; nothing writes a `world_packs` save key. | `world_pack_save.js:1-2`; grep: no importer outside `world_pack_*` | Per-life state for a pack-based world has nowhere to persist yet. |
+| G5 | **World pack saves are wired for one writer only (2026-11-04).** The `world_packs` slice round-trips and survives a crossing; only `reveal` writes it, and no gameplay trigger calls it. Edges, exceptions, facts and the migration registry have no runtime writer yet (default; add per need). | `world_pack_registry.js`; [SAVES 6d](../SAVES.md) | A world must call a writer before its per-life state exists. |
 | G6 | **Save validation is split four ways**: domain slices, a hand-ordered chain in `save_files.js`, per-world exact-field validators, and pack sections. | `save_files.js:64-110`; `domain_registry.js:22-28` | Pick the domain slice (S7) for new state; do not extend the chain. |
 | G7 | **Three definition-pinning styles** for worlds: Tingen and Mol use `definitionRevision` plus `sourceHash`, packs use `revision` plus `saveSchema` plus axes fingerprint, expansion uses `ENGINE_SCHEMA` numbers. | `book_world_lotm_state.js:16`, `world_pack_save.js:35`, `expansion_engine.js:71-75` | A cross-cutting "bump" means three different things. |
 | G8 | **Saved jobs equal command definitions.** Any edit to costs, effects or cancellation of a command with a job in flight refuses the save. No registry-level "legacy command" mechanism. | `book_world_lotm_state.js:38`, `book_world_mol_state.js:41` | Safe edits are new command ids; or rely on the 2026-10-17 deferral. |
