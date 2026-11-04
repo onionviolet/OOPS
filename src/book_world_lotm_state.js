@@ -21,6 +21,7 @@ import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 import {beClientAssertions} from './book_world_lotm_be_clients.js';
 import {beSeerAssertions,BE_SEER_ENERGY_ID} from './book_world_lotm_be_seer.js';
+import {beFirearmAssertions} from './book_world_lotm_be_firearm.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -106,6 +107,7 @@ export function validateLotmState(state){
  assert(!!e===!!src,'The spirituality pool exists exactly when the source does.');
  // The book life's own Seer chain (B1): its own source, flags and pool, so the Tingen invariants above stay as they were.
  beSeerAssertions(state,{a,has,assert});
+ beFirearmAssertions(state,{a,has,assert});
  beClientAssertions({a,assert});
  return true;
 }
