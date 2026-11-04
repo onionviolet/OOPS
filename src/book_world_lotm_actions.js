@@ -18,6 +18,7 @@ import {causeCommands,causeSteadyCommand,causeFlags,causeFacts} from './book_wor
 import {brokerCommands,lotFlags,brokerFacts} from './book_world_lotm_broker.js';
 import {clearanceCommands,clearanceFacts,LOTM_ROLE_OF} from './book_world_lotm_clearance.js';
 import {beClientFacts} from './book_world_lotm_be_clients.js';
+import {payFacts} from './book_world_lotm_pay.js';
 import {BE_SEER_FLAGS,BE_SEER_ENERGY,beSeerSources,beSeerFacts} from './book_world_lotm_be_seer.js';
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
@@ -151,7 +152,7 @@ export function lotmFacts(state,ctx={}){
  if(enrolled)brokerFacts(state,f,{alive,enrolled,player:p,inventory:ctx.gameplay?.[I.broker]?.inventory||{}});else{f['lotm.brokerHere']=false;f['lotm.escrow']=0;}
  for(const id of [I.supervisor,I.stormOfficer,I.machineryOfficer,I.seniorDeacon,I.stormDeacon,I.evernightDeacon,I.member])f[`lotm.attention.${id}`]=state.actors?.[id]?.resources?.['book.lotm.attention']??0;
  beSeerFacts(state,f,{enrolled,flag});
- beClientFacts(state,f);
+ beClientFacts(state,f);payFacts(state,f);
  f['lotm.supervisorAttention']=state.actors?.[I.supervisor]?.resources?.['book.lotm.attention']??0;
  return f;
 }
