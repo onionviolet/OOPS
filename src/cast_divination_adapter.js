@@ -2,6 +2,7 @@
 // payment, attempt identity, support, time and knowledge. No accuracy RNG here.
 import {validateSimulationEffect} from './simulation_contracts.js';
 import {defineRitual,ritualDial,fitScore,gradeRitual} from './ritual_conditions.js';
+import {energyCharge} from './energy_resources.js';
 const id=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 // An answer with no named support reads as unclear rather than inventing one (WA51).
@@ -40,7 +41,8 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
    for(const v of gated?[{suffix:'',grounded:true},{suffix:'.unclear',grounded:false}]:[{suffix:'',grounded:null}]){
    const cid=commandId+v.suffix,groundedKey=`divination.${row.id}.grounded`;
    const costs=structuredClone(step.costs||[]);
-   if(!Array.isArray(costs)||costs.some(c=>!['resource','item','vital'].includes(c.type)||!Number.isFinite(c.amount)||c.amount>=0))throw Error('Declare explicit spent stock through a native cost.');
+   // B4: an energy use is a legal spend (the engine refuses an empty pool or a strained method); stock costs keep their negative amount.
+   if(!Array.isArray(costs)||costs.some(c=>c.type==='energy'?c.operation!=='use'||!c.energyId:!['resource','item','vital'].includes(c.type)||!Number.isFinite(c.amount)||c.amount>=0))throw Error('Declare explicit spent stock through a native cost.');
    const phase=previous&&eq(`actor.${phaseKey}`,previous,'Complete the preceding rite step first.');
    const effects=[{type:'fact',scope:'actor',actor:actorId,key:phaseKey,value:step.id}];
    const basis={kind:step.kind==='interpret'?'inference':'observation',attributedTo:actorId,situationId,
@@ -84,6 +86,11 @@ export function defineDivinations(data,{worldId,actorId='player',group,situation
  }
  return commands;
 }
+// The held pool's own policy prices the use (never a registry default): "1 Spirituality; 1 strain (pool 3 of 3)".
+function energyCostText(state,actorId,e){
+ const o=state.simulation?.energies?.[actorId]?.[e.energyId];if(!o)return `${e.energyId}: not held`;
+ return `${energyCharge(o.policy,e)} ${o.policy.label}; ${o.policy.strainPerUse} strain (pool ${o.reserve} of ${o.policy.capacity})`;
+}
 export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>({allowed:true}),facts=()=>({})}={}){
  return commands.flatMap(d=>{
   const q=preview(d);if(!q.visible)return [];
@@ -95,7 +102,7 @@ export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>(
   const known=state.simulation?.knowledge?.[d.actorId]||{};
   return [{id:d.id,queryId:m.queryId,queryLabel:m.label,question:m.question,method:m.method,perspective:'Your rite',
    label:`${d.label} · ${q.duration??d.duration} min`,description:d.description,duration:q.duration??d.duration,
-   costs:structuredClone(costs),...(m.cost===null?{cost:null}:{}),costText:costs.map(e=>`${e.key||e.type}: ${e.amount}`).join('; ')||(m.cost===null?'cost not recorded':'No stock spent.'),
+   costs:structuredClone(costs),...(m.cost===null?{cost:null}:{}),costText:costs.map(e=>e.type==='energy'?energyCostText(state,d.actorId,e):`${e.key||e.type}: ${e.amount}`).join('; ')||(m.cost===null?'cost not recorded':'No stock spent.'),
    effectText:d.description,...(k?{record:k.value}:{}),
    ...(m.kind==='attempt'&&known[`divination.${m.queryId}.signal`]?{signal:known[`divination.${m.queryId}.signal`].value}:{}),
    ...(m.kind==='interpret'&&known[`divination.${m.queryId}.interpretation`]?{belief:known[`divination.${m.queryId}.interpretation`].value}:{}),
