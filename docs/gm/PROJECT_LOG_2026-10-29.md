@@ -2338,3 +2338,7 @@ Replaced in PROJECT.md item 1: the KJ3X endpoint (Saturday evening at the family
 ## 2026-11-03: PROJECT.md endpoint line replaced (kjw16, final window)
 
 Replaced in PROJECT.md item 1: the KJ3Y endpoint (Sunday noon on Zouteland Street, ch23 through ch52 P035; twenty-seven slices, 408 intents; built through kjw15) with the KJ3Z endpoint (Sunday 4:24 p.m. at the Divination Club with the first client, ch23 through ch54 P079; twenty-eight slices, 431 intents; built through kjw16, native on the B10 bundle in one 617 s run). Money holds 787 with the commission share still unsigned on screen; the pool is 0/3. The KJ3Z receipt carries the volume-1 closing section (end state, fact-key counts, gated beats by code, unbuilt mechanisms, native proof by window). This ends the ch32-54 sweep range; no kjw17.
+
+## 2026-11-03: PROJECT.md endpoint line replaced (kjw17, first window of the ch55-84 arc)
+
+The Klein line now names the KJ3AA endpoint (Sunday 10:50 p.m. at the flat after Anna's first paid divination and the night notes, English v1 ch55 P001 through ch57 P068; 21 acts, 29 slices, 452 stages; native on the master bundle `65a3b122`, purse 799, pool 2/3). The KJ3Z receipt keeps the volume-1 closing summary. First native use of B4/B5/R1 (method gate, dream divination cost) and B6/R9 (stated 12-pence fee, favor). The club share and tip (2 pence) are a pending card until R2 (halfpence) is on master; backlog row C1. Agent-verified, not human-reviewed.
