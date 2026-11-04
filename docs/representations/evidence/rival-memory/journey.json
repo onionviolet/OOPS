@@ -1,0 +1,27 @@
+{
+ "bundleHash": "69aa11c70e31",
+ "viewport": "1920x1080",
+ "route": "DEV SEEDED field-workshop fixture (named, as in the P4 proof): road challenge begun via fixtures; contest started and played with real clicks",
+ "before": {
+  "text": "Mara has not met you in a contest. She reads as an ordinary scout. You cannot tell more without seeing her fight or finding another way to take her measure.",
+  "state": "unread"
+ },
+ "facts": {
+  "duels": 1,
+  "wins": 1,
+  "last": "won"
+ },
+ "after": {
+  "text": "Mara remembers losing to you and wants it back. Appraised (you have crossed blades with her): she strikes about 30% harder than she looks.",
+  "state": "appraised"
+ },
+ "reload": {
+  "text": "Mara remembers losing to you and wants it back. Appraised (you have crossed blades with her): she strikes about 30% harder than she looks.",
+  "state": "appraised"
+ },
+ "import": {
+  "text": "Mara remembers losing to you and wants it back. Appraised (you have crossed blades with her): she strikes about 30% harder than she looks.",
+  "state": "appraised"
+ },
+ "errors": []
+}
