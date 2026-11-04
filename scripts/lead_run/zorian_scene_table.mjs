@@ -16,7 +16,14 @@ const here = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..', '..');
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const SCENES = arg('--scenes', '/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/mother-of-learning/private/wb8-merged-2026-10-30/scenes.jsonl');
-const DOC = arg('--doc', path.join(root, 'docs/worlds/mother-of-learning/ZORIAN_S0_S1_SCENE_TABLE_2026-11-03.md'));
+// --range LO-HI selects a later chapter band (for example 14-55: S2-S6) with its own stage map, extra verb and option rules,
+// and the extra blocks `needs`, `unruled` and `resolve`. Without it the script is the S0/S1 generator, output unchanged.
+const RANGE = arg('--range', '');
+const [LO, HI] = RANGE ? RANGE.split('-').map(Number) : [1, 13];
+const LATE = !!RANGE;
+const STAGES = LATE ? [['S2', 14, 20], ['S3', 21, 27], ['S4', 28, 36], ['S5', 37, 53], ['S6', 54, 55]] : [['S0', 1, 4], ['S1', 5, 13]];
+const DOC = arg('--doc', path.join(root, LATE ? 'docs/worlds/mother-of-learning/ZORIAN_S2_S6_SCENE_TABLE_2026-11-03.md' : 'docs/worlds/mother-of-learning/ZORIAN_S0_S1_SCENE_TABLE_2026-11-03.md'));
+const MERGE_REPORT = arg('--report', path.join(path.dirname(SCENES), 'merge_report.json'));
 const JSON_OUT = arg('--json', '');
 
 const pack = (await import(path.join(root, 'src/world_packs/book_mol_pack.js'))).default;
@@ -58,8 +65,20 @@ const RULES = [
   R(/walk|route|hill|wander|bridge|search for room/, null, null, 'travel', ['travel', 'other']),
   R(/zach|briam|akoja|benisek|neolu|byrn|gossip|dance|festival|first-year|classmates|stars|new arrivals/, null, null, 'peer-social-or-event', null),
 ];
-function mapVerb(verb, cls) {
+// Rules for later-chapter vocabulary. Tried first, only when --range is set, so the S0/S1 mapping never sees them.
+const LATE_RULES = [
+  R(/soul|alanic|meditat|near-death potion/, null, null, 'soul-work', null),
+  R(/divin|scry|tracking|marker/, null, null, 'divination', null),
+  R(/mind (shield|ward|magic|sense|probe|blank)|telepath|empath|memory (probe|read)|spiders|mental/, null, null, 'mind-work', null),
+  R(/golem/, null, null, 'golem-craft', null),
+  R(/ward|siphon|bypass|break in|break the|lockpick|recall|summon/, null, null, 'ward-or-gate-work', null),
+  R(/black room|time dilation|time room|timed|training room|dimensional|boundary/, null, null, 'time-room-or-space', null),
+  R(/crystal|harvest|sell|contract|job|gurey|trade|market|price/, null, null, 'trade-or-contract', null),
+  R(/prediction|code phrase|convince|brief|persuade|prove|tell .* (about|of)|reveal/, null, null, 'ally-briefing', null),
+];
+function mapVerb(verb, cls, late = false) {
   const v = verb.toLowerCase();
+  if (late) for (const r of LATE_RULES) { if (r.re.test(v)) return { cmd: r.cmd, fit: r.fit, cat: r.cat }; }
   for (const r of RULES) {
     if (r.cls && !r.cls.includes(cls)) continue;
     if (r.re.test(v)) {
@@ -84,10 +103,10 @@ const cid = (c) => c.replace(/^book\.mol\./, '');
 
 // ---- load ----
 const all = fs.readFileSync(SCENES, 'utf8').trim().split('\n').map((l) => JSON.parse(l));
-const rows = all.filter((r) => /^lr\.mol\.main\.0(0[1-9]|1[0-3])\d\d$/.test(r.beat))
-  .sort((a, b) => a.beat.localeCompare(b.beat));
 const chap = (r) => +r.beat.slice(12, 15);
-const stage = (r) => (chap(r) <= 4 ? 'S0' : 'S1');
+const rows = all.filter((r) => /^lr\.mol\.main\.\d{5}$/.test(r.beat) && chap(r) >= LO && chap(r) <= HI)
+  .sort((a, b) => a.beat.localeCompare(b.beat));
+const stage = (r) => STAGES.find(([, lo, hi]) => chap(r) >= lo && chap(r) <= hi)[0];
 const isSealed = (r) => Array.isArray(r.sealed) && r.sealed.length > 0;
 
 // ---- per-scene analysis ----
@@ -95,7 +114,7 @@ const REACH = { match: 'exists-for-visitor', near: 'partial', none: 'gap' };
 function analyse(r) {
   const verbs = r.steps.map((s) => {
     const a = actorOf(s.verb);
-    const m = a.who === 'lead' ? mapVerb(a.text, s.class) : { cmd: null, fit: null, cat: 'npc-side-verb' };
+    const m = a.who === 'lead' ? mapVerb(a.text, s.class, LATE) : { cmd: null, fit: null, cat: 'npc-side-verb' };
     return { verb: s.verb, cls: s.class, actor: a.who, ...m };
   });
   const leadV = verbs.filter((v) => v.actor === 'lead');
@@ -116,8 +135,10 @@ const A = rows.map(analyse);
 const BUILD_RE = /fight|combat|lich|sewer|teleport|spell rod|rats|enter the city/i;
 const DISC_RE = /tell (ilsa|zach|zenomir|taiven)|admit|reveal|confront zach|truth|everything now|stowaway|loop/i;
 const LOOP_RE = /skip the month|get off at korsa|leave by train|take the train|skip the next class/i;
-function classify(o) {
+const LATE_BUILD_RE = /ward|siphon|golem|soul|black room|time room|dilation|divin|scry|mind (shield|magic|probe|read)|telepath|memory (probe|read)|teleport|portal|gate|summon|simulacrum|dimensional|crystal|spider|tracking spell|marker detection/i;
+function classify(o, beat = '') {
   const t = o.action;
+  if (LATE && +beat.slice(12, 15) > 13 && LATE_BUILD_RE.test(t)) return { k: 'needs-build', why: 'ward, soul, mind, divination, golem, time-room or gate mechanism not in the pack' };
   if (BUILD_RE.test(t) || ['fight', 'craft', 'ritual'].includes(o.class)) return { k: 'needs-build', why: 'combat, craft or place mechanism not in the pack' };
   if (LOOP_RE.test(t)) return { k: 'resolves-by-mechanism', why: 'travel and calendar plus loop row (G2, G6, G7)' };
   if (DISC_RE.test(t)) return { k: 'resolves-by-mechanism', why: 'knowledge and witness records (G7, G8) plus the NPC reply' };
@@ -142,7 +163,7 @@ const OVERRIDES = [
 function classifyScene(a) {
   return a.locked.map((o) => {
     const ov = OVERRIDES.find(([b, s]) => b === a.r.beat && o.action.includes(s));
-    const c = ov ? ov[2] : classify(o);
+    const c = ov ? ov[2] : classify(o, a.r.beat);
     return { ...o, ...c, judged: !!ov };
   });
 }
@@ -176,7 +197,7 @@ const tally = (arr, f) => arr.reduce((m, x) => { const k = f(x); m[k] = (m[k] ||
 const dateLabels = (s) => tally(A.filter((a) => stage(a.r) === s), (a) => a.r.date.label);
 
 blocks.counts = [
-  `| Count | S0 (c1-c4) | S1 (c5-c13) | Total |`, `|---|---|---|---|`,
+  `| Count | ${STAGES.map(([n, lo, hi]) => `${n} (c${lo}-c${hi})`).join(' | ')} | Total |`, `|${'---|'.repeat(STAGES.length + 2)}`,
   ...[
     ['Scenes', (s) => A.filter((a) => stage(a.r) === s).length],
     ['Sealed scenes', (s) => A.filter((a) => stage(a.r) === s && isSealed(a.r)).length],
@@ -194,7 +215,7 @@ blocks.counts = [
     ['Verbs performed by someone else (named subject)', (s) => A.filter((a) => stage(a.r) === s).reduce((n, a) => n + a.verbs.length - a.leadV.length, 0)],
     ['Lead verbs with a pack command (any fit)', (s) => A.filter((a) => stage(a.r) === s).reduce((n, a) => n + a.leadV.filter((v) => v.cmd).length, 0)],
     ['Lead verbs with no pack command (gap)', (s) => A.filter((a) => stage(a.r) === s).reduce((n, a) => n + a.leadV.filter((v) => !v.cmd).length, 0)],
-  ].map(([label, f]) => `| ${label} | ${f('S0')} | ${f('S1')} | ${f('S0') + f('S1')} |`),
+  ].map(([label, f]) => `| ${label} | ${STAGES.map(([n]) => f(n)).join(' | ')} | ${STAGES.reduce((t, [n]) => t + f(n), 0)} |`),
 ].join('\n');
 
 // section 1 table
@@ -247,7 +268,7 @@ blocks.counts = [
     if (isSpan(r)) flags.push('span (replayed stretch)');
     if (n && loopNo(n) !== loopNo(r)) flags.push(`loop number ${loopNo(r)} to ${loopNo(n)}`);
     if (n && n.date.label !== 'S' && n.date.label !== 'E') flags.push(`next ${n.date.label === 'U' ? 'unknown' : 'inferred'}`);
-    if (!n) return `| ${r.beat}${isSealed(r) ? ' (sealed)' : ''} | ${dateWord(r)} | end of c13 | - | - | - | - | ${flags.join('; ')}; next is c14, outside this table |`;
+    if (!n) return `| ${r.beat}${isSealed(r) ? ' (sealed)' : ''} | ${dateWord(r)} | end of c${HI} | - | - | - | - | ${flags.join('; ')}; next is c${HI + 1}, outside this table |`;
     const nsl = isSealed(n);
     const pres = nsl ? `sealed: ${(n.present || []).filter((p) => !/zorian/.test(p)).length} others, names withheld` : ((n.present || []).filter((p) => !/zorian/.test(p)).map(short).join(', ') || 'alone');
     const anch = nsl ? [] : nextAnchors(n);
@@ -276,6 +297,47 @@ blocks.counts = [
   const sealedV = A.filter((a) => isSealed(a.r)).flatMap((a) => a.leadV);
   blocks.sealedline = `Sealed scenes (${A.filter((a) => isSealed(a.r)).length}): ${sealedV.length} lead verbs, ${sealedV.filter((v) => v.cmd).length} map to a pack command, ${sealedV.filter((v) => !v.cmd).length} do not; categories withheld.`;
   blocks.coverage = `Pack commands: ${commandIds.size} total in \`native.definitions.commands\`; ${Object.keys(used).length} are the owner of at least one non-sealed lead verb in this table (rule mapping). Unused by this table: ${[...commandIds].filter((c) => !used[cid(c)] && !new Set(nonSealed.flatMap((a) => a.leadV.map((v) => v.cmd))).has(c)).length}.`;
+}
+
+// ---- later-band blocks (only with --range): mechanism needs, unruled share, per-shard resolve rate ----
+if (LATE) {
+  const NEEDS = [
+    ['witnesses and loop disclosure', /time[- ]?travel|\bloop\b|restart|reset|tell .* (about|of)|reveal|prove|believe/],
+    ['carriers (notebook, code phrase, packet, prediction list)', /notebook|code phrase|memory packet|packet|prediction|ring\b|journal|record/],
+    ['time rooms', /black room|time dilation|time room|timed|training room|dilat/],
+    ['teacher windows (lessons, training, mentor)', /lesson|teach|train(ing)?\b|tutor|mentor|instruct|session with|practice with|class with/],
+    ['travel (legs, gates, teleport)', /\btrain\b|journey|travel|portal|gate|teleport|leave cyoria|road|route|wilderness|\bwalk\b/],
+    ['soul perception', /soul|alanic|meditat/],
+    ['the budget readout (cap, iterations, keeper)', /iteration|budget|\bcap\b|keeper|threshold|power limit|limit of/],
+    ['mind work', /mind|telepath|empath|memory (probe|read)|mental|thought/],
+    ['divination', /divin|scry|tracking|marker/],
+    ['wards and gates', /ward|siphon|bypass|lockpick|recall|summon/],
+    ['golems and workshop crafts', /golem|workshop|alchem|craft|formula/],
+    ['trade, contracts, money', /crystal|sell|contract|\bjob\b|price|crown|trade|market|pay/],
+  ];
+  const text = (a) => [...a.verbs.map((v) => v.verb), ...(a.r.knowledge || []).map((k) => k.fact), ...(a.r.outcomes || []).map((o) => o.fact), ...(a.r.touched || []).map((t) => t.id)].join(' ').toLowerCase();
+  const open = A.filter((a) => !isSealed(a.r));
+  blocks.needs = [
+    `| Mechanism need | ${STAGES.map(([n, lo, hi]) => `${n} (c${lo}-c${hi})`).join(' | ')} | Total |`, `|${'---|'.repeat(STAGES.length + 2)}`,
+    ...NEEDS.map(([label, re]) => { const c = STAGES.map(([n]) => open.filter((a) => stage(a.r) === n && re.test(text(a))).length); return `| ${label} | ${c.join(' | ')} | ${c.reduce((x, y) => x + y, 0)} |`; }),
+    `| Non-sealed scenes scanned | ${STAGES.map(([n]) => open.filter((a) => stage(a.r) === n).length).join(' | ')} | ${open.length} |`,
+    `| Sealed scenes (not scanned) | ${STAGES.map(([n]) => A.filter((a) => stage(a.r) === n && isSealed(a.r)).length).join(' | ')} | ${A.filter((a) => isSealed(a.r)).length} |`,
+  ].join('\n');
+  const leadOpen = (n) => open.filter((a) => stage(a.r) === n).flatMap((a) => a.leadV);
+  blocks.unruled = [
+    `| Stage | Non-sealed lead verbs | Gap category rule matched | Unruled (no rule matched) | Unruled share |`, `|---|---|---|---|---|`,
+    ...STAGES.map(([n]) => { const v = leadOpen(n), u = v.filter((x) => !x.cmd && /^unruled-/.test(x.cat)).length; return `| ${n} | ${v.length} | ${v.length - u} | ${u} | ${v.length ? Math.round((100 * u) / v.length) : 0}% |`; }),
+  ].join('\n');
+  let rep = {};
+  try { rep = JSON.parse(fs.readFileSync(MERGE_REPORT, 'utf8')).resolve?.perShard || {}; } catch { /* report absent */ }
+  const per = STAGES.map(([n, lo, hi]) => {
+    const ids = Array.from({ length: hi - lo + 1 }, (_, i) => `molc${String(lo + i).padStart(3, '0')}m`);
+    const have = ids.filter((id) => typeof rep[id] === 'number');
+    const low = have.filter((id) => rep[id] < 0.9).map((id) => `c${+id.slice(4, 7)} ${rep[id]}`);
+    const mean = have.length ? (have.reduce((t, id) => t + rep[id], 0) / have.length).toFixed(3) : 'n/a';
+    return `| ${n} | c${lo}-c${hi} | ${have.length} of ${ids.length} | ${mean} | ${low.join('; ') || 'none'} |`;
+  });
+  blocks.resolve = [`| Stage | Chapters | Shards with a rate | Mean resolve rate | Shards under 0.90 |`, `|---|---|---|---|---|`, ...per].join('\n');
 }
 
 // ---- write blocks into doc ----
