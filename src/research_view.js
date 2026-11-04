@@ -87,7 +87,7 @@ export function researchView(observer, state) {
     for (const p of projects) p.statusLabel = STATUS_WORDS[p.status];
     const count = s => projects.filter(p => p.status === s).length;
     const glance = projects.length ? [count('doing') + count('started') ? `${count('doing') + count('started')} under study` : '', count('available') ? `${count('available')} to begin` : '', count('done') ? `${count('done')} finished` : ''].filter(Boolean).join(', ') : '';
-    return {projects, glance, empty: projects.length ? '' : 'Nothing here can be studied yet. Lessons, books and odd things you meet will appear here once you start on them.'};
+    return {projects, glance, empty: projects.length ? '' : 'Nothing to study yet. Ask the people around you what they could teach, and their lessons show up here.'};
 }
 
 /** One plain line per step: the text form the list shows and the map's description shares (UR37). */

@@ -33,7 +33,7 @@ export function createFieldPanel({read, quote, execute, discovered}) {
         controls.replaceChildren();
         const material = node('select'); material.dataset.fieldMaterial = '';
         material.setAttribute('aria-label','Stock to spill');material.disabled=!v.materials.length;
-        if(!v.materials.length){const empty=node('option','No spillable stock carried');empty.value='';material.append(empty);}
+        if(!v.materials.length){const empty=node('option','Carry a vial or ingredient pack to spill');empty.value='';material.append(empty);}
         for (const m of v.materials) { const o = node('option', `${m.name || 'Stock'} (${m.count})`); o.value = m.key; material.append(o); }
         const level = node('select'); level.dataset.fieldLevelSelect = '';
         level.setAttribute('aria-label','Room level');

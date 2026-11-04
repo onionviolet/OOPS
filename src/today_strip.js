@@ -79,7 +79,7 @@ function createTodayPanel() {
         clock.textContent = view.clock; date.textContent = view.date;
         work.textContent = view.work.count
             ? `${plural(view.work.count, 'commitment')} running${view.work.nextIn != null ? `, the next ends in ${minutesText(view.work.nextIn)}` : ''}.`
-            : 'No commitments are running.';
+            : 'Nothing running. Start work or take a job and it shows here.';
         heading.textContent = view.place ? `Timed activities at ${view.place}` : 'Timed activities here';
         syncList(list, view.rows.map(({key, name, detail}) => ({key, name, detail})), 'Nothing here keeps set hours.');
     });

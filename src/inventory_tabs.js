@@ -6,9 +6,9 @@
 
 export const INVENTORY_CATEGORIES = Object.freeze([
     {id: 'all', label: 'All items', short: 'All', native: 'inventory_show_all', noun: 'items'},
-    {id: 'equipment', label: 'Equipment', short: 'Gear', native: 'inventory_show_equipment', noun: 'equipment'},
-    {id: 'usable', label: 'Usable', short: 'Use', native: 'inventory_show_consumable', noun: 'usable items or books'},
-    {id: 'other', label: 'Other', short: 'Other', native: 'inventory_show_other', noun: 'materials, components or loot'},
+    {id: 'equipment', label: 'Equipment', short: 'Gear', native: 'inventory_show_equipment', noun: 'equipment', hint: 'Buy or loot gear to see it here.'},
+    {id: 'usable', label: 'Usable', short: 'Use', native: 'inventory_show_consumable', noun: 'usable items or books', hint: 'Buy, cook or find something to eat, use or read.'},
+    {id: 'other', label: 'Other', short: 'Other', native: 'inventory_show_other', noun: 'materials, components or loot', hint: 'Gather or craft some to see them here.'},
     {id: 'favorites', label: 'Favorites', short: '★', native: 'inventory_show_favs', noun: 'starred items'},
 ]);
 const byId = new Map(INVENTORY_CATEGORIES.map(c => [c.id, c]));
@@ -40,7 +40,7 @@ export function categoryCounts(rows) {
 export function emptyHint({category, held, inCategory, search}) {
     if (!held) return 'No items in this inventory. Gather, loot or buy items to add them here.';
     const c = categoryOf(category);
-    if (!inCategory) return c.id === 'favorites' ? 'No starred items yet. Star an item to keep it here.' : `No ${c.noun} yet.`;
+    if (!inCategory) return c.id === 'favorites' ? 'No starred items yet. Star an item to keep it here.' : `No ${c.noun} yet.${c.hint ? ` ${c.hint}` : ''}`;
     if (search) return `No ${c.id === 'all' ? 'items' : c.noun} match "${search}". Clear the filter to see all.`;
     return '';
 }

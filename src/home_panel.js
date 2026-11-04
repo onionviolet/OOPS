@@ -53,7 +53,7 @@ export function createHomePanel({read,quote,execute}) {
             if(local&&usable&&h.fixtures.hearth&&h.fixtures.tableware)detail.append(el('p',c.craftingKnown?'Home kitchen ready: use Cooking for tier-one meals here.':'Kitchen fitted. Learn the ordinary crafting basics to use its recipes.'));
             if(local&&usable&&h.fixtures.incense)detail.append(el('p',c.meditationKnown?'Quiet practice ready: use the meditation activity here.':'Quiet practice space fitted. Learn Meditation to use it here.'));
             const furniture=section(detail,'Furnishings and selected slots');
-            if(!Object.keys(h.fixtures).length)furniture.append(el('p','No installed furnishings.'));
+            if(!Object.keys(h.fixtures).length)furniture.append(el('p','No furnishings yet. Carry one here to install it.'));
             for(const [slot,row]of Object.entries(h.fixtures)){const f=F[JSON.parse(row.key).id];furniture.append(el('p',`${slot}: ${f.name} · ${row.owner==='player'?'yours':'provided by owner'}. ${f.description}`));action(furniture,`remove:${h.id}:${slot}`,'Pack '+f.name,{type:'remove',home:h.id,slot});}
             for(const [key,n]of Object.entries(c.inventory))if(F[JSON.parse(key).id])action(furniture,`install:${h.id}:${key}`,`Install ${F[JSON.parse(key).id].name} · ${n} carried`,{type:'install',home:h.id,key});
             renderWarehouse({host:detail,view,home:h,el,action});

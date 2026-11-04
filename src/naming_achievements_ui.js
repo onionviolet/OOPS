@@ -76,7 +76,7 @@ function createPanel() {
     panel.render = render; panel.check = check;
     whenPortsReady(() => { render(true); check(); });
     definePanel({id: 'naming', title: 'Naming and achievements', role: 'character', node: panel, home: document.getElementById('main_content'),
-        discovered: () => true, eligible: () => true, emptyText: 'Nothing to name yet'});
+        discovered: () => true, eligible: () => true, emptyText: 'Equip something to name it'});
     return panel;
 }
 

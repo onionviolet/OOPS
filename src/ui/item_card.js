@@ -45,7 +45,7 @@ export function renderItemCard(host, model, {idPrefix = 'item-card'} = {}) {
             body.append(tr);
         }
         table.append(body); root.append(table);
-    } else root.append(el(doc, 'p', 'item-card-note', model.note || 'No numbers this item adds to what you wear.'));
+    } else root.append(el(doc, 'p', 'item-card-note', model.note || 'Wearing this adds nothing to your stats.'));
 
     // Provenance trail: where it has been. Absent records say so instead of inventing a past.
     if (model.facets.provenance === 'known') {

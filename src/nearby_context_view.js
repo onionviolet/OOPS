@@ -22,7 +22,7 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
     const requested = frame.dialogue || selected;
     const subject = subjects.find(row => row.id === requested) || null;
     const summary = [people.length ? `${people.length} ${people.length === 1 ? 'person' : 'people'}` : '',
-        services.length ? `${services.length} ${services.length === 1 ? 'service / station' : 'services / stations'}` : ''].filter(Boolean).join(' · ') || 'No known subjects here';
+        services.length ? `${services.length} ${services.length === 1 ? 'service / station' : 'services / stations'}` : ''].filter(Boolean).join(' · ') || 'Nothing here to inspect yet';
     return {place:frame.place || 'This place',people,services,subjects,subject,
         selectedId:subject?.id || null,summary,description:String(description || '').trim(),
         descriptionLead:firstSentence(description),missing:!!requested && !subject};
@@ -72,7 +72,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         }
         let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;button.remove();buttons.delete(id);}
         const subject=model.subject;detail.hidden=!subject;empty.hidden=!!subject;
-        text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':'No known people, services or stations to inspect here.');
+        text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.');
         if(subject){text(title,subject.name);text(role,subject.role);role.hidden=!subject.role;
             const known=[subject.traits.length?`Known traits: ${subject.traits.join(', ')}`:'',subject.relationship?`Relationship: ${subject.relationship}`:''].filter(Boolean).join(' · ');
             text(facts,known);facts.hidden=!known;text(memory,subject.memory);memory.hidden=!subject.memory;
