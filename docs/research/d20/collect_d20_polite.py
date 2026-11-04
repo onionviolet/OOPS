@@ -119,14 +119,45 @@ def text_of(body, host):
     node = next((soup.select_one(s) for s in CONTENT.get(host, []) if soup.select_one(s)), soup.body or soup)
     return soup, node.get_text('\n', strip=True), (soup.title.get_text(strip=True) if soup.title else '')
 
+def import_browser(path, manifest, done):
+    """Fold a browser-route dump into the manifest (d20pfsrd browser route,
+    2026-11-04; see SOURCE_ACQUISITION_TOOLS). The dump is a tool-result file
+    whose text holds {"section": ..., "records": [{url, final, status, title,
+    text, ...}]}. Text was extracted in the page; no raw HTML is kept."""
+    dump = json.loads(Path(path).read_text())
+    if isinstance(dump, list):  # tool-result wrapper: [{type, text: "<JSON string literal>\n\n(captured ...)"}]
+        dump, _ = json.JSONDecoder().raw_decode(dump[0]['text'])
+    if isinstance(dump, str):
+        dump = json.loads(dump)
+    added = skipped = 0
+    with manifest.open('a') as out:
+        for rec in dump['records']:
+            section = rec.get('section') or dump['section']
+            if rec['url'] in done or rec.get('status') != 200:
+                skipped += 1; continue
+            h = hashlib.sha256(rec['url'].encode()).hexdigest()[:16]
+            folder = OUT / section; folder.mkdir(exist_ok=True)
+            (folder / f'{h}.txt').write_text(f"{rec['title']}\n{rec['url']}\n\n{rec['text']}")
+            row = {'section': section, 'kind': rec.get('kind', 'page'), 'url': rec['url'], 'final': rec.get('final'),
+                   'title': rec['title'], 'status': 200, 'route': 'browser', 'fetched': rec.get('time'),
+                   'text_sha256': hashlib.sha256(rec['text'].encode()).hexdigest(), 'chars': len(rec['text']),
+                   'text': str((folder / f'{h}.txt').relative_to(ROOT))}
+            out.write(json.dumps(row) + '\n'); done.add(rec['url']); added += 1
+    bad = [(r['url'], r.get('status')) for r in dump['records'] if r.get('status') != 200]
+    print(f"{dump['section']}: {added} added, {skipped} skipped; non-200: {bad}")
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--probe', action='store_true', help='fetch catalogue pages only and list in-scope links')
     ap.add_argument('--section', action='append', help='limit to these sections')
+    ap.add_argument('--import-browser', metavar='DUMP', action='append', help='fold browser-route dumps into the manifest; no network')
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = OUT / 'manifest.jsonl'
     done = {json.loads(l)['url'] for l in manifest.open()} if manifest.exists() else set()
+    if a.import_browser:
+        for p in a.import_browser: import_browser(p, manifest, done)
+        return
     linked = held_links()
     closed = set()
     with Client(TRANSPORT) as c, manifest.open('a') as out:

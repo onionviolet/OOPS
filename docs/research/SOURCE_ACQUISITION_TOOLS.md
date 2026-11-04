@@ -107,6 +107,18 @@ exception for other closed hosts. The pane cannot download, reach localhost or
 write the clipboard while hidden; oversized tool results are saved to disk, which
 is how the data left the page.
 
+### d20pfsrd browser route, 2026-11-04
+
+The polite transport closed `www.d20pfsrd.com` twice on HTTP 404s from dead
+links. The site did not refuse anything. The first closure was cleared on
+Weibao's "Yes, clear it"; the second stays. He then said: “try opening in
+extension or something”. This permits, for d20pfsrd and the rules families in
+the [d20 collection receipt](d20/D20_RULES_COLLECTION_2026-11-03.md), a
+background built-in-browser tab that fetches same-origin pages in sequence,
+4-8 s after each response. A 403, 429, challenge or network error stops the
+whole run. A 404 skips only that page. It is not an exception for other closed
+hosts.
+
 ## Prepare and report the actual result
 
 Preserve unchanged raw capture and derive readable TXT/chapter JSON/search data
