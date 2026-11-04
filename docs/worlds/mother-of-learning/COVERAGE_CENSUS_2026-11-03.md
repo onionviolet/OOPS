@@ -97,3 +97,5 @@ From the merge report (`extras` counts and registry kinds). Built counts from th
 | Built coverage by `grep` of `book.mol.*` ids and keywords in `src/world_packs/book_mol_pack.js` and `src/book_world_mol_*.js` | consumer names above | keyword grep shows presence, not behavior; no browser run |
 
 Sealed scenes in the lead run (93 of 780) were not read for content; no plot outcome is stated here.
+
+Update 2026-11-03 (G16): c56-c82 and c90-c106 now also have a full-text extraction pass with paragraph locators (44 of 44 chapters, 20-item review 20/20 supported): [MOL_G16_COVERAGE](MOL_G16_COVERAGE_2026-11-03.md). It adds teacher windows, trust gates, new places and people and foreknowledge-only actions; it does not change the rule-family tables above.

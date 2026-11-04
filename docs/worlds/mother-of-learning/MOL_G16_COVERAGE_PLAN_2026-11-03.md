@@ -1,6 +1,6 @@
 # MoL G16 coverage pass: AU13 plan and prior-read finding (2026-11-03)
 
-Status: proposal (AD32). Readers NOT launched. 0 invocations spent, 0 source words re-read by a model. Gap: G16 in [the S0/S1 stage record](ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md).
+Status: proposal (AD32). **Superseded by the run: see [MOL_G16_COVERAGE](MOL_G16_COVERAGE_2026-11-03.md).** The sections below record the plan and pilot as written before the run; the "Not done" and "0 invocations" lines were true at that time only. Gap: G16 in [the S0/S1 stage record](ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md).
 
 ## F1: the book was already read for c56-c82 and c90-c106 (AR36b)
 
