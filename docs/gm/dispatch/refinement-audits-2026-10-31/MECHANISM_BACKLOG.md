@@ -26,7 +26,7 @@ Source: private `kj-mechanisms-2026-11-02/MECHANISM_GAPS_ARC2.md` (28 merged mec
 | ID | Need | First consumer | Panel or display | Status | Notes |
 | --- | --- | --- | --- | --- | --- |
 | R1 | Method gate and acting for the BE seat (divination rows, potion acting) | ch55 P001, ch57 P003 | none | divination rows implemented below floor on branch `claude/mech-b4-b5-r1-e69828` (same receipt); potion acting not built | Sonnet high |
-| R2 | Halfpence and exact change (exchange quotes accept mainly whole numbers (default; the dial is the quote format)) | ch56 P036 | coins and fees on screen (U4) | queued | Sonnet high; economy owners ECC25, ECX6 |
+| R2 | Halfpence and exact change (exchange quotes accept mainly whole numbers (default; the dial is the quote format)) | ch56 P036 | coins and fees on screen (U4) | implemented, below floor ([receipt](R2_IMPLEMENTATION_RECEIPT.md)): grain dial, fee rounding, exchange quote grain, Tingen label; no browser or save round trip yet, native plan paths still assume whole purses | Sonnet high; economy owners ECC25, ECX6 |
 | R3, U1 | Spirit Vision switch, exhaustion and aura-reading line | ch62 P008, ch72 P047 | aura reading line | queued after B1 | overlaps B3 |
 | R4, U2 | Gathering display: seat symbols, Sequence aura, illusory items | ch58 P018-P076, ch61 P046 | the existing remote-meeting render, not `gathering_panel.js` (resource gathering) | queued | UI after the mechanism; desktop 1920x1080 first |
 | R5, U3 | Wire the act engine so rite, craft and summons rows are reachable from play; altar and ritual step display | ch57 P022, ch60 P067 | altar layout, four candles, step display | queued, large | first brief of its own; Opus justified only if the backlash seam in `src/harm_engine.js` must change |
