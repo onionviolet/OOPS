@@ -79,7 +79,7 @@ under the OGL (1e) or ORC (2e) as each site states.
   d20PFSRD" title form. `unknown` means no notice was found, which is mostly
   hub and index pages. Cite a PF1 page with its publisher. The tagging is
   offline (`--publishers`) and runs after every `--import-browser`. Count at
-  408 rows: 361 Paizo, 12 third party, 3 mixed, 32 unknown.
+  408 rows: 363 Paizo, 9 third party, 3 mixed, 33 unknown.
 - Output: `private/manifest.jsonl` (one row per page: URL, title, HTTP status,
   SHA-256, text path) and `private/<section>/<hash>.txt`. Reader budget is 300
   pages per session, so the run resumes across sessions; rerun the same
