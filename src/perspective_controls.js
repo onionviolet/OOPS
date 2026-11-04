@@ -90,6 +90,7 @@ const rows = [
     ['inferences', 'in-world', 'Disclosure group: this character’s evidence and intentions.'],
     ['ability-conflicts', 'in-world', 'Disclosure group: this character’s encounters and held methods.'],
     ['divinations', 'in-world', 'Disclosure group: this character’s rites and questions.'],
+    ['altar-rites', 'in-world', 'Disclosure group: the altar and the steps of a rite this character is performing.'],
     ['journeys', 'in-world', 'Available journeys, means, fares and travel time in this life.'],
     ['topic-person', 'in-world', 'Conversations with a person in this character’s life.'],
     ['topic', 'in-world', 'A topic and its available conversation choices.'],
