@@ -6,7 +6,7 @@ import {createObligations, writeObligation, obligation} from './obligations_ledg
 
 export const DAY = 1440;
 export const STANDING_SCHEMA = 1;
-export const LIMITS = Object.freeze({deeds: 20, rumours: 12, memoryPerRegion: 60, traffic: 200, claims: 12});
+export const LIMITS = Object.freeze({deeds: 20, rumours: 12, memoryPerRegion: 60, traffic: 200, claims: 12, causes: 12});
 
 // Institutions are world data. Each names a rival; a shift moves the rival the other way by
 // `backlash` of the amount (Silver Way: 0.6), because friends of one side are read by the other.
@@ -51,6 +51,19 @@ export const TIERS = Object.freeze([
     {id: 'honoured', label: 'Honoured', sell: 1.08, buy: 0.92, credit: 150, interest: 0.05, why: 'Vouched for: best prices, most credit, lowest rate.'},
 ]);
 
+// H8 price causes (G11, 2026-11-03, proposal): a dated reason a quote moved, separate from standing.
+// Each is a default with a dial and an in-world reason, never a law: a world may use other kinds.
+// `closes` shuts one house's street for the same window; it expires on its own (ECR21: no hidden
+// fail state) and the shutters are always explained.
+export const CAUSES = Object.freeze({
+    pity: {label: 'Pity', days: 3, sell: 1.05, buy: 0.95,
+        why: 'You were robbed on the road and word got round; stall-holders shave what they sell you and pay a little over for what you bring.'},
+    fear: {label: 'Fear', days: 14, sell: 0.94, buy: 1.06, closesFor: ['gutter_crews'],
+        why: 'Word of your missed term got round; people near that house do not want to be seen dealing with you, and a crew-run street puts its shutters up.'},
+    shortage: {label: 'Shortage', days: 2, sell: 1.08, buy: 1.08, threshold: 120,
+        why: 'You cleared a big part of the stall; the next lot costs more to bring in, and they pay more for goods to refill it.'},
+});
+
 // Deeds move named factions; one act can pay two (E2-b). `scale` multiplies the amount given.
 export const DEEDS = Object.freeze({
     trade: {why: 'Trading with a house\'s merchants builds standing, about one point plus one per 100 coins, up to three.'},
@@ -60,7 +73,7 @@ export const DEEDS = Object.freeze({
 
 const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
 export const fresh = () => ({schema: STANDING_SCHEMA, standing: {}, loans: {}, ledger: createObligations(), memory: {},
-    rumours: [], insurance: null, claims: [], traffic: {}, deeds: [], rumourDay: -1});
+    rumours: [], insurance: null, claims: [], traffic: {}, deeds: [], rumourDay: -1, causes: []});
 
 export const tierIndex = score => DIALS.tierCuts.value.filter(cut => score >= cut).length;
 export const tierOf = score => TIERS[tierIndex(score)];
@@ -113,13 +126,30 @@ export function standingTerms(state, {region, vendorId, reputation = {}, now = 0
         sell *= 1 + d; buy *= 1 - d;
         parts.push({id: 'region', label: `${region} reputation (${rep})`, sell: round4(1 + d), buy: round4(1 - d), why: DIALS.regionRep.why});
     }
-    return {factionId: id, parts, sell: round4(sell), buy: round4(buy)};
+    let closed = null;
+    for(const c of activeCauses(state, now, region)) {
+        sell *= c.sell; buy *= c.buy;
+        parts.push({id: `cause:${c.kind}`, cause: c.kind, label: `${CAUSES[c.kind].label}${c.detail ? ` (${c.detail})` : ''}, ${Math.max(1, Math.ceil((c.until - now) / DAY))} d left`, sell: c.sell, buy: c.buy, why: c.why});
+        if(c.closes && !closed) closed = {kind: c.kind, until: c.until, daysLeft: Math.max(1, Math.ceil((c.until - now) / DAY)), why: c.why};
+    }
+    return {factionId: id, parts, sell: round4(sell), buy: round4(buy), ...(closed ? {closed} : {})};
+}
+export const activeCauses = (state, now, region) => (state.causes ?? []).filter(c => c.until > now && (region == null || c.region === region));
+// One live row per kind and region; a fresh cause replaces and renews it. Oldest rows go at the cap.
+export function addCause(state, {kind, region, closes = false, detail = '', source = ''}, now) {
+    const def = CAUSES[kind];
+    if(!def || typeof region !== 'string' || !region) return state;
+    const row = {kind, region, sell: def.sell, buy: def.buy, closes: !!closes, until: now + def.days * DAY, since: now,
+        why: def.why, detail: String(detail).slice(0, 60), source: String(source).slice(0, 60)};
+    const kept = (state.causes ?? []).filter(c => c.until > now && !(c.kind === kind && c.region === region));
+    return {...state, causes: [...kept, row].slice(-LIMITS.causes)};
 }
 const round4 = n => Math.round(n * 10000) / 10000;
 
 // A completed trade is a deed toward the house whose merchant it was.
 export function tradeDeed(state, {region, vendorId, sellValue = 0, buyValue = 0}, now) {
     const id = factionFor(region, vendorId);
+    if(buyValue >= CAUSES.shortage.threshold) state = addCause(state, {kind: 'shortage', region, detail: `${buyValue} coins bought`, source: 'trade'}, now);
     if(!id || sellValue + buyValue <= 0) return state;
     return shiftStanding(state, id, Math.min(3, 1 + Math.floor((sellValue + buyValue) / 100)), 'trade', now);
 }
@@ -195,6 +225,7 @@ export function settleDue(state, now) {
         if(!loan.missed && now > loan.due + DIALS.graceDays.value * DAY) {
             next = shiftStanding({...next, loans: {...next.loans, [id]: {...loan, missed: true, rate: round4(loan.rate + DIALS.ratchet.value)}}},
                 id, DEEDS.defaulted.amount, 'defaulted', now);
+            next = addCause(next, {kind: 'fear', region: FACTIONS[id].region, closes: CAUSES.fear.closesFor.includes(id), detail: FACTIONS[id].label, source: 'defaulted'}, now);
         }
     }
     return next === state ? state : syncLedger(next, now);
@@ -300,6 +331,8 @@ export function validateStanding(slice) {
     if(!Array.isArray(slice.rumours) || slice.rumours.length > LIMITS.rumours) bad('too many rumours.');
     if(!Array.isArray(slice.claims ?? []) || (slice.claims ?? []).length > LIMITS.claims) bad('too many claims.');
     if(!Array.isArray(slice.deeds) || slice.deeds.length > LIMITS.deeds) bad('too many deeds.');
+    if(!Array.isArray(slice.causes ?? []) || (slice.causes ?? []).length > LIMITS.causes) bad('too many price causes.');
+    for(const c of slice.causes ?? []) if(!CAUSES[c?.kind] || typeof c.region !== 'string' || ![c.sell, c.buy, c.until, c.since].every(Number.isFinite) || c.sell <= 0 || c.buy <= 0) bad('bad price cause.');
     for(const entries of Object.values(slice.memory ?? {})) if(Object.keys(entries).length > LIMITS.memoryPerRegion) bad('memory too large.');
     if(Object.keys(slice.traffic ?? {}).length > LIMITS.traffic) bad('traffic too large.');
     return slice;

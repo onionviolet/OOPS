@@ -66,6 +66,9 @@ function set_current_trader(trader_key) {
  * @param {String} trader_key 
  */
 function start_trade(trader_key) {
+    // H8: a cause can shut a street for a few days; say why and do not open the shop.
+    const shut=termsFor(current_location.market_region,trader_key,character.reputation).closed;
+    if(shut){log_message(`The shop is shut to you. ${shut.why} It reopens in ${shut.daysLeft} day(s).`,'message_critical');return;}
     restockReview=false;setRestockNotice();
     host.interruptP23NativeWork();use_market_coupon=false;
     NPCRegistry.get(trader_key).refreshTraderInventory(host.get_context());

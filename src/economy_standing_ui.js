@@ -37,7 +37,7 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
     const act = (fn, done) => { try { fn(); notice.textContent = done; } catch(e) { notice.textContent = e.message; } render(); };
     function render() {
         const v = read();
-        const next = JSON.stringify([v.factions.map(f => [f.score, f.loan]), v.credit, v.wear, v.claims, v.memory, v.rumours, v.insurance, v.insuranceOffer, v.coins, notice.textContent]);
+        const next = JSON.stringify([v.factions.map(f => [f.score, f.loan]), v.credit, v.wear, v.claims, v.memory, v.rumours, v.insurance, v.insuranceOffer, v.causes, v.coins, notice.textContent]);
         if(next === signature) return; signature = next;
         // Houses are one table (UR79): standing and both price shifts in columns, the rival and the reason one disclosure away.
         factions.replaceChildren(node('h3', 'Houses'));
@@ -97,6 +97,14 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
             const line = infoRow({label: 'Cargo insurance', chips, actions, more, moreLabel: 'Terms'}); line.dataset.insuranceRow = '';
             line.querySelector('.ui-row-more p').dataset.insuranceQuote = ''; credit.append(line);
         }
+        // H8: dated reasons a quote moved (pity, fear, shortage), each with its why and days left.
+        const causesBox = panelSection(`Why prices moved lately · ${v.causes.length}`, {disclosure: true}); causesBox.node.dataset.section = 'price-causes';
+        if(!v.causes.length) causesBox.body.append(node('p', 'No recent cause. Prices follow standing alone.', 'expedition_preview'));
+        for(const c of v.causes) {
+            const p = node('p', `${c.kind[0].toUpperCase()}${c.kind.slice(1)} in ${c.region}${c.detail ? ` (${c.detail})` : ''}: selling ${pct(c.sell)}, buying ${pct(c.buy)}${c.closes ? ', shop shut' : ''}, ${Math.max(1, Math.ceil((c.until - v.now) / 1440))} d left.`);
+            p.dataset.priceCause = c.kind; p.append(node('span', ` Why: ${c.why}`, 'standing_why')); causesBox.body.append(p);
+        }
+        factions.append(causesBox.node);
         const mem = panelSection(`What you remember of prices · ${v.memory.length}`, {disclosure: true}); mem.node.dataset.section = 'price-memory';
         memory.replaceChildren(mem.node);
         if(!v.memory.length) mem.body.append(node('p', 'Nothing yet. Trade and you will remember what things fetched.', 'expedition_preview'));

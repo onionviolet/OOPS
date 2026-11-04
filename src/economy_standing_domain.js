@@ -74,7 +74,7 @@ function mishap(region, t) {
         const {state: filed, claim, note: n} = rules.fileClaim(state, hit.loss, t);
         next = filed; note = claim ? ` Your policy files a claim: ${claim.amount} coins owed in ${Math.round((claim.due - t) / rules.DAY)} days.` : ` ${n || ''}`;
     }
-    state = next; ports.log?.(hit.why + note);
+    state = rules.addCause(next, {kind: 'pity', region, detail: `${hit.loss} coins lost`, source: 'road mishap'}, t); ports.log?.(hit.why + note);
 }
 export const routeWearRows = () => Object.entries(state.traffic).filter(([k]) => k.startsWith('path:'))
     .map(([k, count]) => ({leg: k.slice(5).replace('>', ' to '), count, gain: routeSpeedGain(count)})).sort((a, b) => b.count - a.count);
@@ -115,13 +115,13 @@ const view = () => {
         factions: Object.entries(rules.FACTIONS).map(([id, f]) => ({id, ...f, score: rules.scoreOf(state, id), tier: rules.tierOf(rules.scoreOf(state, id)),
             rivalLabel: rules.FACTIONS[f.rival]?.label, loan: state.loans[id] ? rules.loanStatus(state.loans[id], t) : null})),
         credit: creditView(), ledger: state.ledger.rows, memory: rules.memoryRows(state, t), rumours: rules.rumourView(state),
-        insurance: state.insurance, claims: state.claims, wear: routeWearRows(), deeds: state.deeds.slice(-5), coins: ports.coins?.() ?? 0};
+        insurance: state.insurance, claims: state.claims, wear: routeWearRows(), deeds: state.deeds.slice(-5), causes: rules.activeCauses(state, t), coins: ports.coins?.() ?? 0};
 };
 
 registerDomain({id: 'economy_standing', deps: [], initialState: () => null,
     // Old saves have no slice: start fresh. Only write once something exists.
     save: () => rules.validateStanding(state) && (Object.keys(state.standing).length || Object.keys(state.loans).length ||
-        Object.keys(state.memory).length || state.ledger.rows.length || state.rumours.length || state.insurance || state.claims.length || Object.keys(state.traffic).length) ? structuredClone(state) : undefined,
+        Object.keys(state.memory).length || state.causes.length || state.ledger.rows.length || state.rumours.length || state.insurance || state.claims.length || Object.keys(state.traffic).length) ? structuredClone(state) : undefined,
     validate: slice => rules.validateStanding(slice),
     migrate: slice => rules.migrateStanding(slice),
     load: slice => setStandingState(slice),
