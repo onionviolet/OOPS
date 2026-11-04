@@ -44,21 +44,51 @@ function setup(){
  return {plan,apply,can:r=>meets(r,facts()),money:()=>plan.external.money};
 }
 
-test('B6: a paid session moves the purse once by the net fee and records status, receipt and favor',()=>{
+test('B6/C1: Anna pays one soli (12 pence); the club eighth and the halfpenny tip settle once later, so the purse follows the text (+12, then -2 = +10)',()=>{
  const {plan,apply,can,money}=setup();
  const eff=C.clientSessionEffects('anna');for(const e of eff)validateSimulationEffect(e);
  assert.deepEqual(JSON.parse(JSON.stringify(eff)),eff,'plain JSON a pack can embed');
  assert.equal(eff.filter(e=>e.type==='resource').length,1,'one money effect, no second counter');
  const before=money();assert.equal(can(C.clientSessionRequires('anna')),true);
  apply(eff);
- assert.equal(money()-before,7,'8 pence less the club eighth (1) = 7');
+ assert.equal(money()-before,12,'the soli note is 12 pence (ch55 P067)');
  assert.equal(can(C.clientSessionRequires('anna')),false,'served once');
+ assert.equal(can(C.clientSettleRequires('anna')),true,'2 pence owed: 1.5 club eighth + 0.5 tip');
+ const settle=C.clientSettleEffects('anna');for(const e of settle)validateSimulationEffect(e);
+ apply(settle);
+ assert.equal(money()-before,10,'a penny and two halfpence leave the purse (ch56 P036-P038)');
+ assert.equal(can(C.clientSettleRequires('anna')),false,'settled once: the gate refuses a second payment');
  const v=C.beClientView(plan.state);
- assert.equal(v.incomePence,7);assert.equal(v.sold.divination,1);
+ assert.equal(v.incomePence,10);assert.equal(v.sold.divination,1);assert.equal(v.clients[0].owedPence,0);
  assert.deepEqual(v.referrals.angelica,{label:'Angelica',sent:1,paid:1,favor:1});
- assert.equal(v.clients[0].favor,1);
- assert.match(C.clientSessionReport('anna'),/Anna paid 8 pence.*kept 1 pence.*took 7 pence/);
+ assert.match(C.clientSessionReport('anna'),/Anna paid 12 pence.*2 pence is still owed/);
  validateLotmState(plan.state);validateLotmState(JSON.parse(JSON.stringify(plan.state)));
+});
+
+test('C1: Glacis and Joyce are served from registered data; a client registers without a src edit; a save with an unregistered client still validates and shows',()=>{
+ for(const [id,gross,now,net] of [['glacis',8,8,7],['joyce',12,12,10.5]]){
+  const {plan,apply,money}=setup(),before=money();
+  apply(C.clientSessionEffects(id));assert.equal(money()-before,now);
+  apply(C.clientSettleEffects(id));assert.equal(money()-before,net);
+  assert.equal(C.feeNet(C.BE_CLIENTS.find(c=>c.id===id).quote).gross,gross);validateLotmState(plan.state);
+ }
+ assert.throws(()=>C.registerBeClient({id:'glacis',label:'G',service:'x',referrer:'a',referrerLabel:'A'}),/already registered/);
+ C.registerBeClient({id:'tester_c',label:'Tester',service:'reading',referrer:'angelica',referrerLabel:'Angelica',quote:{amount:3,currency:'pence',basis:'listed'}});
+ const {plan,apply,money}=setup(),before=money();apply(C.clientSessionEffects('tester_c'));assert.equal(money()-before,3);
+ assert.throws(()=>C.clientSettleEffects('tester_c'),/Nothing is owed/);
+ assert.throws(()=>C.registerBeClient({id:'bad',label:'B',service:'x',referrer:'a',referrerLabel:'A',quote:{amount:2,currency:'florin',basis:'stated'}}),/exchange quote/);
+ // load order: a save holds a client the pack has not registered
+ const s2=structuredClone(plan.state);s2.actors.player.facts['book.lotm.be.client.late_one']='paid';s2.actors.player.facts['book.lotm.be.client.late_one.fee']=5;
+ validateLotmState(s2);assert.equal(C.beClientView(s2).clients.some(c=>c.id==='late_one'&&c.feePence===5),true);
+ s2.actors.player.facts['book.lotm.be.client.late_one.fee']=0.3;assert.throws(()=>validateLotmState(s2),/fee receipt/);
+});
+
+test('C1: settle pays once across export/import (a retry after reload is refused and the purse does not move)',()=>{
+ const {plan,apply,can,money}=setup();apply(C.clientSessionEffects('anna'));apply(C.clientSettleEffects('anna'));
+ const m=money(),reloaded=JSON.parse(JSON.stringify(plan.state));
+ const ctx={actorId:'player',external:plan.external,gameplay:plan.gameplay,facts:{}};
+ const f={...simulationFacts(reloaded,ctx,registry),...lotmFacts(reloaded,{...ctx,vitals:{player:{health:24,max_health:24,stamina:18,max_stamina:18}}})};
+ assert.equal(meets(C.clientSettleRequires('anna'),f),false);assert.equal(money(),m);assert.equal(f['lotm.be.client.anna.owed'],0);
 });
 
 test('B6: a session with no stated fee invents none, and a refused client pays and earns nothing',()=>{
@@ -81,6 +111,7 @@ test('B6: a session with no stated fee invents none, and a refused client pays a
 test('B6: quotes in another currency or with bad figures are refused; a session never writes a second money ledger',()=>{
  assert.throws(()=>C.feeNet({pence:5,currency:'halfpence',basis:'stated'}),/exchange quote/);
  assert.throws(()=>C.feeNet({pence:-1,currency:'pence',basis:'stated'}),/positive/);
+ assert.throws(()=>C.feeNet({pence:0.25,currency:'pence',basis:'stated'}),/grain/);
  assert.throws(()=>C.feeNet({pence:5,currency:'pence',basis:'guess'}),/basis/);
  assert.throws(()=>C.feeNet({pence:5,currency:'pence',basis:'stated',houseCut:{num:3,den:2}}),/fraction/);
  assert.throws(()=>C.clientSessionEffects('nobody'),/Unknown client/);
