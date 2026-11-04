@@ -149,9 +149,9 @@ export function compileStructuredAbilities(definition) {
         const support = combine([{any: alternatives}, row.control, row.target, ...row.counters.map(counter => ({not: counter})), ...bindings.every]);
         command.requires = combine([command.requires, support]);
         if(command.duration > 0) {
-            assert(command.cancellation === 'refund' && (command.completionFailure == null || command.completionFailure === 'refund'), 'Timed ability must return reservations when held support is lost.');
+            assert(['refund','forfeit'].includes(command.cancellation) && (command.completionFailure == null || command.completionFailure === command.cancellation), 'Timed ability needs matching interruption and support-loss policies.');
             command.completionRequires = combine([command.completionRequires, support]);
-            command.completionFailure = 'refund';
+            command.completionFailure = command.cancellation;
         }
     }
     return {commands, powers, conditions, seeds};

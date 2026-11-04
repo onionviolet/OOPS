@@ -1,6 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createCenterModes} from '../src/center_modes.js';
+test('identity refresh preserves the active task, return stack and stop callbacks',()=>{
+ let frame,stops=0;const modes=createCenterModes((mode,depth,destination,direction)=>{frame={mode,depth,destination,direction};});
+ modes.open('workspace:inventory');modes.open('crafting',()=>stops++);
+ modes.refresh();assert.deepEqual(frame,{mode:'crafting',depth:2,destination:'workspace:inventory',direction:'refresh'});
+ assert.equal(stops,0);assert.equal(modes.mode,'crafting');
+ modes.back();assert.equal(stops,1);assert.equal(modes.mode,'workspace:inventory');
+});
 test('center navigation restores mixing after nested native modes and Back stops native work once', () => {
     let shown, stopped=0;
     const modes=createCenterModes(mode=>shown=mode);

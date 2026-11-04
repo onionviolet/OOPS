@@ -20,6 +20,9 @@ export function defineTopicTalks(data,{worldId,actorId='player',group,situationI
    // Restrict this adapter to effects with an existing social owner and a clear
    // pre-commit quote. Other mechanisms belong in their owning command adapter.
    if(effects.some(e=>!['knowledge','relationship','reputation','event'].includes(e.type)||e.type==='knowledge'&&!e.basis))throw Error('Topic effects need an existing owner and knowledge basis.');
+   // This adapter is a local two-person conversation. Remote delivery uses its
+   // own mechanism; an authored effect cannot silently inform an absent person.
+   if(effects.some(e=>e.type==='knowledge'&&![actorId,row.personId,'$actor','$target'].includes(e.actor||actorId)))throw Error('Conversation knowledge needs a participating recipient.');
    // Pack evidence may identify the observer and source locator without the
    // runtime situation. Bind that missing context at the host seam; preserve
    // an explicit attribution and every authored basis field.
@@ -41,10 +44,12 @@ export function defineTopicTalks(data,{worldId,actorId='player',group,situationI
 }
 const signed=x=>x>=0?`+${x}`:String(x);
 export function topicTalkEffectText(e,label=id=>id){
- if(e.type==='knowledge')return `${label(e.actor||'player')} learns: ${e.value} (${e.basis?.kind||'unknown basis'})`;
- if(e.type==='relationship')return `${label(e.actor||'player')} toward ${label(e.target)}: ${e.axis} ${signed(e.amount)}${e.text?` (${e.text})`:''}`;
+ // A quote describes the player's prospective operation, not the answer or
+ // another participant's inner state. Actual knowledge is shown after receipt.
+ if(e.type==='knowledge')return 'You may learn more from this conversation.';
+ if(e.type==='relationship')return '';
  if(e.type==='reputation')return `${e.region}: standing ${signed(e.amount)}`;
- if(e.type==='event')return `${label(e.actor||'player')}: ${e.text||'a follow-up becomes due'} after ${Math.max(1,e.delay||1)} min`;
+ if(e.type==='event')return 'A later response may follow.';
  // Costs retain their native meaning; do not invent a currency conversion.
  return `${label(e.actor||'player')}: ${e.key||e.type} ${signed(e.amount)}`;
 }
@@ -52,17 +57,33 @@ export function quoteTopicTalks(state,commands,preview,{presence=(d,q)=>q,blocke
  return commands.flatMap(d=>{
   const q=presence(d,preview(d));if(!q.visible)return [];
   const decision=decide(d),reasons=[...(q.reasons||[]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
+  const actor=d.actorId||'player',recipient=e=>e.actor==='$target'?d.targetId:e.actor==='$actor'?actor:e.actor||actor;
+  const shown=(q.effects||d.effects).filter(e=>recipient(e)===actor);
   return [{id:d.id,...d.topicTalk,topicLabel:d.topicTalk.label,personLabel:label(d.targetId),perspective:'Your conversation',
    label:`${d.label} · ${q.duration??d.duration} min`,description:d.description,duration:q.duration??d.duration,
-   costs:structuredClone(q.costs||d.costs),effects:structuredClone(q.effects||d.effects),
+   costs:structuredClone(q.costs||d.costs),
    costText:(q.costs||d.costs).map(e=>topicTalkEffectText(e,label)).join('; ')||'No stock spent.',
-   effectText:(q.effects||d.effects).map(e=>topicTalkEffectText(e,label)).join('; '),
+   effectText:[...new Set(shown.map(e=>topicTalkEffectText(e,label)).filter(Boolean))].join('; '),
    eligible:q.eligible&&!blocked&&decision.allowed,reasons}];
  });
 }
 export function pendingTopicTalkReports(state,commands,worldId){
  return commands.some(d=>{const k=state.simulation?.knowledge?.[d.actorId]?.[d.topicTalk.receiptKey];
   return k&&state.worlds?.[worldId]?.facts?.[`topic.talk.reported.${d.id}`]!==k.cause;});
+}
+// Retained conversation notes read the observer's settled knowledge. A command's
+// future answer and the interlocutor's private record never supply this view.
+export function topicTalkRecords(state,commands,observer='player'){
+ const known=state.simulation?.knowledge?.[observer]||{};
+ const keys=new Set(commands.filter(d=>d.topicTalk).flatMap(d=>[
+  ...(d.actorId===observer?[d.topicTalk.receiptKey]:[]),
+  ...d.effects.filter(e=>e.type==='knowledge'&&(e.actor||d.actorId)===observer).map(e=>e.key)]));
+ const shown=new Set();
+ return [...keys].flatMap(id=>{
+  const k=known[id];if(!k)return [];
+  const signature=JSON.stringify([k.cause,k.at,k.value]);if(shown.has(signature))return [];
+  shown.add(signature);return [{id,text:k.value,at:k.at}];
+ });
 }
 export function settleTopicTalkReports(state,commands,worldId){
  const facts=state.worlds?.[worldId]?.facts;if(!facts)return [];

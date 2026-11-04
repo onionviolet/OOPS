@@ -12,6 +12,8 @@ export function definePlaceActs(data,{worldId,actorId='player',group,situationId
   if(!validId(row.id)||ids.has(row.id)||!validId(row.place)||
    !Number.isSafeInteger(row.minutes)||row.minutes<1||!row.label||!row.description||!row.report||!validId(row.knowledgeKey))throw Error('Invalid place act.');
   ids.add(row.id);
+  const cancellation=row.cancellation??'refund';
+  if(!['refund','forfeit'].includes(cancellation))throw Error('Place work needs a supported interruption policy.');
   const operation=compilePlaceActOperation(row,{data,worldId,actorId,situationId});
   const remote=row.remoteSession;
   const contact=row.contact;
@@ -24,15 +26,15 @@ export function definePlaceActs(data,{worldId,actorId='player',group,situationId
    {fact:'target.location',op:'eq',value:contact.place,reason:'The required contact is no longer supported.'},
    {fact:'target.body.ownerId',op:'eq',value:row.targetId},
    {fact:'target.body.controllerId',op:'eq',value:row.targetId}]:[]),...(remote?[{fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},{fact:`remote.${remote}.ready`,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]:[]),...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...operation.requires,...sequencePrerequisites(data,row.id)]};
-  return {id:row.id,revision:1,label:row.label,description:row.description,group,actorId,worldId,location:row.place,
+  return {id:row.id,revision:1,label:row.label,description:row.description+(cancellation==='forfeit'?' Inputs stay spent if this work stops before completion.':''),group,actorId,worldId,location:row.place,
    ...(remote&&!row.targetId?{participants:data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id),participantsCoLocated:false}:{}),
    ...(row.targetId?{targetId:row.targetId,participants:remote?(data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id)):['$target'],coLocated:!remote&&!contact,participantsCoLocated:!remote&&!contact}:{}),
    ...(row.participants?{participants:[...row.participants],participantsCoLocated:true}:{}),
-   once:sequenceIds.has(row.id),duration:row.minutes,cancellation:'refund',requires:guard,
+   once:sequenceIds.has(row.id),duration:row.minutes,cancellation,requires:guard,
    ...(row.operation==='sleep'?{bodyCare:{kind:'sleep'}}:{}),
    // Keep a blocked local affordance visible, including missing means/order.
    visibleWhen:{all:[requires||{fact:'actor.life',op:'eq',value:'alive'},...(row.visibleWhen?[row.visibleWhen]:[])]},
-   completionRequires:guard,completionCoLocated:!remote&&!contact,completionFailure:'refund',
+   completionRequires:guard,completionCoLocated:!remote&&!contact,completionFailure:cancellation,
    costs:structuredClone(row.costs||[]),effects:[...structuredClone(row.effects||[]),...operation.effects,
     {type:'knowledge',actor:actorId,key:row.knowledgeKey,stage:'seen',value:row.report,
      basis:{kind:'observation',attributedTo:actorId,situationId}}]};
@@ -82,7 +84,7 @@ export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()
   const decision=decide(d);
   const known=row.publicReasons?disclosedReasons(row.requires,facts(d)):[];
   const reasons=[...(q.reasons||[]).flatMap(r=>r==='The required knowledge, means or circumstances are missing.'&&known.length?known:[r.startsWith('Insufficient ')&&row.costReason?row.costReason:r]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
-  return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}`,
+  return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}${d.cancellation==='forfeit'?' · inputs stay spent if stopped':''}`,
    description:row.description,eligible:q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration}];
  });
 }

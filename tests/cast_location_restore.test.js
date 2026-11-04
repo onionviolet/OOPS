@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createCastLocationRestore} from '../src/cast_location_restore.js';
+const make=definition=>({...definition,availability:{unlocked:true},visits:0,getDescription:()=>definition.description});
+test('late cast source hydrates the same native object without replacing its live state',()=>{
+ const locations={},resolved=[];
+ const restore=createCastLocationRestore({locations,createLocation:make,onResolved:p=>resolved.push(p)});
+ const original=restore.retain('fixture.room'),availability=original.availability;
+ original.visits=3;original.pendingJob={id:'work-1'};availability.unlocked=false;original.is_temperature_static=false;original.temperature_modifier=7;
+ assert.equal(restore.retain('fixture.room'),original);
+ assert.equal(original.name,'Cast place unavailable');
+ assert.equal(restore.ensure({id:'fixture.room',name:'Known room'}),original);
+ assert.equal(locations['fixture.room'],original);
+ assert.equal(original.availability,availability);assert.equal(availability.unlocked,false);
+ assert.equal(original.visits,3);assert.deepEqual(original.pendingJob,{id:'work-1'});
+ assert.equal(original.is_temperature_static,false);assert.equal(original.temperature_modifier,7,'identity hydration does not change environmental behavior');
+ assert.equal(original.name,'Known room');assert.equal(original.getDescription(),'A place in Tingen.');
+ assert.deepEqual(resolved,[original]);
+ restore.ensure({id:'fixture.room',name:'Other authoring label'});
+ assert.equal(original.name,'Known room');assert.equal(resolved.length,1,'resolved definitions are not repeatedly overwritten');
+});
+test('missing source remains unavailable and existing authored locations retain their identity',()=>{
+ const existing=make({id:'fixture.known',name:'Custom known room',description:'An existing description.'}),locations={'fixture.known':existing};
+ const restore=createCastLocationRestore({locations,createLocation:make,onResolved:()=>assert.fail('no pending source resolved')});
+ const absent=restore.retain('fixture.absent');assert.equal(restore.ensure(null),null);
+ assert.equal(absent.name,'Cast place unavailable');assert.equal(locations['fixture.absent'],absent);
+ assert.equal(restore.retain(existing.id),existing);
+ assert.equal(restore.ensure({id:existing.id,name:'Replacement'}),existing);
+ assert.equal(existing.name,'Custom known room');assert.equal(existing.getDescription(),'An existing description.');
+});

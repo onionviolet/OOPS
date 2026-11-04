@@ -15,7 +15,8 @@ import {lotmPeople} from './book_world_lotm_content.js';
 import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {registerLocalClockSource} from './today_strip.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
-let host=null,panel=null,ports=null;
+import {createCastLocationRestore} from './cast_location_restore.js';
+let host=null,panel=null,ports=null,castLocationRestore=null;
 registerLocalClockSource(()=>{const state=ports?.state(),place=ports?.location();
  return place&&place===state?.simulation?.people?.player?.location?castLocalClock(state):null;});
 registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_lotm'?'lotm_panel':null);
@@ -26,18 +27,20 @@ function register({NPC,NPCRegistry,SafeLocation,locations}){
   tags:{book_world_lotm:true},entrance_rewards:{},description:'Tingen probationer branch. Use the Tingen workroom panel for the supervisor, the bench and your lodging.'});
 }
 function ensureCastLocation(id){
- const row=castPlaces.find(p=>p.id===id);if(!row||!ports||ports.locations[id])return;
- ports.locations[id]=new ports.SafeLocation({id,name:row.name,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,is_temperature_static:true,static_temperature:20,light_level:'normal',tags:{book_world_lotm:true},entrance_rewards:{},description:'A place in Tingen.'});
+ const row=castPlaces.find(p=>p.id===id);if(!row||!ports)return;
+ castLocationRestore.ensure(row);
 }
 export function configureLotm(p){
  ports=p;register(p);
- import('./book_world_lotm_cast_days.js').then(({whenCastLoaded})=>whenCastLoaded()).then(pack=>{if(!pack)return;installCast(p.registry);if(pack.people.length<=CAST_EAGER_PEOPLE_LIMIT)for(const {id} of castPlaces)ensureCastLocation(id);else ensureCastLocation(pack.host.profile.start);panel?.render();});
+ castLocationRestore=createCastLocationRestore({locations:p.locations,
+  createLocation:definition=>new p.SafeLocation({...definition,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,tags:{book_world_lotm:true},entrance_rewards:{}}),
+  onResolved:place=>{if(p.location()===place.id)p.refreshLocationIdentity?.(place);}});
+ import('./book_world_lotm_cast_days.js').then(({whenCastLoaded})=>whenCastLoaded()).then(pack=>{if(!pack)return;installCast(p.registry);if(pack.people.length<=CAST_EAGER_PEOPLE_LIMIT)for(const {id} of castPlaces)ensureCastLocation(id);else ensureCastLocation(pack.host.profile.start);for(const id of Object.keys(p.locations))ensureCastLocation(id);panel?.render();});
  host=createLotmHost({...p,ensureCastLocation});
 }
 function restoreMissingCast(envelope){
  if(!ports||!lotmCastLife(envelope.expansion))return;
- const place=id=>{ports.locations[id]??=new ports.SafeLocation({id,name:'Cast place unavailable',is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,
-  tags:{book_world_lotm:true},entrance_rewards:{},description:'Restore the private cast pack to resume this place.'});};
+ const place=id=>castLocationRestore.retain(id);
  restoreUnavailableCast(envelope.expansion,ports.registry,place);
  if(castAvailable){ensureCastLocation(envelope.expansion.simulation?.people?.player?.location);for(const id of Object.keys(envelope.locations||{}))ensureCastLocation(id);return;}
  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);

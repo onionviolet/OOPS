@@ -1,6 +1,7 @@
 // Name-free supplementary cast validation bridge (AD1).
 import {whereabouts,lintAnchors} from './cast_schedule.js';
 import {defineBeats} from './beat_records.js';
+import {validateSimulationEffect} from './simulation_contracts.js';
 // Probe every possible day and schedule boundary of an undated forward anchor.
 // This is conservative lint input, not an assertion that a future scene happens every day.
 export function lotmAnchorProbes(pack) {
@@ -32,6 +33,18 @@ export function validateLotmCast(pack) {
         if (value && typeof value === 'object') for (const [k, v] of Object.entries(value)) walk(v, `${path}.${k}`);
     };
     walk(pack, 'pack');
+    // Reject malformed authored effects while the optional supplement is still
+    // being validated, before installCast can leave application boot rejected.
+    for (const row of pack.householdActs?.acts || []) {
+        if (row.effects != null && !Array.isArray(row.effects)) {
+            errors.push(`${row.id}: place-act effects must be a list`);
+            continue;
+        }
+        for (const [index, effect] of (row.effects || []).entries()) {
+            try { validateSimulationEffect(effect); }
+            catch (e) { errors.push(`${row.id}: effect ${index}: ${e.message}`); }
+        }
+    }
     for (const p of [...pack.people, ...pack.references]) {
         if (ids.has(p.id)) errors.push(`${p.id}: duplicate person`);
         ids.add(p.id); requireEvidence(p, p.id);

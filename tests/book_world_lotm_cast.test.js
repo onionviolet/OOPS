@@ -25,3 +25,12 @@ test('validator preserves provenance, reference, address, date and string protec
   const p=fixture();mutate(p);assert.ok(validateLotmCast(p).length);
  }
 });
+test('cast preflight rejects nested or invalid place-act effects before host installation',()=>{
+ const p=fixture(),effect={type:'fact',scope:'actor',actor:'player',key:'fixture.seen',value:true};
+ p.householdActs={acts:[{id:'fixture.act',effects:[effect]}]};
+ assert.deepEqual(validateLotmCast(p),[]);
+ for(const effects of [[[effect]],[null],[{type:'unsupported'}],{effect}]){
+  p.householdActs.acts[0].effects=effects;
+  assert.ok(validateLotmCast(p).some(e=>e.includes('fixture.act:')&&e.includes('effect')));
+ }
+});

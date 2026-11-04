@@ -59,10 +59,36 @@ test('timed ability rechecks source support and refunds reservation on method lo
 });
 
 test('authoring rejects unowned methods, metadata-only effects and unsupported borrowed routes before any mutation',()=>{
-    for(const change of [d=>d.abilities[0].sourceId='foreign.method',d=>d.abilities[0].function='cosmetic',d=>d.simulation.commands[0].effects=[{type:'fact',key:'pretend',value:true}],d=>d.abilities[0].carriers=[{sourceId:'work.carrier'}],d=>d.abilities.push({...d.abilities[0],id:'work.other'}),d=>delete d.abilities[0].powerId,d=>{d.simulation.commands[0].duration=2;d.simulation.commands[0].cancellation='forfeit';}]) {
+    for(const change of [d=>d.abilities[0].sourceId='foreign.method',d=>d.abilities[0].function='cosmetic',d=>d.simulation.commands[0].effects=[{type:'fact',key:'pretend',value:true}],d=>d.abilities[0].carriers=[{sourceId:'work.carrier'}],d=>d.abilities.push({...d.abilities[0],id:'work.other'}),d=>delete d.abilities[0].powerId,d=>{d.simulation.commands[0].duration=2;d.simulation.commands[0].cancellation='none';}]) {
         const d=raw();change(d);const before=structuredClone(d);assert.throws(()=>compileStructuredAbilities(d));assert.deepEqual(d,before);
     }
     const d=raw(), before=structuredClone(d);compileStructuredAbilities(d);assert.deepEqual(d,before);
+});
+
+test('paid timed ability preserves learned method but forfeits real inputs on support loss or cancellation after reload',async()=>{
+    const {loadExpansionState}=await import('../src/expansion_engine.js');
+    const {cancelSimulationJob}=await import('../src/simulation.js');
+    for(const mode of ['complete','cancel','unsupported']){
+        const f=learn(setup(d=>{d.simulation.commands[0].duration=2;d.simulation.commands[0].cancellation='forfeit';}));
+        const started=use(f);
+        started.state=loadExpansionState(JSON.parse(JSON.stringify(started.state)),f.registry);
+        assert.equal(started.state.simulation.jobs[0].completionSupport.failure,'forfeit');
+        const corrupt=structuredClone(started.state);corrupt.simulation.jobs[0].completionSupport.failure='refund';
+        assert.throws(()=>loadExpansionState(corrupt,f.registry),/completion support/);
+        if(mode==='unsupported')started.state.simulation.faculties.player['work.method'].suppressed=true;
+        const done=mode==='cancel'?cancelSimulationJob(started.state,f.registry,started.state.simulation.jobs[0].id,{...f.context,gameplay:started.gameplay})
+            :advanceSimulation(started.state,f.registry,2,started.external,started.gameplay);
+        assert.equal(done.state.actors.player.resources.fuel,1);
+        assert.equal(done.state.simulation.owners['work.target'][worn],undefined);
+        assert.equal(done.state.simulation.owners['work.target'][fixed],mode==='complete'?1:undefined);
+        assert.equal(done.state.simulation.powers.player['work.pattern'].owned,true,'interruption does not erase learning');
+        assert.equal(done.state.simulation.powers.player['work.pattern'].executions,1,'the native power records the attempted use once');
+        const later=advanceSimulation(done.state,f.registry,3,done.external,done.gameplay);
+        assert.equal(later.state.actors.player.resources.fuel,1,'settlement does not spend or refund twice');
+        assert.equal(later.state.simulation.owners['work.target'][fixed],mode==='complete'?1:undefined);
+    }
+    const d=raw();Object.assign(d.simulation.commands[0],{duration:2,cancellation:'forfeit',completionFailure:'refund'});
+    assert.throws(()=>compileStructuredAbilities(d),/matching interruption/);
 });
 
 // Full compiler/registry bypass coverage uses an original public fixture.

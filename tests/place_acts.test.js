@@ -27,6 +27,29 @@ const definitions=createSimulationRegistry({commands});
 for(const [id,d] of definitions.commands)registry.simulation.commands.set(id,d);
 function setup(){const p=fresh(2);applySituationEffect(p.state,{type:'situation',situationId:I.situation,operation:'begin'},registry.simulation,'fixture.begin');p.state.simulation.people.player.location=room;seedPlaceObjects(p.state,data,I.world);return p;}
 const preview=(p,d)=>previewSimulationCommand(p.state,registry,d.id,ctx(p));
+
+test('paid place work discloses interruption, preserves prior knowledge and never refunds spent input or awards an unfinished result',async()=>{
+ const {loadExpansionState}=await import('../src/expansion_engine.js');
+ const raw=JSON.stringify({id:'Potato'}),cooked=JSON.stringify({id:'Cooked potato'});
+ const row={id:'fixture.paid_prepare',operation:'prepare',place:room,minutes:2,label:'Prepare the held sample',description:'Work the actual sample using a learned procedure.',report:'The prepared sample is ready.',knowledgeKey:'fixture.paid_prepared',cancellation:'forfeit',costLabel:'2 potatoes',requires:eq('paid',true),costs:[{type:'item',actor:'player',key:raw,amount:-2}],effects:[{type:'item',actor:'player',key:cooked,amount:2}]};
+ const local={...data,acts:[row]},d=definePlaceActs(local,{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];registry.simulation.commands.set(d.id,d);
+ for(const mode of ['complete','cancel','unsupported']){
+  let p=setup();p.state.worlds[I.world].facts['fixture.paid']=true;p.gameplay.player.inventory[raw]=2;
+  (p.state.simulation.knowledge.player??={})['fixture.learned_procedure']={stage:'understood',value:'A remembered procedure.',at:p.state.clock,cause:'fixture.lesson'};
+  const before=JSON.stringify(p);assert.match(quotePlaceActs(p.state,[d],local,x=>preview(p,x))[0].label,/inputs stay spent if stopped/);assert.equal(JSON.stringify(p),before);
+  p={...p,...commitSimulationCommand(p.state,registry,{id:d.id},ctx(p),p.state.sequence)};
+  p.state=loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry);
+  if(mode==='cancel')p={...p,...cancelSimulationJob(p.state,registry,p.state.simulation.jobs.at(-1).id,ctx(p),p.state.sequence)};
+  else{if(mode==='unsupported')p.state.worlds[I.world].facts['fixture.paid']=false;p=wait(p,2);}
+  assert.equal(p.gameplay.player.inventory[raw]||0,0);
+  assert.equal(p.gameplay.player.inventory[cooked]||0,mode==='complete'?2:0);
+  assert.equal(!!p.state.simulation.knowledge.player['fixture.paid_prepared'],mode==='complete');
+  assert.equal(p.state.simulation.knowledge.player['fixture.learned_procedure'].value,'A remembered procedure.');
+  const amount=p.gameplay.player.inventory[cooked]||0;p=wait(p,3);assert.equal(p.gameplay.player.inventory[cooked]||0,amount);
+ }
+ for(const cancellation of ['none','typo'])assert.throws(()=>definePlaceActs({acts:[{...row,cancellation}]},{worldId:I.world,group:'book_lotm',situationId:I.situation}),/interruption policy/);
+ const legacy={...row};delete legacy.cancellation;const original=definePlaceActs({acts:[legacy]},{worldId:I.world,group:'book_lotm',situationId:I.situation})[0];assert.equal(original.cancellation,'refund');assert.equal(original.completionFailure,'refund');
+});
 function start(p,id){return commitSimulationCommand(p.state,registry,{id:`fixture.${id}`},ctx(p),p.state.sequence);}
 function perform(p,id){const plan=start(p,id),minutes=data.acts.find(r=>r.operation===id).minutes;return wait({...p,...plan},minutes);}
 test('each ordinary act quotes real minutes, settles effects and writes one actor receipt',()=>{

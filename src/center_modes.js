@@ -24,6 +24,7 @@ export function createCenterModes(paint) {
             draw('back'); return true;
         },
         get mode() { return stack.at(-1)?.mode || 'local'; },
+        refresh() { draw('refresh'); },
     };
 }
 

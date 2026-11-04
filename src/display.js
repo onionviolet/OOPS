@@ -2363,6 +2363,12 @@ function update_displayed_book(book_id) {
     if(progressBar) progressBar.style.width = 385*percent+"px";
 }
 
+function update_displayed_location_identity(location) {
+    location_name_span.innerText = location.name;
+    document.getElementById("location_description_div").innerText = location.getDescription();
+    centerModes().refresh();
+}
+
 function update_displayed_normal_location(location) {
     centerModes().local();
     clear_action_div();
@@ -6698,7 +6704,7 @@ export {
     update_displayed_money,
     log_message,
     clear_action_div,
-    update_displayed_normal_location, update_displayed_combat_location,
+    update_displayed_normal_location, update_displayed_combat_location, update_displayed_location_identity,
     log_loot,
     update_displayed_equipment, update_displayed_health, update_displayed_stamina, update_displayed_stats, update_displayed_effects, update_displayed_effect_durations,
     capitalize_first_letter,

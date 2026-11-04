@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from '../src/cast_topic_talk.js';
+import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports,topicTalkRecords} from '../src/cast_topic_talk.js';
 import {fresh,ctx,wait,registry,I} from './lotm_helpers.js';
 import {createSimulationRegistry,validateSimulationState} from '../src/simulation_contracts.js';
 import {applySituationEffect} from '../src/causal_situations.js';
@@ -12,7 +12,7 @@ const data={talks:[
  {id:'fixture.offer',personId:person,topicId:'fixture.task',label:'A small task',description:'Discuss a task and choose whether to help.',minutes:2,choices:[
   {id:'agree',label:'Offer help',minutes:1,report:'You agreed to help.',costs:[{type:'resource',actor:'player',key:'money',native:true,amount:-1}],effects:[knowledge('player','fixture.task.known','You know where to help.'),knowledge(person,'fixture.answer','The offer was accepted.'),{type:'relationship',actor:person,target:'player',axis:'trust',amount:2,text:'Offered help.'},{type:'reputation',actor:'player',region:'fixture.block',amount:1},{type:'event',actor:person,eventId:'fixture.follow',delay:4}]},
   {id:'refuse',label:'Decline politely',report:'You declined the task.',effects:[knowledge(person,'fixture.answer','The offer was declined.'),{type:'relationship',actor:person,target:'player',axis:'trust',amount:-1,text:'Declined help.'}]}]},
- {id:'fixture.question',personId:person,topicId:'fixture.route',label:'Ask about a route',description:'Ask for directions after learning of the task.',minutes:1,knowledgeKey:'fixture.task.known',place:room,hour:0,choices:[{id:'ask',label:'Ask for directions',report:'You asked for directions.',effects:[knowledge('player','fixture.route','The path begins here.')]}]},
+ {id:'fixture.question',personId:person,topicId:'fixture.route',label:'Ask about a route',description:'Ask for directions after learning of the task.',minutes:1,knowledgeKey:'fixture.task.known',requires:{fact:'target.knowledge.fixture.answer.seen',op:'eq',value:true},place:room,hour:0,choices:[{id:'ask',label:'Ask for directions',report:'You asked for directions.',effects:[knowledge('player','fixture.route','The path begins here.')]}]},
  {id:'fixture.absent',personId:away,topicId:'fixture.visit',label:'Arrange a visit',description:'Ask about visiting.',minutes:1,choices:[{id:'ask',label:'Ask about a visit',report:'You asked about a visit.',effects:[]}]}
 ]};
 const binding={worldId:I.world,group:'book_lotm',situationId:I.situation};
@@ -24,12 +24,39 @@ const context=(p,d)=>{const c=ctx(p,d.targetId);c.facts['topicTalk.hour']=Math.f
 const preview=(p,d)=>previewSimulationCommand(p.state,registry,d.id,context(p,d));
 const def=id=>commands.find(d=>d.id===`fixture.${id}`);
 const start=(p,id)=>{const d=def(id);return {...p,...commitSimulationCommand(p.state,registry,{id:d.id},context(p,d),p.state.sequence)};};
-test('all choices quote costs and effects without mutation, absent packs stay silent',()=>{
+test('choices quote costs without future answers or private recipient effects, absent packs stay silent',()=>{
  const p=setup(),before=JSON.stringify(p),q=quoteTopicTalks(p.state,commands,d=>preview(p,d));
- assert.equal(q.length,4);assert.equal(q[0].duration,3);assert.match(q[0].costText,/-1/);assert.match(q[0].effectText,/trust \+2/);assert.match(q[0].effectText,/standing \+1/);assert.match(q[0].effectText,/after 4 min/);assert.equal(q[0].topicLabel,'A small task');
- assert.deepEqual(q[0].effects,commands[0].effects);assert.equal(JSON.stringify(p),before);
+ assert.equal(q.length,4);assert.equal(q[0].duration,3);assert.match(q[0].costText,/-1/);assert.match(q[0].effectText,/may learn/);assert.match(q[0].effectText,/standing \+1/);assert.equal(q[0].topicLabel,'A small task');
+ assert.equal(Object.hasOwn(q[0],'effects'),false);assert.equal(JSON.stringify(p),before);
+ assert.doesNotMatch(JSON.stringify(q),/You know where to help\.|The offer was accepted\.|The path begins here\.|fixture.answer|trust|fixture.follow/);
  assert.deepEqual(defineTopicTalks(undefined,binding),[]);assert.deepEqual(quoteTopicTalks(p.state,[],()=>assert.fail()),[]);
  const blocked=quoteTopicTalks(p.state,commands,d=>preview(p,d),{blocked:'Saving paused.',decide:()=>({allowed:false,reason:'Choose the current step.'})});assert.equal(blocked[0].eligible,false);assert.ok(blocked[0].reasons.includes('Saving paused.'));
+});
+test('a later response reads the recipient knowledge, not a copied player receipt',()=>{
+ const p=setup();p.state.simulation.knowledge.player||={};
+ p.state.simulation.knowledge.player['fixture.task.known']={stage:'seen',value:'The player knows.',at:p.state.clock,cause:'fixture.setup'};
+ p.state.simulation.knowledge.player['fixture.answer']={stage:'seen',value:'The player remembers agreeing.',at:p.state.clock,cause:'fixture.setup'};
+ assert.equal(preview(p,def('question.ask')).eligible,false,'the interlocutor has not received the offer');
+ assert.deepEqual(topicTalkRecords(setup().state,commands),[],'no records before an account is received');
+ const settled=wait(start(p,'offer.agree'),3);
+ assert.equal(preview(settled,def('question.ask')).eligible,true);
+ const after=wait(start(settled,'question.ask'),1);
+ assert.equal(after.state.simulation.knowledge.player['fixture.route'].value,'The path begins here.');
+ assert.ok(topicTalkRecords(after.state,commands).some(r=>r.text==='The path begins here.'));
+ assert.ok(!topicTalkRecords(after.state,commands).some(r=>r.text==='The offer was accepted.'));
+ assert.equal(after.state.simulation.knowledge[away]?.['fixture.answer'],undefined);
+});
+test('local conversations reject knowledge delivered to an absent third person',()=>{
+ const bad=structuredClone(data);bad.talks[0].choices[0].effects.push(knowledge(away,'fixture.private','A private account.'));
+ assert.throws(()=>defineTopicTalks(bad,binding),/participating recipient/);
+});
+test('one settled answer is not repeated when its receipt and knowledge effect match',()=>{
+ const p=wait(start(setup(),'offer.agree'),3),d=def('offer.agree');
+ const receipt=p.state.simulation.knowledge.player[d.topicTalk.receiptKey];
+ p.state.simulation.knowledge.player['fixture.task.known']={...receipt};
+ const rows=topicTalkRecords(p.state,commands);
+ assert.equal(rows.filter(r=>r.text===receipt.value).length,1);
+ assert.equal(p.state.simulation.knowledge.player['fixture.task.known'].value,receipt.value,'deduplication changes presentation, not retained knowledge');
 });
 test('agreement and refusal settle distinct facts, directed bonds, standing and follow-on jobs',()=>{
  let p=setup(),clock=p.state.clock;p=start(p,'offer.agree');
@@ -127,6 +154,10 @@ try {
  const absent=g.module.d2AwayPreview();assert.equal(absent.eligible,false);assert.match(absent.reasons.join(' '),/Away|away|return/);
  assert.equal(button('book.lotm.fixture_away.ask').disabled,true,'place gate is shown');
  assert.equal(document.querySelector('[data-lotm-topic-person]').dataset.perspective,'player');
+ g.module.d2Act('book.lotm.fixture_offer.agree');
+ const stop=document.querySelector('[data-lotm="cancel"]');assert.ok(stop,'native topic job exposes cancellation');stop.onclick();await g.settle();
+ const cancelled=await g.save();assert.ok(!cancelled.expansion.simulation.jobs.some(j=>j.commandId==='book.lotm.fixture_offer.agree'));
+ assert.equal(cancelled.expansion.simulation.knowledge['fixture.person.relative']?.['fixture.answer'],undefined,'cancelled talk grants no recipient knowledge');
  g.module.d2Act('book.lotm.fixture_offer.agree');
  assert.equal(g.internals.foundationSaveBlocked,false,'pending talk is durably admitted');
  let saved=await g.save();const pending=saved.expansion.simulation.jobs.find(j=>j.commandId==='book.lotm.fixture_offer.agree');

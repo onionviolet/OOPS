@@ -264,7 +264,7 @@ import { activities } from "./activities.js";
 import { end_activity_animation, 
          update_displayed_character_inventory, update_displayed_trader_inventory, sort_displayed_inventory, sort_displayed_skills,
          update_displayed_money, setNativeLogBufferReader, log_message,
-         update_displayed_combat_location, update_displayed_normal_location,
+         update_displayed_combat_location, update_displayed_normal_location, update_displayed_location_identity,
          log_loot, update_displayed_equipment,
          update_displayed_health, update_displayed_stamina,
          format_money, update_displayed_stats,
@@ -387,6 +387,7 @@ import {requireStructuredContent,requireStructuredSelection} from './structured_
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
 import {registerBookBeginnings} from './book_world_beginning_registration.js';
+import {waitForLotmSourceJobs} from './book_world_lotm_readiness.js';
 import {createStructuredBeginningChoices} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
 import {readWornEquipment} from './worn_equipment_comparison.js';
@@ -1128,7 +1129,7 @@ const paradiseNative=createParadiseNativeBindings({NPC,NPCRegistry,SafeLocation,
 }});
 paradiseNative.register();
 const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
-molNative.register();configureLotm({advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,writeBlockReason:()=>!ownsSave?'This tab is read-only: close the other game tab and reload.':expansionError?`Progress paused: ${expansionError}`:foundationSaveBlocked?'Saving failed earlier: reload to continue.':importProbeToken?'An import is being checked.':restoringNativeSave?'A saved game is being restored.':'',startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},die:async cause=>{if(!continuationState)await commandContinuation('enroll').catch(error=>log_message(error.message,'notification'));const c=continuationState;if(!c||c.lives[c.active]?.ended)return;return commandContinuation('die:'+cause).catch(error=>log_message(error.message,'notification'));},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
+molNative.register();configureLotm({refreshLocationIdentity:location=>{if(current_location===location)update_displayed_location_identity(location);},advanceWaitMinute:minutes=>update_timer(minutes,'wait'),logMessage:log_message,NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>freshLifeStart.probe||ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,writeBlockReason:()=>!ownsSave?'This tab is read-only: close the other game tab and reload.':expansionError?`Progress paused: ${expansionError}`:foundationSaveBlocked?'Saving failed earlier: reload to continue.':importProbeToken?'An import is being checked.':restoringNativeSave?'A saved game is being restored.':'',startBe:()=>freshLifeStart.start(true),restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping(),branchReason:()=>continuationEligibility({character:{bio:character.getBio()},expansion:expansionState},{travelOnly:true})||(continuationState?.challenge?'Finish the isolated challenge first.':''),pausedLife:()=>{const c=continuationState,l=c?.lives[c.lives[c.active]?.tether];return l?.paused?l.label:null;},die:async cause=>{if(!continuationState)await commandContinuation('enroll').catch(error=>log_message(error.message,'notification'));const c=continuationState;if(!c||c.lives[c.active]?.ended)return;return commandContinuation('die:'+cause).catch(error=>log_message(error.message,'notification'));},branch:async label=>{if(!continuationState)await commandContinuation('enroll');await commandContinuation('branch:'+encodeURIComponent(label));}});
 const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
 proto23Native.register();
 item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
@@ -9493,6 +9494,8 @@ bindNativeView({readLocalWeatherWords, get_current_book, get_context, canConsume
 bindTranslationReaders(() => character.getBioComponent(), () => character.name);
 await translationManager.init(language);
 translationManager.translateUI(language);
+
+await waitForLotmSourceJobs({storage:localStorage,keys:[save_key,dev_save_key,nativeAuthorityKey('live'),nativeAuthorityKey('dev')],probe:!!importProbeToken});
 
 // Optional authority boot never changes absent-key selection.
 if(!importProbeToken&&authorityEnrolled()) {

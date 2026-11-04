@@ -137,8 +137,7 @@ export function createSimulationRegistry(definitions = {}) {
         assert(d.reservationReturns === undefined || d.reservationReturns === 1, 'Unsupported authored reservation return accounting.');
         if(d.completionRequires || d.completionCoLocated != null) {
             validatePredicate(d.completionRequires);
-            const paidForfeit = d.group?.startsWith('remainder_') && d.completionFailure === 'forfeit' && d.cancellation === 'forfeit';
-            assert(d.duration > 0 && (d.completionFailure === "refund" && d.cancellation === "refund" || paidForfeit) && (d.completionCoLocated == null || typeof d.completionCoLocated === "boolean"), "Invalid selected completion support.");
+            assert(d.duration > 0 && ['refund','forfeit'].includes(d.cancellation) && d.completionFailure === d.cancellation && (d.completionCoLocated == null || typeof d.completionCoLocated === "boolean"), "Invalid selected completion support.");
         }
         if(d.siteId) assert(registry.sites.has(d.siteId), "Unknown work site.");
         if(d.powerId) assert(registry.powers.has(d.powerId), "Unknown command power.");
@@ -297,8 +296,7 @@ export function validateSimulationState(s, state, registry) {
         }
         if(j.completionSupport) {
             const support = j.completionSupport;
-            const paidForfeit = support.failure === 'forfeit' && j.cancellation === 'forfeit' && state.schema === 11 && state.auditRemainder?.schema === 1 && (registry?.commands.get(j.commandId)?.group?.startsWith('remainder_') || !registry && j.commandId === 'remainder_combat_fit.grip_practice');
-            assert(s.schema >= 4 && support.schema === 1 && (support.failure === "refund" || paidForfeit) && typeof support.coLocated === "boolean" && typeof support.location === "string", "Unsupported saved completion support.");
+            assert(s.schema >= 4 && support.schema === 1 && ['refund','forfeit'].includes(support.failure) && support.failure === j.cancellation && typeof support.coLocated === "boolean" && typeof support.location === "string", "Unsupported saved completion support.");
             validatePredicate(support.requires);
         }
         if(registry) assert(registry.commands.has(j.commandId), "Unsupported saved job.");

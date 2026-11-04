@@ -94,7 +94,7 @@ test('witness level decides the text and never tells more than was perceived (SU
     assert.equal(witnessLine({witness: 'nobody', ...base}), '');
 });
 
-test('cast topic talk quotes use the same rows: cost, time and effects before the click', () => {
+test('cast topic talk quotes show costs without exposing private relationship changes', () => {
     const quotes = quoteTopicTalks({}, [{id: 'x.a', label: 'Offer help', targetId: 'p', duration: 3, costs: [{type: 'resource', actor: 'player', key: 'money', amount: -1}],
         effects: [{type: 'relationship', actor: 'p', target: 'player', axis: 'trust', amount: 2}], topicTalk: {personId: 'p', topicId: 't', label: 'A task', choiceId: 'a', receiptKey: 'k'}},
         {id: 'x.b', label: 'Ask', targetId: 'p', duration: 1, costs: [], effects: [], topicTalk: {personId: 'p', topicId: 't2', label: 'A route', choiceId: 'b', receiptKey: 'k2'}}],
@@ -102,7 +102,7 @@ test('cast topic talk quotes use the same rows: cost, time and effects before th
     const rows = topicsFromTopicTalk(quotes, {heard: () => false});
     assert.deepEqual(rows.map(r => r.state), ['new', 'locked']);
     assert.match(rows[0].quote.cost, /-1/);
-    assert.match(rows[0].quote.effects.join(' '), /trust \+2/);
+    assert.doesNotMatch(rows[0].quote.effects.join(' '), /trust|\+2/);
     assert.equal(rows[1].reason, 'Learn about this topic first.');
 });
 
