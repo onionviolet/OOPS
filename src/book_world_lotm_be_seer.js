@@ -32,20 +32,24 @@ export function beSeerEyesClearEffects(){return [{type:'condition',actor:'player
 // (ch33 P034-P035); off is the absence (absence:'zero' keeps `condition.<id>` readable as 0). Cost is the B1 pool, spent by the content act
 // with beSeerUse() as for any use. Ending the vision leaves exhaustion (ch33 P036-P037: three sleepless nights); Neil says sleep is the cure
 // (P038). Proposal (WPR5, AD49): the text gives no length, so the fallback expiry below is assumed; sleep acts should end it with beSpiritRestEffects().
+// Calibration (AD49 proposal, 2026-11-04): each ending adds one notch (stacking 'sum'); switching on is allowed below the dial. ch33's
+// first use reads as a beginner's crash, but by ch60-ch98 Klein switches it on and off several times a day (ch62, ch69, ch70, ch95), so a
+// single cycle per sleep undercounts the text. Dial 3 lets the ch62 day's three switch-ons go native; the B1 pool stays the real per-use cost.
+export const BE_SPIRIT_EXHAUSTION_LIMIT=3;
 export const BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES=720;
 export const beSpiritVisionOnEffects=()=>[{type:'condition',actor:'player',id:BE_SPIRIT_VISION,operation:'apply'}];
 export const beSpiritVisionOffEffects=()=>[{type:'condition',actor:'player',id:BE_SPIRIT_VISION,operation:'remove'},
  {type:'condition',actor:'player',id:BE_SPIRIT_EXHAUSTION,operation:'apply',duration:BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES}];
 export const beSpiritRestEffects=()=>[{type:'condition',actor:'player',id:BE_SPIRIT_EXHAUSTION,operation:'remove'}];
 const cnd=(id,op,value)=>({fact:`condition.${id}`,op,value});
-// Predicates for place-act rows. On: a held source, switch off, not exhausted (a default; a world or a method may allow it). Off: switch on.
+// Predicates for place-act rows. On: a held source, switch off, exhaustion below the dial (a default; a world or a method may allow it). Off: switch on.
 // Seeing (aura observations): switch on, and the source held.
-export const beSpiritVisionOnRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true,reason:'You need the Seer potion in you.'},cnd(BE_SPIRIT_VISION,'eq',0),cnd(BE_SPIRIT_EXHAUSTION,'eq',0)]});
+export const beSpiritVisionOnRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true,reason:'You need the Seer potion in you.'},cnd(BE_SPIRIT_VISION,'eq',0),{...cnd(BE_SPIRIT_EXHAUSTION,'lte',BE_SPIRIT_EXHAUSTION_LIMIT-1),reason:'Your mind is too worn for Spirit Vision; sleep first.'}]});
 export const beSpiritVisionOffRequires=()=>cnd(BE_SPIRIT_VISION,'gte',1);
 export const beSpiritVisionSeesRequires=()=>({all:[{fact:'lotm.beSeer.supported',op:'eq',value:true},cnd(BE_SPIRIT_VISION,'gte',1)]});
 export const beSeerConditions=[
  {id:BE_SPIRIT_VISION,revision:1,label:'Spirit Vision on',stacking:'max',absence:'zero',bioVisible:true,bioDetail:'Auras show to you. It drains the spirit and the glabella; two knuckle taps there end it.'},
- {id:BE_SPIRIT_EXHAUSTION,revision:1,label:'Spirit Vision exhaustion',stacking:'max',absence:'zero',bioVisible:true,bioDetail:'Your mind aches like three sleepless nights. Beyonders of this path are not Sleepless; sleep mends it.'},{id:BE_SEER_EYES,revision:1,label:'Darkened eyes',stacking:'max',bioVisible:true,bioDetail:'The drunk Seer potion darkened your eyes toward black; Cogitation and converged power bring them back.',
+ {id:BE_SPIRIT_EXHAUSTION,revision:1,label:'Spirit Vision exhaustion',stacking:'sum',absence:'zero',bioVisible:true,bioDetail:'Your mind aches like three sleepless nights. Beyonders of this path are not Sleepless; sleep mends it.'},{id:BE_SEER_EYES,revision:1,label:'Darkened eyes',stacking:'max',bioVisible:true,bioDetail:'The drunk Seer potion darkened your eyes toward black; Cogitation and converged power bring them back.',
  look:{slot:'eyes',rank:3,concealed:true,seenBy:['beyonder'],text:'Your eyes have gone dark, near black; dark brown passes for black unless someone looks closely.'}}];
 export const beSeerUse=()=>({type:'energy',energyId:BE_SEER_ENERGY_ID,operation:'use',output:BE_SEER_ENERGY.output,control:BE_SEER_ENERGY.control});
 export const beSeerSources=[{id:BE_SEER_SOURCE,revision:1,label:'Seer source (the lead\'s own drink)',kind:'trait',origin:'acquired',grants:[],bioDetail:'One drunk Seer potion in the book life. Source ownership is separate from steadiness and from any method; none follows from it alone.'}];

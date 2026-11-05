@@ -277,9 +277,16 @@ test('B3: the Spirit Vision switch gates aura seeing, ending it leaves exhaustio
  assert.equal(can(B.beSpiritVisionSeesRequires()),true);assert.equal(can(B.beSpiritVisionOnRequires()),false,'already on');
  assert.ok(bio().includes('Spirit Vision on'),'the existing condition view shows the switch');
  validateLotmState(plan.state);
- // Ending it leaves exhaustion, which blocks switching on again until sleep or the fallback expiry.
+ // Ending it leaves one notch of exhaustion; switching on again stays open below the dial (ch62/ch69/ch70 repeat use).
  apply(B.beSpiritVisionOffEffects());
- assert.equal(can(B.beSpiritVisionSeesRequires()),false);assert.equal(can(B.beSpiritVisionOnRequires()),false,'exhausted: cannot switch on');
+ assert.equal(can(B.beSpiritVisionSeesRequires()),false);assert.equal(can(B.beSpiritVisionOnRequires()),true,'one notch: can switch on again');
+ {const again=structuredClone(plan.state),saved=plan.state;
+  for(let i=1;i<B.BE_SPIRIT_EXHAUSTION_LIMIT;i++){apply(B.beSpiritVisionOnEffects());apply(B.beSpiritVisionOffEffects());}
+  assert.equal(plan.state.simulation.conditions.player[B.BE_SPIRIT_EXHAUSTION].intensity,B.BE_SPIRIT_EXHAUSTION_LIMIT);
+  assert.equal(can(B.beSpiritVisionOnRequires()),false,'at the dial: too worn to switch on');
+  const r=JSON.parse(JSON.stringify(plan.state));validateLotmState(r);plan.state=r;assert.equal(can(B.beSpiritVisionOnRequires()),false,'the notches survive a save round trip');
+  apply(B.beSpiritRestEffects());assert.equal(can(B.beSpiritVisionOnRequires()),true,'sleep clears every notch');
+  plan.state=saved;void again;}
  assert.ok(bio().includes('Spirit Vision exhaustion')&&!bio().includes('Spirit Vision on'));
  const exhausted=plan.state.simulation.conditions.player[B.BE_SPIRIT_EXHAUSTION];assert.equal(exhausted.expiresAt,plan.state.clock+B.BE_SPIRIT_EXHAUSTION_FALLBACK_MINUTES);
  validateLotmState(plan.state);validateLotmState(JSON.parse(JSON.stringify(plan.state)));
