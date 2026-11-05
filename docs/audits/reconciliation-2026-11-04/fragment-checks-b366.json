@@ -1,0 +1,12 @@
+{
+  "batches": "B364\u2013B366",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/IDEA_INDEX.md",
+      "target": "CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23",
+      "valid": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New fold/amendment links only; no inherited linked-source review."
+}

@@ -67,3 +67,12 @@ A stronger recent bounded example is `local_livelihood_content.js:createLocalLiv
 ## O05
 
 **Rank 5 adaptation, P: distinguish custody from time exposure for one useful object.** The scout's older absence claim is materially narrowed: `structured_container_runtime.js:advanceContainerClocks/nextContainerBoundary` tracks identified object exposure, container protection, title, held reservations, expiry replacement and actual owner transfer. Existing `items.js:createInventoryKey` still keys ordinary stock by ID/components/quality; these identified clocks are not a generalized same-ID aging-lot merge policy. Any extension must reuse this bounded seam and resolve paused-owner dependencies, not add another aging engine. High compatibility burden and low immediate priority; no secret-bearing payload or paused-world implementation selected.
+
+
+## Content reconciliation B323: traced consumers versus present completeness
+
+All A01–A09 and O01–O05 were reviewed. Preserve the real distinctions in these old traces: observed knowledge versus learned procedure, possessed manual versus held tool, reservation versus consumption, charged source versus learned mastery, actual funded wage versus earned payment, worker output versus player collection, receipt cause versus generic opinion, and identified exposure versus ordinary fungible stock. Similar naming is not adoption, while these actual finite consumers already qualify older no-system headlines.
+
+The V label records the audit's October13 source inspection. It is not current code read here. R's bounded108-source/14-browser checks and Foundation/livelihood roundtrips remain attributed evidence for their exact inputs and routes. Other absorption/kit/retort/minigame backlogs do not pass by association. A frozen count, three trials or maximum three batches is a particular authored operation, not a universal training quota, power cap or anti-cheat policy. Donor mechanisms may justify strong/unequal outcomes through actual means.
+
+O05 correctly separates custody from exposure and notes a bounded identified-container seam. A current general lot/merge policy still needs its own exact source and consumer. O02's cause-sensitive invitation is distinct from romance, autonomous societies or forcing every changed relationship into a new universal store. No later source/body, actual state, focused test, natural opening or rebuilt UI was inspected by this review, and no new mechanic was adopted.

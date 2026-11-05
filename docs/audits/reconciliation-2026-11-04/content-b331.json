@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "batch": "B331",
+  "title": "Run-ending threats: authority chronology, source editions and causal counterexamples",
+  "at": "2026-11-05T02:03:29.189523+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/END_RUN_THREATS_LORE_SWEEP_2026-11-03.md",
+      "ids": [
+        "A1–A16/edit chronology",
+        "laneA:T1–6/R1–6/C1–4/C6/patterns/gaps",
+        "laneB:24worldrows/counterexamples/5patterns/G1–6",
+        "Part3:1–6/verification"
+      ],
+      "classification": "Full research audit; scoped historical evidence, later accepted default and unselected mechanism proposals",
+      "owners": [
+        "docs/research/END_RUN_THREATS_LORE_SWEEP_2026-11-03.md",
+        "docs/RULES_INDEX.md",
+        "docs/RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md"
+      ],
+      "disposition": "Preserve complete tables and history; reconcile AD50 chronology and distinguish recollection/digests/reopened sources and incompatible editions. Flag internal locator offset discrepancy and causal overclaims without fabricating source corrections.",
+      "evidence": "Full local body read; current AD50/RLEE10–13 inspected. No novel, PDF, mirror, runtime or historical check rerun.",
+      "reopen": "Select actual threat/edition/means, reopen exact locator and inspect causal consumer before adopting a candidate.",
+      "input_sha256": "56e1fb02dd6c7760d84aed526e19fada6b621e43c12ea8cddb471ffac52f1b35",
+      "input_lines": 181,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          181
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/END_RUN_THREATS_LORE_SWEEP_2026-11-03.md",
+      "heading": "## Content reconciliation B331: threat mechanisms, source limits and later AD50",
+      "body": "All 181 original lines were reviewed, including A1–A16, both lanes' tables, counterexamples, patterns, gaps, combined findings and verification limits. The status paragraph correctly distinguishes the audit-time proposals from the later AD50 statement. The current AD50 and RLEE10–RLEE13 rows were inspected for this reconciliation; the remaining rows cited by the historical audit were not newly re-audited here. A16 expressly leaves whole rule families unmapped. “No rule conflicts” is the historical selected-row result, not a fresh exhaustive proof.\n\nPreserve the source hierarchy and gaps. Lane A reports eleven reopened passages, while other rows reuse digests and the sequel notes. This reconciliation did not reopen any novel. Lane B's Harry Potter “shown” labels mean recalled canon, not inspected text; cyberpunk “shown” can mean reused secondary scouts. The D&D figures use a 5.1 mirror while the selected contract is 5.2.1. Those numbers, Wish costs and death effects cannot be imported as edition-qualified facts without checking the selected source. Chapter offsets also need per-passage reconciliation: the stated N+4 convention and T2's ch1387/file1413 pair do not agree. Do not repair either locator by guessing a universal offset.\n\nThe report's counterexamples prevent treating capable as invulnerable or the warning as omniscient foreknowledge. Some apparent exits avert a consequence, some buy time, some exchange the actual death for an effect, and some continue a different life. A sacrifice is not automatically survival. HP ring/Wand wording does not establish a simple planned allegiance transfer, and the Time-Turner row's “undoes” wording does not establish an editable timeline; those causal readings need the actual source before use. Death Ward's protection against a non-damage instant-death effect and surviving massive damage via its hit-point effect also need the selected edition's exact clauses, rather than one universal instant-death exception.\n\nKeep AD50's current authored-exit default and adjustable wording distinct from a fact about every source threat. A source counterexample can have no available exit; a powerful new means may reasonably change the result. A threat need not gain a manufactured reward, a visible clock, a new soul tax, or an adapting opponent merely to fit the five recurring patterns. The named actor/force and actual means explain consequences. The existing costs and current AD50 wording remain in their authority owner; this research does not add a universal balancing constraint or rewrite that decision.\n\nUseful unselected extensions remain staged loss of control, credible willingness as leverage, an interested enforcer changing sides, and the cyberpunk CW35–CW37 extrapolations. They stay separately selectable proposals, not accepted mechanics, new ABR/RLFC codes or a required world rollout. AD42 leaves generic wording/taste review optional. The old two-lane budget, rules-check statement and uncommitted status describe that run, not a new execution receipt or present Git state. No new source qualification, threat behavior, runtime work or gameplay proof occurred here.",
+      "before_sha256": "56e1fb02dd6c7760d84aed526e19fada6b621e43c12ea8cddb471ffac52f1b35",
+      "after_sha256": "6114a8af1bbf811ac23a2b04d40db48c5f3baced4b657e4d88c2f680bd57d3a8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 767
+}

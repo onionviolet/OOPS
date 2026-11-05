@@ -82,3 +82,12 @@ cancel and native registration ranges: the cited semantics remain present.
 The publisher function begins at737; its durable call is at852. INPUTS retains
 both baseline and reinspection hashes/ranges. The full concurrent diff belongs
 to its writer and was not adopted or behaviorally accepted here.
+
+
+## Content reconciliation B376: actual recipients, channels and retained commitments
+
+This complete return and [coverage map](COVERAGE.md) were reviewed across C01–C07, E01–E10 and X01–X18. Preserve useful joins: accessible control preferences are distinct from fictional perception; family support is not property ownership; admission/attendance/credential are not mastery; learning/practice is not executable native faculty; copied bodies do not inherit another participant's agreement; delivered messages survive later cancellation; actual worker stock and channels, rather than a controller label, support downstream work. Free repeated creation may supply useful material and change an informed person's next order without a new global cap or hidden restored scarcity.
+
+Active promises cannot live solely in a bounded memory recap. Research evidence, attributed recollection, interpretation, adoption and actual use are different states, and the old equal/higher-stage knowledge-write rule leaves explicit revision/retraction work to its owner. Searching does not prove impossibility; an unsupported arbitrary intent requires an honest missing-adapter diagnostic. Restore preserves the exact pending/committed content and dormant sections under the selected compatibility contract. Qualification of source bodies/eras and sampling units cannot be inferred from a broad start label or genre.
+
+The36 leaves, six two-way joins and five packets are planning outputs. This reading does not credit linked card, join,55-input fingerprint or native-source bodies as read. The dated main.js reinspection preserves its exact public ranges and concurrent writer boundary, not a clean-tree/current behavior claim. Specific source-world romances, full map parity, broad family generation, settlement automation and arbitrary histories retain their own qualification work. Old recommended CD-P1 selection and exclusive-writer plans are not current dispatch. AD51 permits a useful first seam; AD42 makes human taste review optional. No new source acquisition, runtime, publication-failure, save/import or performance result is claimed.

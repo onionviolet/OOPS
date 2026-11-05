@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "batch": "B389",
+  "title": "Synthetic engine spikes, port estimates and reusable framework contracts",
+  "at": "2026-11-05T03:56:12.268066+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/ENGINE_SPIKES_2026-10-14.md",
+      "ids": [
+        "ER7-E1–E6",
+        "S1A/B/C/D",
+        "S2T1–10/C/D/E",
+        "S3B/T/C/D/E/F",
+        "S4",
+        "R1–R5/Q1–Q4"
+      ],
+      "classification": "Historical engine research comparison with scoped synthetic/read/stated/inferred evidence",
+      "owners": [
+        "docs/research/ENGINE_SPIKES_2026-10-14.md"
+      ],
+      "disposition": "Full169lines and allnumericcell/operationboundariesread. Plaincachedactivearraycontrol partlyexplains sparseECSbenefit; no churn/heterogeneouscurrentworldproof. p95S1batchaverage notsingleticktail. Transferredpackedbytes !=JSONfullworkerstep; coldstart separate, no retainedworker measured. SyntheticUnicodeenvelopes notrealvalidatedsaves; Map string sink notlocalStorage, SQLrollbackmemorynotOPFS/crashdurability. 2generations4.28MBsharedguardarithmetic notquotaexperiment. Older milestone/1366/EG0leadingproposal qualifiedAD39/24retirement.",
+      "evidence": "Complete actual report text read. No linked upstream page/source, raw benchmark script/results, current installed dependency, runtime source, browser, storage backend or private save newly inspected/rerun. External claims remain attributed historical evidence, not current recommendations.",
+      "reopen": "Only a selected current consumer, measured limitation or changed product need reopens adoption. Current PROJECT/AD39/42/44/51/52 govern scope; no install/migration/source fetch, agent dispatch or old benchmark replay.",
+      "input_sha256": "e83e86e7b8aafcd0908aa918d12bedd1450bc3385ea6418db66559c7941fb23c",
+      "input_lines": 169,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          169
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/GAME_ENGINE_OPTIONS_2026-10-14.md",
+      "ids": [
+        "ER5-D1–D3",
+        "F1–F6/C1–C6/P0–P8/O0–O9",
+        "G/U/Z/B/DF/J/H/M/S/A families"
+      ],
+      "classification": "Historical engine research comparison with scoped synthetic/read/stated/inferred evidence",
+      "owners": [
+        "docs/research/GAME_ENGINE_OPTIONS_2026-10-14.md"
+      ],
+      "disposition": "Full321linesread. Sourcephysical-linecensus exclusivepathbucketsnotdependency/complexity/portprogress; personweeksheuristicsnotquotes oragentthroughput. Emptyenginecompressedchartnotcurrentgamepayload orheadtoheadrace. CurrentAD39Electron+web supersedesTaurifirstfallbackproposal. Keep useful stableID/DTO/RNG/cursor/converter/onepublisher/awaiteddurableack contracts, measuredpurekernel/rendererisland onlyifselected. Externalrelease/license/APIclaimsretainOct14access notcurrentverified.",
+      "evidence": "Complete actual report text read. No linked upstream page/source, raw benchmark script/results, current installed dependency, runtime source, browser, storage backend or private save newly inspected/rerun. External claims remain attributed historical evidence, not current recommendations.",
+      "reopen": "Only a selected current consumer, measured limitation or changed product need reopens adoption. Current PROJECT/AD39/42/44/51/52 govern scope; no install/migration/source fetch, agent dispatch or old benchmark replay.",
+      "input_sha256": "6c447a2ed4934854767fb5de1455b20bc3fbae7879e3e9703a05bb679f82971a",
+      "input_lines": 321,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          321
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ENGINES_AND_FRAMEWORKS_CATALOG_2026-10-14.md",
+      "ids": [
+        "ER13-X1–X7",
+        "I1–I4/R1–R4",
+        "N1–N8",
+        "V1–V13",
+        "S1–S8",
+        "H1–H3",
+        "XE-CONT1",
+        "P1–P10/Q1–Q2"
+      ],
+      "classification": "Historical engine research comparison with scoped synthetic/read/stated/inferred evidence",
+      "owners": [
+        "docs/research/ENGINES_AND_FRAMEWORKS_CATALOG_2026-10-14.md"
+      ],
+      "disposition": "Full224linesread; combinedtooloutputtruncated, recovered80–125/126–170/171–224actualtext. Everycatalog/source/mechanism/fit/costcellread. Preserve eligibility/selection/committhreeoperations; visiblepanelsnotforcedsingletab, postloadreferencepassno grants, typedmetadatahelpconsistentwithruntime, cachesfromcommittedknownfacts, listener/resource teardown, narrativecursor/CRDTdifferentfromstocktransaction. Metadata/currentlicenseavailabilitynotrefreshed. Tauri/milestone/defaultfreezeclaimsdatednotcurrentdirection.",
+      "evidence": "Complete actual report text read. No linked upstream page/source, raw benchmark script/results, current installed dependency, runtime source, browser, storage backend or private save newly inspected/rerun. External claims remain attributed historical evidence, not current recommendations.",
+      "reopen": "Only a selected current consumer, measured limitation or changed product need reopens adoption. Current PROJECT/AD39/42/44/51/52 govern scope; no install/migration/source fetch, agent dispatch or old benchmark replay.",
+      "input_sha256": "e4afcd6987ae2325dca29b97dfe291e006926eb3dedc7aa6d84ef14f233be681",
+      "input_lines": 224,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          224
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/ENGINE_SPIKES_2026-10-14.md",
+      "heading": "## Content reconciliation B389: scoped evidence and current stack direction",
+      "body": "The complete ER7 report and every numeric table/operation boundary were read. Preserve the controls: cached active arrays can avoid inactive scans without an ECS; membership invalidation/churn has an actual cost not measured here. S1's p95 is a batch-average per-tick tail, not a single tick. Dense miniplex iteration is not a universal faster loop, and a tiny100k invented needs kernel does not establish whole-world simulation cost. Heavy unmatched host load, no forced GC and differing loop styles prevent stable CPU/energy/latency conclusions.\n\nS2 distinguishes a prepacked transfer echo from the full encode/message/decode/step/result boundary, with cold worker startup separate. Ownership transfer removes copying, not object reconstruction; a worker can improve UI availability while total response time grows. Retained simulation state plus bounded command/result patches was proposed, not measured. S3's deterministic repetitive Unicode envelope is a shape model that never called the real validators/loader. The Map string sink is not localStorage/disk durability. In-memory SQLite transaction/rollback, exported image size and a ten-actor patch do not establish OPFS, storage-full/crash recovery or apples-to-apples whole-snapshot speed. Base64 bytes and encoding time differ, and two-generation shared-guard arithmetic is not a measured browser quota failure.\n\nCodec identity/decoded-size limits, native reconstruction, old-reader behavior, frozen paid jobs/cursors and one durable publisher remain consequential if a format is selected. Compression does not decide history deletion or entitlement. All old package versions, source references, zero-vulnerability install report, hardware/load values and raw result paths retain their original dates; no external claim was refreshed. Current [PROJECT](../../PROJECT.md) retires the one-realm/one-prestige gate and uses current desktop targets; AD39 chooses Electron plus web. EG0/worker/codec/SQLite/Rust hypotheses remain research proposals under AD32, not migration or a repeated benchmark mandate. No runtime, source fetch, dependency, browser or save was exercised here.",
+      "before_sha256": "e83e86e7b8aafcd0908aa918d12bedd1450bc3385ea6418db66559c7941fb23c",
+      "after_sha256": "372c598b99ecad69a4aabeb808970a7c201b9a6a7978161e4b267761db166800"
+    },
+    {
+      "path": "docs/research/GAME_ENGINE_OPTIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B389: scoped evidence and current stack direction",
+      "body": "This full321-line comparison, every source/count/cost/option row and later switch gates were read. The459-file/97803physical-line census is an old exclusive path classification, not a semantic dependency count, a port percentage or a promise that data factories transfer unchanged. Person-week ranges are uncertain planning heuristics with omitted release/content/taste work, not quotes, current schedules or throughput that divides by agent count. A narrow successor dropping systems is a new scope, not a completed equivalent port.\n\nPreserve useful contracts independently of engine brand: stable domain IDs, exact RNG order/number/null/missing semantics, retained compiled story identity/cursors, actor-qualified read models, no renderer-owned money/time, source/content revisions, stale/canceled bridge results and awaited durable acknowledgment before live publication. A Rust/ECS handle is not a save identity. A physics frame or statechart timer is not the causal scheduler; a desktop wrapper does not automatically move origin storage, remove the application guard or award closed/sleep time. Renderer islands need actual native commands, lifecycle/teardown, accessible text/control and saved-preference behavior.\n\nThe Tauri-first/Electron-fallback and old viewport recommendations are historical: current AD39 and [PROJECT](../../PROJECT.md) choose Electron plus web and current desktop targets. Keep Tauri, Godot, renderer, Rust and other engine options as unselected alternatives for a demonstrated gap. No whole-game migration follows from a brand/editor/empty-export comparison. Proposed50percent/2x/100ms/50ms switch bars were not achieved or adopted universal thresholds. Current AD51 allows a useful first seam rather than a broad framework prerequisite; AD42 makes human taste optional.\n\nExternal engine versions, web export limits, licenses, seat/pricing rules, release dates and plugin support are attributed October14 observations and unresolved metadata, not freshly verified legal/current-product guidance. Vendor empty-engine charts, codec mismatch, raw/gzip/Wasm asset differences and historical Godot size remain incomparable to a full game. No primary page, export, installation, API, benchmark, current dependency or source was reopened here. Any selected future adoption needs its own matching consumer, platform, compatibility and failure evidence.",
+      "before_sha256": "6c447a2ed4934854767fb5de1455b20bc3fbae7879e3e9703a05bb679f82971a",
+      "after_sha256": "0adf73a79a936e7dddfc983a8052bd0b0a06fec69b84b5690c1fb8caf6deb62a"
+    },
+    {
+      "path": "docs/research/ENGINES_AND_FRAMEWORKS_CATALOG_2026-10-14.md",
+      "heading": "## Content reconciliation B389: scoped evidence and current stack direction",
+      "body": "The full224-line catalog was read, recovering the truncated middle output in bounded chunks. All X/I/N/V/S/H families, source-trace cells, XE-CONT1 and ten proposed patterns retain their exact historical provenance. Linked source reads and metadata are claims of the original lane, not new primary-source reading by this pass. Release/tag/branch/push/access dates, missing license notices and unresolved version conflicts remain distinct; no current package/license/API availability is asserted.\n\nPreserve the specific reusable patterns: batch committed view notifications and clean listener ownership; refresh all actually visible independent panels rather than importing a single-tab layout; restore records/references before observers activate without RNG/time/reward grants; derive help and validation from the actual named operation schema. Visible-but-locked can explain a public known cause while unseen remains undisclosed. Eligibility, candidate selection and paid effect commit are three operations; seeing/hovering does not select or draw. The scene/history transcript is not world history or a durable transaction log.\n\nIGT fakeTick omits lifecycle bookkeeping, a worker alarm may still run ticks on the main thread, peer bulk redshift needs actual dependency/boundary equivalence, and a shrinking offline bank can lose accounting before a later clamp. None supplies OOPS clock policy. A restored statechart restarting an invocation needs actual idempotent host effects; a cached fact/index must track committed revisions and observer knowledge. In-memory query transactions and CRDT convergence do not conserve paid stock, command cursors or elapsed rewards by themselves. Raw explorer/authoring data cannot be projected to players as known facts.\n\nThe catalog's one-realm milestone and Tauri-first shell preference are superseded by [current PROJECT](../../PROJECT.md) and AD39; current AD44/51/52 keep developer lead-first, useful shared seams and consequence-preserving compressed long play. Library/host/tool alternatives remain optional reference, not simultaneous work orders or dependency installs. Future source/price/license claims need fresh evidence only when a concrete adoption selects them; this reconciliation makes no external recommendation or legal certification. AD42 makes human review optional, while a selected runtime change retains its actual native/persistence/failure gate. No new framework, package, source collection, runtime or benchmark was run.",
+      "before_sha256": "e4afcd6987ae2325dca29b97dfe291e006926eb3dedc7aa6d84ef14f233be681",
+      "after_sha256": "b668a787d4d59008379542a3dbe63ce8f6987e36df263571924eb29ab7aa2325"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 632
+}

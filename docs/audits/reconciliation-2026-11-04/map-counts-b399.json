@@ -1,0 +1,360 @@
+{
+  "input": "docs/gm/dispatch/research-tech-2026-10-14/t5/ROADMAPS.md",
+  "graphs": [
+    {
+      "graph": 1,
+      "root": "grease_cleaning",
+      "expected": [
+        5,
+        9,
+        29
+      ],
+      "computed": [
+        5,
+        9,
+        29
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 2,
+      "root": "grease_cleaning",
+      "expected": [
+        4,
+        8,
+        20
+      ],
+      "computed": [
+        4,
+        8,
+        20
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 3,
+      "root": "glass_product",
+      "expected": [
+        5,
+        7,
+        21
+      ],
+      "computed": [
+        5,
+        7,
+        21
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 4,
+      "root": "glass_product",
+      "expected": [
+        4,
+        8,
+        19
+      ],
+      "computed": [
+        4,
+        8,
+        19
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 5,
+      "root": "record_sheet",
+      "expected": [
+        4,
+        10,
+        21
+      ],
+      "computed": [
+        4,
+        10,
+        21
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 6,
+      "root": "record_sheet",
+      "expected": [
+        4,
+        8,
+        19
+      ],
+      "computed": [
+        4,
+        8,
+        19
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 7,
+      "root": "room_lamp",
+      "expected": [
+        5,
+        7,
+        26
+      ],
+      "computed": [
+        5,
+        7,
+        26
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 8,
+      "root": "room_lamp",
+      "expected": [
+        4,
+        7,
+        19
+      ],
+      "computed": [
+        4,
+        7,
+        19
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 9,
+      "root": "temperature_reading",
+      "expected": [
+        4,
+        10,
+        26
+      ],
+      "computed": [
+        4,
+        10,
+        26
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 10,
+      "root": "temperature_reading",
+      "expected": [
+        5,
+        6,
+        19
+      ],
+      "computed": [
+        5,
+        6,
+        19
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 11,
+      "root": "workshop_engine",
+      "expected": [
+        6,
+        12,
+        31
+      ],
+      "computed": [
+        6,
+        12,
+        31
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 12,
+      "root": "workshop_engine",
+      "expected": [
+        4,
+        10,
+        22
+      ],
+      "computed": [
+        4,
+        10,
+        22
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 13,
+      "root": "infection_care",
+      "expected": [
+        5,
+        7,
+        22
+      ],
+      "computed": [
+        5,
+        7,
+        22
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 14,
+      "root": "infection_care",
+      "expected": [
+        4,
+        7,
+        19
+      ],
+      "computed": [
+        4,
+        7,
+        19
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 15,
+      "root": "message_network",
+      "expected": [
+        4,
+        10,
+        28
+      ],
+      "computed": [
+        4,
+        10,
+        28
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 16,
+      "root": "message_network",
+      "expected": [
+        3,
+        12,
+        23
+      ],
+      "computed": [
+        3,
+        12,
+        23
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 17,
+      "root": "record_production",
+      "expected": [
+        4,
+        10,
+        26
+      ],
+      "computed": [
+        4,
+        10,
+        26
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 18,
+      "root": "record_production",
+      "expected": [
+        4,
+        9,
+        23
+      ],
+      "computed": [
+        4,
+        9,
+        23
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 19,
+      "root": "abstract_explosive",
+      "expected": [
+        4,
+        6,
+        18
+      ],
+      "computed": [
+        4,
+        6,
+        18
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 20,
+      "root": "abstract_explosive",
+      "expected": [
+        4,
+        6,
+        18
+      ],
+      "computed": [
+        4,
+        6,
+        18
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 21,
+      "root": "fission_weapon",
+      "expected": [
+        9,
+        7,
+        37
+      ],
+      "computed": [
+        9,
+        7,
+        37
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    },
+    {
+      "graph": 22,
+      "root": "fission_weapon",
+      "expected": [
+        9,
+        8,
+        38
+      ],
+      "computed": [
+        9,
+        8,
+        38
+      ],
+      "matches": true,
+      "unreachable_definitions": []
+    }
+  ],
+  "count": 22,
+  "mismatches": [],
+  "scope": "Literal printed graph union; not schedule, resource feasibility, source law or playable reachability."
+}

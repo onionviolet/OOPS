@@ -1,0 +1,381 @@
+{
+  "schema": 1,
+  "batch": "B395",
+  "title": "Fifteen technology checkpoints and the research distinctions behind their summaries",
+  "at": "2026-11-05T04:09:17.927044+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t1/CHECKPOINT.md",
+      "ids": [
+        "C1–C21; 87-module producer inventory"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t1/REPORT.md"
+      ],
+      "disposition": "Code-fit source-only support, not five selected builds; moving source revision and old UI width do not establish current native proof.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "915aa9f38b18db19d3124795a8718fbf619cdfb4942e75f6f01e68dd270cbe2c",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t2/CHECKPOINT.md",
+      "ids": [
+        "W01–W49; 87 activity proposals"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t2/REPORT.md"
+      ],
+      "disposition": "World/source dossiers, five separately titled books and six nonhuman comparisons retain source/era qualifications. Historical one-realm gate is retired.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "dde1614d69308fe46fdb3b76d20030540d31c30d7d1be8bdce350076c1eefe89",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t3/CHECKPOINT.md",
+      "ids": [
+        "Q1–Q45; reference-depth limitations"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t3/REPORT.md"
+      ],
+      "disposition": "Translation changes understanding without necessarily gating plot; original-source/developer, inherited report and unavailable raw evidence remain distinct.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "814ff9a31466e58fe8820f31131f8b36860191d31e74ba938ddf4dd82c06468d",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t4/CHECKPOINT.md",
+      "ids": [
+        "H1–H26; source body/excerpt boundaries"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t4/REPORT.md"
+      ],
+      "disposition": "Diffusion, social technology and lost-knowledge models remain interpreted proposals; indexed excerpts are not unseen full bodies.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "eb78a16119bc7981730ffa0ae453da5355e19b7191101ae1add85ab9164f79da",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t5/CHECKPOINT.md",
+      "ids": [
+        "V; 22 graphs; 33 verbs; 11 paired targets"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t5/REPORT.md"
+      ],
+      "disposition": "Graph recomputation proves selected combinatorics, not actual native means, source legality or executed invention. Initial graph bug remains historical.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "b5eda72113fb06b48eb47d5952eb842b5465e059b46b71211d5049e4ecb512d2",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t6/CHECKPOINT.md",
+      "ids": [
+        "five planner APIs; 30 focused/658 full historical tests"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t6/REPORT.md"
+      ],
+      "disposition": "Pure deterministic module, frozen inputs and alias tests cover its old worktree. Later merge is owned by wave STATUS; no current commit or runtime consumer implied.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "ffa0e2b1eef6ac06d1754bda1eb56b7d0bcb5b4b004d85d237498f2a57a71c6c",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t7/CHECKPOINT.md",
+      "ids": [
+        "A1–A42; 13 world sheets; 26 graphs"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t7/REPORT.md"
+      ],
+      "disposition": "Learned procedure, body/source grant and concrete consumer stay distinct; uncertain transfer shortcut removed. Independent-life comparison retained after current lead-first route.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "09f35fd864cd223ced164a6d70272ace26f6ff2d9fa5a15096893a5b775aa09e",
+      "input_lines": 12,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t8/CHECKPOINT.md",
+      "ids": [
+        "B1–B35; immutable tech root; diffusion/history"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t8/REPORT.md"
+      ],
+      "disposition": "Resolved truth and immutable root differ from moving RNG cursor; bounded history is not durable invention history; fragment and witness scope preserved.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "63585715376c63d27046a3cd56e943393e6fa6c306027f477ffef01cab25f698",
+      "input_lines": 64,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t9/CHECKPOINT.md",
+      "ids": [
+        "Z1–Z7; QA design"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t9/REPORT.md"
+      ],
+      "disposition": "Independent oracle, metamorphism, shrinking, goldens, danger context, receipts and censored limits remain valuable QA design. Six syntax-checked snippets were not executed tests; T16 later delivery separate.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "7bddff874abb33813ab628c299ca0295eb0d45a9f7d8e17a49ef1517c70aa1bf",
+      "input_lines": 69,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          69
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t10/CHECKPOINT.md",
+      "ids": [
+        "U; 19 craft files; 76 cue ladders"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t10/REPORT.md"
+      ],
+      "disposition": "Sensory cues remain proposals with nonhuman/knowledge qualifications; available hooks and literal text do not prove useful gameplay or new hidden truth.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "e1f68db99e7f1eedba30c6b25f5acd14c59f5c6f90ec22b607571857ee2921fc",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t11/CHECKPOINT.md",
+      "ids": [
+        "N; 13 signal rows; N19–N23"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t11/REPORT.md"
+      ],
+      "disposition": "Saturation is not adoption; stock/chatter randomness, maker special-case and primitive truth do not supply actor evidence, diffusion or general provenance.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "943b06fbbf379a87ccb4a0977b8542daeb87bff543984afff15b78efb6e099a0",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t12/CHECKPOINT.md",
+      "ids": [
+        "K1–K18; SC1–SC10"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t12/REPORT.md"
+      ],
+      "disposition": "Completed research supersedes early started checkpoint; spacing/retrieval findings are bounded, no universal beginner luck, chores or mandatory forgetting.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "c92aa8d805ad5a66803921a5d6d0e05d309300eb2a61bc261346a07ab03c3085",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t13/CHECKPOINT.md",
+      "ids": [
+        "R1–R12; source/save/build/ownership design"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t13/REPORT.md"
+      ],
+      "disposition": "Completed architectural proposal supersedes started/absent-return notes; no accepted schema allocation, current live reservation or new settlement writer.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "7fc5565334cb1579b8110befb7d6631e61637328f87deee50d4ca1261a342692",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t14/CHECKPOINT.md",
+      "ids": [
+        "L0–L69; RC1–RC15; 60 cards"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t14/REPORT.md"
+      ],
+      "disposition": "54 structurally admitted and six expected unknown-panel rejects do not mean 60 native functional cards. In-memory grants/JSON roundtrip are not persisted/native discovery.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "07ca735e27c6d301d7054ac602d24d0a25186ad63ab5a54f0b73cb6efe0dc314",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t15/CHECKPOINT.md",
+      "ids": [
+        "M11–M69; CW; RC16–RC23"
+      ],
+      "classification": "Chronological research checkpoint with bounded evidence and later status qualification",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/t15/REPORT.md"
+      ],
+      "disposition": "Comic activity contracts and 12 Markdown cards remain original/inspired proposals. Indexed Fandom and secondary fallback are not verified exact issue panels or a card-validator run.",
+      "evidence": "Fresh full checkpoint body read, including scope, progress, final completion, source snapshots, original checks and remaining limits. No report, source file, book or external page newly read by this checkpoint review.",
+      "reopen": "No unfinished checkpoint writing inferred from early started/next paragraphs. If a related slice is later selected, recover current source and owners; runtime, source fidelity and optional human review retain separate states.",
+      "input_sha256": "f3a38eef8f3e2db5325e867653e98f183fbcc92eddf9a17536f047e33665c0ff",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "heading": "## Content reconciliation B395: checkpoint substance and retained evidence depth",
+      "body": "The full T1–T15 checkpoints were reviewed against the current wave routing, not just their completion labels. Their early started, missing-report, worktree, process, reservation, viewport and test-count lines remain chronological observations. T12/T13 already carry their recovered completed disposition. T6 pure-module evidence and T9 QA design are distinct from the later T16 merged QA delivery. The old one-realm/one-prestige gate in T2/T7 is retired; current lead-first direction retains later independent beginnings. Human review is optional under AD42, and current AD36 controls required checks.\n\nRetain substantive distinctions for later selected research work. T8's immutable root must not be replaced by a moving RNG cursor, and bounded recent history does not become durable invention provenance. T11 separates market saturation from actual adoption and truth primitives from received evidence; dynamic description hooks and a special-case maker stamp do not supply general diffusion or provenance. T12's spacing/retrieval findings support optional learning texture without chores, mandatory forgetting or a claimed universal beginner-luck effect. T4's historical mechanisms retain body/excerpt and interpretation boundaries; T3 preserves the important example of translation changing understanding without necessarily blocking plot progress.\n\nT5/T7 graph counts and feasibility witnesses do not supply materials, actual learned procedure, innate body/source or a native output consumer. T9's six syntax-checked snippets were not executed regression tests. Its independent oracle, shrinking, golden witnesses, contextual lint, immutable receipts and censored budget results remain useful QA ideas for a selected contract. T10's 76 cue ladders remain optional knowledge/sense-dependent presentation, with no gameplay or visual proof from their count.\n\nT14's 60 draft cards had 54 structural passes and six expected unknown-panel rejections. Preserve the actual panel decisions instead of forcing an unsuitable allowed panel to obtain a green validator result. In-memory grant and JSON equality do not establish a real acquisition, observation or durable native effect. T15's 12 Markdown cards did not run that validator; official summaries, author passages, indexed secondary extracts and exact unverified comic panels retain different source depth. No source acquisition, runtime LLM choice, inspector, schema allocation, research wave or native feature is selected by these checkpoints.",
+      "before_sha256": "2ad6254905955562448913d9068496fea4c24094952a3fdd0acdc288f1658cb5",
+      "after_sha256": "956e0f1dc5d54d736380d4bedb217da5db7361c0a3a50c6512c4d2db2e151eca"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 606
+}

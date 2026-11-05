@@ -237,3 +237,12 @@ Supplemental world-linked source: [Circle of Inevitability](SRC_circle-of-inevit
 | `templates/` | Cross-world design/audit/template folder, not a distinct canon source; no duplicate SRC |
 | `world-core-kit-2026-10-14/` | Cross-world design/audit/template folder, not a distinct canon source; no duplicate SRC |
 | `world-depth-2026-10-13/` | Cross-world design/audit/template folder, not a distinct canon source; no duplicate SRC |
+
+
+## Content reconciliation: catalogue partition and source reach, 2026-11-04 (B363)
+
+The complete structured inventory and both prose coverage tables were reviewed. Recounting the JSON gives119unique digest subjects:57skipped and62with outputs. Those62split34lead-only and28with bounded/mixed evidence; the separate world-linked supplemental card explains the report’s63cards/29bounded-or-mixed/34lead-only totals. This arithmetic validates the inventory partition only. It does not independently read119digests,63cards,140claims or any whole source, nor prove every historical output remains available now.
+
+Preserve V1–V5’s source limits: selected digest/notes sections, bounded qualified local analyses, inaccessible raw-cache paths, indexed extracts without verified revision and specific supplied editions are different evidence. A source manifest title is not a semantic read; a wiki’s “shown” claim remains secondary; official overview, direct event, character testimony and deduction have different reach. A skipped thin/blocked digest means no supported finding in the consulted material, not absence throughout the franchise. Historical copies and cross-world/template folders do not become additional independent sources.
+
+R1–R5 and fourteen patterns preserve useful options without selecting a new body/genetics system or build order. Current LOTM/Harry priorities and exact source/rule owners govern later work. Original example names, biological ancestry, learned family practices, source carriers, social pedigree and offices retain distinct meanings; film/book/sequel/branch evidence is not silently fused. The old missing-cache/worker/source qualification observations are historical, not a new recovery/acquisition order. No digest, source card, primary passage, PDF, source URL, private save or gameplay behavior was inspected beyond these five actual documents.

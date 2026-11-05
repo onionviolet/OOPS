@@ -74,3 +74,12 @@ Read-only GitHub API checks and pinned-source inspection established the revisio
 Preserved from the initial research pass before the user's v0.6 foundation choice:
 
 > Recommendation: continue the small playable event on our current fork, adapt independent improvements as needed, and assess a coordinated v0.6 migration before committing to persistent companions or broader combat changes. We can follow useful upstream engineering while keeping our own worlds, progression and stories.
+
+
+## Content reconciliation: pinned upstream research, 2026-11-04 (B353)
+
+The verified snapshot above is explicitly October 1 research. “Current,” open PR, inaccessible content, branch-tip, commit-count and source-absence claims describe those pinned observations; this reconciliation does not refresh upstream. Hosted v0.5 release evidence and development v0.6 source remain different surfaces. Contributor proposals remain separate from upstream acceptance. The later v0.6 choice and adoption receipt already supersede the initial small-event-first recommendation; do not schedule another foundation migration from this old proposal. [Migration ownership](V06_MIGRATION.md) and PROJECT.md own the fork’s actual foundation/status.
+
+Preserve the useful port boundaries: shared actor objects do not supply goals, durable injury or off-screen scheduling; an encounter’s cleanup must not erase real history; a sequential randomized reward processor is not a durable transaction merely because its vocabulary fits. Native content/dependencies, saved status and unknown extension namespaces require real compatibility checks. A matching game-version string is insufficient, and a decoder that publishes bytes before semantic load can damage the prior saved root. Preserve rejected-import protection, retained content, earned progress and committed result identity through the selected admission route.
+
+The five adaptation rows and three development approaches remain alternatives with costs, not standing work orders. Reuse current seams under AD51 rather than preemptively layering every possible upstream model. The listed migration gate proves only its selected route/event/fight and generated fixture round trips if actually executed against the changed inputs; it is not all-content or release proof. Generic human review is optional under AD42. No fresh source, remote, migration, save or browser evidence was produced here.

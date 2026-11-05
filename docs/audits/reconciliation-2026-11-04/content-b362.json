@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "batch": "B362",
+  "title": "Feature-wave structured coverage and later owner pointer",
+  "at": "2026-11-05T03:00:40.432695+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/feature-wave/features/COVERAGE.json",
+      "ids": [
+        "Nine feature rows",
+        "Thirty repository dispositions",
+        "Eight backlog families",
+        "Expansion5–8",
+        "Book-world subtleties",
+        "Nested lifecycle/chains",
+        "Continued-life amendments"
+      ],
+      "classification": "Historical expanded source/native/UI/save/build map, behavior explicitly unverified",
+      "owners": [
+        "docs/gm/feature-wave/features/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve all nine row mechanisms and every amendment, with exact nested/continued-life/compatibility evidence boundaries; distinguish source definitions, profile coverage and durable command semantics from actual gameplay.",
+      "evidence": "Read all394lines across three bounded ranges. Reviewed every source/native/UI/save-consumer list, all nine rows, thirty-row disposition counts, compatibility policies, lifecycle stages, chain/control/command counts and final review/behavior fields.9+15+4+2=30;53player+9NPC=62chain commands. No source paths, source profiles, build maps or contracts tested by proxy.",
+      "reopen": "For selected current work inspect actual semantic consumer and current source/entry/persistence/UI evidence; no rerun of a completed source wave or universal implementation/adoption claim.",
+      "input_sha256": "0f589097fbe7d8e08e20fc6aed285711e9cf2d5c914531412c56327ce5b747c2",
+      "input_lines": 394,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          394
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT.md",
+      "ids": [
+        "Historical scope pointer",
+        "652command registry",
+        "222local sources",
+        "CL-NR-01",
+        "Explicit8/policy1",
+        "Deferred gates"
+      ],
+      "classification": "Historical finite checkpoint already routing to later player-agency owner",
+      "owners": [
+        "docs/gm/feature-wave/features/CHECKPOINT.md",
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Retain its source/build snapshot and later pointer rather than treating the older feature map as the latest runtime or rebuilding the whole wave.",
+      "evidence": "Read complete11-line checkpoint including later owner pointer, all registry/build/native count clauses, exact compatibility statement and terminal deferred acceptance. No current bundle/runtime/process check performed.",
+      "reopen": "Use the later current domain owner and selected current source; retain this receipt only for unchanged relevant evidence.",
+      "input_sha256": "662722b016ac79767b8b4e3f863c3139e414b467a137dcabc5ca852117a13e49",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT.md",
+      "heading": "## Content reconciliation: full feature map and amendments, 2026-11-04 (B362)",
+      "body": "The full394-line coverage map retains nine distinct finite mechanisms: conserved object variants with loans/wear/refit; mature methods and fixed two-opponent native battle; willing funded residents and mixed work itineraries; Tidemark’s separate native owners; eight Backlog proof families; current cost/blocker/account legibility; pinned Ink cursor/host consequence publication; selective repository absorption; and earned continued personal life. Source/native/UI/save consumer lists and allListedSourceContentBundled do not establish their gameplay or atomicity. Every row still states implemented-unverified, and the later owner pointer above supersedes this older scope as current project status.\n\nPreserve real agency and costs within those mechanisms: borrowed custody is not copied ownership, a report is not private NPC state, a mission offer/acceptance/outcome is not actual extraction/hub arrival/settlement, and an earned personal passage is not another mission or free stock grant. The map’s once-only job/demand/funds receipts and return/cancellation semantics need their actual consumers. Existing household/native support can matter without universally forcing chores, errors or balancing taxes on stronger means. A mere UI account or Ink response is not a durable reward unless the same guarded candidate successfully commits.\n\nThe repository9adopted/15already-covered/4not-applicable/2rejected total30; these are dispositions, not30built mechanics. Nineteen source profiles are not nineteen native worlds. Nested3chains/62commands split53player/9NPC; registry/control/site/person/phase totals describe this defined scope rather than equal gameplay depth. Qualified early-service source frame, original residence/credit/method choices and retained old Ink content remain separate from full source-world parity. The17continued-life commands and three personal controls preserve finite actual workers/output consumers without duplicating reward, time or custody owners.\n\nExpansion5/6/7/8, battle1/2/3, Backlog1/2 and Ink wrapper/content versions answer different compatibility questions. Explicit choice/enrollment differs from absent defaults; an older reader’s deliberate rejection differs from silent stranding or lossless support. Local calendars advance under actual admitted presence/clock contracts, not arbitrary global time or free off-screen production. Existing one-prestige implementation scope is historical, not the later retired product gate. No source/readback/build claim was refreshed, no linked source matrix or profile body was credited as read, and no runtime, save, UI/browser or current integration was verified by this reconciliation.",
+      "before_sha256": "662722b016ac79767b8b4e3f863c3139e414b467a137dcabc5ca852117a13e49",
+      "after_sha256": "ec1d435317778168bd17fdb3c741d11f0a4318b5c7d19f21b24d4009aa6faddd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 690
+}

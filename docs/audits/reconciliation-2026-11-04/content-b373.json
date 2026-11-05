@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "batch": "B373",
+  "title": "Desktop UI preliminary findings, corrections and G1 coverage",
+  "at": "2026-11-05T03:30:18.844743+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/AUDIT_COMBAT.md",
+      "ids": [
+        "D1 combat ranked 1–2",
+        "final coordinator addendum"
+      ],
+      "classification": "Historical desktop UI audit and qualified branch-delivery evidence",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Initial suffix finding was source-only because the legacy combat_div route was invalid; the final native shield journey reproduced and removed the suffix. Connection review/cancel and discovered route were exercised, not a committed return transition. Preserve original chronology and useful design proposals; consolidate qualification in the existing checkpoint.",
+      "evidence": "Actual complete file content read. These are attributed October 25 receipts, not a fresh source, browser, screenshot, integration or installed-app verification.",
+      "reopen": "Reopen only for a selected current UI task or a changed evidence input; do not relaunch old routes or dispatch from historical instructions.",
+      "input_sha256": "0d7b59fd80a90d30962997a0b10c0b2a855cd0849a821105bda124a99baf3d31",
+      "input_lines": 64,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/AUDIT_CULTIVATION.md",
+      "ids": [
+        "D1 cultivation route limits",
+        "D1-C2/C3/C4 final qualification"
+      ],
+      "classification": "Historical desktop UI audit and qualified branch-delivery evidence",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Initial Mistglass/workshop captures were duplicated entry views, not learning or crafting proof. The final declared craftsman/crafting fixture, actual learn/practice/reload and native workshop/herbal views qualify those omissions; fixture prerequisites do not prove natural acquisition time. Preserve original chronology and useful design proposals; consolidate qualification in the existing checkpoint.",
+      "evidence": "Actual complete file content read. These are attributed October 25 receipts, not a fresh source, browser, screenshot, integration or installed-app verification.",
+      "reopen": "Reopen only for a selected current UI task or a changed evidence input; do not relaunch old routes or dispatch from historical instructions.",
+      "input_sha256": "f9da097d96126aef28df8ddc789f3a7f20bb066e97bebb8926eb9f69a98d3f7e",
+      "input_lines": 42,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/AUDIT_SHELL.md",
+      "ids": [
+        "shell F1–F2",
+        "final coordinator addendum"
+      ],
+      "classification": "Historical desktop UI audit and qualified branch-delivery evidence",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Mixing grammar, distinct All panels/shortcut labels and late 1440px picker bounds have subsequent candidate evidence. Initial missing recipes/manifest and fallback fonts are setup limits, not established product defects or final typography evidence. Preserve original chronology and useful design proposals; consolidate qualification in the existing checkpoint.",
+      "evidence": "Actual complete file content read. These are attributed October 25 receipts, not a fresh source, browser, screenshot, integration or installed-app verification.",
+      "reopen": "Reopen only for a selected current UI task or a changed evidence input; do not relaunch old routes or dispatch from historical instructions.",
+      "input_sha256": "5c9c3a4db39355ca91b04e2450c63d30dc201591e8a6fddb49a0de8fbfc1b3ba",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/AUDIT_HOUSEHOLD.md",
+      "ids": [
+        "household F1–F3",
+        "eight coverage families",
+        "qualified registry groups"
+      ],
+      "classification": "Historical desktop UI audit and qualified branch-delivery evidence",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Trade footer and manor grouping have later paired evidence; long all-expanded staff views do not establish default navigation burden. Initial trade predates native button conversion; keyboard Cancel/shared Village return, not Accept settlement, is the later exercised route. Stock/family/gated registry rows were initially unexercised, not empty defects. Preserve original chronology and useful design proposals; consolidate qualification in the existing checkpoint.",
+      "evidence": "Actual complete file content read. These are attributed October 25 receipts, not a fresh source, browser, screenshot, integration or installed-app verification.",
+      "reopen": "Reopen only for a selected current UI task or a changed evidence input; do not relaunch old routes or dispatch from historical instructions.",
+      "input_sha256": "3df4678672cfbe088cd9625eac917955d9199aa0c626a379512df26bc1bf573c",
+      "input_lines": 114,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          114
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md",
+      "ids": [
+        "D1-C1–C11",
+        "D1-S1–S12",
+        "D1-L1–L3",
+        "G1-C1–C3"
+      ],
+      "classification": "Historical desktop UI audit and qualified branch-delivery evidence",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Read original delivery and later G1 resume together: initial 56/73 coverage advances to qualified 72/73 surfaces, with Optional worlds blocked by exact missing content. Runtime branch identities, baseline/resume evidence and old full-suite limitations remain distinct. Combined owner integration is separate; human taste review is optional under current AD42, not a mandatory completion barrier. Preserve original chronology and useful design proposals; consolidate qualification in the existing checkpoint.",
+      "evidence": "Actual complete file content read. These are attributed October 25 receipts, not a fresh source, browser, screenshot, integration or installed-app verification.",
+      "reopen": "Reopen only for a selected current UI task or a changed evidence input; do not relaunch old routes or dispatch from historical instructions.",
+      "input_sha256": "6209b393a5f14d27bac595b8ee9d85f14cb4623e5c0f3b2e3e1ebc4e436becf5",
+      "input_lines": 148,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          148
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B373: preliminary audits and later coverage",
+      "body": "The original [combat](AUDIT_COMBAT.md), [cultivation](AUDIT_CULTIVATION.md), [shell](AUDIT_SHELL.md) and [household](AUDIT_HOUSEHOLD.md) audits and this full checkpoint were read together. Their early omissions and later coordinator corrections form one chronological record. The legacy combat selector, duplicated Mistglass entry captures, mistaken panel-picker conclusion, tooltip capture artifact, missing optional manifest and initial fallback fonts cannot establish current product defects. The final native shield suffix reproduction/removal, actual Mistglass learning/practice/reload, declared crafting prerequisites, paired manor/workshop views and picker-width checks are the specific later evidence recorded here, not proof of every world state or naturally earned fixture prerequisite.\n\nHousehold F1 retains the concrete trade-footer geometry problem and later candidate correction; F2 retains a possible high-frequency navigation concern, qualified by its artificially all-expanded capture; F3 retains disabled-reason readability as useful design context. Native button conversion and keyboard Cancel/shared Village return do not prove Accept settlement. Connection review/cancel likewise does not prove a committed continuation transition. The source absorption ledger retains source attribution and skipped gameplay ideas as proposals in their owners, without importing new time, reward, entitlement or discovery law.\n\nThe original 56/73 represented surfaces and seventeen source-only rows are superseded for that branch by the later G1 resume's qualified 72/73 coverage. Optional worlds remains an exact absent-content limitation, not a failed native panel. Old baseline files and resume identities stay separate; the original full suite predates late fixes and G1, with focused checks scoped as recorded. These counts are historical receipts, not a renewed census. Combined integration, packaging and installed adoption have no new evidence from this reconciliation. Under current AD42, Weibao's visual/play review is optional review, so the old “remaining authoritative gates” wording cannot make human acceptance a compulsory gate. No old merge, push, installation, contact or dispatch instruction is renewed.",
+      "before_sha256": "6209b393a5f14d27bac595b8ee9d85f14cb4623e5c0f3b2e3e1ebc4e436becf5",
+      "after_sha256": "716309c61feee18d2024a26442a97e3496f81f162f922395930ab9b320fb82e6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 676
+}

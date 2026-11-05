@@ -44,3 +44,12 @@ PLAY-ready on a fresh game is about 40% compile (fixed by size), 40% module-eval
 4. Hosting: serve `dist/bundle.js` with long-lived cache headers and brotli (1.4 MB gzip vs 5.5 MB raw) so cold load approaches warm.
 
 Not run: old-save load tests, systems workshop check and `node --test`, since no shipped file changed (only `scripts/perf/startup.mjs` and this note were added).
+
+
+## Content reconciliation B309: measured scope and conditional proposals
+
+All PF4 baseline, profiler, experiment, decomposition and four proposal sections were content-reviewed. Keep this as a dated measurement: exact old bundle, fresh/crowded fixtures, cold/warm conditions, three-run medians and severely loaded host. Load event, PLAY visible and PLAY-ready measure different intervals. Inclusive registry, compileStructuredPack and main-module times overlap; adding them would double-count. The approximate40/40/20 shares and the0.6x build-only conclusion describe this input and instrumentation, not a present lower bound or guaranteed performance gain. Localhost transfer and warmed Chrome compilation do not establish remote hosting, another browser or today's bundle.
+
+The rejected JSON plugin and absent dynamic-import experiments retain their then-current scope. Sub-millisecond Node literal evaluation does not certify full browser parsing, initialization or future larger content. A stale source assertion about no import() calls is not a current code review. Long cache lifetimes require correct asset identity/invalidation; compressed transfer is not automatically a warmer evaluation/render cache. Retain legal notices and upstream attribution.
+
+The validation-skipping proposal needs a selected admission and trusted-input boundary; an old test run does not certify different shipped inputs, runtime packs or mutable content. Lazy idle validation cannot safely discover invalid data after its effects were already admitted. Deferring registry work or offscreen rendering must retain initialization ordering, side effects and actual state/knowledge consumers, and distinguish faster first paint from delay at first useful action. These are useful conditional options, not selected patches or a requirement to optimize before the next playable slice. Current desktop targets qualify the old1366 measurement viewport. No benchmark, build, script, runtime or test was run by this review.

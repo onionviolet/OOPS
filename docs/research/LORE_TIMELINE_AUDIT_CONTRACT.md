@@ -107,3 +107,12 @@ slice. Check that invalidated events do not fire and unaffected independent plan
 can continue. Persistence work also needs save/reload/import, selected source
 revision compatibility and spoiler-safe presentation. These are future gates;
 this research pass does not claim gameplay verification.
+
+
+## Content reconciliation: chronology-contract applicability, 2026-11-04 (B355)
+
+L1–L5 remain useful for selected source/lore work: evidence quality, continuity, claim type and project acceptance are independent; occurrence, discovery, publication and actor knowledge must not be collapsed. The stable event/causal map records actual support and uncertainty rather than inventing exact dates or a world law from genre expectation. A causal expansion is a labeled proposal until its actual authority and implementation say otherwise. A linked source/reference remains unread unless its own content was inspected.
+
+The opening acquisition scope and local research path describe October 11 work, not an instruction to collect books during this reconciliation. Current library/coverage/tool owners govern any future authorized acquisition; inaccessible material stays an explicit gap. Public franchise information and private altered/randomized truths follow current sealed-secret rules, while raw source/recreation material retains its private storage boundary. No new source corpus, private report or lore claim was inspected here.
+
+L5 closes its frozen inspected range, not an entire work or every future world. Baseline/disturbance/delay/knowledge scenarios and persistence checks apply where a selected implementation actually changes those behaviors. They do not create a new all-world event engine, require every research pass to implement gameplay or supersede current priorities. Source manifests, locators and exact proof states must remain with their owners; no research-completion or runtime acceptance is newly asserted by this fold.

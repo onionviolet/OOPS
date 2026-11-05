@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "batch": "B346",
+  "title": "MoL coverage and Zorian plans: all family/chapter rows, actual read states and budget deviations",
+  "at": "2026-11-05T02:28:50.693295+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+      "ids": [
+        "24familyrows/everyGMjoin",
+        "7nonrulekinds/C1–4/checks",
+        "G16laterupdate"
+      ],
+      "classification": "Full MoL source/coverage/developer plan with exact table arithmetic and later read-state reconciliation",
+      "owners": [
+        "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+        "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+        "docs/LEAD_LIFE_RULES.md"
+      ],
+      "disposition": "Preserve all stage/family/chapter rows and budget chronology; distinguish prior census, later extraction, source-qualified sample and unintegrated runtime. Correct stale source-coverage lesson without claiming gameplay.",
+      "evidence": "Whole local bodies read;44row word/beat/item tables recomputed. No EPUB, private extraction, primary locator, meter, source/runtime or current campaign checked.",
+      "reopen": "Use current named stage/consumer and exact source claim where needed; old coverage flags and budgets do not authorize rereads, workers or new world selection.",
+      "input_sha256": "c15ec70cbf16c0aedc5ef6f52be70379c81bc6d3462920ddb95b782c301fc6e7",
+      "input_lines": 101,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          101
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_2026-11-03.md",
+      "ids": [
+        "planusedledger",
+        "44chapterrows/5repairs",
+        "20itemreview/limits/stageintegration"
+      ],
+      "classification": "Full MoL source/coverage/developer plan with exact table arithmetic and later read-state reconciliation",
+      "owners": [
+        "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_2026-11-03.md",
+        "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+        "docs/LEAD_LIFE_RULES.md"
+      ],
+      "disposition": "Preserve all stage/family/chapter rows and budget chronology; distinguish prior census, later extraction, source-qualified sample and unintegrated runtime. Correct stale source-coverage lesson without claiming gameplay.",
+      "evidence": "Whole local bodies read;44row word/beat/item tables recomputed. No EPUB, private extraction, primary locator, meter, source/runtime or current campaign checked.",
+      "reopen": "Use current named stage/consumer and exact source claim where needed; old coverage flags and budgets do not authorize rereads, workers or new world selection.",
+      "input_sha256": "4944234879b3f5a2d905034aaa093e6dbd49a7a358e725c32d0f1b56b7d2b3c1",
+      "input_lines": 86,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          86
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_PLAN_2026-11-03.md",
+      "ids": [
+        "F1/AU13/stopreplacement",
+        "44chapterStepA/20locatorreview",
+        "Notdone/historicalpilot"
+      ],
+      "classification": "Full MoL source/coverage/developer plan with exact table arithmetic and later read-state reconciliation",
+      "owners": [
+        "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_PLAN_2026-11-03.md",
+        "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+        "docs/LEAD_LIFE_RULES.md"
+      ],
+      "disposition": "Preserve all stage/family/chapter rows and budget chronology; distinguish prior census, later extraction, source-qualified sample and unintegrated runtime. Correct stale source-coverage lesson without claiming gameplay.",
+      "evidence": "Whole local bodies read;44row word/beat/item tables recomputed. No EPUB, private extraction, primary locator, meter, source/runtime or current campaign checked.",
+      "reopen": "Use current named stage/consumer and exact source claim where needed; old coverage flags and budgets do not authorize rereads, workers or new world selection.",
+      "input_sha256": "575de3ed5e05aedcead7326a269fc16ca857ccc078b32b6fbd83bd2f8866cd7c",
+      "input_lines": 105,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md",
+      "ids": [
+        "S0–S9/M1–8",
+        "WAalignment/15LOTMlessons",
+        "newcommits/firstslice5reasons",
+        "P1–5/carrydecisions/stagelinks"
+      ],
+      "classification": "Full MoL source/coverage/developer plan with exact table arithmetic and later read-state reconciliation",
+      "owners": [
+        "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md",
+        "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+        "docs/LEAD_LIFE_RULES.md"
+      ],
+      "disposition": "Preserve all stage/family/chapter rows and budget chronology; distinguish prior census, later extraction, source-qualified sample and unintegrated runtime. Correct stale source-coverage lesson without claiming gameplay.",
+      "evidence": "Whole local bodies read;44row word/beat/item tables recomputed. No EPUB, private extraction, primary locator, meter, source/runtime or current campaign checked.",
+      "reopen": "Use current named stage/consumer and exact source claim where needed; old coverage flags and budgets do not authorize rereads, workers or new world selection.",
+      "input_sha256": "55498f015496c199d0cde92be425e9cfb4eb045cec0311473a58921c0923d15b",
+      "input_lines": 149,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          149
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md",
+      "heading": "## Content reconciliation B346: full coverage record and developer-plan limits",
+      "body": "All101 original lines were reviewed, including every family row, non-rule row, C1–C4, checks and G16 update. Preserve the stated mode: this joins prior extractions/classifier labels to keyword-inspected built files; it is not a new EPUB read. The106shards/7282census rows/2309registry IDs/780scenes/1063rule IDs are historical merge outputs, not1063 independently qualified mechanisms or a freshly verified entire book. Family labels are expressly one unaudited Luna pass; grep presence is not behavior or exhaustive absence.\n\nThe visitor branch is not the Zorian seat. A household, lamp, guest pass or people-knowledge seam can be a useful incumbent without supporting the protagonist's body, actor binding, magic, reset or source trajectory. No mind/divination/ritual keyword in selected MoL files does not prove no relevant engine seam exists elsewhere. Counts of spells, families, places or three worlds sharing a slug do not establish semantic portability; actual source, carrier, scope, timing and consumer matter under AD51. An existing seam can need a different adapter rather than a duplicate per-world service.\n\nThe stated wards, customs, mana costs, calendar, loop and taught methods need their actual source before factual adoption. A sparse numeric-cost/date search cannot establish no numbers/dates anywhere or force every value into an invented band; distinguish missing evidence from source silence. Checked source quantities are anchors under AD49, while unknown per-spell numbers stay unknown. Source report dates, reader locators, relative time, chronology and loop iteration must not collapse into one global calendar. Grouping weather/war/actors into family labels does not prove a complete event resolver.\n\nC4's no-unread-volume claim concerns the report's held/prior extraction boundary; it is not a proof that every relevant source passage, epilogue or sequel was qualified. G16's later44chapter full-text extraction narrows the older source-coverage language but still leaves scene integration, dates and reader omissions unresolved.20of20 supported samples prove that selected sample, not all items or completeness. The sealed lead scenes remain unopened here and are referenced by scope/status only. This review did not open private ledgers or reveal their content.\n\nThe old source line counts, visitor record counts and below-floor combat status are snapshots. Current Zorian or visitor readiness needs actual current inputs; a census cannot newly complete a stage or remove its delivery floor. Current LOTM-first/Harry order remains, and AD52 permits compressed repeated months while retaining actual choices, actors, costs, carry and observed evidence. No new seam, actor binding, source claim, book read, clock, quest or gameplay verification was produced by this full census review.",
+      "before_sha256": "c15ec70cbf16c0aedc5ef6f52be70379c81bc6d3462920ddb95b782c301fc6e7",
+      "after_sha256": "1cddf9a4f61e327003946511e5a6a70bf46057a11169eea2d32e78c2f89168c7"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_2026-11-03.md",
+      "heading": "## Content reconciliation B346: full coverage record and developer-plan limits",
+      "body": "All86 original lines were reviewed, including the complete plan-versus-used ledger, every44chapter row, repair/review limits and final integration status. A document arithmetic check confirms the44printed word counts sum to334139; the three printed repair exposures sum to46462, giving380601 total loaded words as reported. The table's first-pass item counts sum to1710, but their variable grain does not establish1710 unique mechanics or complete claims.\n\nThe P1 table shows52+44=96items, whereas the prior plan/pilot note reported99. The reports do not explain whether revision, deduplication or counting conventions account for the difference; preserve both counts as unresolved rather than inventing a correction. The source word total for c56+c57 is12834, distinct from13632 with locator tags reported earlier. More payload characters/tokens need not mean more source text. Only two printed chapter word counts exceed12000, a correction to the plan's three-chapter claim; some multi-chapter shards can separately exceed that cap.\n\nFull text loaded and extracted by a reader is a genuine reported coverage stage, but not evidence that nothing was missed, every speaker/claim is correct or all source locators exact. The20of20 sample and earlier11/10 checks retain their sample sizes and one off-by-one locator, while the ungrounded facility-head label and loose trust/foreknowledge items remain limitations. Density can flag thin returns but is not a completeness or correctness metric. Repairing five thin chapters does not qualify every other light chapter or turn more rows into more source truth.\n\nThe report candidly records16oversized shards, unmeasured responses/context and a +19point five-hour window against the default. Its coordinator's interpretation of a user concern as a broader go-ahead was explicitly that coordinator's inference, not the user's instruction or a change to AU7. Weekly+2 does not replace an any-window limit. Preserve the deviation rather than treating a clean payload or completed run as retroactive authorization. Tool-call counts do not prove response counts; summed host tokens are not present quota use.\n\nNo novel was reread, budget meter queried or reader launched here. The extracted fields are still not merged into stage/scene records, and relative DATED items do not settle absolute loop dates by themselves. Calendar anchoring can require additional consequential source checks if an uncertainty survives; “not more reading” does not prohibit that targeted review. Current AD51/52 support useful shared consumers and compressed loops without turning this research run into Zorian gameplay or a new priority ahead of Klein/Harry. No rule, stage, source claim, budget permission, UI or runtime was adopted or newly verified.",
+      "before_sha256": "4944234879b3f5a2d905034aaa093e6dbd49a7a358e725c32d0f1b56b7d2b3c1",
+      "after_sha256": "66c9c5da59c5b1c43dd8caccd69106c79b671c0ca7452d57a14e826b85206b88"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_PLAN_2026-11-03.md",
+      "heading": "## Content reconciliation B346: full coverage record and developer-plan limits",
+      "body": "All105 original lines were reviewed, including F1, AU13, all44StepA rows, locator review, historical stopped state and appended pilot. Its opening correctly marks the plan superseded by the later run; keep the stopped/no-pilot paragraphs as dated chronology, not present execution status. The distinction remains important: October shard reading existed even while the desired Zorian fields were absent, and literal keyword-only scene tables did not mean all44raw chapters were unread.\n\nDocument arithmetic confirms334139source words,831beat lines and432undated beat lines. The printed census column sums to8475; this is not directly reconciled with the whole-book7282census-row total in the census owner. Variant/repeated files or different row kinds may explain the scope difference, but were not established here. Do not compare them as identical unique counts or infer over100percent source coverage. The beat table already warns that variants inflate its line counts. The20row first220character review is locator-subject alignment, not full semantic claim support; the later pilot's11checked items is a separate stronger sample.\n\nThe table lists two individual chapters over12000words (c91 and c103), not three. ceil(total/12000)=28 is a lower-bound arithmetic partition, not proof that chapter/scene boundaries produce28 compliant shards; overlong chapters need splitting or authorized exception rather than simply their own oversize shard. The pilot's12834source words and13632tagged words explain different denominators, not a new book-length measurement. Its99items differ from the later P1table96 with no explanation supplied. Keep that discrepancy explicit.\n\nThe one-point meter change is rounded, shared with coordinator turns and measured over an interval; it is not an exact per-shard price or a strict one-point upper bound without rounding/window assumptions. The28point and single-digit-weekly projections were estimates, not approved spend. The default any-window bound was not replaced by the weekly meter. The later completed run's own report records its overrun and inferred permission; that does not erase the original stop or authorize further readers here.\n\nThe replacement plan is historical research planning, not a current request for another yes or dispatch. Current owners decide which field/locator is actually needed; a later targeted read can still be justified by a consequential unresolved claim without relaunching a whole-source pass. Current source/held/meters are not verified by the old IDs and dates. Preserve every row, prior review state and budget limitation; no source was reread, model run, usage queried or stage implemented in this reconciliation.",
+      "before_sha256": "575de3ed5e05aedcead7326a269fc16ca857ccc078b32b6fbd83bd2f8866cd7c",
+      "after_sha256": "a7b5987bd00ca4c9019822ebeb57ef40dfb2afb5548ec0a315a50038cb5550d0"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md",
+      "heading": "## Content reconciliation B346: full coverage record and developer-plan limits",
+      "body": "All149 original lines were reviewed, including every stage/mechanism row, WA alignment, LOTM lesson, newer-commit fold, stop reason and packet. Preserve the key scope: proposed Zorian developer build-through, not selected ordinary entry or completed world. A visitor's player-bound commands do not establish a Zorian actor/knowledge/body consumer. A new pack key, instance reuse and reset-row shape remain prototype/compatibility choices, not user decisions resolved by a paper test. The old behind-master statement and release-of-Klein-files condition need live coordination before any new write; historical hashes/reservations do not establish current ownership.\n\nThe plan's repeated not-read/keyword-only claims for c56–c82/c90–c106 are superseded as source coverage by the G16 result reviewed alongside it. October shard reading and November44chapter extraction are both reported evidence; scene integration, exact dating and missing mechanisms remain open. The source-coverage lesson row is updated with that distinction and a link, preserving the exact original line in amendments. This does not claim a fresh novel read or full correctness of either extraction. The later20item sample supports its own claims, not every extracted field or a full playable arc.\n\nS6's Threshold endpoint is the plan author's finite proposed revision, not a substitute for the broader lead/world horizon. S7–S9 later pressures still inform contracts under WA48/WA56/AD44. The statement that those stages merely add optional fields is a design hypothesis, not proven extensibility. First useful shared seam work under AD51 can begin without implementing every later faculty, but known late source mechanisms must not be ignored. A plan ending in a gap list is useful accounting; an implemented wave still ends in an actual complete playable slice rather than paper gaps alone.\n\nM4's early decay/staleness language is qualified by the same plan's later retirement of carry-with-decay. Memory age, source version, changed world facts and actual carrier failure are distinct from an automatic skill/knowledge penalty on each restart. Re-winning trust follows actual other actors' memory and mechanisms, not a universal relationship reset. A timed room's budget, reset triggers, witness/carry set and death-last-day tie need exact source and real clock/consumer. The numbered cast-efficiency examples must keep checked quantities distinct from assumed per-spell costs; the census did not establish all unnamed values absent.\n\nS3's below-floor combat cannot become playable merely by storing the expected outcome as an asserted fact. A fixture can record that limitation; AD43 completion needs the actual relevant command/consumer and rebuilt journey. Canon policy can pin a source result while state matches, but it cannot hide absent mechanisms, teleport an actor to a next beat or erase partial costs unless the selected source/transition really supplies that effect. Compressed skipped months/cards retain the CLR6/AD52 content that matters. A chain of isolated fixtures does not establish a natural opening-to-stage route or all alternate lives; distinguish source-edited/focused-tested/built/native/persisted rows as the plan itself recommends.\n\nWA51/WA42 references are useful proposed supplier/relationship refinements, not blanket adopted rules. Current AD51 does not require a second world as a precondition; an existing different-world fixture can validate shared behavior without authorizing its whole build. Current Klein/Harry priorities and explicit authorizations govern rather than the old committee/commit/readers packet. Generic human review is optional under AD42. No actor rewrite, reset, calendar, pack, skill, current source or gameplay verification was implemented by this plan reconciliation.",
+      "before_sha256": "55498f015496c199d0cde92be425e9cfb4eb045cec0311473a58921c0923d15b",
+      "after_sha256": "73486a5c65af64a10e4a0cfe2f17f4734bf152fe845cc1e8b4191fdef287b6a4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 732,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md",
+      "from": "| **Source coverage honesty** (WL1 bind volume and edition, WL2 inventory before claiming entirety, WL3 truncation is a gap) | ZS16-ZS18 rest on keyword windows over c56-82 and c90-106. Those chapters stay \"not read\" in every status cell, and S7-S9 start with a full-text reader pass, not the keyword rows |",
+      "to": "| **Source coverage honesty** (WL1 bind volume and edition, WL2 inventory before claiming entirety, WL3 truncation is a gap) | Earlier ZS16–ZS18 scene tables used keyword windows, but October shard reads and the later [G16 full-text extraction](MOL_G16_COVERAGE_2026-11-03.md) cover c56–c82 and c90–c106 at their reported read states. Reuse those results; scene/field integration, uncertain dates and claim qualification remain separate work. Do not report these source ranges as wholly unread or dispatch an automatic full reread. |",
+      "reason": "Replace superseded keyword-only/unread instruction using the actual later G16 owner; preserve original exact row."
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_PLAN_2026-11-03.md",
+      "from": "| N | ceil(334,139 / 12,000) = **28 shards** (the card's rough 45 was unmeasured; three chapters exceed 12,000 words and need their own shard) |",
+      "to": "| N | ceil(334,139 / 12,000) = **28 shards** (the card's rough 45 was unmeasured; two chapters exceed 12,000 words and need their own shard) |",
+      "reason": "Correct document-internal chapter count: printed44row table has only c91/c103 over12000; no new EPUB read."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B341, continuous execution 2026-11-04 |",
+      "to": "| B346, continuous execution 2026-11-04 |",
+      "reason": "Advance reconciliation coverage pointer only; no new rule or product authority."
+    }
+  ],
+  "document_arithmetic_checks": {
+    "G16_rows": 44,
+    "word_sum": 334139,
+    "chapters_over_12000": {
+      "c91": 13156,
+      "c103": 12306
+    },
+    "firstpass_items": 1710,
+    "P1_source_words": 12834,
+    "P1_table_items": 96,
+    "P1_prior_report_items": 99,
+    "plan_rows": 44,
+    "plan_census_column_sum": 8475,
+    "whole_census_report_count": 7282,
+    "plan_beat_lines": 831,
+    "plan_undated": 432,
+    "repair_exposure": 46462,
+    "total_exposure": 380601,
+    "scope": "Printed tables only, no source/EPUB/private ledger inspected; unreconciled denominators retained."
+  }
+}

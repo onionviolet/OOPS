@@ -52,3 +52,12 @@ For other repos, reuse [universal-modder's reverse-engineering guide](https://gi
 ## Checks and open gate
 
 Read project direction, dirty-worktree inventory, existing research owners, upstream documentation and selected REA launcher/startup source. No tools installed, reference games launched, corpora regenerated, saves inspected or gameplay files changed. Before adopting REA, one bounded comparison must show value and preserve exact build/architecture/tool-setting provenance. No performance or recovery-quality improvement is claimed yet.
+
+
+## Content reconciliation B320: historical instructions and current evidence boundary
+
+The entire report was content-reviewed, including its later October21 operational update. That update already supersedes the initial no-trial/install state for its named Hogwarts/Warsim/native synthetic/Cpp2IL experiments. Preserve the old recommendation and old upstream revision as history; they do not describe today's installed versions or client tool inventory. No registry probe, executable, provider or account was inspected by this local review.
+
+D1–D3 retain the useful preference for a question-driven reuse/repair/trial rather than blanket re-export. CLI/MCP access, decompiler reconstruction, readable managed exports, native instructions, IL2CPP metadata and recovered asset logic are distinct evidence. A synthetic Ghidra function check does not demonstrate arbitrary repaired Factorio-project transfer, and a complete/signed Cpp2IL copy does not establish executable C# reconstruction. Exact target/build/architecture/tool settings and actual selected consumer matter.
+
+The old launcher inspection establishes its pinned import/read-only/delete-project argument construction, not every later provider's behavior or permission to open/delete any existing project now. A new comparison should preserve canonical repaired exports and qualify altered settings before making parity or improvement claims. Reusing a guide is not adopting its unrelated install/modification steps. Current operation follows the existing tool registry when actually requested; this review installs, launches, re-exports, signs in, patches or commits nothing.

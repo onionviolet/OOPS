@@ -740,3 +740,12 @@ the selected rewind retain their actual state. Stop automation is player control
 not automatic in-world escape or erasure of already committed consequences.
 Runtime implementation/proof remains with the assigned cheat chat; this is direction
 reconciliation, not evidence of a functioning loop or all-world temporal model.
+
+
+## Content reconciliation: temporal palettes and continuity, 2026-11-04 (B352)
+
+The dated proposals above remain useful alternatives. OD7/OD8, CA12 and the later fresh-life/reciprocal-return answers qualify the earlier blanket defaults: causal correction needs actual world mechanisms; a fixed point, failed self-attack, mandatory item fading, stale future knowledge or new threat is not imposed merely to preserve a story. A supported means can change or duplicate things. Ordinary save/load preserves committed outcomes; intentional cycles and retrying one command remain distinct operations. The October 24 scope change retires the older first-milestone gate, and no new timeline-wide simulator is required before the selected playable slice.
+
+**History and storage:** the old JSON-size, diff-size and branch-count estimates are proposals, not measured capacity. A seed plus canon changes, faded milestones, interpolated stats or a regenerated ghost can preserve a useful account without preserving the actual played life. Keep chronicle, generated reconstruction, executable paused life and record-only incompatible payload distinct. Automatic saving does not authorize silently degrading a resumable life into a synopsis. Pinning a revision does not retain its absent definitions; validate the selected payload and dependencies before offering Resume. Current journey resources, real paused histories, local ownership and the eligible unused-time bank follow their respective owners rather than cloning on a branch switch.
+
+**Import and merge:** matching identity/parent links do not establish compatible state, and different content under one ID can reflect legitimate concurrent progress, migration or different dependencies. The X1–X4 ideas need explicit conflict/admission behavior; do not silently union conflicting live histories, drop a damaged active life or treat retained opaque bytes as executable. Preserve the recoverable original while diagnosing compatibility. Atlas titles, change summaries and shared ghost metadata also follow sealed-discovery and private-save boundaries. No archive deletion, merge, implementation or export was performed in this reconciliation.

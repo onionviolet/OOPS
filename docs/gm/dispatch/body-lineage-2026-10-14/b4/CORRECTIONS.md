@@ -29,3 +29,10 @@ names newly certified by this catalog. G22's cure reachability and G19's routes
 around institutions are design directions, not assertions that every franchise
 already provides those remedies. Earlier life-sim EX-rebuild references need an
 exact Gluttony source locator; the current digest does not establish that rule.
+
+
+## Content reconciliation: correction strength and adoption, 2026-11-04 (B363)
+
+F1 is a precise era/survivor-scope wording repair; F2/F3 qualify awakening and inheritance rather than supply a full genetic model. Preserve the table’s distinction between evidence-supported precision, no demonstrated error, uncertain extrapolation, original-project attribution, game analogy and a setting-specific counterexample. Do not promote F4–F9’s open primary/continuity gates into proved corrections, or import revised-D&D life curves into unrelated worlds. The indexed references and official overview establish only their quoted/consulted scope in this historical pass; no link or PDF was fetched in this reconciliation.
+
+These proposed changes were not claimed applied to the shared genetics owner by B4. Actual adoption must be checked at that owner before treating a reference repair as current or dispatching it again. Squib/Muggle-born contrast does not prove a recessive allele or guaranteed carrier transmission. A charm-related lead does not impose sex eligibility, attraction, identity, orientation or romance outcomes. Original constitution names are not newly certified franchise laws. Mechanism/era/continuity evidence should govern a selected adaptation, while missing evidence remains an explicit gap rather than a universal prohibition. No new shared rule, biological probability or runtime action was adopted here.

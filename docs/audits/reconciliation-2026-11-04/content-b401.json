@@ -1,0 +1,292 @@
+{
+  "schema": 1,
+  "batch": "B401",
+  "title": "Eleven narrative checkpoints, exact evidence meanings and P28 crafting collision",
+  "at": "2026-11-05T04:23:54.848411+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/CHECKPOINT.md",
+      "ids": [
+        "H1–H17; S1–S5; seven P3 deck declarations"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Static seven-test declaration count corrects eight, without executing tests. HEAD alone is not dirty-byte identity; bounded QA/explanation metrics need legal synthetic paths and actual producer evidence.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "1bf161878d1e660501294c1ea1762e247bc16c6f3c85561e7ee05f9b1105b08c",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/CHECKPOINT.md",
+      "ids": [
+        "G1–G18; sixteen source rows; nine contradictions"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "NPC lives, companions, lineage and gossip have their own agency, knowledge and time. Directed relationship addenda already have a live owner; seven reference-game papers/pages are not played behavior.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "7122e3fab25ae4db524e35ec1ff47ef57af64f33e62ae910708d146cf6e7a70e",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/CHECKPOINT.md",
+      "ids": [
+        "H1–H15; sixteen fingerprints"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Place memory, settlement/service, scale/news, residue and home have actual different owners. Concurrent simulation drift was reread at the time; source-moved correction is not a runtime pass or proof of current world memory.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "cece6b5117f9c7c1e5427ef9fb7b7e861bf6677c3603e86c9ba1c6cba964eb20",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/CHECKPOINT.md",
+      "ids": [
+        "I1–I4/J1–J3; five proposed slices"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Prior management absence was already superseded by R15. Guarded battle attempt is not a proven rescue, transient sessions/finite logs are not durable callback authority, and supply/history stay with existing owners.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "9f4a568443ea74a25875bf4e5fe0fc6dab9ac753bb2d5a64f653d210a832605a",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/CHECKPOINT.md",
+      "ids": [
+        "K1–K5/F2; nine static categories; four JSON examples"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Creative-director feedback/request/editor tools remain proposal. Syntax/link/line checks do not authenticate source meaning or runtime safety; developer fixtures do not authorize normal-save editing.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "5388d62e088290e6fe774e22a36c0341ea60610369d259bad676243fcf0c9334",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/CHECKPOINT.md",
+      "ids": [
+        "M1–M4/N1–N2/R1–R3/S1–S3;17findings"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Inner life, ambitions, moral texture and story progression are original candidates with bounded reference/source evidence. Missing manifest EPUB and unavailable wiki/paper bodies are not new authenticated chapter reading.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "a2bd654c10ae841021dff1d5d6cd41721a8c34f6631d92f0950d1027d070d6b9",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/CHECKPOINT.md",
+      "ids": [
+        "O1–O12/P1–P10/Q1–Q13;15findings;10contradictions"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Foreknowledge, information, perspectives, item stories and time structures need their actual carrier/observer/source/time contracts. Fifteen findings and marker checks do not certify a prediction or a new aging law.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "6f6fe7d0a1dd33a318cd5e9d5ee093eec3007a8e850dd6108bca9fffeb962702",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/CHECKPOINT.md",
+      "ids": [
+        "E3/T1–T3/U1–U3; F1–F10/R1–R7"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Episode/triage/timeline/wiki/export sketches are not rendered behavior. Basic disclosure/path marker checks are not the proposed export scanner; a recap cannot become actual world truth or grant authority.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "17a3e595f8b6953c744b4d912d3e488ad178d287755151250041da04b28efa89",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/CHECKPOINT.md",
+      "ids": [
+        "W1–W3;89templates;F27–F35"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Templates/genres/fan seeds/humor/firsts preserve semantic admission before expression. Corrected comparison/volume source windows remain bounded. Crafting collision/restoration history belongs to this story lane, not another active task.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "63f12b4bcfe881f3a3f29b01925098e1ccec16eedb425cb255d97b2a2b96af67",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/CHECKPOINT.md",
+      "ids": [
+        "AA/AB/AC;F1–F16;27angle routing"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Journey/group/disciple/death proposals do not imply a universal death engine or all-five-slice gate. Restored checkpoint/history are preserved; no copied crafting content or old worker status becomes present authority.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "f791204533fdefeb0e0dd982667cf2000b88eec37c0070d7195d9d851ae1cfec",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/CHECKPOINT.md",
+      "ids": [
+        "Y/AD/AE/AF;F27–F37;21furtheroptions;crafting collision tail"
+      ],
+      "classification": "Completed historical docs checkpoint; proposal substance and collision/readback history",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "Story intent/taste/room/onboarding checkpoint is complete. Late appended crafting assignment is historical collision residue: live PLAN and CR3 checkpoint/report1–35 route its matching deliverables to CR3, not an unfinished P28 build.",
+      "evidence": "Fresh full checkpoint body read in bounded P18–P23/P24–P28 output, including snapshots, corrections, completion and late collision sections. CR3 full checkpoint, report1–35 and PLAN1–20/selected CR/P26–28 rows inspected for routing. No report/source/private book/gameplay credit inferred.",
+      "reopen": "No completed documentation checkpoint, assigned old role, proposed port/model or mixed historical assignment launches current runtime work. Keep new gameplay/source/native/persistence gates scoped to a separately selected current consumer.",
+      "input_sha256": "9dbb75857c63caff3655f83f718397afe43b3466f9f256af9f92c19d4de832ae",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B401: social, place, conflict and authoring checkpoint substance",
+      "body": "The complete P18–P28 checkpoints were read, including late corrections and collision history. Preserve QA's actual seven P3 deck declarations rather than eight; those were counted, not executed. A manifest of dirty source bytes is stronger than HEAD alone. Syntax-valid JSON, a source range inside a file, a proposal marker, a fixed table count or a mechanical text exclusion does not prove semantic fit, gameplay, source authentication, fairness or exhaustive secrecy. These checkpoints do not refresh the linked report/source evidence.\n\nP19/P20 retain useful distinct actors and scopes: personal motives/means, actual gossip channels, lineage, local place/estate change, dated news, social recognition and material residue. P21 already found its older courtyard/investing/shipping absence claims superseded. A guarded attempt is not a proven rescue; transient battle detail, relationship windows, event feed and life-record text cannot supply durable callback authority after eviction. Real consequential outcomes and supply/history need their actual owners. Source-observed paths and an old hash refresh are not a current rebuilt journey.\n\nP22/P25 developer/director/export proposals remain separate from normal character control and actual durable world truth. A basic path/disclosure-marker check was not the proposed export scanner. Markdown/ASCII workspace sketches were not rendered UI. P23's inner-life and moral/ambition examples do not create a universal morality score or authenticate unknown source laws. Missing source bodies and secondary book/wiki references retain their limits. P24's foreknowledge, reports, item histories and time structures need their actual observer, carrier, support and clock; a record of the past is not an omniscient present or guaranteed future.\n\nP26's 89 templates, genres, jokes and firsts preserve committed semantic outcomes before expression. Its corrected comparison and volume windows are not new primary reading here. P27's travel, groups, teaching and death options remain separately selectable without requiring a universal death/afterlife engine. Collision repairs preserved the story P26/P27 documents rather than using accidental crafting assignments as authority. P28's appended crafting assignment remains mixed history; the matching delivered crafting-play/automation/collection/director work is routed to CR3 by current PLAN and that lane's checkpoint/report. It is not unfinished story work or permission to overwrite shared names.\n\nCurrent UI targets, explicit compatibility, AD36/AD42/AD51/AD52 and lead-first priorities qualify all older viewport, full-suite, human-gate, source-priority and procedural-layout statements. NPC-heavy and testbed-depth proposals do not become the next wave. Useful ideas, exact source conflicts, original IDs and history remain; no new story authority, runtime model call, user-profile/taste collection, current source fact, native export, gameplay, migration or creative-director tool was implemented.",
+      "before_sha256": "13d8bd2f2c97f5ce52c775a07f9b19b638e592fca7c64da29c8ac593f5401a80",
+      "after_sha256": "f6132b3962fbfbc244a5bedd0292c5d0d3b211c5925e09ddffa237799f810167"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/CHECKPOINT.md",
+      "heading": "## Content reconciliation B401: current routing for the mixed assignment history",
+      "body": "The entire checkpoint, including the separate appended crafting assignment, was read. Keep the earlier story intent/taste/writers-room/onboarding result and collision history intact. The actual PLAN CR3 row and delivered cr3/CHECKPOINT.md plus its REPORT opening route PLAY_FEEL, AUTOMATION, COLLECTION and DIRECTOR_TOOLS to CR3. The late crafting tail here therefore remains historical assignment residue, not an active next-writing instruction for p28. Do not recreate those artifacts or overwrite this story lane's MORE/REPORT. CR3's source-only inspection and proposed native gates remain its own evidence; matching filenames do not certify all corresponding mechanics. Present writer/process scope must be recovered if a new slice is selected. No implementation or delegation is selected by this routing correction.",
+      "before_sha256": "9dbb75857c63caff3655f83f718397afe43b3466f9f256af9f92c19d4de832ae",
+      "after_sha256": "acc09b2f97577193b9a0281485d5e74dbd197064265612b5b62f104f1934dc27"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 573
+}

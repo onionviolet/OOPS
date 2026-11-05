@@ -5,8 +5,10 @@ randomness and more? random events, interactions, people, enemies... unscripted
 stuff? stuff following lore? weird interactions we cannot predict?" and his
 follow-up: expand each idea, then implement each one once it is comprehensive.
 
-**Everything here is a proposal.** Nothing is selected for a build. This doc
-owns the generative side (how the game makes things nobody wrote). The
+**October9 design snapshot:** the concrete layer designs and build order
+below are proposals. Later accepted direction and delivery belong to their
+current owners; user answers retain their attributed meaning (AD32/AD51).
+This doc owns generative-system ideas rather than a current execution queue. The
 [RNG audit](RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md) owns native call sites and
 save boundaries. [Characters and world events](CHARACTERS_AND_WORLD_EVENTS.md)
 owns the character model. The [north star](LIFE_SIM_NORTH_STAR.md#random-events)
@@ -39,8 +41,9 @@ shared across layers live in [the shared vocabulary](emergent/SHARED_VOCABULARY.
 
 ## The core idea
 
-Surprise comes from small systems that collide, not from more written events.
-Authored lore becomes the *material* the systems draw from, never a script.
+Small interacting systems can create surprise alongside authored events.
+Lore supplies actual constraints, people, histories and material; authored
+arcs, causal simulation and mixed modes can each fit a world/run (AD2).
 
 Six layers, each usable alone, strongest together:
 
@@ -692,11 +695,12 @@ Weibao: expand tags and rules to engine stuff and every layer.
 
 ### The unifying idea
 
-**Everything is an entity with tags; every system is rules over tags.**
+**Proposal: shared tags and predicates where actual consumers benefit.**
 Items, people, places, worlds, skills, powers, cheats, events, factions,
-weather, bodies and even streams carry tags. One rule engine runs them all.
-Today each feature has its own content/facts/host files. Under this design,
-most new content becomes data: new tags, new rules, new cards.
+weather, bodies and streams can expose supported tags through their owners.
+Existing content/facts/host modules retain their semantic responsibilities.
+Selected new content can be data-driven without requiring one rule engine
+to replace every subsystem; begin with a useful shared seam (AD51).
 
 ### Engine shape
 
@@ -904,10 +908,14 @@ drunk.
 
 ## About AI writers (LLMs)
 
-**D1 proposal: by default no LLM decides mechanics.** It can't be seeded, it breaks
-save integrity and replay, and a browser game would need an API key. The
-engine already has the right boundary: `acceptActorProposal` lets an outside
-planner *propose* a legal command and nothing else.
+**D1 proposal: mechanics settle through trusted game contracts.** External
+model output can propose an action or selected structured content; validate
+and freeze the admitted result so restore/replay does not regenerate it.
+An unrecorded live response is not deterministic game state, but using a model
+does not inherently break save integrity. Provider, credentials, local versus
+remote execution and cost need a separately selected integration. The named
+`acceptActorProposal` boundary is a historical example of proposing a legal
+command rather than prescribing arbitrary effects.
 
 Later, optional, behind a setting: an LLM may (a) rewrite the text of an
 event the systems already resolved, or (b) propose a command for an NPC
@@ -957,3 +965,18 @@ finished design. Emergent systems can't be fully designed on paper. Their
 tuning (weights, decay rates, chain caps, how cutthroat) only shows up in
 play. The plan is to spec each layer to its checklist, build the smallest
 proof, play it, then expand the spec from what actually happened.
+
+
+## Content reconciliation: emergent layers and actual owners, 2026-11-04 (B367)
+
+This full959-line owner was reviewed, including every E1–E6 proposal, Q/O answer and expanded engine/control/time/AI section. Its October9source presence/absence, call sites, file counts and build-ready claims are historical observations, not current code verification. Linked E7/E8/subsystem documents retain their own content/evidence scope; the two E8E labels refer to different paths and are not a shared implementation ID. User answers preserve possibilities across worlds/means, while each concrete table/formula/schema/order remains a proposal unless its actual later owner supplies acceptance or delivery.
+
+**Randomness and story:** reproducibility needs exact relevant inputs, version, address/cursor and committed result, not a seed alone. A different seed can legitimately yield the same result; byte-identical logs additionally depend on ordering, format and content. Preserve real saved outcomes and pending/held references before compacting closed-subject streams. A random-unit preview is not omniscient future combat, and a pure preview must avoid initialization, cursor, receipt or learned-evidence writes. Actual luck/foreknowledge/rewind means can legitimately alter outcomes; saving integrity does not impose anti-cheat or deny repeated gains. Authored arcs, procedural variation, causally simulated events and mixed modes can coexist under AD2. The worked debt/gossip chain composes authored rules, causes and content; it is not evidence that no story elements were written or that it ever ran.
+
+**Actors, tags and information:** a controller’s legal command admission, actual resources/body/support and publication remain authoritative; utility scores, trait counts and desired-needs numbers do not create means or guarantee a fixed personality. Player control, a second body/guide/lineage/fate mode and real off-screen choice require the selected identity/consent contract, not an assumed timeout license to spend or impersonate decisions. NPCs and independent native counterparts need their own rights/custody/relationships/knowledge. Tags can classify a supported state without replacing structure, composition, methods, offices, causal history or every domain validator. A tag-name match does not prove a reaction or grant a power. Source-specific and instance-specific exceptions can need explicit IDs/conditions rather than being forbidden from the rule layer.
+
+A reason/debug trace can retain private causes internally, but player logs, hover, ARIA, grammar, biographies and rumor output follow actual observer channels. A deck knowing a debt, a controller’s hidden motive or a rule’s secret condition does not make it visible. A full backup and a public lore/share summary differ. Memory/history compaction cannot silently erase active causality, obligations, unique people or resumable state. Generic current truth must not replace an old reported value. Public franchise references remain source-qualified; altered private truths stay behind discovery routes.
+
+**Time, pacing and implementation:** distance/detail level is not authorization to advance a frozen other world, create unpaid production, age or kill someone offline. The eligible unused-time bank and chosen native routines follow actual current owners. A512-boundary budget or proposed8-hop limit must not silently drop earned progress; queued/resumed causal work and visible stop behavior need the selected contract. Compression under AD52 preserves actual support, costs, decisions and consequences. The360-day/default-tick arithmetic is a historical model calculation, while game comparisons,2–6hour targets and yearly rolls remain proposals, not current benchmark or selected pacing.
+
+A director’s comfort/threat weights, mandatory counter, pity, crisis frequency or fate override need an actual world/source mechanism and chosen mode. Wealth/quiet do not automatically justify a forced calamity or suppress a real independently caused event. Ordinary authored people and their causes remain meaningful without global drama correction. Strong compatible combinations are allowed without a compulsory flaw; chain caps/indexing are engineering tools, not in-world physics. An optional validated/frozen model proposal can be replayed without allowing freeform effects or requiring live service dependence. Current priorities, AD51 and actual consumer evidence supersede the tag-store-first/Village-first/checklist-as-universal-gate plans. No source-corpus, native code, runtime/model service, build, browser, save or gameplay behavior was verified or changed by this reconciliation.

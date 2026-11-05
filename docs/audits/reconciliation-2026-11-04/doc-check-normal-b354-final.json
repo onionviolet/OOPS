@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/SELVES_AND_ECHOES.md:300: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "checker_sha256": null
+}

@@ -39,7 +39,7 @@ Rule codes cited: AR1-AR16 ([architecture](../ARCHITECTURE_RULES.md)), GTR1-GTR3
 | S5 | Titles and faction rank | `src/titles.js`, `src/faction_rank.js` | Used in play |
 | S6 | Clearance (role and grade table) | `src/clearance.js` | Wired, thin (1 world) |
 | S7 | Domain registry (lifecycle) | `src/domain_registry.js` | Used in play (54 calls) |
-| S8 | World packs (data worlds) | `src/world_pack_*.js`, `src/world_packs/` | Partly wired (loader yes, save no) |
+| S8 | World packs (data worlds) | `src/world_pack_*.js`, `src/world_packs/` | Loader/registry; save slice wired with one `reveal` writer, no played trigger (Nov4 receipt, S8/SAVES6d) |
 | S9 | Book-world hosts (Tingen, Cyoria, Paradise) | `src/book_world_*` | Used in play |
 | S10 | Simulation commands, jobs, boundaries | `src/simulation*.js` | Used in play |
 | S11 | Expansion engine (actions, worlds, schedules) | `src/expansion_engine.js` | Used in play |
@@ -245,9 +245,11 @@ slice before adding another bank. An unlisted world gets `lost` (`:12-15`).
 
 ## S5. Titles and faction rank
 
-**Use it for.** Display titles from lifetime counters; named rank bands over a
-signed per-region reputation number. Both are derived on read and never stored
-as rank, so no migration (`src/faction_rank.js:2-4`, `src/titles.js:2`).
+**Use it for.** Held title grants from lifetime counters, stored as
+`character.titles = {id:{at}}`; their bonuses are derived on read. Faction
+rank is independently derived from signed per-region reputation rather than
+stored as a rank record (`src/titles.js:1-2,87-99`, `src/faction_rank.js:1-4`).
+Changing either contract still needs its actual compatibility assessment.
 
 **Key API.** `title_catalog`, `grantEarnedTitles(titles, counters, at)`
 (`titles.js:8,87`); `DEFAULT_LADDER`, `REGION_LADDERS`, `rankOf(region, rep)`,
@@ -571,7 +573,7 @@ add their own key with schema, `definitionRevision`, `sourceSnapshot`, `sourceHa
 
 **Degrees of flexibility.**
 - **Per-domain `migrate`** hook runs before `load` (`domain_registry.js:28`). Use it for compatible shape change.
-- **Pack sections** have a real migration chain: one step per `(pack, from)`, `saveCompatibleFrom` lets cosmetic revisions pass, unknown ids retire into `retired` storage, unloadable packs are kept verbatim as dormant (`world_pack_save.js:54-130`). Tested only.
+- **Pack sections** have a real migration chain: one step per `(pack, from)`, `saveCompatibleFrom` lets cosmetic revisions pass, unknown ids retire into `retired` storage, unloadable packs are kept verbatim as dormant (`world_pack_save.js:54-130`). The old tested-only label predates the Nov4 wired-slice/test-hook receipt in [SAVES6d](../SAVES.md); no played reveal trigger is claimed.
 - **Current policy.** 2026-10-17: "old save compatibility is no worry for now"; work may reset or drop old state, but new state must round-trip Save, reload, Export and Import ([decision](../USER_VISION.md#old-save-compatibility-deferred-2026-10-17), recorded in PROJECT.md). This supersedes MR33 for now.
 
 **Maturity.** Used in play. The envelope validator is a long hand-ordered chain
@@ -583,7 +585,7 @@ paid for by moving one out).
 2. Validate shape strictly but derive allowed values from the definition, not a frozen whole-save schema (the pack validator's stance, `world_pack_save.js:31`).
 3. If the slice references another owner's records, check them in `validate(slice, envelope)` (cross-owner checks keep validation order, AR6).
 4. Prove save, reload, Export and literal Import in a rebuilt browser (AR9, AGENTS verification).
-5. State in the task record that old state is reset or dropped, per the 2026-10-17 decision.
+5. Record the actual chosen compatibility outcome. The 2026-10-17 deferral permits a scoped reset/drop decision; it does not require one for every additive change or authorize changing private saves. New-state round trips remain required.
 
 **Gotchas.**
 - Exact-field validators (`Object.keys(d).length === fields.length`) refuse any save with an extra or missing key (`book_world_lotm_state.js:28`, `book_world_native_base.js` `shape()` at `:12`).
@@ -743,8 +745,9 @@ after, defaultDock})` (`src/panel_kit.js:7`); `shownOrDeferred` (`src/panel_reve
 
 **Degrees of flexibility.** `discovered` and `eligible` control reveal; an
 undiscovered panel keeps its content out of label scans. `readPort` swallows a
-throwing port and returns `undefined`, so panels must treat missing as "nothing
-yet" (`ui_ports.js:23-24`). Panels mount through a domain's `panels` array (S7).
+throwing port and returns `undefined`; panels must represent the actual
+unknown/unavailable condition rather than infer zero, absence or new progress
+(`ui_ports.js:23-24`). Panels mount through a domain's `panels` array (S7).
 
 **Consumers today.** `ui_ports` 18 importers; `panel_kit` 46 (grep).
 
@@ -831,7 +834,7 @@ timer; add a boundary (S10).
 | 13 | Role plus group needed for a dangerous item | S6 clearance | `group:{min, atLeast}` row with a vague line |
 | 14 | Reputation-gated service | S5 + S1 | `rankFacts` into a rule; thresholds are dials |
 | 15 | New world mostly as content | S8 pack | Pack under its own namespace; add to `BUNDLED_WORLD_PACKS`; read with `packNative` |
-| 16 | New world with its own verbs and panel | S9 + S7 + S10 | Copy the file set; one `registerDomain`; definitions through `book_world_definitions.js` |
+| 16 | New world with its own verbs and panel | S9 + S7 + S10 | Reuse existing typed commands/state/data first (AD51); add an owner/adapter or lifecycle registration only where the actual differing mechanism owns state |
 | 17 | Keep old saves loading after adding a command | S12 / S10 | Add a new command id, leave existing definitions byte-equal (jobs compare costs and effects); or use the 2026-10-17 reset decision and say so |
 | 18 | Change a world's source text or hash | S9 | Refuses older saves of that world; treat as a save event |
 | 19 | Deterministic generated people or loot | S15 | `address(world, life, table@rev, slot)` then draw |
@@ -848,7 +851,7 @@ timer; add a boundary (S10).
 
 | Code | Finding | Evidence | Effect on a mechanic author |
 |---|---|---|---|
-| G1 | **Gate `overflow` is validated but never read.** No gate sets it; the working overflow lives in S4 rows keyed by world, not on the gate. | `progression_gates.js:43-44`; no `.overflow` consumer in `src` | An author who writes `overflow` on a gate gets no behavior. Use S4. |
+| G1 | **Gate `overflow` is descriptor metadata, not XP settlement.** The author inspector reads it; live overflow behavior belongs to the actual S4 consumers. | `src/chain_inspector.js:84-90`; selected S2/Nov4 caller qualification below | Displaying a declared policy does not implement it. Use the actual settlement owner and verify its native caller. |
 | G2 | **Only 3 of 5 overflow policies run** (lost, banked, converted). Spill and pressure are vocabulary only. | `skill_overflow_domain.js:10-24`; [overflow doc](../PROGRESSION_GATE_OVERFLOW_2026-10-23.md) GTO9 | Spill and pressure need a consumer first. |
 | G3 | **Gates are barely adopted** (4 gates, 4 importers) while hand-written "requires" fact rules exist in every command. | grep `defineGate(` | A new gate is still a pilot; consider S1 inside a command first. |
 | G4 | **`definePath` has no OR crossing and `pathView` only walks forward one stage**, though shapes tree, web, wheel, stack and field validate. | `ascension_paths.js:8, 47, 128` | Non-ladder shapes have no reader. A branching path needs a new view or per-branch ladders (as Tingen does with one path per pathway). |
@@ -907,3 +910,16 @@ Full content review of the [gate inventory](../audits/PROGRESSION_GATE_INVENTORY
 - S4: per-gain banking has a current component → `skill_overflow` state/projection consumer. Mistglass event conversion has a separate host-join → technique-state chain. Native crafting/settlement caps and max-level/locked-skill wording keep their own scope. Focused gate/overflow tests passed, not a rebuilt native journey.
 
 These are distinct design/execution boundaries: physical ability, knowledge, visibility, credential, allowed policy and actual world law need not share one boolean or one state owner. Preserve the inventory's original row locators and untraced sites; no all-gate migration is selected by this content review.
+
+
+## Content reconciliation: complete systems guide and exact evidence, 2026-11-04 (B372)
+
+All909original lines were read, including S1–S19,25task rows,G1–G14 and every later application/receipt note. This completes the guide’s previous partial coverage; it does not re-audit all current runtime/importer counts. Each original file:line and maturity label remains a dated census unless a named later receipt or this batch’s explicit source range qualifies it. The guide is a reference map, not authority to accept a proposal, add a new subsystem, copy every host or require a broad framework before a useful seam under AD51.
+
+Scoped source checks establish four precise distinctions. Current titles source stores held title id/at records and computes bonuses on read; faction rank is independently derived from reputation, not another saved credential. The gate inspector actually reads descriptor overflow to show author-side metadata, without settling XP overflow or proving all routes are executable. The later SAVES6d receipt reports a wired world_packs slice with one reveal writer, absent inert defaults, lossless dormant sections and a bounded test-hook crossing/import journey; it explicitly lacks a played reveal trigger and broader edge/fact writers. Its authority/compatibility wording remains attributed to that owner rather than a newly adopted all-world rule (AD32). S8’s old save-no summary and S12’s unqualified tested-only shorthand must not contradict that later scope.
+
+Preserve semantic layers throughout: evaluator known/met is caller input availability, not earned observer knowledge; presentation and clearance do not grant physical faculty; a declared route/cost/overflow/irreversibility flag is not its executor. A path shape admitted by a validator is not a working non-ladder view. Titles/achievements, reputation rank, credential/office, learned mastery, local reserves, body/controller and source carrier remain separate. Tags are presence/classification, not universal graded chemistry. A missing/throwing UI port is unknown/unavailable, not evidence of zero stock or an undiscovered world, and developer visibility does not isolate a real save by itself.
+
+Actual timed work uses its frozen agreed job/revision/cost/result and selected completion/refund policy; descriptor changes can affect in-flight admission even without a schema bump. Shared one-writer publication, owner validation order, native body/stock contexts, exact source/definition/axes revisions and durable command identity remain consequential. A retained dormant/opaque section is not executable world support; a missing migration is not proof that its raw bytes should be dropped. Old-save compatibility deferral permits scoped decisions but does not require resetting state on every additive change, authorize deleting private saves or waive new-state round trips. A scenario checkpoint, heir succession, continuation, world-history carry and current-bank accounting need their actual affected scopes; a specific receipt is not a universal temporal law.
+
+The old “Used in play” definition, loader downgrade, importer counts, world limitations, old attention-refill search and no-offline blanket are historically scoped source claims. Later D4/D7/E3/M21/M22/M25 and gate-caller notes retain their exact native/fixture/desktop/input limits; linked outputs are not newly read by this full-guide review. Current direction, desktop/font targets and AD42/AD43/AD51 govern selected execution. No rule code, runtime, save, current import graph, worker, browser, build or source corpus was changed or comprehensively verified here.

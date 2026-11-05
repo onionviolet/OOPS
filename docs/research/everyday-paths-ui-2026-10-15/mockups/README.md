@@ -31,3 +31,12 @@ The source-backed mining reconstruction is labelled and separated from proposed 
 Fishing spots and mining faces now select directly with click or Enter/Space. Personal view compares Skill, Power and Method using explicit fictional scenario controls. Unavailable methods show their reason and disable Preview next plan. The method chooser, preview and Back stay pinned; longer explanations scroll centrally. Selecting targets never changes current work. Investigation and delegation use the selected target, and each family retains its last selection.
 
 Keep index.html and target-studies.js together when copying this viewer. These are local design files; no game module is imported. See [concrete choices and worked examples](../FISHING_MINING_INTERACTIVE_CHOICES.md), [36 scenario checks](TARGET_CHOICE_CHECKS.json) and [interaction checks](TARGET_INTERACTION_CHECKS.json). All21 main captures are refreshed for this revision.
+
+
+## Content reconciliation B336: pursuit scope and evidence boundaries
+
+All33 original lines were reviewed, including the launch command, family table, fixture actions and later fishing/mining interaction follow-up. Preserve the explicit boundary: these21 scenes and36 scenario checks are a standalone design artifact, with fictional helpers, powers, stock and scope. Preview status, stable selection, keyboard controls and overlays do not perform native commands, advance clocks, consume inventory, persist work or accept an agreement. Mock Back returns to routine rather than real navigation history; it is not proof of production controller parity.
+
+The localhost link is not a live-process claim, and the restart command was not executed here. The reported captures/checks retain their original version and1366×768 scope; no screenshot, browser trial or present fixture behavior was rerun. Later desktop direction qualifies the target for a new selected product slice, without rewriting old evidence. Keep index.html and target-studies.js together as directed when a copy is actually requested; this reconciliation did not move files or publish assets.
+
+The invented Quiet lens remains an original fixture, not a sealed-game disclosure. Useful direct target selection, adjacent comparison, stable current work, pinned controls and meaningful detail remain proposals to evaluate through existing UI/domain owners under AD51/52. A readonly viewer control is not a gameplay power. Generic human review is optional under AD42, while selected native/UI/persistence claims still need their own actual evidence.

@@ -1,6 +1,6 @@
 # B3 Spirit Vision exhaustion calibration, 2026-11-04
 
-Atlas A1/F6 follow-through ([atlas refresh](../../../reports/PROGRESS_ATLAS_REFINED_2026-11-04.md#evening-refresh-2026-11-04-head-f15a37f90)). Proposal under AD49 (calibrate to the lore), AD38 and limits-as-adjectives. **Implemented, below floor (AD43):** no native browser route yet.
+Atlas A1/F6 follow-through ([atlas refresh](../../../reports/PROGRESS_ATLAS_REFINED_2026-11-04.md#evening-refresh-2026-11-04-head-f15a37f90)). Proposal under AD49 (calibrate to the lore), AD38 and limits-as-adjectives. **Original receipt: implemented, below floor (AD43):** no native browser route at that run. Current synthetic mechanism proof is recorded in the later verification section below; chapter consumers remain separate.
 
 ## What was wrong
 
@@ -29,3 +29,7 @@ Earlier receipts stay valid: KJ3AC's asserted states (exhaustion present after `
 ## Next
 
 kjw22 can make its ch69 P082 glance and ch70 repeats native with the existing `beSpiritVisionOnEffects` / `beSeerUse` / `beSpiritVisionOffEffects` acts; that native run is this slice's floor evidence.
+
+## Later mechanism verification, 2026-11-05
+
+The original below-floor statement above describes this receipt's first run. The [newer release record](../../../audits/NEWER_REVIEW_SEER_CAPTURE_RELEASE_2026-11-04.md) supersedes that mechanism-proof gap with 28 checks on a rebuilt synthetic native fixture, pending and settled Save/reload/literal Export/Import, the combined build, full public suite (5145 pass, 21 skip, zero fail), architecture and rules checks. Agent-verified, not human-reviewed. The three-notch calibration remains a proposal/dial under AD49; this verification does not turn it into universal canon. Chapter-specific KJ3AC/KJ3AE/ch70 repeat actions were not changed or replayed and remain separate consumer integration. Existing saved condition entries need no field migration; older pending-job definition compatibility remains governed by the existing exact-definition policy.

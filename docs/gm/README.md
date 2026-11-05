@@ -1,5 +1,7 @@
 # Game master roles and local ownership
 
+**Current routing, 2026-11-04 (AD32/AD41/AD44):** PROJECT and the current lead-life owners govern selected work. The dated rosters, latest-delivery labels, capacities, returned IDs and chat authorization below are historical snapshots, not live worker state or a new dispatch. Use the existing task/checkpoint and current user/host instructions before resuming any role.
+
 Completed finite idea-planning return, 2026-10-11:
 [idea-expansion dispatch](dispatch/idea-expansion-2026-10-11/README.md). Seven
 internal agents delivered eight exact additive lane folders; root owns integration
@@ -87,3 +89,14 @@ Follow the master prompt's [Autonomous assigned goals](../GAME_MASTER_PROMPT.md#
 The user requested adaptable skills and better self-directed Game Master iteration. The master prompt owns one shared execution loop, with local/world/worker and specialist callers linked to it. Current capacity rules replace old global slot snapshots. Packet completion, finite task completion, deferred behavior checks and human acceptance remain distinct. Ambient fiction need not earn a mechanical payoff.
 
 [Original instructions](history/2026-10-06-iteration-originals.md) preserve the pre-edit prompts and dispatch wording. Structural checks and independent scenario review apply to this change; no gameplay suite, current-build acceptance or measured runtime gain is established by editing prompts.
+
+
+## Content reconciliation B349: reusable roles and current task authority
+
+All89 original lines were reviewed, including the complete role table/control graph, planning/runtime links, source roster, iteration and dated policy updates. Preserve this as an index of reusable responsibilities and historical deliveries. A prompt-ready origin role, completed specialist return or mermaid edge is not a live agent/tree or current reservation. Existing checkpoints/actual host state determine liveness. A new current-routing note at the opening makes clear that October3–13 roster/status/latest labels and user-visible-chat authorization statements belong to those sessions, not this one.
+
+The179cards/693cases, five eight-file design packs and delivered workshop revision/bundle are historical scopes. Specified-not-run cases, a completed engineering/document review and an implemented-unverified build do not establish current native behavior, whole-source qualification, package adoption or user acceptance. The source/owner catalogue remains useful without turning its tables into another execution queue or claiming idea-level reconciliation of the entire public intake.
+
+The five deep families and October13anime/book ranking are dated design rosters; current PROJECT/AD44 and lead-life owners govern Klein/LOTM-first and Harry developer work. The broader many-world vision and optional Frontier/random-entry direction remain. Actionability/completion are coverage tools rather than a mandatory full-blueprint/specialist wave before every small runtime change. Current AD51/52 support useful shared seams and faithful compression, with actual sources/local laws and ordinary/developer coverage separate.
+
+Model selection, agent count, user-visible chats, successors, outgoing messages and budgets follow actual current user/host/AGENTS instructions; historical capacity permission and deferred tests do not renew those authorizations. The current task is documentation reconciliation with no agents or runtime work. No old ID/cursor/branch/build was queried or resumed, and no live role, source licence, current gameplay or current-source behavior was newly verified by reading this index.

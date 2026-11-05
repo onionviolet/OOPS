@@ -142,6 +142,12 @@
       "from": "Scoped source reconciliation of the fully reviewed [procedural map](PROCEDURAL_GENERATION_STATUS_2026-10-13.md), R3-1/R3-2. Current `crafting_recipes.js` imports `random_range` from `misc.js`; the inspected component, componentless equipment and equipment `roll_quality` methods call it without an injected random source. `misc.js` still defaults that argument to `Math.random`. This is a surviving source-level determinism gap for those calls, not a reproduced reload exploit or proof that every crafting path is unseeded.",
       "to": "Scoped source reconciliation of the fully reviewed [procedural map](PROCEDURAL_GENERATION_STATUS_2026-10-13.md), R3-1/R3-2, corrected after reading the caller. Recipe classes retain an unbound `random_range` fallback, but native `main.js/use_recipe` wraps the chosen recipe in `seededRecipe` with the saved craft stream. `seeded_streams.js/seededRecipe` overrides `roll_quality` and binds `getResult` to that proxy. The earlier B145 claim of a surviving native quality gap was too broad; the inspected native path is seeded. Any other direct caller would need its own trace before being called a gameplay defect.",
       "reason": "Meaningful B145 reviewer correction: subsequently read main use_recipe and seededRecipe proxy, which seed the native path. Old reviewed record remains visible; no original input identity rewritten."
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "from": "40 per-world generation profiles (TTKS by book, LOTM by era)",
+      "to": "39 profile dossiers plus a TTKS navigation index (five distinct books, LOTM/COI separately)",
+      "reason": "P9 report inventory has39profile rows and40linked files because its navigation index shares the B1row; preserve title/era scope without counting the router as another profile."
     }
   ],
   "review_corrections": [

@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B329",
+  "title": "Whole time and seeded-world report: fork origin, causal state and actual persistence contracts",
+  "at": "2026-11-05T01:59:39.348316+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md",
+      "ids": [
+        "A1randomowners/A2time-saves/A3base-state/F1–9",
+        "19referencegroups/6patterns",
+        "DT1/TT1–6/TI1–7/SI1–6/FS1",
+        "A1–9/L1–14",
+        "G1–17/K1–9/E1–12/KN1–6/C1–12/D7top3"
+      ],
+      "classification": "Whole two-part time/generation proposal with dated source sample; nontrivial fork identity, storage and compatibility assumptions remain unimplemented",
+      "owners": [
+        "docs/research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md",
+        "docs/ARCHITECTURE_RULES.md"
+      ],
+      "disposition": "Readall423lines inthreeuntruncatedranges. Preservekey/domain/cursor/worldclock/current-source/date distinctions, actualgenerationidentitiesandretainedstate. Qualifybranchnewseedversuscopyhistory, universalmemory/discard/arbitragetax, epochdifferentoutputtest,falseadditive-oldsaveguarantee,generatornotpreservedbyversionalone, causallycommittedunvisitedfacts andnotonlyplayercauses. No source/runtime/RNG/generator implementation ornewfamilyadoption.",
+      "evidence": "Localpublicreportonly. Oldsourceclock/market/carry/sourcepath claims not currentproducer read. PartBsecondary/Wikipedia plusUandunreachablefamilies, notrequalifiedprimarymechanics. ProtocolE/Ctests allspecifiednotrun; initial PROJECTlineanchorshistorical currentdirectionviaowners notsameoffset.",
+      "reopen": "Forselectedtemporaloperation defineactualrestoredhistory,carriers,worldseed/baseorigin/fork identity, realcausalclock/order andknownstate; tracecurrentowner/consumer. No generalframework/deltalog/seedmigration/Villagebuild selected bythisdocreview.",
+      "input_sha256": "a2cd4c2ada6110f97439b08b52663c6159c6895fe68ccf713ab65aee4225cbe2",
+      "input_lines": 423,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          423
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md",
+      "heading": "## Content reconciliation B329: whole report and conditional temporal guarantees",
+      "body": "All423 original lines were content-reviewed: A1/A2/A3, F1–F9, nineteen reference groups and six patterns, DT1/TT1–TT6, TI1–TI7/SI1–SI6/FS1, G1–G17/K1–K9/E1–E12/KN1–KN6/C1–C12 and all later A/L recommendations. Preserve the original two-stage proposal and dated source locators. Nothing in the model, a method name or a specified test is a delivered runtime change. PartB's secondary summaries and U-labeled/unreached routes cannot establish exact franchise retention, intervention or loop law; grouped game names are comparison leads, not interchangeable rules.\n\nStable domain/keyed draws help avoid unrelated call-order effects, while saved cursor state can also reproduce its own actual sequence. CA12 does not require one universal ambient/keyed versus player/cursor boundary for every world. A fixed template may produce the same offer at different epochs; FS1's different-day test cannot require inequality of all sampled inventories merely because the input key differs. Test the selected independence/identity contract and meaningful failure scenario rather than a chance collision. A cosmetic line can still leak hidden information or misdescribe a result even if it writes no state.\n\nThe world's actual body/stock/weather clock, calendar epoch, generation version and selection facts matter. A hash/key is not a whole history. Stateful changes can come from NPCs, natural processes, institutions and committed scheduled events as well as the player's actions. Some unseen facts are already causally used. Logging only player deltas and treating every unvisited date as freely regenerable can change earlier supplies, parentage, clues or consequences. Summary pruning must retain facts/references needed by live consumers; a human-readable summary is not automatically sufficient recovery data.\n\nA fork of one existing world and a fresh alternate instance are different promises. Giving the fork a new instance ID and deriving a new ambient seed from it can reroll unstored shared pre-fork facts even while copying the delta log. Separate branch namespace from baseline-origin identity and actual retained history where the selected operation requires a common past. Likewise, C6's met-delta-survives-rewind example depends on whether it means the returning subject's retained recollection or a restored counterpart's own experience. Equal memory, equal names and equal seeds do not decide subject identity, mutual bonds or item custody.\n\nKnowledge does not universally carry through every temporal effect just because the human remembers. TT1–TT6's body, memory, skills, cargo, clock and reset scopes are proposed defaults; actual source/premise may preserve more, less or different things. A bystander-only past, a restored same history, an abandoned branch kept as people, a new life and an edited memory require their own operations. The proposed automatic discard, next-day heir start, fresh younger body, expensive carrier and guaranteed frozen-resume atlas are not standing ontology. Current sources/owners retain their selected continuity contracts.\n\nRepeated known offers may support real profit. Saturation, scarce carriers, bank spending, loss of coins, weaker bodies and rival regressors are not mandatory balance or anti-cheat limits. A particular source can create, duplicate, carry or restore goods with actual means. Save integrity stays distinct from forbidding efficient play or seed editing. Restoring spent bank time, returning held goods and replaying a prior receipt need their actual durable boundary; a loop's reset policy cannot silently settle them twice.\n\nFS1/E5's no-migration-needed assurance is unproven: inserting world/place keys or changing the derivation can change existing outputs even if a save field is optional. A default version number does not retain the old generator, templates or resolved facts. Importing unknown generator/critical operation versions with a notice cannot guarantee correct state. Use current compatibility policy, actual preserved inputs and explicit failure/refusal/recovery where relevant. Array indices, label hashes, world/instance namespaces and exact saved identifiers need their actual collision/identity contract; no new global key validator or automatic schema migration is selected by this review.\n\nTI6's offline/played equivalence also needs actual support, elapsed action, choice stops and event ordering, not identical random draws alone. Regenerating an offer is not physical restock, collection or transfer. A shown-and-resolved event, unobserved scheduled occurrence, actor's memory and narrative return note differ. Observer-safe projections must not expose the true eligibility fact merely to explain why stock changed. Current AD51/AD52 support a first useful shared consumer and appropriate routine compression, with current book-world/testbed priorities qualifying the old Village shop/deck ranking. No universal generation service, delta slice, world seed, temporal carrier, RNG/hash body, source fact, private save, test or build was changed by this review.",
+      "before_sha256": "a2cd4c2ada6110f97439b08b52663c6159c6895fe68ccf713ab65aee4225cbe2",
+      "after_sha256": "f7fb15183fa14420a76b38c6c6098cf0a3fda2a8ef293f1b0bb4a903fa724322"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 769
+}

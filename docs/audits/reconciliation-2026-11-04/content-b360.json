@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "batch": "B360",
+  "title": "Structured artifact, research and home/social coverage maps",
+  "at": "2026-11-05T02:57:22.324814+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/artifact-collection/RECONCILIATION.json",
+      "ids": [
+        "maker_display_identity",
+        "ordinary_pin_utility",
+        "native_input_equipment",
+        "Three source hashes",
+        "Sixteen shared API inputs"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/artifact-collection/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Read complete118-line JSON, all three repair objects, source/API input identities, retired authority labels and ready/released field; fingerprints were read rather than recomputed.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "37fb0f89a28eb0da4e2e9a766eaaa5202062989272bf5e33c80c713c41d018b6",
+      "input_lines": 118,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          118
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+      "ids": [
+        "Revision2",
+        "15commands/one scene/six items",
+        "Source release",
+        "Implemented-unverified"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/artifact-collection/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Read full37-line checkpoint through no-follow-up release condition, exact limited source scope and deferred behavior gates.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "3720aa3948c790726cacdbe93c111f9852c7c366c2b247a3d073b5b987244eb4",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/artifact-collection/INTEGRATION.md",
+      "ids": [
+        "Exports/consumer joins",
+        "reservationReturns",
+        "Stable maker identity",
+        "Three named repairs",
+        "Compatibility"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/artifact-collection/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Read complete integration packet, all export signatures/shared joins, reservation-return accounting, stock enrollment, exact old-job retention and final no-build gate.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "0c5b6732419b3d9ace9c071d938083303ad1f73fe9d9b706c4ff2aaa5e323792",
+      "input_lines": 125,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          125
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/RECONCILIATION.json",
+      "ids": [
+        "31 findings/15 paths/3 packets",
+        "Nine-game source inputs",
+        "21 declared products",
+        "Two delivery recipients",
+        "Validation/drift"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/dispatch/game-source-research-2026-10-06/README.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Read complete131-line JSON, every source-input/hash entry and all source/ownership/DLC/delivery qualifications. Empty historical drift arrays and native_send_accepted were not refreshed or treated as read/incorporated confirmation.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "b118f5bef18db6fbb05e82056f58b9987ab34270e357e1e38862a61ae134c868",
+      "input_lines": 131,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          131
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/README.md",
+      "ids": [
+        "Seven named research lanes",
+        "Scoped source completion",
+        "Five-path handoff",
+        "Available fallback"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/dispatch/game-source-research-2026-10-06/README.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Read full33-line dispatcher owner including all seven lane/source rows, superseded initial dispatch limits and current-owner/source-coverage distinctions.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "35b3058886f26eb9fcef7493c4cd3bacc56b9fd1731b95282df982c5fd12d0fd",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/COVERAGE.json",
+      "ids": [
+        "visits",
+        "home",
+        "crush",
+        "proto23",
+        "retort/evidence",
+        "53commands/10worlds/1206commands/7plans"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Read complete62-line JSON and all five row objects, selected/excluded plan IDs, per-row counts and final no-full-world/native/constructor/save/browser qualification. 10+8+29+6=53 commands in enumerated command-bearing rows;2+1 represented plans do not themselves prove all seven registered plans.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "0e473e937ec810b806b2c9d4e0db30be649fa3b4243bc3dc1891b0141d9c8352",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "Finite combined release",
+        "53commands/three plans/nine items",
+        "353 sources/37vendors",
+        "Released children",
+        "Deferred suites"
+      ],
+      "classification": "Historical structured reconciliation/coverage or finite owner receipt",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete original record; fold semantic boundaries, useful repair mechanisms, integration/publication distinctions and exact evidence gaps into its existing Markdown owner without altering historical JSON.",
+      "evidence": "Freshly reread complete13-line checkpoint including every evidence/ownership clause, static immutable preview, excluded files and terminal resume guidance; prior full review existed, so this reread is not unique coverage again.",
+      "reopen": "For a selected dependency inspect actual current source and released/adopted candidate evidence; do not infer current correctness, source reading or remaining worker activity from this historical map.",
+      "input_sha256": "43ec31f29c0471dc536f0dafd2569ae647e88284a3fdd372fa719af459a63d20",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+      "heading": "## Content reconciliation: release and native consumer obligations, 2026-11-04 (B360)",
+      "body": "The complete RECONCILIATION.json, this checkpoint and revision2 integration packet preserve three substantive repairs: stable internal identity versus displayed maker name; useful firsthand cut evidence from actual ordinary recovery rather than prism-only access; and fresh native equipment custody checked at quote, commit and scene payment. Readiness/release and fingerprints identify a source packet, not a fresh built/native proof. No captured hash was rechecked against current runtime in this pass.\n\nKeep the exact native/shared joins as historical requirements, not instructions to patch today: registration grants no item, rendering/import does not enroll a seller or refill stock, an unpublished plan needs one durable publisher, and reservation returns/cancellations are not new loot. Missing actual equipment context must not allow an equipped input to be consumed by a stale simulation-slot check. Existing frozen payloads remain their real accepted terms; new evidence is not retroactively granted. The15-command/six-item/one-scene scope does not establish all item mechanics or a broader world.\n\nThe source role’s no-build receipt and deferred gameplay/persistence/failure/keyboard checks remain explicit. A released packet and current main-game adoption are separate states, and old integrator/thread IDs do not grant current ownership. Use actual present owner/consumer evidence for a selected follow-up, preserving source/module history and the Vela display/stable-ID distinction. No shared join, namespace, source power, stock, scene, item, build, save or gameplay gate was changed or run by this review.",
+      "before_sha256": "3720aa3948c790726cacdbe93c111f9852c7c366c2b247a3d073b5b987244eb4",
+      "after_sha256": "b32517c29457b4f4f6f26460392becf27a190d8574a69d0971ea371466c7f1cb"
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/README.md",
+      "heading": "## Content reconciliation: source-map and delivery qualifications, 2026-11-04 (B360)",
+      "body": "The complete reconciliation JSON preserves original31 findings/15 finite paths, a three-packet implementation selection, two supplemental traces and historical input/output identities. The16 supplemental hash checks with no mismatches are that receipt’s checks, not a new audit of every source path listed. Likewise validation passed and empty drift arrays describe that captured moment; hashes alone grant neither source reading nor semantic coverage. No catalogue, assembly, source repository, Steam entitlement or game was rechecked here.\n\nPreserve the nine-game/21-declared-product inventory boundary: official storefront base-app DLC metadata is different from ownership, installation, activation and traced source behavior. Streets of Rogue’s completed available framework/mod fallback still did not satisfy its original-gameplay-source0/5 criterion. A completed scoped report cannot silently become a full-game decompilation, playable recovered build or exhaustive DLC review. The three selected packets leave other useful findings in their existing research owners rather than deleting them.\n\nThe recorded direct user request supported the two historical follow-up messages; native_send_accepted confirms sending, not recipient reading or integration. No new outgoing message, assignment/export, runtime takeover or purchase follows from this document. Initial lane-launch permissions and source routes remain history under current host/tool/ownership rules. Keep the engine/rules/time/authoring ideas available for current selected work without repeating a blanket research wave or creating chats/workers.",
+      "before_sha256": "35b3058886f26eb9fcef7493c4cd3bacc56b9fd1731b95282df982c5fd12d0fd",
+      "after_sha256": "30d983d7e6960d014dfdbc971477a18c1ea0efc30f04054ceb00e4941fb41658"
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "heading": "## Content reconciliation: finite home/social coverage, 2026-11-04 (B360)",
+      "body": "The full coverage JSON’s five rows remain source/native/UI/current-build delivered but implemented-unverified at their recorded input. The command-bearing row counts10+8+29+6 equal53; three finite plans and nine items are additions within the cited registry, while totals10 destinations/1,206 commands/seven plans are registration counts rather than hours, reachable worlds or proof of all constructors. The visits row’s absent command count is not evidence of zero total visit behavior. The excluded separate Ink hash/cursor scene was not delivered by this wave.\n\nRetain native item custody, ended-visit compaction, funded furnishings/social actions, optional-reader scope and finite retort obstruction/output/collection ideas. Using acquired retort behavior did not complete the separate native decompilation owner’s work. Matching353 source-map contents,37 vendors, served bytes and static/syntax/definition checks establish their bounded source/build identity; a queued preview tab and intentionally retained HTTP session do not prove gameplay interaction or present process liveness. Those paths/IDs are historical and no server was queried or controlled now.\n\nThe existing release transfers only its completed exact scope; excluded shared files and later current owners remain separate. Unit/native/browser/save/reload/import/failure/keyboard/regression gates were explicitly unrun by this receipt, and no present passing result was inferred from delivered labels. The old one-prestige restriction is superseded by current scope direction; optional human review under AD42 is distinct from actual technical proof. Preserve this completed finite wave without restarting its workers or claiming full-world/source coverage. No runtime, preview, user save, process, install, commit or publication action occurred here.",
+      "before_sha256": "43ec31f29c0471dc536f0dafd2569ae647e88284a3fdd372fa719af459a63d20",
+      "after_sha256": "22acbef7d9547b04c6cdf59e0d77648fd12ee9aeff99a5b54d50c20c3dc99878"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 694,
+  "review_metadata_corrections": [
+    {
+      "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+      "field": "evidence",
+      "from": "Read full35-line checkpoint through no-follow-up release condition, exact limited source scope and deferred behavior gates.",
+      "to": "Read full37-line checkpoint through no-follow-up release condition, exact limited source scope and deferred behavior gates.",
+      "reason": "Correct prose line-count typo to recorder-captured37; full original read and hash unchanged."
+    }
+  ],
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/CHECKPOINT.md",
+      "from": "Current host authorization/routing, accepted rules and actual owner transfer govern any future continuation.",
+      "to": "Current host authorization/routing, rules (AD32/AD41) and actual owner transfer govern any future continuation.",
+      "reason": "Cite actual rules beside precedence wording; no acceptance/policy change."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B355, continuous execution 2026-11-04 |",
+      "to": "| B360, continuous execution 2026-11-04 |",
+      "reason": "Advance existing active pointer through B360; no new full register review."
+    }
+  ]
+}

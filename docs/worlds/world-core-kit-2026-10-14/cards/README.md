@@ -35,15 +35,10 @@ Cells are **D/R**. **F** = met, **P** = partial, **M** = missing, **U** = unasse
 | [A Regressor's Tale](regressors-tale.md) | M/M | P/M | P/M | M/M | M/M | P/M | M/M | P/M | M/M | M/M | M/M | M/M | P/M | M/M | M/M | M/M | M/M | M/M | 0/5/13 | 0/0/18 |
 | [Original Frontier](original-frontier.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
 | [Re:Zero](re-zero.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
-
 | [Tensura](tensura.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
-
 | [Worm](worm.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
-
 | [The Perfect Run](perfect-run.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
-
 | [Super Supportive](super-supportive.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
-
 | [You Are Summoned](you-are-summoned.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
 
 The Re:Zero, Tensura, Worm (2026-10-24), The Perfect Run, Super Supportive and You Are Summoned (2026-10-25) rows from the source-deep-dive queue are later additions, not W1 measurements: each card is a research summary with sealed-slot IDs, and no floor grading was done.
@@ -81,3 +76,14 @@ Use the kit header and contradiction register first; K1-K18 checklist and K19-K3
 Fallout, Skyrim and Elden Ring: retained and deprioritized, no cards or new runtime queues in W19.
 
 Later root drift: rounds 10/11 were reviewed after the input snapshot. Cards retain their branch/routing/Paradise-clock/courier corrections and two wording conflicts (TTKS world identity, MoL fictional reset versus file reload). W21-W32 results remain outside this completed tranche.
+
+
+## Content reconciliation B348: complete cards, current direction and dated evidence
+
+All83 original lines were reviewed, including every28card row, all18D/Rcells per row, proof trend, five W7 split rows and reading/history boundaries. A document-only recomputation confirms each assessed row's F/P/M totals match its18printed cells. Across the28rows there are504cells per side: D14F/301P/45M/144U and R3F/45P/312M/144U. These totals describe the combined historical/later-addition table, not a comparable new all-world score or present runtime. The W7 pool sums36rows,9STATED and27INFERRED, with no cross-book borrowing justified by an empty family.
+
+The opening18priority/paused/Frontier consolidation is the W19 tranche; two October23worlds and six October24/25research cards are later additions. Eight rows are unassessed, not guessed missing. R is expressly world-specific source, including inactive profiles; neither an F nor a P proves current rebuilt/native/persisted gameplay. All W1/W8/W10/W12/W13 fragments and K19–K34 unknown bindings preserve their original denominators. No later grade was recalculated or promoted by this read.
+
+The current method routes through the existing successor/core-audit owners and relevant world trackers. W21–W32 pending/excluded language and inherited branch/clock corrections describe the original tranche, not present worker or integration status. The later full-body reviews elsewhere do not automatically merge every later readiness result into this old grid. Current Klein/Harry developer direction and AD51 govern selection; the table is not a dispatch queue or all-parts gate. AD42 leaves generic human review optional, and AD52 does not turn count/fragment readiness into actual activity support.
+
+The bare TTKS B1–B5 labels are historical card handles for separate books, not one shared novel/world/source law. Later selected work must use the actual title and corresponding source contract. Sealed-slot IDs/unknown states remain safe; source/model claims keep their qualification. Blank lines splitting the final later-addition rows from the Markdown table are removed as a formatting correction, retaining all text/cells and exact old block in amendments. No underlying source/grade, world readiness, active process, source acquisition or gameplay proof was newly verified.

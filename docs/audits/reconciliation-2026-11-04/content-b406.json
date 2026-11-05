@@ -1,0 +1,320 @@
+{
+  "schema": 1,
+  "batch": "B406",
+  "title": "Six complete life/world/action coverage maps and their connected reports",
+  "at": "2026-11-05T04:50:33.275300+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/battle-brothers/COVERAGE.json",
+      "ids": [
+        "seven lenses;BB-FL01–18/W1–W18/E1–E8;P1–P8;T1–T24"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/battle-brothers/REPORT.md"
+      ],
+      "disposition": "The entire coverage map and report retain people/company/faction/crisis/event/recovery distinctions. Mood causes, wages/food, casualty/departure custody, retinue services and linked standing are selected script evidence, not a full relationship or kingdom/succession model. Swordmaster aging is level-gated rather than universal calendar aging.3114encrypted members,3239retained script/UI members,1109nonempty reconstructions,41selected source files and44findings are different denominators. Syntax compilation and selected bytecode/stat checks do not prove decompiler correctness; unresolved food-loop jump and crisis serialization discrepancy remain reconstruction questions. Numerical background arrays can be endpoints rather than final ranges. Ten DLC archives/depot labels establish presence, not entitlement or activation. The old remains-installed line is dated, not a current app observation. Keep useful agreement/standing/service/recovery/crisis ideas without imposing food death, generic loyalty decay or mandatory harshness on OOPS.",
+      "evidence": "Every serialized map key/value read in lossless compact output. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "cfdacb2ebce5c74ee06b7d7d718d8f827e4114158eb299de34dbf35b9183f4c0",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/battle-brothers/REPORT.md",
+      "ids": [
+        "seven lenses;BB-FL01–18/W1–W18/E1–E8;P1–P8;T1–T24"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/battle-brothers/REPORT.md"
+      ],
+      "disposition": "The entire coverage map and report retain people/company/faction/crisis/event/recovery distinctions. Mood causes, wages/food, casualty/departure custody, retinue services and linked standing are selected script evidence, not a full relationship or kingdom/succession model. Swordmaster aging is level-gated rather than universal calendar aging.3114encrypted members,3239retained script/UI members,1109nonempty reconstructions,41selected source files and44findings are different denominators. Syntax compilation and selected bytecode/stat checks do not prove decompiler correctness; unresolved food-loop jump and crisis serialization discrepancy remain reconstruction questions. Numerical background arrays can be endpoints rather than final ranges. Ten DLC archives/depot labels establish presence, not entitlement or activation. The old remains-installed line is dated, not a current app observation. Keep useful agreement/standing/service/recovery/crisis ideas without imposing food death, generic loyalty decay or mandatory harshness on OOPS.",
+      "evidence": "Complete report body read:1–20and21–end; two short reports fit entirely within first20lines. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "848506f4452249b69f00042a0e2e7078d1ac8ffcd84dbc03e152f4fc9ca20918",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/arx-libertatis/COVERAGE.json",
+      "ids": [
+        "F1–F7;P1–P8/T1–T4;A1–A3;21runes/50definitions/341staticchecks"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/arx-libertatis/REPORT.md"
+      ],
+      "disposition": "The full map/report preserve learned vocabulary, gesture recognition, owned recipe, target eligibility, mana and actual effect as separate stages. Both recognizers converge to IDs before effects; a typed/menu/routine request can use the same effect without a drawing requirement. Ignition/dousing change actual eligible light state at their own boundary; remote object reach does not extend every NPC click or unlock a door; levitation changes collision and is not free flight. Upfront payment precedes some later dispatcher refusals without refund, a donor finding rather than a universal OOPS transaction policy. Stored precast metadata/current affordability/stored caster level and sustained upkeep differ from an idle job. All50definitions/factories/cost cases and49matching book recipes plus an explicit internal exception do not establish semantics of every spell. Missing commercial scripts/geometry/localization block named acquisition/puzzle/teleport/dialogue claims. Signed-out local/Steam/GOG checks do not prove worldwide nonownership. All past licence and account claims remain dated. Current retired-milestone and AD51/AD52 direction qualify the old one-realm scope; no engine replacement or data acquisition is selected.",
+      "evidence": "Every serialized map key/value read in lossless compact output. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "8311ed9dcbd2a25d302e9b0b2005bc4e0624bd1935a79c60ade7be32ca646f3f",
+      "input_lines": 143,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          143
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/arx-libertatis/REPORT.md",
+      "ids": [
+        "F1–F7;P1–P8/T1–T4;A1–A3;21runes/50definitions/341staticchecks"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/arx-libertatis/REPORT.md"
+      ],
+      "disposition": "The full map/report preserve learned vocabulary, gesture recognition, owned recipe, target eligibility, mana and actual effect as separate stages. Both recognizers converge to IDs before effects; a typed/menu/routine request can use the same effect without a drawing requirement. Ignition/dousing change actual eligible light state at their own boundary; remote object reach does not extend every NPC click or unlock a door; levitation changes collision and is not free flight. Upfront payment precedes some later dispatcher refusals without refund, a donor finding rather than a universal OOPS transaction policy. Stored precast metadata/current affordability/stored caster level and sustained upkeep differ from an idle job. All50definitions/factories/cost cases and49matching book recipes plus an explicit internal exception do not establish semantics of every spell. Missing commercial scripts/geometry/localization block named acquisition/puzzle/teleport/dialogue claims. Signed-out local/Steam/GOG checks do not prove worldwide nonownership. All past licence and account claims remain dated. Current retired-milestone and AD51/AD52 direction qualify the old one-realm scope; no engine replacement or data acquisition is selected.",
+      "evidence": "Complete report body read:1–20and21–end; two short reports fit entirely within first20lines. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "a56b9aa6a4ce8a7b9efa5d5b91b527b7bc92d102ff9314473579c45cf89a1afd",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/wildermyth/COVERAGE.json",
+      "ids": [
+        "F1–F4;sixchains;fourproposals;17source entries"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/wildermyth/REPORT.md"
+      ],
+      "disposition": "The full map/report preserve actual event-to-eligibility mechanisms: childhood tags, age stages/recovery, scar versus current-campaign penalty, mortal withdrawal/inactive healing/prosthetic or theme return, retirement-to-eligible-rookie training and identity-aware partner/rival legacy handling. The3/8experience transfer or resource alternative belongs to the recorded selected retirement event, not every NPC or OOPS transition.23725retained files/608MB and28Java artifacts are inventories, not a read census. Six chains do not cover scheduler/retirement timing, complete legacy entity serialization/reset, most event prose, UI or DLC. A private hash match and recovered Java body do not mean runnable complete reconstruction. Ready-for-uninstall is old parent routing, not a new permission or observed removal. Keep consequential-life/mentor ideas without requiring universal injury, aging, romance, forced retirement or a population simulator.",
+      "evidence": "Every serialized map key/value read in lossless compact output. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "873bea1f89ff74231e3534b11e708cca0ff7baf63f660a719ee098c2b937d562",
+      "input_lines": 129,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          129
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/wildermyth/REPORT.md",
+      "ids": [
+        "F1–F4;sixchains;fourproposals;17source entries"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/wildermyth/REPORT.md"
+      ],
+      "disposition": "The full map/report preserve actual event-to-eligibility mechanisms: childhood tags, age stages/recovery, scar versus current-campaign penalty, mortal withdrawal/inactive healing/prosthetic or theme return, retirement-to-eligible-rookie training and identity-aware partner/rival legacy handling. The3/8experience transfer or resource alternative belongs to the recorded selected retirement event, not every NPC or OOPS transition.23725retained files/608MB and28Java artifacts are inventories, not a read census. Six chains do not cover scheduler/retirement timing, complete legacy entity serialization/reset, most event prose, UI or DLC. A private hash match and recovered Java body do not mean runnable complete reconstruction. Ready-for-uninstall is old parent routing, not a new permission or observed removal. Keep consequential-life/mentor ideas without requiring universal injury, aging, romance, forced retirement or a population simulator.",
+      "evidence": "Complete report body read:1–20and21–end; two short reports fit entirely within first20lines. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "ed948e317c08b7d7ffd0e6bcb30d2fa47e440eea34e89e1403ce08b59f8af2f8",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/vagrus/pass-2026-10-14/COVERAGE.json",
+      "ids": [
+        "F1–F3;P1–P8;prior-pass reconciliation;G1–G6"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/vagrus/pass-2026-10-14/REPORT.md"
+      ],
+      "disposition": "Every map gap and report row was read; source research stays PARTIAL. Event/step/choice histories, priority/eligibility/cooldown/OR blocks and transition ordering do not make1178legacy rows one random pool.17223steps/34323command headers are indexing, not full graph/story semantics. Quantity quotes use changing market curves; profit also needs food/wages/cargo/delay rather than a static buy/sell spread.58Goods rows include37non-collection goods. Twelve companion cap cases and alternate first recruitment sites do not establish return after departure or complete quests. Loaded DLC/shared hooks differ from owned/active expansion; a patronage depot is not all DLC. G1–G6 retain all named unread incoming paths, personal outcomes, DLC systems,46base/569subevent graph internals, tuning/route economics and runtime/save/entitlement boundaries. Prior missing extracts were not silently treated as retained; required inputs were recovered into the lane. Province War references were inspected as source material, not authority or permission for this task. Current desktop/book priorities qualify old1440/Village proposals without losing useful route-reserve, identity, typed result, customer and causal price information ideas.",
+      "evidence": "Every serialized map key/value read in lossless compact output. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "b680845bfdbf2cdd8338ee9b5f1c250ec30f5886cc76a628d13d85c194ec017f",
+      "input_lines": 76,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          76
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/vagrus/pass-2026-10-14/REPORT.md",
+      "ids": [
+        "F1–F3;P1–P8;prior-pass reconciliation;G1–G6"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/vagrus/pass-2026-10-14/REPORT.md"
+      ],
+      "disposition": "Every map gap and report row was read; source research stays PARTIAL. Event/step/choice histories, priority/eligibility/cooldown/OR blocks and transition ordering do not make1178legacy rows one random pool.17223steps/34323command headers are indexing, not full graph/story semantics. Quantity quotes use changing market curves; profit also needs food/wages/cargo/delay rather than a static buy/sell spread.58Goods rows include37non-collection goods. Twelve companion cap cases and alternate first recruitment sites do not establish return after departure or complete quests. Loaded DLC/shared hooks differ from owned/active expansion; a patronage depot is not all DLC. G1–G6 retain all named unread incoming paths, personal outcomes, DLC systems,46base/569subevent graph internals, tuning/route economics and runtime/save/entitlement boundaries. Prior missing extracts were not silently treated as retained; required inputs were recovered into the lane. Province War references were inspected as source material, not authority or permission for this task. Current desktop/book priorities qualify old1440/Village proposals without losing useful route-reserve, identity, typed result, customer and causal price information ideas.",
+      "evidence": "Complete report body read:1–20and21–end; two short reports fit entirely within first20lines. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "a306887e5dbd58377f488aec4f023be3ec61f4a680ac69202e95d5586e55db78",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/COVERAGE.json",
+      "ids": [
+        "31findings;P-F1–P-F11/S-F1–S-F11/B1–B9;62tips;30touches;eightproposals"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/kenshi/second-pass/REPORT.md"
+      ],
+      "disposition": "The full map/report preserve layered authored data rather than an executed native merge.59558records across four layers do not establish full semantics or final override precedence. Paid hire, persuasion, cage rescue, bought freedom and provisional travel have different join/leave outcomes; rescue does not confer membership or loyalty. Founding exposes real work, territorial visitors and involved-character retaliation; an editor tech-level label can mean town size. Multiple custodians/rulers and population replacement need their actual evaluator, not one ruler-dead boolean. Missing limbs, specialization, supplies and supported recovery inventory do not prove every escape, regrowth, resurrection, starvation XP or generic permanent follower desertion. Native combat/AI/needs, building transaction, raid scheduling, injury/XP triggers and save serializer remain unread. Red Basin is a separate original harsh-world proposal, not Reed Basin or current Frontier policy. Keep help-before-membership, practical skill/tool and social consequences without a new follower economy or actual gameplay claim.",
+      "evidence": "Every serialized map key/value read in lossless compact output. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "00ea9bbe431dfda8571c71fe39b98d1fb24cc9f24934b8b97d3b812c20428ada",
+      "input_lines": 122,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          122
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/REPORT.md",
+      "ids": [
+        "31findings;P-F1–P-F11/S-F1–S-F11/B1–B9;62tips;30touches;eightproposals"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/kenshi/second-pass/REPORT.md"
+      ],
+      "disposition": "The full map/report preserve layered authored data rather than an executed native merge.59558records across four layers do not establish full semantics or final override precedence. Paid hire, persuasion, cage rescue, bought freedom and provisional travel have different join/leave outcomes; rescue does not confer membership or loyalty. Founding exposes real work, territorial visitors and involved-character retaliation; an editor tech-level label can mean town size. Multiple custodians/rulers and population replacement need their actual evaluator, not one ruler-dead boolean. Missing limbs, specialization, supplies and supported recovery inventory do not prove every escape, regrowth, resurrection, starvation XP or generic permanent follower desertion. Native combat/AI/needs, building transaction, raid scheduling, injury/XP triggers and save serializer remain unread. Red Basin is a separate original harsh-world proposal, not Reed Basin or current Frontier policy. Keep help-before-membership, practical skill/tool and social consequences without a new follower economy or actual gameplay claim.",
+      "evidence": "Complete report body read:1–20and21–end; two short reports fit entirely within first20lines. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "8ca87ab4415a737cf0c523f347645cd0d3ceefbe344a20e576f74439fb9dd9ae",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/caves-of-qud/repass-2026-10-14/COVERAGE.json",
+      "ids": [
+        "F1–F5;P1–P6;E01–E22;12decisions;R1serializedgate"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md"
+      ],
+      "disposition": "The complete map/report preserve perception, current target validation, action eligibility and actual result. Earlier sound/smell acquisition does not bypass the later visible-render target check. Current recursive body attachments, operational loaded weapon, reserve ammunition and available/cooling ability differ. The same-phase ally comparison is conditional on sampled ordering and actual equipped/loaded state, not a spawned or executed fixture. A safe-area selector can veto immediately without searching another region, while a clear narrow firing line remains possible. The ability helper samples at most three possibly repeated indices, not an exhaustive priority list. An inner fire/loading rejection can still leave the wrapper returning true and end selection; a miss is not necessarily fallback, and pushing a Step is not completed movement. Source damage/temperature consumers do not prove actual thermal results.22evidence groups/67complete method blocks/47types/19XML/config copies/32selected blueprints and large retained-byte counts have distinct scope. The serialized goal stack, whole-load reacquisition, item/magazine/socket/field identity, mod veto and spawned state remain unknown. Existing body/liquid traces are joined, not reaudited. Old one-prestige scope is retired; no new acquisition, AI, battle or generic event engine is selected.",
+      "evidence": "Every serialized map key/value read in lossless compact output. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "dcdc6bf9a51bc02938271fe0f09811306e6f857c9eafb7a57200026f985780aa",
+      "input_lines": 132,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          132
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md",
+      "ids": [
+        "F1–F5;P1–P6;E01–E22;12decisions;R1serializedgate"
+      ],
+      "classification": "Bounded historical connected-source research; coverage of the document separated from source/game coverage",
+      "owners": [
+        "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md"
+      ],
+      "disposition": "The complete map/report preserve perception, current target validation, action eligibility and actual result. Earlier sound/smell acquisition does not bypass the later visible-render target check. Current recursive body attachments, operational loaded weapon, reserve ammunition and available/cooling ability differ. The same-phase ally comparison is conditional on sampled ordering and actual equipped/loaded state, not a spawned or executed fixture. A safe-area selector can veto immediately without searching another region, while a clear narrow firing line remains possible. The ability helper samples at most three possibly repeated indices, not an exhaustive priority list. An inner fire/loading rejection can still leave the wrapper returning true and end selection; a miss is not necessarily fallback, and pushing a Step is not completed movement. Source damage/temperature consumers do not prove actual thermal results.22evidence groups/67complete method blocks/47types/19XML/config copies/32selected blueprints and large retained-byte counts have distinct scope. The serialized goal stack, whole-load reacquisition, item/magazine/socket/field identity, mod veto and spawned state remain unknown. Existing body/liquid traces are joined, not reaudited. Old one-prestige scope is retired; no new acquisition, AI, battle or generic event engine is selected.",
+      "evidence": "Complete report body read:1–20and21–end; two short reports fit entirely within first20lines. No linked private source, assembly, archive, live application, installed state or current native consumer newly read/executed. No source review inferred from copied-byte counts.",
+      "reopen": "Specific source/runtime/access gaps remain as named, especially Vagrus G1–G6, Qud R1 and Arx missing commercial scripts; reading their maps does not close them or authorize acquisition. Current PROJECT/AD32/AD36/AD42/AD51/AD52 govern any selected OOPS consumer.",
+      "input_sha256": "6759128d444044147ba3e65eddffcfbd1aa4318d54a5cbbc90cdb6fb9f2947ec",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/battle-brothers/REPORT.md",
+      "heading": "## Content reconciliation B406: full map/report review and exact connected-source limits",
+      "body": "The entire coverage map and report retain people/company/faction/crisis/event/recovery distinctions. Mood causes, wages/food, casualty/departure custody, retinue services and linked standing are selected script evidence, not a full relationship or kingdom/succession model. Swordmaster aging is level-gated rather than universal calendar aging.3114encrypted members,3239retained script/UI members,1109nonempty reconstructions,41selected source files and44findings are different denominators. Syntax compilation and selected bytecode/stat checks do not prove decompiler correctness; unresolved food-loop jump and crisis serialization discrepancy remain reconstruction questions. Numerical background arrays can be endpoints rather than final ranges. Ten DLC archives/depot labels establish presence, not entitlement or activation. The old remains-installed line is dated, not a current app observation. Keep useful agreement/standing/service/recovery/crisis ideas without imposing food death, generic loyalty decay or mandatory harshness on OOPS.\n\nBoth local documents were fully read. The original findings/proposals, source-local IDs, recovery limitations and chronological history are preserved. This is not a fresh read of their underlying proprietary/open-source bodies, private evidence, runtime state or licence terms. Source research completion stays bounded; factual, native/persistence and human review states remain distinct. No gameplay, new world, installation/uninstall, private-save access, source acquisition or implementation wave was selected.",
+      "before_sha256": "848506f4452249b69f00042a0e2e7078d1ac8ffcd84dbc03e152f4fc9ca20918",
+      "after_sha256": "d630ae33b8801be66a561fed508999cc449a83ad7943446de7a10b471bdd761e"
+    },
+    {
+      "path": "docs/research/arx-libertatis/REPORT.md",
+      "heading": "## Content reconciliation B406: full map/report review and exact connected-source limits",
+      "body": "The full map/report preserve learned vocabulary, gesture recognition, owned recipe, target eligibility, mana and actual effect as separate stages. Both recognizers converge to IDs before effects; a typed/menu/routine request can use the same effect without a drawing requirement. Ignition/dousing change actual eligible light state at their own boundary; remote object reach does not extend every NPC click or unlock a door; levitation changes collision and is not free flight. Upfront payment precedes some later dispatcher refusals without refund, a donor finding rather than a universal OOPS transaction policy. Stored precast metadata/current affordability/stored caster level and sustained upkeep differ from an idle job. All50definitions/factories/cost cases and49matching book recipes plus an explicit internal exception do not establish semantics of every spell. Missing commercial scripts/geometry/localization block named acquisition/puzzle/teleport/dialogue claims. Signed-out local/Steam/GOG checks do not prove worldwide nonownership. All past licence and account claims remain dated. Current retired-milestone and AD51/AD52 direction qualify the old one-realm scope; no engine replacement or data acquisition is selected.\n\nBoth local documents were fully read. The original findings/proposals, source-local IDs, recovery limitations and chronological history are preserved. This is not a fresh read of their underlying proprietary/open-source bodies, private evidence, runtime state or licence terms. Source research completion stays bounded; factual, native/persistence and human review states remain distinct. No gameplay, new world, installation/uninstall, private-save access, source acquisition or implementation wave was selected.",
+      "before_sha256": "a56b9aa6a4ce8a7b9efa5d5b91b527b7bc92d102ff9314473579c45cf89a1afd",
+      "after_sha256": "85c8de25c0095d58d21a25bf1356d5b3dc33bfe5103707627bf077f6a232a7a5"
+    },
+    {
+      "path": "docs/research/wildermyth/REPORT.md",
+      "heading": "## Content reconciliation B406: full map/report review and exact connected-source limits",
+      "body": "The full map/report preserve actual event-to-eligibility mechanisms: childhood tags, age stages/recovery, scar versus current-campaign penalty, mortal withdrawal/inactive healing/prosthetic or theme return, retirement-to-eligible-rookie training and identity-aware partner/rival legacy handling. The3/8experience transfer or resource alternative belongs to the recorded selected retirement event, not every NPC or OOPS transition.23725retained files/608MB and28Java artifacts are inventories, not a read census. Six chains do not cover scheduler/retirement timing, complete legacy entity serialization/reset, most event prose, UI or DLC. A private hash match and recovered Java body do not mean runnable complete reconstruction. Ready-for-uninstall is old parent routing, not a new permission or observed removal. Keep consequential-life/mentor ideas without requiring universal injury, aging, romance, forced retirement or a population simulator.\n\nBoth local documents were fully read. The original findings/proposals, source-local IDs, recovery limitations and chronological history are preserved. This is not a fresh read of their underlying proprietary/open-source bodies, private evidence, runtime state or licence terms. Source research completion stays bounded; factual, native/persistence and human review states remain distinct. No gameplay, new world, installation/uninstall, private-save access, source acquisition or implementation wave was selected.",
+      "before_sha256": "ed948e317c08b7d7ffd0e6bcb30d2fa47e440eea34e89e1403ce08b59f8af2f8",
+      "after_sha256": "4070cbc282dfabdf3cca2cd15346324bd1575ec6a8b16ad4c180e7ceab894790"
+    },
+    {
+      "path": "docs/research/vagrus/pass-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B406: full map/report review and exact connected-source limits",
+      "body": "Every map gap and report row was read; source research stays PARTIAL. Event/step/choice histories, priority/eligibility/cooldown/OR blocks and transition ordering do not make1178legacy rows one random pool.17223steps/34323command headers are indexing, not full graph/story semantics. Quantity quotes use changing market curves; profit also needs food/wages/cargo/delay rather than a static buy/sell spread.58Goods rows include37non-collection goods. Twelve companion cap cases and alternate first recruitment sites do not establish return after departure or complete quests. Loaded DLC/shared hooks differ from owned/active expansion; a patronage depot is not all DLC. G1–G6 retain all named unread incoming paths, personal outcomes, DLC systems,46base/569subevent graph internals, tuning/route economics and runtime/save/entitlement boundaries. Prior missing extracts were not silently treated as retained; required inputs were recovered into the lane. Province War references were inspected as source material, not authority or permission for this task. Current desktop/book priorities qualify old1440/Village proposals without losing useful route-reserve, identity, typed result, customer and causal price information ideas.\n\nBoth local documents were fully read. The original findings/proposals, source-local IDs, recovery limitations and chronological history are preserved. This is not a fresh read of their underlying proprietary/open-source bodies, private evidence, runtime state or licence terms. Source research completion stays bounded; factual, native/persistence and human review states remain distinct. No gameplay, new world, installation/uninstall, private-save access, source acquisition or implementation wave was selected.",
+      "before_sha256": "a306887e5dbd58377f488aec4f023be3ec61f4a680ac69202e95d5586e55db78",
+      "after_sha256": "e96d436d90bd23936209c99105f5b84a9671a6760e407b9a64efe9919f8f8f9a"
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/REPORT.md",
+      "heading": "## Content reconciliation B406: full map/report review and exact connected-source limits",
+      "body": "The full map/report preserve layered authored data rather than an executed native merge.59558records across four layers do not establish full semantics or final override precedence. Paid hire, persuasion, cage rescue, bought freedom and provisional travel have different join/leave outcomes; rescue does not confer membership or loyalty. Founding exposes real work, territorial visitors and involved-character retaliation; an editor tech-level label can mean town size. Multiple custodians/rulers and population replacement need their actual evaluator, not one ruler-dead boolean. Missing limbs, specialization, supplies and supported recovery inventory do not prove every escape, regrowth, resurrection, starvation XP or generic permanent follower desertion. Native combat/AI/needs, building transaction, raid scheduling, injury/XP triggers and save serializer remain unread. Red Basin is a separate original harsh-world proposal, not Reed Basin or current Frontier policy. Keep help-before-membership, practical skill/tool and social consequences without a new follower economy or actual gameplay claim.\n\nBoth local documents were fully read. The original findings/proposals, source-local IDs, recovery limitations and chronological history are preserved. This is not a fresh read of their underlying proprietary/open-source bodies, private evidence, runtime state or licence terms. Source research completion stays bounded; factual, native/persistence and human review states remain distinct. No gameplay, new world, installation/uninstall, private-save access, source acquisition or implementation wave was selected.",
+      "before_sha256": "8ca87ab4415a737cf0c523f347645cd0d3ceefbe344a20e576f74439fb9dd9ae",
+      "after_sha256": "ec2cc04b1f6c38597d0a4b2a23b2c0ed54408e5bb454e5c6c541de0af03725be"
+    },
+    {
+      "path": "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B406: full map/report review and exact connected-source limits",
+      "body": "The complete map/report preserve perception, current target validation, action eligibility and actual result. Earlier sound/smell acquisition does not bypass the later visible-render target check. Current recursive body attachments, operational loaded weapon, reserve ammunition and available/cooling ability differ. The same-phase ally comparison is conditional on sampled ordering and actual equipped/loaded state, not a spawned or executed fixture. A safe-area selector can veto immediately without searching another region, while a clear narrow firing line remains possible. The ability helper samples at most three possibly repeated indices, not an exhaustive priority list. An inner fire/loading rejection can still leave the wrapper returning true and end selection; a miss is not necessarily fallback, and pushing a Step is not completed movement. Source damage/temperature consumers do not prove actual thermal results.22evidence groups/67complete method blocks/47types/19XML/config copies/32selected blueprints and large retained-byte counts have distinct scope. The serialized goal stack, whole-load reacquisition, item/magazine/socket/field identity, mod veto and spawned state remain unknown. Existing body/liquid traces are joined, not reaudited. Old one-prestige scope is retired; no new acquisition, AI, battle or generic event engine is selected.\n\nBoth local documents were fully read. The original findings/proposals, source-local IDs, recovery limitations and chronological history are preserved. This is not a fresh read of their underlying proprietary/open-source bodies, private evidence, runtime state or licence terms. Source research completion stays bounded; factual, native/persistence and human review states remain distinct. No gameplay, new world, installation/uninstall, private-save access, source acquisition or implementation wave was selected.",
+      "before_sha256": "6759128d444044147ba3e65eddffcfbd1aa4318d54a5cbbc90cdb6fb9f2947ec",
+      "after_sha256": "158341b2b7eb6cb2ad53de43927c8bc9c04d4c1ce3998aaaa98126d9b5c428c8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 547
+}

@@ -160,3 +160,12 @@ Note on the UI rows: PROJECT.md says the published default is now "Luminous Goth
 8. Frozen-world idle and standing orders while the world moves (10-18, two rounds): DESIGNED proposal.
 
 Close seconds: canon-based resource spot placement (ER3/L2, 10-15), runecrafting and other making kinds beyond potions (10-15), bought maps and info routes for sites (10-16), whole-screen composition WX1-WX14 (10-16), generic multiverse/cluster rule layers (10-16).
+
+
+## Content reconciliation B379: preserved mechanisms and dated verification limits
+
+All127 table rows, eleven nuance paragraphs and ranked gaps were read. Preserve the mechanisms behind the requests: chosen repeat is not entrapment or duplicate processing; reciprocal return needs actual means and a scoped paused life; preparation, useful later reuse and available helpers have real costs; a supervised initiation is not immune to source-causal hazards; an estimate can be wrong and must remain marked; identical opponent labels do not erase instance identity. Free mixing/depth choice, type-fitting cheat surfaces, layered repair, better smiths and player-hosted gatherings remain useful palettes with actual source/actor/consumer questions, rather than a required universal implementation.
+
+Existence-level BUILT labels, source-test filenames, stale line numbers and grep misses are dated leads, not technical floor. Later structural/visual receipts can qualify an older unverified item only for their actual input/state. Current [PROJECT](../../../PROJECT.md), AD42/44/51/52 and UI rules govern sequencing: optional taste review is not a missing technical gate; developer lead-first retains other lives; useful shared seams need no universal interpreter; compressed activity retains consequential means, knowledge and clocks. Legacy1366 targets, old R14 parity baseline, no-new-NPC assumptions and menu/mastery proposals do not override later direction.
+
+A missing story continuation beyond built content is an authoring edge, not an impossible or forbidden character action. Preserve the old warning/park proposal without claiming a runtime that was not exercised. Dropping unknown IDs, retaining dormant/retired bytes and refusing an unsupported executable schema are different compatibility outcomes; old-save deferral does not waive new-state round trips, require data deletion or authorize private-save access. No bought map, universal rune system, exact hidden-market canon, full crowd behavior or source hazard was newly verified by this read.

@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "batch": "B349",
+  "title": "GM prompts and role map: current authority, inherited scope and finite delivery",
+  "at": "2026-11-05T02:36:59.044772+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "ids": [
+        "authority/design/5designquestions",
+        "4iterationsteps/examples",
+        "3roles/5coordrules/delegationsuccession",
+        "model/source/modes/5refreshsteps/startprompts/AD43queue"
+      ],
+      "classification": "Full reusable GM prompt/template/role router; current authority and historical dispatch/model/status boundaries",
+      "owners": [
+        "docs/GAME_MASTER_PROMPT.md",
+        "AGENTS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve finite-outcome workflow, all example fiction and roles. Replace stale hard-coded model routing with current owning policy and distinguish historical chat/worker authority from this task.",
+      "evidence": "Entire local Markdown bodies read; no old session, runtime, source, model/host capacity or delivered build newly checked.",
+      "reopen": "Invoke only a current authorized task/role with actual owners and host capabilities; a reusable prompt or old capacity note cannot run itself.",
+      "input_sha256": "a8f55077cae6d778129bf075861af61e93df07c6d4305237e4993d8134104eeb",
+      "input_lines": 278,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          278
+        ]
+      ]
+    },
+    {
+      "path": "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+      "ids": [
+        "briefallfields/checkpoint",
+        "reusableprompt/5responsibilities",
+        "Tideglassworkedexample",
+        "startprompts/succession/autonomousgoals"
+      ],
+      "classification": "Full reusable GM prompt/template/role router; current authority and historical dispatch/model/status boundaries",
+      "owners": [
+        "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+        "AGENTS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve finite-outcome workflow, all example fiction and roles. Replace stale hard-coded model routing with current owning policy and distinguish historical chat/worker authority from this task.",
+      "evidence": "Entire local Markdown bodies read; no old session, runtime, source, model/host capacity or delivered build newly checked.",
+      "reopen": "Invoke only a current authorized task/role with actual owners and host capabilities; a reusable prompt or old capacity note cannot run itself.",
+      "input_sha256": "37b1379b5e1d56330854794a57da439f6aa01fbf68e33a3ec9d6caa3fffad414",
+      "input_lines": 207,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          207
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/README.md",
+      "ids": [
+        "idea179/693return",
+        "actionability/completion/runtimeindex",
+        "7roles/Mermaid/5worldroster",
+        "iteration/Oct4wave/Oct6upgrade"
+      ],
+      "classification": "Full reusable GM prompt/template/role router; current authority and historical dispatch/model/status boundaries",
+      "owners": [
+        "docs/gm/README.md",
+        "AGENTS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve finite-outcome workflow, all example fiction and roles. Replace stale hard-coded model routing with current owning policy and distinguish historical chat/worker authority from this task.",
+      "evidence": "Entire local Markdown bodies read; no old session, runtime, source, model/host capacity or delivered build newly checked.",
+      "reopen": "Invoke only a current authorized task/role with actual owners and host capabilities; a reusable prompt or old capacity note cannot run itself.",
+      "input_sha256": "d29e7d699f953961d4b80ec0c3861534b38db0fb450320d5fc0c43778e4d2251",
+      "input_lines": 89,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          89
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "heading": "## Content reconciliation B349: reusable roles and current task authority",
+      "body": "All278 original lines were reviewed, including authority/design, iteration, role/coordination tables, succession, source modes, complete refresh protocol, starting prompts and later ground-rules note. Preserve the already-improved finite-outcome loop: a packet is a checkpoint, a failed artifact needs a new diagnosis, and a completed design does not require gameplay while an implementation request does. A finished increment does not finish remaining authorized work. The checkpoint is an index to actual owners/evidence, not a substitute transcript or new authority.\n\nThe project startup instruction is current ground rules, vision digest, PROJECT summary and relevant source, with router/rulebooks opened by trigger. This reusable prompt's longer startup/reference list is a task aid, not an order to reread every global owner or source book for each bounded change. Whole-world actionability preserves the full requested horizon but is not a mandatory new planning wave before every independently ready runtime consumer. Current AD44/AD51/AD52 keep whole-known-trajectory design, first useful shared seams and actual compressed choices/costs/actors, without reducing the many-world vision or forcing every new function through a global framework.\n\nThe hierarchy and historical October4 authority do not override current host/user instructions for subagents, user-visible chats, outgoing messages or successors. A saved role prompt is not a live assignment, new chat or granted permission. Current authorization, actual task identity/liveness and explicit writer release matter; a final message may predate a resumed turn, and an unavailable tool does not prove a worker gone. This reconciliation launches no agents/chats or delegation. Capacity remains distinct from AU budget, and previous scope/budget do not renew automatically after refresh.\n\nThe model paragraph's old Claude routing and hard-coded external prompt-roundtrip location are superseded by applicable current AGENTS/host routing and installed skill discovery. The current-use model sentence is updated to point there rather than pinning an expensive tier from this role title. A representative qualification checks the actual needed outcome; it need not become a universal extra trial/gate for a trivial mechanical task. Current AGENTS governs when advisor escalation is needed. No model, local inference or external roundtrip was run by this read.\n\nThe prompt correctly distinguishes command/state owners, meaningful fictional mechanisms, player/character knowledge and original versus direct source work. Strong means can solve a task; an ordinary quiet life need not acquire a new event, upkeep or counter. Interface conveniences are not automatically diegetic powers. Fixed authored threats are a default, with actual world agents and selected modes able to change them. Current ordinary entry and developer canon locks remain distinct. A hypothetical walkthrough, source-present adapter, template or generated build cannot become a natural playable/persisted result by description.\n\nPreserve verification reuse only for unchanged relevant inputs, not HEAD alone in a dirty checkout. Old remote/worker passes, offered builds and historical test deferrals keep their exact scope. Generic human taste/fiction review is optional under AD42; actual accepted decisions still need their recorded authority (AD32). No current source/runtime, user acceptance, worker state, external message, release, commit or gameplay result was produced by this full prompt review.",
+      "before_sha256": "a8f55077cae6d778129bf075861af61e93df07c6d4305237e4993d8134104eeb",
+      "after_sha256": "211ee41b11b9de42dcc26db5c2965194b6d110c344f8398f8c329eafa735189c"
+    },
+    {
+      "path": "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+      "heading": "## Content reconciliation B349: reusable roles and current task authority",
+      "body": "All207 original lines were reviewed, including every brief field, reuse prompt, task control, checkpoint, worked Tideglass example, launch examples and later succession/iteration notes. Use only fields that affect the assigned outcome, as the opening already says. Filling the schema does not select a world, certify canon, make a loadable instance, establish a new game initializer or dispatch workers. A local adopted brief owns its actual selected world details, not shared direction by mere presence.\n\nThe Tideglass example is original unselected fiction. Its charged glass, tide/played-time, leakage, crossing aid, people and two approaches illustrate connected work without claiming current native source or a universal sea/magic law. Another effective imported method may remove the local obstacle entirely. A useful local slice need not invent a crossing, three-tier pursuit ladder, ordinary weaker niche or a full tidal simulation simply to satisfy a field. The complete source/world horizon remains separate from its first bounded proof.\n\nThe early template's pinned Luna-medium readers/Luna-high settled-code paragraphs are replaced by current AGENTS/host routing rather than treating those fixed tiers as live requirements. Keep bounded source exposure, cumulative budget, real field/consumer and representative qualification where useful, with explicit higher-judgment escalation. Historical AU/host capacities are not current workers, fresh allowance or permission to spawn. The standing historical chat/successor note is qualified by current host/user authority; this documentation review creates none.\n\nActual source/body/knowledge, input/output custody, local clocks and failure modes belong in the selected consumer's contract. Old phase deferrals stay implemented-unverified; the template does not waive current rebuilt/affected persistence proof for a gameplay-done claim. AD51 permits the first useful shared mechanism without all future worlds; AD52 compresses repeated work while retaining actual choices, time/costs, actors and observed evidence. C5/human taste review stays optional under AD42 rather than a universal blocker.\n\nWriter reservations are exact paths and live ownership, not entire directories or old role names. A parent cannot solve conflicts by silently overwriting dirty global docs or assuming a stopped coordinator released its children. Continue the existing assignment after compaction without restarting pending work. No current world, role chat, source reading, runtime change, save migration, test result or agent dispatch was created by this full template review.",
+      "before_sha256": "37b1379b5e1d56330854794a57da439f6aa01fbf68e33a3ec9d6caa3fffad414",
+      "after_sha256": "a9e6dc2d25fac76f4282ade635b1784221e7114e3aaae6492ca939be6db221df"
+    },
+    {
+      "path": "docs/gm/README.md",
+      "heading": "## Content reconciliation B349: reusable roles and current task authority",
+      "body": "All89 original lines were reviewed, including the complete role table/control graph, planning/runtime links, source roster, iteration and dated policy updates. Preserve this as an index of reusable responsibilities and historical deliveries. A prompt-ready origin role, completed specialist return or mermaid edge is not a live agent/tree or current reservation. Existing checkpoints/actual host state determine liveness. A new current-routing note at the opening makes clear that October3–13 roster/status/latest labels and user-visible-chat authorization statements belong to those sessions, not this one.\n\nThe179cards/693cases, five eight-file design packs and delivered workshop revision/bundle are historical scopes. Specified-not-run cases, a completed engineering/document review and an implemented-unverified build do not establish current native behavior, whole-source qualification, package adoption or user acceptance. The source/owner catalogue remains useful without turning its tables into another execution queue or claiming idea-level reconciliation of the entire public intake.\n\nThe five deep families and October13anime/book ranking are dated design rosters; current PROJECT/AD44 and lead-life owners govern Klein/LOTM-first and Harry developer work. The broader many-world vision and optional Frontier/random-entry direction remain. Actionability/completion are coverage tools rather than a mandatory full-blueprint/specialist wave before every small runtime change. Current AD51/52 support useful shared seams and faithful compression, with actual sources/local laws and ordinary/developer coverage separate.\n\nModel selection, agent count, user-visible chats, successors, outgoing messages and budgets follow actual current user/host/AGENTS instructions; historical capacity permission and deferred tests do not renew those authorizations. The current task is documentation reconciliation with no agents or runtime work. No old ID/cursor/branch/build was queried or resumed, and no live role, source licence, current gameplay or current-source behavior was newly verified by reading this index.",
+      "before_sha256": "d29e7d699f953961d4b80ec0c3861534b38db0fb450320d5fc0c43778e4d2251",
+      "after_sha256": "1fd82975291463a4cc7fabf3404225876e077e8677f96aee53a99228ac2f972c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 724,
+  "post_record_amendments": [
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "from": "Codex-specific model names and effort defaults live in [MODEL_ROUTING_CODEX.md](gm/MODEL_ROUTING_CODEX.md); Claude hosts use opus for ambiguous coordination, sonnet for settled bounded work and haiku for mechanical checks.",
+      "to": "Use the applicable current AGENTS.md and host routing policy for model/effort and escalation; [MODEL_ROUTING_CODEX.md](gm/MODEL_ROUTING_CODEX.md) is supporting project guidance and cannot override newer user/host instructions.",
+      "reason": "Retire stale role-pinned Claude tiers in favor of current owning routing policy; preserve exact original."
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "from": "(source `~/Documents/Dev/agent-skills/skills/prompt-roundtrip`, installed for Codex and Claude)",
+      "to": "(discover its current installed source through the host skill catalog)",
+      "reason": "Replace obsolete hard-coded external skill path with current installed-skill discovery; no roundtrip invoked."
+    },
+    {
+      "path": "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+      "from": "Readers use bounded context and default to Luna medium when supported; they may\nspawn lesser agents within reserved tree-budget slots (AU9). Retries and\nsuccessors retain the parent task budget.",
+      "to": "Readers use bounded context under the current AGENTS.md/host model-routing\npolicy. Delegation requires the applicable current authorization and stays inside\nthe reserved tree budget (AU9); retries and successors retain that same budget.",
+      "reason": "Remove stale pinned reader effort; preserve current routing/authorization and cumulative budget."
+    },
+    {
+      "path": "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+      "from": "Follow the master's model-routing policy. Start appropriate settled gameplay/UI tasks with GPT-6 Luna at high, and qualify one representative task before expanding the batch. Low or medium can suit mechanical content work. Keep ambiguous world design and shared-system decisions with a capable GM. Inspect the actual result; repair understood in-scope defects and inspect the result. Repeat only when a new diagnosis supports another concrete correction; escalate unresolved design, shared semantics or capability needs. Do not weaken the mechanic or gate to preserve the cheaper route.",
+      "to": "Follow the master's applicable current model-routing policy and AGENTS.md. Choose model and effort for the actual judgment and proof needed, rather than pinning a tier by role title. Qualify one representative substantive task when useful before expanding a batch. Inspect the actual result, diagnose in-scope defects, and escalate unresolved design, shared semantics or capability needs through the current policy. Do not weaken the mechanic or gate to preserve a cheaper route.",
+      "reason": "Replace older Luna-high gameplay default with current owned routing and actual qualification scope."
+    },
+    {
+      "path": "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+      "from": "No extra approval is needed for this already-authorized project workflow.",
+      "to": "This records that session's authorization; current host/user rules still govern any new chat, agent, successor or external action.",
+      "reason": "Qualify historical workflow permission by current applicable authorization, without reopening existing authorized work."
+    },
+    {
+      "path": "docs/gm/README.md",
+      "from": "# Game master roles and local ownership\n",
+      "to": "# Game master roles and local ownership\n\n**Current routing, 2026-11-04 (AD32/AD41/AD44):** PROJECT and the current lead-life owners govern selected work. The dated rosters, latest-delivery labels, capacities, returned IDs and chat authorization below are historical snapshots, not live worker state or a new dispatch. Use the existing task/checkpoint and current user/host instructions before resuming any role.\n",
+      "reason": "Put current authority and historical status boundary at the role router entrance; preserve all old text."
+    }
+  ]
+}

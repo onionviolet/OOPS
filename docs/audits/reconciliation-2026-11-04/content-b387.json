@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "batch": "B387",
+  "title": "Elapsed light support, observation authority and unioned realm clock contracts",
+  "at": "2026-11-05T03:52:17.063713+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/reference-engine-boundaries-2026-10-20/CHECKPOINT.md",
+      "ids": [
+        "PFE09/11/17/23",
+        "F1/F2/F3",
+        "revisionA/B",
+        "V1–V7"
+      ],
+      "classification": "Historical elapsed-support implementation and finite realm planner contract",
+      "owners": [
+        "docs/gm/dispatch/reference-engine-boundaries-2026-10-20/CHECKPOINT.md"
+      ],
+      "disposition": "Full63linesread. Prior elapsedlightinterval distinctcurrentestimate: fuelclockbeforestudy causedlostfinalfraction, andalternatelightsupport postexpiry inspection. Transientinterval boundclock/place/custody/reset notsavedsource/history. Tickreplaybatch equivalence notnewofflineadvance. Book/XP/bonusonce distinctexistingReaderbackfill; immediatewholeenvelopeonlyafterrecognition. RevisionAotherharvestUI failure thenonlycorrectedowninputcopiedB, full2335green scoped B. No runtimecurrentproof.",
+      "evidence": "Actual complete document content read. Existing realm/observation checkpoints also reread as support, not new coverage credit. Original source/tests/planners/private receipts/native runtime not re-executed; no current behavior or installed claim.",
+      "reopen": "Selected current owner should check exact producer/observer/command/clock/namespace and final-envelope invariant; retain old limited status until actual later proof qualifies it. No new runtime, migration, source acquisition, private-save or process action authorized.",
+      "input_sha256": "36038b87075b45870f38303f6d43b957aa3d2421486e80250d75548231158a43",
+      "input_lines": 63,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/engine/observation-channels/README.md",
+      "ids": [
+        "sixplanners",
+        "exactauthoredbinding/state",
+        "fiveexecutorbindings",
+        "replay/closure",
+        "remainingacceptance"
+      ],
+      "classification": "Historical elapsed-support implementation and finite realm planner contract",
+      "owners": [
+        "docs/gm/engine/observation-channels/README.md"
+      ],
+      "disposition": "Read all47lines. Trustedhostactualbody/source/power/anchor/endpoint vsrequest/importmetadata; activationnot sample, detectionnotidentity, claimnotverifiedidentity; sensorreturnpathnotphysicaldoor/cargo. Exactsequence/revision/cause andpositivecostpublishedonce, commonexecutorbeforeplanneradoption. Readonly recipientreplay no new cost/sample/lease. Support/manual/expiryclosure preserveshistoryandactualbodies. Implementationunverifieduntilnativeintegration, no syntax-to-behaviorupgrade.",
+      "evidence": "Actual complete document content read. Existing realm/observation checkpoints also reread as support, not new coverage credit. Original source/tests/planners/private receipts/native runtime not re-executed; no current behavior or installed claim.",
+      "reopen": "Selected current owner should check exact producer/observer/command/clock/namespace and final-envelope invariant; retain old limited status until actual later proof qualifies it. No new runtime, migration, source acquisition, private-save or process action authorized.",
+      "input_sha256": "6c248494bc2e8486cf29945217d22c23b664a189e57cdd1fea4bee5e072c6eec",
+      "input_lines": 47,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          47
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/engine/realm-clock/README.md",
+      "ids": [
+        "lease/request/supportrecords",
+        "union/plannerboundaries",
+        "fiveintegrationsteps",
+        "nativeintegrationregrant",
+        "finalsource-reviewimportgap"
+      ],
+      "classification": "Historical elapsed-support implementation and finite realm planner contract",
+      "owners": [
+        "docs/gm/engine/realm-clock/README.md"
+      ],
+      "disposition": "Read all103lines. Actualvisits/supportunion once, absentminutesfreeze; activeunexpiredlease alone insufficient andlastsupportedendpointnotcontinuousproof. Earliestscheduler/expiryboundarystop, oldsupportreconcilebeforecutoff, no retroenrollmentornewworldclock. Paidabsolute-duejobsselectedsettle while newlocaldecisionsfreeze. Exactobserver/clockactivecorrespondence sourcegap requiresfinalenvelopevalidator notintermediatestages; reportedreasoningnotmalformedimportproof orcurrentregression.",
+      "evidence": "Actual complete document content read. Existing realm/observation checkpoints also reread as support, not new coverage credit. Original source/tests/planners/private receipts/native runtime not re-executed; no current behavior or installed claim.",
+      "reopen": "Selected current owner should check exact producer/observer/command/clock/namespace and final-envelope invariant; retain old limited status until actual later proof qualifies it. No new runtime, migration, source acquisition, private-save or process action authorized.",
+      "input_sha256": "168b87bf95281a9b9b070da5b313efe3e1da2696127bed66b8a32e5e47daaf78",
+      "input_lines": 103,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          103
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/reference-engine-boundaries-2026-10-20/CHECKPOINT.md",
+      "heading": "## Content reconciliation B387: elapsed support and exact revision proof",
+      "body": "The entire checkpoint, V1–V7 table and revision history were read. A just-settled elapsed light interval is not the lamp's current shining state or a cached future quote. Its calendar/place/custody guards and reset on configure/load/command prevent reuse as timeless entitlement. The native reading owner uses supported elapsed illumination while the current estimate reflects expiry. Independent light can support the post-expiry inspection remainder; travel burning fuel does not invent study. Supported compressed advance replays native ticks, not a new offline clock.\n\nF1/F3 were reproduced before edits; F2's stock/command/persistence/custody semantics were retained. Fixture corrections for null/undefined and book progress versus matching Literacy XP preserve loader invariants. Reader title recognition at next publication/load backfill is separate from once-only book work, fuel, XP and bonus: immediate selected-state checks and later whole-envelope checks have different scope. The2335-green revisionB suite follows a real changed other-owner harvest UI input, preserving revisionA's failure and both hash identities. It is not a same-input pointless repeat or a repair attributed to the light lane.\n\nAll numeric night/dawn/expiry estimates and native save/reload/Export/Import comparisons retain their exact seeded candidate and original clock sampling policy. The pre-edit purchase journey supports unchanged acquisition only, not final whole-campaign play. Old candidate URLs/paths, symlinked font, writer release and stopped-process claims are historical; no current manifest, runtime, source game, browser or app was reverified. AD42 makes the old remaining human-play gate optional review, without broadening the actual technical evidence.",
+      "before_sha256": "36038b87075b45870f38303f6d43b957aa3d2421486e80250d75548231158a43",
+      "after_sha256": "663fd9964d690b9b91737190769a93e3d6442198af1cdd05bd554b9bdf6f8044"
+    },
+    {
+      "path": "docs/gm/engine/observation-channels/README.md",
+      "heading": "## Content reconciliation B387: information flow versus physical authority",
+      "body": "The full planner packet, exact record/envelope shapes and five executor bindings were read. Imported/player metadata is not the host's actual operator/subject body, source ownership, learned executable power, anchor or sensory flow. Registry labels do not grant possession, awakening, reach or identity. Activation pays/opens the selected view lease but is not a sample. A sample, detection, notice, deliberate identity claim and qualified identifying evidence have distinct causes/recipients; an anonymous trace and return path do not disclose a hidden operator or move either body.\n\nOne staged durable publisher must reconcile positive costs and realm-boundary costs without double debit, execute the actually owned power before adopting the planner proposal, and recheck sequence/revision/cause and exact host support. Blocked plans publish no partial state, costs or knowledge. The view edge differs from physical doorway/contact/cargo; local cooperation/payment still needs actual co-location. Manual shutter, expiry and lost support close their own authorized view while preserving people, stock, prior samples and receipts. Recipient replay returns stored scoped text without a new sample, charge, lease update or clock enrollment.\n\nThe packet reports syntax/import evidence and names a separate root/native acceptance backlog. Later helper/checkpoint descriptions do not prove that an exported planner, failed publication or restored lease was exercised. Historical price/lifetime/retention caps remain authored local proposals, not universal once-only limits (AD22). The source reasoning and generated shape do not authenticate current runtime/import invariants or private source truth. No common executor, save, clock or browser was invoked by this reconciliation.",
+      "before_sha256": "6c248494bc2e8486cf29945217d22c23b664a189e57cdd1fea4bee5e072c6eec",
+      "after_sha256": "1dc0ba132202c436a9a5faf26cc9d355f31b05a7c72f89ab6173a6e50a983d7f"
+    },
+    {
+      "path": "docs/gm/engine/realm-clock/README.md",
+      "heading": "## Content reconciliation B387: unioned support and final-envelope invariant",
+      "body": "The complete103-line delivery, native regrant and final connected source review were read. Visits and supported observation/work intervals form a union, advancing each local minute once; absent/unsupported intervals freeze. Stored active/unexpired status and lastSupportedAt do not establish live continuity. Host-supplied support, exact endpoint/revisions and the earliest pending scheduler boundary remain required. Opening cannot retrospectively enroll an unobserved gap. Reconcile the valid prior interval before support mutation/closure/expiry, and settle a boundary already due before positive advance.\n\nLocal scheduling support does not relocate the player, authorize contact/cargo, exempt costs or disclose private completion. Physical passage and live viewing remain different routes. The selected old policy keeps already-paid absolute joined-clock jobs due for settlement while local elapsed time and new resident decisions freeze without support; it is not complete frozen-world simulation, a general job migration or universal offline work entitlement. Missing old namespace stays body-only rather than inventing a live viewer or history.\n\nThe final review reports one source-level import-consistency concern: individually valid observer and clock records can lack exact active correspondence at the saved final envelope. This was not a constructed/imported malformed save or fresh current defect proof. If reselected, inspect the actual current final publisher/import validator; do not assert it remains open from this old report. Enforce a required cross-ledger invariant on final publication/import rather than intermediate activation/shutter stages, which intentionally stage observer-before-clock and clock-close-before-observer. Preserve both-absent compatibility and actual native location, without silently relocating a viewer. Syntax/ESM/link checks and release fingerprints establish only those layers; later root changes retain their own identities. No runtime planner, test, build/browser, save, private trial truth or process was exercised here.",
+      "before_sha256": "168b87bf95281a9b9b070da5b313efe3e1da2696127bed66b8a32e5e47daaf78",
+      "after_sha256": "2a9d912800857ba45003fa1b537205937d7f80d915b4e3a7583d4b8bad2ea953"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 638
+}

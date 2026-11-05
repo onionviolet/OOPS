@@ -37,3 +37,10 @@ the script and its synthetic test. Rules: CLR1, CLR2, CLR3, CLR6, CLR7, CLR8, CL
 - Ambiguity default (CLR12): when a verb fits two acts, pick the one whose object is at the step's place; else leave a gap.
 
 Do not commit. Keep canon names and source text out of tracked files (CLR3).
+
+
+## Content reconciliation: household verb mapping limits, 2026-11-04 (B359)
+
+The9-act expectation, five-step threshold and pipeline counts are probe/workflow terms, not semantic completion. Preserve pack-supplied act IDs, actual place/object requirements, missing-householdActs fallback and explicit unmatched reasons. A household-looking verb can refer to distinct mechanisms; a matching object at the place is a proposed disambiguation default, not proof that the action’s intention, effects or custody match the source step. If two meanings remain materially different, retain that uncertainty rather than count a guessed route as faithful replay.
+
+The no-pack regression and synthetic tests can protect generator behavior without proving native action admission, actual carried resources, source-qualified household coverage or save execution. Publication remains private for source mappings and name-free/synthetic for tracked code; recorded IDs/counts must still respect discovery boundaries. Existing X1/X2 script ownership and H1 runtime ownership are historical grants, not current releases. No pack, source row, generator, mapping, test or gameplay state was read or run by this content review.

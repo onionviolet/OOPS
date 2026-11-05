@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "batch": "B369",
+  "title": "Nested causal chains, absorption queue and reference-gameplay coverage",
+  "at": "2026-11-05T03:16:10.626922+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/chains/COVERAGE.json",
+      "ids": [
+        "nested.chain.roles",
+        "nested.chain.welfare",
+        "nested.chain.method",
+        "31phases/14branches",
+        "62commands/53public",
+        "Deferred gates"
+      ],
+      "classification": "Historical structured coverage/queue or finite source/build checkpoint",
+      "owners": [
+        "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact chain/family/packet meanings and dated source/release/adoption claims; fold substantive command/custody/knowledge/compatibility distinctions and all explicit proof gaps into the existing owner.",
+      "evidence": "Read all150lines including complete phase/branch/actor/output/jurisdiction fields for all three chains, counts, performed/deferred checks and both source hashes.10+11+10phases=31;4+6+4branches=14. No source/native definition or hashes rechecked.",
+      "reopen": "For selected current work inspect actual native source, owner and current candidate evidence; no automatic replay of delivered packets, queued follow-ons, original prototypes or old sessions.",
+      "input_sha256": "26a716a70f86a27dbe49f7c784db722dc67ad7bead2073172d9f63652a3bbf2f",
+      "input_lines": 150,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          150
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md",
+      "ids": [
+        "Three chains",
+        "Six controllers",
+        "Settled accounts",
+        "Foreman own means",
+        "Root shared joins"
+      ],
+      "classification": "Historical structured coverage/queue or finite source/build checkpoint",
+      "owners": [
+        "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact chain/family/packet meanings and dated source/release/adoption claims; fold substantive command/custody/knowledge/compatibility distinctions and all explicit proof gaps into the existing owner.",
+      "evidence": "Read complete7-line checkpoint including actual source-writer release and global-integration versus worker-definition proof.",
+      "reopen": "For selected current work inspect actual native source, owner and current candidate evidence; no automatic replay of delivered packets, queued follow-ons, original prototypes or old sessions.",
+      "input_sha256": "5da5863a6a1cb31e0a6053d5f3bdcae068f749ff2fb2214b19d846089f175066",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/game-absorption-2026-10-06/QUEUE.json",
+      "ids": [
+        "GD-01/BG-E1–E4",
+        "Already-covered families",
+        "ALL19/causal/artifact releases",
+        "GD-02",
+        "October18routing review"
+      ],
+      "classification": "Historical structured coverage/queue or finite source/build checkpoint",
+      "owners": [
+        "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact chain/family/packet meanings and dated source/release/adoption claims; fold substantive command/custody/knowledge/compatibility distinctions and all explicit proof gaps into the existing owner.",
+      "evidence": "Read complete114-line JSON, all selected/already-covered/unselected entries and later routing review. Empty reservation/block arrays do not establish current liveness or all-game completion. No source packet, prior message, shared lease or output tested.",
+      "reopen": "For selected current work inspect actual native source, owner and current candidate evidence; no automatic replay of delivered packets, queued follow-ons, original prototypes or old sessions.",
+      "input_sha256": "d65e8f96c639c7a53f1dbeabdaf78a24bfe0c55276cf5761db899543fba38df3",
+      "input_lines": 114,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          114
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "Four leaves",
+        "Nine moving inputs",
+        "e77080593d4b",
+        "Source-receiver delivery",
+        "Deferred native acceptance"
+      ],
+      "classification": "Historical structured coverage/queue or finite source/build checkpoint",
+      "owners": [
+        "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact chain/family/packet meanings and dated source/release/adoption claims; fold substantive command/custody/knowledge/compatibility distinctions and all explicit proof gaps into the existing owner.",
+      "evidence": "Read full5-line checkpoint including later receiver source/build completion superseding old handoff/lease blockers. Preview sessions and matching-source claims remain historical, not current probes.",
+      "reopen": "For selected current work inspect actual native source, owner and current candidate evidence; no automatic replay of delivered packets, queued follow-ons, original prototypes or old sessions.",
+      "input_sha256": "9f1e2cd1d2948ad02ef5f9dd7b7589050d7a59cc2cb82e154927d8ffe15969f8",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/reference-gameplay/COVERAGE.json",
+      "ids": [
+        "Five families",
+        "12feats",
+        "Three-attempt challenge",
+        "Four-minute functional effect",
+        "Sluice3/4",
+        "Finite service goal",
+        "Expansion9 compatibility"
+      ],
+      "classification": "Historical structured coverage/queue or finite source/build checkpoint",
+      "owners": [
+        "docs/gm/reference-gameplay/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact chain/family/packet meanings and dated source/release/adoption claims; fold substantive command/custody/knowledge/compatibility distinctions and all explicit proof gaps into the existing owner.",
+      "evidence": "Read all134lines, every new/covered/consumer field in the five family objects, complete compatibility/source qualification and deferred choices. No linked Qud/DCSS/DDA source traces or runtime read by proxy.",
+      "reopen": "For selected current work inspect actual native source, owner and current candidate evidence; no automatic replay of delivered packets, queued follow-ons, original prototypes or old sessions.",
+      "input_sha256": "f33b11397764c8f86986b19b9d226c60701f58ff676455254673a77e57b949c4",
+      "input_lines": 134,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          134
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/reference-gameplay/CHECKPOINT.md",
+      "ids": [
+        "Released finite scope",
+        "661commands/21controllers/6worlds",
+        "226sources/37vendors",
+        "Prepared actions",
+        "Twelve feats/nine commands/four items"
+      ],
+      "classification": "Historical structured coverage/queue or finite source/build checkpoint",
+      "owners": [
+        "docs/gm/reference-gameplay/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact chain/family/packet meanings and dated source/release/adoption claims; fold substantive command/custody/knowledge/compatibility distinctions and all explicit proof gaps into the existing owner.",
+      "evidence": "Read complete17-line checkpoint including every release/child/input clause, actual-versus-inferred feat attribution and terminal behavioral/persistence limits. No old count or writer status renewed.",
+      "reopen": "For selected current work inspect actual native source, owner and current candidate evidence; no automatic replay of delivered packets, queued follow-ons, original prototypes or old sessions.",
+      "input_sha256": "a041f557bf3eb75fa3c9d035c36ee5ea6e76a3e1055f073eee294387896c132b",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md",
+      "heading": "## Content reconciliation: authored chain coverage, 2026-11-04 (B369)",
+      "body": "The full structured map preserves three distinct authored chains: scoped office recognition/claims/restitution, water duty versus export settlement, and a learned local method with actual body/source/tool support. Their10/11/10phases total31 and4/6/4branch dispositions total14. The62-command/53-public/six-controller definitions are source counts, not executed alternatives, reachable scenes or verified persistence. Registry merges and phase-effect link checks do not establish actual state transitions or final shared integration.\n\nPreserve lawful/contested role, willing actor, finite restitution, source transmission, local jurisdiction, taught function, actual native stamina and owned material outputs separately. A return report accepts actual settled history without replaying remote rewards; abstention is not consent or a mutation of remote stock. Foreman labor uses the foreman’s body/source/tool/credit, not the player’s hidden reserve. A repaired brace or refined method is not another export award, copied body or office title. Refusal/coercion and ordinary alternatives retain their own consequences rather than a universal moral score.\n\nThe source frame is bounded supplied MTL; new residents, plots and numbers are original. All listed native output/receipt/stock/controller claims remain the historical implementation description until actual selected gameplay and save/failure evidence supports them. The worker’s release and integrator’s final build/proof are distinct; old session IDs do not grant present ownership. No source, chain, actor, native reward, process, build or browser was exercised here.",
+      "before_sha256": "5da5863a6a1cb31e0a6053d5f3bdcae068f749ff2fb2214b19d846089f175066",
+      "after_sha256": "d66ec9260c1340f23476f54045d7fe86fb61b3e4741b2d659d5212a22108e0b6"
+    },
+    {
+      "path": "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md",
+      "heading": "## Content reconciliation: queue selection and receiver delivery, 2026-11-04 (B369)",
+      "body": "The complete queue keeps GD-01 evidence-assay selected and GD-02 site-transformation unselected despite source readiness. Existing kit/fixture/cooling/vial consumers are not new absorption obligations. Historical ALL19, causal and artifact reservations carry explicit later release dispositions; the old needs strings are not current open leases. October18routing review intentionally did not renew runtime proof or grants, and the later receiver checkpoint is more specific than the original source-only handoff.\n\nRetain the assay’s meaningful mechanics: two disclosed candidates, an actual control, paid failed trial with unchanged tool, retained negative evidence, inference before/after failure, and several useful ordinary/sample/rinse routes into existing pin/kit consumers. Failed practice can teach without fabricating output, while an inferred cause must not become direct observed truth. Source attribution, sample custody, reserved costs, actual comparison and one durable publication remain distinct. A finite useful implementation does not automatically select another substrate/hazard feature.\n\nThe nine-input receiver patch, repaired joins and matching370-source/37-vendor build are dated delivery evidence; no matching hash, old preview session or empty queue field was freshly checked here. Source/native/UI/build completion retains implemented-unverified behavior and explicit save/failure/keyboard gaps. Current owner/candidate evidence governs any new work, with AD42 optional review and current source/compatibility direction. No stale blocker was replayed, no source packet or private save was loaded, and no server, worker, patch, build or gameplay check was run.",
+      "before_sha256": "9f1e2cd1d2948ad02ef5f9dd7b7589050d7a59cc2cb82e154927d8ffe15969f8",
+      "after_sha256": "24c36cc2de80a2519032b6d49262bc0a091cf2fedb0a2462d93ca4919767105f"
+    },
+    {
+      "path": "docs/gm/reference-gameplay/CHECKPOINT.md",
+      "heading": "## Content reconciliation: finite reference-gameplay families, 2026-11-04 (B369)",
+      "body": "All five coverage families were read: retained achievements/feats, explicit optional conduct challenges, conserved functional item/condition effects, native contextual battle windows and attributed teaching/practice. Their listed consumers and matching build establish the original source scope, not current native behavior. Twelve unique feats, attempt/trial/window limits, prices and thresholds are reversible authored defaults for this finite content, not universal restrictions on future worlds or strong powers.\n\nA feat’s catalogue entry is not automatically earned: committed versus conservative reconciled provenance, substantive actual actor contributions and simultaneously admitted combination means remain distinct. Challenge acceptance/violation/withdrawal and ordinary success are separate records. Defensive automatic conduct does not remove real player choices or pause native opponents. A consumed defensive opportunity, current gear/body/stamina, target and actual outcome must determine its effect, rather than an unearned once-only token. The four-minute condition affects its selected hook function, not all native actions or real-world absence.\n\nPaid instruction and practice need current willing/source/body/contact/funding support, actual native purse/stock and meaningful mastery. A finite itinerary stops before another reservation at its goal; cancellation/refund is not completed learning or new item production. Optional expansion9/referenceGameplay1 and native battle4 are distinct from retained absent/5–8/schema3 data, and a prior reader’s intentional rejection is not lossless forward compatibility. Native preflight/publication and generated save/failure proof remain actual gates; a source path or old browser test cannot substitute. The old one-renewal implementation scope does not restore a retired product milestone. No research source, battle, instruction, feat, save, process, build or current integration was reverified here.",
+      "before_sha256": "a041f557bf3eb75fa3c9d035c36ee5ea6e76a3e1055f073eee294387896c132b",
+      "after_sha256": "670ecb22c5e44ca088343dd1fb83d40d8feda3cdf34edc583e91c56d0b37fb8a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 683,
+  "review_metadata_corrections": [
+    {
+      "path": "docs/gm/reference-gameplay/CHECKPOINT.md",
+      "field": "evidence",
+      "from": "Read complete19-line checkpoint including every release/child/input clause, actual-versus-inferred feat attribution and terminal behavioral/persistence limits. No old count or writer status renewed.",
+      "to": "Read complete17-line checkpoint including every release/child/input clause, actual-versus-inferred feat attribution and terminal behavioral/persistence limits. No old count or writer status renewed.",
+      "reason": "Correct checkpoint prose count to recorder-captured17; full reading and original input identity unchanged."
+    }
+  ]
+}

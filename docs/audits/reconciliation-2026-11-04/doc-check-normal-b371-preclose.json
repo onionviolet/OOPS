@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/gm/multi-world-paths-2026-10-07/AUDIT.md:63: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/gm/world-completion-2026-10-06/ENGINE_GAPS.md:56: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169"
+}

@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B398",
+  "title": "Detailed MUD careers, transition-specific retention and existing OOPS consumers",
+  "at": "2026-11-05T04:16:43.774898+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/continuing-traveler-games-2026-10-14/RETROMUD_AND_4D_DEPTH.md",
+      "ids": [
+        "F9a–F9e",
+        "R1–R7",
+        "all19primaryguildrows",
+        "R5a–R5f",
+        "R6a–R6g",
+        "D1–D7",
+        "D4a–D4e",
+        "D5a–D5e",
+        "C6eighttransitions",
+        "P11",
+        "P12a–P12e",
+        "P13a–P13j",
+        "A2"
+      ],
+      "classification": "Dated official-help and pinned static-source comparison; original unselected applications",
+      "owners": [
+        "docs/research/continuing-traveler-games-2026-10-14/RETROMUD_AND_4D_DEPTH.md",
+        "docs/research/continuing-traveler-games-2026-10-14/YAIRPG_ABSORPTION_PROPOSALS.md"
+      ],
+      "disposition": "Preserved every career, travel, body, custody, guild/history, remembered-skill, trade and personal/estate persistence distinction. No unrestricted full power-system acquisition, actual server behavior or compulsory remort inferred. Existing B332 absorption owner already routes concrete OOPS consumers rather than a new generic engine.",
+      "evidence": "Fresh full265-line body read via1–65/66–160/161–270. All176lines of the B332-qualified absorption owner reread as support, with truncated tail recovered154–180; no second pending credit for that prior full review. No private capture, original source, live help or gameplay newly read.",
+      "reopen": "Q2a–Q2e from the guide remain selected live/script/persistence questions; current PROJECT priority and AD51/AD52 govern any future OOPS slice, with no new MUD adoption wave.",
+      "input_sha256": "2bc6e5a18e7fe5c6db663baaa09598c3113c9786a6d315df37e019c462c04997",
+      "input_lines": 265,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          265
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/continuing-traveler-games-2026-10-14/RETROMUD_AND_4D_DEPTH.md",
+      "heading": "## Content reconciliation B398: careers, remort and persistence keep their actual mechanisms",
+      "body": "The full report was reviewed, including all 19 guild rows, six detailed career chains, seven body/tool/companion interactions, five remembered-skill source traces, five trade mechanisms, eight transition comparisons and all P12/P13 proposals. RetroMUD's six destinations describe local environmental, transport and institutional differences; 4Dimensions' four authored eras are not a demonstrated butterfly-effect timeline or an automatic magic shutdown. Beginner transport help can expire, and route admission, safe arrival, return, cargo and creature support differ. Homeworld effectiveness does not imply deleted learning.\n\nRetain concrete career outputs: a merchant's actual clerk and supplies; material competing among potions, enchantment and travel; physiology-dependent treatment; place knowledge versus navigation; supported laboratory/body construction; and endpoint/creature-specific transport. Guild membership, institution dues, actual training, teacher fee assistance and an apprentice's temporary bonus do not collapse into one XP meter. Castle time-decay suspension remains explicit despite older maintenance language. None of these donor limits supplies an OOPS balancing tax.\n\nThe deeper 4D trace supersedes the earlier comment-only mastery inference: executable grand_master logic consults each ability's eligibility, not every game effect. Four class-history slots, tier/level/prerequisite checks and chosen replacement explain selected access loss through successive remorts. Separately remembered records can pass an early eligibility branch while still needing proficiency and training. Five default records do not prove an immutable live cap. mremember/mforget are NPC-script memory commands, not the player's acquisition API. MakeNaked's bookkeeping name is not proof that remort destroys possessions. Every result remains static at the pinned revision, without an exercised remort or save roundtrip.\n\nTrade processing, proper buyer, supply, history, tender, personalized-token services and organic cargo restrictions retain distinct causes. A commented or unfinished generic profession handler neither proves a live career nor disproves a separately scripted zone occupation. Character quit, keyring, rented objects and house-room contents have different persistence paths. Recursive serialization does not settle every old modified/nested-object warning. The exact live thresholds, cargo exceptions and object/creature retention cases remain open under the guide's Q2a–Q2e.\n\nThe existing B332 absorption owner already identifies a notebook-to-bench application, learned versus leased assistance, specific teacher/worker means, price saturation, scoped cargo and bounded heir support. Its source-only claims remain dated, not newly verified by this report read. Retain MA01–MA13 as selected additional consumers or explanations, rather than restarting those foundations. No ordinary trade, new room, companion roster, source qualification, current browser route, automatic offscreen work or MUD-inspired engine was implemented. Current lead-first direction leaves Frontier as a testbed and human feedback optional under AD42.",
+      "before_sha256": "2bc6e5a18e7fe5c6db663baaa09598c3113c9786a6d315df37e019c462c04997",
+      "after_sha256": "45884958c2f25802c6bb5c68fcc7fc90c98fdfa784bf4494715347e471ae48b9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 599,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "V1 (hub page only)",
+      "to": "V1 (hub-page evidence)",
+      "reason": "Keep bounded catalogue evidence and correct title identity explicit; remove an ambiguous site-family shorthand rather than imply another novel. Old text preserved.",
+      "occurrences": 2
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "- **Shadow Slave**: only an itch.io fan game,",
+      "to": "- **Shadow Slave**: the recorded search found an itch.io fan game,",
+      "reason": "Keep bounded catalogue evidence and correct title identity explicit; remove an ambiguous site-family shorthand rather than imply another novel. Old text preserved.",
+      "occurrences": 1
+    },
+    {
+      "path": "docs/research/continuing-traveler-games-2026-10-14/YAIRPG_ABSORPTION_PROPOSALS.md",
+      "from": "**A Soldier's Life / TTKS**",
+      "to": "**A Soldier's Life**",
+      "reason": "Keep bounded catalogue evidence and correct title identity explicit; remove an ambiguous site-family shorthand rather than imply another novel. Old text preserved.",
+      "occurrences": 1
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B390, continuous execution 2026-11-04 |",
+      "to": "| B398, continuous execution 2026-11-04 |",
+      "reason": "Advance active reconciliation pointer through B398 without changing register scope or adopting proposals."
+    }
+  ]
+}

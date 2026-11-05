@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "batch": "B306",
+  "title": "Intro-flow closeout: later corrections, direct PLAY, reciprocal lives and storage proposals",
+  "at": "2026-11-05T01:24:31.039521+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          2238
+        ]
+      ],
+      "fresh_read_ranges": [
+        [
+          1334,
+          2200
+        ]
+      ],
+      "prior_review_ranges": [
+        [
+          1,
+          662
+        ],
+        [
+          663,
+          1333
+        ]
+      ],
+      "prior_review_ledgers": [
+        "docs/audits/reconciliation-2026-11-04/content-b304.json",
+        "docs/audits/reconciliation-2026-11-04/content-b305.json"
+      ],
+      "original_content_sha256": "f06234a298b1f7544694ace806fd77b32f9b99cd8705a5d8cade69c2a799a5be",
+      "original_content_lines": 2200,
+      "ids": [
+        "EF1–12/PR1–6/C1–11/MZ1–18",
+        "WS1–7/AY1–5/FR1–5/QA1–5/SB1–6",
+        "ICX1–20/OG1–7/IR1–9/CC1–10/AW1–12/AB1–9",
+        "MG1–6/PJ1–6/launch presentation/restoration",
+        "LC1–12/BGP1–26/XM1–13/PW1–6/ERA1–3/YS1–6",
+        "RET1–7/SMU1–7/DSK1–4/SAV1–8"
+      ],
+      "classification": "Whole original content closed by exact unchanged prefix and three sequential actual reads; later corrections govern earlier proposals",
+      "owners": [
+        "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+        "docs/WORLD_ENTRY_RULES.md",
+        "docs/LEAD_LIFE_RULES.md",
+        "docs/ARCHITECTURE_RULES.md"
+      ],
+      "disposition": "Fully read remaining original1334–2200 including rounds18–30 and launch restoration, joining B304/B305 exact unchanged original1–1333. Preserve source-local IDs, original history, useful beginning/crossing/return/storage proposals and actual later corrections. Fold explicit C1–11 reconciliation, restored directPLAY, RET3/4 dated closeout, canon-versus-neutral source premise and transactional storage limits into existing owner. Earlier reports/prototypes do not establish current ordinary starts or all-world runtime.",
+      "evidence": "Original2200line prefix SHA matches B304. Later dated725test merged developer probe, BGP22 rebuilt entry wording and RET3/4 return closeout supersede earlier pending claims only within reported scope. 303KB/212KB/80KB and54,265byte measurements differ in artifact and date. No fresh runtime/source/license/private-save verification performed.",
+      "reopen": "Full document content disposition recorded. Linked private/source/runtime reports remain independent candidates; verify current producer/state/consumer and actual selected source edition before implementation claims. No menu redesign, migration, reader, worker, outward contact or deletion authorized by this review.",
+      "input_sha256": "2bb0f04714b77244a2806fcee09d5a471ce98508ad8ba9ca5403dff53df2db4c",
+      "input_lines": 2238
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "heading": "## Content reconciliation B306: full original content and later corrections",
+      "body": "The full original 2,200-line document is now content-reviewed: B304 covered 1–662, B305 covered 663–1333, and B306 covered 1334–2200. Its original prefix still matches the first review hash; all proposals, user quotations, dated results and earlier reconciliation folds are preserved. The later original sections, including rounds 29–30, qualify the earlier options rather than becoming another execution queue.\n\nC1–C11 explicitly resolve several apparent contradictions: Workspace supersedes the old Classic default; all admitted choices supersede the old More treatment; the Village is not the universal random-start outcome; fresh canon copies and continuing inhabitants differ; None is an experience preference rather than a rewrite of world truth; an abandoned committed branch is not an uncommitted simulation; resting worlds freeze by default with actual world-policy exceptions. Fixed points need source/premise and supported means. Pressure can create offers and consequences without taking ordinary player decisions. Timed branch changes supersede the old single-override representation. These are later resolutions to the earlier B304/B305 ranges, not new accepted decisions supplied by this audit.\n\nEF/PR/MZ preserve truthful endings, epilogues, clock policy and occurrence-versus-revelation. A terminal ending, an elective close and a resumed life need not share undo rights. The MoL pilot later lists 45 events, six anchors and three branches, so its earlier pending index status is historical; neither this nor FV's 33/5/3 supplies full causal or native play coverage. Round 20 corrects MZ16's alleged missing autosave: a 60-played-second native autosave existed then. That does not establish a first-write or failure case today. WS/AY/FR/QA/SB preserve sensory openings, legibility, purposeful test seeds and unequal world-fit starts without imposing a universal prose ban, compulsory balance cost, mandatory timed choice or extra infrastructure gate. The current reading/quotation owner qualifies the old blanket ban on source prose.\n\nICX/OG/IR/CC/AW/AB/PJ preserve actual knowledge channels, source/body/custody, publication ownership and elapsed-time policy. Internal truth or an unknown sealed ID is not automatically observable. A source may remain opaque; not every hidden structure promises discovery. Comics need the particular edition, reality and mechanism. Return costs, offline production, hunger, decay, diminishing returns and retroactive NPC histories are not licensed merely by the existence of a clock or category. Projection cannot reconstruct facts it never owned. Validate/commit before publication and keep one authoritative state owner; the proposed fields and probe architecture are not a required new kernel. The 655/658/667-test returns remain their dated module/probe evidence. MG's later 725-test merged/pushed closeout supersedes the earlier unmerged prototype statuses for that delivered slice, without establishing every ordinary-world route. Old dispatch, merge and push instructions grant no current action authority; AD42 qualifies generic taste-review gates.\n\nThe October 20 restoration is later than both the three-card delivery and LC's six-start study: restore the original launch screen and direct PLAY, defer the separate start menu. SMU6 reiterates this. Keep LC4/6–12 and BGP's unified start/crossing grammar as useful proposals, with real independent background/system consumers, an honest commit point and no grants during inspection. They are not unfinished launch work selected by this reconciliation. Current desktop targets and standing book-world priorities qualify older target sizes and suggested Village depth. A coins/text variation does not prove a career, family, body or obligation system.\n\nBGP11–28/XM/ERA/YS retain the correction of the mistaken LOTM opening explanation, alternative neutral versus source-specific entry, era-dependent premises and young-host/summarized-childhood/playable-childhood distinctions. These are dated wiki-derived notes, not fresh novel qualification. Do not collapse a source-specific engineered entry into every crossing, or treat its memory-only origin as a Village continuation. Nine crossing answers must distinguish facts revealed before commitment from sealed causal truths: disclose material known effects and uncertainty without revealing undiscovered causes. XM's foreign-money, language, transport, sleeping-body and fixed-duration examples are defaults with world/means exceptions, not universal laws. Host circumstances need actual source/body/access consumers. A listed young host or age field is not a delivered childhood simulation. Later selected protagonist developer routes qualify the old blanket claim that a player is never that protagonist; ordinary and developer routes remain separate.\n\nPW3's later explicit code-port instruction supersedes its earlier inspiration-only recommendation for the recorded Proto23 scope; retain the licence-gap statement as dated evidence, not a current legal finding or a new permission request. Preserve upstream attribution and original-versus-ported identity. This review performs no licence lookup, contact, code port or source acquisition. The current testbed direction qualifies BGP10's old suggestion to deepen the Village as a campaign. A Soldier's Life's historical slice, private pack identity and A2/compatibility gaps remain distinct from current runtime verification.\n\nRET's final update reports RET3/RET4/SMU5 built, qualifying the same round's earlier destructive-entry/no-return observations. Do not repeat those observations as current defects. Conversely, the linked checkpoint has not been reviewed by proxy. Exact life snapshots, custody, reciprocal resume and the distinction between a new Village life and an unrecoverable old one remain useful requirements. DSK's named slots, shared commands and isolated writable sessions are proposals, not reasons to move continuing-self ownership into Electron. SAV correctly keys a journey's lives independently of world labels. Its 303KB journey, 212KB continuation and approximately80KB snapshots are dated measurements of a different artifact from the earlier54,265byte RAM profile, not proof of present quota pressure. File references, export bundles, per-life recovery and migration need durable multi-file failure handling, a complete portable dependency set and actual write ownership. Hashes detect byte changes; they are not an anti-edit or anti-cheat policy, and do not justify rejecting legitimate changes by default. Recovering one interdependent life's old state is not automatically safe because files are separate. SAV8's snapshot removal remains an optional destructive proposal requiring explicit action authorization. No saves, files, menus, runtime, source facts or live priorities were changed by this content closeout.",
+      "before_sha256": "2bb0f04714b77244a2806fcee09d5a471ce98508ad8ba9ca5403dff53df2db4c",
+      "after_sha256": "27f7df1453c98a71628a84c0264aad5078778239315bc19f1dacab43cbdb6eb3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 813
+}

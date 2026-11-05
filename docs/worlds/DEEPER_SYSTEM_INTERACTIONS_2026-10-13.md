@@ -119,3 +119,14 @@ decisions and visible aftermath before expanding the engine.
 
 This is a suggestion only. It does not displace the active crafting work,
 resume paused World1 work, require new worlds or authorize implementation.
+
+
+## Content reconciliation B338: causal means, quiet lives and later defaults
+
+All121 original lines were reviewed, including five complete interaction proposals and the connected inventor experiment. Preserve success changing a real opportunity, NPC purposes independent of regard, imperfect but continuing histories, quiet settled lives and delegated repetition with actual consequences. The bounded review never established novelty or absence elsewhere. Its linked audit leaves are not reread by implication, and writing the five joins does not establish current source or gameplay support.
+
+DSI1's opening question does not require stopping a successful method from remaining best. A solved need may stay solved; teaching can create actual new opportunities without a mandatory scarcity, imitation, enemy scaling or resource drain to replace the old chore. DSI2's refusal is a useful specific-person scene, not a required refusal at maximum trust or a limit on a supernatural mechanism that truly creates trust, belief or allegiance. Where a power only compels behavior, do not fabricate affection; where it genuinely changes more, model that source honestly. Legible reasons concern available evidence, not mandatory disclosure of private motives.
+
+An office, apprenticeship or repaired relationship retains its actual duties/history. Some failures yield opportunities; others need not be disguised rewards. A quiet chapter can continue without invented danger, prestige, rewards or a forced ending. A retained presence after perspective change needs the real clock, activity policy and support; a history entry cannot auto-create achievements. The old paused-world/active-crafting disclaimer records that pass's scope, not a live dispatch or current world order.
+
+DSI5's selected exception and safe defaults fit later AD52, but not every unusual result must stop if standing instructions already resolve it. A shipment can settle partial progress and real costs; a new contract needs the actual allowed decision-maker rather than every choice returning to the player. Reports remain known/estimated/unresolved according to actual observation and communication. Current AD51 supports the first useful consumer rather than a general NPC scheduler or all-five-joins prerequisite. These ideas remain independently selectable, with generic human review optional under AD42 and actual native/persistence evidence still scoped to a future implementation.

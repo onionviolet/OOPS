@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "batch": "B374",
+  "title": "UI census prerequisites and coverage proposals against current direction",
+  "at": "2026-11-05T03:31:32.722297+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/COVERAGE.md",
+      "ids": [
+        "73 surface rows",
+        "46 navigation panels",
+        "G1 72/73 qualification"
+      ],
+      "classification": "Historical per-surface desktop evidence and declared prerequisites",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Read every surface row and census qualification. Type unset is registry metadata, not an unnamed visible-control defect. Inline shell/native context and opened panels are different proof kinds; 96 paired views do not mean every world state. Later G1 reaches sixteen former gaps; optional worlds remains exact absent content. Retain exact source/proof identities and chronological source-only supersession.",
+      "evidence": "Actual full text read; original before/after receipts, images and runtime source not reopened. No current browser or test proof.",
+      "reopen": "Use the selected current owner and matching input identity; old branch instructions do not authorize current dispatch or integration.",
+      "input_sha256": "0f82228ab0de970b7b9165f2adeb36b7d74c20ff865d15405f99a40dc771e0ef",
+      "input_lines": 87,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          87
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/RESUME.md",
+      "ids": [
+        "G1-P01–P17",
+        "G1-F1–F4",
+        "G1 verification boundary"
+      ],
+      "classification": "Historical per-surface desktop evidence and declared prerequisites",
+      "owners": [
+        "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Read all seventeen prerequisites and dispositions. Completed reading uses matched book-owned XP and loader validation; a rejected mismatched fixture was corrected, not bypassed. Learned preparation is triggered by a real twentieth-leaf purchase; stock/companion access uses paid native membership; family uses an owner-factory lifespan fixture, not a lived lifetime. Status awakening and credit probe are explicit test prerequisites. Known-route discovery is a read-only hidden-parent correction, not a travel entitlement. Item kinds differ from units/capacity. No watch, trade settlement, optional pack or naturally acquired prerequisite is newly proved. Retain exact source/proof identities and chronological source-only supersession.",
+      "evidence": "Actual full text read; original before/after receipts, images and runtime source not reopened. No current browser or test proof.",
+      "reopen": "Use the selected current owner and matching input identity; old branch instructions do not authorize current dispatch or integration.",
+      "input_sha256": "7012a2a46f40a83fadd2c9540f542c2325ad19b05fdff162d4c7bf3281b35683",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/ui_cov.md",
+      "ids": [
+        "F1–F12",
+        "COV1–COV15",
+        "21 designed-view rows",
+        "57-view density census"
+      ],
+      "classification": "Dated UI source/browser audit with ranked proposals",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Preserve concrete navigation/label/grouping issues, prepared versus fresh census, and unmet read-model needs. Historical geometry and circle/word counts are diagnostics, not universal design targets. COV2/11 Reports collapse/replacement conflicts with current full-height functional shell; COV4/5/9 cannot require pictures, delete useful short states or reveal unknown data. COV15 needs actual owner-provided state and AD51 first useful seam, not invented distance/calendar/knowledge. No all-panel fix or renewed priority follows.",
+      "evidence": "Actual 214-line content read. Audit says prebuilt dirty working-tree bundle; only F1 separately checked on archived HEAD. No fight/rite/study/home started, no current screenshot/source/galleries inspected. Current UI_RULES selected lines 145–158 and 386–393 support save-layout compatibility and full-height Reports; reading is not runtime revalidation.",
+      "reopen": "Reproduce a selected defect on a rebuilt current desktop origin, preserve current saved layouts and disclose exact view/fixture limitations before implementing.",
+      "input_sha256": "b36f001ef029e7ae754a7a5e91d8162f9395cc957fbcf21ebbff7cae2fd56e7a",
+      "input_lines": 214,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          214
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B374: explicit G1 prerequisites",
+      "body": "The complete [surface census](COVERAGE.md) and [G1 disposition table](RESUME.md) qualify the earlier audit reconciliation. The sixteen reached surfaces use different routes: matched native reading progress/XP, an actual purchase-triggered preparation lesson, paid membership and companion meeting, owner-factory inherited-life state, explicit awakening prerequisites and a localhost-only credit probe. A mismatched reading fixture was rejected and corrected without bypassing loader integrity. These routes establish the declared panel states, not natural acquisition time, a played lifetime, committed observer watch or ordinary activation of the credit prototype. Known-route rendering fixes first discovery behind a hidden parent without changing travel quotes or commands. Stock counts mean item kinds, not units or capacity.\n\nAll 73 rows were reviewed. Registry `unset` types are not evidence of anonymous visible controls; qualified inline shell/native views are not interchangeable with every opened panel. The final 72/73 qualification leaves exact missing Optional-world content, and original versus G1 proof identities and focused/full-suite timing remain separate. The earlier full suite does not cover later G1 source. Current AD42 keeps human taste review optional; this reconciliation neither renews old branch permissions nor verifies integration.",
+      "before_sha256": "716309c61feee18d2024a26442a97e3496f81f162f922395930ab9b320fb82e6",
+      "after_sha256": "0b6ed1251047cb3d1f31050134bb5b1a691dd8a0e0453672661395b66bd715e2"
+    },
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "heading": "## Content reconciliation B374: October 30 coverage findings and proposed remedies",
+      "body": "The full [UI coverage audit](gap-audit-2026-10-30/ui_cov.md) preserves F1–F12 and COV1–COV15 as dated findings/proposals. Its concrete useful targets are visible navigation that opens no visible destination, ambiguous panel names and unavailable routes, controls without meaningful labels/reasons, dense ungrouped experiments/workroom/settings, duplicate projections and forms that obscure the native decision. F1 alone was separately reproduced on an archived HEAD; the broader sweep used a dirty working-tree bundle. Fresh Village, fresh Tingen, populated fixtures and gallery views are different populations. No live fight, rite, study or home build was begun, and larger text/effects-off were outside that audit.\n\nCOV2/11's collapsed or temporarily repurposed Reports proposal conflicts with the current [functional-shell scope](../UI_RULES.md#functional-housing-and-work-as-lived-context) preserving full-height Reports. Keep its meaningful center-space/scroll concern, but reopen geometry through the current owner, saved-layout compatibility and actual populated desktop targets. COV4's primitive/figure ratios and COV3/5/7/8/9's fixed word, button or panel counts are illustrative diagnostics, not acceptance law. A sparse valid state may deserve a truthful next step rather than deletion; an unknown date or subject stays unknown without a justified observer estimate. Useful prose need not acquire a drawing, animation or quota. Current prose-first direction and the later editorial rounds above govern.\n\nCOV6/10/12's naming, reason, shared-controller and ownership ideas remain useful while preserving internal IDs, saved layouts, pins and collapse choices (UR17). COV13/14's alternative skins and missing gallery forms remain palette proposals, not compulsory adoption. COV15's study/rite/pursuit/history figures need actual producer state, knowledge and a selected consumer; stage data cannot become a measured distance just to fill a drawing. AD51 permits a first useful shared seam without a second-world prerequisite. Existing source/quote/settlement ownership remains authoritative, and no calendar, provenance migration, goal save field, study system or all-world panel conversion is authorized by this audit. No screenshots, figures, runtime source or current defect were newly verified here.",
+      "before_sha256": "5906fb33f798782c44b1b127d83c4213ab5048ce05ef459b66960dbed3f892fe",
+      "after_sha256": "78330dfdd17580b1c5e8e942d5820aa786725caaef154c8216ef12bef1bcd64e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 674,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "from": "../UI_RULES.md#functional-housing-and-work-as-lived-context",
+      "to": "../UI_RULES.md",
+      "reason": "Use verified file target; invented section fragment removed before closeout."
+    }
+  ]
+}

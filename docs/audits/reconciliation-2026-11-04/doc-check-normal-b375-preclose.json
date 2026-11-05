@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/systems/PROGRESSION_WORLD_STATE.md:919: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/systems/PROGRESSION_WORLD_STATE.md:921: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169"
+}

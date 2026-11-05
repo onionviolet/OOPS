@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "batch": "B324",
+  "title": "Tabletop library guidance: multiverse direction, exact edition and prepared-versus-read states",
+  "at": "2026-11-05T01:49:21.765858+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md",
+      "ids": [
+        "D1/M1–8",
+        "O1–3/F1",
+        "crossworld comparison/editionlimits"
+      ],
+      "classification": "Research hypotheses under explicit broad multiverse direction; source/setting/rules distinctions retained",
+      "owners": [
+        "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md",
+        "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md"
+      ],
+      "disposition": "Full48lines read. Preservequotedmultiplemultiverse directionwithoutacceptingparticularcosmologies/rules, 8candidatefamilies,boundaryquestions, textUIjudgment and4sourcereadingcomparison. No preparedfullsourceasread/retailownership guarantee ornewpriority; currentselectedworlddirection qualifiesoldfirstslice.",
+      "evidence": "LocalMarkdownbodyonly. NoPDF/book/manuscript,privatecatalog/manifest/receipt/index,currentaccount,externalpageoractualadapterread. Quoteduserdirectionandhistoricalcapturecounts retain exactscope.",
+      "reopen": "Forselectedconnection/power/sourcequestion usecurrentowner/actualqualifiededition andfirstusefulconsumer. Donotderiveimplementation/sourceacquisition/chat/worker authorizationfromoldhandoff, readingrank orpreparedbook.",
+      "input_sha256": "b70d81231ba854d378d1a56462d6474301266bf34904b38b0484378d5e28d0b6",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md",
+      "ids": [
+        "G1–9",
+        "retrieval/evidence/currentowners",
+        "2followupscopes/chat-routing"
+      ],
+      "classification": "Source-question router and historical research handoffs; indexing not source qualification",
+      "owners": [
+        "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md",
+        "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md"
+      ],
+      "disposition": "Full44lines readeveryquestion/extractionrole. Retainactualedition/source/body/identity/custody andfreesummaryversusfullcore distinctions. PrivateFTSsearchislocatornotreading; sourcefilematchnotcompleteedition. Activechat/availability status datednotqueried. No search/indexrefresh/download/launch.",
+      "evidence": "LocalMarkdownbodyonly. NoPDF/book/manuscript,privatecatalog/manifest/receipt/index,currentaccount,externalpageoractualadapterread. Quoteduserdirectionandhistoricalcapturecounts retain exactscope.",
+      "reopen": "Forselectedconnection/power/sourcequestion usecurrentowner/actualqualifiededition andfirstusefulconsumer. Donotderiveimplementation/sourceacquisition/chat/worker authorizationfromoldhandoff, readingrank orpreparedbook.",
+      "input_sha256": "ab0729aa60e9d116e870934f89209031f2dfb1bc034d5f2067dfa48f4dcd052f",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/README.md",
+      "ids": [
+        "F1–3",
+        "acquisition/preparationstates",
+        "5readingpriorities",
+        "laterinventorypointer"
+      ],
+      "classification": "Library acquisition/preparation owner with explicit later refresh; dated numbers and private receipts",
+      "owners": [
+        "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md",
+        "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md"
+      ],
+      "disposition": "Full49lines read. Preserveoriginalfiles/symlinks/nativereceipts,no movedsource, kits/previews/fullcore/extraction distinctions andoldcapturedenominators. Repo-reviewed34/20WIP/2communitynotagentsemanticreadingor53releasecoverage.29PDFs/13MCGplusRifts arenotfreshinventory. Guestcheckout/subscriptionselection historicalnotnewaccountauthorization.",
+      "evidence": "LocalMarkdownbodyonly. NoPDF/book/manuscript,privatecatalog/manifest/receipt/index,currentaccount,externalpageoractualadapterread. Quoteduserdirectionandhistoricalcapturecounts retain exactscope.",
+      "reopen": "Forselectedconnection/power/sourcequestion usecurrentowner/actualqualifiededition andfirstusefulconsumer. Donotderiveimplementation/sourceacquisition/chat/worker authorizationfromoldhandoff, readingrank orpreparedbook.",
+      "input_sha256": "c9db2483e2f782f9b51da14e27e6e75735c2e5820ce2738ce7fcd3b41d852239",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/handoffs/CONVERSION_AUDIT_BRIEF.md",
+      "ids": [
+        "landscapeoutcome",
+        "primarysource/evidenceclasses",
+        "exclusiveareas",
+        "donegate/skillsroutes"
+      ],
+      "classification": "Historical bounded conversion-research handoff; no new chat or source research dispatch",
+      "owners": [
+        "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md",
+        "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md"
+      ],
+      "disposition": "Full13denselines read. Preserverulebookedition/scope/playability/license distinctions andfailedattemptusefulnegativeevidence. Historicalexclusivewritearea/sharedcatalogworker are notliveownership. Tool/skill/Doneinstructions preservednotexecuted. No externalresearch orfollowupimpl.",
+      "evidence": "LocalMarkdownbodyonly. NoPDF/book/manuscript,privatecatalog/manifest/receipt/index,currentaccount,externalpageoractualadapterread. Quoteduserdirectionandhistoricalcapturecounts retain exactscope.",
+      "reopen": "Forselectedconnection/power/sourcequestion usecurrentowner/actualqualifiededition andfirstusefulconsumer. Donotderiveimplementation/sourceacquisition/chat/worker authorizationfromoldhandoff, readingrank orpreparedbook.",
+      "input_sha256": "798f7b523ca8e6762687ecc9dcc5e0f6c5f676c345d9d67abc0d2b792af0bf5d",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md",
+      "heading": "## Content reconciliation B324: broad multiverse direction and source-qualified joins",
+      "body": "D1, all M1–M8 rows, O1–O3 and F1 were fully content-reviewed alongside the library router, README and conversion brief. The quoted user request supports multiple kinds of multiverse. It does not automatically select every proposed cosmology, convert each rule engine into a universe or adopt every publisher rule. Keep setting, rules edition, era, tradition, source scope and authored adapter separate. SRD5.1/5.2.1, Ars MagicaFifthEdition, and the separate Warhammer lines remain distinct.\n\nThe useful first comparison is an actual traveler, actual retained body/knowledge/source/cargo and a supported target across one boundary, with the former world's state preserved according to its real clock. A translation effect can alter some faculties without erasing all progress. Conversely, earned knowledge does not carry a left-behind tool, local credential or absent patron connection. Actual broad powers can bypass ordinary restrictions with their real means; no universal suppression, equalization, conversion fee or loss is selected from tabletop point costs. Current AD51 permits the first useful selected seam rather than a universal converter or multiple campaigns built together.\n\nText helps represent unusual action and varied bodies but cannot invent a durable causal consumer. Use useful controls, source-grounded outcomes and current desktop/prose direction; a picture, paragraph or generated setting is not a state transition. AD52 supports routine study/work compression while preserving real time, means, allocation and meaningful interruptions. The proposed study/faction/project/body reading order remains a research recommendation under current priorities, not required book-reading or a new world build order.\n\nPublisher descriptions and prepared sources supplied the hypotheses at their date. No private rulebook packet, source table, PDF, search index or full book was read by this review. The conversion brief's standalone-game versus VTT/module/character-builder distinctions remain important, but its requested fresh chat and named skill workflow are historical instructions rather than actions performed now. No source acquisition, checkout, index rebuild, outward message, new chat, runtime or rule engine was executed or adopted.",
+      "before_sha256": "b70d81231ba854d378d1a56462d6474301266bf34904b38b0484378d5e28d0b6",
+      "after_sha256": "30d3046b1ec218d8561313888f2cc9df4aaba78c18281f71d6ac8c7ed34d22c5"
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md",
+      "heading": "## Content reconciliation B324: retrieval states and historical follow-up scope",
+      "body": "All G1–G9, retrieval/evidence guidance, owner links and both follow-up scopes were content-reviewed. Keep the exact question before choosing a source: a player kit, primer, free edition, deluxe core, errata, publisher synopsis, repositoryWIP and complete edition answer different questions. A full-text hit is a locator; an extracted file or locally held title is not semantic source coverage. A rule requiring human adjudication needs the selected bounded implementation or explicit unresolved action, not an arbitrary generated answer.\n\nThe README's34 reviewed/20WIP/two community entries are source-repository review labels, not newly read books or full53-release reconciliation. Its29EclipsePhasePDFs, thirteen existingMCGPDFs, Rifts file and exact manifests are historical acquisition/preparation claims. The later core-title refresh correctly qualifies repeat acquisition and old candidate status. Current holdings, internal editions and actual paths remain unverified here. No free checkout, private receipt, subscription state, source file, PDF, FTS query or conversion/index script was accessed or changed.\n\nThe Activefollowup scopes and chat-routing table record the historical handoff, not today's worker inventory or standing write lease. The conversion researcher and implementation-considerations outputs remain separate source candidates; this router does not certify them by association. Current owner/source availability should be checked when a selected task needs it, without reviving old chat launches or silently accepting a converter, runtimeAI/GM or universal source-license policy. Useful source-specific licensing/attribution distinctions stay with actual selected reuse. No reading rank changes current priorities.",
+      "before_sha256": "ab0729aa60e9d116e870934f89209031f2dfb1bc034d5f2067dfa48f4dcd052f",
+      "after_sha256": "70d7e1d84c45923377791a08b974024af01cdb8ad4beaa11ed659fee1890ab3d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 780
+}

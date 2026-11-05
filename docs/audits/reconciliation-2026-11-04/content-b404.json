@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "batch": "B404",
+  "title": "Seven complete idle-game coverage maps and their actual connected reports",
+  "at": "2026-11-05T04:42:34.039617+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/ani-idle/COVERAGE.json",
+      "ids": [
+        "bounded42-script recovery;13selectedbodyfiles;12findings/8proposals/24touches;44anchors"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/ani-idle/REPORT.md",
+        "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full coverage map and report preserve recovered scripts versus selected function-body reading, missing resources and scene signals. Automatic fight/manual skills/rest, directed affix currencies and remembered encounter state are useful references. Daily/weekly counters lack a checked clock in the inspected handlers, gear Ascend/Rebirth labels are not character prestige, and a New Game delete is not an offline/reset policy. No timestamp/catch-up in the selected save code is a bounded source finding, not an absolute claim about all native extensions. Neither rendered UI, timer duration, item numerical data, game/save execution nor current uninstall state is established. The old uninstall request remains unconfirmed in its final dated receipt.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "f064d8326ef214e982f385d697955f29036433e1cd29d4673b1e2ad2fdcabbb3",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ani-idle/REPORT.md",
+      "ids": [
+        "bounded42-script recovery;13selectedbodyfiles;12findings/8proposals/24touches;44anchors"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/ani-idle/REPORT.md",
+        "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full coverage map and report preserve recovered scripts versus selected function-body reading, missing resources and scene signals. Automatic fight/manual skills/rest, directed affix currencies and remembered encounter state are useful references. Daily/weekly counters lack a checked clock in the inspected handlers, gear Ascend/Rebirth labels are not character prestige, and a New Game delete is not an offline/reset policy. No timestamp/catch-up in the selected save code is a bounded source finding, not an absolute claim about all native extensions. Neither rendered UI, timer duration, item numerical data, game/save execution nor current uninstall state is established. The old uninstall request remains unconfirmed in its final dated receipt.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "c2e8bbbbb53d9e8a39819e86d533f6f5f4a8595026a2a772bf294f83f2fb1dbc",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/endless-ascent/COVERAGE.json",
+      "ids": [
+        "fourinputs;26selectednativeRVAranges;17selectedclasses;8proposals/24touches"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/endless-ascent/REPORT.md",
+        "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The entire map and report preserve native x64 method bodies separately from metadata declarations and empty DummyDll stubs. The extraction process produced outputs before exit134 at console ReadKey; successful parsing/readback is separate from command success. RVA-to-next-unique-RVA bounds can include padding and aliases; unwind entries can split functions. Selected completion currency, funded purchases, distinct puzzle contributions, missing fuse requirements and hazard signals remain source-level references, not an idle tower, prestige loop, authored complete scene, played difficulty or checkpoint retention proof. Scene overrides and signal bindings remain unknown. No installed app or user save was opened by this reconciliation.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "bdd57c42ad28f0e44c95234275420b6a17b9ce8b391976454021e990a0e8e184",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/endless-ascent/REPORT.md",
+      "ids": [
+        "fourinputs;26selectednativeRVAranges;17selectedclasses;8proposals/24touches"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/endless-ascent/REPORT.md",
+        "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The entire map and report preserve native x64 method bodies separately from metadata declarations and empty DummyDll stubs. The extraction process produced outputs before exit134 at console ReadKey; successful parsing/readback is separate from command success. RVA-to-next-unique-RVA bounds can include padding and aliases; unwind entries can split functions. Selected completion currency, funded purchases, distinct puzzle contributions, missing fuse requirements and hazard signals remain source-level references, not an idle tower, prestige loop, authored complete scene, played difficulty or checkpoint retention proof. Scene overrides and signal bindings remain unknown. No installed app or user save was opened by this reconciliation.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "b883769583be8c90f533798c9ee666cf3061d6ed136743578b493f515006ff1f",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/increlution/COVERAGE.json",
+      "ids": [
+        "12skills/69jobs/53construction/307exploration/11chapters;all9traceareas"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/increlution/REPORT.md",
+        "docs/research/increlution/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full map and report preserve a repeated authored survival opening, retained instinct/artifact/automation progression and replaced run stock/buildings, without attributing randomized births or heirs to this donor. Active survival/health decay and offline actions that may end a life are donor-specific rules. Empty work pauses its life; unlock-by-repetition and manual-first automation are not required OOPS gates. No current pacing, family/age absence, accessibility, actual save/migration or decoder semantic-equivalence proof follows from indexed records and selected method bodies. The reported12/69/53/307/11records and18037formatted lines do not become a full manual review. Current AD52 permits useful routines without a universal manual prerequisite and permits long lives; local survival dials remain distinct. The old installed-files-available sentence is historical, not current installation authority.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "3ecbac68400026e4d33e51542758250e87acac2c583e7bc6da9aaae7bcc66747",
+      "input_lines": 128,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          128
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/increlution/REPORT.md",
+      "ids": [
+        "12skills/69jobs/53construction/307exploration/11chapters;all9traceareas"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/increlution/REPORT.md",
+        "docs/research/increlution/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full map and report preserve a repeated authored survival opening, retained instinct/artifact/automation progression and replaced run stock/buildings, without attributing randomized births or heirs to this donor. Active survival/health decay and offline actions that may end a life are donor-specific rules. Empty work pauses its life; unlock-by-repetition and manual-first automation are not required OOPS gates. No current pacing, family/age absence, accessibility, actual save/migration or decoder semantic-equivalence proof follows from indexed records and selected method bodies. The reported12/69/53/307/11records and18037formatted lines do not become a full manual review. Current AD52 permits useful routines without a universal manual prerequisite and permits long lives; local survival dials remain distinct. The old installed-files-available sentence is historical, not current installation authority.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "87fd8970dc1c5eb4bc5f504f3da52d7969af568e366c65e765aeb95f28b684ee",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kill-the-lich-idle/COVERAGE.json",
+      "ids": [
+        "C1–C6;F1–F6;8proposals;T01–T24;149ranges"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/kill-the-lich-idle/REPORT.md",
+        "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full map/report preserve ordinary practice, social access, work/spending, power quality, prepared confrontation and three different reset layers. Six selected chains are not a full118-file semantic audit. All23public/installed paths lacked raw equality,19matched after line-ending normalization and three present files had semantic packaging/Steam/documentation differences;149selected ranges had148matches and one historical script-tag difference. These checks support their declared scopes, not whole-program equivalence or runtime performance. Steam load can attempt cloud recovery while the normal save-call remains commented out; a bridge is not verified synchronization. Base elapsed/base-tick caps precede a speed-multiplied inner loop, so they do not prove bounded total work. MECHANICS estimates,50uses,two-month timing and perfect Genesis retention remain unverified. C6 UI availability is distinct from the controller confirmation check. Public MIT provenance does not resolve the installed package UNLICENSED declaration. The final dated uninstall receipt supersedes earlier unconfirmed requests without establishing current installation state.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "affb002257c96202b9f2e08013b5ecaf0369e2f94e2c49285e3c61492bec1e19",
+      "input_lines": 125,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          125
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kill-the-lich-idle/REPORT.md",
+      "ids": [
+        "C1–C6;F1–F6;8proposals;T01–T24;149ranges"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/kill-the-lich-idle/REPORT.md",
+        "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full map/report preserve ordinary practice, social access, work/spending, power quality, prepared confrontation and three different reset layers. Six selected chains are not a full118-file semantic audit. All23public/installed paths lacked raw equality,19matched after line-ending normalization and three present files had semantic packaging/Steam/documentation differences;149selected ranges had148matches and one historical script-tag difference. These checks support their declared scopes, not whole-program equivalence or runtime performance. Steam load can attempt cloud recovery while the normal save-call remains commented out; a bridge is not verified synchronization. Base elapsed/base-tick caps precede a speed-multiplied inner loop, so they do not prove bounded total work. MECHANICS estimates,50uses,two-month timing and perfect Genesis retention remain unverified. C6 UI availability is distinct from the controller confirmation check. Public MIT provenance does not resolve the installed package UNLICENSED declaration. The final dated uninstall receipt supersedes earlier unconfirmed requests without establishing current installation state.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "3f2858b30dfb7c85439d9f27cc4aa3c6658347d3c8fc1b346983f4c6fde046fb",
+      "input_lines": 86,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          86
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/magic-research-2/COVERAGE.json",
+      "ids": [
+        "F1–F5;E01–E24;584main/1236vendorentries;18citedbodies"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/magic-research-2/REPORT.md",
+        "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "All five connected traces and their map values were reviewed. Study unlocks knowledge without supplying casting fuel; live cooldown, control and affordability remain separate. Fireball380mana/six-second cooldown/20autocast points are nominal distinct values, transformed before use; a Water wand recipe/equipped output is not the same gate as learning or casting. Ordinary autocast points and permacast charging differ: charging may spend mana without an effect; a second listener can resume after income. A strategy estimate is not guaranteed transient affordability. Posterity Continue/world completion, two-click retirement and retained maxima replace run state without retaining every resource. Main584/423backend, vendor1236/1232withbody,91private decoded and18actually cited bodies are different denominators. This is the pinned2024public demo, not retail/DLC, all recovered modules or verified demo reachability. The report Decision describes a reference recommendation under AD32, not a new selected runtime slice.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "b706a6dde5be78d7f3577fbcdaf23bafbb4be8a045a20f8ab9922edbafbafe9e",
+      "input_lines": 138,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          138
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/magic-research-2/REPORT.md",
+      "ids": [
+        "F1–F5;E01–E24;584main/1236vendorentries;18citedbodies"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/magic-research-2/REPORT.md",
+        "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "All five connected traces and their map values were reviewed. Study unlocks knowledge without supplying casting fuel; live cooldown, control and affordability remain separate. Fireball380mana/six-second cooldown/20autocast points are nominal distinct values, transformed before use; a Water wand recipe/equipped output is not the same gate as learning or casting. Ordinary autocast points and permacast charging differ: charging may spend mana without an effect; a second listener can resume after income. A strategy estimate is not guaranteed transient affordability. Posterity Continue/world completion, two-click retirement and retained maxima replace run state without retaining every resource. Main584/423backend, vendor1236/1232withbody,91private decoded and18actually cited bodies are different denominators. This is the pinned2024public demo, not retail/DLC, all recovered modules or verified demo reachability. The report Decision describes a reference recommendation under AD32, not a new selected runtime slice.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "8709b98b3f9e76c106987e6478b2ec0a880ea19412c196f941b89b82546e3e1e",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/theory-of-magic/COVERAGE.json",
+      "ids": [
+        "594inventoryfiles;24selectedpaths;eightproposals;T01–T24"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/theory-of-magic/REPORT.md",
+        "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full map/report preserve study, scroll capacity, real furnishing/task effects, material-to-knowledge conversion and runner stop/resume as selected source-level contracts. Hall prestige preserves a lived character and supports character switching; it is not evidence that every prestige is forced rebirth. Community-source identity, redirected original repository and the unlocated user-open build remain distinct.594inventory files and loaded module lists do not prove every module initializes, all late progression or original-versus-community semantic parity. No current install, exact live version, offline numerical equivalence or rendered accessibility is certified. The24small touches are original OOPS proposals rather than donor features. Current opening priorities and AD52 qualify old preserve-vanilla-first/manual/tool/practice recommendations; actual superior means can replace ordinary work.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "cede88ec910a635128f9cd1e5c040bbfe1e063d3d857875fe1aa29f9809a6a33",
+      "input_lines": 58,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          58
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/theory-of-magic/REPORT.md",
+      "ids": [
+        "594inventoryfiles;24selectedpaths;eightproposals;T01–T24"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/theory-of-magic/REPORT.md",
+        "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full map/report preserve study, scroll capacity, real furnishing/task effects, material-to-knowledge conversion and runner stop/resume as selected source-level contracts. Hall prestige preserves a lived character and supports character switching; it is not evidence that every prestige is forced rebirth. Community-source identity, redirected original repository and the unlocated user-open build remain distinct.594inventory files and loaded module lists do not prove every module initializes, all late progression or original-versus-community semantic parity. No current install, exact live version, offline numerical equivalence or rendered accessibility is certified. The24small touches are original OOPS proposals rather than donor features. Current opening priorities and AD52 qualify old preserve-vanilla-first/manual/tool/practice recommendations; actual superior means can replace ordinary work.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "d6d3534901a0c48978d253b257a703183cc0f4a470bbb29bbd39cc3da56a05e6",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/upload-labs/COVERAGE.json",
+      "ids": [
+        "196research/220windows/12filedefinitions;457scripts/11blank;17strictJSON"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/upload-labs/REPORT.md",
+        "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full coverage map/report retain queued-or-owned research prerequisites, paid queued upgrades at reboot, different routing/resource flows, input bottlenecks, processor heat and capped acceleration reserve. Reboot, portal refund and wipe are distinct retention operations.457recovered Godot scripts with zero failed conversions still include11blank files, with eight named automation-family paths unavailable. Whitespace from identical29-byte GDC payloads does not authenticate those automation mechanics. The map reports17strict static JSON documents, while the report mentions18static data files: connectors.json has a trailing comma and was explicitly not parsed or used. These are different denominators, not18validatedJSONs. Individual196research/window/recipe entries, scene wiring, entitlement/premium/DLC behavior and game/save execution remain unreviewed or unexercised. Typed/random routing is not universal fair allocation. A native bottleneck receipt is a useful original application, not a new selected workshop wave.",
+      "evidence": "All serialized coverage-map keys/values read in lossless compact output. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "534b3539916a2771e8482a0d3ea2b61ae8bb0a34520908c38f205efaf74b0a5c",
+      "input_lines": 47,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          47
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/upload-labs/REPORT.md",
+      "ids": [
+        "196research/220windows/12filedefinitions;457scripts/11blank;17strictJSON"
+      ],
+      "classification": "Bounded historical source-audit map or connected report; static evidence separated from gameplay",
+      "owners": [
+        "docs/research/upload-labs/REPORT.md",
+        "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "The full coverage map/report retain queued-or-owned research prerequisites, paid queued upgrades at reboot, different routing/resource flows, input bottlenecks, processor heat and capped acceleration reserve. Reboot, portal refund and wipe are distinct retention operations.457recovered Godot scripts with zero failed conversions still include11blank files, with eight named automation-family paths unavailable. Whitespace from identical29-byte GDC payloads does not authenticate those automation mechanics. The map reports17strict static JSON documents, while the report mentions18static data files: connectors.json has a trailing comma and was explicitly not parsed or used. These are different denominators, not18validatedJSONs. Individual196research/window/recipe entries, scene wiring, entitlement/premium/DLC behavior and game/save execution remain unreviewed or unexercised. Typed/random routing is not universal fair allocation. A native bottleneck receipt is a useful original application, not a new selected workshop wave.",
+      "evidence": "Complete report body read: initial1–28 includes entire short reports; Increlution/KTL/Theory remainder29–end read explicitly. No original recovered code, private retention file, source-game UI, package, current installed state or source save newly read/executed.",
+      "reopen": "Use actual pinned source/edition and selected OOPS producer/state/consumer if adopting an idea. These counts/proposals do not close runtime, source fidelity, persistence, current integration or human review; current PROJECT and AD32/AD36/AD42/AD51/AD52 apply.",
+      "input_sha256": "cb487dd94f8cab1e4fbfe0fa48b478aa3499e7097af5a1fae1429b3b95f5b108",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/ani-idle/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "The full coverage map and report preserve recovered scripts versus selected function-body reading, missing resources and scene signals. Automatic fight/manual skills/rest, directed affix currencies and remembered encounter state are useful references. Daily/weekly counters lack a checked clock in the inspected handlers, gear Ascend/Rebirth labels are not character prestige, and a New Game delete is not an offline/reset policy. No timestamp/catch-up in the selected save code is a bounded source finding, not an absolute claim about all native extensions. Neither rendered UI, timer duration, item numerical data, game/save execution nor current uninstall state is established. The old uninstall request remains unconfirmed in its final dated receipt.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "c2e8bbbbb53d9e8a39819e86d533f6f5f4a8595026a2a772bf294f83f2fb1dbc",
+      "after_sha256": "7a989ee501f89400ab5e5671c7a961a866a8ec7e5ebbca9fbc1bdabd5ab74b6c"
+    },
+    {
+      "path": "docs/research/endless-ascent/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "The entire map and report preserve native x64 method bodies separately from metadata declarations and empty DummyDll stubs. The extraction process produced outputs before exit134 at console ReadKey; successful parsing/readback is separate from command success. RVA-to-next-unique-RVA bounds can include padding and aliases; unwind entries can split functions. Selected completion currency, funded purchases, distinct puzzle contributions, missing fuse requirements and hazard signals remain source-level references, not an idle tower, prestige loop, authored complete scene, played difficulty or checkpoint retention proof. Scene overrides and signal bindings remain unknown. No installed app or user save was opened by this reconciliation.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "b883769583be8c90f533798c9ee666cf3061d6ed136743578b493f515006ff1f",
+      "after_sha256": "ac3232b4b25a453e06ebfb47098feb88e29c1de5d5069f288d7bd8ef49c1e243"
+    },
+    {
+      "path": "docs/research/increlution/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "The full map and report preserve a repeated authored survival opening, retained instinct/artifact/automation progression and replaced run stock/buildings, without attributing randomized births or heirs to this donor. Active survival/health decay and offline actions that may end a life are donor-specific rules. Empty work pauses its life; unlock-by-repetition and manual-first automation are not required OOPS gates. No current pacing, family/age absence, accessibility, actual save/migration or decoder semantic-equivalence proof follows from indexed records and selected method bodies. The reported12/69/53/307/11records and18037formatted lines do not become a full manual review. Current AD52 permits useful routines without a universal manual prerequisite and permits long lives; local survival dials remain distinct. The old installed-files-available sentence is historical, not current installation authority.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "87fd8970dc1c5eb4bc5f504f3da52d7969af568e366c65e765aeb95f28b684ee",
+      "after_sha256": "14bb480f0a3b06e732240bef96bc745c35f9d3332372efca9903b56f9c632ecc"
+    },
+    {
+      "path": "docs/research/kill-the-lich-idle/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "The full map/report preserve ordinary practice, social access, work/spending, power quality, prepared confrontation and three different reset layers. Six selected chains are not a full118-file semantic audit. All23public/installed paths lacked raw equality,19matched after line-ending normalization and three present files had semantic packaging/Steam/documentation differences;149selected ranges had148matches and one historical script-tag difference. These checks support their declared scopes, not whole-program equivalence or runtime performance. Steam load can attempt cloud recovery while the normal save-call remains commented out; a bridge is not verified synchronization. Base elapsed/base-tick caps precede a speed-multiplied inner loop, so they do not prove bounded total work. MECHANICS estimates,50uses,two-month timing and perfect Genesis retention remain unverified. C6 UI availability is distinct from the controller confirmation check. Public MIT provenance does not resolve the installed package UNLICENSED declaration. The final dated uninstall receipt supersedes earlier unconfirmed requests without establishing current installation state.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "3f2858b30dfb7c85439d9f27cc4aa3c6658347d3c8fc1b346983f4c6fde046fb",
+      "after_sha256": "9b4cef52f4686be15df36f75e875213729f3ea96ffdccfcc6ea3cafa9ddd1464"
+    },
+    {
+      "path": "docs/research/magic-research-2/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "All five connected traces and their map values were reviewed. Study unlocks knowledge without supplying casting fuel; live cooldown, control and affordability remain separate. Fireball380mana/six-second cooldown/20autocast points are nominal distinct values, transformed before use; a Water wand recipe/equipped output is not the same gate as learning or casting. Ordinary autocast points and permacast charging differ: charging may spend mana without an effect; a second listener can resume after income. A strategy estimate is not guaranteed transient affordability. Posterity Continue/world completion, two-click retirement and retained maxima replace run state without retaining every resource. Main584/423backend, vendor1236/1232withbody,91private decoded and18actually cited bodies are different denominators. This is the pinned2024public demo, not retail/DLC, all recovered modules or verified demo reachability. The report Decision describes a reference recommendation under AD32, not a new selected runtime slice.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "8709b98b3f9e76c106987e6478b2ec0a880ea19412c196f941b89b82546e3e1e",
+      "after_sha256": "403532499314b78e76ee0d0879e3a0fd609becd028f873f9130334b115f82171"
+    },
+    {
+      "path": "docs/research/theory-of-magic/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "The full map/report preserve study, scroll capacity, real furnishing/task effects, material-to-knowledge conversion and runner stop/resume as selected source-level contracts. Hall prestige preserves a lived character and supports character switching; it is not evidence that every prestige is forced rebirth. Community-source identity, redirected original repository and the unlocated user-open build remain distinct.594inventory files and loaded module lists do not prove every module initializes, all late progression or original-versus-community semantic parity. No current install, exact live version, offline numerical equivalence or rendered accessibility is certified. The24small touches are original OOPS proposals rather than donor features. Current opening priorities and AD52 qualify old preserve-vanilla-first/manual/tool/practice recommendations; actual superior means can replace ordinary work.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "d6d3534901a0c48978d253b257a703183cc0f4a470bbb29bbd39cc3da56a05e6",
+      "after_sha256": "478849b25156c80f3a13c7e7b5abe32ec51ed80758de5dd3f7f69a327c6d9e32"
+    },
+    {
+      "path": "docs/research/upload-labs/REPORT.md",
+      "heading": "## Content reconciliation B404: coverage map substance and exact proof boundaries",
+      "body": "The full coverage map/report retain queued-or-owned research prerequisites, paid queued upgrades at reboot, different routing/resource flows, input bottlenecks, processor heat and capped acceleration reserve. Reboot, portal refund and wipe are distinct retention operations.457recovered Godot scripts with zero failed conversions still include11blank files, with eight named automation-family paths unavailable. Whitespace from identical29-byte GDC payloads does not authenticate those automation mechanics. The map reports17strict static JSON documents, while the report mentions18static data files: connectors.json has a trailing comma and was explicitly not parsed or used. These are different denominators, not18validatedJSONs. Individual196research/window/recipe entries, scene wiring, entitlement/premium/DLC behavior and game/save execution remain unreviewed or unexercised. Typed/random routing is not universal fair allocation. A native bottleneck receipt is a useful original application, not a new selected workshop wave.\n\nBoth complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.",
+      "before_sha256": "cb487dd94f8cab1e4fbfe0fa48b478aa3499e7097af5a1fae1429b3b95f5b108",
+      "after_sha256": "140502396af57091bbe84d8ac6d4ca111daa60b7e8871a8727d9a5439a6d8aad"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 553,
+  "post_record_amendments": [
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "from": "Seven legacy/deck/source merge records,680 tests",
+      "to": "Legacy/deck/source merge records,680 tests",
+      "reason": "Remove unsupported merge-record count while retaining exact historical test counts and input scopes."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B398, continuous execution 2026-11-04 |",
+      "to": "| B404, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous reconciliation pointer without changing scope or adopting proposals."
+    }
+  ],
+  "accounting_corrections": [
+    {
+      "scope": "Theory map reviewed_paths array",
+      "from": 25,
+      "to": 24,
+      "reason": "Count actual path values rather than a manual estimate; no additional source-body review."
+    }
+  ],
+  "concurrent_support_reads": [
+    {
+      "path": "docs/UI_RULES.md",
+      "scope": "Complete Git diff of new task-layer block, lines75–121; not a full596-line reread."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "scope": "Complete Git diff of UI register/router and making router; retained existing original full-review identity."
+    },
+    {
+      "path": "docs/VISION_DIGEST.md",
+      "scope": "Git diff of new task-layer bullet; retained original full-review identity."
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "scope": "7332–7340 actual user instruction and recorded direction."
+    },
+    {
+      "path": "docs/audits/PROGRESS_ATLAS_2026-11-04.md",
+      "scope": "Current full body inspected for diagnostics and recorded owner/source exclusions; no reconciliation or source-system proof credit."
+    }
+  ],
+  "concurrent_state_note": "Three previously full-reviewed authority owners changed concurrently. Relevant deltas inspected, original identities retained; not silently refreshed as a full reread. Normal lint has separate concurrent-file failures."
+}

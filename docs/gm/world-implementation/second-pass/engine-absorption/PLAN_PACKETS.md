@@ -84,3 +84,12 @@ Current compatibility permits reset/drop of older state by recorded choice;
 new state still round-trips. Local mechanisms and extraordinary means may remove
 ordinary costs or routes (AD38); source comparison does not impose one world's
 restrictions on another. No external tool/library was fetched or adopted here.
+
+
+## Content reconciliation B388: historical recipes and optional adapter boundaries
+
+The full revision5 amendment text, all four EA packets and later fit qualifier were read. Keep them as historical optional recipes rather than matching old canonical paragraphs or reviving writer assignments. Pinned upstream revisions identify comparison inputs, not installed dependencies or current versions. Reuse actual typed commands, state/effect/native/UI consumers and staged durable publication. A rejected prerequisite pays nothing; a deliberately funded failed experiment can retain its disclosed spent costs. Unsupported capability/target/participant/item/clock links are authoring gaps, not reasons to import a second engine.
+
+Optional Ink needs a demonstrated authoring task and versioned cursor/command/observer contract. Continue, tags, variables and callbacks cannot create mechanical truth outside canonical settlement. Candidate clone, safe projection, stale-choice handling and atomic cursor publication share the actual envelope; dropping a library with live cursors needs a declared resume/archive mapping. File size alone proves neither maintenance nor token savings. Optional rot queries require an actual missing grid decision; supported step-metric A* is not a weighted directed road solver. Sight geometry is not knowledge, consent, reach or guaranteed detection. Positions/topology remain with actual body/instance owners, realized seeded topology persists once, and no foreign scheduler/RNG is adopted.
+
+The small finite batch and roof scenarios remain original proposals rather than new Frontier depth, canon source proof or a required framework. Current AD51 permits a useful first seam; another world validates differences. AD38 allows actual extraordinary means to remove ordinary costs/routes. Compatibility deferral permits a recorded scoped old-state choice but neither private-save deletion nor loss of new-state round trips. Current PROJECT/AD36/42/44/52 supersede old static-only/deferred-test/human-gate sequencing. No dependency, source acquisition, code port, scene or gameplay was selected by this reconciliation.

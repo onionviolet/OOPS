@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "batch": "B361",
+  "title": "Absorption, player-agency and causal-ending structured coverage",
+  "at": "2026-11-05T02:59:56.585455+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.json",
+      "ids": [
+        "Five intake families",
+        "Four active returns",
+        "ACS-P01/P02/P03",
+        "Four assay leaves",
+        "Semantic receipts",
+        "Integration completion"
+      ],
+      "classification": "Historical coverage/reconciliation map or dated finite-delivery owner",
+      "owners": [
+        "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original structured evidence and fold semantic coverage, later status precedence, native/source/compatibility limits and current authority into the incumbent Markdown owner.",
+      "evidence": "Read all222lines including every family disposition/path count, return/source scope, qualification, assay matching fields, selected ACS purposes and final integration/build list. No linked semantic receipt, source hash or child module checked by proxy.",
+      "reopen": "Use actual current source, selected range and final candidate evidence before a new implementation claim; no automatic runtime/worker/source-reading/acceptance work from this old receipt.",
+      "input_sha256": "ab0f16ba0c8b9f96b7028a3b043c2d8d2773fa62e11457042ceef2b3bef14b40",
+      "input_lines": 222,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          222
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "Revision13",
+        "21commands/17modules",
+        "48parsechecks",
+        "370sources/37vendors",
+        "2374metadata paths"
+      ],
+      "classification": "Historical coverage/reconciliation map or dated finite-delivery owner",
+      "owners": [
+        "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original structured evidence and fold semantic coverage, later status precedence, native/source/compatibility limits and current authority into the incumbent Markdown owner.",
+      "evidence": "Freshly read complete13-line checkpoint including released workers, source/build scope, targeted rather than full-corpus semantics and all deferred acceptance. Prior full coverage exists; this is a reread, not newly pending coverage.",
+      "reopen": "Use actual current source, selected range and final candidate evidence before a new implementation claim; no automatic runtime/worker/source-reading/acceptance work from this old receipt.",
+      "input_sha256": "27a3b40b3e9c011ccce757721d8c5c1558a3576b69a80039eb7bcd71bb2ee5f3",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/COVERAGE.json",
+      "ids": [
+        "P01–P11",
+        "19contracts/one binding",
+        "52Paradise commands",
+        "Expansion10/book1/native1",
+        "Fieldcraft",
+        "Deferred gates"
+      ],
+      "classification": "Historical coverage/reconciliation map or dated finite-delivery owner",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original structured evidence and fold semantic coverage, later status precedence, native/source/compatibility limits and current authority into the incumbent Markdown owner.",
+      "evidence": "Read complete203-line JSON, all eleven implementation descriptions/source/status rows, every count/compatibility field and final boundary/deferred list. 38player+14NPC=52Paradise commands; not a current registry or native test.",
+      "reopen": "Use actual current source, selected range and final candidate evidence before a new implementation claim; no automatic runtime/worker/source-reading/acceptance work from this old receipt.",
+      "input_sha256": "aa413bb26d497f5a9934117b2da43df1cdca5e8412adb9f259934a82b099b44a",
+      "input_lines": 203,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          203
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+      "ids": [
+        "Finite release",
+        "PD-MTL/source limits",
+        "19unactivated contracts",
+        "Primary canon U",
+        "Unrun acceptance"
+      ],
+      "classification": "Historical coverage/reconciliation map or dated finite-delivery owner",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original structured evidence and fold semantic coverage, later status precedence, native/source/compatibility limits and current authority into the incumbent Markdown owner.",
+      "evidence": "Freshly read full11-line checkpoint through source qualification, all released input roles, final build versus worker snapshots and unchecked acceptance. No primary source, body, stock or saved campaign read here.",
+      "reopen": "Use actual current source, selected range and final candidate evidence before a new implementation claim; no automatic runtime/worker/source-reading/acceptance work from this old receipt.",
+      "input_sha256": "be80d42e1b37443378d23f1b100e05d6db5553a801193f16bb6cd44fcd85fade",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/COVERAGE.json",
+      "ids": [
+        "CSE-01–CSE-20",
+        "P1–P5",
+        "CSE-CASE-01–04",
+        "Five investigation routes",
+        "Revision2 followup"
+      ],
+      "classification": "Historical coverage/reconciliation map or dated finite-delivery owner",
+      "owners": [
+        "docs/gm/causal-endings/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original structured evidence and fold semantic coverage, later status precedence, native/source/compatibility limits and current authority into the incumbent Markdown owner.",
+      "evidence": "Read complete196-line JSON and every one of20 requirement-to-packet lists, all investigation paths, four worked-case IDs and followup/source-chain fields. Its false implementation flags describe this analysis revision, not later source delivery.",
+      "reopen": "Use actual current source, selected range and final candidate evidence before a new implementation claim; no automatic runtime/worker/source-reading/acceptance work from this old receipt.",
+      "input_sha256": "93bc64d39c4f864094d00e2a8ec7a4c62781daa8d0c32d30989b9e388e9184c6",
+      "input_lines": 196,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          196
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/CHECKPOINT.md",
+      "ids": [
+        "Revision6",
+        "Seven modules",
+        "63commands/five controllers",
+        "Root repairs",
+        "Source release",
+        "Five later gates"
+      ],
+      "classification": "Historical coverage/reconciliation map or dated finite-delivery owner",
+      "owners": [
+        "docs/gm/causal-endings/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original structured evidence and fold semantic coverage, later status precedence, native/source/compatibility limits and current authority into the incumbent Markdown owner.",
+      "evidence": "Freshly read full25-line checkpoint including each module/consumer join, actual body/source/custody contract, exact source-versus-integration status and all later gates. No runtime/hash/registry evidence renewed.",
+      "reopen": "Use actual current source, selected range and final candidate evidence before a new implementation claim; no automatic runtime/worker/source-reading/acceptance work from this old receipt.",
+      "input_sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "heading": "## Content reconciliation: five-family intake and selected absorption, 2026-11-04 (B361)",
+      "body": "The complete reconciliation JSON is a targeted five-family disposition, not full reading of every metadata path or every linked semantic receipt. Its family snapshotPaths total2,279, while this checkpoint separately names2,374metadata paths; scope/time/overlap definitions were not reconciled here, so neither number proves missing records or full-corpus coverage. Each family explicitly limits its semantic reading. Preserve the selected/unselected/source-missing/independent boundaries instead of upgrading “family complete” into all-game/all-world completion.\n\nGD-01, known routes, acquired home/retort and ACS-P01/P02/P03 supply distinct finite consumers. A route projection does not create travel or grants; balm uses the actual native effect/custody and one publisher; cooling preserves paid preparation, retry/outcome and its existing useful consumer; agreed duty preserves actual consent, funded priority and attributed settlement. The source-ready selections do not establish every source game, power or later progression system. Whole Factorio recovery remains its independent objective.\n\nHistorical source matching, shared joins, repaired seams, parse checks and the370-source/37-vendor matching build retain their exact receipt scope. Empty mismatch fields, ready/released roles and queued immutable preview are not fresh runtime, current worker or browser evidence. The JSON’s four source-repaired seams and checkpoint’s five integration repairs are separately reported snapshots, not proof of a new defect. Source/build completion and explicitly unrun native/constructor/save/failure/keyboard tests remain distinct; current AD43 governs future gameplay completion. The old one-prestige framing is superseded and generic human review is optional under AD42. No source/module/hash, process, preview, build or gameplay check was rerun here.",
+      "before_sha256": "27a3b40b3e9c011ccce757721d8c5c1558a3576b69a80039eb7bcd71bb2ee5f3",
+      "after_sha256": "e85f017b2ffe415ceaadd3f47447d94d25681758f511ebc00c3a4be866ff893d"
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+      "heading": "## Content reconciliation: player-agency map and source boundaries, 2026-11-04 (B361)",
+      "body": "P01–P11 all retain implemented-unverified/deferred-unrun behavior status. The map describes one finite Paradise binding among19unactivated agency contracts, not nineteen playable worlds or full-novel/roster parity. Its52Paradise commands equal38player plus14NPCcommands; registry counts and source paths are definition-level evidence, not native reachability or completed gameplay. The independent entry preserves its chosen actual body/control/cargo profile rather than replacing a protagonist or granting their source automatically.\n\nPreserve ordinary work/own growth, optional cooperation, material civilian interventions, cause-driven independent NPC actions, changed retained local outcomes and actual personal/contract return as distinct mechanisms. Authoring seven people and finite controllers is not a generic arbitrary-NPC attack/death system. Current-source stock, private knowledge, actual supplied means and absence policy stay scoped; a retained visit count is not permission to silently prune histories or credit paused-world production. Numerical time/budgets/dialogue and concurrent hub/earlier-era placement remain original branch choices.\n\nThe supplied MTL/source-footprint qualification is not primary-canon approval or a new full reading. Current source/edition owners determine any later lore claim; no unconfirmed stock or mana was made current by this review. Expansion10/book1/native1 and old-reader refusal are compatibility contracts requiring actual semantic admission and roundtrip proof; absent-state inertness differs from auto-enrollment or item seeding. Fieldcraft’s observation/name/charge projection does not alter native identity or imply all candidate mechanics. Existing build/release evidence and later actual adoption remain separate. The old one-prestige limit is superseded; no unit/browser/persistence/failure or current campaign behavior was newly checked here.",
+      "before_sha256": "be80d42e1b37443378d23f1b100e05d6db5553a801193f16bb6cd44fcd85fade",
+      "after_sha256": "b2d60e15461142bbcc322746072ffe8bac62598955015140f0252325edcdbba0"
+    },
+    {
+      "path": "docs/gm/causal-endings/CHECKPOINT.md",
+      "heading": "## Content reconciliation: causal analysis map versus later source release, 2026-11-04 (B361)",
+      "body": "The complete revision2 coverage JSON routes20CSErequirements to five proposed packets and four worked cases. A requirement linked to one or several packets is analysis coverage, not proof that the requirement is implemented, source-qualified or exercised. Its nativeImplementationPerformed:false and followup implementationPerformed:false belong to that earlier analysis revision; this revision6checkpoint separately records later seven-module source delivery and release. Preserve both rather than treating an old false flag as a new missing-feature finding or source-ready as completed gameplay.\n\nRetain useful distinctions among actual strike/capture/release, support invalidation, known reports, source counters, established anchors and independently retained closure facets. Present power or a prediction does not by itself create an anchor. Witnesses need actual access and channels; a retained terminal receipt cannot arbitrarily block recovery or mint a replayed refund. These local original proof profiles do not force universal mortality, destiny repair, conservation or protection rules across worlds. Source research, public theory comparison and original scenario invention remain different evidence classes.\n\nThe seven-module packet and63-command/five-controller definition checks require the exact shared registry, body/stock/job context, native admission, save/restore and single-publisher consumers named above. Source hashes, syntax/import and combined definition checks alone do not establish those native behaviors. The historical instruction deferring gameplay checks applies to that source role; it does not lower current AD43 completion requirements or forbid relevant checks in a separately authorized implementation. Current actual integrator ownership and evidence determine adoption. No linked model/source case, runtime, build, saved state or gameplay gate was reverified by reading this map and checkpoint.",
+      "before_sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f",
+      "after_sha256": "b4ff082dc664d0869f7eb28309605457e658cf855efa2ca791f68d182faf8a22"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 691
+}

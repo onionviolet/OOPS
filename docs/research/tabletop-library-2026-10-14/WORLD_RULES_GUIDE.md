@@ -42,3 +42,12 @@ Created chat IDs and write areas are recorded in [chat routing](handoffs/CHAT_RO
 Using the shelf for world building and an in-game GM (tag decks, faction turns,
 downtime as idle jobs, SRD licensing, rulings ledger):
 [considerations](../../RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md).
+
+
+## Content reconciliation B324: retrieval states and historical follow-up scope
+
+All G1–G9, retrieval/evidence guidance, owner links and both follow-up scopes were content-reviewed. Keep the exact question before choosing a source: a player kit, primer, free edition, deluxe core, errata, publisher synopsis, repositoryWIP and complete edition answer different questions. A full-text hit is a locator; an extracted file or locally held title is not semantic source coverage. A rule requiring human adjudication needs the selected bounded implementation or explicit unresolved action, not an arbitrary generated answer.
+
+The README's34 reviewed/20WIP/two community entries are source-repository review labels, not newly read books or full53-release reconciliation. Its29EclipsePhasePDFs, thirteen existingMCGPDFs, Rifts file and exact manifests are historical acquisition/preparation claims. The later core-title refresh correctly qualifies repeat acquisition and old candidate status. Current holdings, internal editions and actual paths remain unverified here. No free checkout, private receipt, subscription state, source file, PDF, FTS query or conversion/index script was accessed or changed.
+
+The Activefollowup scopes and chat-routing table record the historical handoff, not today's worker inventory or standing write lease. The conversion researcher and implementation-considerations outputs remain separate source candidates; this router does not certify them by association. Current owner/source availability should be checked when a selected task needs it, without reviving old chat launches or silently accepting a converter, runtimeAI/GM or universal source-license policy. Useful source-specific licensing/attribution distinctions stay with actual selected reuse. No reading rank changes current priorities.

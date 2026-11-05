@@ -367,9 +367,11 @@ A whole-world blueprint remains alongside early scope: bodies, everyday needs,
 work, institutions, exceptional paths, natural course, curiosity/discovery and
 continuation. Exact original/book selection remains with the creative director
 and existing world owners. No new identity, hidden trait or altered truth is
-published here. Existing accepted first-milestone sequencing and random-entry
-intention are retained; a created pocket instance is not automatically another
-required campaign realm.
+published here. Current PROJECT and USER_VISION own sequencing: the one-realm/one-prestige
+first-milestone gate was retired on Oct. 24. Lead developer journeys come first
+under the current world owners; independent, ordinary and alternative beginnings
+remain later possibilities. A created pocket instance is not automatically
+another required campaign realm.
 
 ## SC08: Player-created worlds have different promises
 
@@ -422,3 +424,23 @@ recipient/world consequence → persist all included owners and receipt → publ
 native state and observer-qualified information. This is a transaction review
 lens, not a requirement for every passive cheat to use every stage.
 
+
+
+## Content reconciliation B393: source foundations do not supply fictional authority
+
+Both complete source maps and the integrated report retain the same useful boundary: a fictional System needs actual issuer, observation, offer, adjudication, grant and revocation consumers. Shared software primitives do not supply those fictional powers by name. SM01–SM14 and SS01–SS12 describe bounded Oct. 11 source inspection, not current behavior or a universal prerequisites list. Their overlapping maps are historical viewpoints of one seam, not two service implementations. New promises need their selected actual consumer, state owner and durable publication path. Native random paths, command-seed commitment, event guarantees and creation-time box outcomes are distinct; none establishes universal determinism, generic pity or isolated RNG streams.
+
+Retain the proposed work-ledger chain: funded commission, actual completion, one durable claim, earned point expenditure, useful changed function and a second real task. It can be selected independently of random starts, world creation, general NPC planning or a universal quest shop. Fixed preservation and an ordinary-to-extraordinary bridge can likewise be independent slices. Owner versus holder, authority versus learned skill, provider loss versus permanent gift and actor-safe knowledge versus author truth remain separate. Read-only quest cards cannot issue or settle an offer. The proposed repeated-claim, insufficient-input, failed-write, reachable-interface and persistence cases are not executed tests. The report's 36 leaves, 59 variants and 114 specified cases describe its own retained ledger; this map review does not claim a fresh semantic review of every linked leaf. No implementation, source acquisition or additional authority is created.
+
+
+## Content reconciliation B394: complete variants, exact carriers and local case preconditions
+
+The entire design, packet set, original assignment, revision-3 checkpoint and detailed ledger were read. The ledger retains 36 integrated leaves, 59 explicitly mapped optional variants, 114 specified-not-run cases, seven joins and 73 distinct predecessor IDs. Each actual leaf definition, source-only pointer, persistence decision and proposed case was reviewed, not inferred from these totals. Source files and predecessor ledgers were not reread. The historical validation and worker status remain historical. Selection, source qualification, implementation, exercised behavior and current integration are separate.
+
+J-FIX preserves a fixed deterioration-stopping carrier without adding creation, repair, identification or transport. Its depth comes from supported clocks, custody, ordinary preparation and real downstream users. J-BRIDGE preserves every actual fabrication, observation, teaching/experiment, material and inspection step; a perfect part need not teach signal interpretation. J-SYS uses the provider's actual fabrication evidence, library and stock. Permanent learning, installed anatomy, live computation, stored third-party goods and an unclaimed entitlement follow different disconnect, travel and host-transfer rules. A host refusal does not grant control. Provider-as-player and clause/evidence exploits remain original fictional mechanisms, with actual verifier reach and behavior, rather than permission to manipulate the save engine.
+
+The chance, wagering and cache leaves retain correlations, eligibility, commitment, source stock, custody and chosen observation. A causal-event wager reads that event rather than drawing a new outcome. A fixed cache cannot be freshly rolled by transfer, while mutable contents need actual condition/theft state. Remembering a seed is sufficient only with the same algorithm, ordering, eligibility and revision; otherwise retain the committed semantic result. A real copying or creation power can duplicate matter under its actual promise. Preventing an accidental second settlement does not impose an anti-exploit cap on that fiction.
+
+Territory, dream, report-only model, materialized branch, real habitat and inhabited creation retain different laws, clocks and exports. The irrigation model can export learned knowledge while leaving actual crops and purse untouched; it is not evidence for autonomous residents or real harvest export. Deletion/loss needs its declared visitor, cargo and custody disposition. Shared namespaces or parent IDs do not supply isolation, viable life or acceptable scale. Source uncertainty and missing implementation remain distinct from fictional limits.
+
+The ledger's individual test descriptions are conditional examples for the selected local function. SC03.03 does not force an ordinary skill to remain necessary when a genuinely superior means replaces it. SC10.06's fuel rejection applies to a fuel-dependent method, not every power; witness-local memory in SC09.03 does not prohibit actual communication or carriers. Funding, work budgets, waiting, clue cadence, provider stock and independent actor work follow actual local means. No universal guaranteed acquisition alternative, recurring chore, arbitrary power cap or new economic shortage is selected. Current AD51 allows a useful first seam without waiting for another world; AD52 retains consequential cost, choice and support while allowing strong powers and long play.

@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "batch": "B376",
+  "title": "Macro/micro and connection coverage with actual downstream consequences",
+  "at": "2026-11-05T03:34:15.458376+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/COVERAGE.md",
+      "ids": [
+        "S00–S14",
+        "11 inspected input boundary rows"
+      ],
+      "classification": "Finite planning coverage/return with explicit semantic joins",
+      "owners": [
+        "docs/gm/dispatch/macro-micro-detail-2026-10-11/REPORT.md"
+      ],
+      "disposition": "Every section remainder and input-scope row read. Routing 179 G IDs,40 I families,693 inherited cases and a separate48-card body return does not prove those linked bodies or runtime complete. Later isolated candidates supersede prepared-only labels only within their own finite evidence. Preserve original IDs, useful fictional ideas, dependency locations and history as proposals; no implementation or dispatch follows.",
+      "evidence": "Complete actual file content read. All linked cards, JSON manifests, native source seams, review bodies and original tests retain independent review states; no transitive full-reading credit or new behavior verification.",
+      "reopen": "Select a specific current consumer and recheck its changed source/authority; retain exact qualification gaps rather than restarting old planning or authorizing runtime from this recommendation.",
+      "input_sha256": "e38eca32c7aeba562c489bc37e7daf43af36ce3facb5bfd7b515e0f7633ac425",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/REPORT.md",
+      "ids": [
+        "MM01–MM10",
+        "F1–F4",
+        "MM-P1–P4",
+        "12 MD dependencies"
+      ],
+      "classification": "Finite planning coverage/return with explicit semantic joins",
+      "owners": [
+        "docs/gm/dispatch/macro-micro-detail-2026-10-11/REPORT.md"
+      ],
+      "disposition": "Finite planning specifies recipient, operation, channel and subsequent choice. Creation may end a bottleneck; institution response needs actual effect/information, not restored scarcity. Learning, closure, support, succession and ordinary continuation retain distinct carriers. Do not impose random initializer/universal economy/body/history infrastructure before an unrelated ready consumer. Preserve original IDs, useful fictional ideas, dependency locations and history as proposals; no implementation or dispatch follows.",
+      "evidence": "Complete actual file content read. All linked cards, JSON manifests, native source seams, review bodies and original tests retain independent review states; no transitive full-reading credit or new behavior verification.",
+      "reopen": "Select a specific current consumer and recheck its changed source/authority; retain exact qualification gaps rather than restarting old planning or authorizing runtime from this recommendation.",
+      "input_sha256": "e7b8182e691b163220d6183503b33d9270b3e34cb6350f6f64ec9b701a8ae3de",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/COVERAGE.md",
+      "ids": [
+        "C01–C07",
+        "E01–E10",
+        "X01–X18",
+        "MM/G/ST/MG/LIFE/WORLD scope rows"
+      ],
+      "classification": "Finite planning coverage/return with explicit semantic joins",
+      "owners": [
+        "docs/gm/dispatch/connection-detail-2026-10-12/REPORT.md"
+      ],
+      "disposition": "All35 family rows read. Separate accessible preferences from fictional senses, qualified start probability from selection policy, embodiment from usable verbs, family support from property, learning from executability, and pending versus committed snapshots. Exact restore/migration, observation/report/delivery and actual worker/stock/legal-action consumers remain named; original extraordinary comparisons are not established local capabilities. Preserve original IDs, useful fictional ideas, dependency locations and history as proposals; no implementation or dispatch follows.",
+      "evidence": "Complete actual file content read. All linked cards, JSON manifests, native source seams, review bodies and original tests retain independent review states; no transitive full-reading credit or new behavior verification.",
+      "reopen": "Select a specific current consumer and recheck its changed source/authority; retain exact qualification gaps rather than restarting old planning or authorizing runtime from this recommendation.",
+      "input_sha256": "cd20d25f0ac2fd6d17855536420ea70e5e3a15ca8dee572b135b75db74cfe53e",
+      "input_lines": 92,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          92
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "36 leaves",
+        "J01–J06",
+        "CD-P1–P5"
+      ],
+      "classification": "Finite planning coverage/return with explicit semantic joins",
+      "owners": [
+        "docs/gm/dispatch/connection-detail-2026-10-12/REPORT.md"
+      ],
+      "disposition": "Relationships and commitments cannot depend on32-entry memory history. Received evidence, revision and executable learning are separate; equal/higher-stage-only knowledge writes expose a revision need. Arbitrary intent needs an actual adapter, while supported free production may legitimately change demand.55 fingerprinted inputs and rechecked concurrent main.js ranges are not full-source reading or a clean-tree proof. Preserve original IDs, useful fictional ideas, dependency locations and history as proposals; no implementation or dispatch follows.",
+      "evidence": "Complete actual file content read. All linked cards, JSON manifests, native source seams, review bodies and original tests retain independent review states; no transitive full-reading credit or new behavior verification.",
+      "reopen": "Select a specific current consumer and recheck its changed source/authority; retain exact qualification gaps rather than restarting old planning or authorizing runtime from this recommendation.",
+      "input_sha256": "f2252d4bf8271df99e29592a4960eb6903ad7e4970e17194e3fe009667b28617",
+      "input_lines": 84,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          84
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/REPORT.md",
+      "heading": "## Content reconciliation B376: finite coverage and continuing consequences",
+      "body": "This full return and [coverage map](COVERAGE.md) were reviewed together, including every S00–S14 remainder. Their substantive contribution is a recipient who actually uses the service/material/method, an operation that changes options, a received channel and a later decision. Creation can relieve the old demand rather than secretly acquiring a new scarcity fee; institutional response needs actual effects and information. Care, access, property, knowledge, usable faculty and succession remain distinct. Freeze, supported observation and committed work have their own clocks/causes; a return learns through actual reports or inspection without rewriting history. Optional Frontier/Proto23/Glasshouse comparisons do not require every beginning to visit those contexts.\n\nTen MM leaves completed a finite planning tranche, not gameplay. The179 G IDs,40 I families,693 inherited cases,48-card body return and linked source-world horizons retain their original owners and independent proof limits. Fingerprints, mapped IDs and structural checks do not establish full linked-body reading. Newer finite candidate receipts may qualify earlier prepared-only labels without certifying an entire world. No universal economy, random initializer, arbitrary-body engine or history framework is required before a ready selected consumer under AD51. Old recommended packet order, writer reservations and human taste language are historical; AD42 keeps that review optional. No runtime, source passage or private state was newly verified.",
+      "before_sha256": "e7b8182e691b163220d6183503b33d9270b3e34cb6350f6f64ec9b701a8ae3de",
+      "after_sha256": "697593f4bff80e7099dd6ad5b66de39456258472a06b428c8206553aee0874ae"
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/REPORT.md",
+      "heading": "## Content reconciliation B376: actual recipients, channels and retained commitments",
+      "body": "This complete return and [coverage map](COVERAGE.md) were reviewed across C01–C07, E01–E10 and X01–X18. Preserve useful joins: accessible control preferences are distinct from fictional perception; family support is not property ownership; admission/attendance/credential are not mastery; learning/practice is not executable native faculty; copied bodies do not inherit another participant's agreement; delivered messages survive later cancellation; actual worker stock and channels, rather than a controller label, support downstream work. Free repeated creation may supply useful material and change an informed person's next order without a new global cap or hidden restored scarcity.\n\nActive promises cannot live solely in a bounded memory recap. Research evidence, attributed recollection, interpretation, adoption and actual use are different states, and the old equal/higher-stage knowledge-write rule leaves explicit revision/retraction work to its owner. Searching does not prove impossibility; an unsupported arbitrary intent requires an honest missing-adapter diagnostic. Restore preserves the exact pending/committed content and dormant sections under the selected compatibility contract. Qualification of source bodies/eras and sampling units cannot be inferred from a broad start label or genre.\n\nThe36 leaves, six two-way joins and five packets are planning outputs. This reading does not credit linked card, join,55-input fingerprint or native-source bodies as read. The dated main.js reinspection preserves its exact public ranges and concurrent writer boundary, not a clean-tree/current behavior claim. Specific source-world romances, full map parity, broad family generation, settlement automation and arbitrary histories retain their own qualification work. Old recommended CD-P1 selection and exclusive-writer plans are not current dispatch. AD51 permits a useful first seam; AD42 makes human taste review optional. No new source acquisition, runtime, publication-failure, save/import or performance result is claimed.",
+      "before_sha256": "f2252d4bf8271df99e29592a4960eb6903ad7e4970e17194e3fe009667b28617",
+      "after_sha256": "229090f93c5dde656fd6949df4353726e6bcd46c70e28029bc8508b48a5b6128"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 668
+}

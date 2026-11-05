@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "batch": "B345",
+  "title": "JJK and manga OCR: every gap row, measured pilot limits and unexplained aggregate totals",
+  "at": "2026-11-05T02:25:43.592368+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/jujutsu/JJK_GAP_FILL_PLAN.md",
+      "ids": [
+        "novelcontents/bounds",
+        "AU2pilotbudget/results/deviations",
+        "R42/R51/visionnotrun"
+      ],
+      "classification": "Full OCR gap/pilot report; actual table arithmetic, scoped model review and historical layer limits",
+      "owners": [
+        "docs/worlds/jujutsu/JJK_GAP_FILL_PLAN.md",
+        "docs/WORLD_ABSORPTION_RULES.md",
+        "docs/worlds/jujutsu/SOURCE_LEDGER.md"
+      ],
+      "disposition": "Preserve all locators/claims; recompute printed row arithmetic only, distinguish OCR-held/agent-read/page-qualified states, retain unexplained totals and repair rulebook routing. No source gap filled by inference.",
+      "evidence": "Whole local report read; A–D table counts recomputed and two pilot aggregate sums checked. No manga page, raw chapter records, PDF, novel, model or runtime opened.",
+      "reopen": "Use exact pinned layer/locator to qualify selected claim; actual page/source inspection and later corpus measurements remain separate.",
+      "input_sha256": "6e1bddf6183cd907419f139d4ab0f486d61bfda8bdf54330a2c85dc180e2fa68",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/jujutsu/JJK_OCR_GAP_REGISTER.md",
+      "ids": [
+        "heldlayer/3classes",
+        "RegisterA62chapters80pages",
+        "B28chapters33pages/C56chapters63pages",
+        "D167chapters271pages/use"
+      ],
+      "classification": "Full OCR gap/pilot report; actual table arithmetic, scoped model review and historical layer limits",
+      "owners": [
+        "docs/worlds/jujutsu/JJK_OCR_GAP_REGISTER.md",
+        "docs/WORLD_ABSORPTION_RULES.md",
+        "docs/worlds/jujutsu/SOURCE_LEDGER.md"
+      ],
+      "disposition": "Preserve all locators/claims; recompute printed row arithmetic only, distinguish OCR-held/agent-read/page-qualified states, retain unexplained totals and repair rulebook routing. No source gap filled by inference.",
+      "evidence": "Whole local report read; A–D table counts recomputed and two pilot aggregate sums checked. No manga page, raw chapter records, PDF, novel, model or runtime opened.",
+      "reopen": "Use exact pinned layer/locator to qualify selected claim; actual page/source inspection and later corpus measurements remain separate.",
+      "input_sha256": "50f7ebe3e23ba3dde33470c543c75b0addc81fff3cabc3ef0b0b0511e2b068d6",
+      "input_lines": 360,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          360
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/manga-text/AUDIT_USES_2026-10-23.md",
+      "ids": [
+        "coverage/Pilot1:J1–9/B1–9",
+        "Pilots2–5/firsthits/panels/numbers/gaps",
+        "sixrankeduses/PDFsection/M1–7"
+      ],
+      "classification": "Full OCR gap/pilot report; actual table arithmetic, scoped model review and historical layer limits",
+      "owners": [
+        "docs/research/manga-text/AUDIT_USES_2026-10-23.md",
+        "docs/WORLD_ABSORPTION_RULES.md",
+        "docs/worlds/jujutsu/SOURCE_LEDGER.md"
+      ],
+      "disposition": "Preserve all locators/claims; recompute printed row arithmetic only, distinguish OCR-held/agent-read/page-qualified states, retain unexplained totals and repair rulebook routing. No source gap filled by inference.",
+      "evidence": "Whole local report read; A–D table counts recomputed and two pilot aggregate sums checked. No manga page, raw chapter records, PDF, novel, model or runtime opened.",
+      "reopen": "Use exact pinned layer/locator to qualify selected claim; actual page/source inspection and later corpus measurements remain separate.",
+      "input_sha256": "a3de0aca734fbbe038be89048bf3f661619cc0d45e5b414a571071249e18688d",
+      "input_lines": 128,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          128
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/jujutsu/JJK_GAP_FILL_PLAN.md",
+      "heading": "## Content reconciliation B345: source layers, pilot limits and internal counts",
+      "body": "All48 original lines were reviewed, including the two novel contents tables, budget, pilot measurements, source-quality limits and deferred local vision. Preserve extracted/held versus read: the62k-word novels were text-extraction checked, not read by that task. They are separate official-side-story media in the report, not retellings that reconstruct any exact missing manga page. Particular routines/mechanisms named as possible uses remain leads until the actual passage is read and its source/era reconciled; medium identity alone does not prove agreement.\n\nThe pilot's70 rows are agent returns, not70 checked source claims. Its own review examined two selected rows and found two label problems; that cannot establish an overall error rate, source fidelity of the other68 or factual completeness. Most rows lack speaker identity, and the one preflagged page did not account for the other five garble spots the reader found. Thus low register risk in the cleanest chosen window is not a representative accuracy sample, complete dialogue coverage or a reliable proxy for book-wide qualification. Unknown speakers and doubtful clauses remain explicit rather than defaulting to narrator truth.\n\nMeasured172435 reader tokens,8 tool calls,235seconds and four payload loads describe that invocation's reported usage, not current allowance or a new spend. The40k-token/9k-word shard suggestion and20-shard/2.9million extrapolation are unverified linear planning estimates, sensitive to OCR tokenization, repeated context and output. A future targeted query may be cheaper but still needs semantic passage review. The two novels' proposed six shards were not dispatched; this reconciliation authorizes none of that work.\n\nThe vision model/swap readings and not-run checkpoint are dated observations, not live memory pressure or installed model state. Vision and prose are useful routes to speaker context, but not the only possible routes: actual page inspection or another held primary edition can also supply evidence. A separate model-read cache preserves original OCR; it does not automatically qualify a claim. WA61–WA68 remain proposed under AD32, while existing WA8/WPR evidence discipline already applies. The rulebook backlink is repaired to its actual parent path with the exact old target retained. No corpus read, source qualification, local inference, acquisition, worker or runtime was performed here.",
+      "before_sha256": "6e1bddf6183cd907419f139d4ab0f486d61bfda8bdf54330a2c85dc180e2fa68",
+      "after_sha256": "f778e79c027853fb150f7b89258689ab00cc391d61dc7179843fc3212bd47460"
+    },
+    {
+      "path": "docs/worlds/jujutsu/JJK_OCR_GAP_REGISTER.md",
+      "heading": "## Content reconciliation B345: source layers, pilot limits and internal counts",
+      "body": "All360 original lines were reviewed, including every chapter/page/count row in Registers A–D and the detector/use limitations. A document-only recomputation verified the listed counts: A has62 chapter rows/80 unique pages, B28/33, C56/63 and D167/271; each row's Count equals its listed pages. A+B=113 likely-miss pages and A+D=351 no-text pages, explaining why the class total447 need not equal the351 no-text total: B includes near-empty read pages and C has read text. These are internal table checks, not inspection of any actual manga page or chapter.jsonl.\n\nThe source counts277chapters/5479pages/33691items and flag shares remain the dated stage1 report. An absence of tool coverage/failure records does not establish no content gaps: this register itself uses detector flags to identify candidate misses. Art-only is explicitly presumed, not verified; no-text does not mean no action, panel meaning, speech or source-relevant information. Low-confidence and high-risk are different item/heuristic measures, not an overall semantic error rate. Recompute from actual pinned records before claiming a later corpus state.\n\nThe opening no-reader-has-read-this-layer statement is earlier than the linked ch35–50 pilot result. That pilot is a partial agent read with label/speaker limitations, not a full-series read or replacement source ledger. Preserve the timeline rather than reporting either complete unreadness or complete qualified coverage today. Chapters beyond the held range being unavailable is a dated holding claim, not a new acquisition gap verified here.\n\nThe final gap-fill pointer is qualified by the plan: side-story novels can add differently labelled background/mechanism evidence, not restore the lost page's exact content. A model-read page remains its own layer and needs actual corroboration for stronger claims. Register flags help choose what to inspect, not define all possible garbling; clean unflagged pages can still contain mistaken OCR. Source/lore calibration under AD49 needs the actual relevant checked span. WA61–WA68 remain proposals (AD32); existing unknown/knowledge/source boundaries are not contingent on adopting that family. The broken rulebook link is repaired while preserving its old target. No source text, art, full-page inspection, re-OCR, private corpus or current source fact was reviewed by this document pass.",
+      "before_sha256": "50f7ebe3e23ba3dde33470c543c75b0addc81fff3cabc3ef0b0b0511e2b068d6",
+      "after_sha256": "2ec54d793765e6572b29cca329753728513d81e89ef3289379f059b7cc856d51"
+    },
+    {
+      "path": "docs/research/manga-text/AUDIT_USES_2026-10-23.md",
+      "heading": "## Content reconciliation B345: source layers, pilot limits and internal counts",
+      "body": "All128 original lines were reviewed, including all18 claim verdicts, five pilots, six ranked uses, PDF discussion, gaps and M1–M7. Supported/partial/unresolved/term-absent/outside-coverage retain their exact bounded context meanings. Two OCR contexts per term are not a full-source read, page inspection or confirmation of every part of a compound claim. The model's vision capability does not prove an image was inspected when the stated input was short OCR text. Speaker, translation vocabulary, split words and non-story pages can alter the reading. A zero literal match is not absence of a mechanism.\n\nThe report already separates44chapter panel counts from47chapter numeric refreshes. Preserve that version boundary rather than merging the denominators. A document arithmetic check found the six printed panel categories sum to794, seven below the reported801; the missing category/overlap explanation is not supplied. The three printed series counts277+214+44 sum to535, one below the stated536 across four series; an unlisted fourth-series record could explain it, but was not identified here. Keep both original totals with this unresolved reconciliation note; do not invent an extra panel type or series, overwrite totals or claim a current reindex.\n\nFirst literal/caption appearance is not necessarily a source entity's first appearance, first story use, chronological first event or first observed faculty. OCR noise, alternate names and contents/commentary pages need their actual roles. Numeric crop rereads can strengthen a particular amount, but a proposed plausible-range filter must flag/preserve raw uncertainty rather than discard a genuine huge source number because it looks implausible. Repeated windows or card values can corroborate a clause without proving independent coin settlement, a unique event or the whole economy. AD49 calibrates to checked lore, not to a convenience range invented by a detector.\n\nThe old PDF failures, PDFKit/Poppler repairs, five-page Soulbound OCR timings and truncated-file diagnosis are historical tool observations. This review opened no PDF or source image, so it gives no new file-integrity or extraction proof; a future PDF read follows the required screening workflow. Those recommendations do not authorize a download/replacement or guarantee that all malformed PDFs require that one route. OCR throughput is distinct from semantic interpretation and actual adoption of a front end.\n\nM1's backup classification and restore proposal preserve the difference between re-derivable cache and costly hand judgements, but the raw inputs/tool versions must actually remain available for reproducibility. No backup or restore was performed. Local Komga/server/watch/LaunchAgent status, cache sizes, gold counts and OS-change behavior are dated claims, not live-process evidence. The proposed persistent service is not installed by reading its suggestion, and a progress PID file alone would not prove a process alive. M2–M7 remain separate tool proposals; no new endpoint, watcher, model or language route was run here.\n\nThe linked JJK pilot later narrows blanket no-reader and corpus-qualification interpretations, while broader source-gap rules remain proposed under AD32. A source/body/medium claim needs its own actual edition and locator; the wiki/manga difference must not be flattened into one universal rule. Preserve these useful audit methods and all original verdicts without promoting them to current native/gameplay/source completion. No primary-source claim, OCR layer, source corpus, image/PDF, runtime, external service or user data was newly verified or changed here.",
+      "before_sha256": "a3de0aca734fbbe038be89048bf3f661619cc0d45e5b414a571071249e18688d",
+      "after_sha256": "4926b0de14ba76ee3ddae130cbab0d912556a489090241b52cd7481e05c8bf97"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 736,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/jujutsu/JJK_GAP_FILL_PLAN.md",
+      "from": "](../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03)",
+      "to": "](../../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03)",
+      "reason": "Correct actual broken parent traversal to docs/WORLD_ABSORPTION_RULES.md; preserve original target."
+    },
+    {
+      "path": "docs/worlds/jujutsu/JJK_OCR_GAP_REGISTER.md",
+      "from": "](../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03)",
+      "to": "](../../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03)",
+      "reason": "Correct actual broken parent traversal to docs/WORLD_ABSORPTION_RULES.md; preserve original target."
+    }
+  ],
+  "document_arithmetic_checks": {
+    "register_A": {
+      "chapter_rows": 62,
+      "unique_pages": 80
+    },
+    "register_B": {
+      "chapter_rows": 28,
+      "unique_pages": 33
+    },
+    "register_C": {
+      "chapter_rows": 56,
+      "unique_pages": 63
+    },
+    "register_D": {
+      "chapter_rows": 167,
+      "unique_pages": 271
+    },
+    "all_listed_row_counts_match": true,
+    "A_plus_B": 113,
+    "A_plus_D": 351,
+    "panel_subtypes_sum": 794,
+    "reported_panel_total": 801,
+    "printed_series_sum": 535,
+    "reported_index_total": 536,
+    "scope": "Printed report arithmetic only, no raw corpus or source content inspected."
+  }
+}

@@ -50,3 +50,12 @@ The direct `docs/research/*/REPORT.md` scan found 60 report directories. Excludi
 Checked the original requested list, wave assignments/checkpoints, individual report status/intake boundaries, repository-bank dispositions and later library updates. No raw proprietary corpus hashes, installed state, live workers, gameplay, balance or save behavior was reverified. No purchases, installs, exports or gameplay edits were performed.
 
 The supported conclusion is broad targeted coverage plus substantial extras, with named outstanding source/depth gates. A new decompilation stack does not by itself close absent payloads, server-only logic or unread semantic coverage.
+
+
+## Content reconciliation B314: historical research coverage and current reuse
+
+All F1–F3, the named21-title baseline, eight research-group rows, nine open-coverage rows, aggregate correction and inventory boundary were content-reviewed. Preserve the explicit distinction between a dossier existing, targeted source inspection, wrapper recovery, native unknowns, a runnable system and complete semantic reading. Forty-eight dossier directories from a60-report scan is an October13 routing denominator, not current unique games, complete audits, purchases or entitlements. The combined DCSS/DDA and multi-game/repository overlap must not be added twice.
+
+The October19 census pointer already qualifies the frozen counts. Later individual installed-source reports supersede the library aggregate's acquisition-only labels for their own stated windows. The later cross-novel scout likewise preserves source-acquisition and bounded reading receipts rather than treating them as new references. None of that establishes current installation or completes unread mechanisms. Exact-title no-dossier-found and payload-gated rows are historical searched-scope findings, not machine-wide absence or today's worker state.
+
+Streets framework evidence does not become original-game source, an Electron wrapper does not become its remote simulation, and tool/export counts do not read unavailable script families. A failed or unfinished native-recovery goal remains distinct from a stopped process and from a retained useful source sample. The broader shortlist is a set of candidates, not assigned unfinished work. This review reruns no scan, source read, process probe, purchase, install, decompilation, gameplay or source-fidelity check; linked dossier and queue bodies remain independently reviewable inputs.

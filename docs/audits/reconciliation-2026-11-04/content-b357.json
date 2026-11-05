@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B357",
+  "title": "Archived audit run and later queue/coordinator closures",
+  "at": "2026-11-05T02:53:40.008510+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit.prompt.md",
+      "ids": [
+        "C0/CH1 claims",
+        "Nine questions",
+        "Five deliverables",
+        "Detached run note"
+      ],
+      "classification": "Historical execution copy of audit prompt with additional run-isolation note",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit.prompt.md",
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md"
+      ],
+      "disposition": "Preserve exact run prompt and detached-snapshot rationale; distinguish it from its report, current startup policy and fresh execution authority.",
+      "evidence": "Read all 104 lines including the final run note. Compared substantive questions and claims with the already read public audit prompt and independent result; no embedded command or linked gate executed.",
+      "reopen": "For any new selected audit inspect current input/ownership and existing result, then choose justified isolation rather than mechanically replaying the old worktree/port/test recipe.",
+      "input_sha256": "66d76af2efa2b47a7b63a593cd8fec298dd589653bd60d55aa9a0a613e22cdd3",
+      "input_lines": 104,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          104
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/README.md",
+      "ids": [
+        "PRF1–PRF8",
+        "G1/Q1/Q18/Q2/Q3/Q6/Q7/Q8/Q11/Q10/Q12/Q15",
+        "Merge readiness",
+        "Terminal checkpoint",
+        "Primary adoption",
+        "October 31 retirement"
+      ],
+      "classification": "Chronological queue supervision record with later adoption and retirement superseding lane stop-state",
+      "owners": [
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/README.md",
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/PRIMARY_ADOPTION.md",
+        "docs/audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md"
+      ],
+      "disposition": "Preserve all lane reports and failures; clarify source recovery versus ancestry, merge-tree versus integration, blocked launches versus new work, and archived recovery replacing retired paths.",
+      "evidence": "Read complete 105-line README including every lane/model/PID/branch row, merge table, event/failure/retry note, Q18 triage report and later adoption/retirement notices. No live Git ancestry, process, worktree, archive or lane receipt rechecked.",
+      "reopen": "If selected current work depends on a delivered change, inspect actual primary source and owning adoption proof; only use verified recovery archives if needed. Do not relaunch terminal queue lanes or retire paths from historical records.",
+      "input_sha256": "e2806418607c1af8654481eb7214c15bba450a8d009106ecf6e876701248bb08",
+      "input_lines": 105,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/CHECKPOINT.md",
+      "ids": [
+        "C1–C5",
+        "Five handoffs",
+        "Owner/evidence limits",
+        "Queued versus Running"
+      ],
+      "classification": "Dated native-session coordination checkpoint, not current worker liveness or gameplay evidence",
+      "owners": [
+        "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/CHECKPOINT.md",
+        "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/GAP_AUDIT.md"
+      ],
+      "disposition": "Preserve explicit writer transfers and bounded source-reader scope; qualify visible/parent-reported startup, queued unconfirmed successor, controller versus worker proof and old app diagnosis.",
+      "evidence": "Read all 23 lines and all five handoff rows, including C4 unconfirmed successor and 12000-word locator-reader limit. No native app, session messages, source, worker process or gameplay result inspected now.",
+      "reopen": "For a selected continuation confirm its current owner/checkpoint and live handle if needed; no app control, new chat, worker, reading wave or speculative repair is authorized by this old checkpoint.",
+      "input_sha256": "00de8f16a808f4e37bafd475a2bcf6f88fb3e6c8b068800ce2b76e57302db5fb",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit.prompt.md",
+      "heading": "## Content reconciliation: archived run prompt, 2026-11-04 (B357)",
+      "body": "This copy preserves the original audit request and its extra detached-worktree run note. It is evidence of requested scope, not proof of shipped behavior, execution or a present reservation. The linked independent report owns F1–F14, actual input identities, corrective setup and unverified boundaries. The current primary-checkout default permits justified isolation; the old dirty/other-branch observation does not require creating a new worktree today. Preserve natural/seeded/source distinctions, gate-honesty questions and proposal labeling while applying current desktop/font and host policies to any separately selected future audit. No embedded command, new chat, runtime fix, gate or stage-1 proposal was executed or adopted here.",
+      "before_sha256": "66d76af2efa2b47a7b63a593cd8fec298dd589653bd60d55aa9a0a613e22cdd3",
+      "after_sha256": "29b7979c5c5e70dc225d975be63b0e47b38875e7e58384c13db5585cb0219d51"
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/README.md",
+      "heading": "## Content reconciliation: queue stop-state and later adoption, 2026-11-04 (B357)",
+      "body": "Read the primary-adoption update and October 31 retirement together with the original stop-state. Recovered Q1/Q2/Q3/Q6/Q7/Q8 source in primary is different from merging their branch commits into ancestry. Likewise terminal supervision, a clean merge-tree, worker-reported focused checks and untracked-packet readiness are different evidence from combined playable acceptance. Preserve packets instead of clearing unrelated files to make a merge flag green. The later recovery/retirement owner replaces historical worktree paths for leftover retrieval; this README does not prove those archives or paths are accessible now.\n\nQ1’s original sequential/default checks did not prove concurrent-build/page-load acceptance. Its resume and Q11/Q10/Q12/Q15 follow-ups failed before a new model response; stale last-message files are not new receipts. The unsupported resume flag was a launcher syntax repair, not a second completed model turn. Git lock denial, CLI routing failure and missing baseline files are distinct historical blockers, not current reasons to restart work. All PID/liveness/open-file observations belong to their original checks; do not operate a process by an old numeric ID.\n\nQ18’s primary triage document and spot checks preserve useful idea intake but do not prove every named ledger’s actual content or every built claim. Q6’s static scan/provenance limits and Q8’s SCC edge bookkeeping remain bounded evidence, not a semantic description audit or eliminated architectural cycle. IPC70–IPC72 remain proposals. The historical budgets/models/follow-up permissions are not present worker authority. No queue worker, merge, archive recovery, source adoption, full suite or retirement action occurred during this reconciliation.",
+      "before_sha256": "e2806418607c1af8654481eb7214c15bba450a8d009106ecf6e876701248bb08",
+      "after_sha256": "b140e0f2374a463a1376a99f989f3d33e979d3efdedc10e95b13e98e343c1547"
+    },
+    {
+      "path": "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/CHECKPOINT.md",
+      "heading": "## Content reconciliation: coordination handoff evidence, 2026-11-04 (B357)",
+      "body": "C1–C5 are October 23 observations, not current process state or new chat instructions. Preserve confirmed startup versus parent-reported startup, explicit relinquishment and merely queued/unconfirmed successor separately. C4’s requested successor had not been verified here; C2’s actual writer transfer does not extend to unrelated Codex reservations. The five linked domain records own their implementation and final gates, while this controller record establishes only its bounded coordination actions.\n\nReported test counts are not controller-executed checks, and a visibly Running app row does not establish a completed playable delivery. The limited source-locator reader does not qualify an entire novel or authorize acquisition. The old Electron diagnosis is closed historical evidence, not a reason to reopen app optimization. Current host authorization/routing, accepted rules and actual owner transfer govern any future continuation. No foreground app, session, process, worker, source or gameplay state was queried or changed by this review.",
+      "before_sha256": "00de8f16a808f4e37bafd475a2bcf6f88fb3e6c8b068800ce2b76e57302db5fb",
+      "after_sha256": "1ce86e113fc2b54d3a2954e22d8b61e033692aec4ea2c8e9186b6254ade2b683"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 703,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/CHECKPOINT.md",
+      "from": "Current host authorization/routing, accepted rules and actual owner transfer govern any future continuation.",
+      "to": "Current host authorization/routing, rules (AD32/AD41) and actual owner transfer govern any future continuation.",
+      "reason": "Cite actual rules beside precedence wording; no acceptance/policy change."
+    }
+  ]
+}

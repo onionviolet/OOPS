@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "batch": "B364",
+  "title": "Body-source sourcing map: all worlds, all cells and causal chains",
+  "at": "2026-11-05T03:04:42.996231+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/COVERAGE.json",
+      "ids": [
+        "72worlds",
+        "SO1–SO12",
+        "37notes/35matrix-only",
+        "864cells"
+      ],
+      "classification": "Historical source-qualified sourcing palette or complete structured map; no runtime adoption",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md"
+      ],
+      "disposition": "Preserve exact bounded/lead/proposal/unknown states and concrete source-to-use chains, qualify obsolete gates/priority, and retain typed carrier/custody/condition/compatibility/knowledge semantics without certifying source law.",
+      "evidence": "Read every key/value in the complete1232-line JSON: initial1–200 source lines plus a lossless compact display of all72 world objects, every note flag, all SO1–SO12 values and all top-level fields. No row/value omitted by compact rendering; this is actual map content review, not counts alone.",
+      "reopen": "For a selected source-use slice inspect exact current qualified source/era/recipient and actual native consumer; no automatic sourcing, body economy, hereditary grant, schema, world restart or worker dispatch.",
+      "input_sha256": "5793f723bbe97dfed7d463dabc09da8c482eb2db29992fa2615411d1de7cbcb0",
+      "input_lines": 1232,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1232
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+      "ids": [
+        "B/P/L/U legend",
+        "Five variables",
+        "72×12 table",
+        "35gap reasons",
+        "P8 owners"
+      ],
+      "classification": "Historical source-qualified sourcing palette or complete structured map; no runtime adoption",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md"
+      ],
+      "disposition": "Preserve exact bounded/lead/proposal/unknown states and concrete source-to-use chains, qualify obsolete gates/priority, and retain typed carrier/custody/condition/compatibility/knowledge semantics without certifying source law.",
+      "evidence": "Read complete matrix, including every864status cell, all35individual gap reasons, common source-use contract and terminal ownership/current-evidence limits. The later tail was read separately. Independently compared every cell with JSON:72rows/864cells/zero mismatches; counts500U/90L/230P/44B.",
+      "reopen": "For a selected source-use slice inspect exact current qualified source/era/recipient and actual native consumer; no automatic sourcing, body economy, hereditary grant, schema, world restart or worker dispatch.",
+      "input_sha256": "fb4b87f92507396af8868623c16f67e95df7c4869ec44b6fc000bdb5308397ae",
+      "input_lines": 159,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          159
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "A1–A5",
+        "G1–G5",
+        "Five-variable contract"
+      ],
+      "classification": "Historical source-qualified sourcing palette or complete structured map; no runtime adoption",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md"
+      ],
+      "disposition": "Preserve exact bounded/lead/proposal/unknown states and concrete source-to-use chains, qualify obsolete gates/priority, and retain typed carrier/custody/condition/compatibility/knowledge semantics without certifying source law.",
+      "evidence": "Read all49lines and complete findings/recommendation/gate tables, source-authority limits, named ownership and no-gameplay claims. Linked37world notes and original source locators remain independently unread by this batch.",
+      "reopen": "For a selected source-use slice inspect exact current qualified source/era/recipient and actual native consumer; no automatic sourcing, body economy, hereditary grant, schema, world restart or worker dispatch.",
+      "input_sha256": "401b708a4dbcae2dc3ce6338bfc4df956ec8cd01ac07b1adf688b9c747df7f0a",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHECKPOINT.md",
+      "ids": [
+        "Four completed items",
+        "511local targets",
+        "Docs-only scope",
+        "37/35partition"
+      ],
+      "classification": "Historical source-qualified sourcing palette or complete structured map; no runtime adoption",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md"
+      ],
+      "disposition": "Preserve exact bounded/lead/proposal/unknown states and concrete source-to-use chains, qualify obsolete gates/priority, and retain typed carrier/custody/condition/compatibility/knowledge semantics without certifying source law.",
+      "evidence": "Read all14lines including exact item receipts and five-variable, semantic/copying/conservation boundaries. Historical511link-target checks were not rerun as a new source audit.",
+      "reopen": "For a selected source-use slice inspect exact current qualified source/era/recipient and actual native consumer; no automatic sourcing, body economy, hereditary grant, schema, world restart or worker dispatch.",
+      "input_sha256": "b5454444c144ea14a483d1d27be090c54ae678093da48fca0de3640cfd345e11",
+      "input_lines": 14,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md",
+      "ids": [
+        "C1–C9",
+        "Source/process/recipient/use",
+        "Five sourcing variables",
+        "Alternatives/failure/verification"
+      ],
+      "classification": "Historical source-qualified sourcing palette or complete structured map; no runtime adoption",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md"
+      ],
+      "disposition": "Preserve exact bounded/lead/proposal/unknown states and concrete source-to-use chains, qualify obsolete gates/priority, and retain typed carrier/custody/condition/compatibility/knowledge semantics without certifying source law.",
+      "evidence": "Read all81lines and all nine full chains, every source-versus-proposal qualification, five-variable description, failure/alternative and proposed verification. No source scene, actual supplier or native task exercised.",
+      "reopen": "For a selected source-use slice inspect exact current qualified source/era/recipient and actual native consumer; no automatic sourcing, body economy, hereditary grant, schema, world restart or worker dispatch.",
+      "input_sha256": "9da9cc6752c877ccf1522c67f2c7f6e933b6696839d0aa3b4485982eabe8a09d",
+      "input_lines": 81,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+      "heading": "## Content reconciliation: sourcing coverage and selected use, 2026-11-04 (B364)",
+      "body": "The full JSON and Markdown map were read, including all72worlds/864SOcells, and independently compared with zero mismatches. There are37note flags and35matrix-only rows; cells total500U/90L/230P/44B. This is coverage of the map, not fresh reading of the37world notes or primary-source scenes. B means a bounded source/design relation with its actual evidence channel, not implemented procurement or canon certification. P remains an original proposal, L a missing-operation lead, and U unknown/unselected rather than banned or universally absent. The35individual gap reasons remain useful exact routes without reopening paused worlds.\n\nRetain F1–F5’s useful substance: a tissue sample, source identity, learned procedure, anatomical part, tool, care service, grant and person produce different outputs. Quality, freshness, purity, compatibility and provenance have independent causes. A certificate cannot prove consent, political pedigree cannot prove ingredient properties, and a stocked service does not imply a famous person’s tissue is available. Recent dead, ancient remains and slain creatures have distinct scopes. Directional source/procedure/recipient/use and the actual copying/conservation law govern the selected result, without a universal dilution, rejection tax, decay rule or double supply.\n\nA1–A5/G1–G5 are historical recommendations and gates. Current LOTM/Harry direction, AD51 and actual first useful consumers govern work rather than the old one-realm/prestige milestone or mandatory HP-first suggestion. Current desktop/font targets supersede1366-first wording, and human review is optional under AD42. A typed source-use record is a proposal, not a selected universal genetics schema. Current source qualification and private-discovery rules govern any direct adaptation. No world/source-library acquisition, supplier, body change, runtime, persistence or browser verification occurred here.",
+      "before_sha256": "401b708a4dbcae2dc3ce6338bfc4df956ec8cd01ac07b1adf688b9c747df7f0a",
+      "after_sha256": "a88d58157894b4ea939365c8aaf77cad1f002f71c3ab89cf6bfa87c0c91a48d5"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+      "heading": "## Content reconciliation: matrix meaning and authority, 2026-11-04 (B364)",
+      "body": "All864cells and35gap explanations were reviewed against the complete structured map; B44/L90/P230/U500 and72rows match exactly. This arithmetic checks internal representation, not truthful primary-source support for each cell or current runtime state. The linked B1/P8/world/source bodies are routes rather than inherited reads. Original worlds can use explicitly authored mechanisms without external canon; source worlds retain exact continuity/era/recipient limits. Current actual qualified owners supersede old status or missing-source labels when later evidence exists.\n\nKeep the five variables separate from observer claims and social permission. Genuine fit can exist despite an unknown report, while a convincing pedigree/certificate need not supply the operative structure or lawful title. A service/trade/lesson route can be useful without implanting a gene or granting an office. Unsupported imported cargo remains actual owned cargo under its compatibility policy rather than being deleted or auto-consumed. A supported copying/transmission mechanism can legitimately do more than an ordinary conserved part; no global conservation restriction follows from this map.\n\nThe historical canon-first/paused-world/1366viewport and source-role ownership clauses describe this pass; current owners, AD51 and desktop targets govern separately selected execution. The retired one-realm gate is not restored by this palette. The map allocates no new operator, shared save owner, source entitlement or runtime writer, and no linked note or source law was reverified here.",
+      "before_sha256": "fb4b87f92507396af8868623c16f67e95df7c4869ec44b6fc000bdb5308397ae",
+      "after_sha256": "25171bafdf936bca190bad87f5d85da68896c21392ba74d843aa289520298f13"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md",
+      "heading": "## Content reconciliation: causal links and actual useful outcomes, 2026-11-04 (B364)",
+      "body": "C1–C9 preserve concrete mechanisms rather than a generic bloodline reward: target identity/preparation and disguise; an original operative gland and useful craft output; conserved progression source versus auxiliary ingredients; donor organ versus ancestry/allegiance; typed body item versus contract status; role-specific food-derived offspring versus copied personhood; fitted mechanical aid versus living/soul sources; an original empty vessel versus evicting or merging a person; and a transported component versus the manufacturer’s knowledge. Their specific franchise anchors remain inherited qualified claims, while suppliers, economic loops and original operations stay labeled proposals.\n\nEach macro outcome needs its actual intermediate source, holder, procedure, recipient, usable function, supported task, payer/demand and time. A useful body effect does not itself establish a guild, colony, livelihood, hereditary line or permanent market. Buying a component does not prove fit; successful fit does not grant its maker’s mastery; altered appearance does not always heal; body transfer does not auto-fuse memories or private knowledge. Real strong compatible means can remove a bottleneck without an invented residual tax or inevitable retaliation. Actors respond through evidence and actual motives.\n\nPreserve alternatives such as ordinary purchased output, paid specialist help, care, another supported form, continued comfortable sharing or a local adapter. A rejected operator must follow its actual cost/refund contract; no automatic cargo deletion or duplicated source/manifest/carcase payout follows from a failed display or transfer. Each proposed verification protects its own consumer/custody/result boundary, not every world. No franchise scene, source card, current NPC, body procedure, market, command or save outcome was verified or implemented by this review.",
+      "before_sha256": "9da9cc6752c877ccf1522c67f2c7f6e933b6696839d0aa3b4485982eabe8a09d",
+      "after_sha256": "00de2a1ef6cf8a968a4f2aebf2f38fe8ae5ebc0c25c2abb90f4af95ea4217d23"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 688
+}

@@ -246,3 +246,8 @@ disposable-profile/
 # Generated inline fragments for retained sketch sources.
 /prototypes/workbench/studies/lotm-scene/inline-fragment.html
 /prototypes/workbench/studies/lotm-investigation/inline-fragment.html
+
+# Retained original crafting-comparison outputs; maintained copies and provenance are versioned with the report.
+/work/crafting-reference-20261104/reference.png
+/work/crafting-reference-20261104/current-crafting.png
+/work/crafting-reference-20261104/current-cooking.png

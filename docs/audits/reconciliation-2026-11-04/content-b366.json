@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "batch": "B366",
+  "title": "Time-keeper, multiverse-character and lore-coherence palette",
+  "at": "2026-11-05T03:08:12.778822+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+      "ids": [
+        "L1–L15",
+        "K1–K16",
+        "N1–N9",
+        "D1–D5",
+        "J1–J6",
+        "S1–S5",
+        "W1–W6",
+        "M1–M5",
+        "X1–X15",
+        "H1–H15",
+        "LS1–LS13"
+      ],
+      "classification": "Memory-derived franchise inspiration and large proposal palette with explicit later user clarification",
+      "owners": [
+        "docs/TIME_KEEPERS_AND_VARIANTS.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/SELVES_AND_ECHOES.md",
+        "docs/CHEAT_COSMOLOGY.md"
+      ],
+      "disposition": "Preserve every character-scale, premise, career, observer and lore idea; enforce the existing example-not-direction clarification, actual causal means, archive integrity, backup/share distinction and optional local power costs.",
+      "evidence": "Read all813original lines in six bounded ranges1–150/151–300/301–450/451–600/601–750/751–813, including complete tables, all expanded aspects, worked holder and final lore fixups. Franchise facts remain attributed memory, not newly verified source lore; all claims of existing atlas/arc/RNG machinery remain dated assumptions absent current source proof.",
+      "reopen": "For a selected character/world define actual per-verb reach, continuity/persistence/knowledge/action carrier, source qualification and current native seam; verify that slice. No persistent holder, cosmic authority, generic temporal simulator or source adaptation is dispatched.",
+      "input_sha256": "66991d3b8313268cc09c611d091f1fd487b30cfe2ac0d7e249ac3210615ab3bc",
+      "input_lines": 813,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          813
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+      "heading": "## Content reconciliation: character-scale ideas and actual mechanisms, 2026-11-04 (B366)",
+      "body": "Keep the explicit clarification already quoted above: the persistent holder is one worked example, not Weibao’s required overarching character. L/K/N, J/S/W, X/H and LS rows remain palettes for fitting actors and worlds. Franchise tables are memory-derived inspiration and have not been source-verified here. A world’s actual keeper can be helpful, hostile, mistaken, unnecessary, political, corrupt, absent or motivated by something other than physical branch scarcity. Its institutional claims and legal variant label are not automatically the world’s metaphysical truth.\n\n**Actual means and information:** declare scope separately for seeing, remembering, speaking and acting, and retain the actual carrier/body/avatar/source/office/continuity. A few flags can represent a scoped actor without proving a complete persistent mind or truthful past; a stat fight, frequent involvement or direct effective power remains possible where supported. Strong beings need no obligatory seat, rare-presence budget, forced conflict, never-ending stakes, cosmic layer number, universal sink or costly limiter. A real local binding or conservation law still matters; a genuinely superior or unlimited faculty can work without a compensating tax. World compatibility comes from actual mechanisms rather than automatically stripping magic, forcing rechanneling or making higher layers unable to interact.\n\nThe X/LS knowledge suggestions do not grant author/developer/player omniscience. Sight, source limits, lies, delays, remembered values and actor beliefs remain separate. Omniscience or foreknowledge can be genuinely strong when the selected source supplies it; lazy implementation is not an in-world reason to make it wrong. Conversely, frequent action need not produce public knowledge when a real concealment/erasure mechanism exists. Changes to a role, identity, body or persona do not automatically fuse variants’ possessions and memories. A source-level mode can legitimately revise history while preserving actual transition/audit provenance and observer consequences; LS13’s anti-contradiction intent does not ban an authored temporal or retcon power.\n\n**Persistence and storage:** the branch atlas, habit profile, natural-course engine and fading/replay mechanisms described as existing are proposal-era assumptions, not current implementation proof. Technical retention limits cannot silently become in-world death/pruning, erase a resumable paused life or turn a corrupt record into Void salvage. A source-authored pruning event and an optional archive presentation are separate operations with explicit actual affected scope. Full backups preserve the data needed for restore, including opaque/private references under their compatibility rules; public share summaries and player-facing atlas titles remain discovery-safe. A missing revision/definition is not restored by a seed or a label. Do not mint saved items/gifts merely to imply unexplained cross-run memory.\n\n**Journeys and premises:** J’s receipts/values/phases are one way to represent growth, not a requirement that every real personal change has a slider or explicit ledger entry. W’s initial changed premise needs actual downstream causes, institutions and independent motives; generating a hook does not simulate the whole world or prove all alternative scenes. Player selection, character power, deliberate temporal return, resumed life, forecast and restored backup remain distinct. Current meaningful start and LOTM/Harry priorities supersede base-first/old milestone assumptions; AD51 supports a useful bounded seam. No new keeper, holder, migration, offline production, source pack, runtime, UI or gameplay evidence was created by this review.",
+      "before_sha256": "66991d3b8313268cc09c611d091f1fd487b30cfe2ac0d7e249ac3210615ab3bc",
+      "after_sha256": "2b25fce9712c0cacc2e5de7e274f2f5bf749970f0213975de1b51d849f571830"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 687,
+  "post_record_amendments": [
+    {
+      "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+      "from": "- **N6 Storage limits become content.** The branch archive already fades\n  old branches. Diegetically, faded branches are pruned and land in the\n  Void. Their salvage (a ghost, a stash, a lost friend's variant) can be\n  found there. A storage cap turns into a world.",
+      "to": "- **N6 Archive presentation as content, proposed.** A separately authored\n  pruning event can place actual affected people or objects in a Void.\n  Optional salvage flavor can also refer to retained historical records.\n  Technical storage limits do not authorize silently pruning a played\n  life, changing its fiction or replacing resumable state with a synopsis.\n  The archive-fading implementation is unverified; preserve actual history\n  and its recovery/compatibility boundary.",
+      "reason": "Correct unverified archive-fading assertion and prevent technical retention policy from implicitly deleting/replacing played history."
+    },
+    {
+      "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+      "from": "- **Watch:** any per-save field needs a migration and must ride export\n  and import. Private-pack names stay out of exports.",
+      "to": "- **Watch:** a persisted field needs an explicit compatibility policy and\n  the data required for supported restore. Full backups preserve those\n  payloads and references; public share summaries use discovery-safe\n  projections. Do not redact required backup data into unusable placeholders.",
+      "reason": "Distinguish restorable private backups from observer-safe public summaries and scope compatibility instead of requiring a universal migration."
+    },
+    {
+      "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+      "from": "Unlimited power with no cost breaks lore and play. Every hard lever\ncosts the being something, and that cost shows somewhere in the world: a\nstrained loom, a fading seat, a cult's sacrifices, a weaker avatar.",
+      "to": "Default proposal: where a source or authored mechanism has a cost, show\nits actual consequence through appropriate known evidence. Dial: a being\ncan have strong or unlimited means with negligible, hidden or no such\ncost. Reason and consequence follow the selected world, source, actor and\noperation; no strained loom, sacrifice or weakened avatar is imposed merely\nto balance effective power (AD5/AD38).",
+      "reason": "Replace blanket mandatory-cost/anti-OP statement with current default/dial/reason and actual-source mechanics; preserve original proposal in this amendment."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B363, continuous execution 2026-11-04 |",
+      "to": "| B366, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B366; no new full register review."
+    }
+  ]
+}

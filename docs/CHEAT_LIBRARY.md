@@ -241,7 +241,12 @@ death menu; that's a gameplay change needing Weibao's go.
 
 ## A good progression loop for cheats
 
-**A cheat's own arc, inside a life:**
+**One optional arc for a cheat that changes within a life:**
+
+These stages are illustrative. Active-at-birth, fully understood, fixed-function
+and overwhelmingly strong powers can skip or combine them. Later development
+can change goals and uses without changing the power itself. Known limits remain
+legible; actual observers and mechanisms determine exposure or pushback.
 1. **Dormant or hidden:** the cheat exists but hasn't woken, or the holder
    doesn't know what it is.
 2. **Awakening:** a trigger (first death, a near-death, a ritual, an
@@ -270,23 +275,21 @@ death menu; that's a gameplay change needing Weibao's go.
 | Multiverse | Fusion with other worlds' cheats; meeting other holders | Breadth |
 
 **What makes it good (proposal):**
-- **Every scale has a visible gain:** something per session, a new verb
-  per season, a turning point per life, something new per lineage.
-- **Growth adds verbs, not only numbers.** New ways to play beat bigger
-  multipliers.
-- **Limits are found, not stated,** and each limit has ways past it.
-- **The world pushes back** through observers, rivals and patrons, so
-  power has consequences (rule 11).
-- **Cheats don't solve everything:** each covers some paths and leaves
-  others to ordinary play, so other systems stay meaningful.
+Useful gains follow the selected power and life, without a required session,
+season or lineage payout. New verbs and larger output both matter when they
+change real outcomes. Known terms stay clear; unknown limits can be discovered
+through fitting means. Observers, rivals and patrons respond when they actually
+notice and can act. A sufficiently broad power can replace ordinary work; other
+pursuits remain available without making every old method necessary.
 
 **Watch out for:**
 - **Stacked loops overwhelming the screen:** quiet cheats and a shared
   panel help.
 - **A cheat that makes ordinary play pointless:** contrast keeps it
   meaningful (somewhere you're the monster, somewhere you're nobody).
-- **Front-loading:** a cheat that's fully powerful at birth has nowhere
-  to grow; start it dormant or narrow.
+- **Strong from birth:** a fully effective power can remain fixed while its
+  user finds new goals, applications and relationships. Dormant or narrow starts
+  are optional local variants, not a correction every strong opening needs.
 
 ## Enemies with cheats (2026-10-10)
 
@@ -679,12 +682,13 @@ an optional start, keep everything possible, random possibility, other stuff
 and more? Types of cheat too? Very rare? Not so rare? starts by being
 researched? more optiobs and more?"
 
-Related same-day owners: [feature unlock and acquisition process](worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md) and [first cheats and death rewards](worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md) (D1 recommends random circumstances with an authored, reachable early opportunity rather than an unavoidable powerful grant, consistent with the dormant seed below).
+Related same-day owners: [feature unlock and acquisition process](worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md) and [first cheats and death rewards](worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md). D1's reachable early opportunity is a recommendation for a chosen cheat-focused profile, not a universal opening rule; active, latent and ordinary-life starts remain possible.
 
-Decision: the **first playable route is an optional start** (the player picks
-a system cheat when beginning a life). Every other route below stays possible
-and is a palette, not a spec. Rarity is a per-world adjective, never a fixed
-global rule (see solo-player, no "once" limits).
+Historical Oct. 13 selection: an **optional start** let the player pick a
+System cheat when beginning a life. This is not the current build queue:
+PROJECT owns the lead developer routes and wider cheat work remains deferred.
+Other routes below stay possible as a palette, not a spec. Rarity is a per-world
+adjective, not a fixed global rule (see solo-player, no "once" limits).
 
 ### Routes (AQ)
 
@@ -1695,3 +1699,14 @@ The full [October10 synthesis](audits/cheat-implementation-2026-10-10/REPORT.md#
 ## Family-feasibility reconciliation B136, 2026-11-04
 
 The complete [feasibility catalogue](audits/cheat-implementation-2026-10-10/readers/C_feasibility.md#feasibility-use-reconciliation-b136-2026-11-04) preserves families1–22 and simulator modes as proposed variants, without a mandatory fourteen-rank build order. Reuse actual card/command/resource/claim/knowledge/stream owners; its illustrative expansion.cheats/cards schema is not the current native owner. Distinguish known-record browsing, actual new observation, paid forecast, override and source acquisition. Exact/free means, no-penalty quests and lawful powerful loop variants remain possible. Carried learned knowledge is not forcibly forgotten, companions have their own actual knowledge, and unknown private changes do not create visible stale clues. Snapshot/cost/cause identity and actual consumer/native evidence remain necessary for selected delivery. Current AD42/AD51/AD52 and retired milestone govern; no family or whole-library completion is claimed.
+
+
+## Content reconciliation B396: optional acquisition arcs and actual death recipients
+
+The complete choices-that-gate-choices, feature-acquisition and first-cheats/death-rewards palettes retain useful distinctions beyond their short summaries. Information, control, possession, actual function, jurisdiction and player-layer convenience are independent. A visible panel does not confer a faculty; an ordinary map, known-person record, save/export or readable controls need not be withheld behind a power. Exceptional appraisal, remote reach, private feelings, branch retention and real rewind require their actual source and consumer. The seven encounter-to-loss stages and this library's nine-stage arc describe possible states, not compulsory chores or a fixed awakening ladder. An active-at-birth, fully understood, fixed-function or overwhelmingly effective power remains valid. Development can occur through its user's goals, precision, combinations, travel, logistics, research or relationships rather than mandatory new limits.
+
+A commitment can open, close, delay, price or transform another route. Offer inspection, application, agreement, service and withdrawal are distinct acts. Preserve actual pending terms, clock, means, witnesses and refusal outcomes; a reconverged scene does not erase prior costs or relationships. The same person returned, an incarnation, a counterpart and a copy are distinct identities. Present trust is not created by one actor remembering an earlier relationship. Queued work and repeated requests retain their exact commitment and stop conditions. Ordinary services and extraordinary powers can solve the same barrier through different real means without requiring a universal fallback that reproduces hidden information.
+
+Death outcomes name their actual recipients: player discovery, inherited actual belongings/records, surviving-world aftermath, an afterlife offer and a death-triggered power are different. A benefit may preexist death, awaken then, or be newly granted afterward. Retirement or continued life can also realize meaningful outcomes. Deliberate repeatable acquisition or copying under an actual power differs from an accidental repeated payout; no automatic generic death currency, universal punishment or universal anti-exploit tax follows. The heir source observation in the note is historical actual-leftovers support, not a generic afterlife selector or random-cheat delivery.
+
+The early opportunity recommendation applies to a chosen cheat-focused profile, not every opening. Rare missable opportunities, ordinary lives, strong starts, reliable routes and optional sandbox premises remain possibilities with distinct distributions and history. The illustrative book routes are not new primary-source qualification. Current PROJECT lead-first sequencing, deferred wider cheat work, AD22/AD29/AD32/AD42/AD51/AD52 and explicit compatibility govern. Exact older progression/default wording changed by this fold is preserved in the batch amendment receipt. No runtime, start distribution, death reward, profile schema, base-control change or source acquisition was implemented.

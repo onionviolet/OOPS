@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "batch": "B348",
+  "title": "World cards and readiness grid: all rows preserved, old questions resolved and arithmetic scoped",
+  "at": "2026-11-05T02:34:18.120712+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/WORLD_CARDS.md",
+      "ids": [
+        "format/dials/absence defaults",
+        "9completecards/decks/places/swaptests",
+        "6growthprofiles/sharedrules/Q1–2/laterinstitutionlinks"
+      ],
+      "classification": "Full world-card palette/readiness grid; historical source grades and later live routing",
+      "owners": [
+        "docs/WORLD_CARDS.md",
+        "docs/WORLD_ENTRY_RULES.md",
+        "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve all9world palettes and28grid rows; correct stale open direction questions and table format, retain memory/source limits and exact numerical scope. No runtime/readiness promotion.",
+      "evidence": "Entire local bodies read; printed grid totals and W7 arithmetic recomputed. Linked primary sources, card bodies and current runtime not newly checked.",
+      "reopen": "Select actual world/life/consumer under current authority and verify its source/state/presentation; card labels and old grades are not current behavior proof.",
+      "input_sha256": "56c39f5c2a6cb7111b9b358581d70b60d8a51b2f99119d815e96154e922352a6",
+      "input_lines": 607,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          607
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/README.md",
+      "ids": [
+        "W19checkpoint/28cardgrid",
+        "K19–34prooftrend",
+        "5W7splitrows/readingroute/lateradditions"
+      ],
+      "classification": "Full world-card palette/readiness grid; historical source grades and later live routing",
+      "owners": [
+        "docs/worlds/world-core-kit-2026-10-14/cards/README.md",
+        "docs/WORLD_ENTRY_RULES.md",
+        "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve all9world palettes and28grid rows; correct stale open direction questions and table format, retain memory/source limits and exact numerical scope. No runtime/readiness promotion.",
+      "evidence": "Entire local bodies read; printed grid totals and W7 arithmetic recomputed. Linked primary sources, card bodies and current runtime not newly checked.",
+      "reopen": "Select actual world/life/consumer under current authority and verify its source/state/presentation; card labels and old grades are not current behavior proof.",
+      "input_sha256": "91ecab345f86a159252482427cff1650b4b0b31317a979b085ce0abd1655d68a",
+      "input_lines": 83,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          83
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/WORLD_CARDS.md",
+      "heading": "## Content reconciliation B348: complete cards, current direction and dated evidence",
+      "body": "All607 original lines were reviewed, including the complete format, nine cards, six growth profiles, shared-rule proposals and open questions. Preserve them as original/inspired design palettes, not nine implemented worlds or a source-qualified canon digest. Memory-labelled franchise rules and later linked institution passes retain their actual medium/edition/read-state; those linked bodies were not newly reviewed here. A source-inspired original card can deliberately differ, but must name that choice rather than silently claim exact source truth.\n\nThe Frontier's dated notice already retires mandatory home/first-campaign wording, while Q1 still repeats every-life-starts-there. Q1 is updated to current routing: no required Frontier campaign, current LOTM-first/Klein and Harry developer order under AD44. Q2's public-original/private-direct-adaptation split is already governed by AD1; it is not a new unresolved vote or proof that naming substitutions alone establish publication permission. Exact old question wording is retained in amendments. The quiet ordinary-life fantasy remains available in every fitting world, rather than Frontier uniquely owning it.\n\nThe strongest useful distinctions are meaningful local laws, real entry/carry, separate progression tracks and a different lived experience. Swap-test “only world” claims are rhetoric for this palette, not exclusive mechanism rights. Ordinary life, environmental survival, living power, role acting, danger in sleep, public ratings and repossessable support can each occur elsewhere. The shared card does not impose every dial, a fixed world temperament or a scalar threat/rank conversion. Current AD51 shares actual mechanisms with local differences; AD52 supports long quiet lives and compressed repeated activity without compulsory escalation.\n\nSeveral absolute/forced-cost summaries need source or original-premise qualification: no revival/help/use-grown skill in Gu Wilds, no safe divination/open power in Fog City, no safe sleep/escape or every-power-equals-flaw in Dreaming, everymachine's four gates and magic weakening in Salvage Reach, and all absences having priced bypasses. They are not automatically canon or universal project law. A real independent faculty, kind stranger, ordinary training, safe supported practice or repeatable/free restoration can work where its mechanism permits it. Actual source exceptions cannot be erased to keep a card neat; no new cost, flaw or suppression is imposed merely for balance.\n\nThe Fog City opening/entry and pathway/digestion summaries are early proposals, not complete later-source mechanics or selected player knowledge. Current WER and lead-life owners distinguish canonical source arrival, neutral crossing, era, ordinary local life and developer replay. Foreknowledge does not automatically notify every hidden observer; actual detection has a channel and scope. The Gu heavens' moral/favor shorthand, feeding/refinement/killer-move claims and Shadow Slave stage/flaw rules likewise require the selected source rather than a memory shortcut. The actual world can differ from an institution's claimed law or public label.\n\nWER17 treats a hub as a world with its own entry answers, qualifying the card's hub-not-world phrasing. The Paradise charter, penalties, shop requirements and defection possibilities are proposals unless separately source-backed/selected; unknown is not permission to call an authored answer canon. Bay City's agency rates what it can know; an unmasking need not make every person everywhere omniscient. Salvage Reach's machine power/learning/AI independence can be rich without mandatory diminishing practice returns, daily upkeep or automatic rechanneling of foreign magic. Red Basin remains an optional original harsh premise, not new Frontier injury/death policy.\n\nThe shared-rules examples do not automatically convert a carried skill into another world's levels, Gu ingredient or acted role. Retained learning, local execution, source/body, custody, recognition and actual converter need their own carriers. Entry picks are a possible authoring interface/premise, not compulsory free objects/perks on every arrival. A cap can be a local ordinary boundary without a guaranteed discoverable priced bypass, and a genuinely stronger means can bypass it for no invented tax. Ordinary aging/retirement/teaching are life possibilities, not mandatory phase locks. No card, source fact, law, world, entry picker, conversion, power, active lane or gameplay behavior was implemented or verified by this full palette review.",
+      "before_sha256": "56c39f5c2a6cb7111b9b358581d70b60d8a51b2f99119d815e96154e922352a6",
+      "after_sha256": "eafaff1fd3fd12e58c050f87142447841bdf5bc23ea0c1c9d3955bb62b60d0bd"
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/README.md",
+      "heading": "## Content reconciliation B348: complete cards, current direction and dated evidence",
+      "body": "All83 original lines were reviewed, including every28card row, all18D/Rcells per row, proof trend, five W7 split rows and reading/history boundaries. A document-only recomputation confirms each assessed row's F/P/M totals match its18printed cells. Across the28rows there are504cells per side: D14F/301P/45M/144U and R3F/45P/312M/144U. These totals describe the combined historical/later-addition table, not a comparable new all-world score or present runtime. The W7 pool sums36rows,9STATED and27INFERRED, with no cross-book borrowing justified by an empty family.\n\nThe opening18priority/paused/Frontier consolidation is the W19 tranche; two October23worlds and six October24/25research cards are later additions. Eight rows are unassessed, not guessed missing. R is expressly world-specific source, including inactive profiles; neither an F nor a P proves current rebuilt/native/persisted gameplay. All W1/W8/W10/W12/W13 fragments and K19–K34 unknown bindings preserve their original denominators. No later grade was recalculated or promoted by this read.\n\nThe current method routes through the existing successor/core-audit owners and relevant world trackers. W21–W32 pending/excluded language and inherited branch/clock corrections describe the original tranche, not present worker or integration status. The later full-body reviews elsewhere do not automatically merge every later readiness result into this old grid. Current Klein/Harry developer direction and AD51 govern selection; the table is not a dispatch queue or all-parts gate. AD42 leaves generic human review optional, and AD52 does not turn count/fragment readiness into actual activity support.\n\nThe bare TTKS B1–B5 labels are historical card handles for separate books, not one shared novel/world/source law. Later selected work must use the actual title and corresponding source contract. Sealed-slot IDs/unknown states remain safe; source/model claims keep their qualification. Blank lines splitting the final later-addition rows from the Markdown table are removed as a formatting correction, retaining all text/cells and exact old block in amendments. No underlying source/grade, world readiness, active process, source acquisition or gameplay proof was newly verified.",
+      "before_sha256": "91ecab345f86a159252482427cff1650b4b0b31317a979b085ce0abd1655d68a",
+      "after_sha256": "d126b835be86c3013f2e69866b2ddf888c07e5cf5590e7328e2a82ec843e239a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 727,
+  "post_record_amendments": [
+    {
+      "path": "docs/WORLD_CARDS.md",
+      "from": "- **Q1:** which card to deepen first. Claude's view: the Frontier, because\n  every life starts there and it carries the first slice.",
+      "to": "- **Q1, current routing:** Frontier is an optional campaign, not every life's\n  required origin. PROJECT and the lead-life owner govern current LOTM-first/Klein\n  development and Harry's developer route (AD44); these cards select no new wave.",
+      "reason": "Resolve stale Frontier-first question from later guided-random/current developer direction; retain original wording."
+    },
+    {
+      "path": "docs/WORLD_CARDS.md",
+      "from": "- **Q2:** do book-inspired worlds keep inspired-by names in the public\n  build, with direct adaptations in a private pack? (Proposed in the north\n  star.)",
+      "to": "- **Q2, existing direction (AD1):** public original/inspired content and private\n  direct-adaptation packs retain their established publication classes. Exact\n  source/licence/attribution questions stay with their source owners; this is\n  not a new acceptance question or a claim that renamed content is licensed.",
+      "reason": "Replace old unresolved publication-class question with existing AD1 direction and actual source/licence boundary."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/README.md",
+      "from": "| [Re:Zero](re-zero.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n\n| [Tensura](tensura.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n\n| [Worm](worm.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n\n| [The Perfect Run](perfect-run.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n\n| [Super Supportive](super-supportive.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n\n| [You Are Summoned](you-are-summoned.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |",
+      "to": "| [Re:Zero](re-zero.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n| [Tensura](tensura.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n| [Worm](worm.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n| [The Perfect Run](perfect-run.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n| [Super Supportive](super-supportive.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |\n| [You Are Summoned](you-are-summoned.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |",
+      "reason": "Remove five blank table breaks so all later additions remain in one Markdown table; no content/cell changes."
+    }
+  ],
+  "document_arithmetic_checks": {
+    "grid_rows": 28,
+    "parts_per_row": 18,
+    "all_assessed_row_totals_match": true,
+    "D": {
+      "F": 14,
+      "P": 301,
+      "M": 45,
+      "U": 144
+    },
+    "R": {
+      "F": 3,
+      "P": 45,
+      "M": 312,
+      "U": 144
+    },
+    "W7": {
+      "rows": 36,
+      "stated": 9,
+      "inferred": 27
+    },
+    "scope": "Printed heterogeneous historical grid only; no current runtime/readiness or source claims."
+  }
+}

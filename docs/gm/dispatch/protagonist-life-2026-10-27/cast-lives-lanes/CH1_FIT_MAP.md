@@ -63,3 +63,10 @@ Rules: LSD335-LSD387; GR references point to `docs/GENERATION_FOUNDATION_RULES_2
 | LSD385 | GR17 | none | Threat escalation clocks and staged consequences belong to EP6. | P4 |
 | LSD386 | GR2, GR17 | src/gen_kit.js: drawU32 | Addressed draws exist; interval pressure table belongs to site/exploration systems. | P8 |
 | LSD387 | GR5 | none | Threat selection and warning presentation belong to world/site consumers. | P4 |
+
+
+## Content reconciliation: chance-fit map scope, 2026-11-04 (B359)
+
+LSD335–LSD387 is a complete53-row map; the reported38 relevant-module rows equal71.7percent after rounding. Relevance is not implemented semantic depth, native reachability, source calibration or completion. The21 golden cases are a historical retained-case claim, not newly run tests. P1–P8/EP6 and GR/SB links route proposed work; they do not assign current writers or require every phase before a useful slice.
+
+Preserve its narrow separations: addressed draws versus frozen revealed truth; author inspector versus earned character perception; chance helper versus fight goal, stock/wear, memory, witnesses or threat consumers; stable address versus cached committed outcome; named clock period versus actual calendar; compact episode retention versus current truth. A generic resolver does not implement feints, gossip, memory fade or fight consequences by virtue of being callable. Supported actions need not roll merely because a chance seam exists. Luck can act through actual local means without a universal stat, and genuine chance/changed conditions follow CA12. Current AD51 permits first useful reuse; source calibration and memory byte budgets need actual selected inputs and measurements. No shared chance, memory, combat or crowd runtime was verified or changed here.

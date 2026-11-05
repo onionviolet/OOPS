@@ -167,3 +167,10 @@ provider/custody host. Gate: NPC independent action after teacher leaves, scoped
 witness response, simultaneous resource exclusion, exact departure/return and
 save/reload/import. Excludes universal NPC planning, all death/prestige variants
 and generic parallel-world replication.
+
+
+## Content reconciliation B394: integrated leaf IDs and independent candidate scope
+
+All candidate bodies and their ledger definitions were compared. P05's SC08.02 refers to the integrated Dreams, models and simulations leaf, which groups SC08.V03/V04; it is not the separately named pocket-realm design variant SC08.V02. Keep the exact namespace when selecting work. Its proposed knowledge export cannot stand in for a real habitat, resident, harvest or world branch. P02, P03, P04A, P04B and P05 remain independently selectable useful paths; optional provider-as-player, broad NPC planning, random starts and a universal framework are not admission gates.
+
+The first ordinary objective, actual grant and changed useful output can establish a narrow System service. Broader upgrade, apprentice, disconnect and second-use journeys cover the corresponding selected promises, not every passive or fixed-function cheat. P04A appraisal needs actual existing contents or a supported future-information means. P04B needs real escrow, event/hand outcome and both recipients; a negative money field does not create a creditor. P06 keeps independent lives as a retained horizon under current lead-first sequencing. Source-qualified worlds remain with their existing owners. Historical acceptance lists, proposed file names, work reservations and exact case counts do not select runtime execution or require human approval under AD42.

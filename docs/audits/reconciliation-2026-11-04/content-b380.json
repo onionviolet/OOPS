@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "batch": "B380",
+  "title": "Palette bounded treatments and recovered-media evidence lifetimes",
+  "at": "2026-11-05T03:40:59.444986+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md",
+      "ids": [
+        "53-entry scope",
+        "first usage stop",
+        "solo extension/release",
+        "post-verification drift"
+      ],
+      "classification": "Chronological finite palette execution and release checkpoint",
+      "owners": [
+        "docs/gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md"
+      ],
+      "disposition": "Read initial27/26split, incomplete five-group first pass, explicit solo extension and final53 bounded treatments in order. Later release supersedes first stop only within its finite old scope. Main complete-suite/focused/bodycompaction and firewood proof inputs remain different;736matching source hashes do not prove later shared household changes. App opening queued is not delivery/adoption. Preserve prior human/ordinary acquisition limits without making optional review a barrier.",
+      "evidence": "Actual complete checkpoint read; frozen candidates, raw reports,736hashfiles, images and processes not inspected or rerun. Historical PID/URL is not proof live now.",
+      "reopen": "Use named current owner and a selected concrete gap; do not revive old meter allowance, dispatch, preview process, house illustration or adoption steps.",
+      "input_sha256": "ce66daf404babed608c59b5971294dd807c713b53e449af5f5a80f20edde192b",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/COVERAGE.md",
+      "ids": [
+        "26 formerly open rows BD3–BD12/LD1–4/LD7–8/LD10–12/UF4/6–8/MC3–4/RUC4",
+        "N1–N5",
+        "27 retained prior rows"
+      ],
+      "classification": "Finite named-treatment coverage, not whole-family certification",
+      "owners": [
+        "docs/gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md"
+      ],
+      "disposition": "Read all26 treatment/limit rows and five closure groups. Finite craft intent session-only/nonreserving versus saved processing target/output tally; same-copy deltas versus capacity; remembered observed-date facts versus current; unequal staged work versus atomic output; paid fuel versus loose stock; native chest custody versus carried destination.53namedtreatments are not every family/world or90reference claims adopted.",
+      "evidence": "Full44original lines actually read. Source-independent table audit only, no native runtime/UI/current adoption or transitively reviewed earlier27receipts.",
+      "reopen": "Keep exact treatment/world/example and prior evidence identity when reassessing; broader palette/future-world ideas remain at original owners.",
+      "input_sha256": "2d69694e92fb7a3e67d90b922f3c0dd63042449f869e17e35fa17f8105cb0016",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/corc-missing-media-2026-10-21/CHECKPOINT.md",
+      "ids": [
+        "26/26 recovery",
+        "CRL27–CRL52",
+        "CRJ8–CRJ11",
+        "SLR40–SLR43",
+        "implementation handoff"
+      ],
+      "classification": "Recovery/design/rule-clarification sequence with separate implementation handoff",
+      "owners": [
+        "docs/gm/dispatch/corc-missing-media-2026-10-21/CHECKPOINT.md"
+      ],
+      "disposition": "Read recovery and every detailed followup. Full decode/hash/exact-context association is not gallery rendering, audio listening, source execution or whole-game reading. Source learned versus selected title/activation, material acquisition insight, ongoing-cost hooks and downstream recipient opportunity retain source ranges/knowledge limits. Rule clarification does not change title stacking/schema. Chat creation/message delivery is not gameplay implementation. Retain private provenance without disclosing altered truths or excerpts.",
+      "evidence": "Complete39original lines read; no26privateattachments/recordings/novels/sourceexcerpts or linked implementation body newly read. No sourceacquisition/execution, browser, tests or process verification.",
+      "reopen": "Use title/detail implementation owner for actual delivery; private deep ledgers retain their coverage and no new source fetch, message, agent or runtime permission follows.",
+      "input_sha256": "94b6d51290eb0382952c7e5836b8dab21c9d85099fd23ab3def750f23b232f0a",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md",
+      "heading": "## Content reconciliation B380: finite treatment and later drift boundaries",
+      "body": "The complete checkpoint and [coverage table](COVERAGE.md) were read in chronological order. The first27checked/26open split and N1–N5 incomplete stop are followed by an explicit solo extension and final bounded release. All53 named treatments means the selected native example for each checklist entry, not every world/illustration in each family or adoption of90 source comparisons. The26 expanded rows and27 earlier styling/IG rows retain different proof receipts. Their hashes and full/focused/browser runs are attributed historical evidence, not freshly revalidated.\n\nPreserve actual distinctions from every coverage row: loose stock is not paid fuel; a one-sided cold threshold invents no heat-safe interval; signed regeneration contributions are not net combat flow; discrete/unequal work allocation does not grant partial atomic output; observed prior-visit facts name their last observation; same-copy deltas do not confuse capacity change with repair/healing. Crafting intent is session-only and reserves nothing, while a processing routine keeps its finite target/tally through its specified pause/resume/cancel contract. Carried output destination and exact chest custody remain native. Known body/skill response has a full cause in Body, not a new capability, cost, hidden tint or reward.\n\nThe final body-compaction inputs, immediately preceding unchanged firewood inputs and earlier full suite are not interchangeable. Post-verification household animal/control-continuity changes are preserved concurrent work outside the frozen release;736matching release inputs cannot certify that later candidate. Queued app opening does not prove visible delivery or adopted runtime. Old preview URLs/PIDs and finished-worker claims are historical, not live handles to stop or restart. Later functional-home/prose-first direction qualifies the old illustration; current AD42 makes human taste feedback optional. No old usage extension, source collection, agent dispatch, adoption, commit/push or new gameplay is renewed.",
+      "before_sha256": "ce66daf404babed608c59b5971294dd807c713b53e449af5f5a80f20edde192b",
+      "after_sha256": "90af6983101bdc4ec48ca124fdc951915741669f42c46249423c5e7c32eb96a1"
+    },
+    {
+      "path": "docs/gm/dispatch/corc-missing-media-2026-10-21/CHECKPOINT.md",
+      "heading": "## Content reconciliation B380: recovery, source review and implementation remain distinct",
+      "body": "This full recovery checkpoint and all follow-ups through CRL52 were read. Preserve exact original-request set, source-post/context association, retained old manifests, originals versus one WebP derivative, complete decoding and separately qualified review ranges. Recovering26files does not establish gallery browser rendering, listened audio, executed source HTML/save, whole large-game-file reading or gameplay. The follow-up explicitly decoded but did not listen to audio and read large files in focused spans; those limits remain independent of hash/decode success. No private attachment, source excerpt or linked full review body was newly read in this reconciliation.\n\nThe useful semantic questions stay at their owners: earned/held versus selected title, capability source versus activation, actual ongoing running-cost hook, recipient's next opportunity, paired material-acquisition insight and genuine practice effects. Material/observation/expertise lifecycles, mixed-stock estimate scope, stale preview commitment, glyph/anchor meaning, catch-up learning midpoint and reload entitlement versus replayed cues remain useful checks. SLR40–SLR43 clarify title/skill/source/effect ownership without changing runtime title stacking, save schema or activation semantics. The old shared-source full suite supports its own slice and does not verify every new rule meaning.\n\nCreation of the separately requested implementation chat, sent broader addendum and tool-side message delivery are handoff evidence, not implemented native behavior. The [title/detail implementation owner](../title-rules-implementation-2026-10-21/CHECKPOINT.md) owns its actual delivery. Old model/ceiling/chat/PID/source routes remain history and confer no new messaging, acquisition, agents or source execution authority. Current AD42 makes human review optional. Original useful design, source attribution and private locators stay intact; no excerpts or altered hidden truths are published here.",
+      "before_sha256": "94b6d51290eb0382952c7e5836b8dab21c9d85099fd23ab3def750f23b232f0a",
+      "after_sha256": "243a3650eb87b5ab1658e71e8e38767579fe2eacd0b84486876288f7a85a2b63"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 657,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B377, continuous execution 2026-11-04 |",
+      "to": "| B380, continuous execution 2026-11-04 |",
+      "reason": "Advance live writeup continuation pointer through actual B380 reviews."
+    }
+  ]
+}

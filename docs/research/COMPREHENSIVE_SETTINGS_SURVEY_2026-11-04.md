@@ -41,3 +41,12 @@ volume of places and factions to settings already like ours. Hârn, Glorantha
 and Tékumel would be mechanically distinct worlds: Glorantha's cult and
 myth-based magic, and Hârn's low-magic social detail. Those are the many,
 distinct worlds PROJECT.md asks for. This is a proposal, not a ranking.
+
+
+## Content reconciliation B314: forum leads and setting boundaries
+
+All13 grouped setting rows, source boundaries, W11 routing, missing checks and world-fit inference were content-reviewed. Keep the useful depth-versus-volume distinction. Forum superlatives, product/page/novel totals and a planned series are attributed claims with no independent count here. A wiki's article count would be a navigation statistic, not proof of depth, primary canon or useful mechanical coverage. The survey's wording about Reddit describes a mirror/search route, not a direct Reddit read.
+
+Held now/none and source availability are this report's dated inventory assertions, not a fresh account/library check. W11 and DL83–DL91 retain acquisition routing; the survey itself authorizes no purchase, download, wiki crawl or library change. Source leads remain useful without becoming selected worlds or prerequisites before current work.
+
+Keep a rules edition, setting, era and medium distinct. Golarion, a rules-data export and a Starfinder product line are not automatically interchangeable source truth; Warhammer fantasy and40k are not one pack because they share a table row. A social-detail reputation does not certify a magic law. The proposed mechanically distinct fit needs source qualification for the actual selected behavior, and multiple detailed settings may offer different ordinary lives even where a shared engine serves them. No external source, PDF, sourcebook, wiki or gameplay was inspected by this local content review.

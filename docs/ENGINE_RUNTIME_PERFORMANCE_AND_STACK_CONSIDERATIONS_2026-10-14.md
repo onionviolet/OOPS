@@ -320,13 +320,15 @@ platform goal makes the web runtime the blocker.
 
 Each is a candidate, adopted only behind an adapter with a save decision.
 
-**LB1. ECS / entity store.** bitECS, miniplex or Koota for actors, NPCs,
-companions, items with components. Gives fast queries ("all hungry actors in
-world X") and clean save shape. Start with one domain (NPCs).
+**LB1. ECS / entity store.** bitECS, miniplex or Koota can index selected
+actor/item queries. Query benefit needs its actual workload; save shape still
+belongs to the authoritative record owner. A derived stable-ID index can trial
+one domain without replacing its store (ER6, ER7).
 
-**LB2. sqlite-wasm on OPFS.** Real queries over saves, history and world
-facts; transactions for E3; incremental writes. Heavy (~1 MB) but solves
-DA1/DA2/DA6 together. Spike before choosing.
+**LB2. sqlite-wasm on OPFS.** Candidate for selected save/history queries
+and incremental writes. Its transactions still need an awaited envelope,
+single writer, deployment, recovery and migration contract; the package alone
+does not settle DA1/DA2/DA6. Probe the selected VFS and workload before choosing.
 
 **LB3. Immutable/structural sharing.** Immer or hand structural sharing for
 cheap snapshots, undo, rewind cheats and diffing (pairs with derived
@@ -335,8 +337,10 @@ snapshots work).
 **LB4. Signals.** @preact/signals-core or similar for RT3/RT4 read models.
 Tiny, framework-free.
 
-**LB5. Schema validation.** Zod, Valibot or TypeBox for saves, imports and
-content tables (DA4, DA5, OS4). Valibot is the small option.
+**LB5. Schema validation.** Zod, Valibot or TypeBox for selected save,
+import or content boundaries (DA4, DA5, OS4). Compare equivalent selected
+features, including runtime checking and error policy; defaults/coercion are
+not migration, and shape checks do not replace domain semantics.
 
 **LB6. AI building blocks.** Utility AI scoring, GOAP or behavior trees for
 NPC daily life; Yuka is a JS game-AI library. See section I.
@@ -344,8 +348,11 @@ NPC daily life; Yuka is a JS game-AI library. See section I.
 **LB7. Pathfinding and maps.** ngraph.path or easystarjs if maps grow; LDtk
 or Tiled for authored maps; rot.js for roguelike grids, FOV and dungeon gen.
 
-**LB8. Procedural generation.** Seeded PRNG (pure-rand, seedrandom), noise
-(simplex-noise), Tracery-style grammars and WaveFunctionCollapse for content.
+**LB8. Procedural generation.** Candidate seeded PRNG, noise and grammar
+adapters retain algorithm/content revision and committed outputs. ER6 identifies
+pure-rand v8's explicit subpaths and tracery-grammar for story grammars; the
+similarly named tracery package is an object predicate builder. These helpers
+and WaveFunctionCollapse do not supply world law, knowledge or save semantics.
 
 **LB9. Audio.** Howler.js or plain Web Audio for ambient and cues, behind
 the existing effects settings.
@@ -1801,3 +1808,23 @@ Full content review of [implementation-check F1–F5/O1–O2 and RG1–RG5](revi
 Retain the useful regression lessons at their real consumer: compare all rejected inputs and draw/knowledge state; include replaced active quest instances in rollback ownership; retain the current view when Back's stop callback fails; keep observers distinct in the same world. Pure/helper tests, controller tests, source call-site inspection and built native interaction each prove different layers. Existing AD36/AD43 own when those layers are required, with the current desktop target from AD34. No compliance percentage, duplicate full-suite wrapper or mandatory new browser harness follows from this fold.
 
 Reopen RG5 by reproducing its named cheat/start/clock scenario when that task is selected. Reopen RG1–RG4 when their actual caller changes. No mutable source, regression test or tool routing was changed by this documentation review.
+
+
+## Content reconciliation B397: library size, ownership and adapter semantics
+
+The complete ER6 report retains all 26 package identities and adapter/save rows. Its measurements compiled pinned imports and gzipped bytes in scratch; they did not execute libraries in gameplay or measure throughput, battery or native bundle delta. A full export namespace and a two-field selected schema measure different feature surfaces. WASM, workers, browser binaries, auxiliary graph implementations, installed tooling and content assets have separate costs. Root TypeBox builders do not include runtime validation, and Zod Mini is not the full root namespace. The initial pure-rand root-import failure and corrected v8 subpaths remain part of the evidence.
+
+The useful fit corrections are specific: tracery is an object predicate builder while tracery-grammar is the narrative candidate; scoped TypeBox0.34 and typebox1.x are distinct APIs. ESM via module metadata is a bundler route, not a Node bare-import guarantee. Exact old license identities and notice conclusions are dated observations, not a refreshed legal or transitive distribution audit. No version, maintenance or security recommendation is made from an old push date.
+
+A derived stable-ID query index is not a new authoritative actor store. An ECS does not by itself produce fast queries or a clean save. A smaller helper does not reduce the semantic cost of async durable publication: await actual transaction completion, retain one envelope/writer and selected recovery policy. Signals or events notify after successful publication, dispose on close and cannot publish speculative drafts. In-place mutation need not trigger a signal. Schema defaults, stripping and coercion can silently change state; shape validation cannot replace semantic references, conservation or migration. Point-to-point A* does not substitute for all-destination directed cost output.
+
+Keep ordinary integer conservation separate from approximate huge magnitudes, and retain algorithm/revision state when changing RNG. Grammar/noise/FOV and renderer previews do not generate fresh authoritative facts. Audio, canvas, utility scoring, compressed exports, telemetry and optional test tooling remain candidates for named consumers. Existing node:test, DOM, callbacks/EventTarget, Web Audio, native compression and plain records remain valid choices. AD39 owns the current Electron-plus-web delivery; old package rankings or browser widths do not select new dependencies or replace the current desktop target.
+
+
+## Content reconciliation B399: desktop scout candidates and accessible workspace scope
+
+The complete Oct. 30 GitHub/web scout was reviewed. Its registry/repository identities, package sizes, licence fields, releases and push dates are dated observations; UI fit/ranking, feature sets inferred from names, search snippets and not-watched talks retain their narrower evidence. Adopt candidate and design adoption labels describe proposals, not installed or selected dependencies. Unpacked bytes, minified shipped bytes, runtime execution and incremental bundle cost differ. A package name or unarchived/recent repository does not establish the proposed contract.
+
+Preserve the actual proposed controls: stable row identity/selection while lists refresh; actor-known command/recipe/codex results; navigation through the incumbent route/back stack; disposed tooltips; layout restoration without a second state owner; deterministic diagnostic diffs; and a seeded NPC decision still admitted by the real command gate. A graph layout cannot remove all crossings for arbitrary topology, and graph node counts/layout must not leak unknown content. UR76–UR82 cited by the scout remain proposals, not standing authority. Its old model/effort, session routing and waiting instructions are historical rather than present delegation.
+
+Focus trapping belongs to the selected modal dialog. Expanded nonmodal panels retain workspace navigation rather than trapping the whole multi-panel UI. Layout serialization is not gameplay persistence; mounting a library does not establish its keyboard/accessibility behavior. Keep the specific source/distribution notice question when an adoption is chosen, without turning old registry metadata into a present legal conclusion or imposing a blanket ban from a licence label. Current AD39, desktop targets, UI owners and selected lifecycle/knowledge contract govern. No dependency, UI renderer, native feature, schema, runtime benchmark or external fetch is delivered here.

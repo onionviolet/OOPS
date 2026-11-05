@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "batch": "B402",
+  "title": "Six complete crafting checkpoints and preserved duplicate P29 history",
+  "at": "2026-11-05T04:24:44.708570+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr1/CHECKPOINT.md",
+      "ids": [
+        "CO1–CO10/RS2/XD2–XD4"
+      ],
+      "classification": "Historical completed crafting proposal checkpoint with selected source/readback boundaries",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr1/REPORT.md"
+      ],
+      "disposition": "Delivery/dose/timing/family/budget/recipient, seven social/mind subprofiles and eighteen further ideas are proposals, not real drug/clinical or native effect evidence. P2 branch/build identities remain distinct.",
+      "evidence": "Fresh full checkpoint body read including initial progress, all completion/validation additions, source snapshots, sibling refresh and remaining gates. CR3/CR5 full reads occurred while recovering P28 routing this turn; no reports/source files or unquoted private canon newly credited.",
+      "reopen": "No original started status, old worktree/main difference, proposed port, global schema or dormant duplicate lane restarts current work. Use current selected consumer/source/compatibility and AD36/AD42/AD51/AD52.",
+      "input_sha256": "411c069899bdbbbee6f019c6317cb00629de075be0931c05c610fea930599660",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr2/CHECKPOINT.md",
+      "ids": [
+        "WL1–WL8/CT1–CT6/RX1–RX3"
+      ],
+      "classification": "Historical completed crafting proposal checkpoint with selected source/readback boundaries",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr2/REPORT.md"
+      ],
+      "disposition": "World craft modes and six cheat families preserve source predicates;39profile links plus17P10profiles do not authenticate those canon systems. Same old P2 source with separate main ancestry is a dated observation.",
+      "evidence": "Fresh full checkpoint body read including initial progress, all completion/validation additions, source snapshots, sibling refresh and remaining gates. CR3/CR5 full reads occurred while recovering P28 routing this turn; no reports/source files or unquoted private canon newly credited.",
+      "reopen": "No original started status, old worktree/main difference, proposed port, global schema or dormant duplicate lane restarts current work. Use current selected consumer/source/compatibility and AD36/AD42/AD51/AD52.",
+      "input_sha256": "32c81ab6cea796448f8932336baab044df89bcf8a0f5ef375d738c64158dbbe6",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr3/CHECKPOINT.md",
+      "ids": [
+        "FE1–FE7/PAU1–PAU5/SC1–SC3/CL1–CL2/PG2/TL1–TL4"
+      ],
+      "classification": "Historical completed crafting proposal checkpoint with selected source/readback boundaries",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr3/REPORT.md"
+      ],
+      "disposition": "Delivered play/automation/collection/director design is the incumbent for P28 collision residue. Same resolver scope and developer isolation apply to its selected proposal, not every world; native/historical P2 tests not rerun.",
+      "evidence": "Fresh full checkpoint body read including initial progress, all completion/validation additions, source snapshots, sibling refresh and remaining gates. CR3/CR5 full reads occurred while recovering P28 routing this turn; no reports/source files or unquoted private canon newly credited.",
+      "reopen": "No original started status, old worktree/main difference, proposed port, global schema or dormant duplicate lane restarts current work. Use current selected consumer/source/compatibility and AD36/AD42/AD51/AD52.",
+      "input_sha256": "da2d18bd8afbeaa6cbedd3640bddb26ed83967c00a8f75e2a6aeacd85b8fc9ed",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr4/CHECKPOINT.md",
+      "ids": [
+        "MK/IT/EC/SO/KN/NP/PR"
+      ],
+      "classification": "Historical completed crafting proposal checkpoint with selected source/readback boundaries",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr4/REPORT.md"
+      ],
+      "disposition": "Makers, item lifetimes, economy/social, lineage and NPC work retain real producer/knowledge/custody/time owners. P4 people records are not automatic skilled labor, and completed paper scope is not gameplay.",
+      "evidence": "Fresh full checkpoint body read including initial progress, all completion/validation additions, source snapshots, sibling refresh and remaining gates. CR3/CR5 full reads occurred while recovering P28 routing this turn; no reports/source files or unquoted private canon newly credited.",
+      "reopen": "No original started status, old worktree/main difference, proposed port, global schema or dormant duplicate lane restarts current work. Use current selected consumer/source/compatibility and AD36/AD42/AD51/AD52.",
+      "input_sha256": "54bd869369bcbc6b92fa6c8a5c0ddb11b49303d4775524fdecba1e4c36e0bb7c",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr5/CHECKPOINT.md",
+      "ids": [
+        "CM1–CM31/PCX1–PCX22/SU10/AB1–AB7"
+      ],
+      "classification": "Historical completed crafting proposal checkpoint with selected source/readback boundaries",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr5/REPORT.md"
+      ],
+      "disposition": "27requested rows, fifteennewCM andtwelvePCX mappings are static proposal/source-routing coverage. Exact issue panels, continuity and revision remain open; source/table and innate/source/grade/permission meanings differ.",
+      "evidence": "Fresh full checkpoint body read including initial progress, all completion/validation additions, source snapshots, sibling refresh and remaining gates. CR3/CR5 full reads occurred while recovering P28 routing this turn; no reports/source files or unquoted private canon newly credited.",
+      "reopen": "No original started status, old worktree/main difference, proposed port, global schema or dormant duplicate lane restarts current work. Use current selected consumer/source/compatibility and AD36/AD42/AD51/AD52.",
+      "input_sha256": "abe1b71d02519b299c1273da179f911e9c6f3e464e4a5f7b59e38652c96e7358",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr6/CHECKPOINT.md",
+      "ids": [
+        "II1–II7/AB1–AB7;registry/exposure/knowledge slices"
+      ],
+      "classification": "Historical completed crafting proposal checkpoint with selected source/readback boundaries",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr6/REPORT.md"
+      ],
+      "disposition": "Product-family/dose/exposure/observer build packet is a proposal over then-merged P2. Main locator refresh and nine matched fingerprints preserve that audit scope; no registry allocation, ordinary tasting or new body law is selected.",
+      "evidence": "Fresh full checkpoint body read including initial progress, all completion/validation additions, source snapshots, sibling refresh and remaining gates. CR3/CR5 full reads occurred while recovering P28 routing this turn; no reports/source files or unquoted private canon newly credited.",
+      "reopen": "No original started status, old worktree/main difference, proposed port, global schema or dormant duplicate lane restarts current work. Use current selected consumer/source/compatibility and AD36/AD42/AD51/AD52.",
+      "input_sha256": "7228150521a52c92822f52fd77f3f3437f1ddbef331a604e84782f9b9cb5f36d",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/crafting-lanes/old-p29-partial/CHECKPOINT.md",
+      "ids": [
+        "MK/IT/EC/SO/KN/NP/PR",
+        "three old resume steps"
+      ],
+      "classification": "Preserved partial checkpoint from a superseded crafting-label collision",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/cr4/CHECKPOINT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "disposition": "The actual intended makers/items/economy/social/NPC/prestige work is delivered under CR4, matching the preserved old P29 deliverable list. Keep this21-line partial history; it is not an active missing P29 row or a new authoring task.",
+      "evidence": "Full21-line preserved checkpoint read and compared with full CR4 checkpoint and actual PLAN CR4 row; no old outputs, source or worker assumed live.",
+      "reopen": "No relaunch or deletion required; use CR4 and current owner for any later selected change.",
+      "input_sha256": "4d2160ef578c620d7df0b99b3e3ac4b65137844cb54130119da0359cde868dbd",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B402: CR1–CR6 checkpoints and collision routing",
+      "body": "All six CR checkpoints and the preserved old-P29 partial checkpoint were read in full. The actual PLAN and CR3/CR4 delivery lists resolve the label collisions: crafting play, automation, collection and director tools belong to CR3; makers, items over time, economy/social/NPC crafting and carryover belong to CR4. The mixed P28 tail and old-P29 next steps remain history, not two missing work streams. P26/P27 story content and the old snapshots remain preserved. No retirement, relocation or deletion is needed to keep this routing truthful.\n\nRetain each checkpoint's substantive boundaries. CR1 dose, body, delivery and social/mind examples are abstract proposals, not native response or clinical proof. CR2's39book-profile and17P10 links establish coverage pointers, not verified world laws. CR3's notebook, real queue, equivalent intent/view and isolated developer proposals reuse the selected resolver and knowledge owner; equal-looking interface labels do not authorize copying another world's law into it. CR4 keeps actual maker/teacher, worker competence, stock, customer, payment, relationship and inherited-right attribution distinct. A generated person is not automatically a craft worker. CR5's comic tables retain continuity, exact-source and indexed-evidence gaps; displayed grade, licence, function and unique instance are different. CR6's product-family/exposure/knowledge packet does not allocate all seven adapters or require them before a useful first consumer.\n\nThe then-unmerged P2 worktree and later merged-main observations refer to different checkpoints; source-identical modules do not supply current browser/native/persistence proof or a new writer reservation. Source locators refreshed after a start-probe integration retain their exact inspected meaning. All proposed ports, state formats, initial ACTIVE labels, first-slice rankings and desktop widths remain dated. Current B337 owner qualifications, local source law, compatibility, AD36/AD42/AD51/AD52 and PROJECT govern. Food remains optional, supported powers can remove work, and genuine creation/copying differs from accidental double settlement. Preserve the whole idea palette without introducing a universal chemistry, mandatory toxicity/tasting, unnecessary remort or a new crafting wave. No runtime, real exposure, source issue, build, native route or migration was newly verified.",
+      "before_sha256": "c1e1ce861fd2dc889c3b74a73f04bd5e7120b9da2d37b83d911d5a08cffeef05",
+      "after_sha256": "c592d5d0b0fcdae876baf25d1d1838cd47f01c783d83d3d1490e5ca82584a30e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 566
+}

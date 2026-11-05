@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B314",
+  "title": "Setting survey and game-research census: useful leads with honest coverage denominators",
+  "at": "2026-11-05T01:33:35.539880+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/COMPREHENSIVE_SETTINGS_SURVEY_2026-11-04.md",
+      "ids": [
+        "13setting-line rows",
+        "W11/DL83–91 routing",
+        "forum/source boundary",
+        "notcheckedwiki counts",
+        "worldfit inference"
+      ],
+      "classification": "Forum-opinion survey with dated holdings and unverified volume/depth assertions",
+      "owners": [
+        "docs/research/COMPREHENSIVE_SETTINGS_SURVEY_2026-11-04.md",
+        "docs/research/DOWNLOAD_WISHLIST_2026-10-30.md",
+        "docs/worlds/dnd/FOUNDATION.md"
+      ],
+      "disposition": "Full43linebodyread. Preserve distinctsourceleads anddepthvsvolumecomparison withoutpromotingforumclaims orsizefigures intofacts. Holdingsandplannedseries aredatednotrechecked. Separateedition/rulesprofile/setting/era/medium, survey inferredworldfit notmechanicsqualification. Nofetch/downloadqueueaction, wikiquery orbroadnewworldpriority.",
+      "evidence": "Survey reports search/mirror/ENWorld, notdirectRedditread orbookcounts. Its13groupedrows not13fullyqualifiedworlds; exampleswithinrows spanlines/settings. Noexternalpages/currentinventory inspected.",
+      "reopen": "Forselectedsetting inspectexactcurrentlibrary/sourcecoverage andappropriateprimaryedition/era; forumvolume/appraisal guides investigation butdoesnot certifycanonical mechanisms, currentholdings orpermission to acquire.",
+      "input_sha256": "7197bede05f3e8a10e46d242efb84d54505f6f4a09a7b38e9cf608a431f53bb2",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md",
+      "ids": [
+        "F1–3",
+        "21namedbaseline",
+        "8researchgroups",
+        "9opencoverage rows",
+        "48dossier/60report snapshot",
+        "Oct19census correction"
+      ],
+      "classification": "Historical targeted-research coverage reconciliation; existing explicit denominators and later owner precedence",
+      "owners": [
+        "docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md",
+        "docs/research/coverage-refresh-2026-10-14/REPORT.md",
+        "docs/research/CROSS_NOVEL_GAME_MECHANICS_SCOUT_2026-10-31.md"
+      ],
+      "disposition": "Full52linebodyread. Retain21requestedtitles routingand48dossierversus60directorydenominators, partialsource/read scopes, expandedextras andhistorical aggregatecorrection. Do notinfercurrentmissingpayload/worker/install/bookownership orwholegamecoverage. No rawsource/testverification ornewdecompilationdispatch.",
+      "evidence": "Onlylocalcoveragebodyfreshread. Linkedreports/DEPTH_QUEUEJSON distinctunread candidates; October13countsandOct19pointer preserve ownscope. Earlierlaterindividualreceipts strongerthanaggregate labels butdo notautomaticallyupgrade everymechanism.",
+      "reopen": "Forselectedgap readincumbentlatestreportanditsactualartifact/source windows; old native task/process state notlive. Donot sumoverlapping waves/repositoryrows orcall candidateunassigned work a mandatoryunfinishedtask.",
+      "input_sha256": "5600d779bf8d1b9516df2225bc606b255ce36878381d5c0d58a8f06c094261e9",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/COMPREHENSIVE_SETTINGS_SURVEY_2026-11-04.md",
+      "heading": "## Content reconciliation B314: forum leads and setting boundaries",
+      "body": "All13 grouped setting rows, source boundaries, W11 routing, missing checks and world-fit inference were content-reviewed. Keep the useful depth-versus-volume distinction. Forum superlatives, product/page/novel totals and a planned series are attributed claims with no independent count here. A wiki's article count would be a navigation statistic, not proof of depth, primary canon or useful mechanical coverage. The survey's wording about Reddit describes a mirror/search route, not a direct Reddit read.\n\nHeld now/none and source availability are this report's dated inventory assertions, not a fresh account/library check. W11 and DL83–DL91 retain acquisition routing; the survey itself authorizes no purchase, download, wiki crawl or library change. Source leads remain useful without becoming selected worlds or prerequisites before current work.\n\nKeep a rules edition, setting, era and medium distinct. Golarion, a rules-data export and a Starfinder product line are not automatically interchangeable source truth; Warhammer fantasy and40k are not one pack because they share a table row. A social-detail reputation does not certify a magic law. The proposed mechanically distinct fit needs source qualification for the actual selected behavior, and multiple detailed settings may offer different ordinary lives even where a shared engine serves them. No external source, PDF, sourcebook, wiki or gameplay was inspected by this local content review.",
+      "before_sha256": "7197bede05f3e8a10e46d242efb84d54505f6f4a09a7b38e9cf608a431f53bb2",
+      "after_sha256": "1c0270a8697a08d252eb9c84a523834c99a94ab5c7286c00328ff6c851fcc2c4"
+    },
+    {
+      "path": "docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md",
+      "heading": "## Content reconciliation B314: historical research coverage and current reuse",
+      "body": "All F1–F3, the named21-title baseline, eight research-group rows, nine open-coverage rows, aggregate correction and inventory boundary were content-reviewed. Preserve the explicit distinction between a dossier existing, targeted source inspection, wrapper recovery, native unknowns, a runnable system and complete semantic reading. Forty-eight dossier directories from a60-report scan is an October13 routing denominator, not current unique games, complete audits, purchases or entitlements. The combined DCSS/DDA and multi-game/repository overlap must not be added twice.\n\nThe October19 census pointer already qualifies the frozen counts. Later individual installed-source reports supersede the library aggregate's acquisition-only labels for their own stated windows. The later cross-novel scout likewise preserves source-acquisition and bounded reading receipts rather than treating them as new references. None of that establishes current installation or completes unread mechanisms. Exact-title no-dossier-found and payload-gated rows are historical searched-scope findings, not machine-wide absence or today's worker state.\n\nStreets framework evidence does not become original-game source, an Electron wrapper does not become its remote simulation, and tool/export counts do not read unavailable script families. A failed or unfinished native-recovery goal remains distinct from a stopped process and from a retained useful source sample. The broader shortlist is a set of candidates, not assigned unfinished work. This review reruns no scan, source read, process probe, purchase, install, decompilation, gameplay or source-fidelity check; linked dossier and queue bodies remain independently reviewable inputs.",
+      "before_sha256": "5600d779bf8d1b9516df2225bc606b255ce36878381d5c0d58a8f06c094261e9",
+      "after_sha256": "6cca8870462b131d57afccc4d2679ef5278ec9baf15be83c5d8ebdddd89986a2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 800
+}

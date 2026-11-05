@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "batch": "B385",
+  "title": "Engine measurements and non-UI admission/support reconciliation",
+  "at": "2026-11-05T03:49:35.701517+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/engine-modularity-2026-10-25/CHECKPOINT.md",
+      "ids": [
+        "F1–F3",
+        "three fixture baselines",
+        "before/after18metricrows",
+        "205cyclicedges/sixmainimports",
+        "final2878/2879receipt"
+      ],
+      "classification": "Structural engine extraction and noisy performance/proof receipts",
+      "owners": [
+        "docs/gm/dispatch/engine-modularity-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "Full107lines read. Inventory component/reference identity and public validator exports remain stable while independent ESM import closure shrinks; registry metadata snapshots/cache retain live closure state, late registration and failed resolution.205remainingedges notcyclefree. Registry316→16ms and inventory-entry812→19modules are scoped micro/entry metrics, notwholegamespeed. Fullsuite failedoneharness;focused7repairnotnewgreenfull. Unequal load/base testcounts blockcausalwalltimeclaim.",
+      "evidence": "Actual full document read; old source/runtime snapshots, graph/metafile, benchmarks, browser/suite outputs and integration commits not independently rerun or fetched. No current process/app/source conformance inference.",
+      "reopen": "Only actual changed current consumer/input can reopen a cycle/import/performance issue; preserve runtime behavior/save validation order, other-owner hunks and separate combined proof. Old branch merging, port/process or commit permission not renewed.",
+      "input_sha256": "b4e440b69b35cb91754beb968cc505ca8528c28e885044ed64cd5b3fcdf342af",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/CHECKPOINT.md",
+      "ids": [
+        "H1–H6/H8",
+        "H7 sibling exclusion",
+        "T1support boundary",
+        "14owner/50link/12locatorchecks"
+      ],
+      "classification": "Documentation-only authority/semantics reconciliation checkpoint",
+      "owners": [
+        "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/CHECKPOINT.md"
+      ],
+      "disposition": "Read full71lines and support receipt1–100. Preserve bindingstatus versus improved proposedcaller, eventtime identity versus current permissible retrospectiveknowledge, admissionfrozenentitlement versus completion support, visible distinguishable refusal versus privatecause, repeated dialogue versus actual refusal/access. No runtime defect proved or repaired. PRF/FND/ABR/GTRproposals remain theirstatus, UI siblingownership historicalnotcurrentlive.",
+      "evidence": "Complete checkpoint read plus scoped supporting receipt1–100 including full T1table; receipt already reviewed earlier, no new fullreadingcredit. Source inputs/tests were not run by olddocslane or this pass; file/hash/link checks not domainconformance.",
+      "reopen": "Select concrete current mechanism/invariant and runtime owner when behavior needs changing. No blanket reread, continuous-support gate, universal refund policy, migrations, new audit or runtime wave follows.",
+      "input_sha256": "3c2b60ef576938978e5041aa3dbe304fa03e777ae63bf08832d4d671d582d64c",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/engine-modularity-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B385: structural scope and noncausal measurements",
+      "body": "This full checkpoint, every metric row and final receipt were reviewed. F1 preserves the single InventoryComponent/reference identity and key/save ownership while binding its two catalog operations at registration. F2 moves unchanged primitives to their actual owners and retains public re-exports/validation order. F3 snapshots registration metadata and caches dependency order without freezing closure-owned live state or removing late registration/failure handling. World-pack read-only-by-convention Maps and throwing-domain policies differ, so no wrapper or shared sorter is inferred as required.\n\nThe measured registry dispatch microbenchmark and independent inventory import closure have their exact bounded populations; neither establishes whole-game speed. Unchanged JSON parsing slowing under higher host load is a confounder, not proof of source regression. Browser PLAY-ready wall time includes automation waiting and hydration. The old full-suite duration difference uses unequal load and two additional lane tests; it cannot be attributed as an engine speedup. Fixture sizes and62 inventory owners are specific synthetic inputs, not a personal-save census.\n\nThe one full run passed2878/2879 with a source-stripping harness failure. Its focused7-case repair uses the actual independent ESM module and preserves rollback/private identity/no-reward-replay assertions; it does not turn the historical full run green. The failed IIFE diagnostic and corrected ESM reproduction likewise have distinct meanings. Saved records/schema/validation order remain unchanged under the stated before/after native fixture round trips, without certifying all saves or current integration.\n\nRemaining205 cyclic edges and six main imports are historical debt counts, not a cycle-free graph. Other-owner Person gameplay hunks, generated artifacts and later master integration have separate identities. Old branch commits/merge checks, port5102 and process/worker statements are receipts, not current authorization or live state. AD42 keeps optional human pacing/visual feedback distinct from technical proof. No source graph, runtime, benchmark, build or combined-candidate suite was newly executed here.",
+      "before_sha256": "b4e440b69b35cb91754beb968cc505ca8528c28e885044ed64cd5b3fcdf342af",
+      "after_sha256": "f4513fbec75791dcab9e1feab4b5c9f49d6f7d769882c2156bd36bfd912257f2"
+    },
+    {
+      "path": "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/CHECKPOINT.md",
+      "heading": "## Content reconciliation B385: authority, support timing and scoped documentary proof",
+      "body": "The complete checkpoint and the supporting receipt's H1–H8/T1/remaining-scope sections were read. Preserve the distinction between an improved proposed caller and the accepted direction it applies: PRF/FND and the proposed GTR/ABR applications do not become standing because their text was corrected (AD32). Source-header authored costs or a local stamina/wand consumer do not establish franchise law. Event-time public identity/equipment/context differs from what a current observer may now learn retrospectively; permitted hindsight must not silently rewrite an old observation.\n\nT1 specifically traces admission, frozen job context and a completion-time support check. It does not prove continuous enforcement throughout elapsed work. A method losing and regaining support between those boundaries needs a selected invariant and actual implementation evidence before any uninterrupted-support claim. Timed structured abilities use the adapter's refund restriction; a narrower general runtime paid-forfeit branch does not grant every adapter arbitrary cancellation/finish policies. These were source inspections and existing assertions, not fresh passing tests or a demonstrated runtime defect.\n\nPublic refusal projects only distinguishable known causes. Known verbs can remain visible with useful reasons without disclosing hidden capabilities/criteria; repeated conversation remains possible through actual contact/language/consciousness and voluntary refusal. Alternate-route costs can be zero when mechanisms support that result, and repeat/overflow/gain follows the actual method, not a universal counter or balancing surcharge. Previously consumed causal bindings stay retained before observation; consequential/changed/conflicting source claims reopen their locators without a second source ledger or blanket reread.\n\nThe14-owner/link/locator/retained-line checks establish their bounded documentary properties, not domain conformance or an effect of rules on gameplay. Published repository pointers do not publish separate vault changes. The old sibling status/reservations and released ownership remain dated, with no new UI/source/runtime dispatch. Current AD51 qualifies earlier second-world wording, and AD42 leaves human review optional. No native bug, migration, runtime test, build, browser, personal save or current installed-app behavior was newly verified.",
+      "before_sha256": "3c2b60ef576938978e5041aa3dbe304fa03e777ae63bf08832d4d671d582d64c",
+      "after_sha256": "84d339aeca4fe800e70db308c602402ffe52caf8717523c1413b1a51207aea97"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 643
+}

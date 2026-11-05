@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "batch": "B371",
+  "title": "Complete incumbent-family and repository coverage with finite consumer joins",
+  "at": "2026-11-05T03:18:36.525031+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-completion-2026-10-06/INCUMBENT_COVERAGE.json",
+      "ids": [
+        "MF-COVER-01–35",
+        "MF-GAP-01–10",
+        "INC-P1–P5",
+        "Twenty RB findings",
+        "WC-G1–WC-G5",
+        "Thirteen incumbent paths",
+        "Six optional-depth entries",
+        "94input fingerprints"
+      ],
+      "classification": "Historical complete source-reconciliation map; no behavioral/build proof",
+      "owners": [
+        "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+        "docs/gm/world-completion-2026-10-06/AUDIT_REVIEW.md"
+      ],
+      "disposition": "Preserve every historical/current disposition and finite gap reference; keep local delivered consumer, partial world join, optional broader depth and no-behavior evidence distinct without extending scope or launching repairs.",
+      "evidence": "Read complete1180-line JSON: initial1–130lines plus lossless compact displays of every top-level field, all35MF families/10MF gaps/5INC packets/20repository findings,13paths,5queue entries,6optional-depth strings,94full path/hash values,7deferred cases and writer state. Compact rendering omitted no object fields or values; source paths/hashes were read, not revalidated or credited as source bodies.",
+      "reopen": "For a selected current requirement inspect present source and the actual later owner/candidate proof. A historical empty remaining list or delivered string does not establish full mechanism or end-to-end completion.",
+      "input_sha256": "c60b5c8b1cc568b5556a158ce875ad58d152c9aaa6da636d307ff71006420512",
+      "input_lines": 1180,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1180
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+      "ids": [
+        "WC-G1–WC-G5",
+        "Eleven useful-path rows",
+        "MF-GAP-01–10",
+        "INC-P1–P5",
+        "RB/aspect reconciliation",
+        "Finite later journeys"
+      ],
+      "classification": "Historical finite home-world consumer-join synthesis, not a replacement engine plan",
+      "owners": [
+        "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+        "docs/gm/world-completion-2026-10-06/AUDIT_REVIEW.md"
+      ],
+      "disposition": "Preserve detailed same-loan custody, popped-job completion, learner/sample/plot identity, mature output and observer-safe closure semantics; qualify obsolete live lease/build/first-world gating by current direction.",
+      "evidence": "Read all49original lines, including all five dense queue rows, eleven complete useful-path rows, entire MF/INC/RB/aspect dispositions and final acceptance scenarios. No underlying runtime/source trace, private crop truth, care worker or native command rechecked.",
+      "reopen": "Use current actual owner/accepted priorities before further integration; verify a concrete selected consumer without reimplementing delivered systems or imposing all optional world/body/source features.",
+      "input_sha256": "e9e5f8baa23aaa75146729e3b1c3b09a856d178bd4fad87ceb30ecd8c04d84d0",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+      "heading": "## Content reconciliation: full incumbent map and actual finite joins, 2026-11-04 (B371)",
+      "body": "The complete machine map was reviewed, not inferred from its title or summary. It contains35MF families, tenMF gaps, fiveINC packets, twentyRB findings, thirteen incumbent paths, fiveWCqueue entries, sixoptional-depth descriptions,94input fingerprints and sevenlater acceptance groups. Each MF family explicitly sets behaviorVerifiedByThisReview:false. “Delivered,” an empty requiredRemaining list, a source symbol or a matching old hash cannot establish full subsystem depth or current native behavior. The read-only950-command registry snapshot and the943-command historical build remain different inputs. No underlying file, source trace or fingerprint was checked by proxy.\n\nPreserve the narrow mechanisms that make these joins useful: completion consumes the actual popped job’s frozen participants/cost/effect/revision/cause; stale current options do not rewrite an accepted job. Borrowed held use needs exact same-loan owner/holder/key/count/reference, cannot authorize destructive spending or concurrent return and must restore only the recorded means. A deposit refund returns held funds rather than minting a reward. Teacher-held knowledge, learner-owned procedure, measured strip, actual opted-in drain, plot/harvest claim and real native material/cooking consumer are distinct. Alternate cover/report routes must not duplicate one plot’s harvest, reveal private truth or erase prior frozen branches.\n\nMature survey effort saving, a knowledge receipt, a usable material output and a funded recipient are different benefits. A concrete payoff can coexist with ordinary/fine alternatives and existing seven cumulative endings; a public chapter account does not accept new duties, infer private motives, fabricate rescue or force a final selector. Known People needs received introductions and actual reports rather than registry access. Native river swimming and the distant earned river route retain their own actual access/cost, so a nearby new interaction does not become a teleport or duplicate yield.\n\nThe MF/INC/RB crosswalk distinguishes selected fixed functions, missing local joins and optional universal systems. Bodies, population economies, generic attacks, all-world adaptation, offline/reset frameworks, ECS/renderers, broader sources and parked packets remain useful possibilities rather than mandatory finish requirements. The old one-realm/one-prestige milestone and historical care/assay reservations do not determine current priorities or ownership. Current LOTM/Harry direction, AD51 and actual present source/adoption evidence govern separately selected work. This batch does not settle the historical root queue anew or certify that any old missing consumer is still missing.\n\nKeep actual native schema admission, absence defaults, frozen-job meaning, one durable publication and matched final bundle as separate checks. Source connections are not generated save/reload/import/failed-write or keyboard/browser proof, and a finished source-review leaf is not completed gameplay under AD43. AD42 makes human review optional while preserving actual technical gaps. No runtime, source library, private save, worker/process, build, registry import, gameplay or source-body verification was run by this reconciliation.",
+      "before_sha256": "e9e5f8baa23aaa75146729e3b1c3b09a856d178bd4fad87ceb30ecd8c04d84d0",
+      "after_sha256": "7dafb053b9e25fa73d3a07465789b2d0213ed1c3df4508f34932196ef53bae68"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 681,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/multi-world-paths-2026-10-07/AUDIT.md",
+      "from": "personal travel, accepted mission, extraction readiness",
+      "to": "personal travel, agreed mission, extraction readiness",
+      "reason": "Avoid incidental accepted-word authority-lint hit; refers to an actual in-world contract, not new product direction."
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+      "from": "stale current options do not rewrite an accepted job.",
+      "to": "stale current options do not rewrite an agreed job.",
+      "reason": "Distinguish agreed fictional work from product-direction acceptance wording; same frozen contract semantics."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B368, continuous execution 2026-11-04 |",
+      "to": "| B371, continuous execution 2026-11-04 |",
+      "reason": "Advance existing active pointer, not full-register review."
+    }
+  ]
+}

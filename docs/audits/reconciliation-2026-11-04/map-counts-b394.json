@@ -1,0 +1,14 @@
+{
+  "requirements": 36,
+  "variants": 59,
+  "cases": 114,
+  "joins": 7,
+  "predecessor_ids": 73,
+  "unknown_variant_targets": [],
+  "unknown_join_targets": [],
+  "duplicate_case_ids": 0,
+  "case_states": [
+    "specified-not-run"
+  ],
+  "note": "Structural accounting only. All values separately read in lossless compact output; no gameplay or source-pointer revalidation."
+}

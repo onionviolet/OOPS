@@ -155,3 +155,16 @@ In [tools/core_kit_audit/](tools/core_kit_audit/):
 | LL14 | Later lanes read earlier lanes' returns mid-run and corrected the root's claims (W22 found narrow owners the root called missing) | Fold corrections in place first, with a 'Corrected round N' tag naming the lane; keep a short FX summary table |
 
 Add a row here whenever a run teaches something new.
+
+
+## Content reconciliation B347: full map, current routing and scoped evidence
+
+All157 original lines were reviewed, including every trigger, loop step, lane shape, tool, readiness/commit rule and LL1–LL14. The current registered core-audit owner already routes continuation through the successor root and preserves codes/readiness baselines. Repeated work extends those incumbent owners; this reading does not restart the original root, create a new dated run, dispatch lanes or generate a full-kit gate. The original scripts exist at the printed repository paths, but their runtime behavior was not executed or audited here.
+
+WT1–WT6 are recommendations for a relevant requested audit, not automatic jobs. A month passing, ten documents landing, a world folder or a changed UI does not independently authorize a new all-world survey, recurring task or2–6worker wave. Current WPR24–WPR26 close the requested outcome and add review only for a named uncertainty or requested expansion. The playbook's fixed root/Claude/Codex roles and historical capacities are examples; actual authorization, ownership and current agent routing govern. A process/report path or old session ID alone cannot establish a live worker or terminal completion.
+
+L3/LL3/LL14's correction-in-place lesson remains valuable when exact old wording/history is preserved. A returned summary or byte/row check is not source qualification; consequential material claims need their actual locator or stay unverified. Readiness D/R and documented/source-edited/built/native/persisted/accepted states remain separate. “Met” on a source-inspected page must not become a new current gameplay result. A consolidation grid is navigation and bounded evidence, not an authority that selects content or erases contradictory source facts.
+
+LL5/LL6's explicit pathspec lesson protects unrelated staged work, but the generated list is not proof every listed byte belongs to this task or has passed its actual gate. Fresh ownership and shared-file preservation still apply; current authorization is required to commit. This reconciliation commits/pushes nothing. A historical lane completion or helper command cannot supply current authorization. New rulebook/code changes would update the register/router; this maintenance adds no registered code or new rules.
+
+The known fragmentation-versus-absence, independent clock/calendar and same-day owner lessons remain specific methods, not current runtime findings. K1–K34 and source-title-specific cards can serve a selected consumer without requiring every K group before a playable slice (AD36/AD43). AD51 supports useful shared mechanisms with local differences; AD52 preserves meaningful work through compression. Current desktop targets replace historical ones for new UI proof, and generic human review is optional under AD42. No new audit dispatch, tool run, source qualification, kit readiness grade, automation or gameplay result was produced by this full playbook read.

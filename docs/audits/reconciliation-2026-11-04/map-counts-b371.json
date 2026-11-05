@@ -1,0 +1,16 @@
+{
+  "path": "docs/gm/world-completion-2026-10-06/INCUMBENT_COVERAGE.json",
+  "counts": {
+    "requiredGapQueue": 5,
+    "incumbentPaths": 13,
+    "mfFamilies": 35,
+    "mfGaps": 10,
+    "incPackets": 5,
+    "repositoryFindings": 20,
+    "optionalDepth": 6,
+    "inputSha256": 94,
+    "deferredAcceptance": 7
+  },
+  "unknown_required_queue_refs": [],
+  "scope": "Structural accounting of fully read JSON only; no source, runtime or present completion proof."
+}

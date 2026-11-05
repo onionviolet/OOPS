@@ -35,3 +35,8 @@ The current user assignment names P28 crafting play, automation and director too
 - Read: COMMON, root crafting considerations, live AGENTS/PROJECT priorities and USER_VISION food/crafting direction. Main checkout has extensive unrelated dirty/staged state, preserved.
 - Next: read named research/design owners; audit P2 UI, resolver and queue with file:line; cross-link crafting sibling outputs where actually present. Future suggested ports start at 21400, not reserved or launched.
 - Evidence: source/document reading only. No gameplay, build, native persistence, canon certification or human acceptance claimed.
+
+
+## Content reconciliation B401: current routing for the mixed assignment history
+
+The entire checkpoint, including the separate appended crafting assignment, was read. Keep the earlier story intent/taste/writers-room/onboarding result and collision history intact. The actual PLAN CR3 row and delivered cr3/CHECKPOINT.md plus its REPORT opening route PLAY_FEEL, AUTOMATION, COLLECTION and DIRECTOR_TOOLS to CR3. The late crafting tail here therefore remains historical assignment residue, not an active next-writing instruction for p28. Do not recreate those artifacts or overwrite this story lane's MORE/REPORT. CR3's source-only inspection and proposed native gates remain its own evidence; matching filenames do not certify all corresponding mechanics. Present writer/process scope must be recovered if a new slice is selected. No implementation or delegation is selected by this routing correction.

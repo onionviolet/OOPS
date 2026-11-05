@@ -31,3 +31,10 @@ Implemented-unverified against references: I did not open the pinned Proto23 inv
 
 ## Delivered (uncommitted, own paths only)
 `src/native_storage_transaction.js` (`stageCompanionStockTransfer`), `src/stock_view.js`, `src/stock_view_ui.js`, `src/ui_extras.js` (1 import), `src/main.js` (commitNativeStorage branch, `stock` and `transferStock` ports; net -2 lines), `tests/stock_view.test.js`, `scripts/stock_browser.cjs`. Rebuilt `dist/` and `index.html` are build output, not for commit by this lane.
+
+
+## Content reconciliation B384: exact loan flow and later presentation
+
+The complete O4 checkpoint was read. Keep player ownership, current companion holder and lawful loan in the existing custody state rather than a second stock store. The single rebuilt log handoff/return proves its declared fixture, exact native bag delta and loan save/reload/literal Import. It does not certify every favorite/equipped/borrowed/stale path in browser, native reference parity, nonsimulation companions, gifts, companion-to-chest direct moves or realm passage consent. Pure/source tests and an actual transfer are different proof types.
+
+The original crowded Hand/Take-back presentation is qualified by the later [D1 G1 Stock/Companion resume](../ui-detail-2026-10-25/RESUME.md), which names item kinds and shared action-row spacing at its own targets. That later branch UI proof is not a new custody or integration check. Planned seam naming and delivered function naming retain their dates; no missing-API defect is inferred from the different labels. Old1366 captures and uncommitted output are historical. Current AD42 makes human taste feedback optional; no fresh browser/reference/app verification or transfer was performed.

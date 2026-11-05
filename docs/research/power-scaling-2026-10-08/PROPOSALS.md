@@ -16,3 +16,12 @@ All O proposals, ranked by value to ordinary play, compatibility with local ladd
 Suggested first packet: O1 with one O2 consumer, the seal-maker example in COSMOLOGY. Before implementation, the assigned integrator must inspect live Notebook, attributed-knowledge, event-feed and command consumers. This research does not certify those interfaces, reserve their files or reopen another implementation lane.
 
 The later proposals preserve real overwhelming powers and local asymmetry. They add types of work, not a mandatory counter to every ability. No proposal changes prestige, death or retention by implication. Gameplay, migration and fresh-origin save/reload/import gates belong to a subsequently selected implementation.
+
+
+## Content reconciliation B333: preserved proposals and current scope
+
+All 18 original lines were reviewed: eight proposals, first-packet recommendation and verification boundaries. Preserve the distinctions between witnessed feat and hearsay, institution-owned ratings and actual power, effect reach/contact/source/protection, outgrown chores and optional new pursuits, observed boundary change and its cause, finite authored expeditions within an infinite background, and actual distant beneficiaries rather than player stat extensions.
+
+The report's strength is allowing genuinely overwhelming power and asymmetric local laws. The selected obstacle need not acquire a counter or upkeep merely to keep it difficult. A faculty can fail for missing real support, but independent power is not weakened just because it crossed worlds. O6's precise bypass needs an actual applicable protection/resolution, not a generic precision-beats-strength rule. O7's losing-an-index example constrains the proposed indexing route, not every means of finding an infinite destination. O8's distant scope is a delivery-size note, not a reason to exclude many worlds from Weibao's direction.
+
+The first Notebook/board packet is an unselected recommendation and its source route must be inspected before implementation. A report or traveler dossier is a projection, not the gameplay authority that grants a power or changes combat strength. AD51 allows the first useful shared seam and later validation; AD52 preserves actual work and consequences while compressing repetition. No extra scalar franchise conversion, universal stewardship progression, forced counter, new migration or general offline disaster policy is adopted here. Historical source inspection and future fresh-origin/persistence checks are not newly executed by this full document read.

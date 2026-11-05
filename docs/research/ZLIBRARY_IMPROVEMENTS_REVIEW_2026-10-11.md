@@ -43,3 +43,12 @@ changes documentation only. Prior 256-test/packaging evidence belongs to the
 setup run documented in `ZLIBRARY_RESEARCH_TOOLKIT.md`, not this review. Live API,
 session validity, current app registration and authenticated downloads were not
 verified. No book was acquired. Existing game work was preserved.
+
+
+## Content reconciliation B326: measured scope, later status and current ownership
+
+All O1–O5, external comparisons and verification limits were content-reviewed. The opening0.3.0 pointer already supersedes the old proposal-only state for its later authorized implementation; it does not establish today's running service, registrations, session or complete functionality. The old absent9050listener proved that default local proxy was unavailable then, not a remote outage or present access block. No socket, account, session, tool registry or external page was checked here.
+
+Retain the useful specific improvements: structured safe error stage/reason, exact chapter/member locators, uncertain edition/title ownership matching, paragraph-preserving extraction with skipped/empty warnings, and repeatable output/source/version binding. Successful parsing, source/output hashes, cache retry and a complete spine index do not establish full semantic reading, translation fidelity or complete image-only content. A wrong same-title/author/volume match must remain uncertain rather than authorize duplicate acquisition.
+
+The six-tool inventory and regex/UTF8/existing-destination behavior are old source inspection at the recorded fork revision, not current code verification. Prior256-test/packaging evidence belongs to its setup and later upgrade receipts; no new test or remote download was run by this review. A documentation comparison to another MCP does not replace the incumbent fork or select an install. No book, source/library file, account/configuration, acquisition helper or gameplay was changed.

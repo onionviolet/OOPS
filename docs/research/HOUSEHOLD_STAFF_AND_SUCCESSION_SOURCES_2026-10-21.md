@@ -45,3 +45,12 @@ coverage partial. Edition/author/translation and actual
 volume availability remain to be checked before a future acquisition or full
 reading task. Public-domain texts above were read in the browser at bounded
 locators; extraction is not whole-book reading.
+
+
+## Content reconciliation B316: actual content, source scope and later direction
+
+HS1–HS4, world qualification, future work and library-search limits were fully content-reviewed. Beeton is a prescriptive1861 English manual; the Paston entry is catalogue evidence rather than manuscript prose; Austen's particular fictional settlements do not establish a universal succession law; Bookworm publisher summaries are reading leads rather than volume-level mechanism qualification. No primary book, PDF, manuscript or web page was reopened here.
+
+Preserve staff title/control/agency, actual wages and held stock, teaching access versus competence, hospitality versus ownership and personally transferable belongings versus landlord/family property. The willing-staff model describes the original H5.8 fixture, not all possible service institutions or canon worlds. A title, legal entitlement, custody, a contested claim and an actual settled transfer can differ. Death does not automatically convey people, contracts, a rented room or every household fixture; the actual source/era arrangement may carry particular rights and obligations.
+
+The zero-configured-file query and86-candidate search with three parse warnings are dated searched-store observations, not present absence or a reason to download duplicates. Current library/source owners govern any future acquisition. H5.8's original balances and native-time assertions remain attributed implementation evidence, not fresh runtime verification. The subsequent source or supply options are proposals with relevant world/consumer scope, and do not restart Frontier depth, add generic hunger or dispatch inheritance work by this review.

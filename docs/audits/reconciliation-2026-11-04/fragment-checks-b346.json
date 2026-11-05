@@ -1,0 +1,9 @@
+{
+  "batches": "B342\u2013B346",
+  "new_local_fragments": [
+    "../../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03",
+    "../../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03"
+  ],
+  "result": "PASS; both corrected JJK links resolve to the existing Source gap rules WA61\u2013WA68 heading in docs/WORLD_ABSORPTION_RULES.md",
+  "scope": "New fold/amendment Markdown links only; no linked source-body or runtime review credit."
+}

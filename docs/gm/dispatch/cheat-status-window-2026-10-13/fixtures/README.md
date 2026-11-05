@@ -17,3 +17,8 @@ CH1 build SHA-256: 42d270977a391a9a78f033c5e8028519f23b4552b1d1f012b02d16464cbf3
 Hero: TEST FIXTURE CH1. The helper selects system-quests in the real hero creation control before confirmation. Its route is optional-start, awakened is false and messages are empty. The real update_timer advances the clock to day 2, 23:15, leaving 45 game minutes until day 3 (about 45 real seconds at the normal tick rate). The real create_save writes dormant_day3.save.txt. No hand-written game calendar or envelope is used. CH1's frozen browser gate loads this prerequisite and observes the actual day boundary, log message, reveal, save/reload and literal import on the uninstrumented build.
 
 Classification: seeded-native prerequisite; the browser gate supplies changed-behavior evidence.
+
+
+## Content reconciliation: generated prerequisite scope, 2026-11-04 (B356)
+
+C0’s instrumented real-code grant/message/serializer route creates a synthetic held-card prerequisite. CH1’s real optional-start selection and update_timer route creates a dormant near-boundary prerequisite. Their uninstrumented gates separately exercise later behavior; neither builder alone proves natural acquisition, visible arrival, complete native save integrity or every clock boundary. Keep the two exact bundle identities and 45-minute remaining calendar interval as historical provenance, not current build/timing evidence. Rebuild fixtures only when a selected changed consumer requires it, retaining the original evidence. No fixture or user save was regenerated or accessed by this review.

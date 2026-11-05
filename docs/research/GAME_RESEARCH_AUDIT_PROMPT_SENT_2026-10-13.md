@@ -39,3 +39,12 @@ World secrets remain sealed. Inspect if needed, but expose only IDs/routes/statu
 Verify consequential statements with exact local paths/symbols/locators and revisions. Correct affected audit status only where evidence and ownership support it. Findings and proposals are not accepted decisions. Report what was checked and remaining limits. Completion means the requested/later-added corpus has supported dispositions, useful findings are checked against current adoption, consequential open gaps have evidence routes, and the user has a ranked decision-ready next step. It does not require every proprietary function, implementation or a made-up universal completion percentage.
 
 Return the complete improved executable audit prompt now, then the brief material-change notes. Preserve the distinction between supplied facts and execution-time checks.
+
+
+## Content reconciliation B320: historical instructions and current evidence boundary
+
+The full sent version was content-reviewed independently of the outbound draft. Preserve both as different workflow artifacts, not redundant copies eligible for deletion. This records the exact supplied summaries, review boundary and requested future audit. It does not establish that the remote reviewer could inspect local files, that every recommended source was read or that the eventual audit ran to completion.
+
+Its useful contract keeps current owner/source checks, lower-ranked findings, duplicate inventory denominators, bounded tool questions and separate research-versus-gameplay packets. Historical acquisition/process/source-absence claims still need execution-time evidence. Later REA operational records qualify the initial no-trial supplied summary only within their stated scope. A candidate mention does not assign an unfinished task, and output from a review does not adopt a proposal.
+
+The last instruction to return a complete executable prompt is preserved source content rather than a command to this reconciliation. No new reviewer submission, chat launch, source-library change, tool install, private-save inspection, gameplay edit, publication or commit occurred. Returned and reconciled prompt bodies remain separate candidates whose actual content must be reviewed rather than credited through this sent text.

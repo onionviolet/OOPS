@@ -45,8 +45,9 @@ retain their proposals. Status is scoped to this task, not a whole-game audit.
 | CRL51 | Shop stock formerly refreshed at open; quote already revalidated | Implemented native-clock open-shop restock through TraderComponent, exact request recovery and a truthful static notice. Rebuilt day boundary, first acceptance does not charge, reviewed acceptance conserves stock, persistence/reopen/hover do not regenerate stock. |
 | CRL52 | Existing local search previously ignored changing sensing means | Implemented native local visual/touch method with retained search work and current light/night-vision inputs; relight display join and rebuilt lamp-expiry/persistence/discovery journey pass, with actual 14/21px reachable controls. This is a local default, not a universal law. |
 
-Current remaining boundaries: CRL44 conditional salvage opportunity and new spatial
-landing situations remain unimplemented. General deterioration across all
+Current remaining boundaries: CRL44 has the one-consumer O2a vest bounty
+recorded above; broader conditional title/salvage opportunities and new spatial
+landing situations remain unimplemented or unverified beyond their named receipts. General deterioration across all
 lineage-bearing products, broader chemistry/energy/power conversion and a universal
 multi-stack/fallback matrix are not delivered by the selected slices. Human visual
 judgment and natural acquisition/pacing remain separate from automated proof.
@@ -60,3 +61,12 @@ retains this task's original boundary and56% run ceiling as history; that ceilin
 is not a current implementation status. [All26 source rows](RECOVERED_26.md) retain
 source provenance. [Continuation evidence](CONTINUATION_REPORT.md) is the earlier
 run receipt, supplemented by the later delivery links above.
+
+
+## Content reconciliation B383: current versus historical detail evidence
+
+The full current table, [verbatim earlier table](COVERAGE_HISTORY_2026-10-21.md) and [implementation checkpoint](CHECKPOINT.md) were read together. Preserve original then-open rows as history, with later evidence qualifying only its named consumers. Held recognition, optional worn contribution, applicability and native ordinary XP remain different; selection does not erase SkillXP or invent activation. A valid held selection can have no numerical payoff. Repeated projection/load replaces rather than stacks a bonus.
+
+Material learning remembers encountered herbs and actual practiced competence while craft commitment still needs full real stock; neither hover nor a transient notice grants knowledge or consumes a sample. The restock owner changes stock through native day/RNG authority. A pending quote after restock first requests review without charge, while browsing without a pending quote does not incur an extra acceptance. Finished physical book copies, learned memory, native reading work, lamp expiry and actual search support are distinct. The local search light/night-vision/touch rates are original scoped defaults; retained completed search work is not converted to a universal world law.
+
+The current CRL44 row and its old closing paragraph conflict. Scoped actual salvage source reads show a condition50/5coin rule on the vest consumer, its quoted reason, staged receipt and money delta. This supports correction of “unimplemented” for that selected consumer; it does not rerun its historical native browser/reload/import tests or certify every title opportunity, other material, garment or world. The old gear checkpoint's CRL44 remainder predates this later O2a evidence. The exact old closing text is retained in this batch's amendment record. Broader spatial landing, universal deterioration/chemistry/energy/power conversion and multi-stack/fallback coverage remain their explicitly unimplemented or unverified scopes. No source artifact execution, private attachment reading, new native proof or human-review claim is made (AD42).

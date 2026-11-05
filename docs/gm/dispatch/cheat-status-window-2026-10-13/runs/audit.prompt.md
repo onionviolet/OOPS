@@ -102,3 +102,8 @@ Then reply in chat with the verdict, the top five findings and the link.
 ## Run note
 
 The main checkout is on another branch with uncommitted work. Build and test in a fresh detached worktree of `master` (for example `git worktree add --detach /tmp/yairpg-audit master`), not in the main checkout. Write only the AUDIT_REPORT.md in the main checkout path above, plus scratch files under `runs/audit/`.
+
+
+## Content reconciliation: archived run prompt, 2026-11-04 (B357)
+
+This copy preserves the original audit request and its extra detached-worktree run note. It is evidence of requested scope, not proof of shipped behavior, execution or a present reservation. The linked independent report owns F1–F14, actual input identities, corrective setup and unverified boundaries. The current primary-checkout default permits justified isolation; the old dirty/other-branch observation does not require creating a new worktree today. Preserve natural/seeded/source distinctions, gate-honesty questions and proposal labeling while applying current desktop/font and host policies to any separately selected future audit. No embedded command, new chat, runtime fix, gate or stage-1 proposal was executed or adopted here.

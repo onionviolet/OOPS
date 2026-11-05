@@ -37,3 +37,14 @@ If selected later, recover sole-writer ownership and inspect incumbent runtime c
 ## Work performed
 
 Read developer pages/devlogs and relevant live direction/crafting owners; wrote only this new report. No gameplay/source/style/save edits, tests, build, launch, install, commit or push. No ACT NOW correction emerged. Next useful evidence would be a bounded hands-on trace of one production bottleneck and its resolution, if deeper reference study is selected.
+
+
+## Content reconciliation B315: production references and later source depth
+
+All developer-evidence items, P1–P5, the apothecary example, later-inspection pointer and future-check boundaries were content-reviewed. The opening follow-up already correctly supersedes the original uninspected-code status for its named findings. Keep the page-only pass and its date; do not infer that the later report supplies full-game semantics, every table read or present build parity. V1.6's documented compatibility break qualifies the earlier update expectation, while its performance claims remain unmeasured here.
+
+Conceptual inputs need actual source, operation and carrier semantics: consuming a memory token is not automatically deleting a person's remembered event, and copying an input is not necessarily transferring its ownership or changing an abstract truth. The actual world may support stronger effects, which need their mechanism rather than a generic concept currency. Personal supply, a useful service, retained workpiece, catalyst, byproduct, intermediate stock and full-storage outcome should join the existing making/custody owners. Reconfiguration must account for actual committed progress and inputs; a moving icon or recipe entry is not the process.
+
+Fast time and attention-saving automation are different questions. Journey-wide eligible unused time remains subject to actual means, chosen world clocks, stops and important decisions; a machine in a frozen life does not become remotely productive merely by being owned. A selected exception can operate through its stated mechanism. Current AD52 supports useful routine compression without deleting actual costs or elapsed effects, and AD51 permits a first useful shared consumer. No conveyor grid, regional factory, alternate world or generic immortality system is a prerequisite for the apothecary example.
+
+A produced elixir must have its actual admitted aging/death/identity effect before an immortality claim, without imposing an unrelated universal test matrix. Current UI targets supersede the proposed1366 acceptance size; AD42 makes generic human taste review optional rather than a technical completion blocker. The listed future checks attach only when their corresponding behavior changes. No follow-up source/body, runtime, banked-time algorithm, browser, stock transaction, personal save or new feature was inspected or changed by this review.

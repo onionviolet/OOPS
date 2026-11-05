@@ -595,13 +595,32 @@ the books and marked (memory). Everything is a proposal.
 
 ## Notes and open questions
 
-- **Q1:** which card to deepen first. Claude's view: the Frontier, because
-  every life starts there and it carries the first slice.
-- **Q2:** do book-inspired worlds keep inspired-by names in the public
-  build, with direct adaptations in a private pack? (Proposed in the north
-  star.)
+- **Q1, current routing:** Frontier is an optional campaign, not every life's
+  required origin. PROJECT and the lead-life owner govern current LOTM-first/Klein
+  development and Harry's developer route (AD44); these cards select no new wave.
+- **Q2, existing direction (AD1):** public original/inspired content and private
+  direct-adaptation packs retain their established publication classes. Exact
+  source/licence/attribution questions stay with their source owners; this is
+  not a new acceptance question or a claim that renamed content is licensed.
 - More candidates for cards: Mother of Learning's time loop city, the
   Speedrunning multiverse, Warlock's World of Gods, Kairos's Greek-myth
   world, Gluttony's Paradise, an original world built around absences.
 
 Source-grounded institutions and price passes without a card here (2026-10-23, proposals, second-reader spot-checked): [A Soldier's Life](worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [TTKS books](worlds/TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [A Regressor's Tale](worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [Primordial Saint Sect](worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [Fanren simulator](worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md). None upgrades a dated grid cell.
+
+
+## Content reconciliation B348: complete cards, current direction and dated evidence
+
+All607 original lines were reviewed, including the complete format, nine cards, six growth profiles, shared-rule proposals and open questions. Preserve them as original/inspired design palettes, not nine implemented worlds or a source-qualified canon digest. Memory-labelled franchise rules and later linked institution passes retain their actual medium/edition/read-state; those linked bodies were not newly reviewed here. A source-inspired original card can deliberately differ, but must name that choice rather than silently claim exact source truth.
+
+The Frontier's dated notice already retires mandatory home/first-campaign wording, while Q1 still repeats every-life-starts-there. Q1 is updated to current routing: no required Frontier campaign, current LOTM-first/Klein and Harry developer order under AD44. Q2's public-original/private-direct-adaptation split is already governed by AD1; it is not a new unresolved vote or proof that naming substitutions alone establish publication permission. Exact old question wording is retained in amendments. The quiet ordinary-life fantasy remains available in every fitting world, rather than Frontier uniquely owning it.
+
+The strongest useful distinctions are meaningful local laws, real entry/carry, separate progression tracks and a different lived experience. Swap-test “only world” claims are rhetoric for this palette, not exclusive mechanism rights. Ordinary life, environmental survival, living power, role acting, danger in sleep, public ratings and repossessable support can each occur elsewhere. The shared card does not impose every dial, a fixed world temperament or a scalar threat/rank conversion. Current AD51 shares actual mechanisms with local differences; AD52 supports long quiet lives and compressed repeated activity without compulsory escalation.
+
+Several absolute/forced-cost summaries need source or original-premise qualification: no revival/help/use-grown skill in Gu Wilds, no safe divination/open power in Fog City, no safe sleep/escape or every-power-equals-flaw in Dreaming, everymachine's four gates and magic weakening in Salvage Reach, and all absences having priced bypasses. They are not automatically canon or universal project law. A real independent faculty, kind stranger, ordinary training, safe supported practice or repeatable/free restoration can work where its mechanism permits it. Actual source exceptions cannot be erased to keep a card neat; no new cost, flaw or suppression is imposed merely for balance.
+
+The Fog City opening/entry and pathway/digestion summaries are early proposals, not complete later-source mechanics or selected player knowledge. Current WER and lead-life owners distinguish canonical source arrival, neutral crossing, era, ordinary local life and developer replay. Foreknowledge does not automatically notify every hidden observer; actual detection has a channel and scope. The Gu heavens' moral/favor shorthand, feeding/refinement/killer-move claims and Shadow Slave stage/flaw rules likewise require the selected source rather than a memory shortcut. The actual world can differ from an institution's claimed law or public label.
+
+WER17 treats a hub as a world with its own entry answers, qualifying the card's hub-not-world phrasing. The Paradise charter, penalties, shop requirements and defection possibilities are proposals unless separately source-backed/selected; unknown is not permission to call an authored answer canon. Bay City's agency rates what it can know; an unmasking need not make every person everywhere omniscient. Salvage Reach's machine power/learning/AI independence can be rich without mandatory diminishing practice returns, daily upkeep or automatic rechanneling of foreign magic. Red Basin remains an optional original harsh premise, not new Frontier injury/death policy.
+
+The shared-rules examples do not automatically convert a carried skill into another world's levels, Gu ingredient or acted role. Retained learning, local execution, source/body, custody, recognition and actual converter need their own carriers. Entry picks are a possible authoring interface/premise, not compulsory free objects/perks on every arrival. A cap can be a local ordinary boundary without a guaranteed discoverable priced bypass, and a genuinely stronger means can bypass it for no invented tax. Ordinary aging/retirement/teaching are life possibilities, not mandatory phase locks. No card, source fact, law, world, entry picker, conversion, power, active lane or gameplay behavior was implemented or verified by this full palette review.

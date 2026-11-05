@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B390",
+  "title": "Kernel durability limits, full cheat dependency matrix and source evidence grades",
+  "at": "2026-11-05T03:58:13.813475+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/KERNEL_SPIKE_2026-10-14.md",
+      "ids": [
+        "ER14-F1–F8",
+        "K1–K5",
+        "15checks",
+        "M1–M4/C1–C14",
+        "A1–A3/openlimits"
+      ],
+      "classification": "Historical synthetic kernel, cheat dependency map and source-evidence catalog",
+      "owners": [
+        "docs/research/KERNEL_SPIKE_2026-10-14.md"
+      ],
+      "disposition": "Full106linesread. Kernelownsheap/RNG/receiptsbutdomaincopyper128duejobstransferbottleneck. Synthetic15checks excludepartitionlog andvaryingcontext; tinyhungernumericdifferencecounterexample notharmproof. Memorybackendidentitycachebugactuallyfoundthenfixed. Saveafterlivecommanddoesnotmeetnativewritebeforepublication;renamewithoutfsyncnotcrashdurability. Revisedtie/eventguardthrowvsactualremainingtimebehaviornotdropin. Bytecounts excludeorphans/oldgenerations;bridge/browser/nativeenvelopeomitted.",
+      "evidence": "Actual complete artifact text read, including all table cells, quoted boundaries and operation outcomes. Matrix arithmetic saved map-counts-b390.json. No raw source/script/benchmark/novel/private note/PDF/media/external page or current runtime newly accessed or executed.",
+      "reopen": "Select current owner/consumer and actual source/knowledge/clock/identity/transaction contract under PROJECT/AD36/39/42/44/51/52. No old stack migration, universal foundation or costs, real file action, private save, acquisition, message or agent permission renewed.",
+      "input_sha256": "4daae6bac1d2236e89a33cb319af8aab11be3ed36e11d1a0dfc5d49e9de354c6",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/CHEAT_ENGINE_CAPABILITY_MATRIX_2026-10-14.md",
+      "ids": [
+        "ER15-C01–C103",
+        "10foundationcolumns/1030cells",
+        "P1–P18",
+        "X1–X8",
+        "V1–V7",
+        "A1–A5/T1–T8",
+        "F1–F11"
+      ],
+      "classification": "Historical synthetic kernel, cheat dependency map and source-evidence catalog",
+      "owners": [
+        "docs/research/CHEAT_ENGINE_CAPABILITY_MATRIX_2026-10-14.md"
+      ],
+      "disposition": "Full254linesread, every1030N/H/-cell andsupportnote. Texttalliesmatch base49/all103foundationrows. Family/CT/lensvariantoverlap notindependentcheatcount; helpingfoundationnotuniversalprerequisite. Knownstreams/cursors notfuturekeysequence orfullnative replay; isolatedsnapshotnotwholebody/world fork. Hookvalidationnotexecutor; staticruleparamnotlivereload; bodycopy/sourcecopy notactualmeans/holder/fuel. Currentlaterentry/away/toolingqualifieshistoricalabsence, no newcodeaudit.",
+      "evidence": "Actual complete artifact text read, including all table cells, quoted boundaries and operation outcomes. Matrix arithmetic saved map-counts-b390.json. No raw source/script/benchmark/novel/private note/PDF/media/external page or current runtime newly accessed or executed.",
+      "reopen": "Select current owner/consumer and actual source/knowledge/clock/identity/transaction contract under PROJECT/AD36/39/42/44/51/52. No old stack migration, universal foundation or costs, real file action, private save, acquisition, message or agent permission renewed.",
+      "input_sha256": "4fd5793472801947bc9e398b51d645cce724883f3cbe8e77175bd3f6d6b9691a",
+      "input_lines": 254,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          254
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ENGINE_AWARE_CHEATS_SOURCES_2026-10-14.md",
+      "ids": [
+        "ER16-L1–L5",
+        "S1–S26",
+        "C1–C11",
+        "N1–N4/ECX24–27ER16",
+        "F1–F7",
+        "P1–P5/Q1–Q3"
+      ],
+      "classification": "Historical synthetic kernel, cheat dependency map and source-evidence catalog",
+      "owners": [
+        "docs/research/ENGINE_AWARE_CHEATS_SOURCES_2026-10-14.md"
+      ],
+      "disposition": "Full128linesread withtruncatedS11–17/conflict/findingsrecovered exact1–34/35–60/61–90/91–128. Sourceformat/editionandmemory distinctionspreserved; publisherexcerptnote notwholetext, primary/MTLconflictsunsettled, latermechanismnotearlyobserverknowledge. Inspect/invoke/override/define differentrights; restorevectornotsingleallstate; fictiondoesnotprovesoftwareadmin/seed/perf. CandidateECXnumberslocalcollisionsnotnewglobalcodes. No originalsource orPDFnewlyread.",
+      "evidence": "Actual complete artifact text read, including all table cells, quoted boundaries and operation outcomes. Matrix arithmetic saved map-counts-b390.json. No raw source/script/benchmark/novel/private note/PDF/media/external page or current runtime newly accessed or executed.",
+      "reopen": "Select current owner/consumer and actual source/knowledge/clock/identity/transaction contract under PROJECT/AD36/39/42/44/51/52. No old stack migration, universal foundation or costs, real file action, private save, acquisition, message or agent permission renewed.",
+      "input_sha256": "af91778b7936806a2beeab8285f06202967a9e3bc3b9892f5c74e4e05f5b04f6",
+      "input_lines": 128,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          128
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/KERNEL_SPIKE_2026-10-14.md",
+      "heading": "## Content reconciliation B390: exact evidence, current authority and retained opportunities",
+      "body": "The full kernel report, every F/K/M/C/A row and declared check exclusion were read. Preserve its useful failed target: per-completion whole actor-domain copying dominates128due settlements despite the heap. A fast idle invented tick does not replace current causal hooks, native inventory/calendar/publication or gameplay. Current-context Spring/home cannot reconstruct historical travel/season support. Incremental validation needs the actual reverse dependency closure so individually valid domains cannot hide a broken joined invariant.\n\nK1–K5 describe a fixture contract: changed tie-breaks, throw/rollback at an event guard, trusted handler writes and explicit snapshot save differ from current due/sequence order, returned unspent time and durable plan/write/publish. Command rollback and snapshot recovery work in that prototype; a failed later save still leaves newer unsaved live state, so this is not the game's atomic paid transaction. Backend identity/generation controls cached saved hashes. Manifest-last rename without fsync is not crash durability; byte totals exclude old/orphan generations and timing excludes serialization/hash/validation where stated.\n\nThe15 checks prove their generated data/cursors/receipts, with partition logs intentionally different and no arbitrary context equality. Tiny hunger floating-point drift is an asserted counterexample, not demonstrated gameplay damage or a mandate to change numerical balance. Historical versus rerun expansion timings differ without optimization, and kernel versus expansion schemas/semantics differ; neither headline ratio is a controlled replacement speedup. Core receipts/log retention and full actor copying remain prototype costs. Current [PROJECT](../../PROJECT.md) retires the one-realm milestone; AD39/51 keep present stack/useful seams and AD42 makes taste review optional. No copied code, benchmark, dependency, native scene or save was rerun/adopted here.",
+      "before_sha256": "4daae6bac1d2236e89a33cb319af8aab11be3ed36e11d1a0dfc5d49e9de354c6",
+      "after_sha256": "0685725fa265d7c490537df0390f9b68db956a2879d2f643871d7484b2647efc"
+    },
+    {
+      "path": "docs/research/CHEAT_ENGINE_CAPABILITY_MATRIX_2026-10-14.md",
+      "heading": "## Content reconciliation B390: exact evidence, current authority and retained opportunities",
+      "body": "The full254-line matrix and every103 main-row support note/1030 dependency cells were read. [Independent table arithmetic](../audits/reconciliation-2026-11-04/map-counts-b390.json) matches its49-base and103-all N/H tallies. Those are overlapping proposed family/lens/variant dependencies, not103 separate implemented powers, coverage percentages or an optimal build order. N/H is scoped to the stated variant; workers, structural chunking, full replay, LOD and arbitrary module replacement are not prerequisites to every appraisal, temporary faculty or small dream.\n\nRetain the actual distinctions across rows: exact stream/key/ordinal/salt/content versus a promised next outcome; current probability versus future key sequence; a source/code schema versus a real hook executor; scenario restoration versus whole native-body/world/custody restoration; knowledge versus field access; stable actor identity versus true/given/remembered name; copied memory versus resurrected person; leased source expiry versus permanent digestion; static parameter edit versus coexisting executable revision. A registered spawn, sampled function, cached view or marked parent ID does not implement those missing joins. F3/F8 already correct older blanket unseeded-native/no-enemy-restore/no-reload claims; preserve those source-window corrections without turning them into full replay or general hot reload.\n\nInformation lenses require currently held means, observer grade, source/asOf/cause and actual consumer output. Even hidden existence/count may be information. Cost/effect atomicity and safety recovery remain ordinary save integrity, never a paid cheat privilege. Source/counter, resource, body, target/contact, consent and jurisdiction determine powers on either side; do not turn an illustrative need into a universal balancing fee or weaken extraordinary means under AD38. Receipt deduplication and exact donor/recipient/copy identity need their selected mechanism, not a blanket no-repeat rule.\n\nER15-X and ER16-N candidate ECX numbers overlap later root numbers; retain source-local codes and namespaces rather than renumbering live rules from this matrix. Current PROJECT/AD44/51/52 govern selected delivery, activity and long-play scope. Later continuation, stock, seeded, native combat/MCP and away-bank receipts can qualify old absence only for their own actual inputs; this pass did not rescan runtime or claim they implement every row. Human review stays optional under AD42. No source fact, secret, future roll, runtime tool, card, worker or migration was executed here.",
+      "before_sha256": "4fd5793472801947bc9e398b51d645cce724883f3cbe8e77175bd3f6d6b9691a",
+      "after_sha256": "462be234d6f25b557a19c460a8a33850c8ab23e8e52a1991353105f908695dea"
+    },
+    {
+      "path": "docs/research/ENGINE_AWARE_CHEATS_SOURCES_2026-10-14.md",
+      "heading": "## Content reconciliation B390: exact evidence, current authority and retained opportunities",
+      "body": "All26 source rows,11 conflict rows, four candidate forms, seven findings and ranked/open lists were read, recovering truncated text in bounded chunks. SHOWN-through-notes, an actually read excerpt, a narrator/system/speaker claim, licensed adaptation marketing, secondary reference and MEMORY are different evidence routes. They are not promoted by a convincing analogy or repeated synopsis. No original chapter/PDF, private source notes, game/media or external page was newly read here; edition/authenticity and primary/MTL discrepancies retain their exact qualifications.\n\nPreserve useful distinctions without inventing one engine cosmology: inspection, invocation, override and definition are different rights; possession/rank does not grant every body attribute, active jurisdiction or diagnostic role. Knowledge, body, items, soul/conditions, relationships, RNG, clock and controller rights can reset or persist independently. Later source evidence does not backfill an early character's knowledge. An actor's clever explanation or absence of punishment is not proof of its underlying mechanism. Fictional exploits are authored semantic interactions, not reliance on accidental JS validation bugs.\n\nArchive reading, causal rewrite, narrative route intervention, memory retention, time-room support and branch selection require distinct operations. The catalog establishes no literal no-consume seed reading, performance instrumentation, LOD manager, perfect daily macro or century headless runner; those remain legitimate original ideas with actual consumers if selected. Perspective-to-world changes and fictional interface objects need real typed subject/command/custody effects, not cosmetic numbers; ordinary UI convenience remains available without supernatural permission. Edition-specific mocked/file puzzles imply no automatic host-file rights or unrelated-file mutation.\n\nSource-local ECX24–27-ER16 candidates do not renumber existing root/ER15 rows or become standing rules. The simulator and fourth-wall owners retain their palette routes. Current PROJECT/AD39/44/51/52 and actual support/costs govern implementation; unlimited/renewable/harsh variants remain possible under local mechanisms. AD42 makes director feedback optional. Historical source restrictions, era versions, recall limits and unknown costs are not universal caps, fees or a new source-collection wave.",
+      "before_sha256": "af91778b7936806a2beeab8285f06202967a9e3bc3b9892f5c74e4e05f5b04f6",
+      "after_sha256": "6a54cab196a0fdff02c048f60827445d5ab69835a92959d74f0537a68a5bfa02"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 629,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B388, continuous execution 2026-11-04 |",
+      "to": "| B390, continuous execution 2026-11-04 |",
+      "reason": "Advance live writeup pointer through recorded B390 full actual-content review."
+    }
+  ]
+}

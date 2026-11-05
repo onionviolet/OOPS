@@ -20,3 +20,8 @@
 | `craft_ready.save.txt` | 65,928 | Village | same, Old axe equipped, Rough wood log x2 | Woodworking > Items: **Processed rough wood** makeable (needs 1 log, success 30%); **Processed wood** not makeable (needs "Unknown raw wood" x0/1, the Wood log is not yet known) and every other visible row unavailable |
 
 Both: 0 kills, 0 deaths, Lv 0 hero named "Hero", Vivid scheme and Workspace layout by default.
+
+
+## Content reconciliation: crafting fixture provenance, 2026-11-04 (B356)
+
+The explicit availability edit stands in for field clearance; later dialogue/tool/gathering UI actions do not turn that prerequisite into naturally earned combat progress. The old fresh-hero death observation is one fixture-building route, not a universal impossibility of winning a first fight or clearing a field. Those outcomes are different and depend on actual equipment/play. Preserve both fixture states, byte counts and unknown-material projection as dated facts about the cited build. Four successful restores establish their supplied route, not all crafting/save compatibility, current UI readiness or natural acquisition. The historical serve/load/rebuild commands are provenance, not instructions executed here. No fixture, item, discovery or saved progress was changed.

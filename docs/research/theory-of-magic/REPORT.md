@@ -59,3 +59,10 @@ The 24 touches below are original YAIR ideas prompted by the inspected systems, 
 ## What was checked
 
 Read-only source passages cover research, selected early progression, jobs, furnishing, material-to-knowledge conversion, task stopping/resuming, Hall prestige and static UI. Both shallow copies are hashed in INTAKE.json. No game launch, build, dependency installation, browser play, save access, YAIR source edit or commit occurred. The complete game, exact open build, actual pacing and rendered UI remain unverified. Detailed bounds are in COVERAGE.json; future bounded proofs are in IMPLEMENTATION_PACKETS.md.
+
+
+## Content reconciliation B404: coverage map substance and exact proof boundaries
+
+The full map/report preserve study, scroll capacity, real furnishing/task effects, material-to-knowledge conversion and runner stop/resume as selected source-level contracts. Hall prestige preserves a lived character and supports character switching; it is not evidence that every prestige is forced rebirth. Community-source identity, redirected original repository and the unlocated user-open build remain distinct.594inventory files and loaded module lists do not prove every module initializes, all late progression or original-versus-community semantic parity. No current install, exact live version, offline numerical equivalence or rendered accessibility is certified. The24small touches are original OOPS proposals rather than donor features. Current opening priorities and AD52 qualify old preserve-vanilla-first/manual/tool/practice recommendations; actual superior means can replace ordinary work.
+
+Both complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.

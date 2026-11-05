@@ -67,3 +67,14 @@ The existing native gather loop has no goal-based stop policy in the inspected m
 | Need depletion, wear, hazards, rights, underground geology? | LATER, only for a chosen worthwhile decision. Current source absence is not a defect or a requirement to import another game's economy. |
 
 No new resource, technique, power, NPC, location, danger or rule was accepted or added. First useful implementation candidate, if later chosen, would preserve the current routine and add one useful method or inspection/consumer join, then prove its native behavior separately.
+
+
+## Content reconciliation B336: pursuit scope and evidence boundaries
+
+All69 original lines were reviewed, including the source reconstruction, numeric example, missing-mechanism limits, optional path, four involvement views and final questions. Preserve the bounded source chain: equipped pickaxe-category slot, skill-dependent gather cycle, actual ore/XP and a separate downstream use. Slot occupancy does not establish hardness, grade or durability rules, and source endpoints are not wall-clock throughput. A five-ore/coal ingot recipe is one consumer, not proof that every mined material smelts that way.
+
+The report's absence claims concern its selected revision/flow; they do not freshly prove no current finite reserves, hauling, helper or power consumer exists. A seam label, working face, sampled composition, access right, reachable volume, known reserves and held stock remain distinct facts. Unknown reserves should not become exact/infinite displayed stock. A simple face can support an actual fracture/method decision without underground voxel simulation, mandatory depletion, wear, collapse or a hauling tax.
+
+Retain the difference between sensing, reaching, extracting, carrying and using. A fitting stronger power can combine them when its actual laws permit, without a fabricated weakness. The Nell fixture is not an available NPC or agreement. A hauling instruction authorizes the selected unreserved stock and route; it does not also authorize extraction, purchase, smelting or unknown access. Delivery failure may leave genuine partial progress/custody, so settlement must follow actual stock rather than duplicate or erase it.
+
+The viewer's current-flow reconstruction and proposed comparisons remain fixtures; a recipe-target stop or displayed reserve is not native functionality until an actual instruction/reservation consumer exists. Changing view preserves committed progress/results; an explicit changed task follows the real operation. Current AD51/52 support one useful method or join through existing owners, with meaningful compression. No current runtime, native source tests, stock, power, map or mining behavior was established by this full document read.

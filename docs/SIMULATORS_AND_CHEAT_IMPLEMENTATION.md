@@ -110,9 +110,10 @@ Rule 6 applies: a simulation is a reading, and readings can be wrong.
 - **It knows what you know** by default. Sealed secrets you have not
   discovered are not in the model, so the dream can be confidently wrong
   about exactly the things that matter. A higher-grade simulator may model
-  some unknowns; if it does, it can become a discovery route, but its
-  output must not print a sealed truth outright (it can show "something
-  unexplained killed you here").
+  some unknowns. What it actually reveals follows its source and admitted
+  in-play discovery route: it may show an unexplained event or genuinely
+  reveal its cause where its means support that. Agent reports outside play
+  still preserve sealed truth; a generic simulator label grants no knowledge.
 - **Other cheats blur it.** Rivals with their own cheats, outliers (rule
   12) and divine interference appear as noise or as blank spots.
 - **Confidence is shown.** Each report states how sure it is, and why.
@@ -195,7 +196,8 @@ the discovery stages: seeing the teacher die at midnight is "sensed" or
 
 ### Implementation notes (proposal)
 
-- **Seeds decide the grade.** Audit D measured that reseeding only
+- **Means, knowledge and full execution scope decide fidelity.** Audit D’s
+  dated experiment measured that reseeding only
   `state.rng` changes nothing: a fork must also reseed `simulation.seed`
   and every `simulation.checks[*].rng` to get a different future.
   Guess and forecast grades reseed all of them; projection and true sight
@@ -410,8 +412,10 @@ the source set, innate gifts change only through big, costly events:
 - Its origin anchor restarts from transmigration and lets you rebuild your
   foundation (same book [0044][0108]).
 
-Proposal: under "anything is possible, reasonably", no talent kind is
-permanently locked. The rule is the cost:
+Proposal: under "anything is possible, reasonably", a talent’s ordinary
+change routes follow its actual carrier and mechanism. Stronger supported
+means can provide exceptions; any price follows the real operation rather
+than a compulsory tax on changing an innate faculty (AD5/AD38):
 
 | Talent kind | Rerolled by | Typical cost |
 |---|---|---|
@@ -813,7 +817,7 @@ the [cheat library](CHEAT_LIBRARY.md#implementation-proposal-from-reading-the-co
 | Rebate multiplier | Multiplier per person | Gifts, training, care for a target raise the return | People, gift and teach hooks |
 | Quest system with stakes | Contracts, penalties (years of life) | Accept, fulfil or fail on a deadline | Jobs and deadlines on the simulation clock |
 | Teach / deliver | Bestowed powers, copies back | Affection or contract gates a gift | Techniques, people, agreements |
-| Loop | Checkpoint, carry dials (mind, body, items, people) | Death or trigger resets to checkpoint | Heir pipeline (`buildLifeHeirSave`) and life record |
+| Loop | Checkpoint, carry dials (mind, body, items, people) | Death or actual selected trigger returns to the affected checkpoint scope | Selected continuation/checkpoint owner and real affected-state capture; heir succession and the lossy life record are distinct operations |
 | Foreknowledge | Knowledge stock with accuracy | Spent by acting on it; decays with divergence | Notebook and natural-course timeline |
 | Simulator | Charges, reports, keeps | This document | All three engines above |
 
@@ -857,3 +861,18 @@ The complete [cheat synthesis](audits/cheat-implementation-2026-10-10/REPORT.md#
 ## Fork-contract reconciliation B134, 2026-11-04
 
 The complete [purity reader](audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md#purity-report-reconciliation-b134-2026-11-04) supplies two useful qualifications to selected future simulator checks. Assert no real mutation/draw/publication from detached fork computation; an actual paid reading may still commit only its declared charge, admitted information and receipt. Different nonces must have appropriate isolated keys, but equal final outcomes can be valid, so unconditional outcome divergence is not an invariant. Deep-frozen tests cover only enrolled exercised paths, not early-return owners or all host callbacks. Preserve exact/current state, stream, definition, clock and policy identities; old scratch timing/365-day extrapolation is not a universal forecast horizon. No generic worker, all-owner fixture or native prediction was implemented or tested here.
+
+
+## Content reconciliation: simulator semantics and complete palette, 2026-11-04 (B368)
+
+The full859-line owner was read, including S1–S3, every mode/grade, T1–T50, SA1–SA19, SM1–SM26, all cheat-family rows and the existing B132/B134 notes. Those two notes remain accurate about their earlier limited reading; this batch supplies the full-owner review. Literary examples, chapter locators, whole-read claims, mirror availability and price/cap/clock descriptions remain attributed historical source receipts, not newly qualified primary text or current acquisition coverage. Later source owners can resolve a run-specific price/cap or continuity without turning one excerpt into a universal rule. The dated native-Math.random list, pure-helper scope and0.8/33second costs are not current source/performance proof.
+
+**Model and foresight:** coarse story model, detached real-engine execution, estimated native math, conditional forecast and genuine source-backed future sight are different evidence. Seed identity does not establish full world/input/definition/clock/policy/native/external coverage. A future can depend on hidden conditions even when a detached model is deterministic, while a genuinely stronger reading may see those conditions through its actual means. Code-driven fog or a proposed grade does not force that faculty to be inaccurate or conceal a truth its in-play discovery route legitimately reveals. Predictions, actual branches and real people require their actual ontology; an incomplete guessed character is not a preserved historical person. Source-faithful exceptional copying/embodiment remains possible.
+
+A real fork must isolate all relevant authoritative owners, context/callback references, random state, timers, stores and publication effects, not merely clone one root. Hash/freeze evidence covers exercised paths and stable serialized values; early returns and unenrolled hooks are not proof. The computation does not mutate live rewards/cargo/time, while a paid reading can separately commit its declared charge, newly admitted evidence and receipt through the actual guarded owner. Post-durable render failure cannot refund a committed reading. Monte Carlo trials need their actual sampling/independence/model scope: four failures in ten runs is an observed sample, not a guaranteed real-world probability, and different seeds can validly share an outcome. A report stamp alone cannot detect every semantic source change.
+
+**Talents and carry:** preserve action-biased, chance-only, selection-menu, per-run, per-lived-year and world-clock reward modes as source-specific possibilities. A dream’s realm, a real realm, remaining lifespan, lifespan cap, local annual clock, a receipt count and wall recharge are distinct quantities. A sampled outcome does not mint its own real stock or raise its own reward eligibility. Actual source-authorized item/body/person extraction can do more than a report, with its own costs and custody rather than a universal ban. Learned memory, observed understanding, execution, source faculty, gear and actual grants use distinct carriers; a stronger real grant need not force extra practice, degraded copies or an unearned penalty. Quiet lives, failures and repeated themes can have meaningful gains without compulsory diminishing returns, universal tragedy debt, prismatic first-only gates or a talent on every death.
+
+Retain useful ownership/equipping, cursed-control, biological versus copied talent, mood trigger, observer perception and old-rule/new-rule distinctions. Grade, rarity, strength, usefulness and body fit are independent. A trait’s plain text, rule-backed scope and actual mechanism need not collapse into tag matching; a name or source list is not a functioning consumer. Descendants do not automatically inherit a fantasy trait algorithm or copied personal identity. Personal mood/drift examples concern the fictional character’s supported life rather than inferred facts about Weibao. Fixed innate/world limits describe ordinary mechanisms and can have actual stronger exceptions without a mandatory price tax.
+
+**Execution:** preserve the actual chosen cycle/attempt and affected history; retrying one command is not another deliberate run. Heir succession, checkpoint rewind, reciprocal paused-life resume and backup restore remain distinct, and a lossy life record cannot reconstruct executable state. Offline dream/refill/settlement needs the actual selected clock/means/bank policy, not independent credit for each frozen life. A boundary/worker budget protects responsiveness while retaining exact unspent work; it does not delete earned simulation time or justify runaway live mutation. The first Village dream, new optional state shape, SA schema and broad family mappings remain proposals under current priorities/AD51. No new simulator, forecast, source read, native replay, source acquisition, schema, reward, clock, build or gameplay test was performed here.

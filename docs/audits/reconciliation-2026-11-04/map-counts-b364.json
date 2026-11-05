@@ -1,0 +1,16 @@
+{
+  "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/COVERAGE.json",
+  "comparison": "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md",
+  "worlds": 72,
+  "cells": 864,
+  "notes": 37,
+  "matrix_only": 35,
+  "status_counts": {
+    "U": 500,
+    "L": 90,
+    "P": 230,
+    "B": 44
+  },
+  "mismatches": [],
+  "scope": "All actual cells read and representation equality checked; no primary-source or runtime evidence."
+}

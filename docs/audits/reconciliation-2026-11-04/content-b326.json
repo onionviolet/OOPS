@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "batch": "B326",
+  "title": "Local-model and retrieval reports: tuned recall, semantic gaps and historical installer state",
+  "at": "2026-11-05T01:53:17.832947+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "F1/O1sevenmodels",
+        "O2/A1",
+        "Round2sixformatruns/F2–5/O3–8"
+      ],
+      "classification": "Historical model comparison and measured decision-format sample; later stalled upgrade and untested speed extrapolations",
+      "owners": [
+        "docs/research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Full actual body reviewed; preserve measured/proposed/source/operational states and later corrections separately. Fold concrete evidence and protocol/authority limits into existing owner without current machine/account inspection or executing archived tooling commands.",
+      "evidence": "Localreportcontentonly; all timing/quality/memory/billing/provider/source/installation statements retain their historical scope. Linkedmodeloutputs,privatechapters/configs/statuses/tests/externalpages notreadbyproxy.",
+      "reopen": "Selectedactualtool/researchrun requirescurrentinputs/live stateandcurrentauthorization. No model/providerbenchmark, readingpipelineadoption, paid call, acquisition, deletion, restart, install orgameplaychange follows fromthisreport.",
+      "input_sha256": "957074ebd6f826a9c939e4caa611b10e83f76158cd794bc368d52672362c33e4",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md",
+      "ids": [
+        "A1–3/F1",
+        "4fixtures/baseline",
+        "31partialfiles cleanup",
+        "2finishers/profilepromotion",
+        "cold/warm scene samples"
+      ],
+      "classification": "Historical authorized local setup and cleanup, with pending-state prose later superseded; no current daemon evidence",
+      "owners": [
+        "docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md"
+      ],
+      "disposition": "Full actual body reviewed; preserve measured/proposed/source/operational states and later corrections separately. Fold concrete evidence and protocol/authority limits into existing owner without current machine/account inspection or executing archived tooling commands.",
+      "evidence": "Localreportcontentonly; all timing/quality/memory/billing/provider/source/installation statements retain their historical scope. Linkedmodeloutputs,privatechapters/configs/statuses/tests/externalpages notreadbyproxy.",
+      "reopen": "Selectedactualtool/researchrun requirescurrentinputs/live stateandcurrentauthorization. No model/providerbenchmark, readingpipelineadoption, paid call, acquisition, deletion, restart, install orgameplaychange follows fromthisreport.",
+      "input_sha256": "25290d46e5561801a873111bfe4b0dd1e8e4a05428a080f80d60f0b2bf863757",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/LOCAL_AI_READER_TEST_2026-10-27.md",
+      "ids": [
+        "Round1sixruns/splitA–B",
+        "Round2sevenruns/6Qwen",
+        "memory/dshsmoke",
+        "11playgaprows/S2a–e",
+        "L1–10/recommendedsplit/A1–6/gaps"
+      ],
+      "classification": "Measured two-shard tuned extraction experiment; census-name recall not semantic source qualification or play readiness",
+      "owners": [
+        "docs/research/LOCAL_AI_READER_TEST_2026-10-27.md"
+      ],
+      "disposition": "Full actual body reviewed; preserve measured/proposed/source/operational states and later corrections separately. Fold concrete evidence and protocol/authority limits into existing owner without current machine/account inspection or executing archived tooling commands.",
+      "evidence": "Localreportcontentonly; all timing/quality/memory/billing/provider/source/installation statements retain their historical scope. Linkedmodeloutputs,privatechapters/configs/statuses/tests/externalpages notreadbyproxy.",
+      "reopen": "Selectedactualtool/researchrun requirescurrentinputs/live stateandcurrentauthorization. No model/providerbenchmark, readingpipelineadoption, paid call, acquisition, deletion, restart, install orgameplaychange follows fromthisreport.",
+      "input_sha256": "22c440d3a3d1a4ee02e8a1b93b729ed84808486162c06a16ea5350b3b40174bb",
+      "input_lines": 202,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          202
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ZLIBRARY_IMPROVEMENTS_REVIEW_2026-10-11.md",
+      "ids": [
+        "O1–5",
+        "2externalcomparisons",
+        "256priorchecks",
+        "later0.3.0statuspointer"
+      ],
+      "classification": "Pre-upgrade source/tool review with explicit later implementation supersession; no current connectivity/library claim",
+      "owners": [
+        "docs/research/ZLIBRARY_IMPROVEMENTS_REVIEW_2026-10-11.md"
+      ],
+      "disposition": "Full actual body reviewed; preserve measured/proposed/source/operational states and later corrections separately. Fold concrete evidence and protocol/authority limits into existing owner without current machine/account inspection or executing archived tooling commands.",
+      "evidence": "Localreportcontentonly; all timing/quality/memory/billing/provider/source/installation statements retain their historical scope. Linkedmodeloutputs,privatechapters/configs/statuses/tests/externalpages notreadbyproxy.",
+      "reopen": "Selectedactualtool/researchrun requirescurrentinputs/live stateandcurrentauthorization. No model/providerbenchmark, readingpipelineadoption, paid call, acquisition, deletion, restart, install orgameplaychange follows fromthisreport.",
+      "input_sha256": "e8c96a574294e3a2143b1eef8053dabbedd015ec4cd339e61bcb0bdd1a62f6eb",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B326: measured scope, later status and current ownership",
+      "body": "The full comparison and round2 were content-reviewed. Initial no-download/no-trial describes the first pass; later decision-format measurements and upgrade records qualify that status for their named inputs. Hardware, model tags, sizes, digests, loaded-state and official-successor searches are dated observations, not today's installed models or current product availability. No local endpoint, machine setting, publisher page or model was queried here.\n\nThe strongest measured distinction is output format on one tiny synthetic choice prompt, with two warm runs and separate cold load. Short output can reduce latency while changing the decision. Thousands of decisions per hour is a throughput extrapolation, not a measured useful playthrough or better action quality. A lower active-parameter count and estimated weight traffic do not prove the35B model writes faster on the actual runner; F3's affirmative headline is qualified by its own unmeasured estimate. Output length, prefill, caching, backend, loaded memory and task quality all matter. Prefix timing differences support the observed experiment, not automatic exact cache attribution or general battery performance.\n\nKeep typed proposals separate from deterministic game authority and actor-visible context. JSON validity is not feasible action, correct source fact or durable effect. A one-token parser needs an actual complete option encoding and a stale/invalid-choice refusal; a numeric token or probability is not an explanation, calibrated confidence or evidence the entire action space was considered. Log-probability support and parallel inference remain untested suggestions here. A sampled reason can change selection and cannot be assumed equivalent to extended thinking.\n\nRound2 F5 supersedes the earlier upgrade report's running/pending description at its date: the installer had stalled and profiles were not checked/promoted. Its waits-for-yes wording does not erase the earlier recorded upgrade authorization, but neither old record authorizes repairs, downloads or deletion during this documentation task. Current continuation would need actual terminal/live handle and task scope, rather than restarting from a stale status file. Uncensored behavior, accuracy, voice, speed and reasoning remain independent qualities; this narrow test does not cancel the user's stated preference. No profile, model, runtime adapter, paid route, sleep/thermal setting or benchmark was changed by this review.",
+      "before_sha256": "957074ebd6f826a9c939e4caa611b10e83f76158cd794bc368d52672362c33e4",
+      "after_sha256": "3d0ff8bf2e9a7b78d9e191a52b6823a5b6d86926fb375e298fb3e8a8f7c33d0c"
+    },
+    {
+      "path": "docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md",
+      "heading": "## Content reconciliation B326: measured scope, later status and current ownership",
+      "body": "All upgrade, cleanup, speed and evidence sections were content-reviewed. Preserve the exact old authorization and narrowly recorded31partial-file cleanup, including sparse allocated bytes versus apparent size. It does not authorize deleting this project's records, current weights or other shared files. The pending old-model retirement remains an unverified historical operation here. No process, local config, digest, download or deletion was inspected or executed by this review.\n\nThe later model-considerations round reports the original installer stalled. That qualifies this report's running/waiting statuses at its date without proving present task state, completed checks or a current loaded model. A launchd name, PID written in a file or past poll is not a verified live handle. The two finishers, retained fallback, profile promotion and independent speed cleanup are different operations; do not infer one completed because another smoke response passed.\n\nFour short synthetic fixtures establish their own arithmetic/stock/intent/dialogue slice. They do not certify long-context extraction, source fidelity, tool/image support, game authority or director voice. The cold/warm timings include different output lengths and unisolated machine work; the reported load reduction is not a controlled threefold decode speedup. Downloaded precision, generation family and reduced refusal are distinct, and profile choice cannot be decided from size alone. Keep the original exact digest evidence when comparing. This local-tool report supplies no newly verified game integration, current installation or personal-save behavior.",
+      "before_sha256": "25290d46e5561801a873111bfe4b0dd1e8e4a05428a080f80d60f0b2bf863757",
+      "after_sha256": "7465e31220dd4ea30a69a84df9bfc8fb9272132cbeef1fb88222d028ce9dbe27"
+    },
+    {
+      "path": "docs/research/LOCAL_AI_READER_TEST_2026-10-27.md",
+      "heading": "## Content reconciliation B326: measured scope, later status and current ownership",
+      "body": "The full202-line report, all result/gap tables, stage2 proposals, ten local-lane guidelines and next steps were content-reviewed. Preserve the distinction between the unsuccessful whole-job prompt and the improved narrower census lane. Six Qwen runs vary seeds/temperature on the same two tuned shards; the additional Q8 run is separate. Their87–93% recall is against the Haiku name baseline, not all true source facts. Extra correct rows and baseline omissions can coexist with misses and generic noise. A B lint/name grade with defaults is not a complete scene/rule/people read or a ready-to-play source.\n\nThe report explicitly admits tuning-set reuse, small precision samples, unpolled per-run memory and no currentv3 cost measurement. Name accuracy1.0 proves the name appeared at the cited location under that check, not that every amount, relation, agency, claimant or statement is supported there. Moving a locator to the first matching name can fix syntax while leaving the claim unsupported or binding a different mention. Alias merging and slug rebuilding need actual referent/provenance, not a shared string alone. A script parses numerals only within its supported unit/context rules; a number present in source is not automatically the claimed price,cap or rate.\n\nS2-a/b's derivations are proposals. A dialogue speaker may attribute a belief without establishing every extracted fact as their claim. Presence is not necessarily touchedByLead, co-presence is not control, and a scene place/time frame does not establish a general NPC schedule or goal outside the shown span. Derived data is free of model tokens, not free of semantic validation. Keep causal/source-owned observations separate from hypothetical routine continuation.\n\nOptions/needs, voice/procedure and off-lead life can contain source questions as well as design work; they are not categorically non-reading problems. Sourced alternatives need actual source context, while original inferred choices remain labeled proposals with actual means. The proposed at-least-two-alternatives, mention threshold and whereabouts counts are not new universal play-readiness gates. An actual constrained scene may support fewer meaningful alternatives, and a selected developer route does not require every cast member's autonomous life. Current source/lead owners, AD51 and relevant AD43 proof govern the chosen consumer; later pipelines and reading approvals do not adopt this entire stage2 plan automatically.\n\nA script/shared-ID join covering16/23 or9/13 scene references still leaves unresolved identities. No exact cursor/coverage completeness follows from its larger row count. Preserve useful mundane texture without treating every noun as a live item, character faculty or required quest. Haiku is a comparison baseline with explicit flaws, not truth, and small unsupported-note samples do not estimate all-domain hallucination rates.\n\nThe Q8 memory/swap snapshot and trivial dshOK call retain their actual scope. They do not establish current pressure, useful full-reader overhead, all-model performance or a global prohibition on a model family. One-model/small-context/unload policies are suggested resource choices for this experiment; nothing was unloaded now. Current tool/runtime and account policies govern a selected run, and old credit/billing/expiry/CLI-route statements are not verified account state or permission to spend. No source text was submitted, model invoked, script changed, paid request made, credential configured, reader protocol modified or game built by this document review.",
+      "before_sha256": "22c440d3a3d1a4ee02e8a1b93b729ed84808486162c06a16ea5350b3b40174bb",
+      "after_sha256": "c8f582375bc92c1089ed671b5b13867c873c88cd338454d22526dcc7721c0b7b"
+    },
+    {
+      "path": "docs/research/ZLIBRARY_IMPROVEMENTS_REVIEW_2026-10-11.md",
+      "heading": "## Content reconciliation B326: measured scope, later status and current ownership",
+      "body": "All O1–O5, external comparisons and verification limits were content-reviewed. The opening0.3.0 pointer already supersedes the old proposal-only state for its later authorized implementation; it does not establish today's running service, registrations, session or complete functionality. The old absent9050listener proved that default local proxy was unavailable then, not a remote outage or present access block. No socket, account, session, tool registry or external page was checked here.\n\nRetain the useful specific improvements: structured safe error stage/reason, exact chapter/member locators, uncertain edition/title ownership matching, paragraph-preserving extraction with skipped/empty warnings, and repeatable output/source/version binding. Successful parsing, source/output hashes, cache retry and a complete spine index do not establish full semantic reading, translation fidelity or complete image-only content. A wrong same-title/author/volume match must remain uncertain rather than authorize duplicate acquisition.\n\nThe six-tool inventory and regex/UTF8/existing-destination behavior are old source inspection at the recorded fork revision, not current code verification. Prior256-test/packaging evidence belongs to its setup and later upgrade receipts; no new test or remote download was run by this review. A documentation comparison to another MCP does not replace the incumbent fork or select an install. No book, source/library file, account/configuration, acquisition helper or gameplay was changed.",
+      "before_sha256": "e8c96a574294e3a2143b1eef8053dabbedd015ec4cd339e61bcb0bdd1a62f6eb",
+      "after_sha256": "bd50d85f95736f871b54f1dc0dcbaab95c578da60b2b4f32ec5446280016af90"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 773,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B319, continuous execution 2026-11-04 |",
+      "to": "| B326, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous resume pointer through B326; retain all prior input and pointer history."
+    }
+  ]
+}

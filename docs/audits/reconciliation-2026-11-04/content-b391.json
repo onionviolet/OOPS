@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "batch": "B391",
+  "title": "All comic stress mappings and nineteen idle/simulation peer profiles",
+  "at": "2026-11-05T04:00:41.827095+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md",
+      "ids": [
+        "ER17-F1–F11",
+        "CL1–CL18",
+        "CK1–CK22",
+        "CA1–CA10",
+        "S1–S5",
+        "M1/M2",
+        "N1–N6",
+        "P1–P5"
+      ],
+      "classification": "Historical comic requirements/source-fit audit with two bounded numeric/schema probes",
+      "owners": [
+        "docs/research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md"
+      ],
+      "disposition": "Read all224lines/all50matrixrows and everydependency/source/stress cell. Predictedfail/workloadnotbenchmarks exceptspecifiedM1/M2schema/numeric/sizecases. Invalidexactfieldsnotproofcannotextend; historicalrejectrevisionnotmigration. Sourcekernel/safeinteger/finitefloat/cosmicreachdifferentlimits. Titlesnotexclusiveoffice/audience/credential; instanceparentnotcounterpartidentity; lossybio/lognotasoftruth/claimarchive. Preserve sourceauthority/observer/date/custody/phase/event distinction and actual selectiveinvalidation, not universalallworldframework.",
+      "evidence": "Fulltext actualread1–80/81–155/156–224. Nooriginalcomic/privateSECRETS/currentenginecode/sourceprobe/import/benchmark/newbrowser. Pinnedsource/oldtwoprobeclaimsretainoriginalproof; ordinaryUI/recapnotpaidcheat.",
+      "reopen": "Use selected current world/source/consumer under PROJECT/AD39/42/44/51/52. Reproduceactualnativecase beforecurrentdefectclaim; sourceauditcurrentcounts/activeKlanesunknown, no newcrossover/retcon/numericlibrary adoption.",
+      "input_sha256": "0547438c4f34af1d3ae22952fb56407bb65e12279557bb855a5ce953aa52a4d1",
+      "input_lines": 224,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          224
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/IDLE_AND_SIM_ENGINE_REFERENCES_2026-10-14.md",
+      "ids": [
+        "ER4-F1–F6",
+        "G1–G19/sevendimensions",
+        "L1–L9",
+        "N1–N8",
+        "Q1/Q2"
+      ],
+      "classification": "Nineteen historical idle/simulation peer profiles and scoped adoption lessons",
+      "owners": [
+        "docs/research/IDLE_AND_SIM_ENGINE_REFERENCES_2026-10-14.md"
+      ],
+      "disposition": "Read full333lines/all19profiles ×7dimensions and everylesson/newangle. Preserve peer version/mirror/API/developer/closed-source gaps notconvertedfolklore. Clockreplay, bankedfutureplay, independentbulk rates, game-timeactualization, workeralarms notCPUisolation. Savecodecmarkers≠gameplaymigration/continuation/RNG; range≠precision/conservation. Sparseinteraction/phase/cache/identitypromotion/teardown/contracts survive without copyinghost or choosingofflinepolicy. Retiredmilestone/currentbankdirectionqualifiesoldparkrows.",
+      "evidence": "Actual1–100/101–180/181–260/261–333read. No source repository, externalclaims/license, downloadedsubset, games/currentAPI or performance measured/retrieved. Sourceability/name/publicationremainasOct14report.",
+      "reopen": "Select actual current consumer and sourceversion/means/clock/publication/restore invariants. No new sourcecollection, tool/library, model, broadsource verification or benchmark is authorized by catalog completion.",
+      "input_sha256": "0275fb895e4b8526f7bd18a315b73ad8ab313b9a9cd3c8785d0c0f70eae7e0c0",
+      "input_lines": 333,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          333
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md",
+      "heading": "## Content reconciliation B391: actual probe scope and causal comic contracts",
+      "body": "All50 CL/CK/CA rows, every F/S/N/P finding and both probe descriptions were read. Synthetic workloads and predicted “fail” labels are requirements analysis, not executed timing/gameplay tests. M1/M2 establish only their specified schema rejection, model byte count and selected arithmetic results. JSON rendering a non-finite result as null does not make it admissible native save state. A5percent damage floor cannot express a source-authored unreachable body, and a1e308 numeric overflow is different from ordinary finite tier handling. Reach/contact/penetration/authority/counter/collateral semantics precede a choice of numeric magnitude; no universal combat abstraction or ceiling is adopted.\n\nPreserve the concrete causal contracts across the50 rows: instance namespace reaches people/bodies/gear/claims/jobs/knowledge/RNG, not just a site ID; a counterpart link is not an instance-parent link or name match; a life flag is not revival custody/controller/estate reconciliation. Actor-local title grants do not establish an exclusive/shared office, vacancy, claimants or former-holder history. Sponsor audience, attention allocation, reputation and spendable payment have different owners; repeated tie-ins are not automatically new viewers or six rewards. One cross-world event needs its chosen owner/phase/acknowledgments and recoverable assets, not several unrelated local occurrences.\n\nTrue-in-world date, recorded/revised date and a witness's learned-at/belief version are distinct. A retcon needs selected dependency/grandfather/refund/recompute semantics before invalidating work or granting a payout. A lossy biography, evicted DOM rows or bounded latest knowledge cannot reconstruct that history. Recaps, stable ordinary records and accessible interfaces need not require a supernatural cheat; unseen minds/identities still require actual means. UI skin/caption/SFX does not change physical material, load support or target law without an actual command. Game elapsed time, beat order and reading pace remain separate.\n\nA512-boundary call stop is not512actors or an erroneous partial result; retained unspent time must be resumed under actual choice/event barriers. Abstract-to-detailed promotion must retain known stock, obligations and prior consequences. Old active/absent K-lane statements, source counts, clock assumptions and source-level gaps are dated. Current [PROJECT](../../PROJECT.md), AD39/44/51/52 govern build order and supported abstraction, with AD42 keeping human taste optional. No comic canon, private truth, current engine, imported save, browser or stress workload was newly verified or launched.",
+      "before_sha256": "0547438c4f34af1d3ae22952fb56407bb65e12279557bb855a5ce953aa52a4d1",
+      "after_sha256": "4238fe64f40c2eaade069bfcde358af5f2312eef778e0a2465db6baa488a78fc"
+    },
+    {
+      "path": "docs/research/IDLE_AND_SIM_ENGINE_REFERENCES_2026-10-14.md",
+      "heading": "## Content reconciliation B391: distinct peer policies and current project direction",
+      "body": "The full333-line survey, all19 profiles/seven dimensions, nine lessons and eight proposed additions were read. Source/edition and route matter: an API declaration is not executable Melvor runtime, a mod scheduler description is not a current vanilla implementation, an identified mirror is not the official current release, and developer performance reports are not this lane's measurements. Unknown closed-engine cells stay unknown rather than acquiring common folklore. Original/sequel, browser/mobile and fork/live-release distinctions remain explicit.\n\nKeep the peer mechanisms distinct. Bounded/coarser replay, threshold-qualified subsystem formulas, a bank spent through faster future play, offscreen in-game map actualization and callback-dependent freeze do different work. Worker timing can still run simulation/DOM on the page thread. In-game absence is not wall-clock closed-app reward, and accelerated client installation is not catch-up. No foreign tick/cap/rate/skip method changes OOPS clock policy. Current AD52 requires real means, workers/support, costs, events and retained choices for compression, while current bank/absence owners qualify the old parked-bank recommendation. Neither a current income snapshot nor a higherdt proves consequential equivalence.\n\nSave codec/version markers, gameplay migration, RNG cursor/order, native actor reconstruction and observable future continuation are different. A seed field or equal current totals does not prove the same next outcomes. Numeric range, smallest meaningful delta and exact conserved money/stock/XP need their own domain contract; a larger-magnitude number or display format is not universal precision. Relevance indexes, stable nonurgent phase distribution and caches can reduce work without changing hard due order. Coarse actors/stock/promise history must materialize without convenient rerolls, identity reassignment or duplication.\n\nUseful retained lessons are committed view batching/listener teardown, restore dependency order before observations, selected continuation fingerprints, bounded catch-up presentation with causal receipts, and scan-versus-index equivalence. Several visible desktop panels remain independent; none requires importing a single-tab/global-reactivity host. Post-load caches do not grant rewards, draws or time. Exact/statistical/intentionally different adapters declare their actual boundary instead of calling all fast-forward equivalent. Current [PROJECT](../../PROJECT.md) retires the one-realm milestone and keeps Electron/web, LOTM-first/HP-alongside; AD42/51 qualify old human and foundation gates. No source game, license, current API, package, runtime, new policy or benchmark was fetched/executed here.",
+      "before_sha256": "0275fb895e4b8526f7bd18a315b73ad8ab313b9a9cd3c8785d0c0f70eae7e0c0",
+      "after_sha256": "5d7d88909e1fba84d1dd6e07dcc785d0901f66bb0f6ced100a8f91297a809658"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 627
+}

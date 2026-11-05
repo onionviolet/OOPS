@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B337",
+  "title": "Full crafting palette: local laws, later lane corrections and shared ownership without one chemistry",
+  "at": "2026-11-05T02:12:27.361199+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "CO1–10/FE1–7/MK1–6/IT1–5/WL1–8/CT1–6",
+        "PAU1–5/EC1–5/SO1–4/TL1–4",
+        "RX1–4/KN1–4/SC1–3/RS1–4/PG1–4/CL1–3/XD1–6/NP1–3/PR1–2",
+        "CM1–16/PCX1–10/SU1–10/OA1–6/II1–7/AB1–7",
+        "CR5corrections/CR6/W1–7/R1–3/code map"
+      ],
+      "classification": "Full three-round owner palette; later internal corrections and current rule qualifications",
+      "owners": [
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/MAKING_RULES.md",
+        "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Preserve complete code families and lane history; fold local-law exceptions, semantic source limits, shared seam without global resolver and later AD51/52 priorities. Old milestone and build order no longer gate current work.",
+      "evidence": "Whole local owner body read through its final code map/top picks. All source/merge/UI/lane receipts retain their original dates; no current runtime or franchise source inspection.",
+      "reopen": "For selected crafting behavior trace real input/batch/process/product/knowledge/consumer and local law. No palette-wide implementation or mandatory registry/exposure rollout.",
+      "input_sha256": "007cbacb32c2c329a74486c21d781829f6a40a32388c93485d25b16dd7638be5",
+      "input_lines": 466,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          466
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B337: whole palette, later corrections and local mechanisms",
+      "body": "The complete original466-line owner was reviewed: all first-round tables, Round2, all comic/making/abstraction rows, CR5/CR6 returns and the entire maker-arts/weaponcraft fold and code map. Retain every local code and original lane locator. The prefix rename means the W3 row's residual “CX rows” refers to PCX making lenses here, not the registered complexity-guardrail family. Crafting AB1–AB7, W4 AB1–AB12, comic codes and W7 carryover CR rows remain source-local families, not interchangeable registered rules.\n\nThe code-state paragraph already contains both a later merged P2 statement and its original not-merged note. The original note is history, not a current merge conflict. “Nothing below implemented” and fixed-ingredient/observer/exposure absence claims describe the inspected revision; this read does not establish their present truth or every later linked lane's runtime state. The one-prestige milestone in PR1 is superseded by October24 direction. The successive mixing→sandbox→toxicity, codex→poison, registry-first and braces-first orders are proposals with different selected consumers, not cumulative mandatory prerequisites. Current LOTM-first/Harry developer priorities and AD51 govern actual selection.\n\nPreserve the five-record distinction and one authoritative identity/stock path, without requiring every world to use one chemistry. OA1/II4's broad making contract is a useful shared seam where actual operations fit; composition, exact-formula identity, budget/work, pattern execution, fabrication and a willing living object can require different local consumers. AD46/AD51 qualify the claim that the shared resolver always stays the same. A second world validates the first useful seam rather than being its prerequisite. Neither all seven AB adapters nor a global material registry/exposure ledger is required before every crafting behavior. Narrow registered owners remain the implementation route.\n\nCO1's fractional neutralization, CO3's diminishing returns/impurity, FE3's always-available tasting and FE5's useful failed product are possible local laws. A real universal cure can work where its mechanism supports it; a failure may instead yield waste, no output or actual loss. A body may lack a mouth, be unable to safely touch a material, or require preparation; tasting is not a universal discovery control. A reliable diagnosis or inherited/learned method can bypass repeated personal experimentation. CO4 already admits worlds without tolerance. Do not add toxicity, upkeep, a hidden danger roll, a twentieth-vial penalty or guaranteed failure residue just to balance useful power.\n\nThe world/comic rows need their selected source, edition and continuity before factual use. CR5's later corrections qualify the earlier single-source and uniqueness shortcuts and separate licence, displayed grade and actual strength. Exact identity, rare knowledge, a lost recipe, scarce material and a genuinely unique instance are different predicates. A named franchise row is not complete canon: the Fullmetal Alchemist “type conservation” summary, LOTM benefit/digestion phrasing, Devil Fruit ordinary/exception/body conditions and broad Demon Slayer/JJK/Fate grouping need actual source qualification at the chosen operation. Current selected D&D contract controls over a bare2024 label. No linked novel, comic, source check or modern rules text was reopened here.\n\nA perfect-craft power changes exactly the operation its law covers; it can include more than precision if its actual scope does. Duplication or creation can legitimately add stock without a compulsory compensating cost, quota or economy tax. Conservation checks distinguish an authored creation route from accidental duplicate publication. TL3 fuzzing should preserve save/stock integrity under AD22, not prohibit a supported profitable loop or require every ingredient to be economically useful. Preview, actual assay, developer sandbox and an in-world analysis faculty have different spending and knowledge scopes. Existing sealing policy still applies to reports and debug displays shown outside their discovery route; a developer label alone does not authorize disclosure to the player.\n\nShared rules for NPCs do not imply identical resources, competence, error rates or costs. The actual maker, teacher, buyer, source and recipient determine learning, property and payment. A staff member need not make mistakes or require loyalty bookkeeping merely because PAU3 mentions them. A gift can affect a real mood or relationship through a supported mechanism without turning preference into consent or permanent allegiance. A reputation, inherited brand, notebook, muscle memory, earned item and bond have distinct carrier/continuation rules. IT3's awakened object also has its own agency, rather than being only inventory.\n\nCurrent AD52 qualifies FE6/OA6's manual-versus-idle split: supported routines can discover/refine, and detailed clicking earns no blanket precision bonus. Real extra control can still change an actual process variable and outcome. Standing orders may substitute ingredients, route low-grade output or sell goods where the player actually instructed that policy; the default no-silent-substitution rule protects the agreed work, not a global ban. Partial processing, repeated periods, interruptions, support loss, custody and delayed clocks must preserve settled work/results rather than refunding a whole chain or publishing it twice.\n\nDisclosure is observer-specific: product keys, sorting, counts, labels, signature traces and codex percentages can leak unknown truth even when prose is masked. A lens can genuinely know exact truth when its source supports it; it need not be arbitrarily noisy, and public canon is distinct from altered sealed truth. A new market need not always start cheap or develop a copycat; demand, competition and suspicion require actual agents/causes. Current desktop direction qualifies CR6's old1366×768/1600×1000 proof targets. AD42 leaves generic human taste review optional; actual runtime/persistence/source gaps remain explicit. No family, registry, batch, world law, crafting behavior, build, primary-source reading or browser result was newly implemented or verified by this review.",
+      "before_sha256": "007cbacb32c2c329a74486c21d781829f6a40a32388c93485d25b16dd7638be5",
+      "after_sha256": "c1e1ce861fd2dc889c3b74a73f04bd5e7120b9da2d37b83d911d5a08cffeef05"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 752
+}

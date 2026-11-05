@@ -21,3 +21,10 @@ Electron app optimization was checked and left closed: its last turn reports tra
 - Existing Codex complementary-journeys and overarching-reconciliation chats are active. Their runtime and document reservations were explicitly excluded from Claude takeover.
 - Status was verified through Claude native app accessibility state and corroborated with current local Claude project session messages. Parent-reported test counts are not controller-executed tests; no combined gameplay-delivery claim is made here.
 - Continuation prompts require short owner-linked briefs, finite units, exact writer transfer, no full transcript copying and no duplicate workers. Existing action limits persist. Stop old coordinator writes after verified transfer; unfinished work belongs to the new owner.
+
+
+## Content reconciliation: coordination handoff evidence, 2026-11-04 (B357)
+
+C1–C5 are October 23 observations, not current process state or new chat instructions. Preserve confirmed startup versus parent-reported startup, explicit relinquishment and merely queued/unconfirmed successor separately. C4’s requested successor had not been verified here; C2’s actual writer transfer does not extend to unrelated Codex reservations. The five linked domain records own their implementation and final gates, while this controller record establishes only its bounded coordination actions.
+
+Reported test counts are not controller-executed checks, and a visibly Running app row does not establish a completed playable delivery. The limited source-locator reader does not qualify an entire novel or authorize acquisition. The old Electron diagnosis is closed historical evidence, not a reason to reopen app optimization. Current host authorization/routing, rules (AD32/AD41) and actual owner transfer govern any future continuation. No foreground app, session, process, worker, source or gameplay state was queried or changed by this review.

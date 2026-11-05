@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "batch": "B336",
+  "title": "Farming, fishing and mining lives: full path proposals and design evidence boundaries",
+  "at": "2026-11-05T02:11:06.197374+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/FARMING_PATH_PROPOSAL.md",
+      "ids": [
+        "CG1–5/cycle/capability/involvement tables",
+        "garden life/area agreement"
+      ],
+      "classification": "Full pursuit proposal or evidence router; concrete capability/stock/knowledge distinctions and fixture-only proof",
+      "owners": [
+        "docs/research/everyday-paths-ui-2026-10-15/FARMING_PATH_PROPOSAL.md",
+        "docs/research/everyday-paths-ui-2026-10-15/EXISTING_SYSTEM_FIT_AND_PROPOSALS.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Preserve complete examples and original history; fold actual actor, custody, evidence and current compression/UI scope without adopting invented local laws or treating mockups as gameplay.",
+      "evidence": "Complete local Markdown body read; referenced private payloads, donor source, runtime and browser checks not newly inspected or rerun.",
+      "reopen": "Select a meaningful existing consumer and current owner before implementation; actual source, actor/custody and rebuilt/persistence proof remain separate.",
+      "input_sha256": "51d2cc89653b265d7162ef352d4a5ca79b3949dbc53fbc4e44408fc5e76c70c6",
+      "input_lines": 69,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          69
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/FISHING_PATH_PROPOSAL.md",
+      "ids": [
+        "RF1–5/outing/capabilities/discovery/involvement",
+        "routine instruction/whole life"
+      ],
+      "classification": "Full pursuit proposal or evidence router; concrete capability/stock/knowledge distinctions and fixture-only proof",
+      "owners": [
+        "docs/research/everyday-paths-ui-2026-10-15/FISHING_PATH_PROPOSAL.md",
+        "docs/research/everyday-paths-ui-2026-10-15/EXISTING_SYSTEM_FIT_AND_PROPOSALS.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Preserve complete examples and original history; fold actual actor, custody, evidence and current compression/UI scope without adopting invented local laws or treating mockups as gameplay.",
+      "evidence": "Complete local Markdown body read; referenced private payloads, donor source, runtime and browser checks not newly inspected or rerun.",
+      "reopen": "Select a meaningful existing consumer and current owner before implementation; actual source, actor/custody and rebuilt/persistence proof remain separate.",
+      "input_sha256": "7d8d650310a5093e130ad2f0f7a30e4106c1580f75d481d62a9db3dfa83a0fee",
+      "input_lines": 75,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/MINING_FLOW_AND_PATH_PROPOSAL.md",
+      "ids": [
+        "MN1–5",
+        "source flow/optional path/UI/questions"
+      ],
+      "classification": "Full pursuit proposal or evidence router; concrete capability/stock/knowledge distinctions and fixture-only proof",
+      "owners": [
+        "docs/research/everyday-paths-ui-2026-10-15/MINING_FLOW_AND_PATH_PROPOSAL.md",
+        "docs/research/everyday-paths-ui-2026-10-15/EXISTING_SYSTEM_FIT_AND_PROPOSALS.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Preserve complete examples and original history; fold actual actor, custody, evidence and current compression/UI scope without adopting invented local laws or treating mockups as gameplay.",
+      "evidence": "Complete local Markdown body read; referenced private payloads, donor source, runtime and browser checks not newly inspected or rerun.",
+      "reopen": "Select a meaningful existing consumer and current owner before implementation; actual source, actor/custody and rebuilt/persistence proof remain separate.",
+      "input_sha256": "7c16fbe770fb487133e327c6cce08c83e7089ae31f17965718baf3a9ee9afee4",
+      "input_lines": 69,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          69
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/REFERENCE_INDEX.md",
+      "ids": [
+        "source/build/data/UI receipts",
+        "farming/Taiwu followups",
+        "interactive/target-choice chronology"
+      ],
+      "classification": "Full pursuit proposal or evidence router; concrete capability/stock/knowledge distinctions and fixture-only proof",
+      "owners": [
+        "docs/research/everyday-paths-ui-2026-10-15/REFERENCE_INDEX.md",
+        "docs/research/everyday-paths-ui-2026-10-15/EXISTING_SYSTEM_FIT_AND_PROPOSALS.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Preserve complete examples and original history; fold actual actor, custody, evidence and current compression/UI scope without adopting invented local laws or treating mockups as gameplay.",
+      "evidence": "Complete local Markdown body read; referenced private payloads, donor source, runtime and browser checks not newly inspected or rerun.",
+      "reopen": "Select a meaningful existing consumer and current owner before implementation; actual source, actor/custody and rebuilt/persistence proof remain separate.",
+      "input_sha256": "0298a0a8548e518d8faaba87509875d986471cd274abae13cd1787aacc452aa8",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/mockups/README.md",
+      "ids": [
+        "21scenes/families/fixture controls",
+        "launch/artifact limits",
+        "36target checks/followup"
+      ],
+      "classification": "Full pursuit proposal or evidence router; concrete capability/stock/knowledge distinctions and fixture-only proof",
+      "owners": [
+        "docs/research/everyday-paths-ui-2026-10-15/mockups/README.md",
+        "docs/research/everyday-paths-ui-2026-10-15/EXISTING_SYSTEM_FIT_AND_PROPOSALS.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Preserve complete examples and original history; fold actual actor, custody, evidence and current compression/UI scope without adopting invented local laws or treating mockups as gameplay.",
+      "evidence": "Complete local Markdown body read; referenced private payloads, donor source, runtime and browser checks not newly inspected or rerun.",
+      "reopen": "Select a meaningful existing consumer and current owner before implementation; actual source, actor/custody and rebuilt/persistence proof remain separate.",
+      "input_sha256": "ce4d327f16eb96db7ab057508bf368eaa25063821a341f74557df5ad78d241ba",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/FARMING_PATH_PROPOSAL.md",
+      "heading": "## Content reconciliation B336: pursuit scope and evidence boundaries",
+      "body": "All69 original lines were reviewed, including the full cycle, capability/means and involvement tables, discovery example, assignment terms and enduring-life options. Preserve a small garden as a whole life: known meals, plants, teaching and household continuity need no estate endpoint. The48m² holding, six4m² beds,12m² power and seed coverage are explicit examples, not current MG06 state, agricultural facts or accepted tuning. Crop/cohort, specimen, cultivated area, access parcel and shared work area describe different things; area alone does not establish reach or yield.\n\nThe existing one-plot MG06/grow-command claims are the source slice described in the earlier report, not newly inspected here. Multi-bed geometry, passive biology, water stress, power consumers and helpers remain separate behavior proposals. A useful stronger power may genuinely solve the entire chore without a residual mana, nutrient, staffing or attention tax. A method may conserve actual care without necessarily improving product grade, and a damp sample does not prove a heritable trait. Known routines can produce observations; their executing actor and communicating route determine who learns what.\n\nAssignments share real beds/stock and must settle actual progress at a handoff. Finish-or-cancel/release does not require restarting an entire partly completed crop or refunding consumed work; the selected operation's progress and transfer rules govern. An outstanding study sample must retain actual custody/reservation. Helper availability and consent do not follow merely from skill. The mixed personal/irrigated/delegated example needs actual concurrency and scopes rather than three independent duplicate simulations.\n\nCurrent AD51/52 support the first useful consumer and compress repetition while preserving real time, means, choices and attributed results. These examples create no new mandatory garden framework, water debt, save field, technique or accepted power. Retain every example/history and the linked domain owners; no current runtime, yield, source or UI behavior was verified by this read.",
+      "before_sha256": "51d2cc89653b265d7162ef352d4a5ca79b3949dbc53fbc4e44408fc5e76c70c6",
+      "after_sha256": "03fa4220dc52f32f9ccfcee10fbfed8945bf321bdb379869086609d681368c2f"
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/FISHING_PATH_PROPOSAL.md",
+      "heading": "## Content reconciliation B336: pursuit scope and evidence boundaries",
+      "body": "All75 original lines were reviewed, including every outing, capability, discovery and involvement row. Preserve fishing for pleasure, food, knowledge, teaching or community supply without compulsory commercialization, collection or a request. Three reaches are useful where actual access/flow/cover changes a choice; the diagram does not imply a fluid simulation. The proposed preparation/feeding-band law remains original fiction, not a disclosed hidden YAIR rule.\n\nThe report carefully distinguishes pole/skill/drop stock from a new real bait debit, and a multi-species cycle from a proposed single cast. A known fish is not automatically edible or compatible with a fillet recipe. A useful downstream consumer needs the exact item/category/stock join. Perception can supply evidence without identity; a stronger actual faculty may establish more. A variable outcome can follow stable laws, and one miss teaches nothing causal without a relevant observation. An unusual result need not acquire an invented secret explanation.\n\nPersonal routine can count as qualifying practice. Watching, directing, receiving a report and personally handling a catch need their actual learning route; a helper's hidden knowledge is not inherited by opening the panel. The actor being occupied follows actual means and concurrency, rather than an immutable rule that every fishing power occupies the player. A real autonomous device can remove labor. Changing attention/detail must not replace a committed outcome, while an actual changed method can legitimately alter future outcomes through its declared costs and timing.\n\nThe sample instruction limits purchases and preserves unfamiliar stock; it is not a universal ban on standing orders, supported substitutes or automated selling where the player actually arranged them. Knowledge/continuity follows the real person/carrier, not an omniscient cross-life notebook. Riverbank XP/display remains a historical source discrepancy, requiring the current award/presentation path if selected. Current AD51/52 preserve these concrete choices through shared useful seams and compression. No current catch rules, recipes, fish-health fields, controls or behavior were added or newly verified.",
+      "before_sha256": "7d8d650310a5093e130ad2f0f7a30e4106c1580f75d481d62a9db3dfa83a0fee",
+      "after_sha256": "35cf47ca82c78284ce3a23b01bcfa88c06e38b253d3aa30a2b095b3ad1519a62"
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/MINING_FLOW_AND_PATH_PROPOSAL.md",
+      "heading": "## Content reconciliation B336: pursuit scope and evidence boundaries",
+      "body": "All69 original lines were reviewed, including the source reconstruction, numeric example, missing-mechanism limits, optional path, four involvement views and final questions. Preserve the bounded source chain: equipped pickaxe-category slot, skill-dependent gather cycle, actual ore/XP and a separate downstream use. Slot occupancy does not establish hardness, grade or durability rules, and source endpoints are not wall-clock throughput. A five-ore/coal ingot recipe is one consumer, not proof that every mined material smelts that way.\n\nThe report's absence claims concern its selected revision/flow; they do not freshly prove no current finite reserves, hauling, helper or power consumer exists. A seam label, working face, sampled composition, access right, reachable volume, known reserves and held stock remain distinct facts. Unknown reserves should not become exact/infinite displayed stock. A simple face can support an actual fracture/method decision without underground voxel simulation, mandatory depletion, wear, collapse or a hauling tax.\n\nRetain the difference between sensing, reaching, extracting, carrying and using. A fitting stronger power can combine them when its actual laws permit, without a fabricated weakness. The Nell fixture is not an available NPC or agreement. A hauling instruction authorizes the selected unreserved stock and route; it does not also authorize extraction, purchase, smelting or unknown access. Delivery failure may leave genuine partial progress/custody, so settlement must follow actual stock rather than duplicate or erase it.\n\nThe viewer's current-flow reconstruction and proposed comparisons remain fixtures; a recipe-target stop or displayed reserve is not native functionality until an actual instruction/reservation consumer exists. Changing view preserves committed progress/results; an explicit changed task follows the real operation. Current AD51/52 support one useful method or join through existing owners, with meaningful compression. No current runtime, native source tests, stock, power, map or mining behavior was established by this full document read.",
+      "before_sha256": "7c16fbe770fb487133e327c6cce08c83e7089ae31f17965718baf3a9ee9afee4",
+      "after_sha256": "fb4c3242aff524dc3261336c49d03490311a58751b24f7896c9e7fa8d34edd6e"
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/REFERENCE_INDEX.md",
+      "heading": "## Content reconciliation B336: pursuit scope and evidence boundaries",
+      "body": "All59 original lines were reviewed, including each reference-table row and later design/viewer follow-up. This is an evidence router, not semantic coverage of the retained classes, tables, private source notes or screenshots. Exact recorded table counts,13 ACS exports,15 YAIR source pins and36 mockup combinations preserve the scope of their original receipts. They do not authenticate every row, current build compatibility, native donor behavior or actual-world balance. No ignored payload or linked PDF was opened by this read.\n\nThe chronology already resolves a seeming conflict: the earlier paper-only/no-prototype statements describe the initial design pass; later follow-ups record a standalone interactive viewer. Preserve both dates and versions. A later design artifact does not convert earlier source snippets into native proof, and official crafting media is not a fishing/farming interaction trial. The local server URL is a launch hint, not evidence that a process is running now. The original ignore-rule check is historical; no current publication or raw-asset transfer was performed.\n\nKeep production resolution with the named crafting/material owners, while this folder owns pursuit examples. Current AD51/52 support concrete existing consumers and compression, not another generic material/skill/routine engine. The old1366×768 mockup viewport is the recorded trial scope; later selected product UI uses current desktop direction. Generic human feel review is optional under AD42, while actual rebuilt runtime and source-qualification gaps retain their substance. No extraction, acquisition, server launch, screenshot regeneration or current check receipt was claimed here.",
+      "before_sha256": "0298a0a8548e518d8faaba87509875d986471cd274abae13cd1787aacc452aa8",
+      "after_sha256": "5a55769096474220a3599c76e481acb26cb55dc4a038988d4c48b18b4c30bb67"
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/mockups/README.md",
+      "heading": "## Content reconciliation B336: pursuit scope and evidence boundaries",
+      "body": "All33 original lines were reviewed, including the launch command, family table, fixture actions and later fishing/mining interaction follow-up. Preserve the explicit boundary: these21 scenes and36 scenario checks are a standalone design artifact, with fictional helpers, powers, stock and scope. Preview status, stable selection, keyboard controls and overlays do not perform native commands, advance clocks, consume inventory, persist work or accept an agreement. Mock Back returns to routine rather than real navigation history; it is not proof of production controller parity.\n\nThe localhost link is not a live-process claim, and the restart command was not executed here. The reported captures/checks retain their original version and1366×768 scope; no screenshot, browser trial or present fixture behavior was rerun. Later desktop direction qualifies the target for a new selected product slice, without rewriting old evidence. Keep index.html and target-studies.js together as directed when a copy is actually requested; this reconciliation did not move files or publish assets.\n\nThe invented Quiet lens remains an original fixture, not a sealed-game disclosure. Useful direct target selection, adjacent comparison, stable current work, pinned controls and meaningful detail remain proposals to evaluate through existing UI/domain owners under AD51/52. A readonly viewer control is not a gameplay power. Generic human review is optional under AD42, while selected native/UI/persistence claims still need their own actual evidence.",
+      "before_sha256": "ce4d327f16eb96db7ab057508bf368eaa25063821a341f74557df5ad78d241ba",
+      "after_sha256": "d6bcc49a5ca1c2d257c21c52e3e153f28881ef67df38bfbaa07af151b33bf0c9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 753,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/FARMING_PATH_PROPOSAL.md",
+      "from": "agricultural facts or accepted tuning.",
+      "to": "agricultural facts or accepted tuning (AD32).",
+      "reason": "Cite existing authority on the actual claim line; no new acceptance or behavior."
+    }
+  ]
+}

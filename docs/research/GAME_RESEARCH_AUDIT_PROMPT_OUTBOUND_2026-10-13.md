@@ -48,3 +48,12 @@ World secrets are sealed: agents may inspect sealed files when needed but never 
 Deliver a concise report linked from this chat, a supporting coverage/opportunity inventory, and the strongest follow-up packets in project docs. Correct affected audit status only where evidence and document ownership support it; findings/proposals remain distinct from accepted decisions. Cite exact local paths/symbols/locators and revisions for consequential conclusions. State what was checked and what remains unverified.
 
 The audit finishes when the requested and later-added corpus has supported dispositions, relevant findings have been checked against current adoption, the consequential open gaps have an evidence route, and the user has a ranked decision-ready next step. It need not inspect every proprietary function, implement any proposal or invent a universal completion percentage.
+
+
+## Content reconciliation B320: historical instructions and current evidence boundary
+
+The review-only wrapper, inline evidence, full five-part audit, boundaries and finish gate were content-reviewed. The prompt distinguishes exported bytes, semantic reading, runtime evidence and adoption well; preserve that breadth and its instruction to read beyond ranked packets. Its game/repository counts and missing-payload states remain supplied historical context, not newly verified findings or a live work queue. A comparison's completeness can be bounded without calling every source function read.
+
+Later tool-fit operational notes supersede the draft's no-REA-trial framing for their named experiments; they do not prove current installation, exact provider repair transfer or a successful whole-game recovery. The no-trial sentence still describes the initial October13 inspection. Keep current tool registry and exact source/build/architecture identities as the route for any later selected investigation.
+
+This file's request to send/retrieve a review and launch another chat belongs to the recorded old workflow. Reading it is no authorization to send text, start a chat, spawn workers or maintain a skill now. The current task is content reconciliation; no audit implementation, outward submission, game/tool acquisition or personal-save access follows. The wrapper explicitly denies independent local access to the remote reviewer, so its inline claims cannot be laundered into primary evidence by a returned response.

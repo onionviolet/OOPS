@@ -20,3 +20,10 @@ agree or refuse 311, change or maintain state 284, rest and care, speak or ask 1
    of the weekly window (use 0.25 per small Luna lane and 0.5-1 per Sol src lane as the measured scale tonight; state your uncertainty).
 4. A ranked build order of at most 8 lanes with disjoint grants, each described in a short lane brief paragraph the coordinator can expand, plus a short list of future-proofing suggestions (kept separate from required work, per AGENTS "more to consider").
 Write counts, file paths and generic mechanism names only. Do not edit any other file. One line per check you ran (greps/reads).
+
+
+## Content reconciliation: mechanism audit request, 2026-11-04 (B359)
+
+This brief asks for mechanism-first reading of existing systems, missing upgrades and new capabilities; it is not the resulting audit or an execution order today. Preserve the requirement to inspect actual depth rather than infer capability from a module’s name. The listed family counts belong to the reviewed-row census and may overlap; do not sum them into unique newly unlocked steps or translate “a carrier exists” into source-faithful, reachable gameplay. Separate source-qualified action identity, actual means/cost/result, who learns what, and the native settlement consumer.
+
+The requested lane order, source/data model split and weekly-window usage points were bounded planning assumptions, not guaranteed current costs or measured future capacity. Current host routing/authorization governs any worker. An estimate of step reach needs explicit matching scope and uncertainty; a new divination or brewing mechanism can help future worlds without making a universal framework prerequisite. Current lead-life laws and AD51 govern selected first seams. No private gap census, source claim, MF1 result or live implementation was inspected by reading this prompt, and none of its proposed lanes was dispatched.

@@ -59,3 +59,10 @@ Full condition notes and static example traces are in [private/DECODED_FLOWS.md]
 | Q2e | Which house/item warnings are still applicable? | Current help plus a disposable persistence trace for the selected object kind, not a blanket assumption from old warnings or recursive serialization |
 
 No additional game trial or installation is implied by saving this guide. Current research can support original design proposals; it cannot establish those unresolved behaviors as verified.
+
+
+## Content reconciliation B397: catalogue depth and exact retention consumers
+
+The full guide's eight decoded joins are retained. Learned competence, body/tool support, local effectiveness, guild-slot history, actual skill execution, remembered records, material processing, customer demand, tender and cargo survival have different consumers. Personal quit/keyring/object persistence and house-room persistence have different writers; a general save command does not prove every changed object roundtrips. These are donor references, not universal suppression, remort or retention rules for OOPS.
+
+All 353 catalogue locations do not become deeply inspected careers: only 19 primary and five secondary ability pages were captured. The 1,510 rows include repeated abilities, and the 2,168 archived help records include duplicates and eras. The 333 lexical registrations can include commented/disabled calls. Raw/display guild level and intrinsic skill/spell level remain distinct. Malformed XML was lexically extracted with original bytes preserved, not certified as valid XML. The pinned public source and help do not prove current live-server behavior. Q2a–Q2e remain unresolved specific thresholds, crossings, scripts, organic cargo and object/house retention questions. No new private-source read, installation or persistence experiment is implied.

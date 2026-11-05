@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "batch": "B327",
+  "title": "Local capacity and whole reading-gap map: semantic support, real consumers and repaired owner routes",
+  "at": "2026-11-05T01:56:32.106006+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/LOCAL_AGENT_CAPACITY_2026-10-28.md",
+      "ids": [
+        "LA2/15fillhandcheck/3seedruns",
+        "5heapattempts",
+        "7worktyperows",
+        "LA9–13/6shareimprovements/gaps"
+      ],
+      "classification": "Small measured local pilots plus unmeasured routing shares and evolving memory gate",
+      "owners": [
+        "docs/research/LOCAL_AGENT_CAPACITY_2026-10-28.md",
+        "docs/research/LOCAL_AI_READER_TEST_2026-10-27.md"
+      ],
+      "disposition": "Full107linebodyread, allsamplecounts/handcorrection/codefailures/worktypes/LA9–13. Preserveproxyusabilityversusfullysourcedactivitytime andquotealignmentfailure. No inventedquotesdoesnotmeanfactualrelationcorrect.3of5existingcontractpassesnotcapacityestimate orprovenretryloop; memorypercentthresholdsproposalsnotglobalpolicy. Foldnarrowevidencewithoutnewmodelrun/worker/approval.",
+      "evidence": "Historical3MoLchapter/3seed15distinctfillcheck andsingle64lineheap/5attempts. Rawmodel/sourcequotes/scripts/swapnotreadhere; shares10–20%lanes/<10%tokens areunmeasuredjudgment. Sourcehandfilled2weakregistryrows changesproxy12to10notall10fullysupported.",
+      "reopen": "Futureselectedlane needsindependentfixtures/actualsemanticcheck andcurrentresource ownership, notthissmallpilotgeneralization. No model invocation,localprocessprobe,cloudspend,codegeneration or new testgate.",
+      "input_sha256": "7926e7b63269ebe48901a2dd59a5734bb69f0bec72ae6d1fec30c0cd4bdb7962",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "ids": [
+        "4bookroughcounts",
+        "GM1–47",
+        "familybybook21rowtable",
+        "PG1–9",
+        "readingpriority0–11/later",
+        "F1–5/limitations"
+      ],
+      "classification": "Whole reading-to-game crosswalk with later taxonomy intake, rough counts and proposed sequencing; stale route links",
+      "owners": [
+        "docs/research/READING_GAP_MAP_2026-10-28.md",
+        "docs/worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md",
+        "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md"
+      ],
+      "disposition": "Readall192lines with1–72reread afteraggregateoutputtruncation; everyGM/PG/family/table/priorityrow. Preserveclassifiersunadjudicated/id-volume/cost/rowlabel limits andsourceparagraphcheck. QualifyLOCvsmechanicalgap/proposed40id3booksharingthreshold/recordcountnotneedcost/forcedsourcecost/teacher/risk. LaterOct30classificationqualifiesearlierunmerged/untaxonomized snapshot, no rawsource/familysemanticsverified. Repair4brokenrelativeownerlinks withobserveddestinations, originaltargetsretainedinamendments.",
+      "evidence": "Localmapfullreadonly.14LOTMfiles/all9bookclassification countsareattributedworkflowmetadata notqualifications. SampledOct28sources/namedstubabsence notcurrentcodeproof; missingcost ≠freeorcostrequired. Allpaidquotes/holdings/credit/runapprovalhistoricalnotcurrent.",
+      "reopen": "Usecurrentselectedlead/sourceowners andactualproducer/state/consumer; archivedrankingdoesnotchangebuildpriority orauthorizepaidread/merge. LinkednativeJSON/sourcebodygetsnoautomaticreview, ordinary/protagonistroutesseparate.",
+      "input_sha256": "24328a35275a10f0e92e1be04a59d959fdb8bb19e6989aaf5f960f60d4d21531",
+      "input_lines": 192,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          192
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/LOCAL_AGENT_CAPACITY_2026-10-28.md",
+      "heading": "## Content reconciliation B327: local pilot denominators and semantic support",
+      "body": "All107 lines were content-reviewed, including LA2's three seed results, all fifteen hand-checked fills, the five heap attempts, seven work-type rows, LA9–LA13 and stated gaps. The corrected3-to10 usable count is still a pipeline proxy, not ten fully source-qualified timed activities. Nine supported, three partial and three unsupported fills have different evidence. Zero invented means the sampled quotes were real; it does not mean every quote supported the asserted event/time relationship. Lint and locator relocation can preserve that semantic error.\n\nParagraph locality is an untested filter here, not a proof of event identity or temporal scope. A nearby greeting may time a different action; a scene-level band may be broad or ambiguous. Script-derived location/time/claimant needs actual binding and can retain unknown rather than invent recurrence or a precise schedule. Temperature0.3's conservative result on two seeds does not establish a universal decoding rule. The smaller prompts, script fields and named source locators remain useful narrow-lane design lessons.\n\nThe code pilot supplied an unusually complete behavior specification derived from the same tests, generated one indexed heap five times and observed three passes. The two caught failures show value of those tests, not that they catch all bugs or that an unrun feedback loop turns60% into reliable real-task execution. Passing output was over twice as long as the repository implementation. Ten-to-twenty percent of lanes, under-ten percent of tokens and each work-type share are estimates with no past-work token ledger, not measured project capacity or an all-model prohibition on design/integration.\n\nThe memory pilot began outside its earlier suggested swap gate, and other sessions contributed load. Free-memory/swap-growth thresholds in LA11 are proposed heuristics, not current machine state or proof that every browser/test pairing is impossible. A stale swap percentage alone does not establish current pressure. No memory probe, model load/unload, source extraction, code attempt, local/cloud worker or new benchmark was performed. Current task authority and ownership govern actual future resource use; this document creates no lane or execution permission.",
+      "before_sha256": "7926e7b63269ebe48901a2dd59a5734bb69f0bec72ae6d1fec30c0cd4bdb7962",
+      "after_sha256": "3d93fcca3ade40b6f95e66fed34f2ff52c2042eebba1a0a2c0410837ed2d9b9a"
+    },
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "heading": "## Content reconciliation B327: whole reading crosswalk and qualified gap meaning",
+      "body": "All192 lines were content-reviewed, including GM1–GM47, every family-by-book cell, PG1–PG9, all ranked reading rows, F1–F5 and limitations. A truncated initial display was recovered before full coverage was recorded. Four opening owner links incorrectly resolved beneath docs/research; their actual existing destinations are now linked, and exact old targets remain in the batch amendments. No new source/body or linked map is reviewed by association.\n\nThe earlier only-LOTM-merged statement and later October30 all-book classification use different dates and stages. Preserve both as history. Classifying every id with zero malformed output does not read/verify every rule, and id-volume pairs are not unique cross-volume mechanisms. The one-pass taxonomy was explicitly unadjudicated, with category drift and keyword/source-file seam guesses. Forty ids in three books is a candidate-count heuristic, not evidence that one generic reducer is correct. Current AD51 permits a first useful shared seam without that threshold; a second world validates actual behavior rather than merely adding another filename consumer.\n\nAn extraction row count divided by pack lines cannot measure unused useful content or determine gameplay depth. Module length and a sampled stub/keyword absence do not prove current missing capability. GM1–GM47 remain specific opportunities or dated gaps, not an execution queue. Current selected Klein/Harry developer routes, later method/knowledge/paper/recipient work and other incumbent joins qualify old broad absence claims only within their actual evidence; they do not certify every ordinary start, advanced rung, city or world. The map's classification/evidence boundaries remain valuable when a particular gap is selected.\n\nRetain prices as attributed statements with actual unit, place, seller, time and transaction context; a price regex is not an executable market quote. Keep legal standing, personal identity, observer belief, credential, actual possession and institutional enforcement separate. A thin recipe row with input/product names still needs actual method, quantities, work, means and result semantics. Missing costs do not mean free, deliberately costless, required cost or a complete source search. PG6's proposed none/stated binary cannot represent every not-looked/unstated/unknown case by itself.\n\nLearning need not always have a teacher, a ceiling, failure risk or a fixed practice quota. A source-supported grant, self-study or already-held competence works through its real mechanism. An existing powerful body, broad faculty, costless method or useful strong specialization need no artificial tax. GM25's suggested few-rungs-enough, GM28/33's three-per-rung/items and GM20's20students/two relations are illustrative slice sizes, not global content or world limits. Source-family frequency alone does not set required progression depth.\n\nPublication order or shard locator order is not necessarily fictional occurrence, belief revision or loop-day order. PG8's attitude merge must preserve actor/evidence/actual date and distinguish retrospective revelation. A narrator's account, someone's statement and a character's knowledge need separate provenance; shown event/news cannot arrive before the observer's actual channel. Co-presence does not establish a recurring routine, and free-text unspecified recurrence is unknown rather than automatically a one-off historical fact. Court doctrine can have social consequences without physically forbidding an otherwise supported act.\n\nThe mirror-site book rows retain actual printed/glossed titles; B codes are handles, not one novel. Word/character sizes, paid-for status, inferred per-gap prices, source holdings and Nov1credit/run approvals are dated planning inputs. Current library/source owners and explicit run-specific authorization govern any later paid action, not this ranking. No chapter, private row, source corpus, book acquisition, model call, batch merge, pipeline edit, paid request, runtime, world priority or new universal completion gate was performed or selected by this review.",
+      "before_sha256": "24328a35275a10f0e92e1be04a59d959fdb8bb19e6989aaf5f960f60d4d21531",
+      "after_sha256": "93aa25bcfdce19696b85925a117299b9a09bb1245ad03ad4d5c5e2dc4945575a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 771,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "from": "](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md)",
+      "to": "](../worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md)",
+      "reason": "Correct relative path from docs/research to observed existing docs owner; source text/history retained."
+    },
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "from": "](MASTER_PLAYABILITY_PLAN_2026-10-25.md)",
+      "to": "](../MASTER_PLAYABILITY_PLAN_2026-10-25.md)",
+      "reason": "Correct relative path from docs/research to observed existing docs owner; source text/history retained."
+    },
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "from": "](WORLD_COMPLETION_STANDARD.md)",
+      "to": "](../WORLD_COMPLETION_STANDARD.md)",
+      "reason": "Correct relative path from docs/research to observed existing docs owner; source text/history retained."
+    },
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "from": "](worlds/world-core-kit-2026-10-14/cards/)",
+      "to": "](../worlds/world-core-kit-2026-10-14/cards/)",
+      "reason": "Correct relative path from docs/research to observed existing docs owner; source text/history retained."
+    }
+  ]
+}

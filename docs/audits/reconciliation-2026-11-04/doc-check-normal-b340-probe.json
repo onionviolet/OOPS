@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/WORLD_PASS_RULES.md:162: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/research/everyday-paths-ui-2026-10-15/FARMING_PATH_PROPOSAL.md:74: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md:119: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169"
+}

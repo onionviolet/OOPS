@@ -104,3 +104,14 @@ Counts by status: BUILT 16, PARTIAL 45, DESIGNED 6, NOT STARTED 1, SUPERSEDED 1,
 6. Premise generator and funny starts (asked twice with a follow-up): audits only, no generator.
 7. Cross-world economy (OD11): arbitrage, brought knowledge and the trade-workaround cheat not found.
 8. Warnings for entering worlds without the right means (OD10) and explained difficulty changes (OD16): not found in code (inferred).
+
+
+## Content reconciliation: coverage evidence limits, 2026-11-04 (B353)
+
+All 73 rows and their original status counts are retained as the October 30 audit’s classifications, not new current gameplay results. The numeric total is consistent, but the evidence strength varies: a module/test filename, import search, file length or absent named report cannot prove end-to-end behavior or absence. Likewise BUILT can mean a saved workflow/rule rather than a playable consumer. “None” in a gap cell does not establish universal completion. Existing source or test paths are leads to inspect, not proof that those tests were executed here.
+
+Rows 2/8/20–22/27/34–35/46 and the biggest-gap list need current consumer evidence before any new dispatch. A module can have indirect registration or another implementation name; a missing TRIAGE/APOTHECARY report does not prove absent UI. A named implementation or passing pure fixture does not prove native navigation, committed time-bank use, save admission or ordinary play. Preserve the original inferred gaps while checking the actual selected route. The journey-wide eligible unused-time bank is direction, distinct from individual frozen lives’ production, technical scheduler budgets and capacity upgrades; a field called bank does not establish that contract.
+
+Rows 40–41 do not require a general canon-pressure engine: OD7/OD8 require actual world causes, not arbitrary restoration or invented opposition. Row 44 does not require a universal trapped-state detector or automatic rescue merely because locally unwinnable situations can exist. Rows 60/70/73 keep remembered mastery versus bodily execution, real paused-history retention and selected compatibility proof distinct. An explicit stronger carrier/source can change those limits. Titles, harmful bindings, fictional voices, meaningful warnings, research and improved carryover remain useful possibilities rather than every-world requirements.
+
+The listed eight priorities are historical audit recommendations. Current accepted owners and selected developer routes determine build order; AD51 permits the first useful seam and AD52 supports compression without claiming unperformed work. Standing paid-source boundaries and actual qualified coverage still apply; “acquisition done (inferred)” is not a catalogue or chapter-coverage verification. No source, browser, acquisition, runtime, migration or rule-code verification was renewed by reading this map.

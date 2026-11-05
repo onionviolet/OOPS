@@ -155,3 +155,16 @@ Add here, dated, after each pass.
   Sequel text changes names and institutions, so do not reuse the first
   novel's pass unedited. Check that a window contains the focus term before
   briefing a reader.
+
+
+## Content reconciliation B340: full owner scope and evidence limits
+
+All157 original lines were reviewed, including tiered reading, every WPR row, the checklist and all dated lessons. This rulebook distinguishes agent workflow defaults from accepted product decisions (AD32): a pass or report does not select a world, adopt its proposals, grant commit/push rights or override later direction. Use its applicable lenses within the assigned scope; the coverage text explicitly rejects generating an open task or quota for every untouched dimension. A full owner review is not a full-world audit or primary-source read.
+
+Preserve source truth, speaker statements, translation uncertainty, inference, authored choices and generated content separately. WPR19's opened-locator standard applies before asserting that a material source claim is qualified. A full-content document reconciliation can instead retain an explicitly unverified source claim and name the missing source step; it must not call that source-checked merely because the paragraph was read. Search hits, excerpts, consecutive windows and full-source coverage remain different units. A newer note can correct an interpretation without erasing the old evidence or proving every later observation current.
+
+The lessons' “MoL names no currency” and no-hub-facility results are reported outcomes of those searches, not present exhaustive absence proofs. Their own surrounding lessons stress sparse windows, variant names, edition/locator differences and hub-versus-derived-world distinctions. A regex finding no mission board or a misspelled place cannot prove the underlying institution absent. Price/rate locators and consequential contradictory passages need actual checking before entering source-qualified pack data. A source absolute still needs its recorded scope; defaults/dials do not authorize rewriting a source fact into an invented exception.
+
+WPR18 already permits routine integrator review without a new independent agent per return. Current routing/ownership authorization controls any reader dispatch, and historical model/count/budget examples do not launch workers. WPR24–WPR26 close the finite requested outcome, expand when actually requested, reuse methods where justified and do not turn every one-off correction into a new rule. WPR25 ranks readiness within Weibao's selected order, preserving current LOTM-first/Harry work; it cannot select a cheaper new world just because that world is easier to verify.
+
+WPR30–WPR32 use the existing AD36/AD43 floor for actual runtime slices, not this documentation-only review. AD51 favors a shared seam for its first useful consumer, with another world validating it; no all-world framework is required. AD52 supports compression while retaining choices, costs, time, actors and observed aftermath. Generic human review remains optional under AD42, while source/runtime/rebuilt/persistence evidence keep their separate substantive scope. No registered range, rule meaning, new world, accepted direction, test gate, primary-source reading or runtime verification was added by this owner fold.

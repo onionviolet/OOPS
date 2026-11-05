@@ -9,9 +9,9 @@ Owners: [DESIGN](../../../DESIGN.md), [UI rules](../../UI_RULES.md), [rules rout
 ## Evidence and limits
 
 - Attachment is a 267×376 crop supplied in this chat. It shows a healing-balm recipe with success, material counts, XP, product prose, effect duration, two effect numbers and value together. It does not establish the source application's identity/version, hover/pin behavior, keyboard support, clock units, progression route or broader navigation. No text in the attachment was treated as agent instructions.
-- [Attachment copy](../../../work/crafting-reference-20261104/reference.png) and [rebuilt desktop screenshot](../../../work/crafting-reference-20261104/current-crafting.png). Local evidence assets, not installed-app evidence.
+- [Attachment copy](evidence/reference.png) and [rebuilt desktop screenshot](evidence/current-crafting.png). Local evidence assets, not installed-app evidence.
 - Build: `BUILD_OUT=/tmp/oops-crafting-comparison-20261104 npm run build`, passed; existing duplicate `dial` warning at `src/travel_legs.js:28`. Bundle SHA-256 `e9acb7f10d6ada2f6b5fb4fa7c95ebe66482cceed0208ee04eacfeda616612c4`. Source inputs were the shared dirty checkout, not a clean commit. BUILD_OUT preserved tracked dist/index files.
-- Browser: disposable origin `http://127.0.0.1:18764`, headless Chrome through `scripts/ui_helpers.cjs`; 1920×1080. Opened Crafting and selected blocked Wool cloth. Craft 1, list, stock, inventory, Reports and return were visible. A second fresh fixture selected Cooking → Roasted rat meat: its visible When used section showed Cheap meat meal 45m and Slight food poisoning 45m, without numeric modifiers. [Cooking screenshot](../../../work/crafting-reference-20261104/current-cooking.png). This is one default-size opening state, not a larger-text, keyboard, batch or craft-settlement verification.
+- Browser: disposable origin `http://127.0.0.1:18764`, headless Chrome through `scripts/ui_helpers.cjs`; 1920×1080. Opened Crafting and selected blocked Wool cloth. Craft 1, list, stock, inventory, Reports and return were visible. A second fresh fixture selected Cooking → Roasted rat meat: its visible When used section showed Cheap meat meal 45m and Slight food poisoning 45m, without numeric modifiers. [Cooking screenshot](evidence/current-cooking.png). This is one default-size opening state, not a larger-text, keyboard, batch or craft-settlement verification.
 - Healing balm was not present as an unlocked recipe in that fixture. Its detailed comparison below is source-backed, not a claim that its complete route was browser exercised. `src/crafting_recipes.js` declares it locked initially; current recipe requirements match the attachment's 10 Oneberry, 5 Golmoon leaf and 1 Animal fat.
 
 ## Findings
@@ -110,3 +110,8 @@ Known producers/uses can connect browsing, inventory, storage and crafting witho
 | LATER · separate higher-cost work | Broader pattern editor, cross-station planning or production UI. Judgment-heavy design/coding capability, medium-to-large effort; first choose an actual world/making consumer and show a bounded useful result plus its real stage/stock/job persistence. Reopen on a selected consumer, not because the palette lists it. |
 
 This round adds source inspection, not another browser or gameplay test run. The first-round browser proof retains its exact limited scope. Documentation links checked after the extension; no runtime/rules edits, commit, push, worker dispatch or source acquisition.
+
+
+## Capture preservation
+
+The three original comparison images are retained under [evidence](evidence/MANIFEST.json), with byte hashes and original local locators. Originals remain in the active writer’s local work directory; this promotion does not replace its later captures or renew the original browser proof. The attachment’s exact application/version remains unverified.

@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B347",
+  "title": "World depth and inspector maps: complete routing, read/write boundaries and historical readiness",
+  "at": "2026-11-05T02:32:20.659235+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+      "ids": [
+        "completepartindex/rows/codes",
+        "fivefindings/heirupdate",
+        "AR1–7/A1–6/B1–17/stale/conflicts"
+      ],
+      "classification": "Full depth/audit/inspector map; current continuation routing and dated source/owner/readiness limits",
+      "owners": [
+        "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+        "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+        "docs/WORLD_PASS_RULES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Preserve every row/code/idea; reconcile old readiness and worker snapshots, superseded build order/viewports and actual reader/writer/disclosure semantics. No automatic rerun, inspector or current runtime claim.",
+      "evidence": "Full local Markdown bodies read, dense truncations recovered. Current core-audit routing selected rows and tool path existence inspected; no source/runtime/UI or historical scripts/checks rerun.",
+      "reopen": "Use existing successor and actual chosen consumer/owner for any implementation; old grades/process files alone do not prove readiness or active work.",
+      "input_sha256": "ba8da812979c6bdeeaa5d60879514bcb0b646bc6e27069c6e524c6ced9e45978",
+      "input_lines": 165,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          165
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md",
+      "ids": [
+        "WT1–6/L1–6",
+        "6inputgroups/19laneshapes/tools",
+        "scoring/commit/LL1–14"
+      ],
+      "classification": "Full depth/audit/inspector map; current continuation routing and dated source/owner/readiness limits",
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md",
+        "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+        "docs/WORLD_PASS_RULES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Preserve every row/code/idea; reconcile old readiness and worker snapshots, superseded build order/viewports and actual reader/writer/disclosure semantics. No automatic rerun, inspector or current runtime claim.",
+      "evidence": "Full local Markdown bodies read, dense truncations recovered. Current core-audit routing selected rows and tool path existence inspected; no source/runtime/UI or historical scripts/checks rerun.",
+      "reopen": "Use existing successor and actual chosen consumer/owner for any implementation; old grades/process files alone do not prove readiness or active work.",
+      "input_sha256": "798c0bdef12baa1dd49d6a9e5c6cb4581251ad2d67c1d08c8a10d31e0b82b568",
+      "input_lines": 157,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          157
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/W27_INSPECTOR_MAP.md",
+      "ids": [
+        "W27F1–5/S1–8/G1–5",
+        "K1–34/T1–18/O1–34",
+        "B1–9/P1–5/20worldfloors/X1–10/A1–3"
+      ],
+      "classification": "Full depth/audit/inspector map; current continuation routing and dated source/owner/readiness limits",
+      "owners": [
+        "docs/worlds/world-core-kit-2026-10-14/W27_INSPECTOR_MAP.md",
+        "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+        "docs/WORLD_PASS_RULES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Preserve every row/code/idea; reconcile old readiness and worker snapshots, superseded build order/viewports and actual reader/writer/disclosure semantics. No automatic rerun, inspector or current runtime claim.",
+      "evidence": "Full local Markdown bodies read, dense truncations recovered. Current core-audit routing selected rows and tool path existence inspected; no source/runtime/UI or historical scripts/checks rerun.",
+      "reopen": "Use existing successor and actual chosen consumer/owner for any implementation; old grades/process files alone do not prove readiness or active work.",
+      "input_sha256": "58f16fd60d012fe54a65e8517a358315224f24fcc528254d5e2d05d35b114458",
+      "input_lines": 244,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          244
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+      "heading": "## Content reconciliation B347: full map, current routing and scoped evidence",
+      "body": "All165 original lines were reviewed, including every part/index row, all five findings, the explicit heir correction, recommended arc, all A/B build candidates and final stale/ownership notes. The initial dense index truncation was recovered before coverage credit. Preserve the catalog as a router to its actual detailed owners; a row/variant count does not establish every linked claim was reviewed here, accepted, implemented or source-qualified. Local code families such as WT/AR/CL are context-specific and cannot be treated as registered rules merely because their names recur.\n\nThe most useful finding is the explicit correction to the heir-unwired claim. The October19 note already says the earlier inference is no longer true and names the call path. B6's later wire-the-heir recommendation is therefore historical, not a current repair instruction. A new heir task needs the actual current inheritance host/consumer rather than the old drops-everything/one-lesson snapshot. Likewise file counts, parallel-copy limits, branch/UI release notes, live Foundation ownership and lanes-running table cells describe their dated inspections, not present work or current runtime absence.\n\nLater direction supersedes the Village-first AR1–AR7/MoL/AU/compiler/D&D/HP/LOTM sequence as a live queue. Current Klein-first full-novel development and Harry's developer route remain with PROJECT/AD44; the old one-realm/prestige assumption is retired. The current core-audit owner already directs continuation through the successor root, retaining codes rather than restarting it. The eighteen-part initial core-kit description is an initial-round index snapshot; later K1–K34 and further rounds remain with their actual kit/playbook owners. Cheap side builds, paid pattern overlays and selected domestic texture stay useful options without becoming prerequisites to the current world work.\n\nA relationship flip, changed start or AU can be small data only where actual state, actor knowledge, timing and consumers support it. Same save shape does not prove unchanged behavior or make every alternate life cheap. No-save-impact proposals still need truthful actual readers; adding a persisted UI preference also needs its own correct owner without becoming a new gameplay power. A compiler/template/lint can reduce repeated work while full source/consumer proof remains distinct. AD51 supports the first useful shared seam and later validation, not a universal card-compiler gate.\n\nOld1366×768/1440×900 proof targets are historical; later selected UI follows current desktop rules. AD52 permits routines/delegation, strong means and quiet whole-life pursuits without compulsory escalation or manual chores. The TTKS abbreviation in older index rows identifies a mirror family, not one novel; future selected-source work must use the actual title and source contract. No palette row adopts new source lore, world order, romance rule, runtime grant or mechanical gate by being listed here. No linked part, code path, source, current worker state or browser behavior was newly verified by this full index review.",
+      "before_sha256": "ba8da812979c6bdeeaa5d60879514bcb0b646bc6e27069c6e524c6ced9e45978",
+      "after_sha256": "6761ef4e50a9e740e537997949ac835e1d142a0ebd9a382d798d95373c7de4f9"
+    },
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md",
+      "heading": "## Content reconciliation B347: full map, current routing and scoped evidence",
+      "body": "All157 original lines were reviewed, including every trigger, loop step, lane shape, tool, readiness/commit rule and LL1–LL14. The current registered core-audit owner already routes continuation through the successor root and preserves codes/readiness baselines. Repeated work extends those incumbent owners; this reading does not restart the original root, create a new dated run, dispatch lanes or generate a full-kit gate. The original scripts exist at the printed repository paths, but their runtime behavior was not executed or audited here.\n\nWT1–WT6 are recommendations for a relevant requested audit, not automatic jobs. A month passing, ten documents landing, a world folder or a changed UI does not independently authorize a new all-world survey, recurring task or2–6worker wave. Current WPR24–WPR26 close the requested outcome and add review only for a named uncertainty or requested expansion. The playbook's fixed root/Claude/Codex roles and historical capacities are examples; actual authorization, ownership and current agent routing govern. A process/report path or old session ID alone cannot establish a live worker or terminal completion.\n\nL3/LL3/LL14's correction-in-place lesson remains valuable when exact old wording/history is preserved. A returned summary or byte/row check is not source qualification; consequential material claims need their actual locator or stay unverified. Readiness D/R and documented/source-edited/built/native/persisted/accepted states remain separate. “Met” on a source-inspected page must not become a new current gameplay result. A consolidation grid is navigation and bounded evidence, not an authority that selects content or erases contradictory source facts.\n\nLL5/LL6's explicit pathspec lesson protects unrelated staged work, but the generated list is not proof every listed byte belongs to this task or has passed its actual gate. Fresh ownership and shared-file preservation still apply; current authorization is required to commit. This reconciliation commits/pushes nothing. A historical lane completion or helper command cannot supply current authorization. New rulebook/code changes would update the register/router; this maintenance adds no registered code or new rules.\n\nThe known fragmentation-versus-absence, independent clock/calendar and same-day owner lessons remain specific methods, not current runtime findings. K1–K34 and source-title-specific cards can serve a selected consumer without requiring every K group before a playable slice (AD36/AD43). AD51 supports useful shared mechanisms with local differences; AD52 preserves meaningful work through compression. Current desktop targets replace historical ones for new UI proof, and generic human review is optional under AD42. No new audit dispatch, tool run, source qualification, kit readiness grade, automation or gameplay result was produced by this full playbook read.",
+      "before_sha256": "798c0bdef12baa1dd49d6a9e5c6cb4581251ad2d67c1d08c8a10d31e0b82b568",
+      "after_sha256": "b8c0a085ff60d313097549eae8cc14819aa364679eb915c1c9f41c79fa079658"
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/W27_INSPECTOR_MAP.md",
+      "heading": "## Content reconciliation B347: full map, current routing and scoped evidence",
+      "body": "All244 original lines were reviewed, including every K1–K34 read-map row and owner route, T1–T18 operation, branch/candidate row, world coverage row, X1–X10 and ranked suggestion. Truncated dense K12–K19 rows were reopened before full coverage credit. Preserve the core distinction: ordinary projection, paid observation, pure author derivation, UI preference, draft editor, committed mutation and actual acquisition have different effects and authority. Disabling a console, using localhost or changing a layout suffix does not by itself isolate a save or remove hidden truth from a payload.\n\nThe proposed one-shell/thirty-four-page structure is authoring/navigation design, not thirty-four selected builds. A first page can explain an actual consumer and gap without fabricating a complete ledger; source-present fragment P and missing dedicated page M do not mean a world is respectively playable or unimplemented. One actual native receipt/route and read-only snapshot can be useful under AD51 without a global inspector, new truth store, universal confidence engine or new event bus. A saved preference may write UI state while leaving gameplay unchanged; purity claims must name which state/storage they mean.\n\nThe dated1366×768/1600×1000 targets and one-realm/one-prestige milestone are superseded for current work. The live UI owner and current Klein/Harry priorities govern selection. A useful inspector need not grant a missing gameplay function, and adding observer-safe readouts is not the same as earning the underlying power. Current AD42 makes generic director usefulness review optional, while actual read purity, changed-input disclosure and selected runtime/persistence proof remain meaningful. The five first pages and their order remain proposals, not a new release gate.\n\nThe strongest preserved source corrections are F2's narrower storage-callback improvement and F5's module-present versus branch-only distinction. Both are evidence from that revision, not fresh source reads here. The35unmerged branches, four branch tips, pending W22 and W28, newly arrived W23 and all newest-owner paths are dated snapshots; they must not be used as current checkout, worker or integration state. An empty hook list, deliberately private relationship axis or prefix-filtered projection is not a proven orphan. Actual supplier/state/consumer tracing is needed before diagnosing or exposing it. No branch code was merged or re-tested by this review.\n\nThe operation table correctly distinguishes draw-free inspection from activation/measurement, grant/awakening, save/import/reset, editor Apply and live combat. A pure planner can return a proposed future state without mutating its input; that fact alone does not make ordinary viewing a write, while committing it is a separate operation. An unsaved speed control can cause saved consequences. An import compatibility probe is not a natural earned progression/persistence journey. Existing rich in-world tools can remain in their action homes rather than being disguised as free inspector redraws.\n\nObserver eligibility must apply through search, counts, labels, rejected candidates, DOM/cached data and exports, not only prose. Author diagnostics shown to Weibao still follow sealed-content policy; a developer label or disposable origin does not unseal a truth. An actual supported lens may legitimately know more without an arbitrary blur/error tax. Record actual observed time and present scope; remembered claims, current condition, forecasts and author counterfactuals remain different. Old saves without receipts need truthful basis-unavailable or labelled backfill rather than invented causes or forced rejection.\n\nThe twenty world rows are inspector-design framings, not verified source faculty laws, a current per-world readiness score or a roster of live builds. TTKS B1–B5 are distinct historical card handles; use actual book titles/source contracts if a later consumer is selected. A source/direction title, grade, office, consent or status does not automatically grant all private records; actual world mechanisms can supply additional reach. Current AD52 permits compression/routines without converting redraw into training or discovery. No inspector, sandbox, tool capability, source truth, branch integration, private-save read or gameplay behavior was implemented or verified here.",
+      "before_sha256": "58f16fd60d012fe54a65e8517a358315224f24fcc528254d5e2d05d35b114458",
+      "after_sha256": "2681b4a93925481293dcdc6281e48761df2f63b5548f25ac64f51967af419850"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 729,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+      "from": "accepted, implemented or source-qualified.",
+      "to": "accepted (AD32), implemented or source-qualified.",
+      "reason": "Add existing AD32 beside acceptance-state distinction after document lint."
+    }
+  ]
+}

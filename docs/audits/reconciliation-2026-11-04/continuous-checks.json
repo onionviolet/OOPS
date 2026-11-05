@@ -1,12 +1,12 @@
 {
-  "last_batch": "B305",
-  "batch_ledgers": 299,
+  "last_batch": "B406",
+  "batch_ledgers": 400,
   "review_events": {
-    "fresh": 894,
+    "fresh": 1225,
     "reused": 435
   },
-  "owner_folds": 491,
-  "unique_review_and_owner_paths": 1321,
+  "owner_folds": 711,
+  "unique_review_and_owner_paths": 1634,
   "ledger_issues": [],
   "new_fold_missing_links": [],
   "omitted_private_folds": [
@@ -62,15 +62,13 @@
   "task_diff_check_output": "",
   "coverage": {
     "status": "active",
-    "last_batch": "B305",
-    "at": "2026-11-05T01:20:23.093244+00:00",
-    "remaining_without_content_review": 813,
-    "candidate_count": 2156,
-    "partial_or_legacy_ranges_needing_full_coverage_check": 18,
-    "remaining_without_explicit_full_review": 831,
-    "next_suggested_paths": [
-      "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md:1334\u20132200"
-    ],
+    "last_batch": "B406",
+    "at": "2026-11-05T04:50:33.275300+00:00",
+    "remaining_without_content_review": 547,
+    "candidate_count": 2199,
+    "partial_or_legacy_ranges_needing_full_coverage_check": 14,
+    "remaining_without_explicit_full_review": 561,
+    "next_suggested_paths": [],
     "note": "Continue actual content review. Owner-section maintenance is not full-file review; all ledger ranges retain their scope."
   },
   "current_input_drift": [
@@ -82,15 +80,21 @@
     },
     {
       "path": "docs/IDEA_INDEX.md",
-      "full_review": false,
-      "recorded_closeout": "a128a7a107c115480b6db29bb4cdf0780e0376a803fdb813e44c060a8e02f569",
-      "current": "abc186fdac84c35820ae6c90af178ac264c0ffc7842eb9c715be02084824eb63"
+      "full_review": true,
+      "recorded_closeout": "e864bf031f8aaed214dac1c710f7cf2b87393a73c990d21ec7e21f3089ed2273",
+      "current": "c2832850820ce01e183d10e8dc3680ce6b8378286e308dba2d88e76423ad1914"
     },
     {
-      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
-      "full_review": false,
-      "recorded_closeout": "2bb0f04714b77244a2806fcee09d5a471ce98508ad8ba9ca5403dff53df2db4c",
-      "current": "610e45b9062bb9a37441c6711df73075e1531ede5b1ccf9cefaee92498731ecd"
+      "path": "docs/RULES_INDEX.md",
+      "full_review": true,
+      "recorded_closeout": "1dafe4bacdb4b1d4952d664d640d8f35d60f105ae97a24d45b3512425a02832f",
+      "current": "ce73c00d8dd9e35d2afd8d85edc06d4d54853c4d12f0a1d037b3a71688ba4e87"
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "full_review": true,
+      "recorded_closeout": "bb799931dec4475fa5724ba40b7c718f38f44ce5e720430ed49071b226324805",
+      "current": "3f943d6b885029f867ce390e8b02ce2c4f1dcadada6a14e936b2dbf8d6d2eb1e"
     },
     {
       "path": "docs/USER_VISION.md",
@@ -99,28 +103,22 @@
       "current": "1adcd5a139e19ccafdd10855d15d26ec17c5a4d132a5a4551331e905a28db8a9"
     },
     {
-      "path": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
-      "full_review": false,
-      "recorded_closeout": "eae61d36c9c2d3386a0e6bce7620bb48ae1b717fb6d397de7264db297c2af64c",
-      "current": "98ad0e9a9f701245072066ea0f14876e0dabd6d4eb9aea86777148a9d8ddea37"
+      "path": "docs/VISION_DIGEST.md",
+      "full_review": true,
+      "recorded_closeout": "4e8aec1c0cbcdc6ae93a27713c7e0114f4dfd94c73239e299745dad365e9de3c",
+      "current": "fff54d5746d0587f87dfbdc8fe2c4e71473b8b7298d93cc447efebe349aeb916"
     },
     {
-      "path": "docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play-2/README.md",
-      "full_review": true,
-      "recorded_closeout": "4c00e4f75d951c7c55a26202d09f58e4285defd17da8fa067a4099e94dc547c1",
-      "current": "bd900b44f2360ea64f8112d156227101b65b7c6040e701fbb4c66ee47f37f4ff"
+      "path": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+      "full_review": false,
+      "recorded_closeout": "9d93be1cb49122c6dbc0fcfbd481b5150ea7f49331c81e17fd5f2d5d25ce2d75",
+      "current": "3301ffdfccfb0ce094bb4d11d2331b6fb0370291a4a9073fb5d5b3ebb6ce2947"
     },
     {
       "path": "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
       "full_review": false,
       "recorded_closeout": "94acbf9aa721970b7aef2b10c3e09f896947a467665a9f1ed18a5da515644a75",
       "current": "0bb60946626ce802c5e453adc490e0df8b568ebe9ddb3e536c76f74dabb04cac"
-    },
-    {
-      "path": "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
-      "full_review": true,
-      "recorded_closeout": "d4516188e24bf4add2b0921d06eee0afb6380ea45e49f8a5071f105b90222fda",
-      "current": "9b903b9bc07a935a9b1bd4c977ff947ce3dec6a860f69fffdfaf070f788379eb"
     },
     {
       "path": "docs/gm/dispatch/refinement-audits-2026-10-31/CHECKPOINT.md",
@@ -156,19 +154,13 @@
       "path": "docs/research/LIBRARY_INDEX.md",
       "full_review": false,
       "recorded_closeout": "8ad3befb6deed6b7afefee7a19dc1a104b8b84585aaeac660f7fd35ca213846a",
-      "current": "5dcfeed49598d781257c210eebcd6c50fa9948bc3282a1858386ae6ecd6edf53"
+      "current": "d1769db51e53eb34873930237b18fccdc7c639462edaf3ac4073045059920a5b"
     },
     {
       "path": "docs/research/SOURCE_LIBRARY_CATALOGUE.md",
       "full_review": false,
       "recorded_closeout": "e9da321af46f831fac802912b6c0cd7848ff6d5e833b5a176225797a98582f7f",
-      "current": "ba0b666c8c24186ad67675b0387856dd0b0eddd456a0fddfe9cfcbef1c6e4e8d"
-    },
-    {
-      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
-      "full_review": false,
-      "recorded_closeout": "67b026c931465690c6fc78187bed8e671dd23b8c0bfc245b8477c52a31df81a0",
-      "current": "69639e41b8f62cb73b49243f7d0089a88eef4445c3b7bd274474d9d95181f62b"
+      "current": "6995cad3788ca8436efe427144450d1d8ef1a8ea941cf3cde253a14093ea2221"
     }
   ],
   "omitted_private_inputs": [

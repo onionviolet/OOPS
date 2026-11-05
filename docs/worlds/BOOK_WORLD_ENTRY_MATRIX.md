@@ -95,3 +95,14 @@ world-wide, S6 multiversal, S7 meta.
 - Fill routes for worlds with author-synopsis notes only (Perfect Run,
   Cradle, Traveler's Gate, Wandering Inn).
 - Each world's species list, constitution list and background list.
+
+
+## Content reconciliation B343: entry, continuing self and actual means
+
+All97 original lines were reviewed, including every built, briefed and researched world row, the system-level legend, cross-world conclusions and open list. Preserve this as the October10 proposal matrix with its explicit later You Are Summoned row. “Built” means the stated historical source-present/mostly-unverified scope, not current native readiness, full source qualification or ordinary-life coverage. The dated HP/LOTM placement and visitor descriptions cannot override subsequent lead-first developer routes, selected eras or current Klein/Harry priorities.
+
+Source protagonist entry, the current visitor route, a candidate origin and a creation-screen metaphor are different columns. The source's first scene is not a mandatory player start or an occasion to reveal hidden mechanism/potential. WER2–WER9 and ST1–ST17 now own crossing method, era, body, knowledge, cargo, previous-life state and obligations. The matrix's early LOTM ritual/host summary is not complete later-source entry knowledge. Source persona, magic source, social status and first power cannot be automatically granted by a matching label or card. A proposed house/clan/aptitude screen needs its actual source and known-only projection.
+
+The S0–S7 ladder is a comparison taxonomy, not a universal scalar of strength, jurisdiction, permission or insight. A world can lack a visible status system while containing powerful native mechanisms. Likewise broad loop/integration clusters suggest shared seams but do not make rewind, reset, branches, copies, clocks, sponsors or retention identical. AD51 favors actual common semantics and world-local differences. A source-defined flaw, feeding rule, price ratio, chronology or faculty restriction needs the pinned source/edition rather than a memory row; a public rating is not competence. The expanded You Are Summoned clocks/carry list remains its reported five-book reading scope, not newly reopened proof.
+
+The claims that point-buy fits only selected worlds and genetics is the common stat system are illustrative, not global laws. Interface allocation can be a player authoring control, or a real diegetic operation when the premise supplies one. HP/Naruto/faculty inheritance need actual source mechanisms, not a universal genotype or probability model. An independent imported faculty may remain fully useful without forced conversion or a native-only advantage. Current AD52 preserves consequential choices and permits quiet complete pursuits. This read added no creation screen, source route, world/source fact, catalogue, implementation gate or new source reading; useful row ideas and historical qualifications remain intact.

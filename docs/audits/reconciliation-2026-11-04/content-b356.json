@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "batch": "B356",
+  "title": "Status-window independent audit, abstraction map and fixture provenance",
+  "at": "2026-11-05T02:52:50.115989+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md",
+      "ids": [
+        "F1–F14",
+        "H1–H6",
+        "Z1–Z5",
+        "D1–D3",
+        "T1–T9",
+        "Q1–Q3"
+      ],
+      "classification": "Historical evidence/design record; current behavior unverified",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md",
+        "docs/CHEAT_LIBRARY.md"
+      ],
+      "disposition": "Retain concrete historical failure and successful-route evidence, proposed readiness and schema boundaries; qualify timing/build reuse and current priority without silently adopting the stage-1 board.",
+      "evidence": "Read all 200 original lines, every finding, gate-gap row, proposed state field, done-check and unchecked boundary. Initial/final snapshots, timing provenance, exact failed-write injection and recovered Export-Blob route were inspected as report content; no referenced artifacts or runtime rechecked.",
+      "reopen": "For selected future work inspect the current owning source and exact relevant integrated inputs; reuse historical evidence only for unchanged supported contracts. No automatic runtime, fixture, schema or gate work.",
+      "input_sha256": "bd77df6a79d4bb4ce171465c3b90ea2df9b2f35886d066f0594fe479bcc0d521",
+      "input_lines": 200,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          200
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/ABSTRACTION_MAP.md",
+      "ids": [
+        "F1–F3",
+        "AB1–AB10e",
+        "D1–D10",
+        "C1–C14",
+        "P1–P5",
+        "Appendix A"
+      ],
+      "classification": "Historical evidence/design record; current behavior unverified",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/ABSTRACTION_MAP.md",
+        "docs/CHEAT_LIBRARY.md"
+      ],
+      "disposition": "Preserve narrow reuse judgments and separate identity/evidence/version axes; qualify the historical second-consumer waiting heuristic under AD51 and retain current-source/integration proof limits.",
+      "evidence": "Read all 260 lines, including every abstraction/source/consumer table, conflict, duplicate fold, landing-order row and appendix route; recovered the truncated AB1/AB2 table section with a bounded reread. Lexical search inventory and linked bodies are not inherited content review.",
+      "reopen": "For selected future work inspect the current owning source and exact relevant integrated inputs; reuse historical evidence only for unchanged supported contracts. No automatic runtime, fixture, schema or gate work.",
+      "input_sha256": "41324d3fcb21ba029fc7c000178d75c6167b21681c858219290140c91e080f5e",
+      "input_lines": 260,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          260
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/fixtures/README.md",
+      "ids": [
+        "C0 held fixture",
+        "CH1 dormant fixture",
+        "Bundle identities",
+        "Seeded-native classification"
+      ],
+      "classification": "Historical evidence/design record; current behavior unverified",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/fixtures/README.md",
+        "docs/CHEAT_LIBRARY.md"
+      ],
+      "disposition": "Preserve provenance and distinguish instrumented prerequisite creation, uninstrumented gate exercise and natural acquisition.",
+      "evidence": "Read all 19 lines, both builder routes, real serializer/calendar prerequisites and exact build identities. No fixture, builder or gate executed.",
+      "reopen": "For selected future work inspect the current owning source and exact relevant integrated inputs; reuse historical evidence only for unchanged supported contracts. No automatic runtime, fixture, schema or gate work.",
+      "input_sha256": "f58ee89471cb7f89a80a07b2b7a0582d6f3e2be2c5535dad04c204e80bf11e91",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/fixtures/README.md",
+      "ids": [
+        "Four fixture restores",
+        "One availability edit",
+        "craft_none",
+        "craft_ready"
+      ],
+      "classification": "Historical evidence/design record; current behavior unverified",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/fixtures/README.md",
+        "docs/CHEAT_LIBRARY.md"
+      ],
+      "disposition": "Preserve the single explicit availability edit and real subsequent UI actions; qualify the old fresh-hero combat observation and exact supplied fixture scope without relabeling acquisition natural.",
+      "evidence": "Read all 22 lines, the full route and both byte/inventory/readiness rows. No fixture file or browser route loaded.",
+      "reopen": "For selected future work inspect the current owning source and exact relevant integrated inputs; reuse historical evidence only for unchanged supported contracts. No automatic runtime, fixture, schema or gate work.",
+      "input_sha256": "7c87baf4ad4134de7592b53cf52337b5ba061be5ecc932cdd0362c2fd57d6342",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md",
+      "heading": "## Content reconciliation: audit findings and proposal boundaries, 2026-11-04 (B356)",
+      "body": "F1–F14, H1–H6/Z1–Z5 and the D/T/Q proposals remain the original audit’s findings and recommendations. The targeted awakened-card write failure proves a different path from the all-write fault that stopped time before awakening. Tick-driven day crossing and travel crossing likewise differ. Preserve those concrete failure scenarios without claiming they still exist after later fixes or that a scoped cheat transaction makes the whole native tick atomic. Typed semantic validation, generic opaque card retention and executable board state need distinct policies; a closed outer envelope does not supply lifecycle correctness.\n\nSnapshot evidence stays separate: the long natural day-3 wait and six-case matrix belong to the initial build; final targeted cases and natural first win belong to the final build. The cited unchanged source supports bounded reuse rather than relabeling all artifacts as final-build runs. The 12.865-second automated first-win route and 40-minute fallback are neither typical human pacing nor proof of every route. A failed fixture/export setup is not a gameplay defect; the recovered exact native Export Blob plus literal input is the reported successful persistence route. Domain/title equality is not complete-save equality.\n\nD1–D3’s skill quest, one unspendable point, trigger/fallback, typed state and T1–T9 are proposals, not accepted stage-1 scope or universal progression limits. A stored claim timestamp only supports idempotency with the actual guarded durable command path; it does not alone solve concurrent writes. The old open Q1–Q3 are conditional design considerations, not a need to interrupt reconciliation or ask the same either/or questions. Current direction supports actual source/means-based inheritance and a quiet base faculty; no forced voiced quest system follows. Existing later result/source owners govern current readiness, and current desktop/font targets supersede the old 1366/1440 matrix. No gameplay, artifact or gate was re-run, changed or newly accepted here.",
+      "before_sha256": "bd77df6a79d4bb4ce171465c3b90ea2df9b2f35886d066f0594fe479bcc0d521",
+      "after_sha256": "7d14bf3c0425492ff8c8b46cf08ca45843ee4613737891bc01253adf9fd5da03"
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/ABSTRACTION_MAP.md",
+      "heading": "## Content reconciliation: abstraction-map uptake, 2026-11-04 (B356)",
+      "body": "AB1–AB10, D1–D10, C1–C14 and P1–P5 preserve useful distinctions: truth, observer evidence, readable projection, paid observation, cosmetic skin, durable outcome, prunable message, predicate, scheduler, world law and personal means answer different questions. Numeric precision, interpretation, depth, freshness and forecast method stay independent. Schema, definition revision, changed reality and observed version are different forms of versioning. Office, persona, controller, body, life and counterpart likewise need their actual consumers. A shared read interface does not require merging every domain’s authoritative store.\n\nThe “has two users” and “waiting” cells describe this source snapshot and the exact seam identified, not current implementation or native acceptance. Current AD51 permits a first useful shared seam; an absent second reader does not veto an authorized bounded slice. A planned second world, two tests or a declarative observer field still does not prove implemented reuse. P1–P5 is a historical proposed order, not a live worker assignment or a reason to build stage 1 before current LOTM/Harry priorities. Old first-milestone and 1366-first wording is superseded; present owner reservations and integration require current evidence.\n\nRetain pure evaluation versus durable evidence/cost settlement, old observed values versus live truth, and summaries versus restorable backups. Seeded output is not a pure peek if it initializes state or logs; a random-unit peek is not a complete forecast. Selective inert retention, active compatibility, migration, deliberate repair and import refusal are different outcomes. No silent empty-domain fallback, fabricated claims or restored rewards follow from preserving raw data. A trusted source can genuinely grant foresight, unusual precision or retained power without mandatory errors or counters. The appendix and lexical inventory are routes to existing owners, not proof that every linked body was read or every absent API is still absent. No schema, registry, framework or runtime integration was performed here.",
+      "before_sha256": "41324d3fcb21ba029fc7c000178d75c6167b21681c858219290140c91e080f5e",
+      "after_sha256": "ae3f22e9b27b0ffd9fa11e76abc4b97275395eb7d4e74efda3d327ebede6be86"
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/fixtures/README.md",
+      "heading": "## Content reconciliation: generated prerequisite scope, 2026-11-04 (B356)",
+      "body": "C0’s instrumented real-code grant/message/serializer route creates a synthetic held-card prerequisite. CH1’s real optional-start selection and update_timer route creates a dormant near-boundary prerequisite. Their uninstrumented gates separately exercise later behavior; neither builder alone proves natural acquisition, visible arrival, complete native save integrity or every clock boundary. Keep the two exact bundle identities and 45-minute remaining calendar interval as historical provenance, not current build/timing evidence. Rebuild fixtures only when a selected changed consumer requires it, retaining the original evidence. No fixture or user save was regenerated or accessed by this review.",
+      "before_sha256": "f58ee89471cb7f89a80a07b2b7a0582d6f3e2be2c5535dad04c204e80bf11e91",
+      "after_sha256": "98cef9b3bb663abecd7d7943ce1dffb06706c3fd2e693a328e215adea6a276e1"
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/fixtures/README.md",
+      "heading": "## Content reconciliation: crafting fixture provenance, 2026-11-04 (B356)",
+      "body": "The explicit availability edit stands in for field clearance; later dialogue/tool/gathering UI actions do not turn that prerequisite into naturally earned combat progress. The old fresh-hero death observation is one fixture-building route, not a universal impossibility of winning a first fight or clearing a field. Those outcomes are different and depend on actual equipment/play. Preserve both fixture states, byte counts and unknown-material projection as dated facts about the cited build. Four successful restores establish their supplied route, not all crafting/save compatibility, current UI readiness or natural acquisition. The historical serve/load/rebuild commands are provenance, not instructions executed here. No fixture, item, discovery or saved progress was changed.",
+      "before_sha256": "7c87baf4ad4134de7592b53cf52337b5ba061be5ecc932cdd0362c2fd57d6342",
+      "after_sha256": "983a20ee7bcdfe8e736e2fbc6728fa855d692dc09c402cd810dbdb21e4c813e6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 706
+}

@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "batch": "B394",
+  "title": "Complete System design, packet journeys and 114 detailed proposed cases",
+  "at": "2026-11-05T04:07:57.967365+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+      "ids": [
+        "SC01–SC10",
+        "all SCxx.V01–V09 as present",
+        "J-FIX",
+        "J-BRIDGE",
+        "J-SYS",
+        "GJ1",
+        "MJ1",
+        "CJ1"
+      ],
+      "classification": "Original hypothetical design and specified-not-run implementation contracts",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md"
+      ],
+      "disposition": "Retained all ten family tables, five named hypothetical journeys and distinct provider/grant carriers. Corrected retired first-milestone sequencing separately with exact old wording preserved in amendment history; early/middle/later remain optional possibilities.",
+      "evidence": "All 431 pre-B394 lines read: 1–100 supporting owner context, 101–205 and 206–431 bounded sequential output, including B393 fold. No source or runtime proof renewed.",
+      "reopen": "Only a separately selected current slice can turn these local promises into runtime work. Apply current AD36/AD39/AD42/AD51/AD52, compatibility and source-world owners rather than reviving old dispatch conditions.",
+      "input_sha256": "cb4d5352e7e2d0f062d6c1d94ad298394a4f56509457f24df72608d69a7915ce",
+      "input_lines": 431,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          431
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md",
+      "ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04A",
+        "P04B",
+        "P05",
+        "P06",
+        "P07"
+      ],
+      "classification": "Original hypothetical design and specified-not-run implementation contracts",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md"
+      ],
+      "disposition": "Retained eight candidate branches and their independent useful outputs, exclusions and failure/persistence cases; no universal provider schema, NPC economy or new-start prerequisite. P05 SC08.02 is the integrated ledger model leaf, not design variant SC08.V02 pocket realm.",
+      "evidence": "Full 169-line packet document read, all candidate table rows and each detailed packet body; compared SC08.02 with full ledger designVariantIds and actual definition.",
+      "reopen": "Only a separately selected current slice can turn these local promises into runtime work. Apply current AD36/AD39/AD42/AD51/AD52, compatibility and source-world owners rather than reviving old dispatch conditions.",
+      "input_sha256": "f959534a4fe9178fa3469832787c0bba9bf5d1393b0e235a9cd87703d6db9d34",
+      "input_lines": 169,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          169
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/ASSIGNMENT.md",
+      "ids": [
+        "SC01–SC10",
+        "input boundaries",
+        "required deliverables",
+        "finish condition"
+      ],
+      "classification": "Original hypothetical design and specified-not-run implementation contracts",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md"
+      ],
+      "disposition": "Historical GM scope preserved as historical authority for its planning return. Its delegated-writer permissions, source reservation and deliverable checklist do not launch present workers or select implementation.",
+      "evidence": "Full 95-line assignment read including inputs, all ten coverage rows, deliverables, exclusions and finish condition.",
+      "reopen": "Only a separately selected current slice can turn these local promises into runtime work. Apply current AD36/AD39/AD42/AD51/AD52, compatibility and source-world owners rather than reviving old dispatch conditions.",
+      "input_sha256": "163e7f29784daeaabd73ad27b61d8fbd245a5678df3085fa519e5a909592bc68",
+      "input_lines": 95,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "revision 3",
+        "SC01–SC10",
+        "R1–R4",
+        "55 links",
+        "43 source pointers"
+      ],
+      "classification": "Original hypothetical design and specified-not-run implementation contracts",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md"
+      ],
+      "disposition": "Preserved old completion/readback/reservation snapshot without treating it as live worker state or a fresh source/link check. Planning completion is not gameplay, source fidelity or current integration.",
+      "evidence": "Full 31-line checkpoint read with ownership, counts, historical checks and resume exclusions.",
+      "reopen": "Only a separately selected current slice can turn these local promises into runtime work. Apply current AD36/AD39/AD42/AD51/AD52, compatibility and source-world owners rather than reviving old dispatch conditions.",
+      "input_sha256": "cd3918e30faa3a561d136ea6071bc01a58b2d156458c67b94f2ab87d2110585c",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "ids": [
+        "all 36 SCxx.yy leaves",
+        "all 59 SCxx.Vyy variants",
+        "all 114 proposed cases",
+        "J01–J07",
+        "Q1–Q4",
+        "R1–R4"
+      ],
+      "classification": "Original hypothetical design and specified-not-run implementation contracts",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md"
+      ],
+      "disposition": "Reviewed every serialized key/value, leaf, variant, case, source pointer and join. Preserved 73 predecessor IDs; compared aggregate claims and variant/leaf namespaces. Added design-level qualifications for selected-case preconditions rather than treating ordinary expertise, clock/budget or local witness tests as universal laws.",
+      "evidence": "Lossless compact JSON read in metadata/all nonarray fields, requirements 0–6/7–14/15–22/23–29/30–35, all joins and all 59 designVariants; no omitted values. Structural accounting saved map-counts-b394.json; no code or predecessor-ledger semantic credit.",
+      "reopen": "Only a separately selected current slice can turn these local promises into runtime work. Apply current AD36/AD39/AD42/AD51/AD52, compatibility and source-world owners rather than reviving old dispatch conditions.",
+      "input_sha256": "c38e1884448ef3e6505c8b3af78c6b1e1f0a26cc5b6d1400edbff269858ba391",
+      "input_lines": 3392,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3392
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+      "heading": "## Content reconciliation B394: complete variants, exact carriers and local case preconditions",
+      "body": "The entire design, packet set, original assignment, revision-3 checkpoint and detailed ledger were read. The ledger retains 36 integrated leaves, 59 explicitly mapped optional variants, 114 specified-not-run cases, seven joins and 73 distinct predecessor IDs. Each actual leaf definition, source-only pointer, persistence decision and proposed case was reviewed, not inferred from these totals. Source files and predecessor ledgers were not reread. The historical validation and worker status remain historical. Selection, source qualification, implementation, exercised behavior and current integration are separate.\n\nJ-FIX preserves a fixed deterioration-stopping carrier without adding creation, repair, identification or transport. Its depth comes from supported clocks, custody, ordinary preparation and real downstream users. J-BRIDGE preserves every actual fabrication, observation, teaching/experiment, material and inspection step; a perfect part need not teach signal interpretation. J-SYS uses the provider's actual fabrication evidence, library and stock. Permanent learning, installed anatomy, live computation, stored third-party goods and an unclaimed entitlement follow different disconnect, travel and host-transfer rules. A host refusal does not grant control. Provider-as-player and clause/evidence exploits remain original fictional mechanisms, with actual verifier reach and behavior, rather than permission to manipulate the save engine.\n\nThe chance, wagering and cache leaves retain correlations, eligibility, commitment, source stock, custody and chosen observation. A causal-event wager reads that event rather than drawing a new outcome. A fixed cache cannot be freshly rolled by transfer, while mutable contents need actual condition/theft state. Remembering a seed is sufficient only with the same algorithm, ordering, eligibility and revision; otherwise retain the committed semantic result. A real copying or creation power can duplicate matter under its actual promise. Preventing an accidental second settlement does not impose an anti-exploit cap on that fiction.\n\nTerritory, dream, report-only model, materialized branch, real habitat and inhabited creation retain different laws, clocks and exports. The irrigation model can export learned knowledge while leaving actual crops and purse untouched; it is not evidence for autonomous residents or real harvest export. Deletion/loss needs its declared visitor, cargo and custody disposition. Shared namespaces or parent IDs do not supply isolation, viable life or acceptable scale. Source uncertainty and missing implementation remain distinct from fictional limits.\n\nThe ledger's individual test descriptions are conditional examples for the selected local function. SC03.03 does not force an ordinary skill to remain necessary when a genuinely superior means replaces it. SC10.06's fuel rejection applies to a fuel-dependent method, not every power; witness-local memory in SC09.03 does not prohibit actual communication or carriers. Funding, work budgets, waiting, clue cadence, provider stock and independent actor work follow actual local means. No universal guaranteed acquisition alternative, recurring chore, arbitrary power cap or new economic shortage is selected. Current AD51 allows a useful first seam without waiting for another world; AD52 retains consequential cost, choice and support while allowing strong powers and long play.",
+      "before_sha256": "cb4d5352e7e2d0f062d6c1d94ad298394a4f56509457f24df72608d69a7915ce",
+      "after_sha256": "ed4f001d1aaf3b706e754b8f2528b6d20fbf9a7853431ff77960a9c162bb35bf"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md",
+      "heading": "## Content reconciliation B394: integrated leaf IDs and independent candidate scope",
+      "body": "All candidate bodies and their ledger definitions were compared. P05's SC08.02 refers to the integrated Dreams, models and simulations leaf, which groups SC08.V03/V04; it is not the separately named pocket-realm design variant SC08.V02. Keep the exact namespace when selecting work. Its proposed knowledge export cannot stand in for a real habitat, resident, harvest or world branch. P02, P03, P04A, P04B and P05 remain independently selectable useful paths; optional provider-as-player, broad NPC planning, random starts and a universal framework are not admission gates.\n\nThe first ordinary objective, actual grant and changed useful output can establish a narrow System service. Broader upgrade, apprentice, disconnect and second-use journeys cover the corresponding selected promises, not every passive or fixed-function cheat. P04A appraisal needs actual existing contents or a supported future-information means. P04B needs real escrow, event/hand outcome and both recipients; a negative money field does not create a creditor. P06 keeps independent lives as a retained horizon under current lead-first sequencing. Source-qualified worlds remain with their existing owners. Historical acceptance lists, proposed file names, work reservations and exact case counts do not select runtime execution or require human approval under AD42.",
+      "before_sha256": "f959534a4fe9178fa3469832787c0bba9bf5d1393b0e235a9cd87703d6db9d34",
+      "after_sha256": "8a0b0c53b8a81bad4903de2e134e433937aede0b9408cc1e652ceb47a6ed9d1f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 621,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+      "from": "Existing accepted first-milestone sequencing and random-entry\nintention are retained; a created pocket instance is not automatically another\nrequired campaign realm.",
+      "to": "Current PROJECT and USER_VISION own sequencing: the one-realm/one-prestige\nfirst-milestone gate was retired on Oct. 24. Lead developer journeys come first\nunder the current world owners; independent, ordinary and alternative beginnings\nremain later possibilities. A created pocket instance is not automatically\nanother required campaign realm.",
+      "reason": "Retired first-milestone gate must not remain active through an old design paragraph; preserve later independent lives and current lead-first sequencing."
+    }
+  ]
+}

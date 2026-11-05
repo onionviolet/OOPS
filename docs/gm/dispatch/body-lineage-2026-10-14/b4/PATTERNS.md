@@ -37,3 +37,12 @@ There is little qualified dimorphism evidence in this corpus. Do not fabricate
 SG11 stat differences from clothing, sexed language, an all-girls film
 delegation or a single strong individual. The existing world/species/body dial
 remains available; absence of source proof is not a design prohibition.
+
+
+## Content reconciliation: useful body mechanisms and local dials, 2026-11-04 (B363)
+
+P1–P14 are a reusable palette with actual mechanism distinctions: ancestry/faculty/method/property/office; acquired form versus germline/template change; power production versus tolerance/control; taught expression versus an inherited executable faculty; body/soul/identity/reproductive role/institution; aging versus appearance/regeneration/survival; pedigree versus demonstrated biology; and market demand for usable parts rather than universal pursuit. A real source can grant multiple layers, immediate control or genuine immortality without a mandatory rejection tax, training delay, lifespan price or compensating weakness.
+
+Preserve the less common mechanisms too: a signal lock checks its signal rather than retroactively adding ancestry; different reproductive roles transmit through their actual operations; a diagnosis changes observer behavior without changing the underlying body; a projected form can conceal injury without repairing it; institutional participation can depend on an authored status; and a departing source can leave different persistent body effects. Each comparison remains scoped to its sourced case. A family-level mapping is better than forcing an inaccurate existing code, and no competing global code allocation follows from this palette.
+
+Sparse dimorphism evidence is not a reason to invent numerical differences from clothing, language or one strong individual. Conversely, lack of such evidence does not prohibit an explicitly authored local body/species dial. Fictional mechanisms are not a medical/heredity claim about real people. No primary source, sex/identity change, lineage probability, new physiology framework or gameplay consumer was verified or implemented by this review.

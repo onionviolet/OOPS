@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "batch": "B365",
+  "title": "Complete idea-index content, historical routing and later carry correction",
+  "at": "2026-11-05T03:06:26.821368+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "ids": [
+        "I01–I40",
+        "I37a",
+        "QR1–QR6e",
+        "Topic/palette owner routes",
+        "Current/historical delivery snapshots",
+        "October23cheat summary",
+        "November4long-play intake"
+      ],
+      "classification": "Full project navigation/idea index with mixed dated execution summaries and stable family IDs",
+      "owners": [
+        "docs/IDEA_INDEX.md",
+        "PROJECT.md",
+        "docs/gm/WRITEUP_REGISTER.md"
+      ],
+      "disposition": "Complete actual reading of previously partial owner; preserve every stable idea and detailed owner route, qualify dated current/free/active/proposed labels and correct the stale cheat-carry summary from its later owning receipt.",
+      "evidence": "Read all681original lines in six bounded ranges1–135/136–270/271–405/406–540/541–615/616–681, including every table, linked-palette summary, stable idea and final cheat paragraph. Separately read CHEAT_LIBRARY1550–1628/1648–1665 as scoped support: later D4/G1 receipt explicitly supersedes IM1/IM7 heir-loss and IM2/IM8 acquisition observations. No linked dossier, live worker, source corpus or runtime behavior verified by proxy.",
+      "reopen": "Continue remaining inventory and partial-owner content review. For a new selected implementation follow actual current authority, owning source and exact proof; do not dispatch historical queue rows or infer current absence from dated proposal labels.",
+      "input_sha256": "abc186fdac84c35820ae6c90af178ac264c0ffc7842eb9c715be02084824eb63",
+      "input_lines": 681,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          681
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "heading": "## Content reconciliation: index semantics and historical status, 2026-11-04 (B365)",
+      "body": "The complete index was read, including I01–I40/I37a, QR1–QR6e, every topic/palette/delivery summary and the latest intake pointers. Stable IDs remain navigation families, not event/save identifiers, independent ready-to-build specifications or a promise to implement every linked proposal. The index does not itself prove that all linked dossiers were semantically read, every old gap still exists or every registered world is playable. Keep the original idea breadth and exact owner links rather than replacing them with another build queue.\n\nDated “current,” “active,” “free,” “running,” “not implemented” and pending-review labels describe their captured scope. Their later owner receipts can supersede them without retroactively changing original evidence. Current PROJECT.md, accepted direction/rules and actual source/evidence owners govern present work under AD32/AD41/AD44/AD51. In particular, later ordinary/developer route distinctions, LOTM-first/Harry work, retired first-milestone gate, desktop/font targets, optional human review under AD42 and long-play compression under AD52 must not be reversed by an old index summary. A historical user-request or source observation is not silently demoted by a surrounding “proposals only” label, while a saved palette is not automatically accepted.\n\nPreserve the cross-topic connections: body, source, means, mastery, custody, social recognition, knowledge and presentation have distinct owners; stronger legitimate mechanisms can cross boundaries with their actual reason. Causal timelines require real causes, remembered mastery is not automatically bodily execution, and a person/variant/role is not a copied save merely by sharing a name. Source reading and profiles, prototype interaction, implementation, passing bounded tests, rebuilt native evidence, packaging/adoption and publication remain separate proof states. Optional references and broad ideas do not become prerequisites to the selected slice.\n\nThe final October23cheat entry was stale even against its own later library receipt: D4/G1 records quiet-faculty seeding, existing-owner carry and distinct enduring versus local inputs. The corrected entry routes that dated implementation evidence without claiming fresh runtime verification. Full backups and observer-safe summaries remain different products, and accompanying cards require their actual carrier. No broader CHEAT_LIBRARY coverage is credited by the two supporting ranges. No linked source, private save, worker/chat, runtime, build, browser, acquisition, deletion, commit or push was performed during this index review.",
+      "before_sha256": "abc186fdac84c35820ae6c90af178ac264c0ffc7842eb9c715be02084824eb63",
+      "after_sha256": "ba48876d4ad6cd3e096bd605acd3303572efdc9df6bc1fc8201087d100c0c52f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 688,
+  "support_reads": [
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "sha256": "e3228f7b9890c9952b7da539fd4d7594a91dd199f3c5ace329a050f41e56e7a0",
+      "ranges": [
+        [
+          1550,
+          1628
+        ],
+        [
+          1648,
+          1665
+        ]
+      ],
+      "scope": "Scoped IM/D4/G1 precedence support only; the remainder remains partial/unreviewed."
+    }
+  ],
+  "post_record_amendments": [
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "from": "# Game idea index\n\n",
+      "to": "# Game idea index\n\nUse this index to find idea owners. Dated execution summaries below retain their original evidence and can be superseded by later receipts; [PROJECT.md](../PROJECT.md), the current rules and each actual owner govern present priority/status (AD32/AD41/AD44/AD51). “Active,” “free,” “running” and old proposal/implementation labels are not fresh worker or runtime checks. Full-index content reconciliation is recorded at the end; linked bodies keep their own review scope.\n\n",
+      "reason": "Qualify dated execution vocabulary near entry point without changing stable ideas or archived chronology."
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "from": "Heir succession drops the base cheat and no default route grants one; proposal: a quiet seed card at new game, tolerant card read, one cheat host, True Appraisal as card 2. [Round IM1 to IM20](CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23), [core audit](audits/CHEAT_CORE_AUDIT.md).",
+      "to": "Historical October23 finding/proposals: heir loss, absent ordinary seed, tolerant read, one host and True Appraisal as card2. The later D4/G1 receipt in [CHEAT_LIBRARY](CHEAT_LIBRARY.md) supersedes the first two absence claims: it records quiet-faculty seeding and existing-owner carry, with enduring developments distinct from local module inputs (AD11/AD29). That is dated implementation evidence, not a fresh runtime check. Preserve [IM1–IM20](CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23) and the [core audit](audits/CHEAT_CORE_AUDIT.md) as their original proposal/history routes.",
+      "reason": "Correct stale index absence/carry summary using the owning later D4/G1 receipt; preserve original wording in amendment and old proposal link."
+    }
+  ]
+}

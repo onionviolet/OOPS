@@ -1,0 +1,1883 @@
+{
+  "scope": "Frozen B306-B406 review release, synthetic native Seer mechanism proof and preserved historical crafting captures; active crafting and later reviewer writes excluded.",
+  "parent": "2caf5a85e6dcc171d106f61617327a84bca020cc",
+  "verification_start_base": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "document_snapshot": {
+    "status": "active",
+    "last_batch": "B406",
+    "at": "2026-11-05T04:50:33.275300+00:00",
+    "remaining_without_content_review": 547,
+    "candidate_count": 2199,
+    "partial_or_legacy_ranges_needing_full_coverage_check": 14,
+    "remaining_without_explicit_full_review": 561,
+    "next_suggested_paths": [],
+    "note": "Continue actual content review. Owner-section maintenance is not full-file review; all ledger ranges retain their scope."
+  },
+  "protected_owners": {
+    "excluded_live_owners": [
+      ".claude/rules/player-ui.md",
+      "PROJECT.md",
+      "docs/CRAFTING_ENGINE.md",
+      "docs/MAKING_RULES.md",
+      "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "docs/RULES_INDEX.md",
+      "docs/UI_DESIGN_CORE_AUDIT.md",
+      "docs/UI_RULES.md",
+      "docs/USER_VISION.md",
+      "docs/VISION_DIGEST.md",
+      "docs/gm/PROJECT_LOG_2026-10-29.md"
+    ],
+    "reconstructed_review_only_owners": [
+      "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md"
+    ],
+    "excluded_task_prefix": "docs/gm/dispatch/crafting-layers-2026-11-04/"
+  },
+  "tests": {
+    "tests": 5166,
+    "pass": 5145,
+    "fail": 0,
+    "skipped": 21
+  },
+  "native": {
+    "route": "synthetic native Seer calibration fixture; no canon-arrival claim",
+    "viewport": "1920x1080",
+    "bundleHash": "37f91794912b06065eca5d17f52e754bd537e3f2122120b6be4627a20dbdcd01",
+    "fixtureHash": "51e995e96806411a5a6521029de3df8e47fedf18e1ee5b813150f93874741d33",
+    "checks": [
+      "source-free character cannot switch on",
+      "cycle 1 is admitted below the exhaustion dial",
+      "switch-on is a real pending native job",
+      "pending-on reload keeps exact conditions, pool and completions",
+      "pending-on literal Export/Import keeps exact state",
+      "cycle 1 spends exactly one spirituality and turns vision on",
+      "cycle 1 retains the accumulated notch",
+      "one-notch reload keeps exact conditions, pool and completions",
+      "one-notch literal Export/Import keeps exact state",
+      "cycle 2 is admitted below the exhaustion dial",
+      "cycle 2 spends exactly one spirituality and turns vision on",
+      "cycle 2 retains the accumulated notch",
+      "cycle 3 is admitted below the exhaustion dial",
+      "cycle 3 spends exactly one spirituality and turns vision on",
+      "cycle 3 retains the accumulated notch",
+      "cogitation restores available energy without clearing fatigue",
+      "exhaustion dial blocks a further use despite available energy",
+      "native refusal explains sleep and the real action retains its cost",
+      "forced disabled activation commits nothing",
+      "at-limit reload keeps exact conditions, pool and completions",
+      "at-limit literal Export/Import keeps exact state",
+      "restored state remains blocked at the same dial",
+      "cancelled sleep clears no exhaustion",
+      "completed sleep clears all notches and enables the source again",
+      "post-sleep vision works through the same native consumer",
+      "restored-vision reload keeps exact conditions, pool and completions",
+      "restored-vision literal Export/Import keeps exact state",
+      "no browser errors"
+    ],
+    "errors": []
+  },
+  "private_proof": {
+    "path": "private/newer-review-seer-capture-release-2026-11-04/attempt-2",
+    "artifacts": {
+      "result.json": {
+        "sha256": "b1d9169b8025c118c3570de267bfd5e4b459739e285d79ca05843e137cb490ad",
+        "bytes": 1936
+      },
+      "at-limit-1920.png": {
+        "sha256": "0c8bf08e5efec84a40893a196501a03a2c4041a4a6540c13ac061f4c167bd136",
+        "bytes": 650077
+      },
+      "after-rest-1920.png": {
+        "sha256": "9b22af40fc7ae2f020176c0089bb7ccec7b8d67b4476d70f9e2faa66c3caf472",
+        "bytes": 634198
+      },
+      "restored-vision-export.txt": {
+        "sha256": "371bd3c4c78274e2f28a8c75540a8c4986f2ceee7be30924634bfda6a3587493",
+        "bytes": 218904
+      },
+      "at-limit-export.txt": {
+        "sha256": "f8890ef380df03c4bec742c1bfb154b0bb09527cfbe657781f225f5fa998d7a9",
+        "bytes": 216900
+      },
+      "pending-on-export.txt": {
+        "sha256": "e1ca8662e64a111374b1db3f3d0ba7bbae1458a6786afaf07abe1d932161617d",
+        "bytes": 214280
+      },
+      "one-notch-export.txt": {
+        "sha256": "1060c8dda85e54a509baaaaeda2067795f038784bd4260fad170601a6ce9489a",
+        "bytes": 214136
+      }
+    }
+  },
+  "public_omissions": {
+    "omitted_private_folds": 4,
+    "omitted_private_links": 5,
+    "omitted_private_inputs": 57
+  },
+  "input_files": {
+    ".gitignore": {
+      "sha256": "08866e37de01be3312549563cd3e30041a22566fcd46def8152ed09fec55630f",
+      "bytes": 15683
+    },
+    "dist/bundle.js": {
+      "sha256": "37f91794912b06065eca5d17f52e754bd537e3f2122120b6be4627a20dbdcd01",
+      "bytes": 8615117
+    },
+    "dist/bundle.js.map": {
+      "sha256": "2b94dc5540678506b62732176770b573caeb7ed0940cc378f40f45f9e6cdeadb",
+      "bytes": 23069707
+    },
+    "docs/CHEAT_LIBRARY.md": {
+      "sha256": "5bc17bfbc89e6313c7d89541a9ae5d66746ff213eee627a9412d6b19bbbd6b30",
+      "bytes": 138961
+    },
+    "docs/EMERGENT_SYSTEMS.md": {
+      "sha256": "9732601f7b406ec27b8af0338b84c9e2cc079fb1e888f116a2fbf407b6ac3853",
+      "bytes": 57511
+    },
+    "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md": {
+      "sha256": "10bfa1e385d61233b8c45a880d290ce42a5ab7740a65160d72563ef8df5fa15e",
+      "bytes": 130545
+    },
+    "docs/GAME_MASTER_PROMPT.md": {
+      "sha256": "e80d7f7423653df3f66a7007ee328b92ef143b9f55aee69afbf769b4794ec7e6",
+      "bytes": 45413
+    },
+    "docs/IDEA_INDEX.md": {
+      "sha256": "c2832850820ce01e183d10e8dc3680ce6b8378286e308dba2d88e76423ad1914",
+      "bytes": 99596
+    },
+    "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md": {
+      "sha256": "97ebb0631b080b2a8ae6de186730f5aa1bb208e44d67ad2f08ada910cec93b5d",
+      "bytes": 223194
+    },
+    "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md": {
+      "sha256": "eb659c05cc8dedb26e65c959bba39bd5ab920c336e50dffee1e34d0e0c8349ca",
+      "bytes": 73991
+    },
+    "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md": {
+      "sha256": "c592d5d0b0fcdae876baf25d1d1838cd47f01c783d83d3d1490e5ca82584a30e",
+      "bytes": 50920
+    },
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md": {
+      "sha256": "5dfee6692127de495c9e2163063992cb7a19cfb007209a80df3ae35695624180",
+      "bytes": 29690
+    },
+    "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md": {
+      "sha256": "5d35c4dc28b94d1b24dea5551235eac8e2eadc9a2f2dc80e305fc5dea88b1452",
+      "bytes": 120962
+    },
+    "docs/SELVES_AND_ECHOES.md": {
+      "sha256": "28e271b61108118a16cfdf7d554c82780cf99742963af73807ecf6e6a5e387d7",
+      "bytes": 21992
+    },
+    "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md": {
+      "sha256": "56c6825f4dc815ae004e1ab1c400c943836b84d35ed454ce9f430e422c9030ae",
+      "bytes": 57672
+    },
+    "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md": {
+      "sha256": "d1e9363384268eb600c9da40ae9f0e316b5051fcb33714833e9d197968a1cb31",
+      "bytes": 13103
+    },
+    "docs/TECHNOLOGY_AND_PROGRESSION.md": {
+      "sha256": "399b5c7097bfcea954579e19d7d054eb814a7de1ec265ac01e4eeac9bd766d1b",
+      "bytes": 151903
+    },
+    "docs/TIMELINES_AND_DIVERGENCE.md": {
+      "sha256": "faa61608099898315f7dc620ed3ef5dcf4a65734c9bb24482405f686b01aefc0",
+      "bytes": 49917
+    },
+    "docs/TIME_KEEPERS_AND_VARIANTS.md": {
+      "sha256": "df63d148d0a1f5c098a77336170a2869c2d0b0c0aefdd10b93c25384149e8ab2",
+      "bytes": 48601
+    },
+    "docs/UPSTREAM_DIRECTION.md": {
+      "sha256": "923c857d8c307dda2646e3fa0229681b0389af3d424108b2366c56bd0db9e73d",
+      "bytes": 14983
+    },
+    "docs/WORLD_ABSORPTION_RULES.md": {
+      "sha256": "a22c53e45563da6418f5c8d499f18f5c02178318670a93735dacb5b31e2cf023",
+      "bytes": 67866
+    },
+    "docs/WORLD_CARDS.md": {
+      "sha256": "529be7906cba3178c69471688a066272ad37a2c284ee3bda2991f397316a6341",
+      "bytes": 33457
+    },
+    "docs/WORLD_COMPLETION_STANDARD.md": {
+      "sha256": "65bee4073b319c2b13adf22bc3fd5b2b1c319cb1afc67c52f53405707d641f3f",
+      "bytes": 28495
+    },
+    "docs/WORLD_ENTRY_RULES.md": {
+      "sha256": "5ba0032fe7f5465bf25f30e4524e5193b4a6037e65dd2facf4b96bb87ecde241",
+      "bytes": 30576
+    },
+    "docs/WORLD_GAME_MASTER_TEMPLATE.md": {
+      "sha256": "d8f2aef47449e88d41ae9ecb8e7239e4f957dcc1ca6812ac252ea6b05182c82a",
+      "bytes": 24713
+    },
+    "docs/WORLD_PASS_RULES.md": {
+      "sha256": "f3cabe608fc4d03fd124f7134a707a740b7a8f54841455de9f5e1ead2a4f09ad",
+      "bytes": 20329
+    },
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md": {
+      "sha256": "3301ffdfccfb0ce094bb4d11d2331b6fb0370291a4a9073fb5d5b3ebb6ce2947",
+      "bytes": 297463
+    },
+    "docs/audits/NEWER_REVIEW_SEER_CAPTURE_RELEASE_2026-11-04.md": {
+      "sha256": "43cb61334f85d8265fd36365228634cd2df28848e18e4e360e68f15bc4127fab",
+      "bytes": 8369
+    },
+    "docs/audits/PROGRESS_ATLAS_2026-11-04.md": {
+      "sha256": "ec634d7e49dfd4fecae8dca992152bc2f53365e726c0476787cbc75d1f4cf9d9",
+      "bytes": 6052
+    },
+    "docs/audits/UI_DESIGN_CORE_AUDIT.md": {
+      "sha256": "c69bc31b1db5c7434a10f71c0158b31dba236794c6f001ab5927d443c70a64e5",
+      "bytes": 273440
+    },
+    "docs/audits/gap-audit-2026-10-30/research_cov.md": {
+      "sha256": "5dd9c87f119ef31ad6edf39ccc1c99344b423f4288d78064d13e3de5b149cbf5",
+      "bytes": 91272
+    },
+    "docs/audits/gap-audit-2026-10-30/uv_cov_1.md": {
+      "sha256": "7fbff6c3037135c5097d0264901a47983212e4d60c3148f0b74b8b2a5af83093",
+      "bytes": 44303
+    },
+    "docs/audits/gap-audit-2026-10-30/uv_cov_2.md": {
+      "sha256": "e04830808ac0cefdfcab8efac1518a57d8bcb5a4358eae343f4a6932b8630a82",
+      "bytes": 44413
+    },
+    "docs/audits/gap-audit-2026-10-30/uv_cov_3.md": {
+      "sha256": "54952deb178c29c475786a2a6a7c7768b9bb50283cfcae021393e89ac1b1b86b",
+      "bytes": 26521
+    },
+    "docs/audits/gap-audit-2026-10-30/uv_cov_4.md": {
+      "sha256": "386706a8f900d2b4437e309f94e27f25c1ba0a029a89792bc7f41bdba72db491",
+      "bytes": 39700
+    },
+    "docs/audits/gap-audit-2026-10-30/uv_cov_5.md": {
+      "sha256": "cd23d5a8b8e1c92976cecf6b18d3f65221d5061d368f5704decc1c5f58850bae",
+      "bytes": 38152
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b121.json": {
+      "sha256": "2befac188fe8136dab1dda28d7c3717d0bc64486c64df6e50fdbf35fade71171",
+      "bytes": 14383
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b145.json": {
+      "sha256": "01fee031a8f0cd2afcbc24c3b2458bb8c34274fd43c7856e91373bad933a4bfe",
+      "bytes": 15452
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b151.json": {
+      "sha256": "0c585f53da3b7f1fb5dd12ab31022bb8ce4e8cf8c5ed5117448a3b99e9613e39",
+      "bytes": 8067
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b196.json": {
+      "sha256": "9f58067af34b6a8160f5ef55478fa86d8e2c26c97385e9392b4b8456214d2f76",
+      "bytes": 16157
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b305.json": {
+      "sha256": "c2c293cab5f3d17c1261dea720bf2e204543b46dce0b179f0cde7279a8bd2dc6",
+      "bytes": 10748
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b306.json": {
+      "sha256": "56351c1c4a508f507b01ab3a027075607f1db1e7c28dae5dfbcbca14743dd770",
+      "bytes": 10618
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b307.json": {
+      "sha256": "909e6e980a6f195cbccd33a9adfb621f66c69c5e06543c682d3a124d930c861d",
+      "bytes": 9680
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b308.json": {
+      "sha256": "c3de589a1cd6ce878f395746f17b7c22a136c7f190b0d74fb081f817f3133f6f",
+      "bytes": 3856
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b309.json": {
+      "sha256": "6f5e2d0863d2fc6b205a60f43f9970a6995d15204804a0aba56b988dd510546c",
+      "bytes": 5469
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b310.json": {
+      "sha256": "5853ddb9c74d55eb0fc2a3943d098bfba13e2a62aa19599c2b6d35aa3db80e80",
+      "bytes": 11785
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b311.json": {
+      "sha256": "cf8728bc83e7d9ac4295ab2ab7984fe59d107b5b451ecc253c0ddd49cefd7445",
+      "bytes": 12941
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b312.json": {
+      "sha256": "2598432cdcf7e49f2a48edb4a406bb18408c152245140a37d720b880acea9bb5",
+      "bytes": 12753
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b313.json": {
+      "sha256": "19e492e42239c8e5c32642bcc640f177d94bd344513473ea06a88918fd95b094",
+      "bytes": 6516
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b314.json": {
+      "sha256": "7da7aaa471d8d992a9b5342b0d97b721a4c4e5f3b463da17302ad9dd161c1edc",
+      "bytes": 7832
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b315.json": {
+      "sha256": "c2b10e6bbbb24b0a378ac4c3aa23b5b988d11bcf316d8ca7b2385b602d02d3bc",
+      "bytes": 8686
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b316.json": {
+      "sha256": "42cf9e308bc447f74363217cdfd86ba2033697613ea2a6225630e5288a112d6b",
+      "bytes": 14409
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b317.json": {
+      "sha256": "6f4a6a4bb5f7167a3a835a3915f3675bdc1f59a83e0e0b517405146046b6acd6",
+      "bytes": 8237
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b318.json": {
+      "sha256": "4f215a12395808bfdcf745d9334afb013b812d4d422a01918ef3b87c0632bbac",
+      "bytes": 19173
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b319.json": {
+      "sha256": "f82564b49f91742afc4ca6a0f99802053f6a24a52a1955978021cd7b0e496f44",
+      "bytes": 9743
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b320.json": {
+      "sha256": "e93f04c34f3ed7ffa250e2a1b05d68cd9a8d37f1832932cf78360fff04c37061",
+      "bytes": 14949
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b321.json": {
+      "sha256": "fb666d6d6c5c03dc60f94a0bf5b478067c560881a495df5fc90a7908b3046403",
+      "bytes": 9127
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b322.json": {
+      "sha256": "d3b7ea7e893a9dc585d0c0fd5afac48c7601543a502293fd253ad534718252c5",
+      "bytes": 10337
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b323.json": {
+      "sha256": "0f2479d2ec0f6b82fea2354c180845f5d6c74635b2706cedce59c3691a3099f7",
+      "bytes": 16387
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b324.json": {
+      "sha256": "607bc5a625486d885d5942c0dbbfda8ed39796bffa3e7ba35ba5ae1c527d92cc",
+      "bytes": 11487
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b325.json": {
+      "sha256": "968d53a891a28619b63707a7b536bdc9c98d7baa468577ac1ba80522f16f658c",
+      "bytes": 12673
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b326.json": {
+      "sha256": "b48f20d5f5fb3791bfb2ca652ea4f6aa3bbdaf093fb03d22c96874d3a1d96c8c",
+      "bytes": 17547
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b327.json": {
+      "sha256": "3c288eedd24b0b810fc892db7bd2196919790fc82062fc40c0e2426956249e9b",
+      "bytes": 12491
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b328.json": {
+      "sha256": "46d4dfea602a5730d128d309cec9b8fa4b55b9ef905a1ea3b948746d19d07495",
+      "bytes": 8224
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b329.json": {
+      "sha256": "2822adca795b50f9b06f25f6567e657fee4ce2307d403df555a5a740e5c761ca",
+      "bytes": 8085
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b330.json": {
+      "sha256": "3cdf757e8824d0cdae7821aa5ef8897032acdf5ed85b51dabd578a5ee18e2918",
+      "bytes": 6145
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b331.json": {
+      "sha256": "c207ff07afa832bea99126db455c9c79ba48374eb077ca574e6d784c60886ef3",
+      "bytes": 5507
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b332.json": {
+      "sha256": "07ebbb8a9206120a6efdd5c3848384e1b70c5a4f69e1b221bcea2b10fe0863dc",
+      "bytes": 13522
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b333.json": {
+      "sha256": "0cbbf14607c9ebd59c62567227a396cacebbaae9b779b959cd0363f69931b2b8",
+      "bytes": 13300
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b334.json": {
+      "sha256": "daa147b3d0da3f18a7eaf360731ad4ba07faa34762458f2e86464b1226926e60",
+      "bytes": 11886
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b335.json": {
+      "sha256": "f7778106dd6848ca6bbbd4bf14e85303773559349b136fc7d7694c7d9a288b3a",
+      "bytes": 6436
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b336.json": {
+      "sha256": "cdd0f98294fc4c4682a2d1ef14c505d0a9dff39652339ff12300e9f2aec315f5",
+      "bytes": 19312
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b337.json": {
+      "sha256": "5b0a1b3b857da7df71aad24d61b33db4d02208c7b7321ab9c3c70728c97258ab",
+      "bytes": 8958
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b338.json": {
+      "sha256": "3bb108b4e72392afacda02ebac48708bc4a7a9cb612fdc7cdb74b1facf7749f1",
+      "bytes": 9114
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b339.json": {
+      "sha256": "fa42f70aea7a79998d75785ca3c99b0e42a40d3b9c0d14f1ab80e10a6c245dca",
+      "bytes": 9449
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b340.json": {
+      "sha256": "773d38aa2a62db3c0d055f6e51bc9190881a89681f4dc69e31568490d034af45",
+      "bytes": 10710
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b341.json": {
+      "sha256": "c9f6da73cbba0ab0cec4acb8cf242f40d8dd37e43287ff4f3b59517d656ad4fd",
+      "bytes": 7235
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b342.json": {
+      "sha256": "d0aecca4b3058c019d6ec5683a6ab3f9aef238a5a2a50a210786f5e8609b15ae",
+      "bytes": 8702
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b343.json": {
+      "sha256": "42ae50aa5cfe6f4e803c7fb44e3fb966efbad7294c5b78330d53de6a9003aecd",
+      "bytes": 16435
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b344.json": {
+      "sha256": "deb6a84b668cfdcbb3c156dca17af4bb6fc4907b4f126339c1a7af3cb2942c7b",
+      "bytes": 19345
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b345.json": {
+      "sha256": "db5bbe42424ec9b827684540b99180994a7bad33d5fd1485528b8bb33766e387",
+      "bytes": 15552
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b346.json": {
+      "sha256": "1f599040e51dc44be6267206e42001b4adc8b1436021cf288b044aaecd21023a",
+      "bytes": 22383
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b347.json": {
+      "sha256": "34641d9ccff04511c9850bc621e2b86cc747bc053163582dd69ee35e375c557c",
+      "bytes": 16630
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b348.json": {
+      "sha256": "daee2c184c517a22e6bda9ede1d1828ea1df607e812c1d2b9c555e34532bb603",
+      "bytes": 14816
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b349.json": {
+      "sha256": "c0817f553b1026b846f54b3be6649376c87d5521a8d33ddf83cab0f8e7d46a45",
+      "bytes": 17805
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b350.json": {
+      "sha256": "760732a3fded8cee1729ae98483a28abdedfc3d76b50b45ac13ec83fe917cc06",
+      "bytes": 11318
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b351.json": {
+      "sha256": "47f391113bdb328016a1b52461b77111378cf963d056fed9b26cf4d5a94bcaf2",
+      "bytes": 17317
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b352.json": {
+      "sha256": "eaf9275074ef2b19438528dab6b67151b3f5375df21669640964bd64a0800834",
+      "bytes": 10022
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b353.json": {
+      "sha256": "bbec606931b954f2776bd047e4de5048b49ce6000ece54695bf7810a19b7f6da",
+      "bytes": 12050
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b354.json": {
+      "sha256": "bd95ea82eb6576a6c717ba6aef78428e013f65b93396bbda54d689244cda0974",
+      "bytes": 9296
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b355.json": {
+      "sha256": "0aea61c663b554e98f8891a84b12337534229c958bca84ce36b672027c8ebecc",
+      "bytes": 11953
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b356.json": {
+      "sha256": "3c6ea85f83795e6733b2771e1abf9f45760757311dfad3d83d83447ce14b3377",
+      "bytes": 13291
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b357.json": {
+      "sha256": "2705ee67ab899348673e8ae883b14787445dc13529f3500ad44d45a220729044",
+      "bytes": 10106
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b358.json": {
+      "sha256": "c715801f1849fe9a52aef7c09a5e2590db44c671196f46a4118e7034a45be941",
+      "bytes": 8303
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b359.json": {
+      "sha256": "58d076e4400cde593732579e448b74694bcafd3218a774de2b1d1d2e018a4532",
+      "bytes": 12734
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b360.json": {
+      "sha256": "014424c220d32faddfb78ae880bad006a01577303a004649ff6d2277be7a6622",
+      "bytes": 17326
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b361.json": {
+      "sha256": "661a9f3ea00e1ac84df645fae50df2b3ed942af8b58af58d6e9d908978b6823e",
+      "bytes": 15270
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b362.json": {
+      "sha256": "edac6aef155251725dcc921f86c3ccc696e383e3fc5b37a9ce7ac53c5776036a",
+      "bytes": 6441
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b363.json": {
+      "sha256": "c32c75f19112da933fedae77087a73c826cb29a293145e1c4aca5f58c9e02fba",
+      "bytes": 14609
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b364.json": {
+      "sha256": "fe520f470f6fb7420aebd683e6762343eff4dd1b8fd0c03dc2e2d26448568fb7",
+      "bytes": 14694
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b365.json": {
+      "sha256": "a46a580b6a09ecf907630f4d8a282d3af6496a4883411aeaa2820a763167ec44",
+      "bytes": 7657
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b366.json": {
+      "sha256": "9d27fdb929787bea8af42512dc7be8be3df7700a6cdae21e281646a6fbc974f0",
+      "bytes": 9290
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b367.json": {
+      "sha256": "870601636148b6efe39ec5b458102ddca087b8e5473e500f97098481b6bb9e2d",
+      "bytes": 10862
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b368.json": {
+      "sha256": "30a77c9d548dc6f9f5048e780e6e11a7fac532b3cbe6d0ce667d9a6729e8b69d",
+      "bytes": 10600
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b369.json": {
+      "sha256": "3c4c100f2c65c94bb2d63d8cf34986043d0be17aeab314ac2bc8f37319efbc2f",
+      "bytes": 15731
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b370.json": {
+      "sha256": "45c91aa700264968608c94020db80487f902f69fde9b40b6162e6ef45841a6eb",
+      "bytes": 9176
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b371.json": {
+      "sha256": "4759906315eedf5bd233f2df47845053360d3c8fc4142a2d35c8c423f38a2d21",
+      "bytes": 8415
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b372.json": {
+      "sha256": "ad62ab9e76e122b2c91a47d1d39bcbaea531da62a2b345aaf351220806d67f35",
+      "bytes": 12954
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b373.json": {
+      "sha256": "841a3105f4b7c3e645da2ee853fa05743348cbc4b8e33d9a0d3af415f9c10a2f",
+      "bytes": 9990
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b374.json": {
+      "sha256": "fdfe3abbd2a9e6f1243635ec74de9d1bf6af0790671e87800651fa3f065730b9",
+      "bytes": 9936
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b375.json": {
+      "sha256": "fb52178f0f3e12e5b4c0cd9d08b386655ed70f85d8c05e62b47c54aacefdc344",
+      "bytes": 12056
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b376.json": {
+      "sha256": "1a6716e37b1d38081fd19dd116c6667a73ec6cd21d22cc5b94d0d258c542b9a9",
+      "bytes": 11250
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b377.json": {
+      "sha256": "7ae80d774812e3b8d877c155f831eb1cbb1d8152b88c67ba307abeb5c3f7dec8",
+      "bytes": 12014
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b378.json": {
+      "sha256": "c8b0b1556be57dd324ba48f92116b67c2a13a52b7221d5d62a45ce66be3a5a90",
+      "bytes": 9236
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b379.json": {
+      "sha256": "29221714de721a81e21509b1456d8143fbd46edebb93c59580aa803fccf95121",
+      "bytes": 9311
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b380.json": {
+      "sha256": "d09301310bd4c24d9e2d54cad959fb21da9ca0ef414ac926efa176e7d5ba4680",
+      "bytes": 10219
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b381.json": {
+      "sha256": "7ed2bc8d02e83efb60cd33c08bd5fdce30c22c284d89bb2ba68bc27ad91e8042",
+      "bytes": 11136
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b382.json": {
+      "sha256": "37bbb90c0cfa6e51958c305ff3a56c744c71abdcbc70621f95dceef1bc3bc8b1",
+      "bytes": 8750
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b383.json": {
+      "sha256": "aebfdb83e4a2c947c5c0065e50fce2f66f6fff2d49e45e2dcac22dbc3dbed726",
+      "bytes": 9806
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b384.json": {
+      "sha256": "5feeed36e12388d81b2f473ee691cfb7a74e1c2a42924f8f282e475ba2c058ad",
+      "bytes": 15101
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b385.json": {
+      "sha256": "0cd8eb752658d58be77a2cee23cc9cac45bc07b905490c3d356217f13b77b6cd",
+      "bytes": 9270
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b386.json": {
+      "sha256": "eb2e64bdc59587f944ff5a873fd50d62ecd438687dab799d31d9e734b003942a",
+      "bytes": 15384
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b387.json": {
+      "sha256": "c827872d08556cbb9e85708016fdff5adb091e769505a830d5d3ac4d663e6eb5",
+      "bytes": 12448
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b388.json": {
+      "sha256": "2ab20cfcdb682b562ea7562d8d39396cc7d886760a960b04e2d1ef74fba4226c",
+      "bytes": 12812
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b389.json": {
+      "sha256": "a497dface0a2e8ffe3143296b672a1c26a2a85682b8ee247b0ec931079067a00",
+      "bytes": 13935
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b390.json": {
+      "sha256": "cdd500ddacf62c55717740f65840f57106e146ccfa95ceb36dd4ce4b8f68bd2e",
+      "bytes": 14195
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b391.json": {
+      "sha256": "1301988e31cd7f160753e862965e5ed30bf50e8be69a3a1b0b39cca777dcb86b",
+      "bytes": 10097
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b392.json": {
+      "sha256": "62eb87ee7b258c09661452b671be2a57b6790a07cbf50abab3b186d0f98b8949",
+      "bytes": 6408
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b393.json": {
+      "sha256": "2bcba0469049838ee2c87cb9ec7d421ae370d87768ff125a8ac73cf8a50e7e1c",
+      "bytes": 14201
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b394.json": {
+      "sha256": "5c3c63a3f4d1b33a8646332f01f03e894665a205bbe738af17575b5f1d499513",
+      "bytes": 14174
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b395.json": {
+      "sha256": "1e814c487dfced62ad6e3d8c088748b2a0cdc4413f1634284471a41c8a156b96",
+      "bytes": 23696
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b396.json": {
+      "sha256": "a1329ecfcbb7d3bad58b5daff915cc459df34c2ea0d55717c99d641cac9f097c",
+      "bytes": 14547
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b397.json": {
+      "sha256": "7d464f3617569f4816ea8d36d671affad1cc17f6175044f17b3d790cda1c3203",
+      "bytes": 24265
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b398.json": {
+      "sha256": "84d97cbec196341a03eec81dcef3597aa31bb816cc5023cf2f7269f8c6f70ef6",
+      "bytes": 7474
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b399.json": {
+      "sha256": "b093e39c8b62f6ff0b598096871c110b4e9df986de4f76335b50f49b3d5e7947",
+      "bytes": 14993
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b400.json": {
+      "sha256": "102006bd228ee3fd8ddd221a864cf7295fa8daa28f8080906b58bcd1e6b7a510",
+      "bytes": 24573
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b401.json": {
+      "sha256": "7ea8beaa1f35beb0ef0b1551a916b6ff9ea5a994cd214087ff63b66a6c08378d",
+      "bytes": 21895
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b402.json": {
+      "sha256": "71d9e291081b79d52a8a7c1087aa7d68e8ae61f0a6ff782a862e40952026cdfb",
+      "bytes": 13176
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b403.json": {
+      "sha256": "5701200af2f0cea2694919369cfcaacc647ca59aba2eea07e3ca285481a94401",
+      "bytes": 13224
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b404.json": {
+      "sha256": "ea072cdcbddfae2639bf2cf01134f19c4a64c316bdf5c9bfcca74232e959df00",
+      "bytes": 45175
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b405.json": {
+      "sha256": "27bcc7170060ce25b7d8211a232e967d369e0c7eb5ab8e45b0ce182d468e269a",
+      "bytes": 5364
+    },
+    "docs/audits/reconciliation-2026-11-04/content-b406.json": {
+      "sha256": "a9d6f8afc905da3708d5396e949e621580a5ac0c786c160c2ee617fa45ab46a1",
+      "bytes": 40859
+    },
+    "docs/audits/reconciliation-2026-11-04/continuous-checks.json": {
+      "sha256": "5667a4fb65b7f3b8731404a0e3d130b17fa635e319262256f4b1084725d58287",
+      "bytes": 25493
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b309.json": {
+      "sha256": "8c6dfffe7708ebdf7025774890ed7d34b8ec10afbe790b4d55d5eec9be8f23e8",
+      "bytes": 373
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b311-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b319-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b326-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b335-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b335-probe.json": {
+      "sha256": "0b9a8f00d988a323cedbf401aea07aab28f0c7d19d8c3b0e0f98e4e50c889d05",
+      "bytes": 714
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b340-probe.json": {
+      "sha256": "6eed9334ca29dcca4da26b1963e0c4902fa94a5905aeb552bbc25a8cac75779e",
+      "bytes": 684
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b341-checkpoint-probe.json": {
+      "sha256": "b077858faed138ff0fb842921207d00fb0a8fa52e1e179f230979ad34095463b",
+      "bytes": 390
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b341-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b341-probe.json": {
+      "sha256": "5b2b04b5e4ce82d6032d41a5eab427215783db3d060ab801408eec394f806022",
+      "bytes": 367
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b345-probe.json": {
+      "sha256": "8fb88df10400759a93a70840e8c56d6b807a32e9b5ad616b37f0138c9426c469",
+      "bytes": 504
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b346-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b346-probe.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b348-probe.json": {
+      "sha256": "b404031567f20cd887b6113a94808e0adf923c48905791f4920b4ab7384bd64e",
+      "bytes": 386
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b349-probe.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b350-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b354-final.json": {
+      "sha256": "27592da29c734a0456a34f293b453c4531194eee284e86b348d385227a3999b1",
+      "bytes": 297
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b355-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b360-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b360-preclose.json": {
+      "sha256": "3d2000a5d5f5bee8bb235e3c34a7c4b600b2944f0a3d083b4b0a2c7448736657",
+      "bytes": 406
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b363-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b363-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b366-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b366-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b368-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b368-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b371-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b371-preclose.json": {
+      "sha256": "742332ccccfd3cc81c3f7096820d0c4a10a7a27fc8aba890bb6be08707d3655e",
+      "bytes": 531
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b375-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b375-preclose.json": {
+      "sha256": "2a7a2e04bdedb57585d43b377385d9854bb4f2ef0a26be6f4c49277da33a57f0",
+      "bytes": 516
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b377-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b380-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b380-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b384-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b384-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b388-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b388-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b390-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b390-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b397-preclose.json": {
+      "sha256": "d82a694759113eee00edcbb0baa0772368747111ab32f5136a7bf5280eff9d88",
+      "bytes": 704
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b398-final-failed.json": {
+      "sha256": "2406f915aa8682b3bc83a2a7f9fa55374d4cbe38b43107456fc0cf08033a168d",
+      "bytes": 379
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b398-final.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b398-preclose.json": {
+      "sha256": "c641b2fcbc178fdabf369b53d830712fb6cc68e77060dae8cc508f30979e98cf",
+      "bytes": 259
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-normal-b404-preclose.json": {
+      "sha256": "d32c72733083b4803ac0afeac56d8efe116dd00f7667e266c4413b90682a30fb",
+      "bytes": 1300
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-scoped-b404-final.json": {
+      "sha256": "998caa6fedeb736e06dcf4ddc8b7c87d866414f052fc476cc1f0916b394ff7df",
+      "bytes": 1436
+    },
+    "docs/audits/reconciliation-2026-11-04/doc-check-scoped-b404-preclose.json": {
+      "sha256": "998caa6fedeb736e06dcf4ddc8b7c87d866414f052fc476cc1f0916b394ff7df",
+      "bytes": 1436
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b309.json": {
+      "sha256": "b4600139bcfc113f89edb8aef6be8f57de128457ef798f5fbccbdf97397be265",
+      "bytes": 456
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b319.json": {
+      "sha256": "b79bc1fa1cd5695299ca1d1492eedaf39799b3846c87562c1288ac9b2b640b43",
+      "bytes": 139
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b326.json": {
+      "sha256": "1de900b1c087d111f36362d7b915c612a0587cbb858126c6dcb5bdb9639265eb",
+      "bytes": 131
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b335.json": {
+      "sha256": "2bb9087f7449d48040341c94e4ef35e6ec5dc0ad8a6969f07e5ae74d36b35077",
+      "bytes": 180
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b341.json": {
+      "sha256": "401769df4254ece329b7563a4f715041c2664323224ccaaf1d6c126178276acc",
+      "bytes": 399
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b346.json": {
+      "sha256": "761f3c2fb6436fd4453e4d096f104f540c882cc0621d16ff102e193897e06173",
+      "bytes": 483
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b350.json": {
+      "sha256": "ae52254b5ab86121d51fd8f1186cfe79a84dd5d2d4615078bf1e3534131d2107",
+      "bytes": 229
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b355.json": {
+      "sha256": "dd39c0a688108afeed71eca799c7846864fadd62adbfa8fa9fa012ea864e133d",
+      "bytes": 380
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b360.json": {
+      "sha256": "1e0aefb75d5a8c48fb45634ea898418541e31962f8775fd8ab8ee779d358af78",
+      "bytes": 218
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b363.json": {
+      "sha256": "3efcb2510295e2d8896c8f2dd3554c644183886fc9bff2d671015ba230dc3311",
+      "bytes": 196
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b366.json": {
+      "sha256": "0052fbbd67a669bec584ff41817220c7bf5b15c96f04d595a8a9c81c4dea729d",
+      "bytes": 362
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b368.json": {
+      "sha256": "491c2d899bd05149de668defb4eacc0c07b8859e678fab23bbda5d9fd4696301",
+      "bytes": 214
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b371.json": {
+      "sha256": "a2c19ce663edf24bc4b51c1d14d4484785caf83b32d06864bf01cae68f7b2236",
+      "bytes": 192
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b377.json": {
+      "sha256": "ecfda34f5a2695f46ad41a3f5b5dd914529ddb6ca5e56701d96548f373d12328",
+      "bytes": 322
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b380.json": {
+      "sha256": "83fbb8ffca7152a93bd5a071fba5ca496dfe7577c1ac22db819b7b078e666d26",
+      "bytes": 192
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b384.json": {
+      "sha256": "1a491d702ea84b9eaf8f6f07ea3cd235c407b02ea8992f190d5284219589238f",
+      "bytes": 192
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b388.json": {
+      "sha256": "db157009da2c1756db7593106e76ccc5fc2f31675a2f2eecd1b2b32f04217f79",
+      "bytes": 192
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b390.json": {
+      "sha256": "1dd673b5101cbb764553354c2a32f4205dfb7a3411ce8e1230b0639e8eba4299",
+      "bytes": 192
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b398.json": {
+      "sha256": "7ed55409ac832871ab89535d7cecc72beb8c97c4698af4de297c1fe484520f4b",
+      "bytes": 148
+    },
+    "docs/audits/reconciliation-2026-11-04/fragment-checks-b404.json": {
+      "sha256": "5108fbe705ce5d4b4214cd9279fa798349bae7f3ede5af8062cdf4d6c7ca1c69",
+      "bytes": 199
+    },
+    "docs/audits/reconciliation-2026-11-04/inventory.json": {
+      "sha256": "70ea7fb45c53a2611781f47c6839b8d269b0b7d38f932a1a92ff5d378b00cd5e",
+      "bytes": 6544039
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b363.json": {
+      "sha256": "3cea1260ce717d04ed671d8d1c0e300da895b63116e786fbe0b4bfb35464567e",
+      "bytes": 603
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b364.json": {
+      "sha256": "ee75d048f93348bf26c62cc99123b8a80581f869d7faf8d98eade05830154c8f",
+      "bytes": 428
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b371.json": {
+      "sha256": "5c1b3380ddd93465529d206002182c3f590245feb262edc4631e17988e1f4f47",
+      "bytes": 460
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b381.json": {
+      "sha256": "bb0548364e461c26a7238854ac8593a167651b5c3b2de8e7322a30b019f7ddcd",
+      "bytes": 71969
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b390.json": {
+      "sha256": "67ddcceb8b6b5463756b65e719d11838eb73308c0058ea11fdbc732da90afe87",
+      "bytes": 1813
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b394.json": {
+      "sha256": "11a8bb6d5feada57392b95d62595c1ce8edc77a31ad63e1e903a530d1461a1b8",
+      "bytes": 376
+    },
+    "docs/audits/reconciliation-2026-11-04/map-counts-b399.json": {
+      "sha256": "da80da2d7cead93adcfc0067e24df77b439515a1380051d9c61615ab047070e7",
+      "bytes": 5696
+    },
+    "docs/audits/reconciliation-2026-11-04/report-amendments.json": {
+      "sha256": "5a5d7af243693df55af29bd7d1673fad8a5d3a9a3065d29d7a8ef63dd438b5d6",
+      "bytes": 439541
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b318.json": {
+      "sha256": "249cb440d14848a8bbb37a8deb93ccd23173003b5c5523dc24f06195171706d0",
+      "bytes": 330
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b326.json": {
+      "sha256": "523e36a65300c89222d5cce4cb9eae3e94f53dddce4637e26cc991fdeaef615f",
+      "bytes": 339
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b340.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b341.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b346.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b350.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b354.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b355.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b360.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b363.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b366.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b368.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b371.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b375.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b377.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b380.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b384.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b388.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b390.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b397.json": {
+      "sha256": "8de4511edacaffb749ae492c42b66871a1190aa82b3a1f3d80b9741c182f2e74",
+      "bytes": 408
+    },
+    "docs/audits/reconciliation-2026-11-04/rules-check-b404.json": {
+      "sha256": "bc0f1f9e44349831aaa60e03f050ad2d6a7ff9f906c4fe0cbdd0938f93fb37f5",
+      "bytes": 408
+    },
+    "docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md": {
+      "sha256": "065ab4317eaa7ca0129ed435c5ad1de5e0589f0073c989951abdd59d15555cd0",
+      "bytes": 40931
+    },
+    "docs/gm/IDEABOARD_HANDOFF_2026-10-08.md": {
+      "sha256": "e8d3657531d20c70c354049cdc290ac6e27adf20597402a411ed27c722547b1d",
+      "bytes": 6183
+    },
+    "docs/gm/README.md": {
+      "sha256": "308fe7bc3fa563a3984b145941c0a8c96fa7f0da026813e908e984e9933f7415",
+      "bytes": 13533
+    },
+    "docs/gm/RECONCILIATION_2026-10-25.md": {
+      "sha256": "9d37488ba578f5922f9b56e1977a4b0de552dab070501cbb90cc62b6311eb3d9",
+      "bytes": 50781
+    },
+    "docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md": {
+      "sha256": "2a5c59db29334de7fde0c3489cc7399a22da2c31a67ad53f55aab894428b1790",
+      "bytes": 16891
+    },
+    "docs/gm/WRITEUP_REGISTER.md": {
+      "sha256": "125fe3ae822956b0a74b0e297eed4872d7d37e44de82b96da9c87b5340085cf5",
+      "bytes": 43147
+    },
+    "docs/gm/artifact-collection/CHECKPOINT.md": {
+      "sha256": "b32517c29457b4f4f6f26460392becf27a190d8574a69d0971ea371466c7f1cb",
+      "bytes": 4105
+    },
+    "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md": {
+      "sha256": "e85f017b2ffe415ceaadd3f47447d94d25681758f511ebc00c3a4be866ff893d",
+      "bytes": 5514
+    },
+    "docs/gm/book-world-player-agency/CHECKPOINT.md": {
+      "sha256": "b2d60e15461142bbcc322746072ffe8bac62598955015140f0252325edcdbba0",
+      "bytes": 5361
+    },
+    "docs/gm/causal-endings/CHECKPOINT.md": {
+      "sha256": "b4ff082dc664d0869f7eb28309605457e658cf855efa2ca791f68d182faf8a22",
+      "bytes": 7144
+    },
+    "docs/gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.md": {
+      "sha256": "1b5db3a232efd560a2d87cf876d8101178d66377d2ee8c936645663bdf7c7c4c",
+      "bytes": 8289
+    },
+    "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHAINS.md": {
+      "sha256": "00de2a1ef6cf8a968a4f2aebf2f38fe8ae5ebc0c25c2abb90f4af95ea4217d23",
+      "bytes": 18712
+    },
+    "docs/gm/dispatch/body-lineage-2026-10-14/b10/MATRIX.md": {
+      "sha256": "25171bafdf936bca190bad87f5d85da68896c21392ba74d843aa289520298f13",
+      "bytes": 23690
+    },
+    "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md": {
+      "sha256": "a88d58157894b4ea939365c8aaf77cad1f002f71c3ab89cf6bfa87c0c91a48d5",
+      "bytes": 9913
+    },
+    "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md": {
+      "sha256": "66c6857f3a298cb89d216726972de332b6a99bf5e1ebc8eef245037debbc283d",
+      "bytes": 7924
+    },
+    "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md": {
+      "sha256": "17d81c2b677b1a0cacba745b11d3a99df1c79de5515f90e069272b85fad2a3a7",
+      "bytes": 10330
+    },
+    "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md": {
+      "sha256": "bc68c0c1512cc5f220edf91f4039eec16e10fdaa7a48c54ceeac19dbaaaa24b8",
+      "bytes": 24148
+    },
+    "docs/gm/dispatch/carry-out-queue-2026-10-26/README.md": {
+      "sha256": "b140e0f2374a463a1376a99f989f3d33e979d3efdedc10e95b13e98e343c1547",
+      "bytes": 14775
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/ABSTRACTION_MAP.md": {
+      "sha256": "ae3f22e9b27b0ffd9fa11e76abc4b97275395eb7d4e74efda3d327ebede6be86",
+      "bytes": 57958
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_PROMPT.md": {
+      "sha256": "d7e7c4ec2b33c9050fefadf2d1627d09d34c45cf98cc346474998f9a46b19a45",
+      "bytes": 7578
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md": {
+      "sha256": "7d14bf3c0425492ff8c8b46cf08ca45843ee4613737891bc01253adf9fd5da03",
+      "bytes": 42118
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/MICRO_UX_AUDIT.md": {
+      "sha256": "380de2234b27876fd1ae5b5720de7f7b55ab02459c54dad3457f85d4a70b5619",
+      "bytes": 27439
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/fixtures/README.md": {
+      "sha256": "98cef9b3bb663abecd7d7943ce1dffb06706c3fd2e693a328e215adea6a276e1",
+      "bytes": 2569
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit.prompt.md": {
+      "sha256": "29b7979c5c5e70dc225d975be63b0e47b38875e7e58384c13db5585cb0219d51",
+      "bytes": 6699
+    },
+    "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/fixtures/README.md": {
+      "sha256": "983a20ee7bcdfe8e736e2fbc6728fa855d692dc09c402cd810dbdb21e4c813e6",
+      "bytes": 3124
+    },
+    "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/CHECKPOINT.md": {
+      "sha256": "eb13ffb129711bbc59e6f4583e2fac0fce7c1f2e6039fdae805bcfd34f88bfc8",
+      "bytes": 4857
+    },
+    "docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/GAP_AUDIT.md": {
+      "sha256": "2dfc2e23563bee5d31d1a06516e66794f2600fd34febae2de8a2bc9e2b1ebe70",
+      "bytes": 110930
+    },
+    "docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md": {
+      "sha256": "f862289019bc70ebe457134ef86bd7ccb8b6399033d1e508babbaa116ddbf4cb",
+      "bytes": 12276
+    },
+    "docs/gm/dispatch/complementary-journeys-2026-10-23/CHECKPOINT.md": {
+      "sha256": "b3cf60606276c2428b5e1dbe3340e2e9e06fca6c1226b036aeeb84e2ba931567",
+      "bytes": 22142
+    },
+    "docs/gm/dispatch/connection-detail-2026-10-12/REPORT.md": {
+      "sha256": "229090f93c5dde656fd6949df4353726e6bcd46c70e28029bc8508b48a5b6128",
+      "bytes": 8675
+    },
+    "docs/gm/dispatch/corc-missing-media-2026-10-21/CHECKPOINT.md": {
+      "sha256": "243a3650eb87b5ab1658e71e8e38767579fe2eacd0b84486876288f7a85a2b63",
+      "bytes": 10571
+    },
+    "docs/gm/dispatch/engine-modularity-2026-10-25/CHECKPOINT.md": {
+      "sha256": "f4513fbec75791dcab9e1feab4b5c9f49d6f7d769882c2156bd36bfd912257f2",
+      "bytes": 15337
+    },
+    "docs/gm/dispatch/features-o1-o5-2026-10-23/QUEUE.md": {
+      "sha256": "79bb737bb2ca4fb3113303c035a9834c0bc8599dd5ea30aee187947a3ef29992",
+      "bytes": 13129
+    },
+    "docs/gm/dispatch/game-source-research-2026-10-06/README.md": {
+      "sha256": "30d983d7e6960d014dfdbc971477a18c1ea0efc30f04054ceb00e4941fb41658",
+      "bytes": 6892
+    },
+    "docs/gm/dispatch/gear-depth-2026-10-21/CHECKPOINT.md": {
+      "sha256": "a033ec46f93f484ac41a6d0f612807bd13d813eca03f35bd9dd7f5283cb4f19f",
+      "bytes": 11305
+    },
+    "docs/gm/dispatch/held-systems-2026-10-10/PROPOSALS.md": {
+      "sha256": "8dd5b46f80f8687bf0125054326be752774244267f74f65e60ebd716722676c9",
+      "bytes": 46062
+    },
+    "docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md": {
+      "sha256": "527de0a79a9b80b07ffd78d7185620df9048d7e21240498038d2577258203ac6",
+      "bytes": 11890
+    },
+    "docs/gm/dispatch/macro-micro-detail-2026-10-11/REPORT.md": {
+      "sha256": "697593f4bff80e7099dd6ad5b66de39456258472a06b428c8206553aee0874ae",
+      "bytes": 6721
+    },
+    "docs/gm/dispatch/mcp-m10-2026-10-25/CHECKPOINT.md": {
+      "sha256": "fea8baa4806ef0ccd3c0a6c40577eae6148a7b6ac8a7491c1cc09150b51dabe3",
+      "bytes": 14533
+    },
+    "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/CHECKPOINT.md": {
+      "sha256": "84d339aeca4fe800e70db308c602402ffe52caf8717523c1413b1a51207aea97",
+      "bytes": 6917
+    },
+    "docs/gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md": {
+      "sha256": "90af6983101bdc4ec48ca124fdc951915741669f42c46249423c5e7c32eb96a1",
+      "bytes": 13219
+    },
+    "docs/gm/dispatch/party-cargo-stock-2026-10-23/CHECKPOINT.md": {
+      "sha256": "e867e87ca93407c17cfb1b2b5d40a00805c3ba5f63d0a4c5e2afaff67a4a16b5",
+      "bytes": 5051
+    },
+    "docs/gm/dispatch/procgen-2026-10-13/p28/CHECKPOINT.md": {
+      "sha256": "acc09b2f97577193b9a0281485d5e74dbd197064265612b5b62f104f1934dc27",
+      "bytes": 5547
+    },
+    "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/CH1_FIT_MAP.md": {
+      "sha256": "c5e0eda1a680ae2142e269e74599818efad25543f23b7c13292afdc9ecd6ecc6",
+      "bytes": 8498
+    },
+    "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF1_MECHANISM_FIT_AUDIT_BRIEF.md": {
+      "sha256": "e20016477ac47febf2a01bba677c0ba09f3d3280767341e1b57f2511ecd89b80",
+      "bytes": 4557
+    },
+    "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/X1_BE_MAPPER_BRIEF.md": {
+      "sha256": "596498f9545aad85ce3c8f067b0dc1cd473c967f94d4c6651d14a379a678b29f",
+      "bytes": 4452
+    },
+    "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/X3_HOUSEHOLD_MAPPING_BRIEF.md": {
+      "sha256": "5d0ad4d0a72327a896e0b81c67af4237954c261d085be5837dd98892768f55ec",
+      "bytes": 3964
+    },
+    "docs/gm/dispatch/reference-engine-boundaries-2026-10-20/CHECKPOINT.md": {
+      "sha256": "663fd9964d690b9b91737190769a93e3d6442198af1cdd05bd554b9bdf6f8044",
+      "bytes": 13363
+    },
+    "docs/gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md": {
+      "sha256": "024939ee1246d90f4e0c6dd41378969c9d13f4db076d44294b4cf5618c3c0bbb",
+      "bytes": 12351
+    },
+    "docs/gm/dispatch/refinement-audits-2026-10-31/B3_EXHAUSTION_CALIBRATION_RECEIPT.md": {
+      "sha256": "b681f922f8f25694cc9ca5ce3ffcfaa66eb525891a9815e47b10e11abb2dd169",
+      "bytes": 3624
+    },
+    "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md": {
+      "sha256": "6b981a365a1bfcbfbf9866b229add90492167ff254fc95a1d18bef6a2823b5a0",
+      "bytes": 53148
+    },
+    "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md": {
+      "sha256": "8a0b0c53b8a81bad4903de2e134e433937aede0b9408cc1e652ceb47a6ed9d1f",
+      "bytes": 12731
+    },
+    "docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md": {
+      "sha256": "668477c3cc485a64589a8370a4745ec5bcbc071ec2672ea794b86c2e2d07a72b",
+      "bytes": 12156
+    },
+    "docs/gm/dispatch/ui-detail-2026-10-25/CHECKPOINT.md": {
+      "sha256": "0b6ed1251047cb3d1f31050134bb5b1a691dd8a0e0453672661395b66bd715e2",
+      "bytes": 28451
+    },
+    "docs/gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md": {
+      "sha256": "56473bb7a7bef2c1acef19c9faf3c70a0adfecf4472fad490ca20b770eefaf75",
+      "bytes": 12075
+    },
+    "docs/gm/dispatch/upstream-interaction-system-2026-10-20/CHECKPOINT.md": {
+      "sha256": "01e21e2c956b73df9aa9a53f364309d7aeb9c1e160404abc503d92664f1c6835",
+      "bytes": 17411
+    },
+    "docs/gm/engine/observation-channels/README.md": {
+      "sha256": "1dc0ba132202c436a9a5faf26cc9d355f31b05a7c72f89ab6173a6e50a983d7f",
+      "bytes": 9798
+    },
+    "docs/gm/engine/realm-clock/README.md": {
+      "sha256": "2a9d912800857ba45003fa1b537205937d7f80d915b4e3a7583d4b8bad2ea953",
+      "bytes": 17900
+    },
+    "docs/gm/feature-wave/features/CHECKPOINT.md": {
+      "sha256": "ec1d435317778168bd17fdb3c741d11f0a4318b5c7d19f21b24d4009aa6faddd",
+      "bytes": 5596
+    },
+    "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md": {
+      "sha256": "d66ec9260c1340f23476f54045d7fe86fb61b3e4741b2d659d5212a22108e0b6",
+      "bytes": 2699
+    },
+    "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md": {
+      "sha256": "24c36cc2de80a2519032b6d49262bc0a091cf2fedb0a2462d93ca4919767105f",
+      "bytes": 3141
+    },
+    "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md": {
+      "sha256": "22acbef7d9547b04c6cdf59e0d77648fd12ee9aeff99a5b54d50c20c3dc99878",
+      "bytes": 5508
+    },
+    "docs/gm/multi-world-paths-2026-10-07/AUDIT.md": {
+      "sha256": "c27e9f3c99d38ce6d419657a2b4cb183989485cb06cc219f08e24a6677fc4741",
+      "bytes": 12894
+    },
+    "docs/gm/reference-gameplay/CHECKPOINT.md": {
+      "sha256": "670ecb22c5e44ca088343dd1fb83d40d8feda3cdf34edc583e91c56d0b37fb8a",
+      "bytes": 5402
+    },
+    "docs/gm/world-completion-2026-10-06/AUDIT_REVIEW.md": {
+      "sha256": "e972e762459d3b238164f20ba5fede63dec4c224a5f0555cfdcaf8516ed481f8",
+      "bytes": 6199
+    },
+    "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md": {
+      "sha256": "f4dfb73aa9d9b8bef71e1ddd497c12a8aafffa7e5517ab695e1dc7365439e8a3",
+      "bytes": 19535
+    },
+    "docs/gm/world-implementation/engine/CHECKPOINT.md": {
+      "sha256": "12e6db7b97ba30772d9bc6c8733b20c26f9db85a48473386aec33bb86ed43215",
+      "bytes": 4661
+    },
+    "docs/gm/world-implementation/second-pass/engine-absorption/PLAN_PACKETS.md": {
+      "sha256": "c4153644a13d0753d15bfc531d931d287697eac8c253b649096b056a6127addc",
+      "bytes": 13921
+    },
+    "docs/research/ABSORPTION_PLAN_SIMILAR_GAMES_2026-10-30.md": {
+      "sha256": "bfcc8ef8453de3a4caafddf085ff877624c8bd8990d48dd37a13f7aa47ef5777",
+      "bytes": 12493
+    },
+    "docs/research/ATTENTION_BALANCE_GAMES_2026-10-27.md": {
+      "sha256": "9750abb88a60fe8694894dfd478f3edbaa0dbe4ca36e8ed523e91b590fb23d89",
+      "bytes": 26270
+    },
+    "docs/research/BATCH_READING_WORKFLOW.md": {
+      "sha256": "0cb72cd69fc0e0ea1a1caf04c83b15af86e0cd853294209fbbcde6440498cffb",
+      "bytes": 8240
+    },
+    "docs/research/BROWSER_TESTING_AND_ENGINE_PERF_AUDIT_2026-10-14.md": {
+      "sha256": "e73e81fdbdb3288dc027303d3f2e3f0b45504f9095988920321ccad9efe01c2b",
+      "bytes": 49844
+    },
+    "docs/research/CANON_PROTAGONIST_INTERACTIONS_2026-10-27.md": {
+      "sha256": "613165de6787118ffea04767707264447b20b3134b508d148a9ce115f4944948",
+      "bytes": 96594
+    },
+    "docs/research/CHEAT_ENGINE_CAPABILITY_MATRIX_2026-10-14.md": {
+      "sha256": "462be234d6f25b557a19c460a8a33850c8ab23e8e52a1991353105f908695dea",
+      "bytes": 68665
+    },
+    "docs/research/CLIMB_SOURCE_READ_2026-11-03.md": {
+      "sha256": "220c8a166f332f443b01d892d1557c5e5f0da28766ce88e2449ac07897e2c951",
+      "bytes": 21243
+    },
+    "docs/research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md": {
+      "sha256": "4238fe64f40c2eaade069bfcde358af5f2312eef778e0a2465db6baa488a78fc",
+      "bytes": 38428
+    },
+    "docs/research/COMPREHENSIVE_SETTINGS_SURVEY_2026-11-04.md": {
+      "sha256": "1c0270a8697a08d252eb9c84a523834c99a94ab5c7286c00328ff6c851fcc2c4",
+      "bytes": 5695
+    },
+    "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md": {
+      "sha256": "cd89aaf27e2df47beb5f26e7474de8e8381dbdfa48d41734e1653007e68b0bae",
+      "bytes": 55917
+    },
+    "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md": {
+      "sha256": "5dcc77110fb9782556b80bf6c1689cdac624db066f7ffe61c4cb7966812bee92",
+      "bytes": 10552
+    },
+    "docs/research/CROSS_NOVEL_GAME_MECHANICS_SCOUT_2026-10-31.md": {
+      "sha256": "b49b4220e0838b847add42800b9ac3cfaf87794ed54e83d9d8bc440d375b9b66",
+      "bytes": 21531
+    },
+    "docs/research/END_RUN_THREATS_LORE_SWEEP_2026-11-03.md": {
+      "sha256": "6114a8af1bbf811ac23a2b04d40db48c5f3baced4b657e4d88c2f680bd57d3a8",
+      "bytes": 39055
+    },
+    "docs/research/ENGINES_AND_FRAMEWORKS_CATALOG_2026-10-14.md": {
+      "sha256": "b668a787d4d59008379542a3dbe63ce8f6987e36df263571924eb29ab7aa2325",
+      "bytes": 60254
+    },
+    "docs/research/ENGINE_AWARE_CHEATS_SOURCES_2026-10-14.md": {
+      "sha256": "6a54cab196a0fdff02c048f60827445d5ab69835a92959d74f0537a68a5bfa02",
+      "bytes": 40638
+    },
+    "docs/research/ENGINE_SPIKES_2026-10-14.md": {
+      "sha256": "372c598b99ecad69a4aabeb808970a7c201b9a6a7978161e4b267761db166800",
+      "bytes": 25499
+    },
+    "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md": {
+      "sha256": "6ec3fe987f8d4c1b0b4f5aa6dea5c771a0379d6e77f90b631aff8c3003222d34",
+      "bytes": 17140
+    },
+    "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md": {
+      "sha256": "6cf774d9e0bc72cca361f4ad2a8e1355666000c89fd0278108b7d535af0c42af",
+      "bytes": 16620
+    },
+    "docs/research/FAN_INTERACTIVE_TWINE_INK_VN_2026-10-22.md": {
+      "sha256": "fcbec1934f4a337365cf856e9b901bec39b7fdd9fc052ad92aa610635a10492b",
+      "bytes": 12023
+    },
+    "docs/research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md": {
+      "sha256": "a0151f3219d0ecd1fba588f38d8378ee451c21c1f843bceeae33a4448e7aa6bd",
+      "bytes": 60394
+    },
+    "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-report.md": {
+      "sha256": "29accc789edfca0923633a83713f688c9c3bc0c00cd1392b8f510e0b0a49b84b",
+      "bytes": 12139
+    },
+    "docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md": {
+      "sha256": "6cca8870462b131d57afccc4d2679ef5278ec9baf15be83c5d8ebdddd89986a2",
+      "bytes": 9080
+    },
+    "docs/research/GAME_ENGINE_OPTIONS_2026-10-14.md": {
+      "sha256": "0adf73a79a936e7dddfc983a8052bd0b0a06fec69b84b5690c1fb8caf6deb62a",
+      "bytes": 34292
+    },
+    "docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md": {
+      "sha256": "d57f3d31538307b5ca25254befed1f8d849ef69531f7f8de0640a06471ede37c",
+      "bytes": 11754
+    },
+    "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md": {
+      "sha256": "5f662a475bb5dd90a59de96478fe6c0a03ced30f6ce09f25e6610dd204e17b78",
+      "bytes": 22963
+    },
+    "docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md": {
+      "sha256": "6b25d68fa0c97afa826689af866bf718825c7210d21de82927fa1ea8111b0a6f",
+      "bytes": 10292
+    },
+    "docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md": {
+      "sha256": "e625747bcdc931569bb8f8a2efc0b9cfedbff760224a68080cd6297103773fa2",
+      "bytes": 22978
+    },
+    "docs/research/HOUSEHOLD_STAFF_AND_SUCCESSION_SOURCES_2026-10-21.md": {
+      "sha256": "b3d45c9723062e34f3f1b80b65275809d795632ba24cebd511aa1f6dbc16674d",
+      "bytes": 6099
+    },
+    "docs/research/IDLE_AND_SIM_ENGINE_REFERENCES_2026-10-14.md": {
+      "sha256": "5d7d88909e1fba84d1dd6e07dcc785d0901f66bb0f6ced100a8f91297a809658",
+      "bytes": 55390
+    },
+    "docs/research/KERNEL_SPIKE_2026-10-14.md": {
+      "sha256": "0685725fa265d7c490537df0390f9b68db956a2879d2f643871d7484b2647efc",
+      "bytes": 17655
+    },
+    "docs/research/LIBRARY_INDEX.md": {
+      "sha256": "d1769db51e53eb34873930237b18fccdc7c639462edaf3ac4073045059920a5b",
+      "bytes": 103769
+    },
+    "docs/research/LOCAL_AGENT_CAPACITY_2026-10-28.md": {
+      "sha256": "3d93fcca3ade40b6f95e66fed34f2ff52c2042eebba1a0a2c0410837ed2d9b9a",
+      "bytes": 18141
+    },
+    "docs/research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md": {
+      "sha256": "3d0ff8bf2e9a7b78d9e191a52b6823a5b6d86926fb375e298fb3e8a8f7c33d0c",
+      "bytes": 13477
+    },
+    "docs/research/LOCAL_AI_READER_TEST_2026-10-27.md": {
+      "sha256": "c8f582375bc92c1089ed671b5b13867c873c88cd338454d22526dcc7721c0b7b",
+      "bytes": 32483
+    },
+    "docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md": {
+      "sha256": "7465e31220dd4ea30a69a84df9bfc8fb9272132cbeef1fb88222d028ce9dbe27",
+      "bytes": 8590
+    },
+    "docs/research/LORE_TIMELINE_AUDIT_CONTRACT.md": {
+      "sha256": "751b474685bcce0e8fc288c5afa72c0a39e7919afabdb7d1e5e713a0ed43a480",
+      "bytes": 7765
+    },
+    "docs/research/MAGICAL_PRODUCTION_REFERENCES_2026-10-15.md": {
+      "sha256": "9245d4a401a6805748d67a9e5290a5edea61e3dbf00b64f2519477ccaf44b2d9",
+      "bytes": 9681
+    },
+    "docs/research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md": {
+      "sha256": "b338af68c4006ad2dd3a1860fb63b20e04fa1d653669984f1409c97a16af40cb",
+      "bytes": 53165
+    },
+    "docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md": {
+      "sha256": "c624e6c38a1d67d352f30f0708ece63c2be4fab203fc07cf12d6c25ef1fb9ea8",
+      "bytes": 26087
+    },
+    "docs/research/PACKET_RECONCILIATION_2026-11-03.md": {
+      "sha256": "f78a2f4e6b7b4107e13ebbc264282804c1d0b5bb4279a144111d33058cdaacfe",
+      "bytes": 4901
+    },
+    "docs/research/PACKET_RETRACE_C1_C7_2026-11-03.md": {
+      "sha256": "36d7e3fdcc741b66e95407f9395e4c950d15e31b41394ca0a7f3de92b5b92dcd",
+      "bytes": 29429
+    },
+    "docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md": {
+      "sha256": "63418ca8cbbb499095088ed30ca25490858158855180ac544b7cebb265e539bf",
+      "bytes": 33219
+    },
+    "docs/research/READING_GAP_MAP_2026-10-28.md": {
+      "sha256": "e12e60a6c5ac972407c76188414626956879469c7d2f9e15729019d2d9b102dc",
+      "bytes": 48635
+    },
+    "docs/research/REVEREND_INSANITY_MOD_SCOUT_2026-10-31.md": {
+      "sha256": "13205a8002a55eb8cb7a0f2722e7ec991a587e905a7aacf1a8be76a41353b825",
+      "bytes": 12067
+    },
+    "docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md": {
+      "sha256": "48925542e54892d68af02e63cc5d086ed8396e36aaaeb6e23c70a84405016a8d",
+      "bytes": 7791
+    },
+    "docs/research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md": {
+      "sha256": "fed9bf62cb86b5ab1292d15096a171519a6ccc8c0b7a63e9f749c64de7a50bbe",
+      "bytes": 63247
+    },
+    "docs/research/SOURCE_LIBRARY_CATALOGUE.md": {
+      "sha256": "6995cad3788ca8436efe427144450d1d8ef1a8ea941cf3cde253a14093ea2221",
+      "bytes": 239384
+    },
+    "docs/research/STARTUP_COST_MEASUREMENT_2026-10-14.md": {
+      "sha256": "a0b06d2959d32619e5175f7dbd1a4a21c67a4c7741673dbb111e7b091373c81d",
+      "bytes": 6438
+    },
+    "docs/research/START_AS_X_SOURCE_CATALOG_2026-10-14.md": {
+      "sha256": "a40daf8c26de29fa6fe58684d9147ce99e637547f2263c2ef70caa4d86afa9ba",
+      "bytes": 79398
+    },
+    "docs/research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md": {
+      "sha256": "f7fb15183fa14420a76b38c6c6098cf0a3fda2a8ef293f1b0bb4a903fa724322",
+      "bytes": 55934
+    },
+    "docs/research/WORLD_SOURCE_FIT_COMPARISON_2026-10-11.md": {
+      "sha256": "90e75cd7061702479e6aef71d8413a4059d14481fdd2250dcc4a4de7c42cd354",
+      "bytes": 8198
+    },
+    "docs/research/ZLIBRARY_IMPROVEMENTS_REVIEW_2026-10-11.md": {
+      "sha256": "bd50d85f95736f871b54f1dc0dcbaab95c578da60b2b4f32ec5446280016af90",
+      "bytes": 6445
+    },
+    "docs/research/ani-idle/REPORT.md": {
+      "sha256": "7a989ee501f89400ab5e5671c7a961a866a8ec7e5ebbca9fbc1bdabd5ab74b6c",
+      "bytes": 4007
+    },
+    "docs/research/arx-libertatis/REPORT.md": {
+      "sha256": "85c8de25c0095d58d21a25bf1356d5b3dc33bfe5103707627bf077f6a232a7a5",
+      "bytes": 17093
+    },
+    "docs/research/battle-brothers/REPORT.md": {
+      "sha256": "d630ae33b8801be66a561fed508999cc449a83ad7943446de7a10b471bdd761e",
+      "bytes": 6972
+    },
+    "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md": {
+      "sha256": "158341b2b7eb6cb2ad53de43927c8bc9c04d4c1ce3998aaaa98126d9b5c428c8",
+      "bytes": 11923
+    },
+    "docs/research/continuing-traveler-games-2026-10-14/MUD_SOURCE_GUIDE.md": {
+      "sha256": "64b5d5acae06e03eef294d33a3f709950e3ddad63a038cd2cf3158c0d5ba121d",
+      "bytes": 9132
+    },
+    "docs/research/continuing-traveler-games-2026-10-14/RETROMUD_AND_4D_DEPTH.md": {
+      "sha256": "45884958c2f25802c6bb5c68fcc7fc90c98fdfa784bf4494715347e471ae48b9",
+      "bytes": 43679
+    },
+    "docs/research/continuing-traveler-games-2026-10-14/YAIRPG_ABSORPTION_PROPOSALS.md": {
+      "sha256": "49a38c1a3c90011aeb446f6196dad81aa52338fa141f7d3847e402fb4ebb2b60",
+      "bytes": 31799
+    },
+    "docs/research/endless-ascent/REPORT.md": {
+      "sha256": "ac3232b4b25a453e06ebfb47098feb88e29c1de5d5069f288d7bd8ef49c1e243",
+      "bytes": 4205
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/EXISTING_SYSTEM_FIT_AND_PROPOSALS.md": {
+      "sha256": "95f34df3a9f2c97c3f00e6d72d3c5c1f58d3d6836b2ec8a21e3097bad041c7e7",
+      "bytes": 24035
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/FARMING_PATH_PROPOSAL.md": {
+      "sha256": "eae27dc9b159cfd4e80bcef865a681ee02679abef2bc62a0f5687be529a7b0f4",
+      "bytes": 13634
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/FISHING_PATH_PROPOSAL.md": {
+      "sha256": "35cf47ca82c78284ce3a23b01bcfa88c06e38b253d3aa30a2b095b3ad1519a62",
+      "bytes": 13887
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/MINING_FLOW_AND_PATH_PROPOSAL.md": {
+      "sha256": "fb4c3242aff524dc3261336c49d03490311a58751b24f7896c9e7fa8d34edd6e",
+      "bytes": 10391
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/PATH_PROPOSALS.md": {
+      "sha256": "0ff3309427a9d4b882b1ff22eb1e2ee1dc567309b655a7590f6b0d493f96e5a3",
+      "bytes": 17388
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/REFERENCE_INDEX.md": {
+      "sha256": "5a55769096474220a3599c76e481acb26cb55dc4a038988d4c48b18b4c30bb67",
+      "bytes": 9946
+    },
+    "docs/research/everyday-paths-ui-2026-10-15/mockups/README.md": {
+      "sha256": "d6bcc49a5ca1c2d257c21c52e3e153f28881ef67df38bfbaa07af151b33bf0c9",
+      "bytes": 5080
+    },
+    "docs/research/far-field-tropes-2026-10-08/PROPOSALS.md": {
+      "sha256": "c3b2568ef1318ca122abbb098a16e2961307102669aec93ff1777e9fbdd459d3",
+      "bytes": 8526
+    },
+    "docs/research/game-research-adoption-audit-2026-10-13/ADOPTION.md": {
+      "sha256": "ae8806539c9585b6f52092bc90c8be4e2f64edbe3e262ea9b36f9551cb1a81ed",
+      "bytes": 14136
+    },
+    "docs/research/game-research-adoption-audit-2026-10-13/PACKETS.md": {
+      "sha256": "9c7437385d87c258de3e59d1c9cdd6ed2fc504b227cc1a2009f5b4ec0ff3f936",
+      "bytes": 14953
+    },
+    "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md": {
+      "sha256": "234cb45ea5e627895a7c159b819f578fa338d8aea6c6ddd10d48f1074c023032",
+      "bytes": 13036
+    },
+    "docs/research/increlution/REPORT.md": {
+      "sha256": "14bb480f0a3b06e732240bef96bc745c35f9d3332372efca9903b56f9c632ecc",
+      "bytes": 5869
+    },
+    "docs/research/jojo-audit-2026-10-11/ENGINE_AUDIT.md": {
+      "sha256": "18d027e92d6ca46009297e73df28e168d194718cd57de8c0ebf161fb0df9ae0a",
+      "bytes": 26284
+    },
+    "docs/research/kenshi/second-pass/PROPOSALS.md": {
+      "sha256": "b64835339e95c6f3919a85a5cc54972dacc9e7fd86f5a44ddd9ea2264b79d3a0",
+      "bytes": 7887
+    },
+    "docs/research/kenshi/second-pass/REPORT.md": {
+      "sha256": "ec2cc04b1f6c38597d0a4b2a23b2c0ed54408e5bb454e5c6c541de0af03725be",
+      "bytes": 4836
+    },
+    "docs/research/kill-the-lich-idle/REPORT.md": {
+      "sha256": "9b4cef52f4686be15df36f75e875213729f3ea96ffdccfcc6ea3cafa9ddd1464",
+      "bytes": 17975
+    },
+    "docs/research/magic-research-2/REPORT.md": {
+      "sha256": "403532499314b78e76ee0d0879e3a0fd609becd028f873f9130334b115f82171",
+      "bytes": 6721
+    },
+    "docs/research/magical-production-2026-10-15/REPORT.md": {
+      "sha256": "e29d55d16570f130485b2f742566c7d9024700939cd1b353400a070b33271978",
+      "bytes": 22439
+    },
+    "docs/research/manga-text/AUDIT_USES_2026-10-23.md": {
+      "sha256": "4926b0de14ba76ee3ddae130cbab0d912556a489090241b52cd7481e05c8bf97",
+      "bytes": 19028
+    },
+    "docs/research/open-idle-games-2026-10-09/PROPOSALS.md": {
+      "sha256": "6e87f17af1a964fef8ce1706bda3f1890f7e734e24b0095a6891e5ce0ac05fa2",
+      "bytes": 8744
+    },
+    "docs/research/power-scaling-2026-10-08/PROPOSALS.md": {
+      "sha256": "cecf4ccdd6d491652b8dc57aed0c0d29b4822b7364325f56694f8b6512a891fd",
+      "bytes": 6102
+    },
+    "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md": {
+      "sha256": "0d27e0691fc8b75a6ccddfa401d48629a0edbef0b01892d2ee988a47473d29f6",
+      "bytes": 13056
+    },
+    "docs/research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md": {
+      "sha256": "30d3046b1ec218d8561313888f2cc9df4aaba78c18281f71d6ac8c7ed34d22c5",
+      "bytes": 9285
+    },
+    "docs/research/tabletop-library-2026-10-14/WORLD_RULES_GUIDE.md": {
+      "sha256": "70d7e1d84c45923377791a08b974024af01cdb8ad4beaa11ed659fee1890ab3d",
+      "bytes": 7506
+    },
+    "docs/research/theory-of-magic/REPORT.md": {
+      "sha256": "478849b25156c80f3a13c7e7b5abe32ec51ed80758de5dd3f7f69a327c6d9e32",
+      "bytes": 10136
+    },
+    "docs/research/upload-labs/REPORT.md": {
+      "sha256": "140502396af57091bbe84d8ac6d4ca111daa60b7e8871a8727d9a5439a6d8aad",
+      "bytes": 4455
+    },
+    "docs/research/vagrus/pass-2026-10-14/REPORT.md": {
+      "sha256": "e96d436d90bd23936209c99105f5b84a9671a6760e407b9a64efe9919f8f8f9a",
+      "bytes": 9436
+    },
+    "docs/research/wildermyth/REPORT.md": {
+      "sha256": "4070cbc282dfabdf3cca2cd15346324bd1575ec6a8b16ad4c180e7ceab894790",
+      "bytes": 4097
+    },
+    "docs/reviews/crafting-reference-2026-11-04/REPORT.md": {
+      "sha256": "b58939f3dea610be8028aa30425f434804c1bbc5832f941f47436d402b3ab11b",
+      "bytes": 23825
+    },
+    "docs/reviews/crafting-reference-2026-11-04/evidence/MANIFEST.json": {
+      "sha256": "ea844904c8f970bccfe57f90fb618315f5e21dc38b56b7a0d1a93c4a4e089190",
+      "bytes": 928
+    },
+    "docs/reviews/crafting-reference-2026-11-04/evidence/current-cooking.png": {
+      "sha256": "a7b546c8c8a931856bfa5605e836c28a693f165699aee95487be40c693f9365c",
+      "bytes": 451181
+    },
+    "docs/reviews/crafting-reference-2026-11-04/evidence/current-crafting.png": {
+      "sha256": "9e6c3f3dace577aab2ff6630822d03ca791089e6d7b734c788f3957b281ffab6",
+      "bytes": 453450
+    },
+    "docs/reviews/crafting-reference-2026-11-04/evidence/reference.png": {
+      "sha256": "fb8edc393b6179a6a85665576a7e85fb71f9fd9d76440d7cb9b1c3c69df70d34",
+      "bytes": 31491
+    },
+    "docs/systems/PROGRESSION_WORLD_STATE.md": {
+      "sha256": "c20ddcff9c3073c71a7e081624168c7c0e12a38e6a7bc8ea278f37336dadbc90",
+      "bytes": 65729
+    },
+    "docs/tools/LOCAL_ARTIFACTS.md": {
+      "sha256": "d2327cf7168da7381b8a60b3f99d02bfe18169bfa651820b381d78702fdbbb40",
+      "bytes": 2847
+    },
+    "docs/tools/game_mcp_limits.jsonl": {
+      "sha256": "a10418d8a0c93c2d4079b1872f183a87c69d392c7b0ddc8bcad272f8f69a58be",
+      "bytes": 22557
+    },
+    "docs/worlds/ABILITY_AUTHORING.md": {
+      "sha256": "12805f899a8cd495336b375080a4c1ab08b9a1792cae2058d76526f0e9a21b4a",
+      "bytes": 53048
+    },
+    "docs/worlds/BOOK_WORLD_ENTRY_MATRIX.md": {
+      "sha256": "8b171b07e03d2af71f4188fb1c8da3bb82fe7813892522714b10bdb549388d12",
+      "bytes": 15047
+    },
+    "docs/worlds/CAMPAIGN_FRAMEWORK.md": {
+      "sha256": "81a19d4b5662341465d017e9fbf331f7e9c61f0f4d4a6eccc9405f7bfba9c000",
+      "bytes": 39710
+    },
+    "docs/worlds/CHOICES_THAT_GATE_CHOICES_2026-10-13.md": {
+      "sha256": "a929bb21e309df1247ae79019020db1cd280483caa86951ea8a8d233ff5d4bba",
+      "bytes": 28449
+    },
+    "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md": {
+      "sha256": "5c490b02e6e0807010e367c7b13cf49ed183fbaeb0664702ff118f1d93a97bdb",
+      "bytes": 28680
+    },
+    "docs/worlds/DEEPER_SYSTEM_INTERACTIONS_2026-10-13.md": {
+      "sha256": "6e3a60bcf19324336f39f3db3a57fc860bcdf1adcaeaec79bcac99a021e65408",
+      "bytes": 9223
+    },
+    "docs/worlds/LORE_AND_CONTINUITY.md": {
+      "sha256": "eed9314a41999d38a2c6c7a43269511697a11f9007f06c630784361602633dbb",
+      "bytes": 45282
+    },
+    "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md": {
+      "sha256": "162c81a9a9adae9fbe1b8e2966fdd4d9f896fad58505755c73d80b4605a557cb",
+      "bytes": 21136
+    },
+    "docs/worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md": {
+      "sha256": "ecc29b25c0a3bbfcfa25df1a0fe171fd2683b8c50265ecc89085023d49053c0d",
+      "bytes": 38326
+    },
+    "docs/worlds/PROGRESSION_AND_ASSEMBLY.md": {
+      "sha256": "ed2e0a90087bcf3bdb08cd4c0858427463fe31e3f9cb4e278f6f1183f640bf2c",
+      "bytes": 26313
+    },
+    "docs/worlds/RESEARCH_TALENTS_PROGRESSION_AND_STARTS_2026-10-13.md": {
+      "sha256": "8ae7e2ecefa7c3e8f43de30ac4aa3ceee00c4180ef5d421d0ec24d27c0cc91ac",
+      "bytes": 22658
+    },
+    "docs/worlds/SELF_AS_PLAYER_LORE_CONSIDERATIONS_2026-10-13.md": {
+      "sha256": "0cbf511253833611ddcd0200b0cb87f4059c8949e238994022bdb3637aa8fc29",
+      "bytes": 74537
+    },
+    "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md": {
+      "sha256": "8b415b7d7c4cbdaa1fc7c12b6d7b51579e7930455d22d190c614825ac312c3cf",
+      "bytes": 16169
+    },
+    "docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md": {
+      "sha256": "a80cac066767b51d610d22acd776be31d0a117a31baa6d3468399cfab24c3cd3",
+      "bytes": 15209
+    },
+    "docs/worlds/START_MICRO_DETAILS_2026-10-14.md": {
+      "sha256": "db83cb15d03da14144864f8c74d5d62199d81792228a45b14b32344df6060a3a",
+      "bytes": 45893
+    },
+    "docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md": {
+      "sha256": "a0c009867b934525a1a39709d360a1cf1287a202f78a9392fb9a700083cdfd59",
+      "bytes": 66245
+    },
+    "docs/worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md": {
+      "sha256": "b8c0a085ff60d313097549eae8cc14819aa364679eb915c1c9f41c79fa079658",
+      "bytes": 14419
+    },
+    "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md": {
+      "sha256": "8b9884e4bf17e60b7a56a4dab3dec2c5b35382f9f060d358392f221bea8c60a2",
+      "bytes": 24867
+    },
+    "docs/worlds/jujutsu/JJK_GAP_FILL_PLAN.md": {
+      "sha256": "164b664ed2c65edd4bd5a53603788b04ff44a4990e449926b7eb3906f48b6fcc",
+      "bytes": 9103
+    },
+    "docs/worlds/jujutsu/JJK_OCR_GAP_REGISTER.md": {
+      "sha256": "56371075360213b4a484430a11fd257a29e2d3f1d38fc069889a916cf3b176f5",
+      "bytes": 11518
+    },
+    "docs/worlds/mother-of-learning/COVERAGE_CENSUS_2026-11-03.md": {
+      "sha256": "1cddf9a4f61e327003946511e5a6a70bf46057a11169eea2d32e78c2f89168c7",
+      "bytes": 15979
+    },
+    "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_2026-11-03.md": {
+      "sha256": "66c9c5da59c5b1c43dd8caccd69106c79b671c0ca7452d57a14e826b85206b88",
+      "bytes": 10105
+    },
+    "docs/worlds/mother-of-learning/MOL_G16_COVERAGE_PLAN_2026-11-03.md": {
+      "sha256": "3916f73929abac83104a67f86d5b737d8d50bacae9e2c1d4ee4610f7fad9a91a",
+      "bytes": 13944
+    },
+    "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md": {
+      "sha256": "e3487897eeb164b15889dcca856a4572f451cfb0996feae8e0792aca3395dd53",
+      "bytes": 23257
+    },
+    "docs/worlds/world-core-kit-2026-10-14/W27_INSPECTOR_MAP.md": {
+      "sha256": "2681b4a93925481293dcdc6281e48761df2f63b5548f25ac64f51967af419850",
+      "bytes": 58167
+    },
+    "docs/worlds/world-core-kit-2026-10-14/cards/README.md": {
+      "sha256": "9fcc46159097117a68e0e915526b6c2bcd460217522d1eb7012a7e6b10d1f96e",
+      "bytes": 12775
+    },
+    "index.html": {
+      "sha256": "44bbe4d2656e357823127a6710aa50258ec1cad3f868f61eb2de61b551f241f6",
+      "bytes": 106521
+    },
+    "src/book_world_lotm_be_seer.js": {
+      "sha256": "7cee73626ed7aae1adf74cc00cf11a3c0e075884682084fb40b4a7a82eea6bc2",
+      "bytes": 8014
+    },
+    "tests/helpers/seer_exhaustion_fixture.mjs": {
+      "sha256": "a744bb4fef30db7ac9eaeefca8c584f14e15f7aec57680d20a5810a78c29e165",
+      "bytes": 2278
+    },
+    "tests/lotm_be_seat.test.js": {
+      "sha256": "faed3ac3771f7e8921fc6ca7de35aaa0aa7aaaefed363ee8ed151517c0397240",
+      "bytes": 31729
+    },
+    "tests/seer_exhaustion_browser.mjs": {
+      "sha256": "a1b1565496911308ab1348bc80d52ae2de0e657f52c9271372722ca16f80e378",
+      "bytes": 6587
+    }
+  },
+  "remaining": [
+    "Unreviewed and partial document ranges remain under the inventory.",
+    "Chapter-specific Seer repeat-use consumers were not replayed.",
+    "Active crafting UI/rules and later review batches remain local.",
+    "Installed-app adoption and human review were not performed."
+  ],
+  "completion_checks": [
+    {
+      "check": "docs",
+      "exit": 0
+    },
+    {
+      "check": "rules",
+      "exit": 0
+    },
+    {
+      "check": "ledger",
+      "exit": 0
+    },
+    {
+      "check": "source-whitespace",
+      "exit": 0
+    }
+  ],
+  "generated_bundle_whitespace": {
+    "exit": 0,
+    "warnings": 0,
+    "scope": "Generated bundle check; no gameplay strings changed for whitespace."
+  }
+}

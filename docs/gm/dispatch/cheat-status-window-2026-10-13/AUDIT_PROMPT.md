@@ -105,3 +105,12 @@ Write `docs/gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md`:
 5. What was not checked and why.
 
 Then reply in chat with the verdict, the top five findings and the link.
+
+
+## Content reconciliation: historical audit prompt, 2026-11-04 (B355)
+
+The C0/optional-start/CH1 list is explicitly a set of claims to verify. Merge or bundle labels and “or later” do not establish unchanged behavior on later inputs. This prompt does not itself prove awakening, concealment, durable reveal, backwards compatibility or stage-1 readiness. Use the actual existing result and relevant current source before dispatching another audit. The old new-chat/paste instruction, full-suite recipe and fixed 1366/1440 matrix are historical workflow, not current authorization or a universal rerun requirement. Current host instructions and desktop/font targets govern selected execution.
+
+Preserve natural versus seeded-native versus source evidence, gate counterexamples, discoverability, exact known/held/dormant semantics, failed-import protection and native ownership side effects. Ordinary exported metadata, hidden labels and settings can have different discovery boundaries; test the actual supported route rather than assuming a panel’s absence proves every hidden name stays concealed. A reduced-motion reveal count and a combat animation count are not interchangeable. Save/reload and literal import are separate boundaries.
+
+Stage 0’s informational design and a proposed stage-1 slice are distinct from the broader any-source cheat direction. Current quiet base-faculty direction does not require every character to acquire a voiced quest system or a status-window UI. Conversely, an actually selected source can grant real power. Reuse current title/quest/claim/save owners and preserve proposals without silently granting scope. The original read-only audit constraints remain history; the current user request authorizes this documentation reconciliation, not execution of the embedded prompt or a fresh chat/worker.

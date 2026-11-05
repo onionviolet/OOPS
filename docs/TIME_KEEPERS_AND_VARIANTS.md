@@ -82,10 +82,13 @@ Only ideas not already in the timelines doc's reference table.
   or by keeping changes below inertia. Being a nobody is camouflage.
 
 ### Pruning as the archive's in-fiction face
-- **N6 Storage limits become content.** The branch archive already fades
-  old branches. Diegetically, faded branches are pruned and land in the
-  Void. Their salvage (a ghost, a stash, a lost friend's variant) can be
-  found there. A storage cap turns into a world.
+- **N6 Archive presentation as content, proposed.** A separately authored
+  pruning event can place actual affected people or objects in a Void.
+  Optional salvage flavor can also refer to retained historical records.
+  Technical storage limits do not authorize silently pruning a played
+  life, changing its fiction or replacing resumable state with a synopsis.
+  The archive-fading implementation is unverified; preserve actual history
+  and its recovery/compatibility boundary.
 - **N7 Content migrations, diegetically.** When a game update removes an
   event a branch referenced, its leftover can wash up in the Void rather
   than only folding into chronicle text. Optional flavor; the migration
@@ -442,8 +445,10 @@ it plays, and what to watch.
 - **Echo option.** No persistent record, but traces leak: a line it
   shouldn't know, a déjà vu, a gift already in your pocket. Cheap to
   author, needs no migration if the trigger reads existing atlas data.
-- **Watch:** any per-save field needs a migration and must ride export
-  and import. Private-pack names stay out of exports.
+- **Watch:** a persisted field needs an explicit compatibility policy and
+  the data required for supported restore. Full backups preserve those
+  payloads and references; public share summaries use discovery-safe
+  projections. Do not redact required backup data into unusable placeholders.
 
 #### X3 Presence
 
@@ -770,9 +775,12 @@ scene, not the being. Fitting characters at fitting times
 
 ### LS11 Power has a visible cost
 
-Unlimited power with no cost breaks lore and play. Every hard lever
-costs the being something, and that cost shows somewhere in the world: a
-strained loom, a fading seat, a cult's sacrifices, a weaker avatar.
+Default proposal: where a source or authored mechanism has a cost, show
+its actual consequence through appropriate known evidence. Dial: a being
+can have strong or unlimited means with negligible, hidden or no such
+cost. Reason and consequence follow the selected world, source, actor and
+operation; no strained loom, sacrifice or weakened avatar is imposed merely
+to balance effective power (AD5/AD38).
 
 ### LS12 Seal the truth before writing clues
 
@@ -811,3 +819,16 @@ record stays true and checkable.
   needed and where pruned things go before a Void appears there.
 - **The holder example** follows LS9: its cross-run memory exists only in
   cosmologies where the game layer (C14) is real.
+
+
+## Content reconciliation: character-scale ideas and actual mechanisms, 2026-11-04 (B366)
+
+Keep the explicit clarification already quoted above: the persistent holder is one worked example, not Weibao’s required overarching character. L/K/N, J/S/W, X/H and LS rows remain palettes for fitting actors and worlds. Franchise tables are memory-derived inspiration and have not been source-verified here. A world’s actual keeper can be helpful, hostile, mistaken, unnecessary, political, corrupt, absent or motivated by something other than physical branch scarcity. Its institutional claims and legal variant label are not automatically the world’s metaphysical truth.
+
+**Actual means and information:** declare scope separately for seeing, remembering, speaking and acting, and retain the actual carrier/body/avatar/source/office/continuity. A few flags can represent a scoped actor without proving a complete persistent mind or truthful past; a stat fight, frequent involvement or direct effective power remains possible where supported. Strong beings need no obligatory seat, rare-presence budget, forced conflict, never-ending stakes, cosmic layer number, universal sink or costly limiter. A real local binding or conservation law still matters; a genuinely superior or unlimited faculty can work without a compensating tax. World compatibility comes from actual mechanisms rather than automatically stripping magic, forcing rechanneling or making higher layers unable to interact.
+
+The X/LS knowledge suggestions do not grant author/developer/player omniscience. Sight, source limits, lies, delays, remembered values and actor beliefs remain separate. Omniscience or foreknowledge can be genuinely strong when the selected source supplies it; lazy implementation is not an in-world reason to make it wrong. Conversely, frequent action need not produce public knowledge when a real concealment/erasure mechanism exists. Changes to a role, identity, body or persona do not automatically fuse variants’ possessions and memories. A source-level mode can legitimately revise history while preserving actual transition/audit provenance and observer consequences; LS13’s anti-contradiction intent does not ban an authored temporal or retcon power.
+
+**Persistence and storage:** the branch atlas, habit profile, natural-course engine and fading/replay mechanisms described as existing are proposal-era assumptions, not current implementation proof. Technical retention limits cannot silently become in-world death/pruning, erase a resumable paused life or turn a corrupt record into Void salvage. A source-authored pruning event and an optional archive presentation are separate operations with explicit actual affected scope. Full backups preserve the data needed for restore, including opaque/private references under their compatibility rules; public share summaries and player-facing atlas titles remain discovery-safe. A missing revision/definition is not restored by a seed or a label. Do not mint saved items/gifts merely to imply unexplained cross-run memory.
+
+**Journeys and premises:** J’s receipts/values/phases are one way to represent growth, not a requirement that every real personal change has a slider or explicit ledger entry. W’s initial changed premise needs actual downstream causes, institutions and independent motives; generating a hook does not simulate the whole world or prove all alternative scenes. Player selection, character power, deliberate temporal return, resumed life, forecast and restored backup remain distinct. Current meaningful start and LOTM/Harry priorities supersede base-first/old milestone assumptions; AD51 supports a useful bounded seam. No new keeper, holder, migration, offline production, source pack, runtime, UI or gameplay evidence was created by this review.

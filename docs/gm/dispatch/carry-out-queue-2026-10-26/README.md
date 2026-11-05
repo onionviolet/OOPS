@@ -103,3 +103,12 @@ Branch `codex/q1-lane-build-2026-10-26`, HEAD `4bb8d9aa31dfcbeea0789d063c17fd601
 ## Finished lane retirement, 2026-10-31
 
 Under Weibao's current trimming instruction and AD41, the adopted Q1/Q2/Q3/Q6/Q7/Q8 worktrees were removed after terminal/adoption, ancestry, visible process/open-file and verified-archive checks. Branches remain; the earlier worktree paths and stop-state tables are historical. [Recovery locations and execution checks](../../../audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md#round-3-reusable-helpers-built-and-finished-q-lanes-retired) replace those paths for local leftovers. No other lane was resumed or removed by this cleanup.
+
+
+## Content reconciliation: queue stop-state and later adoption, 2026-11-04 (B357)
+
+Read the primary-adoption update and October 31 retirement together with the original stop-state. Recovered Q1/Q2/Q3/Q6/Q7/Q8 source in primary is different from merging their branch commits into ancestry. Likewise terminal supervision, a clean merge-tree, worker-reported focused checks and untracked-packet readiness are different evidence from combined playable acceptance. Preserve packets instead of clearing unrelated files to make a merge flag green. The later recovery/retirement owner replaces historical worktree paths for leftover retrieval; this README does not prove those archives or paths are accessible now.
+
+Q1’s original sequential/default checks did not prove concurrent-build/page-load acceptance. Its resume and Q11/Q10/Q12/Q15 follow-ups failed before a new model response; stale last-message files are not new receipts. The unsupported resume flag was a launcher syntax repair, not a second completed model turn. Git lock denial, CLI routing failure and missing baseline files are distinct historical blockers, not current reasons to restart work. All PID/liveness/open-file observations belong to their original checks; do not operate a process by an old numeric ID.
+
+Q18’s primary triage document and spot checks preserve useful idea intake but do not prove every named ledger’s actual content or every built claim. Q6’s static scan/provenance limits and Q8’s SCC edge bookkeeping remain bounded evidence, not a semantic description audit or eliminated architectural cycle. IPC70–IPC72 remain proposals. The historical budgets/models/follow-up permissions are not present worker authority. No queue worker, merge, archive recovery, source adoption, full suite or retirement action occurred during this reconciliation.

@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "batch": "B322",
+  "title": "Reviewed response, reconciled handoff and capture provenance without rewriting the verbatim record",
+  "at": "2026-11-05T01:46:37.954570+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md",
+      "ids": [
+        "authority/suppliedcontext",
+        "21baseline/laterlist/11qualificationbullets",
+        "5objectives/workA–E",
+        "7gapclasses/7routepreferences",
+        "evidencestandard/3outputs",
+        "10completionconditions",
+        "senderexclusivehandoff/Eldyncorrection"
+      ],
+      "classification": "Historical executable audit handoff, separately reviewed from captured response and corrected sender additions",
+      "owners": [
+        "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md"
+      ],
+      "disposition": "Full428lineprompt read; preserve exactrequestedbreadth, suppliedcontextrouting, read-onlysourceaudit vsfollowupimplementation andexclusiveoutputscope. RetaincorrectedEldynreference andsenderhandoffwithoutexecutinghistoric launch/stop commands. LaterREAevidencequalifiesinitialsummary; currentcollectionscope notlimitedbyoldpromptboundedstopcondition. Foldreading/preservation/evidencejoin into existing executableowner; capturedprefix provenbeforeappend.",
+      "evidence": "Currentoriginal20373bytes exactly matchcaptureSHA. Sendingchat historicalauthorization anddestinationactive observation are not currentprocess authority. Noauditoutputsource/README/gamecode/toolstate orremotechat reread byproxy.",
+      "reopen": "Reviewactualauditoutputs separately ratherthanusepromptcompletionchecklistasproof. Donotdispatchnewchat/worker orstopcurrent2157candidate taskbecausehistoricalpromptsaidstopthere.",
+      "input_sha256": "98cc79e248e75028ca5e7c77ab88d51df53ff6ed0e0df13dd6239328eb93df8c",
+      "input_lines": 428,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          428
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_CHATGPT_RESPONSE_2026-10-13.md",
+      "ids": [
+        "completecodeblock",
+        "sameA–Eauditcontract",
+        "mistakenEldyn/Streetsreference",
+        "materialchangenotes"
+      ],
+      "classification": "Exact preserved remote response with known mistaken cross-reference, corrected only in executable handoff",
+      "owners": [
+        "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md"
+      ],
+      "disposition": "Readall425lines includingcompletecodeblock andmaterialchangenotes. Keepverbatimresponseuntouched. It suppliesreviewedpromptstructure, notindependentlocalfilereview orverifiedstatus. PreserveknownEldyn/Streetsmistakehere asprovenance; executablealreadycorrects. Readthecompletebody ratherthancreditfromsimilarreconciledfile.",
+      "evidence": "Current20105bytes/fullSHA matchcapturerecordexactly. Alllocalpaths/statusesinsidesuppliedcontext, remoteclaimofevidencestandardnotactualexecution. Noresponseprovider/modelidentityinferred.",
+      "reopen": "Ifhistoricalcaptureused, citeoriginalresponseandcorrectedexecutableseparately. Noedittothisverbatimartifact; currentfindingsbelonginowner/taskrecord.",
+      "input_sha256": "5f04373ba04ae3940d51e8d711d9935e1865d736551a660985b2d92834ccf118",
+      "input_lines": 425,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          425
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_ROUNDTRIP_2026-10-13.json",
+      "ids": [
+        "schema1",
+        "capturestate/mode/effort/modelunknown",
+        "2failedattempts",
+        "5artifacthashrecords",
+        "3reconciliationsteps",
+        "destinationchat/progress/writetransfer"
+      ],
+      "classification": "Freshly reviewed capture provenance added to intake; historical UI/process assertions not live evidence",
+      "owners": [
+        "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md"
+      ],
+      "disposition": "ReadallcaptureJSONfields. Preserveexactsubmission/failure/completion/handoffhistory andmodelidentityunknown. CheckfourMarkdownoriginalprefixhashesagainstrecord;responseandreconciledfulloriginalfilesmatchbeforeownerfold, outbound/sent haveonlyappendedreviewnotes withoriginalbytesintact. NoPNG/UIverificationorliveprocesscheck.",
+      "evidence": "FourartifactSHA/byteprefixchecks executedandcapturedinthisledger;no screenshotopened andnochatquery. ModeHighordinaryChatandactive/inProgressstate aredatedobservations, notcurrentstate/modelproof.",
+      "reopen": "UseoriginalcapturebyteprefixidentityseparatelyfromcurrentmaintainedfullfileSHA. Donotrewritehistoricalcapturetimestamps/hashesorclaimobservedremoteexecutionnow.",
+      "input_sha256": "a328e68d0c686dc0776dc7874946a5d28d7b935333354ed7b45daf6a1d6f3d43",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md",
+      "heading": "## Content reconciliation B322: prompt variants, actual capture and historical scope",
+      "body": "The full executable handoff, full425-line verbatim response and capture-provenance JSON were content-reviewed independently. All five objective areas, workA–E, seven gap classes, route preferences, evidence standard, output requirements, ten stopping conditions and sender write transfer were read. The remote response is preserved untouched, including its mistaken Eldyn/Streets sentence. This executable already correctly separates Eldyn's wrapper gap from Streets' original-gameplay gap. The material-change notes describe prompt changes, not a completed local audit.\n\nBefore this owner fold, the executable's20373 bytes and response's20105 bytes exactly match the capture hashes. The outbound/sent original10228/8865-byte prefixes also match, while their current complete files additionally contain B320 reconciliation notes. Those are maintained-file changes, not a new capture or changed historical send. The exact prefix/full-file comparisons are stored in B322; original capture JSON hashes and timestamps are not refreshed. The capture screenshot was not opened, and no remote page or current thread was inspected.\n\nPreserve the good contract: trace mechanisms through actual prerequisites, state, timing, failure and consumer; read beyond selected headline packets; separate research acquisition/semantic understanding/runtime/adoption; retain lower-ranked useful findings and explicit gaps. A route preference is a default, not a reason to avoid a better exact evidence source. Static source and a future acceptance packet do not provide a current played journey. Metadata counts, inherited missing-payload labels, old tool descriptions and no-trial assertions remain historical supplied context, qualified by later owners rather than silently promoted.\n\nThe original sender's exclusive directory and launch statement authorize that recorded historical audit, not another current chat, external submission, tool launch or automatic implementation. Likewise, its bounded audit stopping rule does not replace the present request to reconcile every inventoried candidate's actual content. Source records, proposals, audit completion and adopted gameplay remain distinct. The actual report/inventory/adoption/packet bodies must be reviewed independently; no output inherits content credit from a prompt saying what it should contain. No source acquisition, raw corpus, current process/tool/account inspection, screenshot, private save, game run, commit or publication occurred by this review.",
+      "before_sha256": "98cc79e248e75028ca5e7c77ab88d51df53ff6ed0e0df13dd6239328eb93df8c",
+      "after_sha256": "5f662a475bb5dd90a59de96478fe6c0a03ced30f6ce09f25e6610dd204e17b78"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 784,
+  "original_capture_prefix_checks": [
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md",
+      "captured_bytes": 10228,
+      "captured_sha256": "c034e1c115ffab1c7d22cfbcdc611977fc267acf0af2189341ab6696283c946d",
+      "original_prefix_sha256": "c034e1c115ffab1c7d22cfbcdc611977fc267acf0af2189341ab6696283c946d",
+      "current_bytes": 11754,
+      "current_sha256": "d57f3d31538307b5ca25254befed1f8d849ef69531f7f8de0640a06471ede37c",
+      "full_file_identical": false
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md",
+      "captured_bytes": 8865,
+      "captured_sha256": "f9d8bf8649c850feb0adbdc07a232c289ce8fe1d6ef6bfba6263b98fc273bdc6",
+      "original_prefix_sha256": "f9d8bf8649c850feb0adbdc07a232c289ce8fe1d6ef6bfba6263b98fc273bdc6",
+      "current_bytes": 10292,
+      "current_sha256": "6b25d68fa0c97afa826689af866bf718825c7210d21de82927fa1ea8111b0a6f",
+      "full_file_identical": false
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_CHATGPT_RESPONSE_2026-10-13.md",
+      "captured_bytes": 20105,
+      "captured_sha256": "5f04373ba04ae3940d51e8d711d9935e1865d736551a660985b2d92834ccf118",
+      "original_prefix_sha256": "5f04373ba04ae3940d51e8d711d9935e1865d736551a660985b2d92834ccf118",
+      "current_bytes": 20105,
+      "current_sha256": "5f04373ba04ae3940d51e8d711d9935e1865d736551a660985b2d92834ccf118",
+      "full_file_identical": true
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md",
+      "captured_bytes": 20373,
+      "captured_sha256": "98cc79e248e75028ca5e7c77ab88d51df53ff6ed0e0df13dd6239328eb93df8c",
+      "original_prefix_sha256": "98cc79e248e75028ca5e7c77ab88d51df53ff6ed0e0df13dd6239328eb93df8c",
+      "current_bytes": 20373,
+      "current_sha256": "98cc79e248e75028ca5e7c77ab88d51df53ff6ed0e0df13dd6239328eb93df8c",
+      "full_file_identical": true
+    }
+  ],
+  "capture_check_scope": "Original documented Markdown byte prefixes only. Response stayed unchanged; other owner notes are append-only. Screenshot and remote/current UI not checked."
+}

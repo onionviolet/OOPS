@@ -66,3 +66,12 @@ actual resource/clock/custody consumer prove a slice; the illustrative cross-wor
 proof above is a later seam test when crossing is in scope, not required for every
 local prototype. Use current AR/MR/SR/UR and compatibility decisions. This audit
 rechecked no external product claim, source book or current library contents.
+
+
+## Content reconciliation B325: actual inventory corrections and source-fit scope
+
+The complete core plan and earlier141-line sweep were content-reviewed, including all C1–C8, E1–E5, C/W/S/K tables, edition comparison, reading bundles and later acquisition follow-up. F5 already supersedes C1's missing-title row at file-presence level. Into theOutside's filename ambiguity and repositoryWIP/reviewed labels still do not certify internal edition or semantic reading. Old no-acquisition and not-found statements describe their own earlier scans, while later library capture owns its exact preparation state. No repeat source acquisition is selected by this reconciliation.
+
+Keep distinct source roles: a rules subset is not a complete setting; a supplement may require a matching core; RPG, wargame, fiction and an edition-specific adventure provide different evidence. The WFRP preorder/banner observation was not proof of newest edition then and is not a current product check now. ArsMagicaFifthEdition and D&D5e are unrelated edition labels. System-local points, seasons, rests, inherited land and teacher requirements cannot be merged into one power rank or mandatory cost. Source-qualified exceptional/free routes remain available.
+
+The October18 reusable constraint correctly narrows the earlier cross-world evaluation: a local native action and useful consumer can prove a selected local slice; crossing/return/failed-storage checks attach when that seam changes. Current AD51 and selected book-world priorities qualify the illustrative first-source reading order, while AD52 preserves real costs/time/choice when simplifying repeated study. No all-book queue, universal generator, tabletop runtime or automatic new ArsMagica/Warhammer world precedes useful progress. No primary page/PDF, sourcebook, private inventory, exact ownership, license or current product claim was reverified by this local review.

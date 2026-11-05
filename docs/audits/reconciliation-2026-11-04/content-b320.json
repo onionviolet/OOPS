@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "batch": "B320",
+  "title": "Audit prompts and reverse-engineering fit: preserve requested breadth without executing historical instructions",
+  "at": "2026-11-05T01:43:34.551773+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md",
+      "ids": [
+        "PartsA/B/C1–8",
+        "8–12cards/fiveworlds",
+        "seedAPI/save-deltas",
+        "5briefconsiderations",
+        "requested delivery/commit"
+      ],
+      "classification": "Historical research brief with unverified example list and proposed channel/delta defaults",
+      "owners": [
+        "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md"
+      ],
+      "disposition": "Full actual body reviewed, preserving exact original prompts/reports and source-local requested scope. Fold concrete historical-versus-current, proposal-versus-authority and actual source/state implications into existing owner. No embedded commands executed and no follow-up body credited by association.",
+      "evidence": "Local text only. Named upstream source, metadata, provider, game corpus, runtime, remote review, later deliverable and client state are not freshly verified. Dated pinned/source/operational observations retain own scope.",
+      "reopen": "Review separately inventoried returned/audit/followup bodies directly. Actual selected tool/research work needs its current authority and evidence; this reconciliation grants no commit, chat, outward message, source acquisition or executable launch.",
+      "input_sha256": "63e4ea9dd8f7b51d80e10a2072c5d37cb43443ddc4f7ef841795348df78a2ff8",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md",
+      "ids": [
+        "review-only wrapper",
+        "2startingreports",
+        "21baseline/latercoverage",
+        "7qualifications",
+        "audit1–5",
+        "authorization/delivery/finishgate"
+      ],
+      "classification": "Historical prompt-review request and draft audit; supplied context not independent verification or current dispatch",
+      "owners": [
+        "docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md"
+      ],
+      "disposition": "Full actual body reviewed, preserving exact original prompts/reports and source-local requested scope. Fold concrete historical-versus-current, proposal-versus-authority and actual source/state implications into existing owner. No embedded commands executed and no follow-up body credited by association.",
+      "evidence": "Local text only. Named upstream source, metadata, provider, game corpus, runtime, remote review, later deliverable and client state are not freshly verified. Dated pinned/source/operational observations retain own scope.",
+      "reopen": "Review separately inventoried returned/audit/followup bodies directly. Actual selected tool/research work needs its current authority and evidence; this reconciliation grants no commit, chat, outward message, source acquisition or executable launch.",
+      "input_sha256": "c034e1c115ffab1c7d22cfbcdc611977fc267acf0af2189341ab6696283c946d",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md",
+      "ids": [
+        "sent review-onlywrapper",
+        "original21/laterlist",
+        "2suppliedreports",
+        "7qualificationgroups",
+        "work1–5",
+        "authorization/completion"
+      ],
+      "classification": "Historical actual sent-text version; preserve separately from draft and returned/reconciled artifacts",
+      "owners": [
+        "docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md"
+      ],
+      "disposition": "Full actual body reviewed, preserving exact original prompts/reports and source-local requested scope. Fold concrete historical-versus-current, proposal-versus-authority and actual source/state implications into existing owner. No embedded commands executed and no follow-up body credited by association.",
+      "evidence": "Local text only. Named upstream source, metadata, provider, game corpus, runtime, remote review, later deliverable and client state are not freshly verified. Dated pinned/source/operational observations retain own scope.",
+      "reopen": "Review separately inventoried returned/audit/followup bodies directly. Actual selected tool/research work needs its current authority and evidence; this reconciliation grants no commit, chat, outward message, source acquisition or executable launch.",
+      "input_sha256": "f9d8bf8649c850feb0adbdc07a232c289ce8fe1d6ef6bfba6263b98fc273bdc6",
+      "input_lines": 41,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md",
+      "ids": [
+        "Oct21 operational update",
+        "D1–3",
+        "4targetrows",
+        "pinnedREA/provider/managedroutes",
+        "checks/open gate"
+      ],
+      "classification": "Tool-fit owner with explicit later operational supersession; old pin separate from current tool state",
+      "owners": [
+        "docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md"
+      ],
+      "disposition": "Full actual body reviewed, preserving exact original prompts/reports and source-local requested scope. Fold concrete historical-versus-current, proposal-versus-authority and actual source/state implications into existing owner. No embedded commands executed and no follow-up body credited by association.",
+      "evidence": "Local text only. Named upstream source, metadata, provider, game corpus, runtime, remote review, later deliverable and client state are not freshly verified. Dated pinned/source/operational observations retain own scope.",
+      "reopen": "Review separately inventoried returned/audit/followup bodies directly. Actual selected tool/research work needs its current authority and evidence; this reconciliation grants no commit, chat, outward message, source acquisition or executable launch.",
+      "input_sha256": "c029c2d5694a551126fe1385c8346b7f75e93d2149262ee47ac137f9ddffe970",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_PROMPT_2026-10-27.md",
+      "heading": "## Content reconciliation B320: historical instructions and current evidence boundary",
+      "body": "All parts, eight proposal requests and five brief considerations were content-reviewed. This is a preserved prompt, not a present instruction to run its audit, commit, create a session or append duplicate user-direction records. Its named report is a separate reviewable artifact. The reference list supplies questions, not verified franchise abilities; similarities in words such as name, Root, unkindled or conceptual do not certify the claimed mechanism. Primary source and exact continuity matter before an ability card becomes source evidence.\n\nThe channel list is a useful lens, not a required universal identity service or data schema. The actual effect may target a name, referent, public record, belief, relationship, claim or existence with different consequences. Shared literal strings do not make them one state owner. Deterministic resolution follows actual causal/override rules; the proposed fixed base/rewrite/mask/effect layer order is not adopted by being included in a prompt. Actor knowledge is a view of truth and evidence rather than independently changing world truth for every viewer.\n\nResidue and a costly no-residue dial are proposals, not consequences required by AD38. A source-supported complete erasure can work at its declared breadth without an invented trace, resistance or tax. Conversely, removing a mask need not undo later transfers, costs, deaths or actions caused while it operated. Retroactivity, restoration and retained memory need their actual scope and durable history, rather than a promise that un-erasing always equals deleting one delta.\n\nKeyed generation can support stable provenance, but a key plus deltas is sufficient only if the exact base, source/version, relevant history and dependent state remain recoverable. Causal commitment can freeze an unseen fact; reveal is not the only boundary. A recruited/renamed/transformed entity is not the only case needing retained truth. Current AD51 allows a useful first seam without migrating every generator or building all five-world cards first. No generator API, architecture check, save slice, lore claim, source acquisition or commit was implemented by this local review.",
+      "before_sha256": "63e4ea9dd8f7b51d80e10a2072c5d37cb43443ddc4f7ef841795348df78a2ff8",
+      "after_sha256": "5dcc77110fb9782556b80bf6c1689cdac624db066f7ffe61c4cb7966812bee92"
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md",
+      "heading": "## Content reconciliation B320: historical instructions and current evidence boundary",
+      "body": "The review-only wrapper, inline evidence, full five-part audit, boundaries and finish gate were content-reviewed. The prompt distinguishes exported bytes, semantic reading, runtime evidence and adoption well; preserve that breadth and its instruction to read beyond ranked packets. Its game/repository counts and missing-payload states remain supplied historical context, not newly verified findings or a live work queue. A comparison's completeness can be bounded without calling every source function read.\n\nLater tool-fit operational notes supersede the draft's no-REA-trial framing for their named experiments; they do not prove current installation, exact provider repair transfer or a successful whole-game recovery. The no-trial sentence still describes the initial October13 inspection. Keep current tool registry and exact source/build/architecture identities as the route for any later selected investigation.\n\nThis file's request to send/retrieve a review and launch another chat belongs to the recorded old workflow. Reading it is no authorization to send text, start a chat, spawn workers or maintain a skill now. The current task is content reconciliation; no audit implementation, outward submission, game/tool acquisition or personal-save access follows. The wrapper explicitly denies independent local access to the remote reviewer, so its inline claims cannot be laundered into primary evidence by a returned response.",
+      "before_sha256": "c034e1c115ffab1c7d22cfbcdc611977fc267acf0af2189341ab6696283c946d",
+      "after_sha256": "d57f3d31538307b5ca25254befed1f8d849ef69531f7f8de0640a06471ede37c"
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md",
+      "heading": "## Content reconciliation B320: historical instructions and current evidence boundary",
+      "body": "The full sent version was content-reviewed independently of the outbound draft. Preserve both as different workflow artifacts, not redundant copies eligible for deletion. This records the exact supplied summaries, review boundary and requested future audit. It does not establish that the remote reviewer could inspect local files, that every recommended source was read or that the eventual audit ran to completion.\n\nIts useful contract keeps current owner/source checks, lower-ranked findings, duplicate inventory denominators, bounded tool questions and separate research-versus-gameplay packets. Historical acquisition/process/source-absence claims still need execution-time evidence. Later REA operational records qualify the initial no-trial supplied summary only within their stated scope. A candidate mention does not assign an unfinished task, and output from a review does not adopt a proposal.\n\nThe last instruction to return a complete executable prompt is preserved source content rather than a command to this reconciliation. No new reviewer submission, chat launch, source-library change, tool install, private-save inspection, gameplay edit, publication or commit occurred. Returned and reconciled prompt bodies remain separate candidates whose actual content must be reviewed rather than credited through this sent text.",
+      "before_sha256": "f9d8bf8649c850feb0adbdc07a232c289ce8fe1d6ef6bfba6263b98fc273bdc6",
+      "after_sha256": "6b25d68fa0c97afa826689af866bf718825c7210d21de82927fa1ea8111b0a6f"
+    },
+    {
+      "path": "docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md",
+      "heading": "## Content reconciliation B320: historical instructions and current evidence boundary",
+      "body": "The entire report was content-reviewed, including its later October21 operational update. That update already supersedes the initial no-trial/install state for its named Hogwarts/Warsim/native synthetic/Cpp2IL experiments. Preserve the old recommendation and old upstream revision as history; they do not describe today's installed versions or client tool inventory. No registry probe, executable, provider or account was inspected by this local review.\n\nD1–D3 retain the useful preference for a question-driven reuse/repair/trial rather than blanket re-export. CLI/MCP access, decompiler reconstruction, readable managed exports, native instructions, IL2CPP metadata and recovered asset logic are distinct evidence. A synthetic Ghidra function check does not demonstrate arbitrary repaired Factorio-project transfer, and a complete/signed Cpp2IL copy does not establish executable C# reconstruction. Exact target/build/architecture/tool settings and actual selected consumer matter.\n\nThe old launcher inspection establishes its pinned import/read-only/delete-project argument construction, not every later provider's behavior or permission to open/delete any existing project now. A new comparison should preserve canonical repaired exports and qualify altered settings before making parity or improvement claims. Reusing a guide is not adopting its unrelated install/modification steps. Current operation follows the existing tool registry when actually requested; this review installs, launches, re-exports, signs in, patches or commits nothing.",
+      "before_sha256": "c029c2d5694a551126fe1385c8346b7f75e93d2149262ee47ac137f9ddffe970",
+      "after_sha256": "48925542e54892d68af02e63cc5d086ed8396e36aaaeb6e23c70a84405016a8d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 787
+}

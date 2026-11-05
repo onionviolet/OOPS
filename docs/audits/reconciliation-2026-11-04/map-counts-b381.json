@@ -1,0 +1,2699 @@
+{
+  "path": "docs/audits/gap-audit-2026-10-30/research_cov.md",
+  "input_sha256": "82e6960b28172731b65b817ff7254499ff97a6f0ae9d9068765dff6a4d66d0bd",
+  "explicit_source_sections": 80,
+  "table_rows_with_status": 447,
+  "status_rows": {
+    "PARTIAL": 280,
+    "UNBUILT": 115,
+    "BUILT": 31,
+    "DESIGNED-ELSEWHERE": 20,
+    "n/a": 1
+  },
+  "printed_status_total": 446,
+  "scope": "Text/table arithmetic only. Grouped IDs, notes and proposals remain grouped; no source reading, implementation or current file-existence proof.",
+  "rows": [
+    {
+      "line": 14,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 15,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 16,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 17,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 18,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 19,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "BUILT (inferred)"
+    },
+    {
+      "line": 20,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 21,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 22,
+      "section": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+      "packet": "Small touches T01-T24",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 27,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 28,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P02",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 29,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 30,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P04",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 31,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P05",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 32,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P06",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 33,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P07",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 34,
+      "section": "docs/research/zhutian-shuabao-lu/IMPLEMENTATION_PACKETS.md",
+      "packet": "ZSL-P08",
+      "status": "BUILT (inferred)"
+    },
+    {
+      "line": 39,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 40,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 41,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 42,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 43,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 44,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 45,
+      "section": "docs/research/scroll-of-taiwu/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 50,
+      "section": "docs/research/remnant-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "R2-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 51,
+      "section": "docs/research/remnant-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "R2-P02",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 52,
+      "section": "docs/research/remnant-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "R2-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 53,
+      "section": "docs/research/remnant-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "R2-P04",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 54,
+      "section": "docs/research/remnant-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "R2-P05",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 55,
+      "section": "docs/research/remnant-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "R2-P06",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 60,
+      "section": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+      "packet": "P1",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 61,
+      "section": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 62,
+      "section": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 63,
+      "section": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+      "packet": "P4",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 64,
+      "section": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 69,
+      "section": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "packet": "1",
+      "status": "BUILT (inferred)"
+    },
+    {
+      "line": 70,
+      "section": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "packet": "2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 71,
+      "section": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "packet": "3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 72,
+      "section": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "packet": "4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 73,
+      "section": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "packet": "5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 78,
+      "section": "docs/research/majoras-mask/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 79,
+      "section": "docs/research/majoras-mask/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 80,
+      "section": "docs/research/majoras-mask/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 81,
+      "section": "docs/research/majoras-mask/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 82,
+      "section": "docs/research/majoras-mask/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 87,
+      "section": "docs/research/super-robot-wars/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 88,
+      "section": "docs/research/super-robot-wars/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 89,
+      "section": "docs/research/super-robot-wars/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 90,
+      "section": "docs/research/super-robot-wars/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 91,
+      "section": "docs/research/super-robot-wars/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 96,
+      "section": "docs/research/kittens-game/IMPLEMENTATION_PACKETS.md",
+      "packet": "K-P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 97,
+      "section": "docs/research/kittens-game/IMPLEMENTATION_PACKETS.md",
+      "packet": "K-P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 98,
+      "section": "docs/research/kittens-game/IMPLEMENTATION_PACKETS.md",
+      "packet": "K-P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 99,
+      "section": "docs/research/kittens-game/IMPLEMENTATION_PACKETS.md",
+      "packet": "K-P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 104,
+      "section": "docs/research/rune-factory-5/IMPLEMENTATION_PACKETS.md",
+      "packet": "RF-I1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 105,
+      "section": "docs/research/rune-factory-5/IMPLEMENTATION_PACKETS.md",
+      "packet": "RF-I2",
+      "status": "BUILT (inferred)"
+    },
+    {
+      "line": 106,
+      "section": "docs/research/rune-factory-5/IMPLEMENTATION_PACKETS.md",
+      "packet": "RF-I3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 107,
+      "section": "docs/research/rune-factory-5/IMPLEMENTATION_PACKETS.md",
+      "packet": "RF-I4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 112,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 113,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 114,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 115,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 116,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 117,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 118,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 119,
+      "section": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 124,
+      "section": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 125,
+      "section": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 126,
+      "section": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 127,
+      "section": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 128,
+      "section": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 138,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 139,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 140,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 141,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 142,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 143,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P6",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 144,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P7",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 145,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P8",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 146,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P9",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 147,
+      "section": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+      "packet": "P10",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 153,
+      "section": "docs/research/additional-cultivation-2026-10-22/IMPLEMENTATION.md",
+      "packet": "C7",
+      "status": "BUILT"
+    },
+    {
+      "line": 154,
+      "section": "docs/research/additional-cultivation-2026-10-22/IMPLEMENTATION.md",
+      "packet": "C9",
+      "status": "BUILT"
+    },
+    {
+      "line": 155,
+      "section": "docs/research/additional-cultivation-2026-10-22/IMPLEMENTATION.md",
+      "packet": "C10",
+      "status": "BUILT"
+    },
+    {
+      "line": 160,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 161,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 162,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 163,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 164,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 165,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 166,
+      "section": "docs/research/multi-realm-muds/IMPLEMENTATION_PACKETS.md",
+      "packet": "MW-P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 171,
+      "section": "docs/research/immortality-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 172,
+      "section": "docs/research/immortality-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 173,
+      "section": "docs/research/immortality-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 174,
+      "section": "docs/research/immortality-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 175,
+      "section": "docs/research/immortality-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 180,
+      "section": "docs/research/sapiens/IMPLEMENTATION_PACKETS.md",
+      "packet": "S-I1",
+      "status": "BUILT"
+    },
+    {
+      "line": 181,
+      "section": "docs/research/sapiens/IMPLEMENTATION_PACKETS.md",
+      "packet": "S-I2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 182,
+      "section": "docs/research/sapiens/IMPLEMENTATION_PACKETS.md",
+      "packet": "S-I3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 183,
+      "section": "docs/research/sapiens/IMPLEMENTATION_PACKETS.md",
+      "packet": "S-I4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 184,
+      "section": "docs/research/sapiens/IMPLEMENTATION_PACKETS.md",
+      "packet": "S-I5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 185,
+      "section": "docs/research/sapiens/IMPLEMENTATION_PACKETS.md",
+      "packet": "S-I6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 190,
+      "section": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "packet": "FAC-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 191,
+      "section": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "packet": "FAC-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 192,
+      "section": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "packet": "FAC-P03",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 193,
+      "section": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "packet": "FAC-P04",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 194,
+      "section": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "packet": "FAC-P05",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 199,
+      "section": "docs/research/melvor-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MEL-P02",
+      "status": "UNBUILT (stated gap)"
+    },
+    {
+      "line": 200,
+      "section": "docs/research/melvor-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MEL-P03",
+      "status": "UNBUILT (stated gap)"
+    },
+    {
+      "line": 201,
+      "section": "docs/research/melvor-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MEL-P04",
+      "status": "UNBUILT (stated gap)"
+    },
+    {
+      "line": 202,
+      "section": "docs/research/melvor-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MEL-P01",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 207,
+      "section": "docs/research/trimps-antimatter/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 208,
+      "section": "docs/research/trimps-antimatter/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 209,
+      "section": "docs/research/trimps-antimatter/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 210,
+      "section": "docs/research/trimps-antimatter/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 211,
+      "section": "docs/research/trimps-antimatter/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 216,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 217,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 218,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 219,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 220,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 221,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 222,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 223,
+      "section": "docs/research/ngu-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "UNBUILT (parked)"
+    },
+    {
+      "line": 228,
+      "section": "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 229,
+      "section": "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 230,
+      "section": "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 231,
+      "section": "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 236,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 237,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 238,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 239,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 240,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 241,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 242,
+      "section": "docs/research/free-text-worlds-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "packet": "FT-I7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 247,
+      "section": "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "O1",
+      "status": "BUILT"
+    },
+    {
+      "line": 248,
+      "section": "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "O2",
+      "status": "BUILT"
+    },
+    {
+      "line": 249,
+      "section": "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "O3",
+      "status": "BUILT"
+    },
+    {
+      "line": 250,
+      "section": "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "O4",
+      "status": "UNBUILT (deferred)"
+    },
+    {
+      "line": 259,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 260,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 261,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 262,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 263,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 264,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 265,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 266,
+      "section": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 271,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 272,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 273,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 274,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 275,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 276,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 277,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 278,
+      "section": "docs/research/ur-quan-masters/IMPLEMENTATION_PACKETS.md",
+      "packet": "UQM-N1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 283,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 284,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 285,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P03",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 286,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P04",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 287,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P05",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 288,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P06",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 289,
+      "section": "docs/research/multiverse-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "MI-P07",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 294,
+      "section": "docs/research/legends-of-idleon/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 295,
+      "section": "docs/research/legends-of-idleon/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 296,
+      "section": "docs/research/legends-of-idleon/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 297,
+      "section": "docs/research/legends-of-idleon/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 298,
+      "section": "docs/research/legends-of-idleon/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 299,
+      "section": "docs/research/legends-of-idleon/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 304,
+      "section": "docs/research/the-lands-of-eldyn/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 305,
+      "section": "docs/research/the-lands-of-eldyn/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 306,
+      "section": "docs/research/the-lands-of-eldyn/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 307,
+      "section": "docs/research/the-lands-of-eldyn/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 308,
+      "section": "docs/research/the-lands-of-eldyn/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 313,
+      "section": "docs/research/groundhog-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 314,
+      "section": "docs/research/groundhog-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 315,
+      "section": "docs/research/groundhog-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 316,
+      "section": "docs/research/groundhog-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 317,
+      "section": "docs/research/groundhog-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 322,
+      "section": "docs/research/modding-tree/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 323,
+      "section": "docs/research/modding-tree/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 324,
+      "section": "docs/research/modding-tree/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 325,
+      "section": "docs/research/modding-tree/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 326,
+      "section": "docs/research/modding-tree/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 331,
+      "section": "docs/research/warsim/IMPLEMENTATION_PACKETS.md",
+      "packet": "WP1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 332,
+      "section": "docs/research/warsim/IMPLEMENTATION_PACKETS.md",
+      "packet": "WP2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 333,
+      "section": "docs/research/warsim/IMPLEMENTATION_PACKETS.md",
+      "packet": "WP3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 334,
+      "section": "docs/research/warsim/IMPLEMENTATION_PACKETS.md",
+      "packet": "WP4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 335,
+      "section": "docs/research/warsim/IMPLEMENTATION_PACKETS.md",
+      "packet": "WP5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 340,
+      "section": "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md",
+      "packet": "ORB-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 341,
+      "section": "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md",
+      "packet": "ORB-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 342,
+      "section": "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md",
+      "packet": "ORB-P03",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 343,
+      "section": "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md",
+      "packet": "ORB-P04",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 348,
+      "section": "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md",
+      "packet": "ACS-P01",
+      "status": "BUILT"
+    },
+    {
+      "line": 349,
+      "section": "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md",
+      "packet": "ACS-P02",
+      "status": "BUILT"
+    },
+    {
+      "line": 350,
+      "section": "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md",
+      "packet": "ACS-P03",
+      "status": "BUILT (inferred)"
+    },
+    {
+      "line": 355,
+      "section": "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md",
+      "packet": "GD-01",
+      "status": "BUILT (inferred)"
+    },
+    {
+      "line": 356,
+      "section": "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md",
+      "packet": "GD-02",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 366,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 367,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 368,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 369,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 370,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 371,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 372,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 373,
+      "section": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 378,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 379,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 380,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 381,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 382,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 383,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 384,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 385,
+      "section": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 390,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 391,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P02",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 392,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P03",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 393,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P04",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 394,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P05",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 395,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P06",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 396,
+      "section": "docs/research/naev/IMPLEMENTATION_PACKETS.md",
+      "packet": "NV-P07",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 401,
+      "section": "docs/research/magical-diary-wolf-hall/IMPLEMENTATION_PACKETS.md",
+      "packet": "MD-P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 402,
+      "section": "docs/research/magical-diary-wolf-hall/IMPLEMENTATION_PACKETS.md",
+      "packet": "MD-P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 403,
+      "section": "docs/research/magical-diary-wolf-hall/IMPLEMENTATION_PACKETS.md",
+      "packet": "MD-P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 404,
+      "section": "docs/research/magical-diary-wolf-hall/IMPLEMENTATION_PACKETS.md",
+      "packet": "MD-P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 405,
+      "section": "docs/research/magical-diary-wolf-hall/IMPLEMENTATION_PACKETS.md",
+      "packet": "MD-P5",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 406,
+      "section": "docs/research/magical-diary-wolf-hall/IMPLEMENTATION_PACKETS.md",
+      "packet": "MD-P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 411,
+      "section": "docs/research/academagia/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 412,
+      "section": "docs/research/academagia/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 413,
+      "section": "docs/research/academagia/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 414,
+      "section": "docs/research/academagia/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 415,
+      "section": "docs/research/academagia/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 420,
+      "section": "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+      "packet": "CC-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 421,
+      "section": "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+      "packet": "CC-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 422,
+      "section": "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+      "packet": "CC-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 423,
+      "section": "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+      "packet": "CC-P04",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 424,
+      "section": "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+      "packet": "CC-P05",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 429,
+      "section": "docs/research/hogwarts-games/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 430,
+      "section": "docs/research/hogwarts-games/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 431,
+      "section": "docs/research/hogwarts-games/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 432,
+      "section": "docs/research/hogwarts-games/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 433,
+      "section": "docs/research/hogwarts-games/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 438,
+      "section": "docs/research/outer-wilds/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 439,
+      "section": "docs/research/outer-wilds/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 440,
+      "section": "docs/research/outer-wilds/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 441,
+      "section": "docs/research/outer-wilds/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 442,
+      "section": "docs/research/outer-wilds/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 447,
+      "section": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+      "packet": "YC-P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 448,
+      "section": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+      "packet": "YC-P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 449,
+      "section": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+      "packet": "YC-P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 450,
+      "section": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+      "packet": "YC-P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 455,
+      "section": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "packet": "LAMB-P01",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 456,
+      "section": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "packet": "LAMB-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 457,
+      "section": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "packet": "LAMB-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 462,
+      "section": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "packet": "1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 463,
+      "section": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "packet": "2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 464,
+      "section": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "packet": "3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 477,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 478,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 479,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 480,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 481,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 482,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 483,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 484,
+      "section": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 489,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 490,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 491,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P03",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 492,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P04",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 493,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P05",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 494,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P06",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 495,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P07",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 496,
+      "section": "docs/research/kingdom-hearts/IMPLEMENTATION_PACKETS.md",
+      "packet": "KH-P08",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 501,
+      "section": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 502,
+      "section": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 503,
+      "section": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "BUILT"
+    },
+    {
+      "line": 504,
+      "section": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 505,
+      "section": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 506,
+      "section": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 511,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 512,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P02",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 513,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 514,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P04",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 515,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P05",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 516,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P06",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 517,
+      "section": "docs/research/siralim-ultimate/IMPLEMENTATION_PACKETS.md",
+      "packet": "SU-P07",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 522,
+      "section": "docs/research/bitlife/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 523,
+      "section": "docs/research/bitlife/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "BUILT"
+    },
+    {
+      "line": 524,
+      "section": "docs/research/bitlife/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 525,
+      "section": "docs/research/bitlife/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 526,
+      "section": "docs/research/bitlife/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 531,
+      "section": "docs/research/cultivation-idlers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 532,
+      "section": "docs/research/cultivation-idlers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 533,
+      "section": "docs/research/cultivation-idlers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 534,
+      "section": "docs/research/cultivation-idlers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 535,
+      "section": "docs/research/cultivation-idlers/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 540,
+      "section": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "packet": "1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 541,
+      "section": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "packet": "2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 542,
+      "section": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "packet": "3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 543,
+      "section": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "packet": "4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 548,
+      "section": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "packet": "ONI-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 549,
+      "section": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "packet": "ONI-P02",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 550,
+      "section": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "packet": "ONI-P03",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 551,
+      "section": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "packet": "ONI-P04",
+      "status": "BUILT"
+    },
+    {
+      "line": 552,
+      "section": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "packet": "ONI-P05",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 557,
+      "section": "docs/research/heavens-vault/IMPLEMENTATION_PACKETS.md",
+      "packet": "IP1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 558,
+      "section": "docs/research/heavens-vault/IMPLEMENTATION_PACKETS.md",
+      "packet": "IP2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 559,
+      "section": "docs/research/heavens-vault/IMPLEMENTATION_PACKETS.md",
+      "packet": "IP3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 564,
+      "section": "docs/research/potionomics/IMPLEMENTATION_PACKETS.md",
+      "packet": "PO1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 565,
+      "section": "docs/research/potionomics/IMPLEMENTATION_PACKETS.md",
+      "packet": "PO2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 566,
+      "section": "docs/research/potionomics/IMPLEMENTATION_PACKETS.md",
+      "packet": "PO3",
+      "status": "BUILT"
+    },
+    {
+      "line": 567,
+      "section": "docs/research/potionomics/IMPLEMENTATION_PACKETS.md",
+      "packet": "PO4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 572,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "BUILT"
+    },
+    {
+      "line": 573,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 574,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 575,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 576,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 577,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 578,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 579,
+      "section": "docs/research/idle-reincarnator/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 587,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 588,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 589,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 590,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 591,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 592,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT (inferred)"
+    },
+    {
+      "line": 593,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 594,
+      "section": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 599,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 600,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 601,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 602,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 603,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 604,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 605,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 606,
+      "section": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 611,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 612,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT (inferred)"
+    },
+    {
+      "line": 613,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 614,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 615,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT (inferred)"
+    },
+    {
+      "line": 616,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 617,
+      "section": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 622,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 623,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 624,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 625,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 626,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 627,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 628,
+      "section": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 633,
+      "section": "docs/research/cividle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 634,
+      "section": "docs/research/cividle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 635,
+      "section": "docs/research/cividle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 636,
+      "section": "docs/research/cividle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 637,
+      "section": "docs/research/cividle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 642,
+      "section": "docs/research/discworld-mud/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 643,
+      "section": "docs/research/discworld-mud/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 644,
+      "section": "docs/research/discworld-mud/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 645,
+      "section": "docs/research/discworld-mud/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "BUILT"
+    },
+    {
+      "line": 646,
+      "section": "docs/research/discworld-mud/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 651,
+      "section": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 652,
+      "section": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 653,
+      "section": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 654,
+      "section": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 655,
+      "section": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 660,
+      "section": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "packet": "1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 661,
+      "section": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "packet": "2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 662,
+      "section": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "packet": "3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 663,
+      "section": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "packet": "4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 668,
+      "section": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+      "packet": "1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 669,
+      "section": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+      "packet": "2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 670,
+      "section": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+      "packet": "3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 675,
+      "section": "docs/research/procedural-materials-2026-10-13/IMPLEMENTATION.md",
+      "packet": "Findings",
+      "status": "n/a"
+    },
+    {
+      "line": 676,
+      "section": "docs/research/procedural-materials-2026-10-13/IMPLEMENTATION.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 677,
+      "section": "docs/research/procedural-materials-2026-10-13/IMPLEMENTATION.md",
+      "packet": "Reconcile C1/C2",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 678,
+      "section": "docs/research/procedural-materials-2026-10-13/IMPLEMENTATION.md",
+      "packet": "Probes A1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 683,
+      "section": "docs/research/idle-social-engine-scout-2026-10-06/IMPLEMENTATION_PACKETS.md",
+      "packet": "ES-01",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 684,
+      "section": "docs/research/idle-social-engine-scout-2026-10-06/IMPLEMENTATION_PACKETS.md",
+      "packet": "ES-02",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 692,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 693,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 694,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 695,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 696,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 697,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 698,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 699,
+      "section": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "BUILT"
+    },
+    {
+      "line": 704,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "BUILT"
+    },
+    {
+      "line": 705,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 706,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 707,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 708,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 709,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P6",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 710,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P7",
+      "status": "UNBUILT (inferred)"
+    },
+    {
+      "line": 711,
+      "section": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+      "packet": "P8",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 716,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 717,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P2",
+      "status": "BUILT"
+    },
+    {
+      "line": 718,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P3",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 719,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P4",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 720,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P5",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 721,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P6",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 722,
+      "section": "docs/research/hyperrogue/IMPLEMENTATION_PACKETS.md",
+      "packet": "HR-P7",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 727,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P01",
+      "status": "BUILT"
+    },
+    {
+      "line": 728,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P02",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 729,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 730,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P04",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 731,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P05",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 732,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P06",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 733,
+      "section": "docs/research/the-strange-tabletop/IMPLEMENTATION_PACKETS.md",
+      "packet": "MWTS-P07",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 738,
+      "section": "docs/research/cross-game-synthesis-2026-10-14/IMPLEMENTATION_PATTERNS.md",
+      "packet": "Architecture and authoring patterns (I1-I10)",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 739,
+      "section": "docs/research/cross-game-synthesis-2026-10-14/IMPLEMENTATION_PATTERNS.md",
+      "packet": "Save methods by source dossier",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 740,
+      "section": "docs/research/cross-game-synthesis-2026-10-14/IMPLEMENTATION_PATTERNS.md",
+      "packet": "Reliability claims not established",
+      "status": "UNBUILT (n/a)"
+    },
+    {
+      "line": 741,
+      "section": "docs/research/cross-game-synthesis-2026-10-14/IMPLEMENTATION_PATTERNS.md",
+      "packet": "Current boundary and profile audit",
+      "status": "DESIGNED-ELSEWHERE"
+    },
+    {
+      "line": 742,
+      "section": "docs/research/cross-game-synthesis-2026-10-14/IMPLEMENTATION_PATTERNS.md",
+      "packet": "Implementation-ready receiving packets",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 747,
+      "section": "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+      "packet": "DF-P01",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 748,
+      "section": "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+      "packet": "DF-P02",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 749,
+      "section": "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+      "packet": "DF-P03",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 750,
+      "section": "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+      "packet": "DF-P04",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 751,
+      "section": "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+      "packet": "DF-P05",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 756,
+      "section": "docs/research/kingdom-of-loathing/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 757,
+      "section": "docs/research/kingdom-of-loathing/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 758,
+      "section": "docs/research/kingdom-of-loathing/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 759,
+      "section": "docs/research/kingdom-of-loathing/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 760,
+      "section": "docs/research/kingdom-of-loathing/IMPLEMENTATION_PACKETS.md",
+      "packet": "P5",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 765,
+      "section": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+      "packet": "SA2-P1",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 766,
+      "section": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+      "packet": "SA2-P2",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 767,
+      "section": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+      "packet": "SA2-P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 768,
+      "section": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+      "packet": "SA2-P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 769,
+      "section": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+      "packet": "SA2-P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 774,
+      "section": "docs/research/immortal-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 775,
+      "section": "docs/research/immortal-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 776,
+      "section": "docs/research/immortal-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 777,
+      "section": "docs/research/immortal-life/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4-P7",
+      "status": "UNBUILT (not itemised)"
+    },
+    {
+      "line": 782,
+      "section": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "packet": "1",
+      "status": "BUILT"
+    },
+    {
+      "line": 783,
+      "section": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "packet": "2",
+      "status": "BUILT"
+    },
+    {
+      "line": 784,
+      "section": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "packet": "3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 789,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P1",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 790,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P2",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 791,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P3",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 792,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P4",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 793,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P5",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 794,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P6",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 795,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P7",
+      "status": "UNBUILT"
+    },
+    {
+      "line": 796,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-P8",
+      "status": "PARTIAL"
+    },
+    {
+      "line": 797,
+      "section": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+      "packet": "AN-T01..T24",
+      "status": "PARTIAL (inferred)"
+    },
+    {
+      "line": 802,
+      "section": "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P1",
+      "status": "BUILT"
+    },
+    {
+      "line": 803,
+      "section": "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P2",
+      "status": "BUILT"
+    },
+    {
+      "line": 804,
+      "section": "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P3",
+      "status": "BUILT"
+    },
+    {
+      "line": 805,
+      "section": "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md",
+      "packet": "P4",
+      "status": "BUILT"
+    }
+  ]
+}

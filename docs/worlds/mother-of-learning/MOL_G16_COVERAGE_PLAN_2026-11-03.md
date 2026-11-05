@@ -14,7 +14,7 @@ What the prior read does NOT give the Zorian path: dated events. 432 of 831 scen
 |---|---|
 | Edition | Calibre 21, `Mother of Learning - nobody103.epub`, Source Library `e53f95695730`, 110 parts, part number = chapter number (0001-0106, epilogue 0107-0108) |
 | W | **334,139 words** in c56-c82 (27 ch) and c90-c106 (17 ch) = 44 chapters, measured by stripping the EPUB's own XHTML (book total 806,857). Largest: c91 13,156, c63 11,367, c103 12,306, c96 10,484 |
-| N | ceil(334,139 / 12,000) = **28 shards** (the card's rough 45 was unmeasured; three chapters exceed 12,000 words and need their own shard) |
+| N | ceil(334,139 / 12,000) = **28 shards** (the card's rough 45 was unmeasured; two chapters exceed 12,000 words and need their own shard) |
 | Repair | min(3, ceil(0.1 x 28)) = **3** |
 | Invocations | 28 + 3 = **31**, concurrency 2, no helpers |
 | Model | haiku readers, sonnet merge (AU5). Reader responses max 6 each (AU14), context target under 60k tokens, stop 80k |
@@ -103,3 +103,16 @@ Shard P1 = c56 + c57, 13,632 words (6% over the 12,000 target; chapter boundarie
 - **Cost.** Reader tokens reported by the host: 105,068 (input and output, cache split not given). Meter around the pilot: 5-hour window 43% to 44%, weekly all-models 33% to 33%. The meter moves in whole points and my coordinator turns share the window, so this is an upper bound for one shard, not a measurement.
 - **Projection.** 28 shards would be about 2.9M reader tokens. If a shard costs up to one point of the 5-hour window, the pass is up to about 28 points there; the weekly cost is below the meter's resolution per shard, likely single-digit points in total.
 - **AU7 position.** Starting reading 42% (5-hour); now 44%, so about 2 of the 5 points are gone and about 3 shards fit under the default ceiling. The default ceiling cannot cover 28 + 3 invocations. Stopped under AU7/AU8 for a specific larger ceiling. Remaining: 27 shards + 3 repair.
+
+
+## Content reconciliation B346: full coverage record and developer-plan limits
+
+All105 original lines were reviewed, including F1, AU13, all44StepA rows, locator review, historical stopped state and appended pilot. Its opening correctly marks the plan superseded by the later run; keep the stopped/no-pilot paragraphs as dated chronology, not present execution status. The distinction remains important: October shard reading existed even while the desired Zorian fields were absent, and literal keyword-only scene tables did not mean all44raw chapters were unread.
+
+Document arithmetic confirms334139source words,831beat lines and432undated beat lines. The printed census column sums to8475; this is not directly reconciled with the whole-book7282census-row total in the census owner. Variant/repeated files or different row kinds may explain the scope difference, but were not established here. Do not compare them as identical unique counts or infer over100percent source coverage. The beat table already warns that variants inflate its line counts. The20row first220character review is locator-subject alignment, not full semantic claim support; the later pilot's11checked items is a separate stronger sample.
+
+The table lists two individual chapters over12000words (c91 and c103), not three. ceil(total/12000)=28 is a lower-bound arithmetic partition, not proof that chapter/scene boundaries produce28 compliant shards; overlong chapters need splitting or authorized exception rather than simply their own oversize shard. The pilot's12834source words and13632tagged words explain different denominators, not a new book-length measurement. Its99items differ from the later P1table96 with no explanation supplied. Keep that discrepancy explicit.
+
+The one-point meter change is rounded, shared with coordinator turns and measured over an interval; it is not an exact per-shard price or a strict one-point upper bound without rounding/window assumptions. The28point and single-digit-weekly projections were estimates, not approved spend. The default any-window bound was not replaced by the weekly meter. The later completed run's own report records its overrun and inferred permission; that does not erase the original stop or authorize further readers here.
+
+The replacement plan is historical research planning, not a current request for another yes or dispatch. Current owners decide which field/locator is actually needed; a later targeted read can still be justified by a consequential unresolved claim without relaunching a whole-source pass. Current source/held/meters are not verified by the old IDs and dates. Preserve every row, prior review state and budget limitation; no source was reread, model run, usage queried or stage implemented in this reconciliation.

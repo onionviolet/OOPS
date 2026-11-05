@@ -46,3 +46,10 @@ Focused test passes; the generator runs for chapters 1-24 and prints counts by r
 verb class); the checkpoint gives the coordinator's replay command for both the re-mapped 1-3 file and the
 generated 1-24 file. Counts only in the checkpoint; no canon names or text. Stop on: probe gate failure, a needed
 `src/` change, any paid call.
+
+
+## Content reconciliation: be-seat mapping evidence, 2026-11-04 (B359)
+
+Retain the reported18-row old mapping, seven stale seat rows and3,444 whole-book lead rows as dated probe expectations/context. Blank observed cells are unperformed probes, not passes. The brief’s finite1–3 remap and1–24 generated range do not prove coverage of the whole book. Be-seat versus beside-seat control builders, walk IDs and intention waits require their actual consumers; a deterministic emitted ID alone does not establish visibility, affordability, source meaning, native execution or persistence.
+
+Scene presence is not automatic dialogue availability, and a time gap is not always a legal wait without intervening decisions/support. Source-listed untaken choices are evidence routes, not necessarily locked controls or known character alternatives. Preserve explicit typed gaps and source rejection instead of using a superficially matching talk/walk as proof of the required action. Keep original private mappings and generate separately only in a selected run. Current private/public code and sealed-source boundaries apply; this historical coordinator-commit wording grants no present commit, worker or runtime authority. No mapping, script, DOM control or private source was executed or read here.

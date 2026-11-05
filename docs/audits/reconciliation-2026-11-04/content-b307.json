@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "batch": "B307",
+  "title": "Comic continuities and disliked-noble household starts: useful palettes without obsolete gates",
+  "at": "2026-11-05T01:25:32.090900+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md",
+      "ids": [
+        "13 feature mappings",
+        "8 start kinds",
+        "CCX1–12",
+        "CM1–5",
+        "AW/ICX13–16 reconciliation"
+      ],
+      "classification": "Useful continuity/start palette with explicit source gaps; stale targets and early away prototype status",
+      "owners": [
+        "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md",
+        "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Fully read all mappings, 8 start rows, 12 lenses, pilot, suggestions and evidence limits. Preserve continuity/era/research revision/branch/life distinctions, custody and observed knowledge. Qualify dated isolated-away-module status from later intro delivery without claiming current gameplay. Replace no world/source priority and create no comic pilot. Fold target, identity and partial-write boundaries in owner.",
+      "evidence": "No issues or source reports read by proxy. Local source explicitly used wiki/report/author-memory premises, and exact identity/return/sliding-clock laws remain unknown. Intro later merged725-test report is attributed dated evidence only.",
+      "reopen": "For a selected comic slice, qualify particular continuity/issue range, actual source scenes, real elapsed clock and relevant producer/state/consumer; no franchise-wide universal law or current end-to-end proof.",
+      "input_sha256": "19cb31d0e2b1392aa5316389d252fd77d3ff352e015d622f29fbbd47f06b5357",
+      "input_lines": 116,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          116
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md",
+      "ids": [
+        "L1–10",
+        "disgraced_household_heir_r1 YAML",
+        "3 alternatives",
+        "P1–5",
+        "source and completion limits"
+      ],
+      "classification": "Original start palette; obsolete first-realm/prestige boundary and source coverage requires attribution",
+      "owners": [
+        "docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md",
+        "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+        "docs/WORLD_ENTRY_RULES.md"
+      ],
+      "disposition": "Fully read L1–10 and every YAML field, alternative and proposed check. Preserve original household start and two-audience reputation, real actor history/custody, fallible forecasts and genuine no-substitute outcomes. Qualify firstrealm/prestige obsolete scope, local original-adaptation boundary, existing source UNKNOWNs and schematic nature; no private source verification or new original-world implementation.",
+      "evidence": "81/81 suppliedunits and9volumes are attributed lane ledger coverage, not fresh actual corpus read or complete series. Opening anticipated beating is not established death. Entry/occupancy and latermechanisms remain private unknowns. No original JSON or game save read.",
+      "reopen": "If selected, implement one actual start consumer with source/identity and custody bindings, actual claims/observers and meaningful persistence proof. Do not turn proposed fields into generic schema or child/adult exclusions into universal world law.",
+      "input_sha256": "ae62200f4856a9633be68278b813c152b8d45a3571bb287556b39d3113ea28a3",
+      "input_lines": 119,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          119
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md",
+      "heading": "## Content reconciliation B307: continuity palette and evidence scope",
+      "body": "All 13 feature mappings, eight start kinds, CCX1–CCX12, CM1–CM5 and evidence/delivery boundaries were content-reviewed. The closing historical phrase “all 12 CX lenses” refers to this file's renamed CCX family, not the registered complexity guardrails. This is a proposal palette, not an adopted comic world or full source audit. Linked reports, issue scenes and private laws are not reviewed by association.\n\nKeep source reality, editorial era, research revision, actual elapsed time, run instance, branch, life, body, mantle and observer belief distinct. Editorial corrections do not happen in the fictional world without a declared causal mechanism. A rewrite record outside the character's knowledge is not a memory grant. A named alternate reality need not be a fork of this player's save; a counterpart is not necessarily resurrection or a shared consciousness. A crossover's deduplicated transaction identity helps prevent duplicate settlement, but does not by itself prove durable multi-owner rollback or recovery. Source-specific unique transfer, return and clock rules still need their evidence.\n\nThe Watchmen pilot is a bounded proposal beside the separately preferred broad Invincible audit; neither is selected by this reconciliation. T19 Worm remains a web-serial comparator. Eight inferred seats and 12 original lenses are not primary issue evidence, exact admissions or certified powers. A low-grade lens is a useful proposed first slice, not a universal ceiling: stronger or direct knowledge needs its actual source/means rather than a mandatory ignorance tax. Even a sealed ID/status can reveal unknown existence. The broad discovery-boundary wording must follow the actual observer and discovery route.\n\nThe away paragraph's not-wired isolated module statement is its dated lane status. The intro owner's later merged/probe closeout qualifies earlier pending returns, without proving all ordinary comic/native routes or current closed-browser progress. Active-life, opted-in risk and pause-at-crisis here remain proposed policy scope, not an all-world time law. Current desktop targets in the UI owner qualify the old1366/1440 targets; mobile remains deferred. No comic source was acquired, issue read, graph authored, world selected, runtime changed or new acceptance prerequisite added.",
+      "before_sha256": "19cb31d0e2b1392aa5316389d252fd77d3ff352e015d622f29fbbd47f06b5357",
+      "after_sha256": "5c490b02e6e0807010e367c7b13cf49ed183fbaeb0664702ff118f1d93a97bdb"
+    },
+    {
+      "path": "docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md",
+      "heading": "## Content reconciliation B307: original household start, retained identity and scope",
+      "body": "L1–L10, every field of the proposed disgraced-household-heir record, three alternatives and P1–P5 were content-reviewed. Keep the original start as a palette: actual previous conduct, a finite allowance owned by the character, separate estate authority, audience-specific beliefs, a fallible warning and an aggrieved actor whose reason can genuinely disappear. Wealth, competence, comfort and danger can coexist. No automatic death sentence, redemption debt, concealed replacement, inherited omniscience or forced later revenge follows from the title or bad reputation.\n\nThe adaptation boundary's old first-realm/first-prestige condition is superseded by the October24 scope direction. Its original-world proposal and requirement to distinguish a separately selected direct adaptation remain this lane's scope, not a project-wide prohibition on book-world adaptation or the later protagonist developer routes. Current priorities govern build order; this review does not select a new original realm or household slice.\n\nThe reported81/81 supplied units, nine volumes and reader-note locators are attributed historical coverage. They do not certify every word, a complete series, current source inventory or the unresolved occupant account. Private later mechanisms and contradictions remain private; no new source facts were inferred from the design lessons. A continuing native person's earlier acts are that person's actual history. A separately authored replacement cannot silently inherit moral responsibility, autobiography, consent or source knowledge merely by inheriting a body. None is an experience preference scoped to this start, not proof no other independent people exist in the world.\n\nThe YAML explicitly is not a runtime schema. Its adult household constraints qualify this particular admission, rather than banning child, captive or ruler starts elsewhere. Fixed morning anchor and deadline need an actual local clock; warnings and observer reports need actual evidence and an information path. A known cutoff limits predictions, not remembered stable facts. A substitute is a real eligible actor with its own resources and will; no available substitute is a valid closure. Cooperation, money, office, land and claims stay with their real owners. A shared start seam should serve the first useful selected consumer under current architecture direction, without implementing every illustrative field first. This review creates no start, writes no private source or save, and adds no mandatory human-review gate.",
+      "before_sha256": "ae62200f4856a9633be68278b813c152b8d45a3571bb287556b39d3113ea28a3",
+      "after_sha256": "a80cac066767b51d610d22acd776be31d0a117a31baa6d3468399cfab24c3cd3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 811
+}

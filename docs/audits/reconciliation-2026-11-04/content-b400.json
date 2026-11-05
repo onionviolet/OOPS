@@ -1,0 +1,324 @@
+{
+  "schema": 1,
+  "batch": "B400",
+  "title": "Twelve procedural-generation checkpoints and substantive profile/story distinctions",
+  "at": "2026-11-05T04:22:23.132353+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/CHECKPOINT.md",
+      "ids": [
+        "D3/D6/D7/D8/D9/O3; S1; W2"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p5/REPORT.md"
+      ],
+      "disposition": "Seven domain specs, sealed candidate boundary, 41-input snapshot and five proposed slices; independent fairness and runtime proof not closed by static exclusion scans.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "1411a7c3afd3ad5d12805e34a56ff9be2487a979c03427e77b74d594602d3c5a",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CHECKPOINT.md",
+      "ids": [
+        "eleven creation families; shared creation contract"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p6/REPORT.md"
+      ],
+      "disposition": "P2 worktree/source identity and source-meal locator correction remain dated. Product identity, finite stock, actual means and consumer stay distinct; no forced hunger, fixed-once cap or universal creation pipeline.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "baa7d03ad610b49d34978b81a186ec798f9a140aa1ac440b9b3a752a3ad45166",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/CHECKPOINT.md",
+      "ids": [
+        "twelve priority profiles; GUIDELINES/DATA_SHAPE"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p7/REPORT.md"
+      ],
+      "disposition": "Culture/cohort/pack names and retained person identity need actual actor bridge; proposed grammar/lifecycle extensions do not supply source laws or workers.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "94b8d295333ae88fa55a3afcaa0cb4c3def5b32cff2f1c752009abfca1bdc946",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/CHECKPOINT.md",
+      "ids": [
+        "F1–F5; RC1; nine franchise comparisons; sixteen further angles"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p8/REPORT.md"
+      ],
+      "disposition": "Survey/sample/gather/P2-use is a candidate. Deposits, ecology, exotic stock and creature partition are distinct; do not create a second material/RNG owner or infer labor from generated names.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "dd48c99d6c86b5d43d5887a158d897ae5d14935cf1ccdd51dd477510c138dd82",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/CHECKPOINT.md",
+      "ids": [
+        "39 profiles; five separate books; W1–W14"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md"
+      ],
+      "disposition": "Preserve source-tier, exact title/edition and time/body/material distinctions. Report inventory has39profile rows plus an extra linked navigation index; source-only support does not establish native seeded gameplay.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "e60f4e9294533583a65cc8ef6a5beb3dad4931c7e82ea7e14762f80436c86509",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/CHECKPOINT.md",
+      "ids": [
+        "17 profiles; C1–C8"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p10/REPORT.md"
+      ],
+      "disposition": "Seven principal, three supplemental, four original and three game notes are historical proposals. Lexical markers and source summaries are not complete source or disclosure proof; no new original-world factory/Frontier opening.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "b51f88587d2a6e0a6a7443f80a773d447dec61b81ec7d07c493798938b1ef08b",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CHECKPOINT.md",
+      "ids": [
+        "A1–A4; N1–N15; M1–M20"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md"
+      ],
+      "disposition": "Eligibility/weights/quality/exposure and actual versus observer context remain distinct; changed authority hashes are read snapshots, not frozen integration or source ownership.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "bc052f7ab2c4c5e1a895852d653c5658a40079a4afd284263e4ced0be538bbfc",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/CHECKPOINT.md",
+      "ids": [
+        "18 reference games; four research techniques; S1–S5"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md"
+      ],
+      "disposition": "Causal multi-step narrative proposal separates simulation, grammar and presentation. Event/operator dependencies require real consumer/persistence; no full plot generator selected.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "c98cba90440f9abc320d0b57b85c6083b07f7b29c3174ac5f69f2387ede608aa",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/CHECKPOINT.md",
+      "ids": [
+        "A1–A5; 28 source profiles; 16 conflicts"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md"
+      ],
+      "disposition": "Source/version anchors and actual divergent cause retain distinct responsibilities. Candidate locators and composable fan premises do not authenticate a full canon graph or revive a paused world.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "0a3b65f48d8116016fde4692a2db631a7cd3f7b0dbfdd4fc02209b7e1d9daab0",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p14/CHECKPOINT.md",
+      "ids": [
+        "typed episodes; account editions; 640 KiB proposal"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md"
+      ],
+      "disposition": "Consequential fact, observer account, chronicle and playable branch archive differ. Existing causal ledgers are stronger than lossy text but bounded;640KiB is an unmeasured planning target.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "e6cb3fd4bc0dcf2dceed110e4e4262c12c1234cc6ef17800f3e4403d9c4ddbed",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/CHECKPOINT.md",
+      "ids": [
+        "runtime text/dialogue/voice; dev authoring; LLM options"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md"
+      ],
+      "disposition": "Expression and compile/source constraints do not supply a new truth or command authority. Proposed interface state and later sibling reports do not certify an implementation or select model use.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "9d73267b191f5ba290bc1859b65ae64c417e029c6793248b1dc30caea8ef73ad",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/CHECKPOINT.md",
+      "ids": [
+        "nine cluster files; 27 angle groups"
+      ],
+      "classification": "Historical proposal checkpoint with explicit source/branch/document limits",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md"
+      ],
+      "disposition": "Crossover, endings, loops, other selves, player authorship, observations, idle stories and dials remain separately selectable. Old checkpoint-only sibling state is historical; a static leakage scan is not universal secrecy proof.",
+      "evidence": "Fresh full checkpoint body read in bounded P5–P10 and P11–P16 output. Final deliverables, readback changes, source identities, proposed gates and exclusions included. Existing generation status tail/story owner inspected; P9 REPORT1–105 and complete PROFILE_RULES read as support, not full remaining-report or profile reading credit.",
+      "reopen": "No checkpoint-only or old unmerged state is treated as present work. Recover selected current source/world/ownership/compatibility before a runtime slice; current lead-first, desktop, AD36/AD42/AD51/AD52 and retired milestone qualify old conditions.",
+      "input_sha256": "aa7ec3b984f69787cd4f4ca103a2736e87d755baf22cd2f876cd78ecfc1deeed",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "heading": "## Content reconciliation B400: complete P5–P16 checkpoints and profile accounting",
+      "body": "All P5–P16 checkpoints were read through their final completion/readback and remaining-gate sections. Their P1–P4 worktree-only/unmerged statements, initially absent reports, one-realm milestone, source fingerprints, ports and UI widths retain their dates. This owner's later merge and B145 caller qualification already supersede broad absence and native-randomness claims. These new checkpoint reads do not recertify that source, merge, browser or persistence evidence. Current AD36, AD42, AD51, AD52 and PROJECT govern; no old completed documentation lane needs a successor solely because an earlier progress paragraph says next.\n\nP5 preserves sealed-candidate fairness as separate from mechanical exclusion scans. P6's eleven creation families distinguish actual product, knowledge, process, finite means and useful consumer. P7's grammar/people extension does not create autonomous labor or bridge every person into simulation. P8's deposit/yield/ecology/creature/supply/logistics contract does not supply a second material registry or PRNG. P11's eligibility, weights, quality and exposure can consume different context; actual truth and received evidence remain separate. Linked profile/source/implementation bodies are not newly read by checkpoint coverage.\n\nP9's complete checkpoint reports39profiles. Its actual report inventory has39profile rows and40linked dossier/index paths because the TTKS navigation index shares the B1 row. The old40-profile status cell is corrected to39profile dossiers plus a navigation index, rather than counting a router as another source profile. The five books and LOTM/COI remain distinct source/era contracts; the bare mirror-family label is not another novel. P10's17-profile marker census is static coverage, not source authentication. A source-preserving generator does not clone a reserved canonical object by a random noun swap; an actual source-supported copying/creation mechanism is a different operation and remains possible. Geometry/law mutation exclusions belong to these selected authoring packets, not a universal prohibition on every world or power.\n\nEvery profile still needs its actual selected world, era, actor means, custody and native reader. A late hash inventory cannot establish an initial atomic snapshot, and proposed branch/port/schema identifiers are not live ownership. No broad world-factory, new-start pool, hungry-play requirement, regional economy or further Frontier depth is selected. Existing useful palettes, named conflicts and source gaps are preserved.",
+      "before_sha256": "9ac4bc4b603167de949ef8ffe0919b6ba4fa07d243267ce00ef26d5ecf766923",
+      "after_sha256": "e4859d3ce839abf2be207ae652f7f4ec35241e064c8c9551072bc67aa4cd67e8"
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B400: narrative checkpoint proposals keep their causal owners",
+      "body": "The complete P12–P16 checkpoints were reviewed. Their sibling checkpoint-only and P3/P4 unmerged observations are historical, while causal quests, authored source anchors, typed episodes, observer accounts, expression and cross-life variants retain distinct useful contracts. The actual earlier live audits and later qualified PLAN/B288 remain their own proof; reading a checkpoint does not exercise their source or authenticate every referenced book/scene.\n\nA typed consequential episode can preserve a real cause without retaining every line of prose. An actor's account/edition and an objective event differ; a readable chronicle and a lossy biography are not a playable branch save. P14's640KiB active-instance figure was an unmeasured planning budget, not a browser quota or fictional world cap. Narration, generated grammar, dialogue voice and an authoring compiler can project a committed operation without creating new resource, RNG, progression or grant authority. Runtime LLM options remain unselected; no model request or source acquisition follows.\n\nLoop/reset, ending/succession, another self, ordinary departure, dream/observation and player authorship are different operations with actual carriers and clocks. A source-qualified unusual power may really remove a dependency; no artificial drawback or generic reset follows from an ending label. Preserve source conflicts and unknown values instead of filling them from a plot template. Current developer-route policy is distinct from ordinary/alternative lives. No narrative generator, save archive, new schema, hidden truth or autoplay routine was implemented, and optional human taste review does not block continued authorized work under AD42.",
+      "before_sha256": "a31d82960758b7a0487cba74b40bd0673446b3d1c7c318b1f436e1a34583bce7",
+      "after_sha256": "13d8bd2f2c97f5ce52c775a07f9b19b638e592fca7c64da29c8ac593f5401a80"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 584,
+  "post_record_amendments": [
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "from": "40 per-world generation profiles (TTKS by book, LOTM by era)",
+      "to": "39 profile dossiers plus a TTKS navigation index (five distinct books, LOTM/COI separately)",
+      "reason": "P9 report inventory has39profile rows and40linked files because its navigation index shares the B1row; preserve title/era scope without counting the router as another profile."
+    }
+  ]
+}

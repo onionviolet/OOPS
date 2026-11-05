@@ -1,0 +1,11 @@
+{
+  "batches": "B336\u2013B341",
+  "links": [
+    {
+      "path": "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+      "target": "../USER_VISION.md#food-benefits-and-famine-consideration-2026-10-13"
+    }
+  ],
+  "result": "PASS; one reused existing Food benefits heading confirmed at USER_VISION line2594",
+  "scope": "New fold/amendment links only; no linked source-body review credit."
+}

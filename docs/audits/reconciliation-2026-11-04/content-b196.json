@@ -161,6 +161,138 @@
       "from": "| B295, continuous execution 2026-11-04 |",
       "to": "| B301, continuous execution 2026-11-04 |",
       "reason": "Advance active pointer through B301; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B301, continuous execution 2026-11-04 |",
+      "to": "| B309, continuous execution 2026-11-04 |",
+      "reason": "Advance native resume pointer to latest recorded content batch; preserve original full-review input."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B309, continuous execution 2026-11-04 |",
+      "to": "| B311, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous resume pointer through B311; no authority or rule change."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B311, continuous execution 2026-11-04 |",
+      "to": "| B319, continuous execution 2026-11-04 |",
+      "reason": "Advance native continuous resume pointer through B319; original review identity preserved."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B319, continuous execution 2026-11-04 |",
+      "to": "| B326, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous resume pointer through B326; retain all prior input and pointer history."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B326, continuous execution 2026-11-04 |",
+      "to": "| B335, continuous execution 2026-11-04 |",
+      "reason": "Advance only reconciliation coverage pointer to latest recorded batch; no product authority change."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B335, continuous execution 2026-11-04 |",
+      "to": "| B341, continuous execution 2026-11-04 |",
+      "reason": "Advance only reconciliation coverage pointer; retain original register input identity."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B341, continuous execution 2026-11-04 |",
+      "to": "| B346, continuous execution 2026-11-04 |",
+      "reason": "Advance reconciliation coverage pointer only; no new rule or product authority."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B346, continuous execution 2026-11-04 |",
+      "to": "| B350, continuous execution 2026-11-04 |",
+      "reason": "Advance reconciliation coverage pointer only; preserve original register input."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B350, continuous execution 2026-11-04 |",
+      "to": "| B354, continuous execution 2026-11-04 |",
+      "reason": "Advance existing active reconciliation pointer through B354; no new full register review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B354, continuous execution 2026-11-04 |",
+      "to": "| B355, continuous execution 2026-11-04 |",
+      "reason": "Advance current reconciliation pointer; no full register reread."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B355, continuous execution 2026-11-04 |",
+      "to": "| B360, continuous execution 2026-11-04 |",
+      "reason": "Advance existing active pointer through B360; no new full register review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B360, continuous execution 2026-11-04 |",
+      "to": "| B363, continuous execution 2026-11-04 |",
+      "reason": "Advance active reconciliation pointer through B363, not another full register review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B363, continuous execution 2026-11-04 |",
+      "to": "| B366, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B366; no new full register review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B366, continuous execution 2026-11-04 |",
+      "to": "| B368, continuous execution 2026-11-04 |",
+      "reason": "Advance current reconciliation pointer through B368; no new full register read."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B368, continuous execution 2026-11-04 |",
+      "to": "| B371, continuous execution 2026-11-04 |",
+      "reason": "Advance existing active pointer, not full-register review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B371, continuous execution 2026-11-04 |",
+      "to": "| B377, continuous execution 2026-11-04 |",
+      "reason": "Advance live continuation pointer to recorded B377; no proposal adoption or history removal."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B377, continuous execution 2026-11-04 |",
+      "to": "| B380, continuous execution 2026-11-04 |",
+      "reason": "Advance live writeup continuation pointer through actual B380 reviews."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B380, continuous execution 2026-11-04 |",
+      "to": "| B384, continuous execution 2026-11-04 |",
+      "reason": "Advance live writeup pointer through recorded B384 content reconciliation."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B384, continuous execution 2026-11-04 |",
+      "to": "| B388, continuous execution 2026-11-04 |",
+      "reason": "Advance live writeup pointer through recorded B388 actual-content review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B388, continuous execution 2026-11-04 |",
+      "to": "| B390, continuous execution 2026-11-04 |",
+      "reason": "Advance live writeup pointer through recorded B390 full actual-content review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B390, continuous execution 2026-11-04 |",
+      "to": "| B398, continuous execution 2026-11-04 |",
+      "reason": "Advance active reconciliation pointer through B398 without changing register scope or adopting proposals."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B398, continuous execution 2026-11-04 |",
+      "to": "| B404, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous reconciliation pointer without changing scope or adopting proposals."
     }
   ],
   "review_corrections": [

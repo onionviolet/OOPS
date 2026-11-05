@@ -20,7 +20,9 @@ own scope. Accepted rules: separate-history fresh life with paused old life;
 means-based return; one continuing self; remembered mastery with means-dependent
 expression; enduring base-cheat growth; quiet faculty; unconscious-body choice
 access subject to actual means/suppression. Ordinary resume, temporal rewind and
-fresh history are distinct. First milestone remains one realm/one prestige layer.
+fresh history are distinct. The former one-realm/one-prestige gate is retired by the
+[October24 direction](../USER_VISION.md#first-milestone-and-scope-check-2026-10-24);
+this report does not replace current world priorities.
 The [exclusive cheat brief](CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#bounded-implementation-brief-quiet-continuation-and-one-learned-checkpoint)
 is a proposal. Its old broad Q1 language cannot reopen later accepted history rules.
 
@@ -354,3 +356,20 @@ in the continuation owner linked by this report's current-direction update. Do n
 of a reservation, or a historical UI release as an effective engine handoff.
 Only this scope receipt changed; no inter-chat message, new worker, source edit,
 commit, push, save or gameplay action was performed.
+
+
+## Content reconciliation B351: full clock, profile and continuation scope
+
+All356 original lines were reviewed, including the complete83root inventory C1–C19, conditional/dormant/browser/new-record groups, P1–P7, K1–K9, blockers, execution/proof, fingerprints and later coordination receipt. This remains a source-inspected proposal snapshot: the opening CP1–CP7 assignment and absent-reservation receipt describe those sessions, not present workers or a current runtime handoff. An old UI release, failed reservation search or unchanged fingerprint cannot prove a currently free native-save seam. No old session/process was queried here.
+
+Preserve the accepted-direction distinction in the report: ordinary separate-history fresh life pauses its predecessor, one continuing self retains actual learned mastery/base-faculty growth through means, and unconscious choice access depends on actual support/suppression. Exact root/schema, whitelist, portability mapping, quiescence and arrival-paused implementation remain proposals under AD32. The one-realm/one-prestige milestone sentence is corrected from later October24 direction, with its exact old text preserved. This does not change the selected two-history specimen or claim that current gameplay already implements every promised operation.
+
+World travel, resuming departure state, historical rewind, scenario reset, selected intentional repeat, restoring a technical backup and loading a chronicle record are not interchangeable. A surviving old body need not be awake/autonomous; a biography cannot reconstruct inventory or commands. Native unconscious recovery is not true death, and a death counter is not a durable faculty trigger. An actual temporal mechanism may preserve current journey learning while rewinding its declared world scope; backup restoration instead restores a coherent saved unit and cannot silently combine old goods with incompatible new claims.
+
+The83direct roots and19source fingerprints are a bounded serializer snapshot, not all nested fields, all current extension owners or demonstrated roundtrips. This differs in revision/scope from the earlier profile report's61fresh top-level fields; neither count alone contradicts the other or proves complete state coverage. Capture can itself observe/normalize/settle through owners, so a readonly preview cannot assume create_save is a pure clone. The proposed arrival contract preserves actual committed work/encounter progress without replaying starts, timers, costs, XP/parent rewards or RNG. A source snapshot is taken at its real admitted boundary, after already committed effects rather than retroactively before them.
+
+Remembered competence, bodily development, source/faculty, books/gear, institutional entitlement and NPC learning have different carriers. A max/sum/copy of XP cannot supply their meanings. Unknown mixed domains must be named and preserved rather than silently reset or transferred as universal mastery. A returning body can express a genuinely retained skill with actual support; neither a weaker-body tax nor a universal stat transfer is implied. Whitelisted comfort preferences and known favorites must not expose another life's unknown items/worlds. Dormant bytes can be retained without executable resume, and probe timeout is technical uncertainty rather than a fictional world prohibition.
+
+Actual journey-bank state is preserved once where supplied; the plan neither mints a bank nor creates automatic independent credit in every paused history. A chosen supported repeat can legitimately resolve again, while the same committed event must not be settled twice. Partial work and unspent time follow their actual operation rather than all-or-nothing refund, silent loss or fake completion. Current AD51/52 support the first useful complete slice and faithful compression, with no all-world/save-engine rewrite prerequisite.
+
+The historical1366representation target and taste/balance close do not replace current desktop direction or optional review under AD42. T1–T5 and the listed tests were explicitly not run; source hashes and83-root/52-link checks are document/input evidence, not native-loader/persistence/compatibility proof. No current source, root, migration, actual saved game, faculty, branch, worker, body condition or gameplay behavior was newly implemented or verified by this full report review.

@@ -1,0 +1,16 @@
+{
+  "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/COVERAGE.json",
+  "digests": 119,
+  "unique_slugs": 119,
+  "outputs": 62,
+  "supplements": 1,
+  "dispositions": {
+    "skip: no relevant supported body/lineage finding in consulted digest": 57,
+    "lead only, canon qualification open": 34,
+    "bounded evidence": 24,
+    "bounded secondary extract plus unverified leads": 2,
+    "bounded evidence plus unverified leads": 1,
+    "bounded secondary extracts plus unverified leads": 1
+  },
+  "scope": "Arithmetic over the fully read map only; no linked digest/card/primary-source verification."
+}

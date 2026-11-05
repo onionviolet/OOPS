@@ -1,0 +1,24 @@
+{
+  "scope": "Preserved comparison attachment and original native fixture captures. Copying does not renew their proof date or expand tested routes.",
+  "source_report": "../REPORT.md",
+  "captures": [
+    {
+      "file": "reference.png",
+      "sha256": "fb8edc393b6179a6a85665576a7e85fb71f9fd9d76440d7cb9b1c3c69df70d34",
+      "bytes": 31491,
+      "original_local_locator": "work/crafting-reference-20261104/reference.png"
+    },
+    {
+      "file": "current-crafting.png",
+      "sha256": "9e6c3f3dace577aab2ff6630822d03ca791089e6d7b734c788f3957b281ffab6",
+      "bytes": 453450,
+      "original_local_locator": "work/crafting-reference-20261104/current-crafting.png"
+    },
+    {
+      "file": "current-cooking.png",
+      "sha256": "a7b546c8c8a931856bfa5605e836c28a693f165699aee95487be40c693f9365c",
+      "bytes": 451181,
+      "original_local_locator": "work/crafting-reference-20261104/current-cooking.png"
+    }
+  ]
+}

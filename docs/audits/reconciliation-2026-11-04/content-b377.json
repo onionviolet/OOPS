@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "batch": "B377",
+  "title": "UI modularity, source color correction and interaction final-review boundaries",
+  "at": "2026-11-05T03:35:15.504263+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-density-slices-2026-10-13/CONSIDERATIONS_COLOR_AND_PROTO23.md",
+      "ids": [
+        "C1–C5",
+        "Vivid choice update",
+        "later source correction"
+      ],
+      "classification": "Historical UI/mechanism proposal and scoped implementation proof",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md"
+      ],
+      "disposition": "The source correction limits no-focusable-controls to opening actions, not whole Proto23 inventory. Vivid C4+C1/C2/C3 later chosen within this record, so original say-go recommendation is no longer pending. Keep saturated role/color and full-height log lessons; numeric contrast claims remain attributed old checks, not new standard or screenshot verification. Retain useful design and negative evidence without renewing old dispatch, reservations or release gates.",
+      "evidence": "Actual complete document read. No new external reference/contrast measurement, screenshot, runtime/source inspection, source test, browser or installed-app check.",
+      "reopen": "Use matching current owner/source inputs and reproduce the selected behavior. AD42 review remains optional; current source, package, adoption and human taste states remain distinct.",
+      "input_sha256": "6eb966c8ae05056d9357036e8213d0dc0362ec1deb99241ae96daa37fbe3b5b8",
+      "input_lines": 55,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-modular-2026-10-22/CHECKPOINT.md",
+      "ids": [
+        "UM3/UM4/UM5/UM8/UM9",
+        "18 parity cases",
+        "nine box moves",
+        "integration addendum"
+      ],
+      "classification": "Historical UI/mechanism proposal and scoped implementation proof",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md"
+      ],
+      "disposition": "UM4 already delivered; other structural spec/grid/box changes differ from visible UM5 one-extra-click proposal. Native controls move without losing owner state. Sixth-region placement lacks resize handle. Live resize parity did not restore fresh geometry on either side; placement reset did. Final integration addendum qualifies initial nothing-committed state and preserves concurrent spacing/lending hunks; no new current commit verified. Gameplay toggle Save/reload is not literal layout-config Import, which was unrun. Retain useful design and negative evidence without renewing old dispatch, reservations or release gates.",
+      "evidence": "Actual complete document read. No new external reference/contrast measurement, screenshot, runtime/source inspection, source test, browser or installed-app check.",
+      "reopen": "Use matching current owner/source inputs and reproduce the selected behavior. AD42 review remains optional; current source, package, adoption and human taste states remain distinct.",
+      "input_sha256": "3ebdb05d0c3242cbc79dedc620ed0caf0c4982f94a34887fbf2a2a9bfbc59008",
+      "input_lines": 95,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/upstream-interaction-system-2026-10-20/CHECKPOINT.md",
+      "ids": [
+        "IS1–IS5",
+        "fold families",
+        "coordinator final gates"
+      ],
+      "classification": "Historical UI/mechanism proposal and scoped implementation proof",
+      "owners": [
+        "docs/gm/dispatch/upstream-interaction-system-2026-10-20/CHECKPOINT.md"
+      ],
+      "disposition": "Exact variant material route and prepared durable assembly browser evidence differ from ordinary acquisition, natural XP summary, trade/storage ordering and combat departure that remain unexercised. Full suite passed complete shared source after discarded partial-copy attempt omitted54 fixtures. Browser import returning Gear to0 is exact exported-state restoration, not proof of post-export equip persistence. Stylist evidence and light/time owner remain separate. Retain useful design and negative evidence without renewing old dispatch, reservations or release gates.",
+      "evidence": "Actual complete document read. No new external reference/contrast measurement, screenshot, runtime/source inspection, source test, browser or installed-app check.",
+      "reopen": "Use matching current owner/source inputs and reproduce the selected behavior. AD42 review remains optional; current source, package, adoption and human taste states remain distinct.",
+      "input_sha256": "47b2f3e43c3cb1ff0272750eedc729b641b989c6eb0cf8c61391b6690fc0ce46",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/upstream-interaction-system-2026-10-20/RUNTIME_RECEIPT.md",
+      "ids": [
+        "IS1–IS5",
+        "RV1–RV5",
+        "area closure limits"
+      ],
+      "classification": "Historical UI/mechanism proposal and scoped implementation proof",
+      "owners": [
+        "docs/gm/dispatch/upstream-interaction-system-2026-10-20/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve zero-RNG inspection, current stock recheck and durable rollback; tracking not reservation, carried stock not group allowance. Hidden skill awards cannot evict cumulative visible session history. Capture-phase known-use navigation prevents holder transfer. Availability must match living/free/writable settlement before RNG. Ended reference return is presentation, not flee. Affix provenance does not prove known manufacture; unsupported body/custody defense is not zero. Initial37checks and final15checks have separate input scopes. Retain useful design and negative evidence without renewing old dispatch, reservations or release gates.",
+      "evidence": "Actual complete document read. No new external reference/contrast measurement, screenshot, runtime/source inspection, source test, browser or installed-app check.",
+      "reopen": "Use matching current owner/source inputs and reproduce the selected behavior. AD42 review remains optional; current source, package, adoption and human taste states remain distinct.",
+      "input_sha256": "a037651f71e4bfc4d975d965c2a4d56531441459a0819f23a2439d1bfd721a42",
+      "input_lines": 81,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "heading": "## Content reconciliation B377: color choice and structural UI evidence",
+      "body": "The complete [color/Proto23 considerations](../gm/dispatch/ui-density-slices-2026-10-13/CONSIDERATIONS_COLOR_AND_PROTO23.md) retain C1–C5 and their later Vivid choice. The blanket source-keyboard comparison is qualified by its own later correction: opening actions differ from inventory focus/handlers installed on mouse entry. Preserve keyboard-first adaptation, semantic text/shape and role color without treating old contrast numbers or screenshots as current measurements. The later choice closes the old “say go” proposal within that tranche; current Luminous and explicit player Appearance choices govern today's look.\n\nThe full [UI modularity checkpoint](../gm/dispatch/ui-modular-2026-10-22/CHECKPOINT.md) separates already-delivered UM4, structural grid/box work and visible UM5 control consolidation. Spec-driven sixth-region placement did not supply a resize handle; box-owned appearance intentionally differs from region-owned slot geometry. Native controls retain state when moved, with a documented extra click for some frequent choices. The final18-case geometry/pixel qualifications do not establish every state, and matched live-resize behavior preserved a pre-existing failure to return to fresh geometry. Resetting stored placement and native toggle Save/reload are different checks; literal moved-layout export/import and Electron were unrun.\n\nThe later integration addendum supersedes the initial uncommitted-only status within that historical record and preserves concurrent spacing-token/region-lending hunks. It does not authorize current worktree retirement, baseline tightening, option-handler extraction, merge or push, or establish a present commit/package/adoption state. Initial dev-console/Skills/search issues and harness retry notes remain dated observed limits. AD42 keeps optional taste review distinct from technical proof.",
+      "before_sha256": "445734cf5f1976b3fdfe43070ca96ea71445f8ac96485e95e25c87fe1555177c",
+      "after_sha256": "c69bc31b1db5c7434a10f71c0158b31dba236794c6f001ab5927d443c70a64e5"
+    },
+    {
+      "path": "docs/gm/dispatch/upstream-interaction-system-2026-10-20/CHECKPOINT.md",
+      "heading": "## Content reconciliation B377: final review, native identity and browser limits",
+      "body": "The complete checkpoint and [runtime receipt](RUNTIME_RECEIPT.md), including RV1–RV5, were read together. Exact inventory-key material, inspection snapshot baseline, actual item contribution and unresolved future affix roll remain different. Inspection/known-use navigation cannot spend, consume gameplay RNG or bubble into native holder transfer. Carried quantity is not current-group allowance, and tracking is not reservation. Actual craft availability must match the living/free/writable settlement boundary before output RNG; failed durable publication restores stock, XP, session learning and RNG together.\n\nSession learning means cumulative/last actual awards since session start/load, not XP/minute or persisted progress. Discovery filtering cannot let hidden awards evict visible accumulated history. Native skill IDs, not an arbitrary twelve-row cap, bound the retained ephemeral map. Raw affix-origin metadata is not observer-known manufacturing history. Unsupported structured body/custody/coverage comparison cannot masquerade as zero worn defense. Fighter occurrence IDs survive slot reuse; ended references and pending gestures cannot silently select replacements. The explicit ended-reference return changes presentation, not combat escape or settlement.\n\nThe final15-check review and earlier37-check run retain different inputs. The coordinator's complete-checkout suite supersedes the discarded partial-copy run that omitted54 helper/fixture inputs; it is historical evidence only. Browser proof follows an exact carried variant and a native-generated assembly save. Its export/import restores the exported Gear0/item state after an intervening equip; it does not prove that the later equip was saved. Natural acquisition/XP session display, full holder click ordering, ordinary opponent departure and large-text/styling combinations remain outside that browser slice. Separate light/time/PFE23 and style owners' evidence is not borrowed. AD42 makes human review optional, while current integration, app adoption and all unexercised behaviors require their own technical evidence. No new runtime verification or dispatch follows.",
+      "before_sha256": "47b2f3e43c3cb1ff0272750eedc729b641b989c6eb0cf8c61391b6690fc0ce46",
+      "after_sha256": "01e21e2c956b73df9aa9a53f364309d7aeb9c1e160404abc503d92664f1c6835"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 664,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B371, continuous execution 2026-11-04 |",
+      "to": "| B377, continuous execution 2026-11-04 |",
+      "reason": "Advance live continuation pointer to recorded B377; no proposal adoption or history removal."
+    }
+  ]
+}

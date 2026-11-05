@@ -78,3 +78,12 @@ Codex lanes run in Terminal tabs of the coordinator session. Check
   Reincarnation Paradise notes.
 - Installed games: Your Chronicle (code recovery partial) and his own VTube
   Studio and 100 Space Cats. Leave the last two alone.
+
+
+## Content reconciliation: historical handoff precedence, 2026-11-04 (B353)
+
+Keep this October 8 handoff and its October 10 addendum as history. The north-star owner contains useful proposals alongside attributed user direction and later reconciliations; the old blanket “everything is a proposal” cannot demote a genuine accepted answer. Conversely, a saved consideration does not become accepted or implemented. Many worlds, long lives, powerful growth and world-dependent means remain useful direction; possibility does not mean every source grants every exception without a mechanism. Current DESIGN/UI owners govern visible layout rather than freezing the early center-menu/bio suggestion as a permanent shape.
+
+The six lane statuses, candidate/integration distinction, branch name, approximate dirty-path count, installed-game observations and D2a/D2b pending labels belong to the dated handoff. They neither establish current worker liveness nor authorize replaying merge/build/commit or uninstall actions. Check the selected current owner and actual integrated source before using an old missing patch as a repair task. A historical deferred follow-up is not a new research or acquisition order.
+
+The old Sonnet reader advice and fixed “send/go/run” interpretation do not override current host routing and Weibao’s current explicit request to act. No agent, new chat or worker is started by this document. Save each actual new idea in its matching existing palette; keep user words, derived defaults, proposals and execution evidence distinct. Current PROJECT.md and accepted rules own priority, including LOTM-first/Harry work and the retired one-realm/prestige gate. This review preserves the handoff without turning its historical reservations into present assignments.

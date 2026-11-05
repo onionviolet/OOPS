@@ -1,0 +1,27 @@
+{
+  "command": "node temporary same-rule checker with filespec restricted to B399\u2013B404 task edits",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "0944988474c56f773725eb3489388eed7d3ddab9ce2710accdaa5ab040e29214",
+  "paths": [
+    "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+    "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+    "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "docs/TECHNOLOGY_AND_PROGRESSION.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p28/CHECKPOINT.md",
+    "docs/research/GITHUB_AND_WEB_SCOUT_2026-10-30.md",
+    "docs/research/ani-idle/REPORT.md",
+    "docs/research/endless-ascent/REPORT.md",
+    "docs/research/increlution/REPORT.md",
+    "docs/research/kill-the-lich-idle/REPORT.md",
+    "docs/research/magic-research-2/REPORT.md",
+    "docs/research/theory-of-magic/REPORT.md",
+    "docs/research/upload-labs/REPORT.md"
+  ],
+  "adaptation": "Exactly one filespec replacement; all original diagnostics and line/paragraph rules retained. No repository checker change. Does not turn normal shared-tree failure into a pass."
+}

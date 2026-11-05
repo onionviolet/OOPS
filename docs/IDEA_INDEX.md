@@ -1,5 +1,7 @@
 # Game idea index
 
+Use this index to find idea owners. Dated execution summaries below retain their original evidence and can be superseded by later receipts; [PROJECT.md](../PROJECT.md), the current rules and each actual owner govern present priority/status (AD32/AD41/AD44/AD51). “Active,” “free,” “running” and old proposal/implementation labels are not fresh worker or runtime checks. Full-index content reconciliation is recorded at the end; linked bodies keep their own review scope.
+
 [Project-wide loose-document reconciliation, 2026-11-04](audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md): discovered-input inventory, selected owner corrections and retained historical/proposal routing. [WRITEUP_REGISTER](gm/WRITEUP_REGISTER.md) remains the follow-up owner. Metadata-routed material is distinguished from reviewed sections; this adds no build order or blanket adoption.
 
 [Writeup register and follow-up workflow, 2026-10-27](gm/WRITEUP_REGISTER.md): status, next action and open decisions for every research writeup and dispatch report; start here to find what to follow up.
@@ -678,4 +680,22 @@ Weibao requested one connected chat for each P1–P5 improvement in [the deep en
 
 ### Cheat implementations, carry, wiring and next cards, 2026-10-23
 
+Historical October23 finding/proposals: heir loss, absent ordinary seed, tolerant read, one host and True Appraisal as card2. The later D4/G1 receipt in [CHEAT_LIBRARY](CHEAT_LIBRARY.md) supersedes the first two absence claims: it records quiet-faculty seeding and existing-owner carry, with enduring developments distinct from local module inputs (AD11/AD29). That is dated implementation evidence, not a fresh runtime check. Preserve [IM1–IM20](CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23) and the [core audit](audits/CHEAT_CORE_AUDIT.md) as their original proposal/history routes.
+
+
+<details>
+<summary>Superseded October 23 wording, retained as history; see the correction above</summary>
+
 Heir succession drops the base cheat and no default route grants one; proposal: a quiet seed card at new game, tolerant card read, one cheat host, True Appraisal as card 2. [Round IM1 to IM20](CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23), [core audit](audits/CHEAT_CORE_AUDIT.md).
+
+</details>
+
+## Content reconciliation: index semantics and historical status, 2026-11-04 (B365)
+
+The complete index was read, including I01–I40/I37a, QR1–QR6e, every topic/palette/delivery summary and the latest intake pointers. Stable IDs remain navigation families, not event/save identifiers, independent ready-to-build specifications or a promise to implement every linked proposal. The index does not itself prove that all linked dossiers were semantically read, every old gap still exists or every registered world is playable. Keep the original idea breadth and exact owner links rather than replacing them with another build queue.
+
+Dated “current,” “active,” “free,” “running,” “not implemented” and pending-review labels describe their captured scope. Their later owner receipts can supersede them without retroactively changing original evidence. Current PROJECT.md, accepted direction/rules and actual source/evidence owners govern present work under AD32/AD41/AD44/AD51. In particular, later ordinary/developer route distinctions, LOTM-first/Harry work, retired first-milestone gate, desktop/font targets, optional human review under AD42 and long-play compression under AD52 must not be reversed by an old index summary. A historical user-request or source observation is not silently demoted by a surrounding “proposals only” label, while a saved palette is not automatically accepted.
+
+Preserve the cross-topic connections: body, source, means, mastery, custody, social recognition, knowledge and presentation have distinct owners; stronger legitimate mechanisms can cross boundaries with their actual reason. Causal timelines require real causes, remembered mastery is not automatically bodily execution, and a person/variant/role is not a copied save merely by sharing a name. Source reading and profiles, prototype interaction, implementation, passing bounded tests, rebuilt native evidence, packaging/adoption and publication remain separate proof states. Optional references and broad ideas do not become prerequisites to the selected slice.
+
+The final October23cheat entry was stale even against its own later library receipt: D4/G1 records quiet-faculty seeding, existing-owner carry and distinct enduring versus local inputs. The corrected entry routes that dated implementation evidence without claiming fresh runtime verification. Full backups and observer-safe summaries remain different products, and accompanying cards require their actual carrier. No broader CHEAT_LIBRARY coverage is credited by the two supporting ranges. No linked source, private save, worker/chat, runtime, build, browser, acquisition, deletion, commit or push was performed during this index review.

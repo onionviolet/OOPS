@@ -14,3 +14,6 @@ The four-group integration retains useful work as source, dated evidence or a na
 No user gameplay save was loaded or modified by this organization. Root `actions.png`, the stale-comment-only summons backup and two empty script placeholders are preserved in named local evidence/archive folders. Their former root/`src` locations are cleared; the old atlas work path remains a local compatibility symlink to its maintained home. No bytes were discarded.
 
 Public source/receipts are selected separately from private payloads. This catalogue does not grant historical tests a new date, make a sketch production gameplay or make unfinished semantic review complete. [Integration record](../audits/FOUR_GROUP_INTEGRATION_2026-11-04.md).
+
+
+Crafting comparison captures: maintained copies and a hash manifest live in `docs/reviews/crafting-reference-2026-11-04/evidence/`. The original three files under `work/crafting-reference-20261104/` remain local for the active crafting writer. Promoting copies preserves both the original proof and ongoing work; it is not a new crafting gameplay check.

@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "batch": "B341",
+  "title": "Full completion standard: scope fidelity, ordinary-life denominators and inherited proof limits",
+  "at": "2026-11-05T02:16:58.905286+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "ids": [
+        "connectedworld lenses",
+        "S00–14/detailandjoin coverage",
+        "randomstarts/C0–5/auditstages",
+        "P1–5/intake/setup/Oct18qualification/WGpointer"
+      ],
+      "classification": "Full proposed completion owner with later qualifications and dated evidence",
+      "owners": [
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "docs/RULES_INDEX.md",
+        "docs/LEAD_LIFE_RULES.md",
+        "docs/WORLD_ENTRY_RULES.md"
+      ],
+      "disposition": "Preserve all source/idea horizons and selected detail criteria; separate lead/ordinary/campaign/slice coverage and optional acceptance. No C4 world or intake semantic completion inferred from manifests.",
+      "evidence": "Full331line current owner read, including all later qualification/setup paragraphs. Linked396path intake, templates, source/runtime and world-sweep bodies not reviewed by proxy.",
+      "reopen": "Apply to actual selected scope with relevant leaf/interaction proof; whole-source/world coverage remains its own horizon and authoring categories create no new runtime gate.",
+      "input_sha256": "6ff03bc48c13a1328b1b2bf8321b0e1e0b09aa24713a142ba7fc72be451548f6",
+      "input_lines": 331,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          331
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "heading": "## Content reconciliation B341: full standard and distinct coverage horizons",
+      "body": "All331 original lines were reviewed, including connected-delivery lenses, every S00–S14 row, detail/interaction criteria, random-start scope, audit stages, C0–C5, P1–P5, intake/setup and both later qualification notes. The standard already distinguishes coverage proposals from accepted product direction and a finite deliverable from the broader vision. Keep that distinction. Completing a room, institution, source chapter, developer arc or region does not establish whole-world completion. A finishable scope must be stated before evaluating it; it cannot be narrowed after a missing requirement is found simply to make the count green.\n\nPreserve original requirement IDs and each distinct consequence through a merge. One primary owner may serve several section tags, and a shared mechanism can support many details, but a fold that loses a choice, participant, cost, time/order, outcome or noticed evidence is not coverage under CLR6/AD44. Texture can remain worthwhile without a stat or downstream reward. Existing source/premise, actor knowledge and implemented coverage remain separate; unavailable content is not not-applicable, and an unavailable command is not an in-world prohibition.\n\nThe C0–C5 table qualifies its declared scope. C0 inventories inputs and exclusions; it does not adjudicate every idea. C1 selects finite details and dependencies rather than proving behavior. C2 needs the connected actual route; C3/C4 need the required leaves and joins, not just a representative opening. C5 requires actual acceptance of that revision and stays optional under AD42. Neither a historical independent review finding no gap nor matching S00–S14 templates,396paths/66families or37links establishes semantic or runtime completion. The October20 none-above-C1 statement is a historical sweep, not a current ceiling.\n\nAD44 and later developer-route clarifications add distinct lead replay, world and ordinary/alternative-life denominators. The lead's full source trajectory informs contracts; complete bounded arcs deliver forward. A canon result or smoke test does not qualify every other actor, livelihood, era or start. Current LOTM-first/Harry developer priorities govern, rather than reinstating Frontier as a required beginning, all-family actionability planning, all fifteen sections or a new GM wave before each useful slice. AD51 permits a first useful shared seam and later different-world validation; it does not require a universal model before content.\n\nThe random-start section preserves coherent sampled circumstances, actual support and known-only disclosure. A random location is not automatic random identity/power/era, and a start label is not a promise that every drafted route works. A mid-history snapshot may include authored prior state without crediting actions or rewards the player never performed. Seeded selection needs its actual pool/generator/content identity and compatibility; a hash or seed alone does not prove old behavior. Real source danger and differing difficulty can remain, without invented equalization or safety.\n\nNew state must persist correctly, and changes to saved identity/carry need the actual compatibility decision required by their owning contract. The October17 old-save-testing deferral and task-specific older requirements remain explicit in the existing text; do not silently turn this proposal into universal retrospective migration work, or read the deferral as permission to destroy new committed state. Private saves stay untouched. Cancellation, interruption, support loss and partial results settle under actual state/stock/clock owners rather than a synthetic all-or-nothing rule.\n\nCurrent AD52 compresses repeated activities while preserving consequential choices, actual means/costs/time/actors and known results; delivery size does not cap total play length. Current desktop targets replace old task-specific viewports for new UI work, and unchanged relevant evidence can be reused under AD36. This review introduces no new required gate, level, rule code, accepted lore, wave, source qualification or claimed gameplay result. The original intake/templates, historical reviews and exclusions remain linked with their original scope, rather than inheriting full-body review from this owner.",
+      "before_sha256": "6ff03bc48c13a1328b1b2bf8321b0e1e0b09aa24713a142ba7fc72be451548f6",
+      "after_sha256": "b035d7150d7bf9d067b255f36e37f54d486656dbc0da117dabc05fcb233f1568"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 746,
+  "post_record_amendments": [
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "from": "distinguishes coverage proposals from accepted product direction",
+      "to": "distinguishes coverage proposals from accepted product direction (AD32)",
+      "reason": "Add same-line AD32 authority to scope statement; no changed adoption."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B335, continuous execution 2026-11-04 |",
+      "to": "| B341, continuous execution 2026-11-04 |",
+      "reason": "Advance only reconciliation coverage pointer; retain original register input identity."
+    }
+  ]
+}

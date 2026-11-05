@@ -1,0 +1,6 @@
+{
+  "command": "npm run check:rules",
+  "exit_code": 0,
+  "result": "31 register rows,52 AD codes,1053 relative links; PASS zero warnings;24 receipts checked,317 explicit legacy skipped,zero problems;direction sync PASS",
+  "scope": "Executed after B318; document/receipt/index structure, not runtime or semantic certification"
+}

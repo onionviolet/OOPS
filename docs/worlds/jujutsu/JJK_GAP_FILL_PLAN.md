@@ -1,6 +1,6 @@
 # JJK gap fill plan, AU2 budget and pilot checkpoint (2026-11-03)
 
-*Task checkpoint for the JJK gap session. Plans and measurements are proposals and evidence, not accepted decisions. Gap locators: [OCR gap register](JJK_OCR_GAP_REGISTER.md). Rules: [WA61-WA68 proposal](../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03).*
+*Task checkpoint for the JJK gap session. Plans and measurements are proposals and evidence, not accepted decisions. Gap locators: [OCR gap register](JJK_OCR_GAP_REGISTER.md). Rules: [WA61-WA68 proposal](../../WORLD_ABSORPTION_RULES.md#source-gap-rules-wa61-wa68-proposal-2026-11-03).*
 
 ## 1. What the novels can and cannot fill
 
@@ -46,3 +46,14 @@ Haiku reader, one shard, ch35-50 (16 chapters, 10,729 words, 1,488 items). Outpu
 ## 4. Optional local vision pass: not run
 
 Swap was 15.5 of 16 GB used at the check (`vm.swapusage`) and the vision model (`gemma4:31b-mlx`, 19 GB) would load into it. The local-model-lanes limits say not to push swap, so no `read-page` call was made. Reopen when swap is low (a quiet machine), on four pages: Register A ch60 p6, ch71 p12, ch75 p10 and Register C ch8 p15; the model-read output goes to the separate cache (`private/cache/llm.sqlite`), never over OCR rows (WA63).
+
+
+## Content reconciliation B345: source layers, pilot limits and internal counts
+
+All48 original lines were reviewed, including the two novel contents tables, budget, pilot measurements, source-quality limits and deferred local vision. Preserve extracted/held versus read: the62k-word novels were text-extraction checked, not read by that task. They are separate official-side-story media in the report, not retellings that reconstruct any exact missing manga page. Particular routines/mechanisms named as possible uses remain leads until the actual passage is read and its source/era reconciled; medium identity alone does not prove agreement.
+
+The pilot's70 rows are agent returns, not70 checked source claims. Its own review examined two selected rows and found two label problems; that cannot establish an overall error rate, source fidelity of the other68 or factual completeness. Most rows lack speaker identity, and the one preflagged page did not account for the other five garble spots the reader found. Thus low register risk in the cleanest chosen window is not a representative accuracy sample, complete dialogue coverage or a reliable proxy for book-wide qualification. Unknown speakers and doubtful clauses remain explicit rather than defaulting to narrator truth.
+
+Measured172435 reader tokens,8 tool calls,235seconds and four payload loads describe that invocation's reported usage, not current allowance or a new spend. The40k-token/9k-word shard suggestion and20-shard/2.9million extrapolation are unverified linear planning estimates, sensitive to OCR tokenization, repeated context and output. A future targeted query may be cheaper but still needs semantic passage review. The two novels' proposed six shards were not dispatched; this reconciliation authorizes none of that work.
+
+The vision model/swap readings and not-run checkpoint are dated observations, not live memory pressure or installed model state. Vision and prose are useful routes to speaker context, but not the only possible routes: actual page inspection or another held primary edition can also supply evidence. A separate model-read cache preserves original OCR; it does not automatically qualify a claim. WA61–WA68 remain proposed under AD32, while existing WA8/WPR evidence discipline already applies. The rulebook backlink is repaired to its actual parent path with the exact old target retained. No corpus read, source qualification, local inference, acquisition, worker or runtime was performed here.

@@ -101,3 +101,12 @@ Gaps: pathway switching rules, digestion UI, characteristic mechanics, paid effe
 Mistglass UI ladder (ASC20, owner-reserved), Clown abilities in use (ASC36),
 forcing/loss-of-control route (ASC35), ritual crossing type (ASC34), 1800/1536
 and 21px text checks for the new panel lines, human pacing and taste acceptance.
+
+
+## Content reconciliation: ascension receipt scope, 2026-11-04 (B354)
+
+The leaf contract, typed crossings and knowledge-limited path view are distinct from the LOTM acting/dose/promotion implementation. A ladder row is not proof that its ability, forcing route, ritual or native use exists. Retain the narrow 17-test and 2,547-test receipts, rebuilt 1920×1080 route and literal import observations as dated evidence on the recorded inputs. The export-function call did not exercise the native download button, and missing smaller-desktop/large-text cases remain outside that receipt. Human taste review is optional under AD42.
+
+The schema-1 label did not make forward compatibility automatic: the new source/item keys and validators were the relevant boundary. The old developer-only query and disposable-fixture rationale describe that delivery’s entry policy; localhost or a query flag alone does not make a current app/save intrinsically isolated. Recheck the selected actual entry/admission boundary before carrying that assumption into ordinary play. No new persistence permission is granted by this report.
+
+The source list distinguishes official/store text, press reporting and guide-only claims; it does not establish a newly verified current game, all pathway rules or primary-novel canon. Existing qualification and source owners govern any later lore claim. Current LOTM/Klein and Harry priorities supersede old Mistglass reservations as global build-order evidence, while the old exact owner exclusions remain historical coordination. Ritual/forcing/ability gaps and ASC proposals are preserved without launching workers or requiring a universal ascension system. No fresh build, runtime, source, save or browser verification occurred here.

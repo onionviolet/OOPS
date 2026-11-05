@@ -60,3 +60,14 @@
 - **Write ownership:** future selected implementer owns only explicitly leased read-model/UI/test paths, with one integrator for source/build/publisher. Existing retort/knowledge/inventory/save authority remains unchanged.
 - **Exclusions:** source recovery, new mechanics/save schemas, copied graph/UI/fiction, whole-world continuation, private saves and commits.
 - **Gate:** pass = observable comparison and changed native result on the bound fresh rebuilt origin with roundtrip proof; duplicate = existing UI already satisfies it; fail = misleading disclosure/actual result/conservation; unknown = blocked legitimate route. Director readability/fun judgment is separate. All outcomes stop before the next slice.
+
+
+## Content reconciliation B323: preserved packet gates and execution boundary
+
+Every field of P1–P5 was content-reviewed. The meaningful gates remain actual input/provenance bindings, a correct native result with durable failure behavior, a real contrasting progression consumer, a conditional one-target provider comparison, and a useful production choice that is not already present. A blank call export is not no callers; a clean pseudocode rendering is not equivalent addressed semantics; installation itself answers none of these questions.
+
+P1's missing-host fallback is historical, qualified by the later cache/tooling pointer. Use current known authorized routes for a selected investigation before requesting a user lookup, and distinguish path failure, inaccessibility, mismatch and actual source absence. A historical idle worker or directory lease is not current process or writer ownership. P4's input/build/address/repair-state scope must remain exact if ever selected; its small target can still entail an expensive whole-binary import.
+
+P2 chooses a natural positive route with labeled controlled negatives for that proposed verification. This is not a new universal prohibition on explicit fixture evidence under AD43, and no unrelated source acquisition is needed merely to verify an existing authored balm. P3's one contrast does not close the other four ACS questions. P5 can validly return duplicate/defer without manufacturing a recipe, inventory owner or new scheduler to make its UI pass. Current UI targets and selected checks govern an actual future slice; packet persistence and failure cases apply to changed relevant behavior.
+
+These are preserved specifications, not current execution, repaired failures or completion proof. No packet alone authorizes a new chat, source/tool acquisition, installation, spending, private-save access, runtime edit or commit. No separate permission flow was initiated from their old wording.

@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "batch": "B308",
+  "title": "Concurrent evidence updates: reached hints and later integration retain original proof scope",
+  "at": "2026-11-05T01:25:56.327116+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play-2/README.md",
+      "ids": [
+        "ce005a31",
+        "timing lowerbounds",
+        "earned recovery",
+        "Undo separate branch",
+        "candidate-known-hints",
+        "screenshot12 correction"
+      ],
+      "classification": "Fresh whole-body review after concurrent closeout drift; historical evidence scope retained",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play-2/README.md"
+      ],
+      "disposition": "Re-read entire current16line artifact following detected drift. Evidence boundary unchanged: private native checkpoints and earned imports are not grants, wall-clock performance or independently retained duplicate progress. Candidate hints cover reached visible controls only, not unchosen outcomes. Historical slip-ok annotation changes lint scope without extending behavior or design authority. Preserve finalreport and screenshot12 correction.",
+      "evidence": "Full current body read. Original B270 input preserved in its ledger; current exact bytes captured separately. No linked raw save, screenshot, JSON or runtime re-read.",
+      "reopen": "Review linked report/input bodies independently if inventoried. Current byte identity is not a backdated test or extension to unplayed route; preserve other writers.",
+      "input_sha256": "bd900b44f2360ea64f8112d156227101b65b7c6040e701fbb4c66ee47f37f4ff",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+      "ids": [
+        "M21/M22/M25",
+        "69 distinct focused cases/33 assertions",
+        "sharedUIjoin",
+        "finaljoined result",
+        "later combined integration/publication"
+      ],
+      "classification": "Fresh whole-body review after concurrent closeout drift; historical evidence scope retained",
+      "owners": [
+        "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md"
+      ],
+      "disposition": "Re-read entire current receipt including B153 reconciliation and newly appended later combinedintegration pointer. Later integration owns its different finalinput/fullsuite/publication boundary; this receipt remains named shortenedfixture, not arrival/fullcampaign/humanreview. Keep understoodknowledge/source-energy/actualpaper/recipientdelivery/onceonlypayment distinct. Existing owner fold already captures findings; no duplicate fold or fresh runtime claims.",
+      "evidence": "Current full body delivered. B153 original84line input and93linecloseout preserved. Linked four-group integration is navigation, not fresh content or test review by proxy. Current receipt reports69 aggregatecases, final34run,33nativeassertions and explicit generated counterfactuals.",
+      "reopen": "Review linked report/input bodies independently if inventoried. Current byte identity is not a backdated test or extension to unplayed route; preserve other writers.",
+      "input_sha256": "9b903b9bc07a935a9b1bd4c977ff947ce3dec6a860f69fffdfaf070f788379eb",
+      "input_lines": 98,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          98
+        ]
+      ]
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 811
+}

@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "batch": "B325",
+  "title": "Tabletop source scope and fan-quest catalog: correct mirror identity without inventing coverage",
+  "at": "2026-11-05T01:51:05.429400+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md",
+      "ids": [
+        "F4/C1–8",
+        "D2/O6",
+        "F5/E1–5",
+        "Oct18inventory/constraint",
+        "crossworldevaluationexample"
+      ],
+      "classification": "Core-source recommendation with explicit later file-presence and no-universal-crossing-gate corrections",
+      "owners": [
+        "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md"
+      ],
+      "disposition": "Readall68lines. F5alreadyqualifiesC1 missingGURPSstatuswithfilepresence; neitherinternaltitle norfullreadingproved. Preserveall8core/e5expansionquestions, worldlocalmechanisms/ownedsourceratherthanrepeatacquisition andexplicitOct18localconsumerfloor. No newArsMagicapriority/downloadtask.",
+      "evidence": "Localreportbodyonly; actualfiles,privateinventoryandpublisher/PDFlinksnotopened. FilenameambiguousIntoOutside/internaleditionandWIPlabels remainasqualified.",
+      "reopen": "Whenchosensourcequestionneedsitcheckexactinternaleditionandactualsourcecoverage; currentselectedworlddirections andAD51governusefulfirstseam.",
+      "input_sha256": "0c8b6af0343ee0df34972c08b7d6e65327a32281d23f6d8c388bd95e79b80e71",
+      "input_lines": 68,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          68
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/TABLETOP_BOOK_SWEEP_2026-10-14.md",
+      "ids": [
+        "F5–8/F6editiontable",
+        "C1–6/W1–9/S1–23/K1–7",
+        "A2fivebundles",
+        "acquisitionfollowup"
+      ],
+      "classification": "Full publisher-based tabletop sweep with later acquisition pointer, version/source-line and excerpt limits",
+      "owners": [
+        "docs/research/TABLETOP_BOOK_SWEEP_2026-10-14.md",
+        "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md"
+      ],
+      "disposition": "Readfull141lines everyC/W/S/Krow andfollowup. Preservepublisherdescriptionvsrulesread, edition/setting/role distinctions, WFRPpreorderunknownversusD&D5e, prereqfunctionnotpowerpointconversion. Laterlibrarycapturequalifiesearliernoacquisition/missingfilecounts. Sourcepresence/licensing/privatepreparationnotsourcecomplete/gameplay. Noexternalfactreverification.",
+      "evidence": "Localbodyonly. Oldpublisherfetchstatus,53booktextlicense andhypotheticalpriorityjudgments attributedtooriginaldate. Publicpages/manualPDFs/sourcecorpusnotopened; no currentretail/currentbookownership claim.",
+      "reopen": "Usecurrentadmittededition/primarysourcewhenactualrulequestionselected, preserveexactlicense/art/content scopeifreuse; no universaltabletopconverter orallbooksbeforeconsumer.",
+      "input_sha256": "0fd7c51f0e490e9291c6943d2a173b67aac33840d6eaf29cebbdbe10c23f10b6",
+      "input_lines": 141,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          141
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md",
+      "ids": [
+        "25catalogrows",
+        "V/U/CRUNCHY legend",
+        "6notegroups",
+        "5gapbullets",
+        "incorrectmirror-as-novel entry"
+      ],
+      "classification": "Quest mechanics discovery catalog; real local title-identity correction plus historical snippet/page limits",
+      "owners": [
+        "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md",
+        "docs/research/LIBRARY_INDEX.md"
+      ],
+      "disposition": "Readfull52dense lines andall25rows withgroupedtitles. Preservefanmechanics/stock/capacity/time/roll references asalternativesnotcanon; Vopenedpageisnotfullstory/offpageGoogleDoc. CorrectmistakenmirrornameTheTwoKingdomswithfiveactualtitle-specificunperformedsearch gaps usingcurrentlibraryowner37–52. Preserveexactoldlineinamendment; no externalquestsearch/reachability ornewsource/realuserrewardpolicy.",
+      "evidence": "OnlypubliclocalcatalogandcurrentLIBRARY_INDEX37–52read. Native title ownerexplicitly identifies mirror notnovel;sourceplot/mechanicsnotread. Sizes/statuses datedOct22 andapprox; searchscope exclusionnotabsenceproof.",
+      "reopen": "Ifselectedquestinformsmechanic checkactualthreadversion/linkedrules andseparatesourcecanonfromfanlaw. Title-specificquestcoverageforfivecanonicalbooks remainsunperformed; no acquisition/fanpoll/post/realuserhistory inference.",
+      "input_sha256": "b87b812b4f38b28e5ab7851703fc4c47698e77d22d1e6a66cae89756932ab2d9",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md",
+      "heading": "## Content reconciliation B325: actual inventory corrections and source-fit scope",
+      "body": "The complete core plan and earlier141-line sweep were content-reviewed, including all C1–C8, E1–E5, C/W/S/K tables, edition comparison, reading bundles and later acquisition follow-up. F5 already supersedes C1's missing-title row at file-presence level. Into theOutside's filename ambiguity and repositoryWIP/reviewed labels still do not certify internal edition or semantic reading. Old no-acquisition and not-found statements describe their own earlier scans, while later library capture owns its exact preparation state. No repeat source acquisition is selected by this reconciliation.\n\nKeep distinct source roles: a rules subset is not a complete setting; a supplement may require a matching core; RPG, wargame, fiction and an edition-specific adventure provide different evidence. The WFRP preorder/banner observation was not proof of newest edition then and is not a current product check now. ArsMagicaFifthEdition and D&D5e are unrelated edition labels. System-local points, seasons, rests, inherited land and teacher requirements cannot be merged into one power rank or mandatory cost. Source-qualified exceptional/free routes remain available.\n\nThe October18 reusable constraint correctly narrows the earlier cross-world evaluation: a local native action and useful consumer can prove a selected local slice; crossing/return/failed-storage checks attach when that seam changes. Current AD51 and selected book-world priorities qualify the illustrative first-source reading order, while AD52 preserves real costs/time/choice when simplifying repeated study. No all-book queue, universal generator, tabletop runtime or automatic new ArsMagica/Warhammer world precedes useful progress. No primary page/PDF, sourcebook, private inventory, exact ownership, license or current product claim was reverified by this local review.",
+      "before_sha256": "0c8b6af0343ee0df34972c08b7d6e65327a32281d23f6d8c388bd95e79b80e71",
+      "after_sha256": "0d27e0691fc8b75a6ccddfa401d48629a0edbef0b01892d2ee988a47473d29f6"
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md",
+      "heading": "## Content reconciliation B325: quest references, exact titles and search limits",
+      "body": "All25 catalog rows, notes and gaps were content-reviewed. Retain V versus snippet-only U, mixed on-page/off-page status and approximate competing thread counts. V means the catalog's recorded opened-page mechanic, not a whole story or external rules-document reading. Grouped titles in rows14/25 are leads, not independently verified entries. Onlyquestfound is bounded discovery scope, not a universal absence result. Ongoing/dormant/ended and forum accessibility are October22 observations, not current activity or an acquisition recommendation.\n\nThe gap list incorrectly expanded a mirror name into a novel. The current library owner explicitly identifies ttks.tw as a site and names five separate books. The corrected gap uses their actual printed titles and leaves title-specific quest searches unperformed; the original faulty sentence is preserved exactly in the batch amendments. This is a source-identity correction, not a new web search, novel reading, coverage claim or recommendation to collect those stories.\n\nThe useful donor questions remain varied: actual held item/resource versus a bar, capacity versus control, calendar budget versus elapsed time, practiced method versus stat rank, digesting a potion versus gaining XP, and an optional role/background versus imposed morality. Point-buy, dice explosion, rank caps, mandatory XP allocation, corruption/sanity penalties, weight limits, gacha and death penalties are these fan adaptations, not canon rules or accepted balancing constraints. A crossover especially needs its own admitted premise. They cannot fill missing source laws merely by displaying a crunchy sheet.\n\nForum voting, omakes/art/discussion rewards and linkedGoogleDocs are social authoring practices, not authority to send posts, collect the user's real activity or grant character progress for private user history. A rule-heavy quest can suggest a useful UI/control or conditional procedure, but still depends on a human author for unmodeled choices. No thread body, off-page rules, live forum, source novel, private save, real-user profile, UI or game mechanic was read or changed by this local review beyond the title correction.",
+      "before_sha256": "b87b812b4f38b28e5ab7851703fc4c47698e77d22d1e6a66cae89756932ab2d9",
+      "after_sha256": "2e9f678713cebe31438fc3b28b4c93c16b0989e7ee5c2003b1f85f983a4b6e3f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 777,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md",
+      "from": "- No quest found for **Mother of Learning** (only discussion threads and a self-insert fic, \"I Am Zach\", on SB), **Shadow Slave** (only versus threads and #24), **Reincarnation Paradise**, **Circle of Inevitability**, **A Soldier's Life** or **TTKS / The Two Kingdoms**. Searches returned nothing relevant for the last four; they may exist under other titles or on Royal Road, Reddit or Discord, which these searches did not cover.",
+      "to": "- The bounded search found no quest for **Mother of Learning** (only discussion threads and the self-insert fic \"I Am Zach\" on SB), **Shadow Slave** (only versus threads and #24), **Reincarnation Paradise**, **Circle of Inevitability** or **A Soldier's Life**. The former final entry incorrectly treated the mirror ttks.tw as one novel. The [library index](LIBRARY_INDEX.md) names **巫师你好，我是伪人**, **一年抽取一词条，模拟的也可以？**, **咒回：特级的我去死灭打宿傩了！**, **全人类的继承者** and **废土边境检查官** separately; title-specific quest searches for those five are not established here. The old limited host/title search does not prove absence on Royal Road, Reddit, Discord or other titles.",
+      "reason": "Canonical library index37–52 explicitly says ttks.tw is a mirror, not TheTwoKingdoms; preserve five actual identities and leave unperformed quest searches explicit."
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md",
+      "from": "**Mother of Learning** (only discussion threads and the self-insert fic \"I Am Zach\" on SB), **Shadow Slave** (only versus threads and #24)",
+      "to": "**Mother of Learning** (the recorded results were discussion threads and the self-insert fic \"I Am Zach\" on SB), **Shadow Slave** (the recorded results were versus threads and #24)",
+      "reason": "Clarify searched-scope/AD32 language after lint; no new source finding or authority."
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_QUESTS_2026-10-22.md",
+      "from": "not canon rules or accepted balancing constraints.",
+      "to": "not canon rules or project balancing constraints (AD32).",
+      "reason": "Clarify searched-scope/AD32 language after lint; no new source finding or authority."
+    }
+  ],
+  "supporting_input_snapshots": [
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "read_ranges": [
+        [
+          37,
+          52
+        ]
+      ],
+      "sha256": "5dcfeed49598d781257c210eebcd6c50fa9948bc3282a1858386ae6ecd6edf53",
+      "scope": "Current title identity only, not full library or source/book read."
+    }
+  ]
+}

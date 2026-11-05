@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "batch": "B405",
+  "title": "Full reread of the three concurrently changed authority owners",
+  "at": "2026-11-05T04:48:51.502019+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/RULES_INDEX.md",
+      "ids": [
+        "31registeredsets",
+        "AD1–AD52",
+        "fullrouter",
+        "AD36",
+        "FLR1–FLR6",
+        "T1–T7",
+        "reservedprefixes",
+        "overlapownerproposals"
+      ],
+      "classification": "Current authority router fully reread after concurrent task-layer change",
+      "owners": [
+        "docs/RULES_INDEX.md",
+        "docs/UI_RULES.md",
+        "docs/USER_VISION.md"
+      ],
+      "disposition": "New UI/task/making routing matches recorded user direction; no additional rule set or adoption needed. Preserve each WA/UR/ABR/GTR/WPR/LSD authority range and explicit late scope, including current AD33 nuance, first-useful-seam AD51, optional human AD42, actual runtime floor and docs-only verification. Proposed overlap table is not a live ownership assignment.",
+      "evidence": "Full453lines freshly read in1–160/161–275/276–453, including every register/router/AD/table/verification/retirement/overlap/prefix section. Current USER_VISION7332–7340 actual instruction read; no linked rulebook/source/test behavior recertified. Earlier original full-input identity remains in its ledger.",
+      "reopen": "Recheck any later changed authority or selected rule/source contract; original full review is not current behavior proof. No new agent, approval, runtime work or rules edit selected.",
+      "input_sha256": "1dafe4bacdb4b1d4952d664d640d8f35d60f105ae97a24d45b3512425a02832f",
+      "input_lines": 453,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          453
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "ids": [
+        "UR1–UR82",
+        "UIV1–UIV4/UIV6/UIV7",
+        "SUI1–SUI19",
+        "RPT1–RPT14",
+        "tasklayers",
+        "BF105–BF119applications",
+        "B139/B149/B204/B247–B250/B255/B271proofqualifications"
+      ],
+      "classification": "Current UI authority and historical evidence applications fully reread",
+      "owners": [
+        "docs/UI_RULES.md",
+        "docs/RULES_INDEX.md",
+        "docs/USER_VISION.md"
+      ],
+      "disposition": "Task-layer application already lives in the owning rules: display detail does not switch execution or grant knowledge; preserve real commitment, held/spent means, interruption and navigation return. UR76–UR82/UIV retain proposed/in-use scope, SUI/RPT retain recorded adoption, and historical targets/source measurements remain history. Existing authority needs no duplicate fold.",
+      "evidence": "Full596lines freshly read in1–145/146–260/261–385/386–490/491–596, with combined-output truncation recovered explicitly478–538. All table rows and numeric receipt addenda included; no underlying source code, browser, screenshot or linked report newly read by this review. User quote7332–7340 checked.",
+      "reopen": "Preserve concurrent writers. The normal lint citation diagnostic at current line77 is not a missing user instruction, whose link is next line. No runtime/accessibility/consumer behavior or whole-world UI is certified; a later source/input change invalidates the affected scope.",
+      "input_sha256": "bb799931dec4475fa5724ba40b7c718f38f44ce5e720430ed49071b226324805",
+      "input_lines": 596,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          596
+        ]
+      ]
+    },
+    {
+      "path": "docs/VISION_DIGEST.md",
+      "ids": [
+        "allpillars",
+        "allcurrenttastecalls",
+        "task-layerbullet",
+        "scope/non-goals",
+        "lead/playerdistinction"
+      ],
+      "classification": "Current vision digest fully reread after concurrent direction maintenance",
+      "owners": [
+        "docs/VISION_DIGEST.md",
+        "docs/USER_VISION.md",
+        "PROJECT.md"
+      ],
+      "disposition": "The new task-layer bullet matches actual direction and the existing UI/router owners. Lead-first LOTM/HP alongside, retained alternative lives, per-world differences, optional human review, retired milestone, long play, source-number calibration and separate character/flavor voice remain coherent. No direction change or extra project-summary edit is needed.",
+      "evidence": "Full52-line current digest read, every paragraph/bullet and authority link; actual USER_VISION7332–7340 task-layer instruction inspected. Pointers do not count as reading the entire linked vision/campaign/source.",
+      "reopen": "Track subsequent user direction and input drift; this full digest read does not establish current runtime, package, installed state or all linked source coverage.",
+      "input_sha256": "4e8aec1c0cbcdc6ae93a27713c7e0114f4dfd94c73239e299745dad365e9de3c",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 553
+}

@@ -95,3 +95,12 @@ engine to be able to handle it?" Status: proposal; nothing built by this section
 - Super-power world pack through the pack loader (needs the P2 loader; Sol medium for the schema, Luna for content rows).
 - Ability synergy and combination report from tag rules (ideaboard S8), where "busted synergies" are found by search.
 - Power fusion, copy and transfer paths already exist in `simulation_effects.js`; surface them in the inspector (F4) only when a consumer needs them.
+
+
+## Content reconciliation B384: mechanism-led ability and feature scope
+
+This entire queue, F1–F4/O1/O2/O4/O5 rows and A1–A5 extension were read. Preserve playable weak starts with an actual in-world reason, accessible support and consequential growth, without making a fixed first-hour win a gate. Derived description reads actual body/marks/titles/knowledge rather than inventing or storing a second past. Hidden source or identity remains undisclosed until its observer route. Faculty, technique, source assignment, current support, permission and public rank are different facts; a power name supplies no behavior.
+
+The sentence requiring every ability to grow while away is a proposed overreach. Current AD16/AD52 require actual eligible mechanisms, workers, supports, clocks and results. Some abilities can be useful through choices or active use without offline growth; paused or unsupported contexts produce nothing by a blanket idle entitlement. AD51 permits a first useful shared seam, with another world validating or revising it. A second style legitimately needing an adapter or core correction does not fail a universal no-new-file test. Source-qualified canonical powers and original demonstrations retain different evidence; no book fact follows from a descriptor.
+
+O3's then-skipped Glasshouse depth, lowviewport target, actor counts, writer/dependency flags and one-slice order remain dated. Current PROJECT governs build order and current desktop targets. Derived views and family records need not wait for unrelated stock work when their actual consumers are ready; the old O4-before-O5a dependency is scoped advice. [Recovered-detail coverage](../title-rules-implementation-2026-10-21/COVERAGE.md) qualifies O2a's later vest bounty; it does not close chemistry/energy/power lifetimes or spatial situations. No new runtime, agents, source acquisition or user gate is created here (AD42).

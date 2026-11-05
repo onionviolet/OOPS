@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "batch": "B333",
+  "title": "Four ranked palettes: retire the old milestone and preserve distinct lives and means",
+  "at": "2026-11-05T02:05:50.947243+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/far-field-tropes-2026-10-08/PROPOSALS.md",
+      "ids": [
+        "P01–P08",
+        "P01scene/capability boundary"
+      ],
+      "classification": "Full ranked idea palette; useful distinct consumers with superseded milestones or bounded dependencies",
+      "owners": [
+        "docs/research/far-field-tropes-2026-10-08/PROPOSALS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve all proposals and original IDs; fold current priority/AD51/52 and specific agency, evidence, world-law and persistence boundaries. No implementation selection.",
+      "evidence": "Entire local proposal table, prose and limits read. Linked donors, current runtime and native tests not newly inspected.",
+      "reopen": "If selected, trace actual current owner/consumer and source before implementing one useful slice; retain broader possibilities.",
+      "input_sha256": "010610e02b539aafd2c9ffd522be0535471bd923aa0aae8bbdb83fefec70d246",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/PROPOSALS.md",
+      "ids": [
+        "O1–8/P-F/B/S links",
+        "RedBasin/Frontier separation"
+      ],
+      "classification": "Full ranked idea palette; useful distinct consumers with superseded milestones or bounded dependencies",
+      "owners": [
+        "docs/research/kenshi/second-pass/PROPOSALS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve all proposals and original IDs; fold current priority/AD51/52 and specific agency, evidence, world-law and persistence boundaries. No implementation selection.",
+      "evidence": "Entire local proposal table, prose and limits read. Linked donors, current runtime and native tests not newly inspected.",
+      "reopen": "If selected, trace actual current owner/consumer and source before implementing one useful slice; retain broader possibilities.",
+      "input_sha256": "bcffae53f8e1bf243d4a8ebd98a2dd17db0309146dfaa32b0a27b1e05ac7e3fb",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/open-idle-games-2026-10-09/PROPOSALS.md",
+      "ids": [
+        "P1–8",
+        "milestone/queue/offline/source boundaries"
+      ],
+      "classification": "Full ranked idea palette; useful distinct consumers with superseded milestones or bounded dependencies",
+      "owners": [
+        "docs/research/open-idle-games-2026-10-09/PROPOSALS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve all proposals and original IDs; fold current priority/AD51/52 and specific agency, evidence, world-law and persistence boundaries. No implementation selection.",
+      "evidence": "Entire local proposal table, prose and limits read. Linked donors, current runtime and native tests not newly inspected.",
+      "reopen": "If selected, trace actual current owner/consumer and source before implementing one useful slice; retain broader possibilities.",
+      "input_sha256": "891b54adaf6022d510592bf6ceee2cfa08cc0b47691c9f21d23421bdd297db18",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-scaling-2026-10-08/PROPOSALS.md",
+      "ids": [
+        "O1–8",
+        "seal-maker packet/source scope"
+      ],
+      "classification": "Full ranked idea palette; useful distinct consumers with superseded milestones or bounded dependencies",
+      "owners": [
+        "docs/research/power-scaling-2026-10-08/PROPOSALS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve all proposals and original IDs; fold current priority/AD51/52 and specific agency, evidence, world-law and persistence boundaries. No implementation selection.",
+      "evidence": "Entire local proposal table, prose and limits read. Linked donors, current runtime and native tests not newly inspected.",
+      "reopen": "If selected, trace actual current owner/consumer and source before implementing one useful slice; retain broader possibilities.",
+      "input_sha256": "903146ce03ebc43eb502e207af68c28f4ceedf7ec7467003430e1780e01f2495",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/far-field-tropes-2026-10-08/PROPOSALS.md",
+      "heading": "## Content reconciliation B333: preserved proposals and current scope",
+      "body": "All 26 original lines were reviewed, including every ranked proposal, concrete invitation scene and source/capability boundary. Preserve friendship as a complete outcome, a consenting actor with an independent plan, named learners with different goals, evidence provenance rather than duplicated testimony, fictional clinic recipients, actual social introductions, private commitments, role-specific ritual effects and a creature's continuing identity. These are original proposals; none proves the donor or YAIR has a general implementation.\n\nThe small scene sizes and ingredient/role counts illustrate a first proof, not universal limits. A person declining an invitation need not lose the relationship or acquire a debt. A rite belongs to its actual selected world; no Frontier Concept magic follows from the palette. The dated Frontier placement is a testbed possibility, not a newly selected depth lane ahead of current LOTM-first/Harry work. AD51 permits one useful shared seam without requiring the whole eight-proposal set; AD52 permits routine and delegation through actual means without repeating every authored scene as a chore.\n\nRetain the important state boundary: a lossy biography can describe events but cannot become the authority for a quest, relationship, reward or commitment. Actor-owned durable state and observer-owned knowledge may differ. The original source reads and future browser/persistence demonstrations remain their recorded scopes. This reconciliation ran no gameplay and does not reopen implementation or make generic human review mandatory under AD42.",
+      "before_sha256": "010610e02b539aafd2c9ffd522be0535471bd923aa0aae8bbdb83fefec70d246",
+      "after_sha256": "c3b2568ef1318ca122abbb098a16e2961307102669aec93ff1777e9fbdd459d3"
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/PROPOSALS.md",
+      "heading": "## Content reconciliation B333: preserved proposals and current scope",
+      "body": "All 16 original lines were reviewed, including the eight complete rows and final setting boundary. Preserve rescue with grateful departure, personal apprenticeship and goals, observable enemy methods with actual counters, a workshop distinct from a town, creditor-specific obligations, distinct custody/service aftermath, optional harsh body repair and one concrete cross-world device treatment. Observation, loot, source faculty and learned competence remain distinct. Refusal and departure can be successful outcomes rather than hidden failures.\n\nO7's opt-in harsh context does not impose mandatory limb loss, hunger or slavery on Frontier. O8's after-O7 dependency describes that particular proposed prosthetic route, not a rule that sword practice or any portable method must first acquire an injury/repair system. A device requiring maintenance in the example does not make all imported devices dependent; actual mechanism and available materials decide. An institution losing an eligibility predicate can stop its future visits without erasing actual memories or unsettled obligations already incurred.\n\nThe source-hook statements are static historical observations, not current native/browser capability proof. The Frontier ranking and Red Basin destination are proposals, not a priority replacement for the current LOTM-first/Harry routes. AD51/52 allow a selected useful seam and routine through actual actors/support; no global loyalty meter, one mandatory counter or simultaneous eight-slice wave follows. Preserve all acceptance scenarios as future selected-slice checks, without making them evidence that runtime or saves were exercised here.",
+      "before_sha256": "bcffae53f8e1bf243d4a8ebd98a2dd17db0309146dfaa32b0a27b1e05ac7e3fb",
+      "after_sha256": "b64835339e95c6f3919a85a5cc54972dacc9e7fd86f5a44ddd9ea2264b79d3a0"
+    },
+    {
+      "path": "docs/research/open-idle-games-2026-10-09/PROPOSALS.md",
+      "heading": "## Content reconciliation B333: preserved proposals and current scope",
+      "body": "All 16 original lines were reviewed, including P1–P8 and the final recommendation. The opening and closing one-realm/one-prestige milestone is superseded by Weibao's October24 direction. Preserve its old wording as dated history; it cannot gate the broader current vision or select a new Frontier career ahead of current LOTM-first/Harry developer work. P1's first-trial ranking remains an agent recommendation, not a live dispatch.\n\nP2's solved-task routine is useful but does not impose a universal personal-first demonstration. Current AD52 allows supported automation, delegation and compression with actual means, costs, stops and attributed learning. P3's practice-after-understanding proposal depends on what the selected method really requires, rather than making every tool or learned fact unusable until a fixed training loop. Career stages and teaching can matter without forcing every pursuit into apprentice/worker/mentor ranks.\n\nP6's statement that banked acceleration is unselected is historical: later user direction selected journey-wide eligible unused-time banking, qualified by actual spending means and clocks. The report's cap example does not establish a hard cap or a real output/aging policy, and bank credit is distinct from automatic unattended production. Save compression, teaching, reset operation cards and one follower's actual work remain useful separately selectable proposals. The chronicle/body division and quota safeguards are observations of the cited revision, not fresh inspection of the current tree. Keep no-private-save and previous-good-save preservation boundaries. No runtime, migration, native integration or offline equality proof was produced here.",
+      "before_sha256": "891b54adaf6022d510592bf6ceee2cfa08cc0b47691c9f21d23421bdd297db18",
+      "after_sha256": "6e87f17af1a964fef8ce1706bda3f1890f7e734e24b0095a6891e5ce0ac05fa2"
+    },
+    {
+      "path": "docs/research/power-scaling-2026-10-08/PROPOSALS.md",
+      "heading": "## Content reconciliation B333: preserved proposals and current scope",
+      "body": "All 18 original lines were reviewed: eight proposals, first-packet recommendation and verification boundaries. Preserve the distinctions between witnessed feat and hearsay, institution-owned ratings and actual power, effect reach/contact/source/protection, outgrown chores and optional new pursuits, observed boundary change and its cause, finite authored expeditions within an infinite background, and actual distant beneficiaries rather than player stat extensions.\n\nThe report's strength is allowing genuinely overwhelming power and asymmetric local laws. The selected obstacle need not acquire a counter or upkeep merely to keep it difficult. A faculty can fail for missing real support, but independent power is not weakened just because it crossed worlds. O6's precise bypass needs an actual applicable protection/resolution, not a generic precision-beats-strength rule. O7's losing-an-index example constrains the proposed indexing route, not every means of finding an infinite destination. O8's distant scope is a delivery-size note, not a reason to exclude many worlds from Weibao's direction.\n\nThe first Notebook/board packet is an unselected recommendation and its source route must be inspected before implementation. A report or traveler dossier is a projection, not the gameplay authority that grants a power or changes combat strength. AD51 allows the first useful shared seam and later validation; AD52 preserves actual work and consequences while compressing repetition. No extra scalar franchise conversion, universal stewardship progression, forced counter, new migration or general offline disaster policy is adopted here. Historical source inspection and future fresh-origin/persistence checks are not newly executed by this full document read.",
+      "before_sha256": "903146ce03ebc43eb502e207af68c28f4ceedf7ec7467003430e1780e01f2495",
+      "after_sha256": "cecf4ccdd6d491652b8dc57aed0c0d29b4822b7364325f56694f8b6512a891fd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 760
+}

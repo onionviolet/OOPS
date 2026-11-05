@@ -45,8 +45,19 @@ Legend: V = verified (page opened and the mechanic read there). U = unverified (
 
 ## Gaps
 
-- No quest found for **Mother of Learning** (only discussion threads and a self-insert fic, "I Am Zach", on SB), **Shadow Slave** (only versus threads and #24), **Reincarnation Paradise**, **Circle of Inevitability**, **A Soldier's Life** or **TTKS / The Two Kingdoms**. Searches returned nothing relevant for the last four; they may exist under other titles or on Royal Road, Reddit or Discord, which these searches did not cover.
+- The bounded search found no quest for **Mother of Learning** (the recorded results were discussion threads and the self-insert fic "I Am Zach" on SB), **Shadow Slave** (the recorded results were versus threads and #24), **Reincarnation Paradise**, **Circle of Inevitability** or **A Soldier's Life**. The former final entry incorrectly treated the mirror ttks.tw as one novel. The [library index](LIBRARY_INDEX.md) names **巫师你好，我是伪人**, **一年抽取一词条，模拟的也可以？**, **咒回：特级的我去死灭打宿傩了！**, **全人类的继承者** and **废土边境检查官** separately; title-specific quest searches for those five are not established here. The old limited host/title search does not prove absence on Royal Road, Reddit, Discord or other titles.
 - Bleach, HxH, FMA and Fate hits were mostly small or dormant. Many Bleach quests (including Hollow, Visored, Quincy threads on SV and SB) were only seen as titles.
 - Royal Road, Reddit and QuestionableQuesting were barely reachable through search results; QQ coverage is thin.
 - None of the unverified rows (#11, #12, #14, #25) were opened.
 - D&D: only 5e-styled threads checked; no Planescape, Eberron or Forgotten Realms long-running quest opened beyond #22 and #23.
+
+
+## Content reconciliation B325: quest references, exact titles and search limits
+
+All25 catalog rows, notes and gaps were content-reviewed. Retain V versus snippet-only U, mixed on-page/off-page status and approximate competing thread counts. V means the catalog's recorded opened-page mechanic, not a whole story or external rules-document reading. Grouped titles in rows14/25 are leads, not independently verified entries. Onlyquestfound is bounded discovery scope, not a universal absence result. Ongoing/dormant/ended and forum accessibility are October22 observations, not current activity or an acquisition recommendation.
+
+The gap list incorrectly expanded a mirror name into a novel. The current library owner explicitly identifies ttks.tw as a site and names five separate books. The corrected gap uses their actual printed titles and leaves title-specific quest searches unperformed; the original faulty sentence is preserved exactly in the batch amendments. This is a source-identity correction, not a new web search, novel reading, coverage claim or recommendation to collect those stories.
+
+The useful donor questions remain varied: actual held item/resource versus a bar, capacity versus control, calendar budget versus elapsed time, practiced method versus stat rank, digesting a potion versus gaining XP, and an optional role/background versus imposed morality. Point-buy, dice explosion, rank caps, mandatory XP allocation, corruption/sanity penalties, weight limits, gacha and death penalties are these fan adaptations, not canon rules or project balancing constraints (AD32). A crossover especially needs its own admitted premise. They cannot fill missing source laws merely by displaying a crunchy sheet.
+
+Forum voting, omakes/art/discussion rewards and linkedGoogleDocs are social authoring practices, not authority to send posts, collect the user's real activity or grant character progress for private user history. A rule-heavy quest can suggest a useful UI/control or conditional procedure, but still depends on a human author for unmodeled choices. No thread body, off-page rules, live forum, source novel, private save, real-user profile, UI or game mechanic was read or changed by this local review beyond the title correction.

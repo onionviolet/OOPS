@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "batch": "B353",
+  "title": "Upstream adaptation, ideaboard handoff and direction-coverage claims",
+  "at": "2026-11-05T02:47:56.363617+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/UPSTREAM_DIRECTION.md",
+      "ids": [
+        "Pinned four-surface snapshot",
+        "Five capability ports",
+        "Three foundation alternatives",
+        "Migration gate"
+      ],
+      "classification": "Historical pinned source research and superseded initial recommendation",
+      "owners": [
+        "docs/UPSTREAM_DIRECTION.md",
+        "docs/V06_MIGRATION.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "disposition": "Preserve pinned upstream provenance, useful semantic-port costs and migration invariants; qualify all current/remaining/open labels as the October 1 snapshot and route foundation status to its existing owner.",
+      "evidence": "Read all 76 lines, including four upstream revisions, the hosted/source distinction, contributor attribution, five adaptation rows, native combat limitations, foundation alternatives, importer incompatibilities and superseded recommendation. No upstream APIs, PR state, remote refs or source code rechecked.",
+      "reopen": "Only for a selected future port, inspect a pinned then-current revision and its dependencies against the actual owning source; verify supported migration/native consumers without replaying a completed foundation migration.",
+      "input_sha256": "0e14081d367ed3e57bb20c2e1e788787e5b3171b48ea17e525957f6b9f1df192",
+      "input_lines": 76,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          76
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/IDEABOARD_HANDOFF_2026-10-08.md",
+      "ids": [
+        "Read-first",
+        "Learned preferences",
+        "October 10 update",
+        "Six historical lanes",
+        "Go 1–2",
+        "D2a/D2b"
+      ],
+      "classification": "Historical coordination handoff with lasting ideas and obsolete worker/status/routing observations",
+      "owners": [
+        "docs/gm/IDEABOARD_HANDOFF_2026-10-08.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve original handoff and useful design preferences; qualify global proposal/permission claims, worker status, historical UI shape and delegated model choices by current owners and host authorization.",
+      "evidence": "Read all 80 lines, including six lane rows, proposed decisions and all open items. Historical process command, installed-app observations, branch/path count and isolated candidate status were not treated as live evidence or instructions to launch/merge.",
+      "reopen": "When resuming a particular lane, inspect its current owner, actual source and checkpoint; obtain live process evidence only if necessary. No unsolicited lane, chat, merge or installation work.",
+      "input_sha256": "664514a2013616b33164ee0ecba22923ad58e6bcbd12bdce9d23e894ae170e26",
+      "input_lines": 80,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_3.md",
+      "ids": [
+        "Rows 1–73",
+        "OD1–OD25",
+        "CA1–CA13",
+        "Eleven subtle aspects",
+        "Eight biggest gaps",
+        "Status totals"
+      ],
+      "classification": "Historical inferred coverage map; documentary findings distinct from current runtime proof",
+      "owners": [
+        "docs/audits/gap-audit-2026-10-30/uv_cov_3.md",
+        "docs/RULES_INDEX.md",
+        "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md"
+      ],
+      "disposition": "Retain every row and original status as dated audit evidence; qualify file/import/size inferences, distinguish standing direction from implementation and remove implied universal canon-pressure/trapped-detection requirements.",
+      "evidence": "Read all 106 lines, recovering the first truncated table with bounded 1–35 and 36–79 reads and the 80–106 tail. All 73 rows reviewed; declared totals 16+45+6+1+1+4 equal 73. No source importer graph, UI, acceptance, acquisition or runtime test was re-run.",
+      "reopen": "For a selected gap, inspect current semantic consumer and its bounded tests/persistence/browser evidence. A filename, missing named report or prior small module is not enough to decide current absence or completion.",
+      "input_sha256": "e874c7b20ececfbc234423197e472341788e51f82d1a6d15472d7a9f69387df8",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UPSTREAM_DIRECTION.md",
+      "heading": "## Content reconciliation: pinned upstream research, 2026-11-04 (B353)",
+      "body": "The verified snapshot above is explicitly October 1 research. “Current,” open PR, inaccessible content, branch-tip, commit-count and source-absence claims describe those pinned observations; this reconciliation does not refresh upstream. Hosted v0.5 release evidence and development v0.6 source remain different surfaces. Contributor proposals remain separate from upstream acceptance. The later v0.6 choice and adoption receipt already supersede the initial small-event-first recommendation; do not schedule another foundation migration from this old proposal. [Migration ownership](V06_MIGRATION.md) and PROJECT.md own the fork’s actual foundation/status.\n\nPreserve the useful port boundaries: shared actor objects do not supply goals, durable injury or off-screen scheduling; an encounter’s cleanup must not erase real history; a sequential randomized reward processor is not a durable transaction merely because its vocabulary fits. Native content/dependencies, saved status and unknown extension namespaces require real compatibility checks. A matching game-version string is insufficient, and a decoder that publishes bytes before semantic load can damage the prior saved root. Preserve rejected-import protection, retained content, earned progress and committed result identity through the selected admission route.\n\nThe five adaptation rows and three development approaches remain alternatives with costs, not standing work orders. Reuse current seams under AD51 rather than preemptively layering every possible upstream model. The listed migration gate proves only its selected route/event/fight and generated fixture round trips if actually executed against the changed inputs; it is not all-content or release proof. Generic human review is optional under AD42. No fresh source, remote, migration, save or browser evidence was produced here.",
+      "before_sha256": "0e14081d367ed3e57bb20c2e1e788787e5b3171b48ea17e525957f6b9f1df192",
+      "after_sha256": "923c857d8c307dda2646e3fa0229681b0389af3d424108b2366c56bd0db9e73d"
+    },
+    {
+      "path": "docs/gm/IDEABOARD_HANDOFF_2026-10-08.md",
+      "heading": "## Content reconciliation: historical handoff precedence, 2026-11-04 (B353)",
+      "body": "Keep this October 8 handoff and its October 10 addendum as history. The north-star owner contains useful proposals alongside attributed user direction and later reconciliations; the old blanket “everything is a proposal” cannot demote a genuine accepted answer. Conversely, a saved consideration does not become accepted or implemented. Many worlds, long lives, powerful growth and world-dependent means remain useful direction; possibility does not mean every source grants every exception without a mechanism. Current DESIGN/UI owners govern visible layout rather than freezing the early center-menu/bio suggestion as a permanent shape.\n\nThe six lane statuses, candidate/integration distinction, branch name, approximate dirty-path count, installed-game observations and D2a/D2b pending labels belong to the dated handoff. They neither establish current worker liveness nor authorize replaying merge/build/commit or uninstall actions. Check the selected current owner and actual integrated source before using an old missing patch as a repair task. A historical deferred follow-up is not a new research or acquisition order.\n\nThe old Sonnet reader advice and fixed “send/go/run” interpretation do not override current host routing and Weibao’s current explicit request to act. No agent, new chat or worker is started by this document. Save each actual new idea in its matching existing palette; keep user words, derived defaults, proposals and execution evidence distinct. Current PROJECT.md and accepted rules own priority, including LOTM-first/Harry work and the retired one-realm/prestige gate. This review preserves the handoff without turning its historical reservations into present assignments.",
+      "before_sha256": "664514a2013616b33164ee0ecba22923ad58e6bcbd12bdce9d23e894ae170e26",
+      "after_sha256": "e8d3657531d20c70c354049cdc290ac6e27adf20597402a411ed27c722547b1d"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/uv_cov_3.md",
+      "heading": "## Content reconciliation: coverage evidence limits, 2026-11-04 (B353)",
+      "body": "All 73 rows and their original status counts are retained as the October 30 audit’s classifications, not new current gameplay results. The numeric total is consistent, but the evidence strength varies: a module/test filename, import search, file length or absent named report cannot prove end-to-end behavior or absence. Likewise BUILT can mean a saved workflow/rule rather than a playable consumer. “None” in a gap cell does not establish universal completion. Existing source or test paths are leads to inspect, not proof that those tests were executed here.\n\nRows 2/8/20–22/27/34–35/46 and the biggest-gap list need current consumer evidence before any new dispatch. A module can have indirect registration or another implementation name; a missing TRIAGE/APOTHECARY report does not prove absent UI. A named implementation or passing pure fixture does not prove native navigation, committed time-bank use, save admission or ordinary play. Preserve the original inferred gaps while checking the actual selected route. The journey-wide eligible unused-time bank is direction, distinct from individual frozen lives’ production, technical scheduler budgets and capacity upgrades; a field called bank does not establish that contract.\n\nRows 40–41 do not require a general canon-pressure engine: OD7/OD8 require actual world causes, not arbitrary restoration or invented opposition. Row 44 does not require a universal trapped-state detector or automatic rescue merely because locally unwinnable situations can exist. Rows 60/70/73 keep remembered mastery versus bodily execution, real paused-history retention and selected compatibility proof distinct. An explicit stronger carrier/source can change those limits. Titles, harmful bindings, fictional voices, meaningful warnings, research and improved carryover remain useful possibilities rather than every-world requirements.\n\nThe listed eight priorities are historical audit recommendations. Current accepted owners and selected developer routes determine build order; AD51 permits the first useful seam and AD52 supports compression without claiming unperformed work. Standing paid-source boundaries and actual qualified coverage still apply; “acquisition done (inferred)” is not a catalogue or chapter-coverage verification. No source, browser, acquisition, runtime, migration or rule-code verification was renewed by reading this map.",
+      "before_sha256": "e874c7b20ececfbc234423197e472341788e51f82d1a6d15472d7a9f69387df8",
+      "after_sha256": "54952deb178c29c475786a2a6a7c7768b9bb50283cfcae021393e89ac1b1b86b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 715
+}

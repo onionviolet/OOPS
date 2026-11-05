@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "batch": "B335",
+  "title": "Held systems and enemy cheats: every family retained with actual channels and custody",
+  "at": "2026-11-05T02:08:21.162346+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/held-systems-2026-10-10/PROPOSALS.md",
+      "ids": [
+        "O1–8",
+        "45enemyfamiliesE1–45",
+        "K1–3/P1–6",
+        "T1–20/instancefields/hooks"
+      ],
+      "classification": "Whole original proposal inventory; conditional enemy counters, support relations and selectable first slices",
+      "owners": [
+        "docs/gm/dispatch/held-systems-2026-10-10/PROPOSALS.md",
+        "docs/CHEAT_LIBRARY.md",
+        "docs/CHEAT_COSMOLOGY.md"
+      ],
+      "disposition": "Read all241lines, all45family rows, three full slices and twenty touches. Preserve distinct sources/controllers/custody/knowledge and conditional counter/inheritance mechanisms without adopting new instance ledger or universal hook bus.",
+      "evidence": "Full local body reviewed; no source novels, cited runtime, current cheat instance architecture or native behavior newly checked.",
+      "reopen": "For a selected family inspect its actual source/instance/support/knowledge/consumer. Current build priorities and AD51/52 govern; none of these slices is automatically dispatched.",
+      "input_sha256": "51de389db57b56b000086e895d6e6d85ccd08191cd5847dd3738d6d483b3397f",
+      "input_lines": 241,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          241
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/held-systems-2026-10-10/PROPOSALS.md",
+      "heading": "## Content reconciliation B335: all held relations and enemy families",
+      "body": "All 241 original lines were reviewed, including O1–O8, every E1–E45 row, the proposed instance fields and event hooks, K1–K3, P1–P6 and all twenty touches. Preserve the main design value: held ownership, suppression, interface operation, sponsorship, fragments, institutional service and an independent source are different relations. Discovering a maker does not prove a live controller, and holding a container does not own an autonomous resident. Observers' claims can conflict without replacing actual world state.\n\nEach enemy family retains its own acquisition, contact, fuel, retention and transfer conditions. A counter is a supported possibility, not a promised win. Capture may fail to stop regression; randomness may be visible to foresight; an absolute hit need not settle another objective; duplication need not erase existing copies; a commander dying need not dissolve an independent army; defeating a bearer need not spill storage or transfer a world. Perfect execution can remain perfect. Do not invent an anchor, central body, fuel, quota or exposed weakness solely to make every powerful ability defeatable.\n\nThe proposed instance ledger is one storage option, not accepted replacement authority. Current source grants, transactions, receipts and actual carrier ownership need inspection before choosing storage. A relation graph may legitimately cycle; validation must resolve its operations rather than assuming every cycle is corrupt. Unknown revocation is not unlimited revocation. Conversely a truly supreme controller can have a real broad channel; the design does not require all control to be defeatable. A removed interface or service affects only actual dependencies, with independent learned skill, goods, transformations, obligations and knowledge retaining their own mechanisms.\n\nThe payload and hook table records missing joins at the cited revision, not a general present API or proof that all joins remain absent. Commit, complete, reject, cancel, gift, loan return, theft, actual death and native unconsciousness must keep their distinct meanings. A single atomic transaction is a useful publication shape; a long operation may also have real committed partial progress and interruption, so it must not refund everything or repeat every effect by treating the whole history as one unstarted action. Rechecking support at completion must respect actual elapsed work and the accepted terms. Browser reload itself is not in-world regression, and real private saves stay outside the fictional snapshot route.\n\nK1 preserves optional issuer work, offer version and settled earned goods; K2 preserves sampled evidence, a committed rival choice and actual tool eligibility; K3 preserves lender, resident consent, assistance and independently learned method. The example spirit's consumable is local fiction, not a universal spirit tax. The first-slice counts, same-cost examples and proposed order are selectable tests: differing actual bodies, access or mechanisms can legitimately change costs even when the governing rules are shared. Earning by an institution, token or pupil never automatically transfers all knowledge or personal loyalty.\n\nThe home-world ranking is a dated practical proposal, not a replacement for current LOTM-first/Harry developer priorities. AD51 supports the first useful shared seam without all45families or a universal event bus, and AD52 permits supported routines/delegation without mandatory repeated manual chores. The old sentence about fiction needing playable human acceptance is optional generic review under AD42; no new approval gate follows. All ideas/history remain intact. No registered rule, engine, source instance, counter, NPC policy, custody transfer, save behavior or current gameplay result was implemented or verified by this read.",
+      "before_sha256": "51de389db57b56b000086e895d6e6d85ccd08191cd5847dd3738d6d483b3397f",
+      "after_sha256": "8dd5b46f80f8687bf0125054326be752774244267f74f65e60ebd716722676c9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 758,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B326, continuous execution 2026-11-04 |",
+      "to": "| B335, continuous execution 2026-11-04 |",
+      "reason": "Advance only reconciliation coverage pointer to latest recorded batch; no product authority change."
+    }
+  ]
+}

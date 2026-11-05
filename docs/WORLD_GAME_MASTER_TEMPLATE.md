@@ -138,15 +138,15 @@ For authorized implementation, you can direct parallel implementer subagents for
 Select independent lanes with disjoint writes. Keep shared registries, persistence, native adapters, global docs and generated assets with the named integrator unless one writer receives an explicit reservation. A local worker must not overwrite another worker's or the user's changes. Do a tiny settled fix yourself when delegation adds more coordination than value.
 
 Follow [agent usage rules](AGENT_USAGE_RULES.md) AU1–AU15 / AD37 first.
-Readers use bounded context and default to Luna medium when supported; they may
-spawn lesser agents within reserved tree-budget slots (AU9). Retries and
-successors retain the parent task budget.
+Readers use bounded context under the current AGENTS.md/host model-routing
+policy. Delegation requires the applicable current authorization and stays inside
+the reserved tree budget (AU9); retries and successors retain that same budget.
 For full books, apply AU13–AU15: one finite pass with fresh reader contexts,
 at most 12,000 source words and six model responses per reader, then retirement.
 Keep raw chapters out of coordinator history; use continuity capsules and
 evidence pointers. The four-agent exploratory cap does not cap full books.
 
-Follow the master's model-routing policy. Start appropriate settled gameplay/UI tasks with GPT-6 Luna at high, and qualify one representative task before expanding the batch. Low or medium can suit mechanical content work. Keep ambiguous world design and shared-system decisions with a capable GM. Inspect the actual result; repair understood in-scope defects and inspect the result. Repeat only when a new diagnosis supports another concrete correction; escalate unresolved design, shared semantics or capability needs. Do not weaken the mechanic or gate to preserve the cheaper route.
+Follow the master's applicable current model-routing policy and AGENTS.md. Choose model and effort for the actual judgment and proof needed, rather than pinning a tier by role title. Qualify one representative substantive task when useful before expanding a batch. Inspect the actual result, diagnose in-scope defects, and escalate unresolved design, shared semantics or capability needs through the current policy. Do not weaken the mechanic or gate to preserve a cheaper route.
 
 You own worker review: inspect changed paths and checks against the current brief, ask for specific corrections, and return a coherent local result to the master. Workers do not select accepted canon, publish the combined build or spawn another tier. Mark unrun browser/save checks explicitly and leave final combined verification to the integrator. No completion summary alone establishes playable acceptance.
 
@@ -200,8 +200,21 @@ For a delegated implementation:
 
 ## Authorized delegation and context succession, 2026-10-04
 
-[Capacity/succession](gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md) supersedes the old project-wide four-role limit and no-new-chat refresh restriction. Use actual host limits and useful disjoint agents/project chats; same-role fresh-context successors require checkpoint, predecessor/process/child reconciliation and exclusive writer transfer. No extra approval is needed for this already-authorized project workflow. Preserve source/private-save/publishing scope. [Implementation-first pace](gm/dispatch/TRAILBLAZE_PARALLEL.md) defers further suites this exploratory wave and requires truthful unverified status.
+[Capacity/succession](gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md) supersedes the old project-wide four-role limit and no-new-chat refresh restriction. Use actual host limits and useful disjoint agents/project chats; same-role fresh-context successors require checkpoint, predecessor/process/child reconciliation and exclusive writer transfer. This records that session's authorization; current host/user rules still govern any new chat, agent, successor or external action. Preserve source/private-save/publishing scope. [Implementation-first pace](gm/dispatch/TRAILBLAZE_PARALLEL.md) defers further suites this exploratory wave and requires truthful unverified status.
 
 ## Autonomous assigned goals
 
 Follow the master prompt's [Autonomous assigned goals](GAME_MASTER_PROMPT.md#autonomous-assigned-goals) and [Delegation and succession](GAME_MASTER_PROMPT.md#delegation-and-succession). Stop at the assigned finite result.
+
+
+## Content reconciliation B349: reusable roles and current task authority
+
+All207 original lines were reviewed, including every brief field, reuse prompt, task control, checkpoint, worked Tideglass example, launch examples and later succession/iteration notes. Use only fields that affect the assigned outcome, as the opening already says. Filling the schema does not select a world, certify canon, make a loadable instance, establish a new game initializer or dispatch workers. A local adopted brief owns its actual selected world details, not shared direction by mere presence.
+
+The Tideglass example is original unselected fiction. Its charged glass, tide/played-time, leakage, crossing aid, people and two approaches illustrate connected work without claiming current native source or a universal sea/magic law. Another effective imported method may remove the local obstacle entirely. A useful local slice need not invent a crossing, three-tier pursuit ladder, ordinary weaker niche or a full tidal simulation simply to satisfy a field. The complete source/world horizon remains separate from its first bounded proof.
+
+The early template's pinned Luna-medium readers/Luna-high settled-code paragraphs are replaced by current AGENTS/host routing rather than treating those fixed tiers as live requirements. Keep bounded source exposure, cumulative budget, real field/consumer and representative qualification where useful, with explicit higher-judgment escalation. Historical AU/host capacities are not current workers, fresh allowance or permission to spawn. The standing historical chat/successor note is qualified by current host/user authority; this documentation review creates none.
+
+Actual source/body/knowledge, input/output custody, local clocks and failure modes belong in the selected consumer's contract. Old phase deferrals stay implemented-unverified; the template does not waive current rebuilt/affected persistence proof for a gameplay-done claim. AD51 permits the first useful shared mechanism without all future worlds; AD52 compresses repeated work while retaining actual choices, time/costs, actors and observed evidence. C5/human taste review stays optional under AD42 rather than a universal blocker.
+
+Writer reservations are exact paths and live ownership, not entire directories or old role names. A parent cannot solve conflicts by silently overwriting dirty global docs or assuming a stopped coordinator released its children. Continue the existing assignment after compaction without restarting pending work. No current world, role chat, source reading, runtime change, save migration, test result or agent dispatch was created by this full template review.

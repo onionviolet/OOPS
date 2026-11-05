@@ -57,5 +57,13 @@
     }
   ],
   "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
-  "remaining_without_content_review": 1197
+  "remaining_without_content_review": 1197,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "from": "../UI_RULES.md#functional-housing-and-work-as-lived-context",
+      "to": "../UI_RULES.md",
+      "reason": "Use verified file target; invented section fragment removed before closeout."
+    }
+  ]
 }

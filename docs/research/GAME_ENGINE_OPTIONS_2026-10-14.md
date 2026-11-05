@@ -319,3 +319,14 @@ native save converters; OS file-commit failure recovery; Mac Godot-WebView plugi
 qualification; rebuilt desktop gameplay and human acceptance. Existing Foundation
 native gates remain open with their owners. Documentation completion closes none
 of those gates.
+
+
+## Content reconciliation B389: scoped evidence and current stack direction
+
+This full321-line comparison, every source/count/cost/option row and later switch gates were read. The459-file/97803physical-line census is an old exclusive path classification, not a semantic dependency count, a port percentage or a promise that data factories transfer unchanged. Person-week ranges are uncertain planning heuristics with omitted release/content/taste work, not quotes, current schedules or throughput that divides by agent count. A narrow successor dropping systems is a new scope, not a completed equivalent port.
+
+Preserve useful contracts independently of engine brand: stable domain IDs, exact RNG order/number/null/missing semantics, retained compiled story identity/cursors, actor-qualified read models, no renderer-owned money/time, source/content revisions, stale/canceled bridge results and awaited durable acknowledgment before live publication. A Rust/ECS handle is not a save identity. A physics frame or statechart timer is not the causal scheduler; a desktop wrapper does not automatically move origin storage, remove the application guard or award closed/sleep time. Renderer islands need actual native commands, lifecycle/teardown, accessible text/control and saved-preference behavior.
+
+The Tauri-first/Electron-fallback and old viewport recommendations are historical: current AD39 and [PROJECT](../../PROJECT.md) choose Electron plus web and current desktop targets. Keep Tauri, Godot, renderer, Rust and other engine options as unselected alternatives for a demonstrated gap. No whole-game migration follows from a brand/editor/empty-export comparison. Proposed50percent/2x/100ms/50ms switch bars were not achieved or adopted universal thresholds. Current AD51 allows a useful first seam rather than a broad framework prerequisite; AD42 makes human taste optional.
+
+External engine versions, web export limits, licenses, seat/pricing rules, release dates and plugin support are attributed October14 observations and unresolved metadata, not freshly verified legal/current-product guidance. Vendor empty-engine charts, codec mismatch, raw/gzip/Wasm asset differences and historical Godot size remain incomparable to a full game. No primary page, export, installation, API, benchmark, current dependency or source was reopened here. Any selected future adoption needs its own matching consumer, platform, compatibility and failure evidence.

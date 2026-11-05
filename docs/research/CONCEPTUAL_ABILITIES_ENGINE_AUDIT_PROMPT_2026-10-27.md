@@ -47,3 +47,14 @@ Report: file path, commit hash, unreachable sources, top three recommendations.
 - **Retroactive effects touch the delta log, not the base.** That keeps seeds honest and lets rewinds undo them.
 - **Testing.** Ask for a property test: apply, save, reload, Import, then assert no dangling references and that unmasking restores the original view.
 - **Do not let this become a permission list.** It models channels and operations; whether a particular method reasonably works is decided by its mechanism (AD38).
+
+
+## Content reconciliation B320: historical instructions and current evidence boundary
+
+All parts, eight proposal requests and five brief considerations were content-reviewed. This is a preserved prompt, not a present instruction to run its audit, commit, create a session or append duplicate user-direction records. Its named report is a separate reviewable artifact. The reference list supplies questions, not verified franchise abilities; similarities in words such as name, Root, unkindled or conceptual do not certify the claimed mechanism. Primary source and exact continuity matter before an ability card becomes source evidence.
+
+The channel list is a useful lens, not a required universal identity service or data schema. The actual effect may target a name, referent, public record, belief, relationship, claim or existence with different consequences. Shared literal strings do not make them one state owner. Deterministic resolution follows actual causal/override rules; the proposed fixed base/rewrite/mask/effect layer order is not adopted by being included in a prompt. Actor knowledge is a view of truth and evidence rather than independently changing world truth for every viewer.
+
+Residue and a costly no-residue dial are proposals, not consequences required by AD38. A source-supported complete erasure can work at its declared breadth without an invented trace, resistance or tax. Conversely, removing a mask need not undo later transfers, costs, deaths or actions caused while it operated. Retroactivity, restoration and retained memory need their actual scope and durable history, rather than a promise that un-erasing always equals deleting one delta.
+
+Keyed generation can support stable provenance, but a key plus deltas is sufficient only if the exact base, source/version, relevant history and dependent state remain recoverable. Causal commitment can freeze an unseen fact; reveal is not the only boundary. A recruited/renamed/transformed entity is not the only case needing retained truth. Current AD51 allows a useful first seam without migrating every generator or building all five-world cards first. No generator API, architecture check, save slice, lore claim, source acquisition or commit was implemented by this local review.

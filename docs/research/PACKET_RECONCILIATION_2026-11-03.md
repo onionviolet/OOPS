@@ -47,3 +47,12 @@ lists (`src/structured_renewal.js:38`).
 2. **Trace pass on the ~10 untraced NGU small touches and Immortal Life T6-T14** (UI-level reading, then tests).
 3. **Re-trace C1-C7 with tests read** before any is scheduled.
 4. Fresh itch cultivation sweep (screen is from 2026-10-22).
+
+
+## Content reconciliation B318: actual records and scoped follow-through
+
+The full initial result, C1–C8, follow-through and four proposed deeper dives were content-reviewed. Preserve its explicit grep/partial-read boundary. Missing keyword anchors do not prove missing systems, and the phrase fully implemented denotes this initial narrow source judgment, not the AD43 floor. Likewise, absence of a folder name in PROJECT/rules is insufficient by itself to prove no proposal was ever adopted; actual user direction and owning decisions govern that question. No packet becomes selected by its rank here.
+
+Later C1–C7 re-trace supersedes initial seam/cost guesses for its actual inspected inputs. In particular, C4's existing carrier/consumer is the purchased-anchor continuation path, not the heir path or the proposed gain-derived operation. The later built C1 statement is scoped to structured renewal, with field renewal deferred. Later Climb bundle reading qualifies the still-listed future source-read recommendation; it does not recover authored source or prove play. Stale line numbers and gone tests are historical locators, with current files resolved when a packet is selected.
+
+Keep C8's actual natural-player journey question separate from source grep and source/bundle parity. None of the untraced small touches becomes done through a linked follow-up; a fresh cultivation sweep and every deeper-dive item remain proposals. This review launches no audit, reader or runtime slice and performs no new source trace, test, build, browser, private artifact or game-source read.

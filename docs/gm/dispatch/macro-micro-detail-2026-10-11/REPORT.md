@@ -70,3 +70,10 @@ The full World1 GM, other isolated runtime candidates and canonical owners retai
 their separate scope and reservations. No outside file, private save, runtime,
 PROJECT decision or shared index was edited. Suggested integration is additive
 owner review of these details, not automatic adoption.
+
+
+## Content reconciliation B376: finite coverage and continuing consequences
+
+This full return and [coverage map](COVERAGE.md) were reviewed together, including every S00–S14 remainder. Their substantive contribution is a recipient who actually uses the service/material/method, an operation that changes options, a received channel and a later decision. Creation can relieve the old demand rather than secretly acquiring a new scarcity fee; institutional response needs actual effects and information. Care, access, property, knowledge, usable faculty and succession remain distinct. Freeze, supported observation and committed work have their own clocks/causes; a return learns through actual reports or inspection without rewriting history. Optional Frontier/Proto23/Glasshouse comparisons do not require every beginning to visit those contexts.
+
+Ten MM leaves completed a finite planning tranche, not gameplay. The179 G IDs,40 I families,693 inherited cases,48-card body return and linked source-world horizons retain their original owners and independent proof limits. Fingerprints, mapped IDs and structural checks do not establish full linked-body reading. Newer finite candidate receipts may qualify earlier prepared-only labels without certifying an entire world. No universal economy, random initializer, arbitrary-body engine or history framework is required before a ready selected consumer under AD51. Old recommended packet order, writer reservations and human taste language are historical; AD42 keeps that review optional. No runtime, source passage or private state was newly verified.

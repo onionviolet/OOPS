@@ -1,0 +1,17 @@
+{
+  "scope": "B302\u2013B309 new-fold fragment links plus three amended B303 original PROJECT links",
+  "checks": [
+    {
+      "path": "docs/RESEARCH_GENRE_TROPES.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "path": "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+      "target": "PROJECT.md#standing-priorities-and-document-authority",
+      "occurrences": 3,
+      "exists": true
+    }
+  ],
+  "missing": []
+}

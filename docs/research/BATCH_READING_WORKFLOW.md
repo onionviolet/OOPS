@@ -48,3 +48,12 @@ Last safe submit before a credit lapse: noon on the last day of the month (batch
 Missing, unregistered or unverified sources are listed once, in the [library index](LIBRARY_INDEX.md#not-on-disk-or-unverified-the-one-pending-list); the 2026-10-28 gap closure is recorded in `READINESS_AND_SCOPE.md` round 9. Reader-side gaps:
 
 - Census rows read before 2026-10-28 hold an evidence label in `label`; the merge treats that as no label and uses the id or printed name.
+
+
+## Content reconciliation B318: actual records and scoped follow-through
+
+The budget table, all nine procedure steps, locators and known-gap note were fully content-reviewed. This is an operational procedure with sensitive/paid commands in its examples, not authority to execute them during reconciliation. A prior campaign's approval does not authorize a different run, expanded source scope, higher ceiling or repair submission. Current explicit run authorization, caps and actual terminal/live process evidence govern a real launch or resume; a receipt/run file alone is not proof a driver is running or stopped. Do not restart on an observation timeout.
+
+The stated monthly credit, expiry, model/pricing, measured request costs, output limits,50–60% ratio and last-day noon suggestion are dated planning assumptions, not verified account or service state. This review checks no balance, price, billing policy or batch SLA. Free preparation means the described local planning path, not a blanket promise about every command's effects. A later authorized launch must use its actual current registry/driver and secret-handling route without exposing a key; no command here was executed.
+
+Shard counts, lint grades, name accuracy and spend checks do not establish semantic source completeness. Actual edition order, omissions, duplicated material, malformed headings and truncated context still need the selected source checks. Searching an index is navigation: an implementer must read the cited source with enough context and the relevant later correction, distinguish occurrence from reveal and witness from belief, then implement the selected actual mechanism. Merged registry, overlay or extracted count is not accepted canon or completed gameplay. Current AD44/AD51 preserve selected protagonist direction and first useful shared consumers without turning every pass into a new prerequisite. No book/PDF conversion, source transmission, paid request, approval request, driver launch or repair was performed by this document review.

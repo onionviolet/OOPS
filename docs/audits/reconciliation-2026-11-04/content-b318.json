@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "batch": "B318",
+  "title": "Reading workflow and packet follow-through: actual gain, actual returns and bundle-only limits",
+  "at": "2026-11-05T01:38:59.590752+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/BATCH_READING_WORKFLOW.md",
+      "ids": [
+        "paidroute/budgettable",
+        "procedure1–9",
+        "locators",
+        "knownlabelgap"
+      ],
+      "classification": "Repeatable historical paid-reader procedure; run-specific approval and exact source checks retained",
+      "owners": [
+        "docs/research/BATCH_READING_WORKFLOW.md"
+      ],
+      "disposition": "Read entire actual body; retain original source-local IDs, exact method/source/test/date qualifiers and later corrections. Fold distinct substantive ownership/settlement/source questions into existing owner; preserve proposals without new gate or execution. No paid, runtime or external action.",
+      "evidence": "Local report/procedure only, not actual source, account, process, private artifacts or a renewed test run. Historical sample, arithmetic, test and source-inspection evidence remains attributed and range-limited. Earlier future-work statuses qualified by later same-owner/followup records only within their named scope.",
+      "reopen": "Selected implementation/research must check actual relevant source, live authorized run and owner/consumer. No general absence, complete source/gameplay proof, new spending authorization or driver restart follows from this report.",
+      "input_sha256": "acac3ae23f18586444b5eeecb3299935f5f4ec940f3c2eb589089a3229d191dc",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/PACKET_RECONCILIATION_2026-11-03.md",
+      "ids": [
+        "7gamefamilies/Proto23exclusion",
+        "sourcegrep boundary",
+        "4resultbullets",
+        "C1–8",
+        "3followups",
+        "4deeperdive proposals"
+      ],
+      "classification": "Initial grep-level packet triage with explicit later re-trace, bundle findings and built C1 scope",
+      "owners": [
+        "docs/research/PACKET_RECONCILIATION_2026-11-03.md"
+      ],
+      "disposition": "Read entire actual body; retain original source-local IDs, exact method/source/test/date qualifiers and later corrections. Fold distinct substantive ownership/settlement/source questions into existing owner; preserve proposals without new gate or execution. No paid, runtime or external action.",
+      "evidence": "Local report/procedure only, not actual source, account, process, private artifacts or a renewed test run. Historical sample, arithmetic, test and source-inspection evidence remains attributed and range-limited. Earlier future-work statuses qualified by later same-owner/followup records only within their named scope.",
+      "reopen": "Selected implementation/research must check actual relevant source, live authorized run and owner/consumer. No general absence, complete source/gameplay proof, new spending authorization or driver restart follows from this report.",
+      "input_sha256": "35933f892ee3ec9c37b21b05410e3387cde75b35676144f6e431bfe4ab15cc13",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/CLIMB_SOURCE_READ_2026-11-03.md",
+      "ids": [
+        "F0–5",
+        "rank/awakening/enchant/rune/rebirth/heirloom/G5/offline/opening rows",
+        "5summaryproposals",
+        "Q1–6",
+        "pinnedbundle/L:C/BV/SV"
+      ],
+      "classification": "Bounded minified-bundle comparison; concrete dummy/FirstBlood correction and static retention/idle inferences",
+      "owners": [
+        "docs/research/CLIMB_SOURCE_READ_2026-11-03.md"
+      ],
+      "disposition": "Read entire actual body; retain original source-local IDs, exact method/source/test/date qualifiers and later corrections. Fold distinct substantive ownership/settlement/source questions into existing owner; preserve proposals without new gate or execution. No paid, runtime or external action.",
+      "evidence": "Local report/procedure only, not actual source, account, process, private artifacts or a renewed test run. Historical sample, arithmetic, test and source-inspection evidence remains attributed and range-limited. Earlier future-work statuses qualified by later same-owner/followup records only within their named scope.",
+      "reopen": "Selected implementation/research must check actual relevant source, live authorized run and owner/consumer. No general absence, complete source/gameplay proof, new spending authorization or driver restart follows from this report.",
+      "input_sha256": "867e3af2d0d8d3a4a5f2fba893625fbe9e7d7c6be4ea69409cbfe9c85388021e",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/PACKET_RETRACE_C1_C7_2026-11-03.md",
+      "ids": [
+        "C1–7",
+        "summarytable",
+        "6focusedfiles/73listedtests",
+        "7failure/persistence/verdictrows",
+        "crosscuttingnotes"
+      ],
+      "classification": "Deeper code/test-read packet triage; projection versus actual settlement, inherited gain and plan ownership distinctions",
+      "owners": [
+        "docs/research/PACKET_RETRACE_C1_C7_2026-11-03.md"
+      ],
+      "disposition": "Read entire actual body; retain original source-local IDs, exact method/source/test/date qualifiers and later corrections. Fold distinct substantive ownership/settlement/source questions into existing owner; preserve proposals without new gate or execution. No paid, runtime or external action.",
+      "evidence": "Local report/procedure only, not actual source, account, process, private artifacts or a renewed test run. Historical sample, arithmetic, test and source-inspection evidence remains attributed and range-limited. Earlier future-work statuses qualified by later same-owner/followup records only within their named scope.",
+      "reopen": "Selected implementation/research must check actual relevant source, live authorized run and owner/consumer. No general absence, complete source/gameplay proof, new spending authorization or driver restart follows from this report.",
+      "input_sha256": "04812cc0c4a66fca18befebacfef39e1aa5b7e87c73b4d90751d258532ca2a5d",
+      "input_lines": 146,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          146
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/BATCH_READING_WORKFLOW.md",
+      "heading": "## Content reconciliation B318: actual records and scoped follow-through",
+      "body": "The budget table, all nine procedure steps, locators and known-gap note were fully content-reviewed. This is an operational procedure with sensitive/paid commands in its examples, not authority to execute them during reconciliation. A prior campaign's approval does not authorize a different run, expanded source scope, higher ceiling or repair submission. Current explicit run authorization, caps and actual terminal/live process evidence govern a real launch or resume; a receipt/run file alone is not proof a driver is running or stopped. Do not restart on an observation timeout.\n\nThe stated monthly credit, expiry, model/pricing, measured request costs, output limits,50–60% ratio and last-day noon suggestion are dated planning assumptions, not verified account or service state. This review checks no balance, price, billing policy or batch SLA. Free preparation means the described local planning path, not a blanket promise about every command's effects. A later authorized launch must use its actual current registry/driver and secret-handling route without exposing a key; no command here was executed.\n\nShard counts, lint grades, name accuracy and spend checks do not establish semantic source completeness. Actual edition order, omissions, duplicated material, malformed headings and truncated context still need the selected source checks. Searching an index is navigation: an implementer must read the cited source with enough context and the relevant later correction, distinguish occurrence from reveal and witness from belief, then implement the selected actual mechanism. Merged registry, overlay or extracted count is not accepted canon or completed gameplay. Current AD44/AD51 preserve selected protagonist direction and first useful shared consumers without turning every pass into a new prerequisite. No book/PDF conversion, source transmission, paid request, approval request, driver launch or repair was performed by this document review.",
+      "before_sha256": "acac3ae23f18586444b5eeecb3299935f5f4ec940f3c2eb589089a3229d191dc",
+      "after_sha256": "0cb72cd69fc0e0ea1a1caf04c83b15af86e0cd853294209fbbcde6440498cffb"
+    },
+    {
+      "path": "docs/research/PACKET_RECONCILIATION_2026-11-03.md",
+      "heading": "## Content reconciliation B318: actual records and scoped follow-through",
+      "body": "The full initial result, C1–C8, follow-through and four proposed deeper dives were content-reviewed. Preserve its explicit grep/partial-read boundary. Missing keyword anchors do not prove missing systems, and the phrase fully implemented denotes this initial narrow source judgment, not the AD43 floor. Likewise, absence of a folder name in PROJECT/rules is insufficient by itself to prove no proposal was ever adopted; actual user direction and owning decisions govern that question. No packet becomes selected by its rank here.\n\nLater C1–C7 re-trace supersedes initial seam/cost guesses for its actual inspected inputs. In particular, C4's existing carrier/consumer is the purchased-anchor continuation path, not the heir path or the proposed gain-derived operation. The later built C1 statement is scoped to structured renewal, with field renewal deferred. Later Climb bundle reading qualifies the still-listed future source-read recommendation; it does not recover authored source or prove play. Stale line numbers and gone tests are historical locators, with current files resolved when a packet is selected.\n\nKeep C8's actual natural-player journey question separate from source grep and source/bundle parity. None of the untraced small touches becomes done through a linked follow-up; a fresh cultivation sweep and every deeper-dive item remain proposals. This review launches no audit, reader or runtime slice and performs no new source trace, test, build, browser, private artifact or game-source read.",
+      "before_sha256": "35933f892ee3ec9c37b21b05410e3387cde75b35676144f6e431bfe4ab15cc13",
+      "after_sha256": "f78a2f4e6b7b4107e13ebbc264282804c1d0b5bb4279a144111d33058cdaacfe"
+    },
+    {
+      "path": "docs/research/CLIMB_SOURCE_READ_2026-11-03.md",
+      "heading": "## Content reconciliation B318: actual records and scoped follow-through",
+      "body": "The whole dense report and every mechanics row were content-reviewed. Built assets at the searched pinned trees establish the located artifact route, not absence of authored source everywhere. BV denotes this lane's minified-bundle read, SV its selected project-source reads. Line/column and minified symbols depend on the exact bytes. Equal bundle hashes establish identity, not a played route, source authoring recovery or complete semantic coverage. This review reads the report, not the private bundle.\n\nF2 correctly separates First Blood's any-enemy trigger from the awakened Training Sword's dummy-specific resonance. The report also explicitly says the dummies hit back, so calling that target harmless elsewhere is inconsistent and is removed from the two proposal phrases, with old words preserved in the reconciliation amendments. Repeatable does not mean consequence-free; use the actual encounter behavior. No current gameplay defect or new damage rule is inferred from this editorial correction.\n\nThe useful joins are an item instance's actual use, supplied duplicate criteria, changed effect/capacity, visible social response, exactly-once source attribution and the specific rebirth carry operation. Copies created with new IDs are not automatically a sole surviving original. A grade, rank, skill, achievement, possession and heirloom budget differ. Donor fixed slots,1000kills,one-blessing tradeoff,consumed duplicates and account-wide rewards remain source-specific examples, not compulsory item-growth or estate laws. Powerful growth and compounding need no invented balancing cap or mandatory fodder step.\n\nVariables omitted from a copy list and a next-city scene condition remain qualified inferences until their actual restore/consumer path is checked. No-catch-up is this inspected loop/load/worker scope; background throttling, other version behavior and all floors remain untested. Banked unused time, a bed's accelerated game clock, a skip-to-morning jump and continued background worker ticks are different mechanisms, so calling the existing bank equivalent to every bed effect would overstate the comparison. Local energy, hunger, choice stops and returned time need the current clock owner.\n\nThe project-side keyword absence checks leave unread paths explicit. They do not prove genuinely new all-project capabilities or select a relic/slot rewrite. Q6's later correction of E3/G5 qualifies its earlier owner-may-update wording. No bundle/source fetch, game run, private save, award, rebirth, source-copy policy or gameplay gate was changed by this review.",
+      "before_sha256": "867e3af2d0d8d3a4a5f2fba893625fbe9e7d7c6be4ea69409cbfe9c85388021e",
+      "after_sha256": "695855465c35ab820f7fc9f13ed158e05d999c801fbf3083a28922503af7eb94"
+    },
+    {
+      "path": "docs/research/PACKET_RETRACE_C1_C7_2026-11-03.md",
+      "heading": "## Content reconciliation B318: actual records and scoped follow-through",
+      "body": "All146 original lines, C1–C7 and each test/failure/persistence/verdict section were content-reviewed. This later re-trace improves on the initial grep-only report. Its six listed focused files total73 tests at their recorded date; routine_jobs supports several items and must not be counted anew for each. C2's proposed display-helper test was not run, and several other referenced tests were not read in full. No build/browser/full-suite/current code trace was performed by this reconciliation. Small/medium/large are scoped estimates, not selected work or delivery promises. Current UI targets supersede the old1366primary size, with AD42 already keeping generic human review optional.\n\nC1's current/next rows must represent the same admitted transition/revision and actual commit values; absence can display0 only where the state semantics define zero rather than unknown, unsupported or invalid. The later structured C1 build qualifies the old missing-row status for that path without closing field renewal. C2's category-only proposal is not a universal concealment rule: known book promises may be shown as known, while even the existence of an unknown unlock can reveal a secret. A pure formatter test alone cannot establish the native row, tooltip and actual reward consumer agree.\n\nC3 correctly distinguishes a native reading adapter from the cheaper Anthology-only command. Keep one native progress owner and actual partial time, early completion, stop/return semantics, reward publication and cursor recovery. A new step kind without native settlement is not the requested operation. Current save compatibility direction applies to any selected new fields; a strict-key change or an optional field label by itself does not prove old/new validation or failure recovery.\n\nC4 correctly narrows the old carrier claim to purchased-anchor continuation. FinalXP equals earned gain only for a life whose actual admitted starting/granted/retained XP and transfer history justify it. The proposed heir-zero example does not establish that formula for every world, future start or imported life. Actual gain provenance, body/subject carrier and consumer must remain separate. A diminishing curve, no-compounding example or default-off dial is a proposal, not a universal nerf or cap. Preserve current supported strong progression.\n\nC5's second actor row needs actual entitled knowledge, not backend job existence; canceling one worker cannot release another's means. C6's planned reservationReturns or command costs are not proof what was actually released after partial work. Use the settlement receipt and actual unconsumed reservation; a projection must not fabricate a refund or full return from a definition. Showing a summary may need no new saved field while still requiring an adequate durable fact owner. C7's optional threshold/name/successor proposal needs validated actual facts, selected chronology and in-flight ownership. Clearing a switch after one settlement is an example, not a prohibition on supported repeating plans. A named multi-plan map differs from one per-actor program slot, and extra-key tolerance is not validation of the new meaning.\n\nThese useful joins remain candidates. No threshold switch, board, aptitude inheritance, reading adapter, renewal or disclosure behavior was implemented or re-tested here. Keep current source owners, AD51 first-consumer direction and AD52 routine compression without requiring every packet, a new scheduler or a universal native-state mirror.",
+      "before_sha256": "04812cc0c4a66fca18befebacfef39e1aa5b7e87c73b4d90751d258532ca2a5d",
+      "after_sha256": "36d7e3fdcc741b66e95407f9395e4c950d15e31b41394ca0a7f3de92b5b92dcd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 791,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/CLIMB_SOURCE_READ_2026-11-03.md",
+      "from": "are the repeatable harmless target (50 per session",
+      "to": "are the repeatable target (50 per session",
+      "reason": "Same report explicitly says dummies hit back; repeatable does not establish harmlessness. No game-source or runtime change."
+    },
+    {
+      "path": "docs/research/CLIMB_SOURCE_READ_2026-11-03.md",
+      "from": "against a harmless repeatable target.",
+      "to": "against a repeatable target.",
+      "reason": "Same report explicitly says dummies hit back; repeatable does not establish harmlessness. No game-source or runtime change."
+    },
+    {
+      "path": "docs/research/CLIMB_SOURCE_READ_2026-11-03.md",
+      "from": "**Resonance deed:** a counted action only while a specific item is held, against a repeatable target.",
+      "to": "**Resonance deed:** the proposed default counts an action while a specific item is held, against a repeatable target.",
+      "reason": "Scope the edited summary to its proposed default rather than an unqualified only; actual bundle-specific trigger remains in mechanics row."
+    }
+  ]
+}

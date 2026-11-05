@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "batch": "B403",
+  "title": "Six final story checkpoints and the actual P34 staged proof boundary",
+  "at": "2026-11-05T04:25:32.752990+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/CHECKPOINT.md",
+      "ids": [
+        "AG1–AG3/AH1–AH3/AI1–AI2"
+      ],
+      "classification": "Historical bounded proposal or P34 implementation checkpoint; verification states kept separate",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Power/body/age/family/animal proposals keep local HP, temporary injury, chronicle age, native regeneration and NPC life separate. Initial unmergedP2 was superseded within the same checkpoint by integrated matching main source.",
+      "evidence": "Fresh full checkpoint body read, including all appended source/QA/correction/native sections. No old tests, source, browser or external evidence newly executed; exact recorded variants retain their original scope.",
+      "reopen": "Current selected source/runtime/native and ownership evidence required before a new implementation claim. No stale pending stage, port availability, comparison source or finite-cap test becomes a present global guarantee.",
+      "input_sha256": "8655ffd9d2206ed8639e420aae3db0d7ec36e490777cc07a0b45649e736a8f77",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/CHECKPOINT.md",
+      "ids": [
+        "AJ1–AJ3/AK1–AK2/AL1–AL2;12findings;sixP2rows"
+      ],
+      "classification": "Historical bounded proposal or P34 implementation checkpoint; verification states kept separate",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Reciprocal promises, amendments/notices, gratitude, callable favor, coin debt, confidentiality, oath and faith are distinct consumers. Exact primary source gaps remain; official catalogue/teaser is not the unseen pact scene.",
+      "evidence": "Fresh full checkpoint body read, including all appended source/QA/correction/native sections. No old tests, source, browser or external evidence newly executed; exact recorded variants retain their original scope.",
+      "reopen": "Current selected source/runtime/native and ownership evidence required before a new implementation claim. No stale pending stage, port availability, comparison source or finite-cap test becomes a present global guarantee.",
+      "input_sha256": "5987a8e56d21cc5d3e88103f00e9794d9ac6696ff399ff406836071f92b7a182",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/CHECKPOINT.md",
+      "ids": [
+        "AP1/AQ1/PS-AR1/AS1/AT1/PS-AU1;20anchors"
+      ],
+      "classification": "Historical bounded proposal or P34 implementation checkpoint; verification states kept separate",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Ranks, in-world media, appointments, other outsiders, session pacing and defeat arcs remain original proposals. Public rank, personal strength and institutional authority differ; image metadata is not read panels. P2 integration correction already recorded.",
+      "evidence": "Fresh full checkpoint body read, including all appended source/QA/correction/native sections. No old tests, source, browser or external evidence newly executed; exact recorded variants retain their original scope.",
+      "reopen": "Current selected source/runtime/native and ownership evidence required before a new implementation claim. No stale pending stage, port availability, comparison source or finite-cap test becomes a present global guarantee.",
+      "input_sha256": "d5b056a86e122f60acbfb7b01ecc0b5a189fd06d3f0a9b6c018a0648fa828ad3",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p34/CHECKPOINT.md",
+      "ids": [
+        "S-1–S-5;typedhistory;fundedrequests;recap;lint/headless/native variants"
+      ],
+      "classification": "Historical bounded proposal or P34 implementation checkpoint; verification states kept separate",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p34/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Historical isolated implementation and bounded native proofs are stronger than proposal-only siblings but not a fresh master test. Preserve earlier natural build versus final seeded-native stricter validation,512boundaries,96history/16request stress and exact legacy RNG distinctions.",
+      "evidence": "Fresh full checkpoint body read, including all appended source/QA/correction/native sections. No old tests, source, browser or external evidence newly executed; exact recorded variants retain their original scope.",
+      "reopen": "Current selected source/runtime/native and ownership evidence required before a new implementation claim. No stale pending stage, port availability, comparison source or finite-cap test becomes a present global guarantee.",
+      "input_sha256": "5ebd30cbd84b729a39db5b0856557b06f61ae44b761eab0ae875887dcafdd74b",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/CHECKPOINT.md",
+      "ids": [
+        "AV1/AW1/AX1/AY1;receipt audio;four verification rounds"
+      ],
+      "classification": "Historical bounded proposal or P34 implementation checkpoint; verification states kept separate",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Ambient residue, known encyclopedia, sound and challenges are proposals. Existing one-tone gesture path differs from text ambience/TTS. Raw-key dataset exposure is inferred source risk, not a reproduced current disclosure.",
+      "evidence": "Fresh full checkpoint body read, including all appended source/QA/correction/native sections. No old tests, source, browser or external evidence newly executed; exact recorded variants retain their original scope.",
+      "reopen": "Current selected source/runtime/native and ownership evidence required before a new implementation claim. No stale pending stage, port availability, comparison source or finite-cap test becomes a present global guarantee.",
+      "input_sha256": "f6a0e7ae2275b71207b28fbc8eb33db15d80fe5776cec386251d6e47800da6af",
+      "input_lines": 51,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/CHECKPOINT.md",
+      "ids": [
+        "D1/F1/F2/V1/V2;60detail rows;33BA–BGcodes"
+      ],
+      "classification": "Historical bounded proposal or P34 implementation checkpoint; verification states kept separate",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Micro details use real S-2/S-4/Ink and knowledge/copy identities; arbitrary per-copy traces/account basis/clock/retention gaps remain scoped. Corrected table-column validator is document proof, not runtime behavior.",
+      "evidence": "Fresh full checkpoint body read, including all appended source/QA/correction/native sections. No old tests, source, browser or external evidence newly executed; exact recorded variants retain their original scope.",
+      "reopen": "Current selected source/runtime/native and ownership evidence required before a new implementation claim. No stale pending stage, port availability, comparison source or finite-cap test becomes a present global guarantee.",
+      "input_sha256": "f325ef7566108eef38241844ef47545fd03de50fdbb4a167b600f4c969781b57",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B403: staged spine evidence, promises and micro-detail proposals",
+      "body": "The full P30/P31/P33/P34/P35/P36 checkpoints were read. P30/P33 already correct their initial unmerged P2 statements after matching integrated source appeared; those corrections remain historical source evidence. Native regen/agility, injury/illness, age, family and animal response have different consumers. Gratitude, favor, coin debt, reciprocal promises, oath enforcement, secrecy and faith likewise do not become one scalar. Exact unseen primary pact/identity/source scenes remain unknown despite catalogue, teaser or analytical references. Public ranking, personal capability and office authority differ; an external image-page record is not read panels.\n\nP34 records actual historical implementation and isolated proof rather than merely proposing it. Preserve S-1's legacy-versus-new named RNG bindings and durable population adoption; S-2's typed outcome data versus finite presentation; S-3's real deficit, agreed terms, funded escrow and actual stock; S-4's same-person/item/receipt and observer-safe projection; and S-5's bounded seeded runner, lint and ordinary-load validation. No P2 or universal history producer is included by association. No enrolled settlement means no eligible aftermath callback.\n\nIts acceptance variants have different input identity: ordinary elder/meeting/bread/delivery was naturally reached on an earlier rebuilt integration candidate, while the final stricter pin/load joins were exercised from that naturally earned pending fixture with final delivery, native XP, reload and literal import. Final replay has its own recorded bundle hash. Keep both instead of calling every final case a fresh natural start. Seven legacy/deck/source merge records,680 tests,18 P34 checks,3600-minute same-seed/chunk/reload parity and100-decline stress describe those exact historical checks. They are not renewed here or sufficient to prove present master integration or every future sequence.\n\nThe96history/16request rows and reference-aware pins are selected retention capacities, not world limits or permanent idempotence proof for all evicted operations. All-pinned rejection, causal parents, open cards and latest-person recap preserve the named consumer references. A legitimate later newly funded request differs from replaying an old settlement. Delivery-commit-only, root integration, human review and port22400 play availability are dated checkpoint statements; current STATUS and current source own later state. No old server is assumed live.\n\nP35's one gesture-enabled tone differs from background text or speech synthesis; an untested API page/name does not establish installed voice behavior. Its raw-key dataset concern remains an inferred source-only risk at the inspected build. P36's60details are proposal coverage, with exact retained receipts distinct from NPC accounts and arbitrary per-copy traces. Correcting its eight-versus-nine-column checker established document consistency. It did not exercise the UI, save identity or story behavior. Current AD36/AD42/AD51/AD52 and desktop/source/compatibility owners govern new slices, and no checkpoint creates a new story, sound, taste, death, oath or continuation build.",
+      "before_sha256": "f6132b3962fbfbc244a5bedd0292c5d0d3b211c5925e09ddffa237799f810167",
+      "after_sha256": "01ffa190722a26776391f0956023c5717a8c38bcda034acdbe005351c5a1d952"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 560,
+  "post_record_amendments": [
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "from": "Seven legacy/deck/source merge records,680 tests",
+      "to": "Legacy/deck/source merge records,680 tests",
+      "reason": "Remove unsupported merge-record count while retaining exact historical test counts and input scopes."
+    }
+  ]
+}

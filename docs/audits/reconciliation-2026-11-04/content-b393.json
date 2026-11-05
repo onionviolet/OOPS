@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "batch": "B393",
+  "title": "Traveler discovery, invention routing and fictional System consumer contracts",
+  "at": "2026-11-05T04:05:46.568355+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md",
+      "ids": [
+        "T1–T16",
+        "B1–B5",
+        "rounds 3–10",
+        "current rule-fit qualification"
+      ],
+      "classification": "Historical planning/source return; proposed contracts and bounded delivery reports kept distinct",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md"
+      ],
+      "disposition": "Preserved completed research routing, pure planner versus native consumer distinction and conditional build prompts; linked the existing technology owner correction rather than restarting old lanes.",
+      "evidence": "Full 100-line plan read, including original tables and later qualifications; complete STATUS and technology owner lines 1950–2065 inspected as support.",
+      "reopen": "Recover current selected source, ownership and compatibility before runtime work. No old dispatch, process, human-review condition or source-only pointer independently selects another wave.",
+      "input_sha256": "7b00dbfcb4731fbcd53ae950b8d8c15e15bfe388951d6ba0dd5a20786f5e4079",
+      "input_lines": 100,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+      "ids": [
+        "T1–T16",
+        "B1–B5",
+        "CN10–CN14"
+      ],
+      "classification": "Historical planning/source return; proposed contracts and bounded delivery reports kept distinct",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md"
+      ],
+      "disposition": "Preserved dated merge/fixture/inspector/provenance-restoration results. Old not-dispatched and no-process lines are historical; source presence is not a fresh combined browser pass.",
+      "evidence": "Full 53-line status body read; all current routing rows and later historical launch paragraphs compared. Counts in input identity are captured from disk by recorder.",
+      "reopen": "Recover current selected source, ownership and compatibility before runtime work. No old dispatch, process, human-review condition or source-only pointer independently selects another wave.",
+      "input_sha256": "caaabdaf55e967b3011080f7eb2e5c37565d92c613596da29771f8fd5f0f5cd7",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/PLAN.md",
+      "ids": [
+        "TA-A1–TA-A5",
+        "TA-C1–TA-C6",
+        "TA-L1–TA-L4",
+        "TA1–TA3",
+        "TA-A1r/h/p/f/x"
+      ],
+      "classification": "Historical planning/source return; proposed contracts and bounded delivery reports kept distinct",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/traveler-asks-2026-10-14/PLAN.md"
+      ],
+      "disposition": "Retained Amendment 1 over the original fresh-player route filter; giver appraisal, actor knowledge, authoring coverage, held terms, contract revision and current compatibility remain distinct. No runtime price or save change.",
+      "evidence": "Full 79-line plan body read, including both original filter and later superseding instruction; story owner P34 row and B288 fold inspected.",
+      "reopen": "Recover current selected source, ownership and compatibility before runtime work. No old dispatch, process, human-review condition or source-only pointer independently selects another wave.",
+      "input_sha256": "985eeeb9106ad6dfa9253e9e5d0aefacf2fe1d8b62d255425adca5fdd6647d8d",
+      "input_lines": 79,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          79
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/SYSTEMS_MAP.md",
+      "ids": [
+        "SM01–SM14",
+        "SS01–SS12",
+        "SC01–SC10",
+        "proposed work-ledger journey"
+      ],
+      "classification": "Historical planning/source return; proposed contracts and bounded delivery reports kept distinct",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/REPORT.md"
+      ],
+      "disposition": "Preserved source-only service/consumer distinctions and ten family joins; the two overlapping maps remain separately attributed history, with no duplicated service or stale line-number verification implied. Retained independent bounded first slices.",
+      "evidence": "Full bodies read: 141-line integrated map and 132-line specialist map, including all source tables, classifications, family contracts, first-slice proof and ownership limits. Compared their common contracts directly; no linked source files newly read.",
+      "reopen": "Recover current selected source, ownership and compatibility before runtime work. No old dispatch, process, human-review condition or source-only pointer independently selects another wave.",
+      "input_sha256": "8640410e6a7d2d3095436e160d9c772d53699d9df9d3be8cd599e188b4fbe223",
+      "input_lines": 141,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          141
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/specialists/source-map.md",
+      "ids": [
+        "SM01–SM14",
+        "SS01–SS12",
+        "SC01–SC10",
+        "proposed work-ledger journey"
+      ],
+      "classification": "Historical planning/source return; proposed contracts and bounded delivery reports kept distinct",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/REPORT.md"
+      ],
+      "disposition": "Preserved source-only service/consumer distinctions and ten family joins; the two overlapping maps remain separately attributed history, with no duplicated service or stale line-number verification implied. Retained independent bounded first slices.",
+      "evidence": "Full bodies read: 141-line integrated map and 132-line specialist map, including all source tables, classifications, family contracts, first-slice proof and ownership limits. Compared their common contracts directly; no linked source files newly read.",
+      "reopen": "Recover current selected source, ownership and compatibility before runtime work. No old dispatch, process, human-review condition or source-only pointer independently selects another wave.",
+      "input_sha256": "5178e33c5fbcc417f87d53c73be7f3603c5c9bfd23463f6681c4b1a4f75abca5",
+      "input_lines": 132,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          132
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "36 leaves",
+        "59 variants",
+        "114 proposed cases",
+        "7 joins",
+        "P02–P07"
+      ],
+      "classification": "Historical planning/source return; proposed contracts and bounded delivery reports kept distinct",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/REPORT.md"
+      ],
+      "disposition": "Retained integrated planning scope and finite proposed journeys; semantic claims from the report do not independently validate every unread ledger leaf or test case. Final human creative review is optional under AD42 rather than a new implementation blocker.",
+      "evidence": "Full report body read with all five findings, detailed scope, candidate packet routes, validation description, input snapshot and remaining gates. DESIGN lines 1–100 inspected only as supporting owner context.",
+      "reopen": "Recover current selected source, ownership and compatibility before runtime work. No old dispatch, process, human-review condition or source-only pointer independently selects another wave.",
+      "input_sha256": "255ad1b5117dbddd2828a905ffa63be880a9a2ab8f0a535f2d6ea3b8a775d3c6",
+      "input_lines": 66,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          66
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "heading": "## Content reconciliation B393: research-wave routing and useful invention evidence",
+      "body": "The complete research-tech PLAN and STATUS were compared with this owner's existing Oct. 18 plan-reuse and CN follow-through sections. Those owner sections already preserve the substantive result: T6/T16 are pure planner/QA support, B1 has a bounded historical native result, B2 delivers seeded fixtures, B3 is an inspector design and B5 supplies conditional prompts. Earlier unmerged, started and not-dispatched lines remain dated history. A fixture is not naturally earned progression; a merged planning module is not a usable invention journey. The roadmap, actor hypothesis, trial and executable output remain separate. No further research wave, cleanup or runtime slice is selected. Current AD36 governs verification, AD42 makes human review optional, and the retired first-milestone gate does not return through an old prompt. The original provenance restoration remains meaningful; duplicated planning context is not a reason to strip per-entry source history.",
+      "before_sha256": "8c26fc0b60c66c11e0bf63c875d0fa1425fb4ba56e5d183f51dc89dbdde99a18",
+      "after_sha256": "2ad6254905955562448913d9068496fea4c24094952a3fdd0acdc288f1658cb5"
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B393: traveler asks can invite discovery",
+      "body": "The full traveler-asks PLAN preserves Weibao's Amendment 1 over its original TA-A1 fresh-route filter. A ready, stretch or unknown request describes the character's present means and knowledge. It does not decide the world's possibility, the giver's appraisal or implementation coverage. An unknown request can create a reason to investigate through actual known clues; sealing protects the answer, not the whole discovery route. Missing indexed obtainability remains an authoring diagnostic. Disclose known content limits before the relevant commitment, without treating a missing game route as an in-world prohibition.\n\nKeep the useful TA-A3/A4 contract ideas: saved terms and generation/table revision must survive their selected compatibility policy; new draws cannot silently rewrite an existing person's goal. Current compatibility decisions qualify the old blanket demand to retain every revision-1 record. Giver terms follow actual means, observable appraisal and the agreed offer, rather than reading the player's private discovery state. Later projections do not reprice escrow. Template, season, quantity, quality, service, mixture, teaching, repeat and grade variants remain useful options, not a requirement to build all ask families. TA1's report is a dated delivery reference, not a fresh review of its runtime. AD33 still deprioritizes NPC-heavy generation, AD42 does not make play feedback a mandatory stop, and no new Village depth is selected here.",
+      "before_sha256": "c448f1421f28c849a4ced1c5b723adc608cfa3666b8b3695558e3e7c88f95667",
+      "after_sha256": "a31d82960758b7a0487cba74b40bd0673446b3d1c7c318b1f436e1a34583bce7"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+      "heading": "## Content reconciliation B393: source foundations do not supply fictional authority",
+      "body": "Both complete source maps and the integrated report retain the same useful boundary: a fictional System needs actual issuer, observation, offer, adjudication, grant and revocation consumers. Shared software primitives do not supply those fictional powers by name. SM01–SM14 and SS01–SS12 describe bounded Oct. 11 source inspection, not current behavior or a universal prerequisites list. Their overlapping maps are historical viewpoints of one seam, not two service implementations. New promises need their selected actual consumer, state owner and durable publication path. Native random paths, command-seed commitment, event guarantees and creation-time box outcomes are distinct; none establishes universal determinism, generic pity or isolated RNG streams.\n\nRetain the proposed work-ledger chain: funded commission, actual completion, one durable claim, earned point expenditure, useful changed function and a second real task. It can be selected independently of random starts, world creation, general NPC planning or a universal quest shop. Fixed preservation and an ordinary-to-extraordinary bridge can likewise be independent slices. Owner versus holder, authority versus learned skill, provider loss versus permanent gift and actor-safe knowledge versus author truth remain separate. Read-only quest cards cannot issue or settle an offer. The proposed repeated-claim, insufficient-input, failed-write, reachable-interface and persistence cases are not executed tests. The report's 36 leaves, 59 variants and 114 specified cases describe its own retained ledger; this map review does not claim a fresh semantic review of every linked leaf. No implementation, source acquisition or additional authority is created.",
+      "before_sha256": "270aa2054a5fde9acaf40377a9f00217e280b3f1b59ddef40d6cc4f677ed626c",
+      "after_sha256": "cb4d5352e7e2d0f062d6c1d94ad298394a4f56509457f24df72608d69a7915ce"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 621
+}

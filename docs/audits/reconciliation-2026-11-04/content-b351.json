@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "batch": "B351",
+  "title": "Clock and continuation maps: actual retained domains, paused histories and bounded save proof",
+  "at": "2026-11-05T02:42:40.756444+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md",
+      "ids": [
+        "F1–14/alltimerfields",
+        "OT1–10/BR6/S1–4",
+        "51testreceipt/openbrowser"
+      ],
+      "classification": "Full continuation/clock/profile report; historical source/test evidence and distinct operation/owner semantics",
+      "owners": [
+        "docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md",
+        "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Preserve complete field/operation/compatibility maps. Qualify old active-branch/cap/milestone/absence claims by current direction and distinguish byte preservation, executable admission, actual learned/body ownership and repeated settlement.",
+      "evidence": "Full local Markdown body read, dense truncations recovered. No source/runtime, actual save, meter, browser, historical test or old worker state inspected or rerun.",
+      "reopen": "Selected consumer needs actual current capture/arrival/learning/clock/authority contract and affected proof; these reports are not permission to migrate or operate private saves.",
+      "input_sha256": "ce9982fde63d2f428f447e364ff4e425f99b0123c894fcf9acef24a600a26554",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md",
+      "ids": [
+        "F1–4/61fieldsaveinventory",
+        "P1–5/illustrativeJSON",
+        "M1–8/import/dormancy/R1–5/T1–5/S1–5",
+        "49test/RAMserializerreceipt"
+      ],
+      "classification": "Full continuation/clock/profile report; historical source/test evidence and distinct operation/owner semantics",
+      "owners": [
+        "docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md",
+        "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Preserve complete field/operation/compatibility maps. Qualify old active-branch/cap/milestone/absence claims by current direction and distinguish byte preservation, executable admission, actual learned/body ownership and repeated settlement.",
+      "evidence": "Full local Markdown body read, dense truncations recovered. No source/runtime, actual save, meter, browser, historical test or old worker state inspected or rerun.",
+      "reopen": "Selected consumer needs actual current capture/arrival/learning/clock/authority contract and affected proof; these reports are not permission to migrate or operate private saves.",
+      "input_sha256": "ad4cceee3acc048175b4c2c28f571c0a1d1bb3fe613cfd63bd7d732b671ea337",
+      "input_lines": 173,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          173
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md",
+      "ids": [
+        "F1–8/C1–19/A1–4",
+        "P1–7/K1–9/B1–5/T1–5",
+        "19fingerprints/83roots/52links",
+        "latercoordinationreceipt/CP1–7scope"
+      ],
+      "classification": "Full continuation/clock/profile report; historical source/test evidence and distinct operation/owner semantics",
+      "owners": [
+        "docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md",
+        "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Preserve complete field/operation/compatibility maps. Qualify old active-branch/cap/milestone/absence claims by current direction and distinguish byte preservation, executable admission, actual learned/body ownership and repeated settlement.",
+      "evidence": "Full local Markdown body read, dense truncations recovered. No source/runtime, actual save, meter, browser, historical test or old worker state inspected or rerun.",
+      "reopen": "Selected consumer needs actual current capture/arrival/learning/clock/authority contract and affected proof; these reports are not permission to migrate or operate private saves.",
+      "input_sha256": "e99a31540151bd0c059078c4cff970b3421e9916fd471dbcbfa8546c538974e5",
+      "input_lines": 356,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          356
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md",
+      "heading": "## Content reconciliation B351: full clock, profile and continuation scope",
+      "body": "All91 original lines were reviewed, including every F1–F14, timer-owner row, OT1–OT10/BR6 proposal, suggestion and check limit. Dense output truncation was recovered through the complete remaining table ranges. The audit carefully distinguishes native calendar coordinates, callback-counted playtime, shared consumed minutes, instance occupancy/lease intervals, wall cursors and scheduler work budgets. Preserve these distinctions: a saved_at label is not an accrual cursor, a512boundary drain budget is not a wall-time cap, and one local prepaid packing feature does not establish general login catch-up.\n\nAll source-present and no-generic-adapter findings are October14 inspections, not present code claims. The51focused tests prove their named historical source slice and fixtures, not browser throttling, background/closed equality, all native actions or a full-envelope persistence journey. Presence-only instance clocks can coexist with the explicit supported observation lease; neither implies every world must run, freeze or accrue through the same policy. World instances, actual histories, embodied lives and selectable branches are different domains. A parent ID or worldId swap does not remap actors, inventories, jobs, native registries or knowledge.\n\nLater direction qualifies OT1/BR6/OT4's active-branch and cap proposals: journey-wide eligible unused-time banking does not mean every resting life independently earns the same interval, and a technical execution budget does not impose a hard gameplay bank cap. Accrual, spending, actual supported work and world/biological/event clocks remain separate. Local offline pause defaults and later selected autonomous means need their actual policy/consumer; elapsed wall time alone does not execute unsupported native combat or grant passive XP. Famine's unimplemented state and E1 source behavior are dated, not reverified here.\n\nKeep one settlement identity with actual consumed time, resources, fractional progress, results and cursor. Failure before durable publication must not pay; a stopped choice or yielded work must retain its unspent remainder without both callback and catch-up paying it again. A source-approved creation/strong automation route may legitimately remove chores or costs; these transaction checks are save integrity under AD22, not a new anti-cheat regime. The proposed backwards-time/cap rules do not authorize punitive loss or discarded accrued credit where later direction preserves it.\n\nThe pause-before-event, branch router, summaries and startup reconciliation entry point are proposals, not new universal prerequisites. Reports distinguish actual occurrence from discoverable evidence; unknown future events do not gain clairvoyant warning labels. Current AD51/52 support the first useful mechanism and faithful compression with real actors/clocks/means. No current timer, wall trust, branch, source, browser, save or offline behavior was inspected or changed here; all original proof gaps remain explicit.",
+      "before_sha256": "ce9982fde63d2f428f447e364ff4e425f99b0123c894fcf9acef24a600a26554",
+      "after_sha256": "c624e6c38a1d67d352f30f0708ece63c2be4fab203fc07cf12d6c25ef1fb9ea8"
+    },
+    {
+      "path": "docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md",
+      "heading": "## Content reconciliation B351: full clock, profile and continuation scope",
+      "body": "All173 original lines were reviewed, including every serializer/size table, complete illustrative profile, P1–P5/M1–M8/R1–R5/T1–T5, import/dormancy and checks. Preserve the proposed wrapping of the entire actual native state rather than recreating a played life from canon deltas or a biography. A null legacy anchor or empty newly authored changes list does not mean the old world is unchanged. Full inner state, pending work, RNG, custody, native projections and unavailable content need their actual owner semantics.\n\nThe61field serializer snapshot and54265UTF8/108522estimated-storage/72368encoded-byte measurements are one historical fresh opening under Map-backed Storage. They do not measure developed profiles, quota behavior, durable browser state, actual import, all schemas or present save size. The49test run covers existing source slices, not proposed profile code. The4MiB guard is a dated conservative origin budget, including other keys, not measured multi-life capacity. A value-only UTF16 estimate excludes other origin keys/backup footprint. Do not derive a branch cap or promise demand loading from these numbers.\n\nPlain inline root storage can atomically publish its own pointer/payload/index, while parsing it materializes all nested content. Separate mutable keys are not a single transaction, and readback/generation checks alone do not settle competing writers without actual authority. Backup/candidate/activation/live-save phases need a crash-safe chosen owner; successful candidate write is not adoption, and an exact old recovery restores that old state rather than preserving later profile-only progress. The report's exact-byte backup route deliberately avoids a potentially reward-bearing gameplay export.\n\nPreservation and executable admission are different. An unknown field or unavailable revision can remain exportable without being executable or silently registered in live globals. A profile schema, native game version, fork schema, expansion schema and content revision are distinct. Frozen pins cannot recreate missing generator/code/templates. Native loader normalization is not byte identity; protect actual semantics and untouched raw originals according to the selected compatibility decision. An opaque archive alone does not justify a Resume control. Biography-only import cannot mint rewards, and adding a branch differs from replacing the current target.\n\nCurrent journey-wide unused-time/continuation direction qualifies the earlier active-branch/offline proposals; the wrapper does not itself define identity, diegetic return or every clock. Independent native snapshots may support actual paused-history resume, but a single branch can contain several lives only with a declared owner mapping. AD51 permits a first useful consumer without adopting this entire schema; AD52 retains consequential work/cost/time/actor/knowledge through compression. The current desktop target replaces the old1366viewport for new selected UI proof, and generic human review is optional under AD42. No private save, current serializer, migration, source, native loader, profile implementation or actual persistence was tested or changed by this review.",
+      "before_sha256": "ad4cceee3acc048175b4c2c28f571c0a1d1bb3fe613cfd63bd7d732b671ea337",
+      "after_sha256": "63418ca8cbbb499095088ed30ca25490858158855180ac544b7cebb265e539bf"
+    },
+    {
+      "path": "docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md",
+      "heading": "## Content reconciliation B351: full clock, profile and continuation scope",
+      "body": "All356 original lines were reviewed, including the complete83root inventory C1–C19, conditional/dormant/browser/new-record groups, P1–P7, K1–K9, blockers, execution/proof, fingerprints and later coordination receipt. This remains a source-inspected proposal snapshot: the opening CP1–CP7 assignment and absent-reservation receipt describe those sessions, not present workers or a current runtime handoff. An old UI release, failed reservation search or unchanged fingerprint cannot prove a currently free native-save seam. No old session/process was queried here.\n\nPreserve the accepted-direction distinction in the report: ordinary separate-history fresh life pauses its predecessor, one continuing self retains actual learned mastery/base-faculty growth through means, and unconscious choice access depends on actual support/suppression. Exact root/schema, whitelist, portability mapping, quiescence and arrival-paused implementation remain proposals under AD32. The one-realm/one-prestige milestone sentence is corrected from later October24 direction, with its exact old text preserved. This does not change the selected two-history specimen or claim that current gameplay already implements every promised operation.\n\nWorld travel, resuming departure state, historical rewind, scenario reset, selected intentional repeat, restoring a technical backup and loading a chronicle record are not interchangeable. A surviving old body need not be awake/autonomous; a biography cannot reconstruct inventory or commands. Native unconscious recovery is not true death, and a death counter is not a durable faculty trigger. An actual temporal mechanism may preserve current journey learning while rewinding its declared world scope; backup restoration instead restores a coherent saved unit and cannot silently combine old goods with incompatible new claims.\n\nThe83direct roots and19source fingerprints are a bounded serializer snapshot, not all nested fields, all current extension owners or demonstrated roundtrips. This differs in revision/scope from the earlier profile report's61fresh top-level fields; neither count alone contradicts the other or proves complete state coverage. Capture can itself observe/normalize/settle through owners, so a readonly preview cannot assume create_save is a pure clone. The proposed arrival contract preserves actual committed work/encounter progress without replaying starts, timers, costs, XP/parent rewards or RNG. A source snapshot is taken at its real admitted boundary, after already committed effects rather than retroactively before them.\n\nRemembered competence, bodily development, source/faculty, books/gear, institutional entitlement and NPC learning have different carriers. A max/sum/copy of XP cannot supply their meanings. Unknown mixed domains must be named and preserved rather than silently reset or transferred as universal mastery. A returning body can express a genuinely retained skill with actual support; neither a weaker-body tax nor a universal stat transfer is implied. Whitelisted comfort preferences and known favorites must not expose another life's unknown items/worlds. Dormant bytes can be retained without executable resume, and probe timeout is technical uncertainty rather than a fictional world prohibition.\n\nActual journey-bank state is preserved once where supplied; the plan neither mints a bank nor creates automatic independent credit in every paused history. A chosen supported repeat can legitimately resolve again, while the same committed event must not be settled twice. Partial work and unspent time follow their actual operation rather than all-or-nothing refund, silent loss or fake completion. Current AD51/52 support the first useful complete slice and faithful compression, with no all-world/save-engine rewrite prerequisite.\n\nThe historical1366representation target and taste/balance close do not replace current desktop direction or optional review under AD42. T1–T5 and the listed tests were explicitly not run; source hashes and83-root/52-link checks are document/input evidence, not native-loader/persistence/compatibility proof. No current source, root, migration, actual saved game, faculty, branch, worker, body condition or gameplay behavior was newly implemented or verified by this full report review.",
+      "before_sha256": "e99a31540151bd0c059078c4cff970b3421e9916fd471dbcbfa8546c538974e5",
+      "after_sha256": "2a69a747ab0d840494dbfe2f6a17269340d9b2bdf50b5b2ef12ede99211fce4e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 719,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md",
+      "from": "First milestone remains one realm/one prestige layer.",
+      "to": "The former one-realm/one-prestige gate is retired by the\n[October24 direction](../USER_VISION.md#first-milestone-and-scope-check-2026-10-24);\nthis report does not replace current world priorities.",
+      "reason": "Correct superseded live milestone claim from later user direction; preserve original sentence."
+    }
+  ]
+}

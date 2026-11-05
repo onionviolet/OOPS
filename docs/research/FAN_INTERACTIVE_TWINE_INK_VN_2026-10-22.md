@@ -2,7 +2,7 @@
 
 Research only. Web search plus page fetches; nothing downloaded, no text reproduced. "V" = I opened the page. "U" = search snippet only. This is a catalog and proposal, not accepted direction.
 
-## Headline finding
+## Historical search finding, 2026-10-22
 
 Fan interactive fiction for our listed worlds is thin and mostly short. No fan game turned up for Mother of Learning, Lord of the Mysteries, Shadow Slave, Reincarnation Paradise, Fullmetal Alchemist or Bleach (text/VN). Fan work exists for Harry Potter, Jujutsu Kaisen, Hunter x Hunter, Naruto and Fate, but almost none has real stat, calendar or inventory systems. The mechanically useful material is in ORIGINAL games: Academagia, Long Live the Queen, Fallen London, Xianxia Simulator, Four Heavenly Valleys, The Magician's Burden.
 
@@ -55,14 +55,16 @@ Not found at all after searches: Mother of Learning, Lord of the Mysteries (only
 - Relationships: per-NPC numeric meters (approval, trust, romance flags) gating scenes. Mirror's approval points are a typical small case.
 - Saves: engine-level only; Twine game state lives in browser storage and breaks across updates (Dao Ascension complaints).
 
-**Where they are weak versus our idle/life-sim**
+**Limits of this recorded comparison**
 
-- Authored, linear, finite: content is one-shot passages, so replay value comes from branching, not systems.
-- No ongoing simulation: nothing runs while the player is away, no offline progress, no background NPC schedules.
-- Shallow economy: items rarely decay, craft, trade or compound.
-- Weak long-horizon pacing: no automation, no throttled energy (Fallen London is the exception) and no many-world meta-progression.
-- Fragile persistence across updates, and almost no migration story.
-- Twine/ChoiceScript are poor at maps and combat (forum consensus, U).
+The sampled pages emphasize authored passages, branch/stat gates and finite
+stories. Their unreported ongoing simulation, offline work, NPC schedules,
+economic detail, automation and migration remain unknown unless a row supplies
+specific evidence. Those gaps cannot establish engine-wide absence. The recorded
+save-loss comments concern particular projects and updates. Fallen London's
+action bank is a distinct donor policy, not a missing universal idle feature.
+The forum-level map/combat judgment is unverified; a Twine or ChoiceScript tag
+alone does not determine those capabilities.
 
 **Best stealable ideas (proposals only)**
 

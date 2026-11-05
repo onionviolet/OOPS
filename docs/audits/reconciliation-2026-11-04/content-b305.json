@@ -45,7 +45,7 @@
       ],
       "disposition": "Read all original663–1333 through round17, every identity/branch/derivedtime/motive/substitute/metaplayer/earlyhardship row. Confirm full original2200line prefix SHA unchanged sinceB304. Preserve all source/local/default distinctions and exact archivedtests, with currentAD44/AD51/AD52/sourcecompatibility qualifying oldprototype universalrules. Fold conditionalforcedcanon, noautomaticNPCofflinelife, nohiddenfactsfromlowconfidence/firstobservation, and real actor/custody/time requirements into owner. No fullfilecredit.",
       "evidence": "Old640/649test/coordinatorchecks are attributed puremodule input evidence, not playablebranch or completehistory. Sourcepilot33events5anchors lackspositivefixedrole proof. Metadata57works/35games and126unknowns are localdatedroutes, not actualsourcecoverage. Laterrounds18–28remainopen; heading navigation is not contentreview.",
-      "reopen": "Continue original1334–2200 and check prefix identity before fullclosure. Scope1233 notclaimed; exact covered union1–1333 only. No reader/source/worker or branch/migration/runtime action authorized by preserved dispatches.",
+      "reopen": "Continue original1334–2200 and check prefix identity before fullclosure. Exact covered union1–1333 only. No reader/source/worker or branch/migration/runtime action authorized by preserved dispatches.",
       "input_sha256": "c45de70884f5f885d4482809a50fb5e472333476f874eb869afafdc1496baadc",
       "input_lines": 2219
     }
@@ -61,12 +61,26 @@
   ],
   "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
   "remaining_without_content_review": 813,
+  "review_metadata_corrections": [
+    {
+      "field": "reviews[0].reopen",
+      "old": "Continue original1334–2200 and check prefix identity before fullclosure. Scope1233 notclaimed; exact covered union1–1333 only. No reader/source/worker or branch/migration/runtime action authorized by preserved dispatches.",
+      "new": "Continue original1334–2200 and check prefix identity before fullclosure. Exact covered union1–1333 only. No reader/source/worker or branch/migration/runtime action authorized by preserved dispatches.",
+      "reason": "Remove stray Scope1233 text; original input identity and coverage unchanged."
+    }
+  ],
   "post_record_amendments": [
     {
       "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
       "from": "accepted clocks/absence and current cast-depth direction apply.",
       "to": "existing clock/absence owners and current cast-depth direction apply.",
       "reason": "Later four-group closeout: clarify evidence/adoption scope without changing original review identity."
+    },
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "from": "accepted clocks/absence and current cast-depth direction apply.",
+      "to": "existing clock/absence owners and current cast-depth direction apply.",
+      "reason": "Observed concurrent one-phrase lint clarification after B306; exact original2200line prefix verified unchanged and full folded-body diff inspected. Preserve this safe owner wording without claiming task performed the concurrent edit."
     }
   ]
 }

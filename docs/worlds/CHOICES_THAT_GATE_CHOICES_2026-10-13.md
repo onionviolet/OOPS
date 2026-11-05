@@ -152,3 +152,10 @@ Power can remove the original obstacle and create a different kind of play: a pr
 ### Bounded next design recommendation
 
 Compare one ordinary base feature, one normally earned extension and one exceptional power in a connected hypothetical life. Trace its first use, repeated use, one useful combination, transfer or loss if applicable, and aftermath. Use the comparison to decide placement before selecting runtime work. The full inventory is a consideration palette, not a requirement to implement every feature or a new completion gate.
+
+
+## Content reconciliation B396: dependency choices retained without a universal unlock ladder
+
+All original choice, gate, roguelike, relationship and twelve additional feature-family rows were read. Their useful cases are retained in the cheat library's B396 owner fold. A genuine rewind may remove the local consequence it actually reverses; retaining costs outside its scope does not reimpose the original failure arbitrarily. A strong or fixed power can support different play without a mandatory counter or weaker start. Player exclusivity can be an authored premise; not every power requires symmetric NPC access. Ordinary readable controls remain available without reproducing telepathy, future sight or unknown records.
+
+The proposed comparison exercise is optional, with no new world roster or completion gate. Current lead developer routes precede later independent starts, and the old first milestone is retired. Source observation, actual native behavior, durable carrier/clock continuity and optional human feedback retain separate proof. No sealed branch catalog, real relationship control, reset or random generator is delivered by these palettes.

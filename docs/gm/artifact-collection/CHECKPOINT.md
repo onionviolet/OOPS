@@ -35,3 +35,12 @@ is implemented-unverified; unit/browser/gameplay/save/reload/import/failure/
 keyboard/regression/director checks are deferred in ACCEPTANCE_BACKLOG.md.
 The resumed role ran no build, commit/push/publication/automation. Next action:
 none unless the integrator returns a concrete source defect with writer transfer.
+
+
+## Content reconciliation: release and native consumer obligations, 2026-11-04 (B360)
+
+The complete RECONCILIATION.json, this checkpoint and revision2 integration packet preserve three substantive repairs: stable internal identity versus displayed maker name; useful firsthand cut evidence from actual ordinary recovery rather than prism-only access; and fresh native equipment custody checked at quote, commit and scene payment. Readiness/release and fingerprints identify a source packet, not a fresh built/native proof. No captured hash was rechecked against current runtime in this pass.
+
+Keep the exact native/shared joins as historical requirements, not instructions to patch today: registration grants no item, rendering/import does not enroll a seller or refill stock, an unpublished plan needs one durable publisher, and reservation returns/cancellations are not new loot. Missing actual equipment context must not allow an equipped input to be consumed by a stale simulation-slot check. Existing frozen payloads remain their real accepted terms; new evidence is not retroactively granted. The15-command/six-item/one-scene scope does not establish all item mechanics or a broader world.
+
+The source role’s no-build receipt and deferred gameplay/persistence/failure/keyboard checks remain explicit. A released packet and current main-game adoption are separate states, and old integrator/thread IDs do not grant current ownership. Use actual present owner/consumer evidence for a selected follow-up, preserving source/module history and the Vela display/stable-ID distinction. No shared join, namespace, source power, stock, scene, item, build, save or gameplay gate was changed or run by this review.

@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "batch": "B397",
+  "title": "Package adapter semantics, MUD carriers and bounded fan-reference evidence",
+  "at": "2026-11-05T04:13:50.721342+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/LIBRARIES_TO_INCORPORATE_2026-10-14.md",
+      "ids": [
+        "ER6-L1–L26",
+        "ER6-P1–P5",
+        "ER6-F1–F3",
+        "ER6-C1–C4",
+        "ER6-B1/B2",
+        "ER6-N1–N3",
+        "ER6-X1"
+      ],
+      "classification": "Dated reference research with bounded source depth and unselected applications",
+      "owners": [
+        "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+        "docs/research/LIBRARIES_TO_INCORPORATE_2026-10-14.md"
+      ],
+      "disposition": "Preserved pinned package identity, full-root versus selected-import size boundaries, dated notices, proposed adapters and retained incumbents. Qualified owner promises that ECS/SQL/schema names alone supply fast queries, clean saves or atomic behavior.",
+      "evidence": "Full 152-line report read; truncated combined output recovered explicitly at80–112/110–122/123–155. Every package row, adapter/save decision and open gate reviewed; no package/API/license fact refreshed externally.",
+      "reopen": "Refresh only a named unstable fact when a current adoption or source question actually requires it; no automatic dependency, new source acquisition, external browsing or implementation follows this reconciliation.",
+      "input_sha256": "2478e40c3e79b50e8cb2a65198539b238d5705d127f1b52d49d47a35dde5abc2",
+      "input_lines": 152,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          152
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/continuing-traveler-games-2026-10-14/MUD_SOURCE_GUIDE.md",
+      "ids": [
+        "E1–E3",
+        "J1–J8",
+        "Q2a–Q2e"
+      ],
+      "classification": "Dated reference research with bounded source depth and unselected applications",
+      "owners": [
+        "docs/research/continuing-traveler-games-2026-10-14/MUD_SOURCE_GUIDE.md",
+        "docs/research/continuing-traveler-games-2026-10-14/RETROMUD_AND_4D_DEPTH.md"
+      ],
+      "disposition": "Preserved concrete guild/body/tool/clock/custody/reincarnation/save joins and exact extraction limits. Catalogue, repeated ability rows and lexical registrations are not unique live careers or exercised persistence.",
+      "evidence": "Full 61-line guide read; related deeper report1–65 supporting context only. No private captures, game login, archive extraction, original source or live server newly read.",
+      "reopen": "Refresh only a named unstable fact when a current adoption or source question actually requires it; no automatic dependency, new source acquisition, external browsing or implementation follows this reconciliation.",
+      "input_sha256": "29c2fde69935ef09abc38458db0036428bb9ce14e6e15b30941e742d06fc2ecf",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_TWINE_INK_VN_2026-10-22.md",
+      "ids": [
+        "A1–A13",
+        "B1–B13",
+        "V/U method",
+        "mechanics and gap lists"
+      ],
+      "classification": "Dated reference research with bounded source depth and unselected applications",
+      "owners": [
+        "docs/research/FAN_INTERACTIVE_TWINE_INK_VN_2026-10-22.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md"
+      ],
+      "disposition": "Preserved page-versus-snippet evidence and diverse stat/calendar/relationship/item references. Qualified survey-wide engine/absence/weakness generalizations rather than adopting donor clocks, action budgets or numerical relationships.",
+      "evidence": "Full 81-line survey read, all26catalog rows and notes/gaps, with all URLs/status/price observations treated as dated source material, not current recommendations or new live search.",
+      "reopen": "Refresh only a named unstable fact when a current adoption or source question actually requires it; no automatic dependency, new source acquisition, external browsing or implementation follows this reconciliation.",
+      "input_sha256": "7f033180828da47ef066abf23a670a3ddad0aab41698ddd2c6ecc92a114e2a5c",
+      "input_lines": 81,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "ids": [
+        "catalog1–30",
+        "V2/V1/U",
+        "11 structural patterns",
+        "7 design ideas",
+        "gaps and proposed routes"
+      ],
+      "classification": "Dated reference research with bounded source depth and unselected applications",
+      "owners": [
+        "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md"
+      ],
+      "disposition": "Preserved partial build-data observations, hub/listing and snippet leads, distinct budget choices and local overrides. Corrected hub-only V2 classification, minimum-budget/zero-sum confusion and unsupported data-size/drawback universality claims while preserving exact old wording.",
+      "evidence": "Full89-line survey read, all30rows, every stated method limit, patterns, ideas and proposed next steps. No fan-build body, PDF, primary source, archive or website newly opened.",
+      "reopen": "Refresh only a named unstable fact when a current adoption or source question actually requires it; no automatic dependency, new source acquisition, external browsing or implementation follows this reconciliation.",
+      "input_sha256": "661747b2c92b7dad46b399ed343d44cfdb11da0f0d5307208f7ba0ce8bbffddf",
+      "input_lines": 89,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          89
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B397: library size, ownership and adapter semantics",
+      "body": "The complete ER6 report retains all 26 package identities and adapter/save rows. Its measurements compiled pinned imports and gzipped bytes in scratch; they did not execute libraries in gameplay or measure throughput, battery or native bundle delta. A full export namespace and a two-field selected schema measure different feature surfaces. WASM, workers, browser binaries, auxiliary graph implementations, installed tooling and content assets have separate costs. Root TypeBox builders do not include runtime validation, and Zod Mini is not the full root namespace. The initial pure-rand root-import failure and corrected v8 subpaths remain part of the evidence.\n\nThe useful fit corrections are specific: tracery is an object predicate builder while tracery-grammar is the narrative candidate; scoped TypeBox0.34 and typebox1.x are distinct APIs. ESM via module metadata is a bundler route, not a Node bare-import guarantee. Exact old license identities and notice conclusions are dated observations, not a refreshed legal or transitive distribution audit. No version, maintenance or security recommendation is made from an old push date.\n\nA derived stable-ID query index is not a new authoritative actor store. An ECS does not by itself produce fast queries or a clean save. A smaller helper does not reduce the semantic cost of async durable publication: await actual transaction completion, retain one envelope/writer and selected recovery policy. Signals or events notify after successful publication, dispose on close and cannot publish speculative drafts. In-place mutation need not trigger a signal. Schema defaults, stripping and coercion can silently change state; shape validation cannot replace semantic references, conservation or migration. Point-to-point A* does not substitute for all-destination directed cost output.\n\nKeep ordinary integer conservation separate from approximate huge magnitudes, and retain algorithm/revision state when changing RNG. Grammar/noise/FOV and renderer previews do not generate fresh authoritative facts. Audio, canvas, utility scoring, compressed exports, telemetry and optional test tooling remain candidates for named consumers. Existing node:test, DOM, callbacks/EventTarget, Web Audio, native compression and plain records remain valid choices. AD39 owns the current Electron-plus-web delivery; old package rankings or browser widths do not select new dependencies or replace the current desktop target.",
+      "before_sha256": "36de1271e81cc0ccfbc006815bb50c1d3c5550e3d29a3b4f692124d37838e8b5",
+      "after_sha256": "4e24a02d767064c673d22ebfb24e875231785b4c28c5c22163776c0749cd0c4e"
+    },
+    {
+      "path": "docs/research/continuing-traveler-games-2026-10-14/MUD_SOURCE_GUIDE.md",
+      "heading": "## Content reconciliation B397: catalogue depth and exact retention consumers",
+      "body": "The full guide's eight decoded joins are retained. Learned competence, body/tool support, local effectiveness, guild-slot history, actual skill execution, remembered records, material processing, customer demand, tender and cargo survival have different consumers. Personal quit/keyring/object persistence and house-room persistence have different writers; a general save command does not prove every changed object roundtrips. These are donor references, not universal suppression, remort or retention rules for OOPS.\n\nAll 353 catalogue locations do not become deeply inspected careers: only 19 primary and five secondary ability pages were captured. The 1,510 rows include repeated abilities, and the 2,168 archived help records include duplicates and eras. The 333 lexical registrations can include commented/disabled calls. Raw/display guild level and intrinsic skill/spell level remain distinct. Malformed XML was lexically extracted with original bytes preserved, not certified as valid XML. The pinned public source and help do not prove current live-server behavior. Q2a–Q2e remain unresolved specific thresholds, crossings, scripts, organic cargo and object/house retention questions. No new private-source read, installation or persistence experiment is implied.",
+      "before_sha256": "29c2fde69935ef09abc38458db0036428bb9ce14e6e15b30941e742d06fc2ecf",
+      "after_sha256": "64b5d5acae06e03eef294d33a3f709950e3ddad63a038cd2cf3158c0d5ba121d"
+    },
+    {
+      "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+      "heading": "## Content reconciliation B397: fan selectors and narrative references remain local examples",
+      "body": "The full fan interactive-fiction and CYOA surveys were read, alongside the existing B325 quest-survey qualification. Their opened-page, listing-only, snippet, partial build-data and hub observations retain different evidence depth. A fan build, a human-run vote quest and an engine-assisted story are different kinds of reference. Lack of results in a bounded title/host search does not establish absence, and listing status/prices/dates are October snapshots. No linked source story, fan-build data, live site or game was newly read in this reconciliation.\n\nRetain useful questions: coherent era/body/means choices, constrained combinations, optional difficulty or budget selectors, power-plus-mentor bundles, origin-related access, calendar training, conditional storylets, practical inventories and distinct relationship dimensions. Those can inform an optional premise, an original mechanism or a readable control. Their point budgets, lifespan pressure, action-energy bank, drawback rewards, stat thresholds, mandatory mentors, class caps, finite endings and fiat assumptions are donor-specific choices. They do not establish canon law or a global cost, distribution, short-campaign target or character benefit from a player-layer selection. A nonnegative budget allows points left over; it does not prove a balanced-zero exchange mechanism. Large serialized data may be assets rather than mechanical depth.\n\nTwine, ChoiceScript and Ren'Py tags do not by themselves prove the presence or absence of maps, combat, migrations, background simulation or offline work. The recorded sample can suggest a scheduling, discovery or relationship comparison, but site text, review claims, source implementation and actual play need separate evidence. Current lead-first priorities retain independent lives later, AD51 shares reasonable seams without flattening the worlds, and AD52 allows long play with useful compression. No new acquisition wave, fan-text import, dependency, point-buy start, energy throttle or mandatory romance/death unlock is selected.",
+      "before_sha256": "5deba9b5585150bb7cbf4ebcc36a6d39e2895598b6f476fdab2b6668b6911bf0",
+      "after_sha256": "d1e9363384268eb600c9da40ae9f0e316b5051fcb33714833e9d197968a1cb31"
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "heading": "## Content reconciliation B397: read depth and budget claims corrected",
+      "body": "All 30 rows and the method/pattern/idea/gap sections were read. V2 describes inspected own build data, sometimes only the first100KB; hub-only observations establish listing/existence, not individual build mechanics. The hub rows and Shadow Slave listing reference are qualified accordingly. A larger project.json is not evidence of deeper rules. Drawback rewards occur in the inspected examples without a survey-wide universality proof. FMA's recorded final-total floor permits unused budget and does not establish a zero-sum resource law; detailed costs were not read. Retain source-specific budget, gate, era, companion and optional override ideas without adopting them as OOPS or franchise rules. Exact replaced wording is retained in the batch amendments. No external claim was refreshed, and the proposed future browser/archive routes were not executed.",
+      "before_sha256": "661747b2c92b7dad46b399ed343d44cfdb11da0f0d5307208f7ba0ce8bbffddf",
+      "after_sha256": "f51be6c321e704a780c8357125aa011e2f5c673935fd81deca95f33bec16b3a9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 599,
+  "post_record_amendments": [
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "from": "**LB1. ECS / entity store.** bitECS, miniplex or Koota for actors, NPCs,\ncompanions, items with components. Gives fast queries (\"all hungry actors in\nworld X\") and clean save shape. Start with one domain (NPCs).",
+      "to": "**LB1. ECS / entity store.** bitECS, miniplex or Koota can index selected\nactor/item queries. Query benefit needs its actual workload; save shape still\nbelongs to the authoritative record owner. A derived stable-ID index can trial\none domain without replacing its store (ER6, ER7).",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "from": "**LB2. sqlite-wasm on OPFS.** Real queries over saves, history and world\nfacts; transactions for E3; incremental writes. Heavy (~1 MB) but solves\nDA1/DA2/DA6 together. Spike before choosing.",
+      "to": "**LB2. sqlite-wasm on OPFS.** Candidate for selected save/history queries\nand incremental writes. Its transactions still need an awaited envelope,\nsingle writer, deployment, recovery and migration contract; the package alone\ndoes not settle DA1/DA2/DA6. Probe the selected VFS and workload before choosing.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "from": "**LB5. Schema validation.** Zod, Valibot or TypeBox for saves, imports and\ncontent tables (DA4, DA5, OS4). Valibot is the small option.",
+      "to": "**LB5. Schema validation.** Zod, Valibot or TypeBox for selected save,\nimport or content boundaries (DA4, DA5, OS4). Compare equivalent selected\nfeatures, including runtime checking and error policy; defaults/coercion are\nnot migration, and shape checks do not replace domain semantics.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "from": "**LB8. Procedural generation.** Seeded PRNG (pure-rand, seedrandom), noise\n(simplex-noise), Tracery-style grammars and WaveFunctionCollapse for content.",
+      "to": "**LB8. Procedural generation.** Candidate seeded PRNG, noise and grammar\nadapters retain algorithm/content revision and committed outputs. ER6 identifies\npure-rand v8's explicit subpaths and tracery-grammar for story grammars; the\nsimilarly named tracery package is an object predicate builder. These helpers\nand WaveFunctionCollapse do not supply world law, knowledge or save semantics.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "Budget is called Exchange Points and the run is balanced to zero, so \"equivalent exchange\" is the cost rule.",
+      "to": "Budget is called Exchange Points and the recorded final-total condition is nonnegative, so unused budget is possible. Detailed pick costs were not read; the theme does not establish a literal equivalent-exchange mechanism.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "Likely cursed technique and cursed energy builds. Size suggests a deep CYOA.",
+      "to": "Technique/energy build details are unconfirmed. Data size alone does not establish mechanical depth; it may include assets.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "Evidence that jump docs convert to interactive form with discounts intact. No target world here. | V2 (hub page)",
+      "to": "Hub advertises interactive jump-doc conversions; individual discount mechanics were not inspected. No target world here. | V1 (hub page only)",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "Includes a \"Fallout Jumpchain\" and \"RWBY JumpChain\" in the index. | V2 (hub page)",
+      "to": "Includes a \"Fallout Jumpchain\" and \"RWBY JumpChain\" in the index; individual build data was not read. | V1 (hub page only)",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "Opened (V2), not a CYOA.",
+      "to": "Listing opened (V1); not a CYOA, and no game play or own build data is established here.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "Mix of verified (entries 1 to 3, 20) and snippet-level",
+      "to": "Mix of partially inspected build-data observations (entries 1 to 3), hub-only listings (entry 20) and snippet-level",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "2. **Zero-sum balance.** FMA requires the final total to be 0 or more, so every pick has a visible price.",
+      "to": "2. **Nonnegative budget.** FMA's recorded condition allows a final total of 0 or more, including unused points. Detailed costs were not read, so neither every pick's pricing nor a balanced-zero result is established.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "4. **Drawbacks for points.** Universal.",
+      "to": "4. **Drawbacks for points.** Present in the inspected examples; universality across the listed and unread builds is not established.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_TWINE_INK_VN_2026-10-22.md",
+      "from": "## Headline finding",
+      "to": "## Historical search finding, 2026-10-22",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_INTERACTIVE_TWINE_INK_VN_2026-10-22.md",
+      "from": "**Where they are weak versus our idle/life-sim**\n\n- Authored, linear, finite: content is one-shot passages, so replay value comes from branching, not systems.\n- No ongoing simulation: nothing runs while the player is away, no offline progress, no background NPC schedules.\n- Shallow economy: items rarely decay, craft, trade or compound.\n- Weak long-horizon pacing: no automation, no throttled energy (Fallen London is the exception) and no many-world meta-progression.\n- Fragile persistence across updates, and almost no migration story.\n- Twine/ChoiceScript are poor at maps and combat (forum consensus, U).",
+      "to": "**Limits of this recorded comparison**\n\nThe sampled pages emphasize authored passages, branch/stat gates and finite\nstories. Their unreported ongoing simulation, offline work, NPC schedules,\neconomic detail, automation and migration remain unknown unless a row supplies\nspecific evidence. Those gaps cannot establish engine-wide absence. The recorded\nsave-loss comments concern particular projects and updates. Fallen London's\naction bank is a distinct donor policy, not a missing universal idle feature.\nThe forum-level map/combat judgment is unverified; a Twine or ChoiceScript tag\nalone does not determine those capabilities.",
+      "reason": "Qualify content evidence without upgrading package, listing, partial-data, point-budget or donor-engine claims; preserve exact historical wording."
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "V1 (hub page only)",
+      "to": "V1 (hub-page evidence)",
+      "reason": "Keep bounded catalogue evidence and correct title identity explicit; remove an ambiguous site-family shorthand rather than imply another novel. Old text preserved.",
+      "occurrences": 2
+    },
+    {
+      "path": "docs/research/FAN_CYOA_JUMPCHAIN_2026-10-22.md",
+      "from": "- **Shadow Slave**: only an itch.io fan game,",
+      "to": "- **Shadow Slave**: the recorded search found an itch.io fan game,",
+      "reason": "Keep bounded catalogue evidence and correct title identity explicit; remove an ambiguous site-family shorthand rather than imply another novel. Old text preserved.",
+      "occurrences": 1
+    }
+  ]
+}

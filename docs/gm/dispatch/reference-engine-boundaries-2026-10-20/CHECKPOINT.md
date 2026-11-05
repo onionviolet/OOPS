@@ -61,3 +61,12 @@ node scripts/playtest/lamplight-continuity.mjs /var/folders/xb/njlqv84d65zbhd229
 ```
 
 G1, remaining acceptance: Weibao's play judgment. Setup was harness controlled: nighttime, owned book/items, short remaining fuel and nearly completed study are seeded; no natural campaign acquisition is claimed. The existing pre-edit market journey used native purchasing with seeded access/money. Styling/IG and connected-system completion remain with their own chats. Candidate and evidence are local and reviewable; all lane writers and disposable browser/server processes have stopped. No commit, push, publish or personal-save operation was performed.
+
+
+## Content reconciliation B387: elapsed support and exact revision proof
+
+The entire checkpoint, V1–V7 table and revision history were read. A just-settled elapsed light interval is not the lamp's current shining state or a cached future quote. Its calendar/place/custody guards and reset on configure/load/command prevent reuse as timeless entitlement. The native reading owner uses supported elapsed illumination while the current estimate reflects expiry. Independent light can support the post-expiry inspection remainder; travel burning fuel does not invent study. Supported compressed advance replays native ticks, not a new offline clock.
+
+F1/F3 were reproduced before edits; F2's stock/command/persistence/custody semantics were retained. Fixture corrections for null/undefined and book progress versus matching Literacy XP preserve loader invariants. Reader title recognition at next publication/load backfill is separate from once-only book work, fuel, XP and bonus: immediate selected-state checks and later whole-envelope checks have different scope. The2335-green revisionB suite follows a real changed other-owner harvest UI input, preserving revisionA's failure and both hash identities. It is not a same-input pointless repeat or a repair attributed to the light lane.
+
+All numeric night/dawn/expiry estimates and native save/reload/Export/Import comparisons retain their exact seeded candidate and original clock sampling policy. The pre-edit purchase journey supports unchanged acquisition only, not final whole-campaign play. Old candidate URLs/paths, symlinked font, writer release and stopped-process claims are historical; no current manifest, runtime, source game, browser or app was reverified. AD42 makes the old remaining human-play gate optional review, without broadening the actual technical evidence.

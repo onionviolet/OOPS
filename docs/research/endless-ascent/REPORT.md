@@ -13,3 +13,10 @@ Scope is bounded: progression/scene retry, shop, fuse/weight/elevator obstacles,
 ## Final Steam receipt, 2026-10-09
 
 Source scope: IL2CPP metadata and26 selected actual x64 method ranges. Parent verified retained-copy gates and requested uninstall through Steam. Final observed removal state: **not-verified; request sent, dialog confirmation unobserved**. [Per-app receipt](../../gm/dispatch/steam-installs-2026-10-09/ASCENT_UNINSTALL.json). No dialog clicked or game launched. Parent owns the dossier after reader handback. Earlier acquisition-only queue text is superseded by this pass.
+
+
+## Content reconciliation B404: coverage map substance and exact proof boundaries
+
+The entire map and report preserve native x64 method bodies separately from metadata declarations and empty DummyDll stubs. The extraction process produced outputs before exit134 at console ReadKey; successful parsing/readback is separate from command success. RVA-to-next-unique-RVA bounds can include padding and aliases; unwind entries can split functions. Selected completion currency, funded purchases, distinct puzzle contributions, missing fuse requirements and hazard signals remain source-level references, not an idle tower, prestige loop, authored complete scene, played difficulty or checkpoint retention proof. Scene overrides and signal bindings remain unknown. No installed app or user save was opened by this reconciliation.
+
+Both complete local documents were read. Their source facts and checks remain attributed to the original audit, without a fresh code read, runtime, recovery, installed-state or primary-source certification. Useful original proposals and history remain intact. Current world/owner priority, source-specific mechanisms, explicit compatibility and AD32/AD36/AD42/AD51/AD52 govern any separately selected use. No source acquisition, private-save access, app control, uninstall or new gameplay was performed.

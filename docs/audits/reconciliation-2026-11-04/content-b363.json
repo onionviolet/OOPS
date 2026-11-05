@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "batch": "B363",
+  "title": "Body-lineage digest coverage, correction audit and mechanism patterns",
+  "at": "2026-11-05T03:02:11.862898+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/COVERAGE.json",
+      "ids": [
+        "119digest slugs",
+        "57skips",
+        "34lead-only",
+        "28bounded digest entries",
+        "One supplemental"
+      ],
+      "classification": "Historical secondary/source-qualified catalogue, coverage map or proposal synthesis",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md"
+      ],
+      "disposition": "Preserve exact source tiers and skipped/lead/bounded partitions; fold useful mechanism distinctions, era/continuity qualifiers and source-audit limits without certifying linked canon or adopting new genetic rules.",
+      "evidence": "Read all723lines in four bounded ranges, every digest/path/disposition/output and the supplemental field. Independently counted119unique slugs,62non-null outputs,57skips,34lead-only and28bounded/mixed digest rows; supplemental card makes reported63/29/34 partition. No linked digest/source-card content read by proxy.",
+      "reopen": "For a selected direct adaptation inspect the exact qualified edition/era/scene and current owning design; no full-franchise certification, invented genetic probabilities, source acquisition or runtime dispatch from this catalogue.",
+      "input_sha256": "a690cc8ef2155711dfa5c531ec7eed15b6c63f0b8b690a63937cb19e49a647c0",
+      "input_lines": 723,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          723
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+      "ids": [
+        "V1–V5",
+        "R1–R5",
+        "119coverage table rows",
+        "World-folder disposition",
+        "63/29/34 catalogue"
+      ],
+      "classification": "Historical secondary/source-qualified catalogue, coverage map or proposal synthesis",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md"
+      ],
+      "disposition": "Preserve exact source tiers and skipped/lead/bounded partitions; fold useful mechanism distinctions, era/continuity qualifiers and source-audit limits without certifying linked canon or adopting new genetic rules.",
+      "evidence": "Read all239lines including evidence definitions, source routes/unavailable dump boundaries, all current-digest table rows and complete world-folder table. Source/local URL claims were read as attributed historical findings, not fetched or reauthenticated.",
+      "reopen": "For a selected direct adaptation inspect the exact qualified edition/era/scene and current owning design; no full-franchise certification, invented genetic probabilities, source acquisition or runtime dispatch from this catalogue.",
+      "input_sha256": "be56a5ec8cbef9fad703648f3a2149e2af483cbf76f3bcc39bc81d39bde0b04b",
+      "input_lines": 239,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          239
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/CHECKPOINT.md",
+      "ids": [
+        "Four complete steps",
+        "140labeled claims",
+        "Source gates",
+        "Root-review readiness"
+      ],
+      "classification": "Historical secondary/source-qualified catalogue, coverage map or proposal synthesis",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md"
+      ],
+      "disposition": "Preserve exact source tiers and skipped/lead/bounded partitions; fold useful mechanism distinctions, era/continuity qualifiers and source-audit limits without certifying linked canon or adopting new genetic rules.",
+      "evidence": "Read all20lines through unavailable cache/secondary/edition limits and no-gameplay-acceptance statement. Reported140labeled claims were not independently audited by reading this checkpoint.",
+      "reopen": "For a selected direct adaptation inspect the exact qualified edition/era/scene and current owning design; no full-franchise certification, invented genetic probabilities, source acquisition or runtime dispatch from this catalogue.",
+      "input_sha256": "439f3a0f7b3f1af08acc941ed93b6fa25221e028982eecf0b385bdca17e6da5c",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+      "ids": [
+        "F1–F10",
+        "G1–G42",
+        "Original versus franchise examples",
+        "Precise evidence gates"
+      ],
+      "classification": "Historical secondary/source-qualified catalogue, coverage map or proposal synthesis",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md"
+      ],
+      "disposition": "Preserve exact source tiers and skipped/lead/bounded partitions; fold useful mechanism distinctions, era/continuity qualifiers and source-audit limits without certifying linked canon or adopting new genetic rules.",
+      "evidence": "Read all31lines and ten full finding/proposed-disposition rows, final distinctions among concrete repair, supported qualification, unresolved reference and setting counterexample. No external link, PDF or original novel opened.",
+      "reopen": "For a selected direct adaptation inspect the exact qualified edition/era/scene and current owning design; no full-franchise certification, invented genetic probabilities, source acquisition or runtime dispatch from this catalogue.",
+      "input_sha256": "7d2cda39c742909c64b5df2ffab0a65f61f790c65cb5e04a50194d5abcc2d6f6",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md",
+      "ids": [
+        "P1–P14",
+        "BD/CL/BP/MX/CN/SG/AG/BM mappings",
+        "Family-level gaps",
+        "Dimorphism qualification"
+      ],
+      "classification": "Historical secondary/source-qualified catalogue, coverage map or proposal synthesis",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md"
+      ],
+      "disposition": "Preserve exact source tiers and skipped/lead/bounded partitions; fold useful mechanism distinctions, era/continuity qualifiers and source-audit limits without certifying linked canon or adopting new genetic rules.",
+      "evidence": "Read all39lines including all fourteen complete pattern/default/dial/reason/cost rows, mapping gaps and final weak-dimorphism warning. Comparisons remain proposals and source-card facts remain inherited rather than reverified.",
+      "reopen": "For a selected direct adaptation inspect the exact qualified edition/era/scene and current owning design; no full-franchise certification, invented genetic probabilities, source acquisition or runtime dispatch from this catalogue.",
+      "input_sha256": "c9a1462f27cc15aeb22c2a98476ec313e691b295f48512bc3a9c48f12e3c0886",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+      "heading": "## Content reconciliation: catalogue partition and source reach, 2026-11-04 (B363)",
+      "body": "The complete structured inventory and both prose coverage tables were reviewed. Recounting the JSON gives119unique digest subjects:57skipped and62with outputs. Those62split34lead-only and28with bounded/mixed evidence; the separate world-linked supplemental card explains the report’s63cards/29bounded-or-mixed/34lead-only totals. This arithmetic validates the inventory partition only. It does not independently read119digests,63cards,140claims or any whole source, nor prove every historical output remains available now.\n\nPreserve V1–V5’s source limits: selected digest/notes sections, bounded qualified local analyses, inaccessible raw-cache paths, indexed extracts without verified revision and specific supplied editions are different evidence. A source manifest title is not a semantic read; a wiki’s “shown” claim remains secondary; official overview, direct event, character testimony and deduction have different reach. A skipped thin/blocked digest means no supported finding in the consulted material, not absence throughout the franchise. Historical copies and cross-world/template folders do not become additional independent sources.\n\nR1–R5 and fourteen patterns preserve useful options without selecting a new body/genetics system or build order. Current LOTM/Harry priorities and exact source/rule owners govern later work. Original example names, biological ancestry, learned family practices, source carriers, social pedigree and offices retain distinct meanings; film/book/sequel/branch evidence is not silently fused. The old missing-cache/worker/source qualification observations are historical, not a new recovery/acquisition order. No digest, source card, primary passage, PDF, source URL, private save or gameplay behavior was inspected beyond these five actual documents.",
+      "before_sha256": "be56a5ec8cbef9fad703648f3a2149e2af483cbf76f3bcc39bc81d39bde0b04b",
+      "after_sha256": "bc68c0c1512cc5f220edf91f4039eec16e10fdaa7a48c54ceeac19dbaaaa24b8"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/CORRECTIONS.md",
+      "heading": "## Content reconciliation: correction strength and adoption, 2026-11-04 (B363)",
+      "body": "F1 is a precise era/survivor-scope wording repair; F2/F3 qualify awakening and inheritance rather than supply a full genetic model. Preserve the table’s distinction between evidence-supported precision, no demonstrated error, uncertain extrapolation, original-project attribution, game analogy and a setting-specific counterexample. Do not promote F4–F9’s open primary/continuity gates into proved corrections, or import revised-D&D life curves into unrelated worlds. The indexed references and official overview establish only their quoted/consulted scope in this historical pass; no link or PDF was fetched in this reconciliation.\n\nThese proposed changes were not claimed applied to the shared genetics owner by B4. Actual adoption must be checked at that owner before treating a reference repair as current or dispatching it again. Squib/Muggle-born contrast does not prove a recessive allele or guaranteed carrier transmission. A charm-related lead does not impose sex eligibility, attraction, identity, orientation or romance outcomes. Original constitution names are not newly certified franchise laws. Mechanism/era/continuity evidence should govern a selected adaptation, while missing evidence remains an explicit gap rather than a universal prohibition. No new shared rule, biological probability or runtime action was adopted here.",
+      "before_sha256": "7d2cda39c742909c64b5df2ffab0a65f61f790c65cb5e04a50194d5abcc2d6f6",
+      "after_sha256": "66c6857f3a298cb89d216726972de332b6a99bf5e1ebc8eef245037debbc283d"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/PATTERNS.md",
+      "heading": "## Content reconciliation: useful body mechanisms and local dials, 2026-11-04 (B363)",
+      "body": "P1–P14 are a reusable palette with actual mechanism distinctions: ancestry/faculty/method/property/office; acquired form versus germline/template change; power production versus tolerance/control; taught expression versus an inherited executable faculty; body/soul/identity/reproductive role/institution; aging versus appearance/regeneration/survival; pedigree versus demonstrated biology; and market demand for usable parts rather than universal pursuit. A real source can grant multiple layers, immediate control or genuine immortality without a mandatory rejection tax, training delay, lifespan price or compensating weakness.\n\nPreserve the less common mechanisms too: a signal lock checks its signal rather than retroactively adding ancestry; different reproductive roles transmit through their actual operations; a diagnosis changes observer behavior without changing the underlying body; a projected form can conceal injury without repairing it; institutional participation can depend on an authored status; and a departing source can leave different persistent body effects. Each comparison remains scoped to its sourced case. A family-level mapping is better than forcing an inaccurate existing code, and no competing global code allocation follows from this palette.\n\nSparse dimorphism evidence is not a reason to invent numerical differences from clothing, language or one strong individual. Conversely, lack of such evidence does not prohibit an explicitly authored local body/species dial. Fictional mechanisms are not a medical/heredity claim about real people. No primary source, sex/identity change, lineage probability, new physiology framework or gameplay consumer was verified or implemented by this review.",
+      "before_sha256": "c9a1462f27cc15aeb22c2a98476ec313e691b295f48512bc3a9c48f12e3c0886",
+      "after_sha256": "17d81c2b677b1a0cacba745b11d3a99df1c79de5515f90e069272b85fad2a3a7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 689,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B360, continuous execution 2026-11-04 |",
+      "to": "| B363, continuous execution 2026-11-04 |",
+      "reason": "Advance active reconciliation pointer through B363, not another full register review."
+    }
+  ]
+}

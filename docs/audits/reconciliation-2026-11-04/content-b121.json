@@ -91,6 +91,36 @@
       "from": "#body-lineage-b3-reconciliation-b107-2026-11-04",
       "to": "#g30-lane-reconciliation-b107-2026-11-04",
       "reason": "Correct existing B107 owner heading fragment; no new reading credit."
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "from": "**A cheat's own arc, inside a life:**",
+      "to": "**One optional arc for a cheat that changes within a life:**\n\nThese stages are illustrative. Active-at-birth, fully understood, fixed-function\nand overwhelmingly strong powers can skip or combine them. Later development\ncan change goals and uses without changing the power itself. Known limits remain\nlegible; actual observers and mechanisms determine exposure or pushback.",
+      "reason": "Reconcile optional acquisition palettes and current accepted strong/fixed-power direction; do not revive old start ordering or mandatory limits/pacing."
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "from": "- **Every scale has a visible gain:** something per session, a new verb\n  per season, a turning point per life, something new per lineage.\n- **Growth adds verbs, not only numbers.** New ways to play beat bigger\n  multipliers.\n- **Limits are found, not stated,** and each limit has ways past it.\n- **The world pushes back** through observers, rivals and patrons, so\n  power has consequences (rule 11).\n- **Cheats don't solve everything:** each covers some paths and leaves\n  others to ordinary play, so other systems stay meaningful.",
+      "to": "Useful gains follow the selected power and life, without a required session,\nseason or lineage payout. New verbs and larger output both matter when they\nchange real outcomes. Known terms stay clear; unknown limits can be discovered\nthrough fitting means. Observers, rivals and patrons respond when they actually\nnotice and can act. A sufficiently broad power can replace ordinary work; other\npursuits remain available without making every old method necessary.",
+      "reason": "Reconcile optional acquisition palettes and current accepted strong/fixed-power direction; do not revive old start ordering or mandatory limits/pacing."
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "from": "- **Front-loading:** a cheat that's fully powerful at birth has nowhere\n  to grow; start it dormant or narrow.",
+      "to": "- **Strong from birth:** a fully effective power can remain fixed while its\n  user finds new goals, applications and relationships. Dormant or narrow starts\n  are optional local variants, not a correction every strong opening needs.",
+      "reason": "Reconcile optional acquisition palettes and current accepted strong/fixed-power direction; do not revive old start ordering or mandatory limits/pacing."
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "from": "Related same-day owners: [feature unlock and acquisition process](worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md) and [first cheats and death rewards](worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md) (D1 recommends random circumstances with an authored, reachable early opportunity rather than an unavoidable powerful grant, consistent with the dormant seed below).",
+      "to": "Related same-day owners: [feature unlock and acquisition process](worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md) and [first cheats and death rewards](worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md). D1's reachable early opportunity is a recommendation for a chosen cheat-focused profile, not a universal opening rule; active, latent and ordinary-life starts remain possible.",
+      "reason": "Reconcile optional acquisition palettes and current accepted strong/fixed-power direction; do not revive old start ordering or mandatory limits/pacing."
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "from": "Decision: the **first playable route is an optional start** (the player picks\na system cheat when beginning a life). Every other route below stays possible\nand is a palette, not a spec. Rarity is a per-world adjective, never a fixed\nglobal rule (see solo-player, no \"once\" limits).",
+      "to": "Historical Oct. 13 selection: an **optional start** let the player pick a\nSystem cheat when beginning a life. This is not the current build queue:\nPROJECT owns the lead developer routes and wider cheat work remains deferred.\nOther routes below stay possible as a palette, not a spec. Rarity is a per-world\nadjective, not a fixed global rule (see solo-player, no \"once\" limits).",
+      "reason": "Reconcile optional acquisition palettes and current accepted strong/fixed-power direction; do not revive old start ordering or mandatory limits/pacing."
     }
   ]
 }

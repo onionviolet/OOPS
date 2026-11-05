@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "batch": "B323",
+  "title": "Actual research-adoption audit outputs: all Markdown maps, traces, gaps and packets",
+  "at": "2026-11-05T01:48:12.333578+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+      "ids": [
+        "F1–5",
+        "R1–5/O01–05",
+        "A1–5",
+        "Oct21pointer/toolconclusion/verification"
+      ],
+      "classification": "Whole bounded adoption-audit synthesis with later tooling/cache correction; current claims remain dated",
+      "owners": [
+        "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+        "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md"
+      ],
+      "disposition": "Read full67linebody. Preserve60/48routingdenominators/overlap, fivepathavailabilitysample, representativeadoptionnotallfindings andbroaderunclosedrequests. LaterOct21pointerqualifiesoldmissingcache/noREAtrial, notexactartifactrecoveryorcurrentinstall. OldA1/A2choicesdonotblockcurrentdocrevieworcreatefreshacceptance/repairtask. Newly encountered audit bodies explicitly added to intake after actual reading; no source facts or new implementation adoption.",
+      "evidence": "Localreport/map/packetbodyreadonly. Current source, privateexports, installation, externalupstream, tests, runtime/browser/save andJSONinventory not inspected anew. Existingdatedreceiptsremainattributed scoped evidence.",
+      "reopen": "Reviewselectedactualsuppliers and linkedmapsindependentlywhenneeded. No historicalprompt/checklist/packetauthorizesnewchat,tooltrial,sourceacquisition,gameplay,private-saveaccess,processrestartorcommit.",
+      "input_sha256": "65d7247877be4d950cae89af5628003a57a342529ad52c218c1b4519f9e9b65d",
+      "input_lines": 67,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          67
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/ADOPTION.md",
+      "ids": [
+        "A01–09",
+        "O01–05"
+      ],
+      "classification": "Nine historical source-to-consumer traces and five proposed additional joins",
+      "owners": [
+        "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+        "docs/research/game-research-adoption-audit-2026-10-13/ADOPTION.md"
+      ],
+      "disposition": "Read full69dense lines. Retainbalm/refinement/duty,finiteautomation,study/tools,retort,feats/means,residentwork,mastery,socialhistory andpractice distinctions. ReportedVmeansinspectedOct13notcurrentread; R108/14checksboundednotrerun. Existingcause/stock/knowledgeconsumersqualifybroadabsencebutnotentireprotagonist/source/worldcompletion. Oproposalsstayconditionalduplicaterisk, nocurrentgloballymissingUIclaim. Newly encountered audit bodies explicitly added to intake after actual reading; no source facts or new implementation adoption.",
+      "evidence": "Localreport/map/packetbodyreadonly. Current source, privateexports, installation, externalupstream, tests, runtime/browser/save andJSONinventory not inspected anew. Existingdatedreceiptsremainattributed scoped evidence.",
+      "reopen": "Reviewselectedactualsuppliers and linkedmapsindependentlywhenneeded. No historicalprompt/checklist/packetauthorizesnewchat,tooltrial,sourceacquisition,gameplay,private-saveaccess,processrestartorcommit.",
+      "input_sha256": "3987287db7bd9fba2758ccfde06d4a92b414633c377f47405ed708fbab8a9975",
+      "input_lines": 69,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          69
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/GAPS_AND_TOOLS.md",
+      "ids": [
+        "G01–17",
+        "T1–4",
+        "R1–5/lowerqueue",
+        "7gaptypes/Oct21pointer"
+      ],
+      "classification": "Specific historical gap routes, later operational supersession and proposed tool comparison",
+      "owners": [
+        "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+        "docs/research/game-research-adoption-audit-2026-10-13/GAPS_AND_TOOLS.md"
+      ],
+      "disposition": "Readfull57denselines all17gaps/fourtoolgroups/ranking. Distinguishmissingexactpathsfromdeletedcorpus/unavailablepayload, no toolsolvesunreadsemantics/serverlogic orruntimeacceptance. LatercacheexistsandREAusedqualifymissing/no-trial claimonlyfornamedpaths/receipts. Noactualfile/toolquery/fetchbythisreview. Newly encountered audit bodies explicitly added to intake after actual reading; no source facts or new implementation adoption.",
+      "evidence": "Localreport/map/packetbodyreadonly. Current source, privateexports, installation, externalupstream, tests, runtime/browser/save andJSONinventory not inspected anew. Existingdatedreceiptsremainattributed scoped evidence.",
+      "reopen": "Reviewselectedactualsuppliers and linkedmapsindependentlywhenneeded. No historicalprompt/checklist/packetauthorizesnewchat,tooltrial,sourceacquisition,gameplay,private-saveaccess,processrestartorcommit.",
+      "input_sha256": "2137cf0b3d4a209ac438f40efcc884f56b5203f8b28329db84cd48b5ad3227a7",
+      "input_lines": 57,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/PACKETS.md",
+      "ids": [
+        "P1–5",
+        "eachoutcome/bindings/dependency/stop/ownership/exclusions/gate"
+      ],
+      "classification": "Five specified-not-run evidence packets; current task does not execute archived scopes",
+      "owners": [
+        "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+        "docs/research/game-research-adoption-audit-2026-10-13/PACKETS.md"
+      ],
+      "disposition": "Readfull62denselines everypacket. Preserveconditionalnativecomparisonrepair-stateoriginals, nativeeffect/stock/refund/onceonlyreceipt checks, onecontrastingprogressionchain andUIdupebranch. Futureownershipandhistoricalworker referencesnotcurrentlease, no automaticpermissionrequests/launch. NaturalroutechosenbyP2notuniversalbanonnamedfixtureproof; no newwholewavegate. Newly encountered audit bodies explicitly added to intake after actual reading; no source facts or new implementation adoption.",
+      "evidence": "Localreport/map/packetbodyreadonly. Current source, privateexports, installation, externalupstream, tests, runtime/browser/save andJSONinventory not inspected anew. Existingdatedreceiptsremainattributed scoped evidence.",
+      "reopen": "Reviewselectedactualsuppliers and linkedmapsindependentlywhenneeded. No historicalprompt/checklist/packetauthorizesnewchat,tooltrial,sourceacquisition,gameplay,private-saveaccess,processrestartorcommit.",
+      "input_sha256": "7e6465f00302e1948631308c20a46a3164f01cca515199433e342389675564ae",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/INVENTORY.md",
+      "ids": [
+        "48dossierrows",
+        "2payloadcandidates",
+        "7wishlist/3lineages",
+        "bank30+9dispositions",
+        "9aggregatereferences/forks"
+      ],
+      "classification": "Full frozen Markdown coverage map; no semantic credit for linked raw JSON or source corpora",
+      "owners": [
+        "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+        "docs/research/game-research-adoption-audit-2026-10-13/INVENTORY.md"
+      ],
+      "disposition": "Readall84lines everyidentity/disposition/route. Keep aliasesandcombinedDCSS/DDA/multigamelineages/bankoverlap distinctfrom48directories; 22/5/1/2bankreviewand9/15/4/2admissionanswerdifferentquestions. Untracedindividuallymeansunknownnotunused. TheClimb laterbundlecomparison/B318qualifiesoldscreenedstatusonlyforselectedbuildmechanics. AlllinkedJSON1072findingrowsnotreadbyproxy. Newly encountered audit bodies explicitly added to intake after actual reading; no source facts or new implementation adoption.",
+      "evidence": "Localreport/map/packetbodyreadonly. Current source, privateexports, installation, externalupstream, tests, runtime/browser/save andJSONinventory not inspected anew. Existingdatedreceiptsremainattributed scoped evidence.",
+      "reopen": "Reviewselectedactualsuppliers and linkedmapsindependentlywhenneeded. No historicalprompt/checklist/packetauthorizesnewchat,tooltrial,sourceacquisition,gameplay,private-saveaccess,processrestartorcommit.",
+      "input_sha256": "59f6fd89ff40941e3c745de6c8d2f25deb2d97ee92dbf34c3453123644810b86",
+      "input_lines": 84,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          84
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+      "heading": "## Content reconciliation B323: actual audit outputs and later limits",
+      "body": "REPORT, ADOPTION, GAPS_AND_TOOLS, PACKETS and the complete Markdown INVENTORY were content-reviewed. These actual audit outputs now join reconciliation intake; they do not inherit review from the earlier prompt. Preserve F1–F5, nine representative A traces, five O opportunities, seventeen G gaps, four tool groups, five packets and every Markdown identity row. The raw JSON finding/path/touch inventory and private evidence bodies remain separate, unreviewed inputs here.\n\nThe October21 pointers already qualify the old absent-cache/no-REA-trial observations. A root existing does not locate every canonical repaired export, and a later synthetic/native or game-specific trial does not prove repair-state transfer for another binary. The old five failed-path samples are host/date-scoped locator evidence, not corpus deletion. Current tool registry owns live routes when actually used. A1's old ask for a host/location is not a fresh blocker or reason to ask Weibao to rediscover known project routes during document reconciliation.\n\nKeep the60-report/48-dossier routing denominator, original21titles, combined DCSS/DDA, repository overlaps, named deferred candidates and differing bank-review/admission classifications. A01–A09 show representative consequence chains as read at their date; they are not exhaustive1072-row adoption checks or current source verification. Broad targeted research and useful existing consumers coexist with unfinished native/source questions. Later full-role or protagonist work has its own source/input/proof scope, not automatic coverage from a similar pattern. The later Climb bundle report qualifies its screened label for the selected exact build only.\n\nO01–O05 remain conditional useful joins rather than named globally reproduced defects or accepted build order. Production comparison must improve an actual decision beyond existing tray/plan feedback; a later invitation must differ through its real cause; recovery can stay useful without random punishment; topology and exposure need their actual retained owners. Current selected book-world direction governs priority, and current AD51/AD52 permit useful first seams and compress routine inputs without deleting means/cost/history. Generic human taste review stays optional under AD42.\n\nNo packet was executed by reading it. Earlier world-paused, worker-active/idle and write-transfer statements remain history, not present process or lease evidence. No code, source corpus, raw JSON finding set, external tool/availability, game, private save, browser, release or paid action was reverified or changed by this pass. The report's bounded-audit completion and stopping rule do not close the current project-wide content-review goal.",
+      "before_sha256": "65d7247877be4d950cae89af5628003a57a342529ad52c218c1b4519f9e9b65d",
+      "after_sha256": "234cb45ea5e627895a7c159b819f578fa338d8aea6c6ddd10d48f1074c023032"
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/ADOPTION.md",
+      "heading": "## Content reconciliation B323: traced consumers versus present completeness",
+      "body": "All A01–A09 and O01–O05 were reviewed. Preserve the real distinctions in these old traces: observed knowledge versus learned procedure, possessed manual versus held tool, reservation versus consumption, charged source versus learned mastery, actual funded wage versus earned payment, worker output versus player collection, receipt cause versus generic opinion, and identified exposure versus ordinary fungible stock. Similar naming is not adoption, while these actual finite consumers already qualify older no-system headlines.\n\nThe V label records the audit's October13 source inspection. It is not current code read here. R's bounded108-source/14-browser checks and Foundation/livelihood roundtrips remain attributed evidence for their exact inputs and routes. Other absorption/kit/retort/minigame backlogs do not pass by association. A frozen count, three trials or maximum three batches is a particular authored operation, not a universal training quota, power cap or anti-cheat policy. Donor mechanisms may justify strong/unequal outcomes through actual means.\n\nO05 correctly separates custody from exposure and notes a bounded identified-container seam. A current general lot/merge policy still needs its own exact source and consumer. O02's cause-sensitive invitation is distinct from romance, autonomous societies or forcing every changed relationship into a new universal store. No later source/body, actual state, focused test, natural opening or rebuilt UI was inspected by this review, and no new mechanic was adopted.",
+      "before_sha256": "3987287db7bd9fba2758ccfde06d4a92b414633c377f47405ed708fbab8a9975",
+      "after_sha256": "ae8806539c9585b6f52092bc90c8be4e2f64edbe3e262ea9b36f9551cb1a81ed"
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/PACKETS.md",
+      "heading": "## Content reconciliation B323: preserved packet gates and execution boundary",
+      "body": "Every field of P1–P5 was content-reviewed. The meaningful gates remain actual input/provenance bindings, a correct native result with durable failure behavior, a real contrasting progression consumer, a conditional one-target provider comparison, and a useful production choice that is not already present. A blank call export is not no callers; a clean pseudocode rendering is not equivalent addressed semantics; installation itself answers none of these questions.\n\nP1's missing-host fallback is historical, qualified by the later cache/tooling pointer. Use current known authorized routes for a selected investigation before requesting a user lookup, and distinguish path failure, inaccessibility, mismatch and actual source absence. A historical idle worker or directory lease is not current process or writer ownership. P4's input/build/address/repair-state scope must remain exact if ever selected; its small target can still entail an expensive whole-binary import.\n\nP2 chooses a natural positive route with labeled controlled negatives for that proposed verification. This is not a new universal prohibition on explicit fixture evidence under AD43, and no unrelated source acquisition is needed merely to verify an existing authored balm. P3's one contrast does not close the other four ACS questions. P5 can validly return duplicate/defer without manufacturing a recipe, inventory owner or new scheduler to make its UI pass. Current UI targets and selected checks govern an actual future slice; packet persistence and failure cases apply to changed relevant behavior.\n\nThese are preserved specifications, not current execution, repaired failures or completion proof. No packet alone authorizes a new chat, source/tool acquisition, installation, spending, private-save access, runtime edit or commit. No separate permission flow was initiated from their old wording.",
+      "before_sha256": "7e6465f00302e1948631308c20a46a3164f01cca515199433e342389675564ae",
+      "after_sha256": "9c7437385d87c258de3e59d1c9cdd6ed2fc504b227cc1a2009f5b4ec0ff3f936"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 784
+}

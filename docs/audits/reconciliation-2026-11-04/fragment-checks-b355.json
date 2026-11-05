@@ -1,0 +1,12 @@
+{
+  "batches": "B351\u2013B355",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md",
+      "target": "../USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "valid": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New fold/amendment heading fragments only; no linked source-body review."
+}

@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "batch": "B350",
+  "title": "Earlier reconciliation reports: every landing delta, ownership boundary and later supersession",
+  "at": "2026-11-05T02:39:17.226014+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/RECONCILIATION_2026-10-25.md",
+      "ids": [
+        "C5F1–7/U1–4/P1–11",
+        "G1alltimeddeltas/final10candidate table",
+        "integrationoverlaps/limitations",
+        "landing/primaryafternoon/finalreleasedwork"
+      ],
+      "classification": "Full chronological reconciliation report; successive supersessions, bounded input identity and archival/worker limits",
+      "owners": [
+        "docs/gm/RECONCILIATION_2026-10-25.md",
+        "docs/gm/SHARED_WORKTREE_PRACTICE.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve every historical result and permission boundary; follow later recorded landing/closure rather than old pending/kept rows. Distinguish actual source/test/build/adoption, lineage, live ownership and archive recovery.",
+      "evidence": "Entire local report read; no current Git ancestry/remote, archive, worker/PID, runtime, source or old test result newly inspected.",
+      "reopen": "Only a separately authorized current integration/retirement task inspects live state and actual recoverable residue; this report is not a replay script.",
+      "input_sha256": "b2b415010776b20fe4b6c4ee7f80270453b7b8b85456314460c5d8d0ba1749a5",
+      "input_lines": 250,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          250
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md",
+      "ids": [
+        "round1landing/sync/5retirements/kept",
+        "round2landings/sync/17retirements",
+        "processslip/3laterretirements/round3pointer"
+      ],
+      "classification": "Full chronological reconciliation report; successive supersessions, bounded input identity and archival/worker limits",
+      "owners": [
+        "docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md",
+        "docs/gm/SHARED_WORKTREE_PRACTICE.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve every historical result and permission boundary; follow later recorded landing/closure rather than old pending/kept rows. Distinguish actual source/test/build/adoption, lineage, live ownership and archive recovery.",
+      "evidence": "Entire local report read; no current Git ancestry/remote, archive, worker/PID, runtime, source or old test result newly inspected.",
+      "reopen": "Only a separately authorized current integration/retirement task inspects live state and actual recoverable residue; this report is not a replay script.",
+      "input_sha256": "4602696b367a4704063d16ebc51f14f3a0183f66b13dfb253eafd915d7a12617",
+      "input_lines": 166,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          166
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/RECONCILIATION_2026-10-25.md",
+      "heading": "## Content reconciliation B350: historical execution, supersession and recovery scope",
+      "body": "All250 original lines were reviewed, including the complete C5 inventories and findings, every G1 dated candidate/delta, final merge plan, limitations, later landing, primary/app update and final released-work supersession. Preserve the chronology: the final proposed integration state is followed by actual reported integration/push, then primary reconciliation and another local released-work receipt. Early “not landed”, old master lag, pending C1/C2/D4/C3 status and no-retirement labels are not current conclusions. Later historical uptake narrows them without erasing their original evidence or authorizing another merge.\n\nThe report's frozen porcelain/ref/checkpoint manifests identify different cutoffs, not one atomic checkout. Directory-copy mtime is not a new task, ancestry does not prove semantic compatibility, and path intersections do not prove a merge conflict or behavior independence. Combined branch children already containing parents must not be applied twice. A final recorded branch OID is not present HEAD or a live worker. Reported kill-0/cwd observations and owner releases are historical; current liveness, file ownership and ignored/untracked residue need actual inspection before a future reassign/retire action. This task performs none.\n\nU1–U4 and the lamplight assertion retain their actual reproduction/source scope. A later full suite may not include that headless slice, and environmental retries are not a newly run green final suite. A later integrated candidate can supersede an earlier failure only on its relevant actual inputs/consumers; this read does not newly reproduce, repair or prove current defects. D1 gallery pairs, unique surfaces, source-only/gated cases, target viewports and14/21px checks have separate denominators; do not sum screenshots into full panel acceptance. A screenshot tool's saved-state mirror does not preserve every transient UI state.\n\nThe research returns preserve held volumes, word units, reuse versus fresh reading and reader-budget/label caveats. Their catalogue/queue consistency is not a reopened verification of every source passage or later serial. D4's13family/326ID mapping is a bounded reconciliation rather than326delivered cards. Its own later note corrects the early claim that no offline policy existed. This does not select a universal new world clock or claim every cheat/source palette was implemented. Current AD51/52 qualify mechanism sharing and activity compression through actual consumers; current Klein/Harry priorities remain.\n\nThe later2944/3162/3214test receipts, rebuilt title-screen smoke and named integrated native journeys preserve their respective tree/build/input scopes. Smoke loading is not natural HP/LOTM/cheat gameplay proof, an offered app snapshot is not an adopted pointer, and a pushed remote ref is the report's dated result rather than a new remote check here. Generic human review is optional under AD42; actually accepted fiction and normal-app adoption still require their own evidence. No source-only/document review count upgrades a runtime or user state.\n\nRetirement, force-remove, scratchpad moves, checkpoint commits and broad dirty-file landing were actions/next steps under their recorded user authorization, not executable instructions for this task. A historical automatic-review refusal does not authorize bypassing it later with force. Ignore/archive/symlink treatment and the chosen integration branch need actual current safety/recovery evidence if retirement is separately requested. Source/runtime, private saves, archives, PIDs and external refs were not queried here. This full content review launches no monitoring, worker, merge, commit, push, move, deletion, release or gameplay verification; all old receipts and useful integration lessons remain intact.",
+      "before_sha256": "b2b415010776b20fe4b6c4ee7f80270453b7b8b85456314460c5d8d0ba1749a5",
+      "after_sha256": "9d37488ba578f5922f9b56e1977a4b0de552dab070501cbb90cc62b6311eb3d9"
+    },
+    {
+      "path": "docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md",
+      "heading": "## Content reconciliation B350: historical execution, supersession and recovery scope",
+      "body": "All166 original lines were reviewed, including every landed/retired/kept table, both primary synchronizations, archival/recovery instructions, source/test caveats, process slip and later round2closure. The explicit close supersedes the three kept rows after owner/session/process checks; its later two new worktrees are outside that original remaining set. Round3 and its later landing/primary reconciliation further supersede pending push/master-gap labels. Preserve those histories rather than treating the early kept or ahead-of-origin rows as a current task list.\n\nThe record separates a guarded ref update, index synchronization, working-copy union, generated build identity and dirty source. A gated build excluding later dirty source cannot certify those later features. Equal ancestry or source hashes minus known scratch files can preserve a particular input relation without proving current behavior or every consumer. Source counts, sorted hashes, lane suite passes and a committed JSON/tree are not generic proof of native UI/custody/retention. Every declared unrun case retains its original scope, and a no-source-change documentation commit does not need a gameplay rerun merely for a new report date under AD36.\n\nRound2's combined test found a real kind/effect contract mismatch, while the row relabel was explicitly an agent proposal at that point. A green suite on the repaired historical candidate does not establish user acceptance or current correctness of all temporary/device construct semantics. The two crafting files kept another writer's incomplete overlap rather than silently dropping G1; the later cultivation/U2 reconciliation records its own outcome. Missing committed lines from a current dirty working copy need ownership and semantic review, not an automatic restore from an old manifest.\n\nThe17earlier round2 retirements plus three later closeouts yield the reported20. Recovery addresses are historical evidence locations, not revalidated backups: the D2 row specifically names archive21-*, while the later summary range05-*–20-* alone lists16prefixes. Consult that separately named21-* record as well before claiming a17archive recovery set. The later note explicitly adds ignored launch config copies after discovering their omission; an archive manifest/hash is not a verified full restore into current tools. No archive was opened, extracted or trusted as a complete current recovery here.\n\nThe admitted pkill-by-pattern process slip remains history and is not repeated. Current process work uses specific observed PIDs/groups/ports and current ownership; an archived chat, old final message or absent cwd at one sample alone does not release live descendants or dirty files. A branch already merged can still contain unique working/index/untracked/ignored work. No old permission to merge/retire/push or recovery command grants authorization to perform it in this documentation-only task. AD41 keeps primary as default, and AD42 leaves generic human review optional while actual adopted app/source/runtime proof remain separate. No worktree, branch, index, process, archive, private save, runtime or remote state was changed or freshly verified here.",
+      "before_sha256": "4602696b367a4704063d16ebc51f14f3a0183f66b13dfb253eafd915d7a12617",
+      "after_sha256": "2a5c59db29334de7fde0c3489cc7399a22da2c31a67ad53f55aab894428b1790"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 722,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B346, continuous execution 2026-11-04 |",
+      "to": "| B350, continuous execution 2026-11-04 |",
+      "reason": "Advance reconciliation coverage pointer only; preserve original register input."
+    }
+  ]
+}

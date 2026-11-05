@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "batch": "B372",
+  "title": "Complete progression/world-state systems guide and internal summary contradictions",
+  "at": "2026-11-05T03:21:35.120439+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "ids": [
+        "S1–S19",
+        "Twenty-five common tasks",
+        "G1–G14",
+        "D4native cheats",
+        "D7HP",
+        "E3beginning seam",
+        "November4gate caller qualification",
+        "Selected M21/M22/M25"
+      ],
+      "classification": "Full previously partial systems reference; mixed dated source census, later specific receipts and non-authoritative integration guidance",
+      "owners": [
+        "docs/systems/PROGRESSION_WORLD_STATE.md",
+        "docs/systems/README.md",
+        "docs/SAVES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Complete actual reading; preserve APIs/owner routes and scoped evidence while correcting stale pack-save, title-storage, overflow-reader and file-copy summary statements and clarifying compatibility/unknown port semantics.",
+      "evidence": "Read all909original lines in six bounded ranges1–150/151–300/301–450/451–600/601–750/751–909, including every API/shape/gotcha,19system entries,25task rows,14gaps and later owner amendments. Scoped support read titles1–115, faction_rank1–85, chain_inspector80–92 and SAVES220–232. Current title source explicitly stores character.titles id/at and derives bonuses; rank derives from reputation. Inspector source reads descriptor overflow as author metadata. SAVES6d reports a wired single reveal writer without gameplay triggers and with bounded fixture/hook proof. No full runtime census, native journey or linked report reverified.",
+      "reopen": "For selected current mechanism inspect its exact current owner and native caller/commit boundary. This guide supplies navigation, not new rule authority, a mandate to copy a world host, present all-importer counts or universal migration policy.",
+      "input_sha256": "69639e41b8f62cb73b49243f7d0089a88eef4445c3b7bd274474d9d95181f62b",
+      "input_lines": 909,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          909
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "heading": "## Content reconciliation: complete systems guide and exact evidence, 2026-11-04 (B372)",
+      "body": "All909original lines were read, including S1–S19,25task rows,G1–G14 and every later application/receipt note. This completes the guide’s previous partial coverage; it does not re-audit all current runtime/importer counts. Each original file:line and maturity label remains a dated census unless a named later receipt or this batch’s explicit source range qualifies it. The guide is a reference map, not authority to accept a proposal, add a new subsystem, copy every host or require a broad framework before a useful seam under AD51.\n\nScoped source checks establish four precise distinctions. Current titles source stores held title id/at records and computes bonuses on read; faction rank is independently derived from reputation, not another saved credential. The gate inspector actually reads descriptor overflow to show author-side metadata, without settling XP overflow or proving all routes are executable. The later SAVES6d receipt reports a wired world_packs slice with one reveal writer, absent inert defaults, lossless dormant sections and a bounded test-hook crossing/import journey; it explicitly lacks a played reveal trigger and broader edge/fact writers. Its authority/compatibility wording remains attributed to that owner rather than a newly accepted all-world rule. S8’s old save-no summary and S12’s unqualified tested-only shorthand must not contradict that later scope.\n\nPreserve semantic layers throughout: evaluator known/met is caller input availability, not earned observer knowledge; presentation and clearance do not grant physical faculty; a declared route/cost/overflow/irreversibility flag is not its executor. A path shape accepted by a validator is not a working non-ladder view. Titles/achievements, reputation rank, credential/office, learned mastery, local reserves, body/controller and source carrier remain separate. Tags are presence/classification, not universal graded chemistry. A missing/throwing UI port is unknown/unavailable, not evidence of zero stock or an undiscovered world, and developer visibility does not isolate a real save by itself.\n\nActual timed work uses its frozen agreed job/revision/cost/result and selected completion/refund policy; descriptor changes can affect in-flight admission even without a schema bump. Shared one-writer publication, owner validation order, native body/stock contexts, exact source/definition/axes revisions and durable command identity remain consequential. A retained dormant/opaque section is not executable world support; a missing migration is not proof that its raw bytes should be dropped. Old-save compatibility deferral permits scoped decisions but does not require resetting state on every additive change, authorize deleting private saves or waive new-state round trips. A scenario checkpoint, heir succession, continuation, world-history carry and current-bank accounting need their actual affected scopes; a specific receipt is not a universal temporal law.\n\nThe old “Used in play” definition, loader downgrade, importer counts, world limitations, old attention-refill search and no-offline blanket are historically scoped source claims. Later D4/D7/E3/M21/M22/M25 and gate-caller notes retain their exact native/fixture/desktop/input limits; linked outputs are not newly read by this full-guide review. Current direction, desktop/font targets and AD42/AD43/AD51 govern selected execution. No rule code, runtime, save, current import graph, worker, browser, build or source corpus was changed or comprehensively verified here.",
+      "before_sha256": "69639e41b8f62cb73b49243f7d0089a88eef4445c3b7bd274474d9d95181f62b",
+      "after_sha256": "7eb541726a4a5fc4bc147806da371def2bf8784c42fc03bd81dc7feaf4b3f5a2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 681,
+  "support_reads": [
+    {
+      "path": "src/titles.js",
+      "sha256": "da5d12ad08e92da23aa40e87e205276a563588396461567af89bc75e8f13f0d1",
+      "ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "scope": "Selected claim support only; no full-file or runtime journey coverage."
+    },
+    {
+      "path": "src/faction_rank.js",
+      "sha256": "bcfdcf718686ad91f53e8c4420d21b1a20124ce4eb2970622c6a12553a4f5a75",
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ],
+      "scope": "Selected claim support only; no full-file or runtime journey coverage."
+    },
+    {
+      "path": "src/chain_inspector.js",
+      "sha256": "ddc51b466854019103a4433e1ed16755e46ea6dda5d46e8e14f628e876573689",
+      "ranges": [
+        [
+          80,
+          92
+        ]
+      ],
+      "scope": "Selected claim support only; no full-file or runtime journey coverage."
+    },
+    {
+      "path": "docs/SAVES.md",
+      "sha256": "db1840361fe27ad0becdbd4b065bcee631addf7990688e367c400c029fe284c2",
+      "ranges": [
+        [
+          220,
+          232
+        ]
+      ],
+      "scope": "Selected claim support only; no full-file or runtime journey coverage."
+    }
+  ],
+  "post_record_amendments": [
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "| S8 | World packs (data worlds) | `src/world_pack_*.js`, `src/world_packs/` | Partly wired (loader yes, save no) |",
+      "to": "| S8 | World packs (data worlds) | `src/world_pack_*.js`, `src/world_packs/` | Loader/registry; save slice wired with one `reveal` writer, no played trigger (Nov4 receipt, S8/SAVES6d) |",
+      "reason": "Align summary with later existing S8/SAVES6d receipt; not fresh runtime acceptance."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "**Use it for.** Display titles from lifetime counters; named rank bands over a\nsigned per-region reputation number. Both are derived on read and never stored\nas rank, so no migration (`src/faction_rank.js:2-4`, `src/titles.js:2`).",
+      "to": "**Use it for.** Held title grants from lifetime counters, stored as\n`character.titles = {id:{at}}`; their bonuses are derived on read. Faction\nrank is independently derived from signed per-region reputation rather than\nstored as a rank record (`src/titles.js:1-2,87-99`, `src/faction_rank.js:1-4`).\nChanging either contract still needs its actual compatibility assessment.",
+      "reason": "Correct title grants versus derived bonuses/rank using actual scoped source read; avoid a false blanket no-storage/no-migration claim."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "| 16 | New world with its own verbs and panel | S9 + S7 + S10 | Copy the file set; one `registerDomain`; definitions through `book_world_definitions.js` |",
+      "to": "| 16 | New world with its own verbs and panel | S9 + S7 + S10 | Reuse existing typed commands/state/data first (AD51); add an owner/adapter or lifecycle registration only where the actual differing mechanism owns state |",
+      "reason": "Apply the same accepted AD51 navigation correction already present in S9 to the duplicated task shortcut."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "| G1 | **Gate `overflow` is validated but never read.** No gate sets it; the working overflow lives in S4 rows keyed by world, not on the gate. | `progression_gates.js:43-44`; no `.overflow` consumer in `src` | An author who writes `overflow` on a gate gets no behavior. Use S4. |",
+      "to": "| G1 | **Gate `overflow` is descriptor metadata, not XP settlement.** The author inspector reads it; live overflow behavior belongs to the actual S4 consumers. | `src/chain_inspector.js:84-90`; selected S2/Nov4 caller qualification below | Displaying a declared policy does not implement it. Use the actual settlement owner and verify its native caller. |",
+      "reason": "Remove contradicted no-reader assertion; current inspector source proves author metadata use, not gameplay settlement."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "throwing port and returns `undefined`, so panels must treat missing as \"nothing\nyet\" (`ui_ports.js:23-24`).",
+      "to": "throwing port and returns `undefined`; panels must represent the actual\nunknown/unavailable condition rather than infer zero, absence or new progress\n(`ui_ports.js:23-24`).",
+      "reason": "Prevent conflation of missing/failed observation with a true empty game-state claim; no UI runtime changed."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "unknown ids retire into `retired` storage, unloadable packs are kept verbatim as dormant (`world_pack_save.js:54-130`). Tested only.",
+      "to": "unknown ids retire into `retired` storage, unloadable packs are kept verbatim as dormant (`world_pack_save.js:54-130`). The old tested-only label predates the Nov4 wired-slice/test-hook receipt in [SAVES6d](../SAVES.md); no played reveal trigger is claimed.",
+      "reason": "Align original helper maturity shorthand with later wired-slice receipt while preserving its lack of played trigger."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "5. State in the task record that old state is reset or dropped, per the 2026-10-17 decision.",
+      "to": "5. Record the actual chosen compatibility outcome. The 2026-10-17 deferral permits a scoped reset/drop decision; it does not require one for every additive change or authorize changing private saves. New-state round trips remain required.",
+      "reason": "Keep explicit compatibility deferral without turning it into a universal mandatory reset/drop instruction."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "rather than a newly accepted all-world rule.",
+      "to": "rather than a newly adopted all-world rule (AD32).",
+      "reason": "Disambiguate product authority from validator admission for existing document lint; semantic scope unchanged."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "A path shape accepted by a validator",
+      "to": "A path shape admitted by a validator",
+      "reason": "Disambiguate product authority from validator admission for existing document lint; semantic scope unchanged."
+    }
+  ]
+}

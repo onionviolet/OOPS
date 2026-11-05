@@ -74,3 +74,14 @@ fdbf2a337cfffba555be2f121a7f7108d5b9defe1f2deb68ac78e8a88a21f1e8 scripts/mcp/gam
 ```
 
 The existing headless log assertion remains open for its owner. Exact transient UI screenshots remain a disclosed capability limit. M10 is ready for scoped branch integration review; no gameplay/UI acceptance or master release is claimed. Final branch is `codex/mcp-m10-2026-10-25`; the exact committed tip is in E4's final reply (a commit cannot include its own content hash).
+
+
+## Content reconciliation B386: frozen sessions, mirrors and exact check windows
+
+This entire E4 checkpoint, all E4-F/M rows and final identities were read. Session IDs are server process keys, not durable save identities; replacement/reload/import/close affect only their selected key. The lamp quote uses the actual scenario/native quote owner without exposing an arbitrary registry. Quote immutability compared observer snapshots after the earlier test mistakenly compared mutating save calls. A startup self-check typo and a native launch rejection are diagnostic failures with their own corrected boundaries, not gameplay outcomes.
+
+The74-input frozen manifest includes the instrumented bundle, runner/worker/helper/host/static content. Its independently recorded native dist is not proof of source-build correspondence; external Node/Electron/automation remains a host dependency. Replacing changed checkout inputs, manifest tamper rejection and an existing session's private copy are distinct assertions. The externally tampered test snapshot cannot be reused for a new session just because the running session kept its original bytes. Frozen identity is not a guarantee of current installed tooling or universal reproducibility.
+
+The native CDP PNG is real rendered Electron evidence at its declared1920 target, yet it is a saved-state mirror rather than the headless session's transient panel, focus or exact paused time. Screenshot success grants no full native action backend, foreground-profile access or app adoption. The separated helper converts unsupported native launch into an honest error while preserving MCP; DOM text is not substituted as image proof. Exact transient same-session screenshots remain an unimplemented capability proposal, not a new required gate.
+
+The15-tool check, native-only and final freeze-only checks use different final-helper windows. The20/21 focused result retains a reproduced inherited300-character log-excerpt assertion; four localhost full-suite failures have an environmental9-case retry, not a new green full run. Unchanged runtime/source inputs distinguish that assertion from an M10 regression. Old branch integration status, byte hashes, external artifact paths, worker state and host permissions remain dated receipts. No manifest, image, tool launch, runtime, source test or process was freshly exercised here; AD42 keeps optional taste review separate.

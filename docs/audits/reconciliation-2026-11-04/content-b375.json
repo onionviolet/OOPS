@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "batch": "B375",
+  "title": "UI design liberties, typed combat boundaries and method/reason proof",
+  "at": "2026-11-05T03:32:43.805667+00:00",
+  "head": "2aa6a2e4019e6177fb94eb76e397bc34faf78b8b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md",
+      "ids": [
+        "M1–M10",
+        "ui-identity lane receipt"
+      ],
+      "classification": "Historical UI design or delivery content with authority and evidence limits",
+      "owners": [
+        "docs/gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md"
+      ],
+      "disposition": "M3 no-hook claim is explicitly corrected by its own receipt: existing data-world writer retained and family/flourish added. DESIGN now owns the look; old F1 lack-of-owner is historical. Preserve per-definition typed harm, no double typing, exact legacy replay draws, structural conflict frame and shared presentation without merging engines. Arrival voice is not a voiced work result. The full-suite receipt has contradictory totals and pack-absent clean-base skips, so load flakiness remains a hypothesis, not cleared regression. Old reservations, budget checkpoints and worktree dispatch are not current authority.",
+      "evidence": "Actual complete file content read. No linked screenshots, source, private pack, installed app or current runtime tests newly inspected. Current DESIGN selected rows DSG5/11/12/13/16/18/19 were consulted as scoped support, not full-file review.",
+      "reopen": "Select an actual current consumer, inspect its owner and reproduce the relevant defect; preserve chronology and do not execute old dispatch/adoption instructions.",
+      "input_sha256": "2f3ab6ebb933aa5e75a5387225ae69711c01bbcf1deae9797d6fa7ee6d91b6e3",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md",
+      "ids": [
+        "L1–L6",
+        "R2-0–R2-6",
+        "AB1–AB12"
+      ],
+      "classification": "Historical UI design or delivery content with authority and evidence limits",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md"
+      ],
+      "disposition": "Keep noun labels, current decision, accessible text, knowledge-qualified precision, exception emphasis and distinct form comparisons. Later user direction drops bright paper drafts and later still rejects pictured-home/prose-duplicating illustration as a default. Worker picks are not user acceptance. Glowing possible/unknown states cannot reveal existence or equate ignorance with loss; hover-only essentials and automatic saved familiarity thinning remain unimplemented proposals. Do not revive a full six-run queue, mandatory critique cycles, historical model/budget limits or fixed word targets.",
+      "evidence": "Actual complete file content read. No linked screenshots, source, private pack, installed app or current runtime tests newly inspected. Current DESIGN selected rows DSG5/11/12/13/16/18/19 were consulted as scoped support, not full-file review.",
+      "reopen": "Select an actual current consumer, inspect its owner and reproduce the relevant defect; preserve chronology and do not execute old dispatch/adoption instructions.",
+      "input_sha256": "5819f8da7e26a91a2e58b7f6108e2a9dde17cbc47ee5fba77b1385dd1f59e7b1",
+      "input_lines": 95,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md",
+      "ids": [
+        "F1–F3",
+        "method stage boundaries",
+        "native and visual proof separation"
+      ],
+      "classification": "Historical UI design or delivery content with authority and evidence limits",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md"
+      ],
+      "disposition": "Preserve full grouped subject descriptions and accessible compact link fix, practiced absorption/refinement with stages at 16/48 eligible played mist minutes, training at full reserve, pause in absence/rawness/trial, frozen trial odds and no switching pending. Legacy optional absence keeps original rates/odds; selection invents no practice history. Initial post-import Here screenshots did not prove method visibility; separate actual Projects six-case continuation and final opaque-header correction do. Staged snapshot is not adopted app; exact historical Save/reload/Export/Import states are scoped, not current installation proof.",
+      "evidence": "Actual complete file content read. No linked screenshots, source, private pack, installed app or current runtime tests newly inspected. Current DESIGN selected rows DSG5/11/12/13/16/18/19 were consulted as scoped support, not full-file review.",
+      "reopen": "Select an actual current consumer, inspect its owner and reproduce the relevant defect; preserve chronology and do not execute old dispatch/adoption instructions.",
+      "input_sha256": "661add4c846f132526e7cf6dbc124d8ca47c973c68f1846c8dfbbefd5df67b26",
+      "input_lines": 51,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/m2-blocked-reasons-2026-10-26/CHECKPOINT.md",
+      "ids": [
+        "M2 slice 1 causes and reason consumers",
+        "recorded not fixed"
+      ],
+      "classification": "Historical UI design or delivery content with authority and evidence limits",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md"
+      ],
+      "disposition": "Misleading prerequisite text is not a missing engine gate. Old Tingen failure was deliberate localhost probe readiness, not nothing-under-way; preserve accurate known-place reasons without weakening access. The old tooltip-only proof had no target viewport and did not prove visible accessible reasons. Historical only-dev-entry statement does not describe all later LOTM starts; current combined evidence remains with linked master reconciliation.",
+      "evidence": "Actual complete file content read. No linked screenshots, source, private pack, installed app or current runtime tests newly inspected. Current DESIGN selected rows DSG5/11/12/13/16/18/19 were consulted as scoped support, not full-file review.",
+      "reopen": "Select an actual current consumer, inspect its owner and reproduce the relevant defect; preserve chronology and do not execute old dispatch/adoption instructions.",
+      "input_sha256": "aacc485531b0f05af680cec4052563d189d2cf871220095a0ee0119446eeaba8",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-identity-combat-2026-10-30/PLAN.md",
+      "heading": "## Content reconciliation B375: corrected premises and evidence limits",
+      "body": "This complete plan and its lane receipt were reviewed as one chronological record. F1's missing look owner is superseded by DESIGN; M3's missing root hook is already corrected in the receipt, which preserves the existing `data-world` writer. M1's definition-owned typed effects and legacy replay draws remain useful; a shared fight surface does not merge native and tempo engines or type a native strike twice. M4's arrival voice cannot establish a work-result line or all-place voice coverage.\n\nThe old full-suite row's printed total/pass/fail values are not internally consistent; retain that receipt without treating it as a clean run. A clean checkout skipping absent private-pack cases is not a passing comparison for branch cases that actually execute. Moving failures under high load motivate a matched-input/load reproduction but do not clear a regression. Old PIDs, writer claims, budget limits, worktree-only dispatch and proposed guarded merge steps are dated instructions, not renewed authorization. Current DESIGN/UI_RULES, AD41/42/51 and a selected task govern further work. No merge, runtime or screenshot was newly verified.",
+      "before_sha256": "2f3ab6ebb933aa5e75a5387225ae69711c01bbcf1deae9797d6fa7ee6d91b6e3",
+      "after_sha256": "56473bb7a7bef2c1acef19c9faf3c70a0adfecf4472fad490ca20b770eefaf75"
+    },
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "heading": "## Content reconciliation B375: gallery freedom, method proof and truthful blockers",
+      "body": "The complete [gallery form brief](../gm/dispatch/ui-refactor-wave-2026-10-29/GALLERY_FORM_AUDIT_BRIEF.md) retains L1–L6, R2-0–R2-6 and AB1–AB12 as creative possibilities. The later Luminous-only request, functional-home direction and prose-first refinement govern earlier paper/illustrated drafts. Worker picks remain worker picks. Preserve explicit noun labels, decision-shaped detail, accessible text, knowledge-qualified precision and exceptions that deserve words. Bare blocks or initials must not push the subject into hover. Unknown, locked, lost and merely possible are distinct states; drawing one shared glow grammar cannot disclose unknown existence or invent a precise measurement. Automatic saved familiarity thinning, global density settings, all-six-run drafting, word quotas and mandatory user selection remain proposals/history rather than new gates.\n\nThe full [cultivation correction checkpoint](../gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md) supplies concrete method distinctions: played eligible mist practice, independent reserve/control, practice at a full pool, pause during absence/rawness/trial, frozen purification odds and no pending-method switch. Optional-state absence preserves legacy behavior; selecting a method invents no prior training. Preserve those mechanisms and original-world status without universalizing a realm ladder. Its first post-import Here captures did not show the method panel. The later actual Projects continuation and final opaque sticky-header correction have separate six-case visual evidence; native trial settlement/persistence and screenshot-shaped log fixtures are different proof kinds. A staged frozen snapshot is not adopted or installed-runtime evidence.\n\nThe full [M2 reason checkpoint](../gm/dispatch/m2-blocked-reasons-2026-10-26/CHECKPOINT.md) distinguishes a wrong explanation from a wrong gate. Its old probe-gated Tingen start needed the actual developer-readiness reason, not “nothing else under way”; shared prerequisite copy names its known place. Tooltip-title evidence without a declared desktop viewport does not establish visible, keyboard-accessible reasons. Later LOTM starts supersede any reading of that receipt as today's universal entry restriction. Retain the useful visible-reason follow-up without changing gates or authorizing new gameplay. No new browser, app adoption, runtime or private-save proof follows from this content review.",
+      "before_sha256": "04d35c33128e154dd5768598f5e31a3e24e15f119162fc102834ba2d34ba9733",
+      "after_sha256": "445734cf5f1976b3fdfe43070ca96ea71445f8ac96485e95e25c87fe1555177c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 670,
+  "post_record_amendments": [
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "rather than a newly accepted all-world rule.",
+      "to": "rather than a newly adopted all-world rule (AD32).",
+      "reason": "Disambiguate product authority from validator admission for existing document lint; semantic scope unchanged."
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "from": "A path shape accepted by a validator",
+      "to": "A path shape admitted by a validator",
+      "reason": "Disambiguate product authority from validator admission for existing document lint; semantic scope unchanged."
+    }
+  ]
+}
