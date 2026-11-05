@@ -109,3 +109,10 @@ the linked round have capability, effort, trigger and done checks. A disposable
 study compares clean climb, slip and landing at 1920×1080 with static equivalents;
 a later native event needs its own rebuilt browser proof. No prototype or runtime
 work dispatched, and no current human visual/play acceptance claimed.
+
+
+## Content reconciliation B528: useful flow ideas and current gates
+
+V1–V29 preserve the user's interest in Vivid framing and Proto23 discovery/flow as a palette, not implementation proof or a replacement look owner. Fresh-browser default versus stored preference, category versus rarity, semantic colors plus non-hue cues, world/time accents, reduced motion and optional sound remain useful separately. Post-settlement anchored deltas, read-respecting logs, once-per-discovery markers and stable panel/focus/scroll positions must not change gameplay or replay on reload. Compression retains different tools/outcomes/thresholds/stop reasons and separates historical event preview from opening the current subject. Corc tooltip chronology remains unresolved, not a rejected-final design claim. Tiny spatial scenes, slip/response/landing and actor reactions can use real state without a new physics/map/companion engine or a hidden reaction-time demand. The later round explicitly retires the old 1366 viewport gate for current desktop targets; saved ACT NOW means documentation, not delivered effects or defaults.
+
+DESIGN, UI_RULES and the current thematic UI owner govern any selected implementation. Preserve the palettes and source chronology; no new visual default or runtime effect was delivered by this content review.

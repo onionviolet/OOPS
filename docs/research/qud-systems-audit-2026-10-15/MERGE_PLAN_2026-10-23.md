@@ -1,5 +1,7 @@
 # Qud parity lanes G1-G7: merge plan (2026-10-23)
 
+Current reading, B587: the initial nothing-merged stage below is superseded by this document’s later isolated candidate/closure sections, not proof of current primary integration. Final source/test/browser scopes and remaining click/packaging gaps stay distinct. [Full reconciliation](#content-reconciliation-b587-candidate-closure-and-remaining-real-gaps).
+
 Plan only; nothing is merged. Lane scope and rationale: [YAIR_PARITY_GAP_2026-10-23.md](YAIR_PARITY_GAP_2026-10-23.md). Every lane is uncommitted in its worktree under `.claude/worktrees/`, cut from `d8af620f2`. Master is now `547209e82` (5 newer commits), and the primary checkout is dirty.
 
 ## Lane inventory (non-generated files only)
@@ -146,3 +148,16 @@ Every added line of each saved lane patch (except G7's RULES_INDEX row) was sear
 - docs/RULES_INDEX.md (primary already has the Progression gate rules register row and router row): still to add G7's router row (verbatim under Proposed owner-doc updates above) and register or router rows for G1 reference shelf, G2 rank dials, G3 unique request, G4 supplier/construct/implant, G5 world-history consumers, G6 naming and description clauses; decide the `.gitignore` rule for B2.
 - docs/USER_VISION.md: none.
 - GAP_AUDIT: `docs/gm/dispatch/claude-coordinator-continuation-2026-10-23/GAP_AUDIT.md` is not in this worktree; the proposed update is [GAP_AUDIT_PROPOSED_HUNK_2026-10-23.md](GAP_AUDIT_PROPOSED_HUNK_2026-10-23.md).
+
+
+## Content reconciliation B587: candidate closure and remaining real gaps
+
+F1: Full actual148-line review includes G1–G7 inventory, R1–R6, order/gates, successor, candidate conflicts/files/tests/gaps, peer offers and later closure decisions/full-app/gates/remainder. The opening plan-only/nothing-merged and pre-combination statements are historical: this same document later records a built isolated candidate and closure combining D1, R3 and the narrowly released estate label. D3 remained unselected. It does not establish current primary integration, present worktree availability, installed state, commit or push. Old sessions/PIDs/writer reservations are not live ownership or an instruction to resume them.
+
+F2: Preserve exact ownership during integration: HEAD's deriveWorldHistory versus consumer additions, native crafting-depth state plus reference routes, description clauses plus retained heirloom history, and unioned actual native ports. Generated dist/index outputs are rebuilt rather than copied as source. Literal added-line searches and byte-identical new files are preservation checks, not semantic equivalence of merged callers. Historical untracked progression_gates and ignored achievements packaging problems remain receipt gaps at that candidate identity; they are not fresh current-tree diagnoses or authorization to stage another writer's files.
+
+F3: Initial2716/2718 full run and focused UI repairs stay distinct from closure's later2729/2729 full run. The initial rules failure and later pass-with-untracked-warning remain explicit. Later G2 lesson/rank, G3 exact request/custody/reclaim/delivery, G4 multi-supplier copy/dismiss/expiry and G5 mural full-app routes supersede earlier missing-render/component-only attempts within their stated paths. Canonical-equal Save/reload/Export/literal Import is attributed to those changed states/origins, not every world, source or future build. Overwritten G3 receipt JSON cannot be cited as still containing G3 evidence; the text routes to retained screenshots instead.
+
+F4: Closure leaves actual normal-click obstruction at1536×864 after resize; dispatched click or Enter demonstrates an alternate route, not successful pointer reachability. Preserve that failure instead of treating a browser-flow PASS as all-input acceptance. G1 attribute owner and G7 four named unclosed mechanisms remain outside this narrow closeout. G4's minimal copy content, installed-source removal refusal and returned held log are source/custody constraints of the tested proof, not a universal rule that every duplicate source must keep the original installed. Actual source suppliers, lifetimes and compatibility decide broader support.
+
+F5: Owner-doc proposals and the earlier six-step gate order are not new authority to grow PROJECT, allocate accepted AD lines or commit now. Current short-summary/registered-rule/AD36/AD42/AD43/AD51 and shared-checkout practice govern selected updates. The optional check:rule-behavior absence is not a missing universal gate. Human review is optional, current target viewport owns UI proof and runtime source/native/persistence proof remains input-specific. No lane patch, private source/save, current worker/worktree, old artifact, test/build/browser, stage, merge, deletion, commit or push was executed by B587.

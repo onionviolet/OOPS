@@ -98,3 +98,10 @@ No current entitlement, engine, price or availability claim is inferred from an 
 | 100 Space Cats | Installed, no lane. Coordinator explicitly deferred for lack of named mechanic question |
 
 PROPOSALS remain unselected gameplay. Applying this queue refresh does not alter canon-first world priority, desktop-first UI or the one-realm/one-prestige first milestone.
+
+
+## Content reconciliation B461: complete proposed queue and live owner routing
+
+This complete100-line draft is the coverage-refresh output requested by its12-line lane prompt. It records dated manifest/path/tool observations, dispatched and gated lanes, bounded dossier depth and candidate questions. Neither StateFlags, a directory, an app bundle nor a research report establishes entitlement, usable payload, running worker or complete gameplay/source knowledge. Preserve separate named gaps and the distinction between finite delivery and a deeper follow-up; do not rerun acquisition or device inventory merely to reconcile this saved draft.
+
+The active [acquisition queue](../FUTURE_ACQUISITION_QUEUE_2026-10-13.md) already carries later routing and [tool registry](../../TOOL_REGISTRY.md) guidance. Its AQ1/AQ2 note later bounded deliveries beyond several initial gates. This draft is historical proposal text, not a replacement to apply now. Its copied relative links assume the parent research directory: resolve game dossiers from docs/research and dispatch records from docs/gm rather than interpreting a broken draft-relative URL as absent evidence. The actual [refresh report](REPORT.md) and its B211 correction own the census and dates. Old one-realm/prestige language is retired under current [PROJECT](../../../PROJECT.md); proposals select no gameplay or purchase. No current installation, entitlement, tool version, availability, license, source payload or remote state was verified here.

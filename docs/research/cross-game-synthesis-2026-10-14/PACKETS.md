@@ -599,3 +599,8 @@ section 2 adds shown donors per packet; each packet's source comparisons now inc
 | P19 | Magical Diary, Potionomics, Stardew Valley | Wolf Hall's paid poetry prep is read by a later scene | Rune Factory 5's paid branch unread |
 | P02 | Stardew Valley, Potionomics, RimWorld, Rune Factory 5 | One parsnip, five shown destinations | No donor quotes destinations side by side |
 | P04 | Kittens Game, Project Zomboid, Sapiens, Magical Diary | Kittens splits unlocked, researched, affordable and storage-limited | Only Sapiens shows an ownership layer |
+
+
+## Feature-scout proposal chronology B583
+
+The full [feature-fold proposal B583 review](../feature-game-scout-2026-10-14/FOLD_PROPOSAL.md#content-reconciliation-b583-later-authorized-folds-and-donor-limits) confirms this owner already records the later2026-10-15 user instruction folding section2 donors. The old waiting-for-yes opening is historical, not a new approval need or packet reordering. Retain actual predicate/blocker/forecast/result, learned knowledge/XP/reference, paid choice/threshold and competing-use/permission distinctions with each donor limitation. No sampled side-by-side quote or durable result join is not proof of worldwide absence. Q1–Q5 remain dated gap options, not live worker commands or current commit/push permission.

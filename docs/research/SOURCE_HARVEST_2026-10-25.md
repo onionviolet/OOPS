@@ -181,3 +181,10 @@ download hashes/CRCs/preparations, prior MOBI hash binding and document link
 existence. `git diff --check` passes for both owned reports. Runtime
 tests do not apply. Broader harvest, source reading, gameplay fitting, human
 acceptance, commit and publication remain open.
+
+
+## Content reconciliation B530: historical routing and later coverage
+
+H-R1–H-R24 and H-G1–H-G4 distinguish69 ranked rows,61 baseline hashes, expanded40 hashes/39 preparations,87 reuse candidates/133 distinct sources and130 preparations. Those overlapping dimensions are not additive unique-book totals. Thirty actual downloads include27 follow-ups; a quota-stopped request is not a31st delivery or pending transfer. Archive/metadata/heading scan proves neither semantic read nor full-publication coverage. Primordial Saint Sect alias recovery and four original-language gap companions do not stitch translations; Bookworm33-main-volume map excludes fanbooks/short stories. The later October27 acquisition receipt reviewed in B520 supersedes this then22-held/11-missing snapshot with completion of the main volumes, without erasing the real prior quota stop. Current chapter/source owners govern freshness. Reuse bound reading packets for Skill Eater and the exact Godclads/Wish/You Are Summoned editions; do not infer personal reading or alias unrelated technique-girls/Naruto works. Native app success after connector failure, actual file verification despite loading screen and rejected Spanish/duplicate saves preserve route outcomes, not current UI/account readiness. No source prose, catalogue, book, PDF or private payload was opened in this review.
+
+Retain the original queue, attempts and addenda as history. This documentation pass changes no source files, holdings, extraction, reading progress, account state or acquisition jobs.

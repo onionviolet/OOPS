@@ -103,3 +103,10 @@ fiction/balance acceptance remain open.
 **Next decision for Weibao:** whether to resume the full S00–S14 World1 campaign
 beyond N1–N5, including the broader language/continuation horizon. That campaign
 remains paused and is not authorized by this bounded resumption.
+
+
+## Content reconciliation B460: fixture method and later campaign disposition
+
+The fixture README and complete105-line report were read together. N1–N4 and the named N5 provider leaves are bounded seeded-native results; broader N5 regional conversation stays OPEN. SOURCE negatives, older N6 compatibility and natural acquisition/pacing retain their separate scopes. A real creator, seeded beginning, temporary live-definition selection, accelerated joined-clock caller, timer hold and post-reservation provider-loss effect are disclosed interventions. They do not establish an ordinary public selector, natural failure incidence or elapsed real-session play. Preserve the failed harness assumptions and corrections rather than treating them as product fixes.
+
+The final “campaign remains paused / next decision” paragraph is historical. The later [root checkpoint](../../../CHECKPOINT.md) records the user's subsequent full-campaign instruction, launch, final stopped/incomplete state and unmerged tip at its dated check. It supersedes that proposed decision without granting current resumption, merge or push authority. The report's no-runtime-change result and native/source/persistence distinctions remain intact. Private exported definitions stay private; this documentation review inspected neither their payloads nor their sealed truths. Reopen a named gate only under a current selected task, current ownership and changed-input proof (AD32/AD36/AD42).

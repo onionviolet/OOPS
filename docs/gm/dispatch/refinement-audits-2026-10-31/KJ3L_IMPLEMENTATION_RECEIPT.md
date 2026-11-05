@@ -83,3 +83,12 @@ Not run: full `npm test`, bundle build, 14/21 px captures, human play-through, c
 ## Next
 
 kjw3 from ch26 P069 (KJ3M receipt). Start money 2744, position the flat, Benson not placed.
+
+
+## Content reconciliation B498: chronology, corrections and exact proof scope
+
+Historical14-act withdrawal/range continuation under AD36/AD42/AD43. Preserve all eight intent mappings/B1–B7/source/recipient rows. Actual cathedral/range/office IDs are reused and two genuinely unmatched spaces authored, not every unfamiliar translation turned into a new place. Newspaper held is knowledge/fact, not an inventory object. Badge-as-knowledge versus fact mismatch caused a real failed route; its corrected stored-key predicate and full rerun are the recorded fix, not an issued native badge. Firearm practice/brass-spent/silver-reloaded remain factual staging without an actual firearm skill/stock consumer at this receipt's time.
+
+Three fare debits2760−6−6−4=2744 are model arithmetic on an assumed starting purse inherited from KJ3K's unstated coppers. Paid change/source coin handover and banknotes-as-items remain separately unmodeled; range badge access is not an invented numerical fee. Fourteen acts across chapter edges are action inventory, not a source percentage. Clock720-minute Friday-night fill is authored and no literal hour is asserted. Actors/recipients only learn observed or spoken content; watcher inference and Dunn's private plan stay separate.
+
+Pinned KJ3E bundle/two-attempt seeded KJ3K continuation and literal import retain their identities. Initial confession failure is not a passing attempt; prescan/preflight/leak regex have format/static/selected-output scope. No14/21 captures, civil clock, earlier-chain replay or current build evidence was added. The phrase below the human gate is historical: human review is optional AD42, distinct from actual missing proof. KJ3M subsequently owns the Benson/night continuation with its own known short-dawn workaround, not an extension of this run. Full receipt read does not inspect private chapter/pack, current source, actual save or browser.

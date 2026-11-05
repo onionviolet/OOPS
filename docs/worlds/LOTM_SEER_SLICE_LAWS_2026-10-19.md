@@ -33,3 +33,8 @@ entry and the workroom UI were subsequently delivered in LIP3/LIP4; the earlier
 engine-only exclusion is superseded by the [native-join receipt](../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#native-join-save-and-desktop-ui-2026-10-19-lip3lip4).
 That receipt retains its incomplete Export-click, target-view and travel-guard
 gates; no full-world or human acceptance follows.
+
+
+## Content reconciliation B411: retained scope and current authority
+
+The heading says LTS1–LTS10 but the retained table contains LTS1–LTS14, including the October 22 digestion/promotion additions; retain their codes and chronology. These source-qualified prototype applications are explicitly unregistered proposals, not a new project-wide rulebook. Acquisition/custody, source, learned method, observations, actual consumption, completed effort and grant remain distinct. Capacity, strain, act counts, local assessment, timing and cancellation choices are authored slice values or adapter constraints rather than universal canon. The non-refunding observation/lesson policies reflect the old supported transaction seam and do not mandate a universal refund or no-cancel rule. Similarly LTS10 reports a tested absent-fact behavior for this slice, not newly verified current behavior of every predicate engine. The original early-Tingen/Sequence-8 boundary and listed exclusions describe the dated slice; later Klein/developer-route coverage and current source qualification belong to their actual owners. Existing cited native-join and ascension receipts keep their own incomplete proof gates. No current runtime, source passage or promotion behavior is reverified here.

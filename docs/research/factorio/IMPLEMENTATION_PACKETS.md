@@ -7,7 +7,7 @@ These five packets are provisional selections from the broader 14-path research 
 At an opt-in Village work site, choose a small resin-distillation batch. It produces useful sealing resin plus spent residue in separate owned trays. Collect, safely repurpose or dispose of residue before further batches; a full tray pauses future starts.
 
 **Source basis:** FAC-03, FAC-04, FAC-07, FAC-10 in [FINDINGS.json](FINDINGS.json).
-**Current owner and gap:** Existing command/job/site/inventory/publication owners; a new narrow site-capacity adapter must be explicit. Current deterministic stock-band projection is single-output. Receiver capacity and coproduct settlement need a qualified original adapter.
+**Current owner and gap:** Existing command/job/site/inventory/publication owners; a new narrow site-capacity adapter must be explicit. The initial proposal described a single-output stock-band projection and proposed receiver/coproduct joins. The later retort receipt below supersedes that absence claim for its selected path; broader overlap/current-build verification remains with its owner.
 **Preparation and cost:** Reconcile current resin/material owners; bind exact item keys and actual site rights. Reuse existing finite work plan; do not create another timer. One actual input lot, declared fuel or actor effort and one site reservation. Exact fiction/rates remain proposals.
 **Commitment and later use:** At acceptance reserve this batch only and reserve both output destinations. At supported settlement publish both realized outputs and capacity use once. Collection clears the matching tray only. Sealing resin prepares an existing surveying/storage application; residue has a separate authored safe sink with its own costs.
 **Time and failure:** Existing supported played clock. Accepted jobs retain pinned definitions and suspension policy; future starts re-quote actual support. Missing fuel/input/site/receiver capacity denies the next batch without spending. Accepted cancellation terms are explicit; output failure cannot silently delete/refund processed material or spill into someone else’s stock.
@@ -20,7 +20,7 @@ At an opt-in Village work site, choose a small resin-distillation batch. It prod
 3. Collecting/disposing the exact residue re-enables a supported next batch.
 4. Cancel/save/reload cannot double input returns, output or site capacity.
 
-**Delivery state:** proposal-only; not implemented; later gameplay/save/failure acceptance deferred.
+**Delivery state, superseded by later receipt:** the original proposal was followed by bounded retort source/native/UI delivery in [the native dossier](native/REPORT.md) and [usage checkpoint](../../gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md). Historical matching build/source-map evidence remains implemented-unverified; gameplay/save/failure proof is not renewed here, and human review is optional under AD42.
 
 ## FAC-P02: Measure one better tool, then prove its useful function
 
@@ -103,3 +103,12 @@ Make and demonstrate one working heat-supported process at an established worksh
 **Delivery state:** proposal-only; not implemented; original experiment pending director selection.
 
 [PACKETS.json](PACKETS.json) is the structured owner. [COVERAGE.json](COVERAGE.json) preserves actual source bounds, and [DLC_COVERAGE.json](DLC_COVERAGE.json) preserves version and expansion boundaries. Implementation needs source/native/UI/current-build delivery and the named later acceptance backlog; this research ran no gameplay or save suite.
+
+
+## Source-map and later retort disposition B624
+
+B624reviews every field of [COVERAGE.json](COVERAGE.json),14fullpathobjects and173uniquecompleteevidencerecords through a losslessprojection, with all92sharedstrings/sevenprefixes read and decoding equality checked. Allroot/version/check/nativefollowupfields were read too. Original JSONand two archivedresumecopies remain unchanged. Botharchiveshave identical14path/evidencecontent; their complete11daemon/fourHeatfielddeltas were read against thissamefullbase, preserving differentprogress/ownership/gates/date without treatingworkerIDsaslive.
+
+Keep stable2.0.77and experimental2.1.21separate: per-functionquality/fluidexceptions, stable0.1nextprobability/no trainbonuses; reverseeligibilityandenergy_required/16; recipe-levelfreshness/no stableingredientspoil_weight; singularnutrientbootstrapcategory; platformwidthdrag/destructioncontract; productprobabilitywithoutsharedinterval/nativecorrelationproof; ramp/supportrange9/11notuniversal16. Sourcefield/APIcontracts do not execute native solvers, sourcecensus, liveDLCorwholegame. Actualreceivers/fuel/material/site/clock/identity/expiry/custody carry useful behavior.
+
+The October7nativefollowuprecords laterrecovery/Heat/ABI/Intel/provenance work; it neither erases the finiteLua/APIpass nor certifies wholeC++semantics. Earlierno-native-read limits apply to thatfirstpass. Subsequentretortsource/native/UIdelivery supersedes P01’s originalnotimplementedlabel; historicale77080593d4binputmatch is not currentcombinedbuild or passingnativejourney/save/failureproof. Existing native/usage owners retain the exactlimits. Otherfourpackets remain proposals with currentoverlapchecks needed. AD36/AD43andAD42optionalreview/currentPROJECTgovernselectedwork, no newrecoveryworker or Frontierexpansion occurs.

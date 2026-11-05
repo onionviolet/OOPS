@@ -67,3 +67,8 @@ completion, journal count and eight dungeon groups retained. The lane report
 and `docs/gm/dispatch/absorb-all-2026-10-14/checks/fork-fort/` own the results.
 Human fiction, natural difficulty and taste remain unaccepted. Mobile remains
 deferred. No broader World1 completion is claimed.
+
+
+## Content reconciliation B411: retained scope and current authority
+
+Keep this optional advanced-route proposal and its October 14 scoped delivery evidence. Its generated camp-ready checkpoint does not prove the untouched journey or natural early balance; browser/export/import assertions belong to their cited historical inputs, not the current checkout. The 1366×768 viewport is historical and does not substitute for current target-viewport proof. The old sole-prestige/finite-campaign statements describe that campaign snapshot rather than a project-wide milestone; the mandatory one-realm/one-prestige gate was retired October 24. Grant guards protect ordinary state/inventory integrity while repeated exploration and salvage remain useful. Preserve upstream MIT attribution and ID compatibility notes. Frontier remains a testbed; this reconciliation selects no new depth or runtime verification.

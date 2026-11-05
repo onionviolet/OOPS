@@ -119,3 +119,10 @@ records its output/bundle and log. It holds no source or proof-runtime slot. Thi
 is separate from completed test processes and from normal-app installation.
 
 Final post-I5 byte check:2554 frozen source/test inputs and95 served assets match their manifests with0drift;20selected current primary source paths also match. [Frozen check](M6-evidence/final-frozen-source-check.json), [asset check](M6-evidence/final-served-asset-check.json). No required selected playable gate remains. Static user preview PID5921 is intentionally retained; test/browser workers are ended.
+
+
+## Content reconciliation B527: selected material proof boundaries
+
+The material receipt closes selected M1–M6/PC43/G2 gates on an exact frozen build; it does not claim every material idea or normal-app adoption. Its route explicitly mixes named cooking/producer prerequisites with real native actions and fresh HP acquisition. Returned cargo, dirty apparatus and condition550 comparisons are synthetic prerequisites, not an earned return journey. Native Bonemeal-to-HP abrasion is a directional ORIGINAL law; reverse structural repair refuses, and names do not grant supernatural characteristic identity. Typed omissions, char versus wood origin, exact consumed/retained cohorts and actual search coverage matter. Budget8 is explicitly incomplete; small timings are descriptive, not performance thresholds. The full command failed 4 missing test inputs at 3452/3456; a six-file dependency supplement and exact affected 14/14 recovery do not rewrite that full command into PASS. PC43 6/6, I5 matrices, four roundtrips and source/asset manifests retain their separate build and inspection scopes. No additional cache/index/migration was justified. Static preview PID5921 was retained then, not live availability now; slot transfer and ended test workers do not prove installation.
+
+Historical delivery is retained; no browser, test, artifact, preview or installed package was reverified by this document review.

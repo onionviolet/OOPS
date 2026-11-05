@@ -57,3 +57,12 @@ Current checks used every ID in THREADS.json, including completed older leaves r
 
 G1 shared adapter sequencing and G2/G5/G6 interface releases remain named dependencies, not usage blockers. The integration chat owns advancing PC18 and the connected playable/persistence journey. This continuation check confirms permission and live resumption; it does not claim completed integration or AD43 evidence.
 
+
+
+## Content reconciliation B488: preserved scope and later evidence
+
+Historical selected implementation dispatch under AD36/AD41/AD43. Preserve PC15–PC22 and every lane's distinct state: agitation/direction, thermal/scale, separation/vessel, cues/rescue/method, and stage/custody integration. Ingredient directions do not imply motion direction, summed heat is not a temperature trajectory, and an API/schema field without a consumer is not delivered behavior. HP two-day simmer/cauldron-wear pilot remains ORIGINAL; a bounded source locator is not a complete canonical stir algorithm. LOTM brew/ingest/digest/identity and mundane/original cultivation laws remain separate.
+
+The shared contract's consumed/held inputs, revision, elapsed game time, committed intermediate, apparatus, controller and observation are owned facts to reconcile, not five parallel crafting engines. Cancellation cannot refund already committed input; preview cannot spend/draw; rescue/split cannot duplicate. Those are named original checks, not proof from a released pure function. Four pure lanes had finished and released work at the continuation check, while integration was active and G1/G2/G5/G6 interfaces remained dependencies. That checkpoint does not establish current workers, final connected PC18 gameplay or a completed persistence journey.
+
+Later user continuation overrides the artificial percentage/finite-allowance/AU7 usage stops for the unfinished selected work. Actual service limits and the other scope/ownership/commit/push/save restrictions remain distinct. The existing integration had already received permission; no redundant restart/message was needed. THREADS and delivered follow-up messages establish dispatch/coordination rather than completion. Current content review reads the complete brief and late override, not each status/contract/runtime consumer. Old descendant/model/lock directions do not authorize new chats, workers or writes now. Preserve the named original consumer gaps and subsequent evidence in their native integration/status owners rather than treating this dispatch as final delivery.

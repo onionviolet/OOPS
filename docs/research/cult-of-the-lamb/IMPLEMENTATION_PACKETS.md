@@ -4,7 +4,7 @@ Three selected proposals from47 findings/16 finite source paths. These are decis
 
 Current YAIR already has independent funded residents/controllers, actual stock/custody, conditions, dialogue/received knowledge, construction, campaigns, native combat and one durable clock/publisher. These are extensions of existing joins, not claims those foundations are missing.
 
-Same realm/one prestige. Explicit optional enrollment and versioned definitions; earlier absence/old jobs unchanged. Same inventory/body/clock/custody/save publisher. No source names, decompiled code, raw story or media copied into gameplay. Current unit/browser/gameplay/save/reload/import/failure/regression/keyboard/director gates remain deferred. Build/syntax/import/link checks may be used after an authorized implementation.
+The old same-realm/one-prestige first milestone is retired; preserve existing saved realm/prestige meaning. Explicit optional enrollment and versioned definitions; earlier absence/old jobs unchanged. Same inventory/body/clock/custody/save publisher. No source names, decompiled code, raw story or media copied into gameplay. The research pass ran no unit/browser/gameplay/save/reload/import/failure/regression/keyboard checks. Any authorized implementation follows current AD36/AD43evidence requirements; human review is optional under AD42.
 
 ## LAMB-P01: A voluntary repair-circle charter with real consequences
 
@@ -53,3 +53,12 @@ Offer an existing consenting worker one supplied field inspection while the play
 **Later acceptance.** One journey demonstrates home capacity unavailable during field work, actual supplied expense, supported player activity in the meantime, once-only delivered cargo/report, one retained return consequence and a meaningful next work/care choice. Later save/reload and failed publication checks remain required.
 
 Source findings: LAMB-F29, LAMB-F30, LAMB-F31, LAMB-F32, LAMB-F33, LAMB-F35, LAMB-F41. Exact private source hashes/spans are preserved in FINDINGS/COVERAGE.
+
+
+## Coverage and present verification scope B622
+
+B622fully reads all fields of [COVERAGE.json](COVERAGE.json),68file-span records and16causalpaths covering LAMB-F01–F47. The declared9324inclusiveunionlines/47IDscheck arithmetically; this does not reread externalC# or certify live behavior. Export3967, selected68, firstpasssemantic0and serializedMonoBehaviourdefaultssemantic0stay independent. Missingdecoder/bundle/default details remain open.
+
+Retain the useful distinct joins: personalneed before jobreservation, stockcustody through queue/build/refund, known dissent/warning/retainedidentity, earnedlevel versus cappedfunction versus appointedoffice, paidcare/food/relationship/sourceexceptions, frozenmission/deliveredreturn, homeresidentoccupancy/combatfatigue, timepause domains, fuel/spatialwinter/ranchcare and local/metaDLCstate. Staticpath completion does not prove savefailureatomicity, OSofflinepolicy, wholecampaign/combat or actualconsent. Sourceprobabilities/cultauthority are not a reusable consentpolicy.
+
+P01–P03remain originalcandidate joins into existing owners, with a currentoverlapcheck before implementation; do not rediscover alreadydelivered work as a new gap. Source formulas/patches/entitlementbranches are datedpin-specific evidence. Current PROJECTretires the firstmilestone and keeps Frontier/Mistglassas testbeds; AD36/AD43and optionalhumanreviewAD42govern any selected slice. No new sourcebody/acquisition, sourcecode, runtime/build/browser/save or accountaction occurs.

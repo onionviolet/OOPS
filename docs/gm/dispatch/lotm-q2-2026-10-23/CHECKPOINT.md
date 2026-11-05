@@ -69,3 +69,12 @@ git add -p src/book_world_lotm_*.js   # Q1's uncommitted hunks share these files
 node --test tests/lotm_*.test.js tests/ascension_paths.test.js && npm run build && npm run check:arch && npm test
 git commit -m "LOTM Q2: Tingen districts with jurisdiction effects and timed walks"
 ```
+
+
+## Content reconciliation B491: source status and actual consumer limits
+
+Historical opt-in region prototype and incomplete verification under AD36/AD43. Preserve Q2's three-district table and derived-fact consumers: vouch attention, duty shifts and dose admission differ from a fully enacted jurisdiction/police/legal system. The institutional faith split is attributed source evidence; district/place allocation, labels, routes, minutes, attention and16/8-hour Machinery shift are authored. Actor/team claim text is not the team's actual body: Hale remains the sole supervisor in this receipt. Local north-dose issuance policy is the prototype's modeled default, not a universal world prohibition.
+
+Twelve generated walks across four places create real timed jobs, but this prototype sets body location to destination at departure and writes arrival on completion. Preserve that limitation rather than claiming actual continuous travel position/absence or applying it to every later world route. Coarse no-other-actions behavior is this occupied prototype path, not a ban on all concurrent travel capabilities. Derived facts add no new saved district fields, while new place/job definitions still create a forward-compatibility boundary: pre-Q2 builds cannot load Q2 walk/district states. Four old fixtures validate the stated backward cases, not all save histories.
+
+The Corpse Collector mid-act reload differs from unexercised mid-walk reload. Browser save_to_file plus load_progress(string) is string roundtrip, not native exported-file download/file-input Import. DOM-text inspection without screenshots is not rebuilt visual review at14/21 or current desktop floor. The played Seer Clown transition closes Q1's one named earlier gap at this prototype identity, not every higher-dose transition or later native-binding floor. Twenty-nine engine tests include22 prior/seven new cases; docks reading has no test, and off-shift/dose-refusal/browser/second-visit gaps remain explicit. No full suite/rule run was recorded by this lane. Old staging/commit/server instructions and next profile sketch are history, not present authority. This full checkpoint read inspects no current runtime, source, private fixture or browser.

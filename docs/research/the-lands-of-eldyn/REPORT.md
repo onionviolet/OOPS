@@ -15,3 +15,10 @@ Remote-source check: web open could not access `https://eldyn.io`; switching to 
 ## Final Steam receipt, 2026-10-09
 
 Source scope: installed Electron wrapper; remotely delivered gameplay unavailable. Parent verified retained-copy gates and requested uninstall through Steam. Final observed removal state: **not-verified; request sent, dialog confirmation unobserved**. [Per-app receipt](../../gm/dispatch/steam-installs-2026-10-09/ELDYN_UNINSTALL.json). No dialog clicked or game launched. Parent owns the dossier after reader handback. Earlier acquisition-only queue text is superseded by this pass.
+
+
+## Content reconciliation B407: actual read coverage and historical evidence
+
+Eleven app-owned wrapper entries and retained raw hashes support shell navigation/session observations. Source maps lack embedded sources; remote gameplay, territory, armies, economy, relationships and server persistence were not recovered. The five proposals and 22 touches are original YAIR options, not observed Eldyn mechanics. Historical DNS failure does not prove permanent shutdown. The uninstall request remains historically unverified and grants no fresh action authority.
+
+This reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.

@@ -81,3 +81,14 @@ Not run: full `npm test`, bundle build, 14/21 px captures, human play-through, c
 ## Next
 
 kjw4 from ch29 P017. Start money 2731 (a ceiling), position the flat, Benson and Melissa at the flat for Sunday. The dawn clock is short of the text's Sunday-morning state; kjw4's first act sets it with fill.
+
+
+## Content reconciliation B496: actual consumer and retained proposal scope
+
+Historical15-act household/dream continuation under AD36/AD42/AD43. Preserve all eight intent/act mappings, C1–C6 corrections, monetary source anchors and withheld-recipient rows. Fifteen acts across partial chapters are action inventory, not a clean source denominator. The existing corridor is reused; bakery and chores can remain notes without new place/verbs. Actual known keys are not interchangeable with facts, and an unrevealed chosen path must not be named by future Sequence keys before the later answer. Actor-per-verb notes describe player participation versus observed non-player actions, not a general engine in which actors have no autonomous capabilities.
+
+Only two priced goods are debited:2744−6−7=2731. Unpriced produce/bakery/drinks and assumed note source remain unmodeled, so2731 is an upper bound, not a precise recovered purse. Pocket carrier36-pence notes/coppers and full balance are separate scopes. Cooking/aiming/dream warning/fate/relationship notes do not become actual firearm/food/contract/occult engines from a fact label. The stated empty chamber was private; older recipient knowledge cannot be inferred from narration or leak-regex pass. B1 gating remains a mechanism dependency at this receipt's time, not a source-law inability.
+
+The final dawn act was shortened360→120→20 after reservation refusals; that is a disclosed workaround with undiagnosed cause, not a repaired clock/constraint defect. The final state is short of Sunday morning, and a later window's planned fill does not prove calendar correctness here. Earlier20-minute acceptance does not justify discarding protected actual appointments/resources. Source durations are labelled fill. Third-attempt native success, final literal import and selected new-key leak checks retain their input/pinned-bundle scopes; no14/21 captures, civil clock, full earlier-chain replay or fresh ordinary entry was verified.
+
+The phrase below the human gate does not create a required human blocker under AD42. Human play is optional; missing source/consumer/clock evidence remains distinct. The final short run is not equivalent to two earlier failing long-night attempts and does not prove every admitted duration. Old next-window/source/model instructions and proof-path IDs remain history. This complete receipt review reads neither private source, current pack/source nor browser/save artifacts and adds no actual clock, installation or gameplay proof.

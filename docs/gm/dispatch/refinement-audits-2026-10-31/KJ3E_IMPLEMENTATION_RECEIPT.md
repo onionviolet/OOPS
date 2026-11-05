@@ -42,3 +42,12 @@ About four wall-clock hours from the preflight to the verified route; not a clea
 ## Next
 
 Source-qualify ch17 from P047 (the contract, wages and confidentiality clause, the first employment consumer) before building; carry `offer.open`, `offer.reply.by`, Wright's referral, the pocket balance and the Blackthorn office knowledge. Add a native-presence check to the fixture preflight (PF7). Investigate the two-relocation freeze separately.
+
+
+## Content reconciliation B483: chronology and bounded evidence
+
+Historical source-window implementation and PF13 comparison under AD36/AD42/AD43. Eleven intents cover the recorded ch16–17 window, not the contract or acceptance of employment. Invitation, private resolve, referral and assent stay distinct. The seven-pence pocket reconstruction follows the explicit four-paid/three-left source basis, while the conflicting earlier five-pence statement remains unresolved. The explicit count action and native fare cost differ from an unexplained purse top-up or an invented payee. Nap duration is authored. Display-name corrections reuse actual bodies and places rather than creating new identities.
+
+Duplicate flat/pub IDs and incomplete actor routines explain the recorded arrival-placement/visit-hold workaround, not a general valid schedule. KJ3E's qualified freeze row supersedes its own earlier two-actor explanation: some two-actor relocations passed, the specific combination froze, and the cause was undetermined. KJ3H's later conservative one-relocation workaround does not establish that actor count caused the defect. Household testimony differs from private reasoning; the deferred affinity meter does not remove relationship consequences that actual consumers can support.
+
+The fresh origin used an earned KJ3D seed, and the successful route is split at an earned checkpoint after host-load stalls. Preserve that split, the zero-page-error scope of the resumed run and the uninspected 14 px capture versus inspected 21 px capture. Literal import, two fare counterfactuals and unchanged bundle bytes do not establish civil-clock alignment, absent-speaker/cancel behavior or human cadence. Four hours and runner/probe counts under swapping are diagnostics, not a controlled sweep speedup. Later KJ3F/G/H receipts cover the dated next boundaries with their own limits; this record grants no new build/reader/worker dispatch. No current source, pack, browser or private test-save inspection occurred here.

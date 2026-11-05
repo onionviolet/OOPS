@@ -451,7 +451,7 @@ Memory: Lin remembers only shared outer-life training; He remembers loans; Qiao 
 | K7.W3-TT21 ([W3/K7.W3-TT21](../W3_PEOPLE_INSTITUTIONS_LIFE.md#w3-tt2-b2-annual-traits-and-simulations-outer-life-training-neighborhood)) | Original training house | Guest, trainee, instructor; practice/care shifts | Outer-life trials, attendance, kit return | Training access suspension and debt hearing |
 | K7.W3-TT22 ([W3/K7.W3-TT22](../W3_PEOPLE_INSTITUTIONS_LIFE.md#w3-tt2-b2-annual-traits-and-simulations-outer-life-training-neighborhood)) | Simulated household/sect, per run | Run-local dependent/member/elder; assigned obligations | Run-local history stays with its run | Local authority acts there; outer ties are not auto-imported |
 
-K8.W3-TT2: denomination unknown in inspected seed. Proposed local copper ledger, not canon: meal 2, bed 8, lesson 12, practice tool 20 copper units. Calendar: each body's lived year separately; birthday draw is source-reported, proposed spring training fair is original. Jobs: kitchen prep, kit repair, archive copying, supervised practice assistance. Rice/vegetables and training-house dorm, outer family versus simulation household distinct. Routine: ordinary work, fitting practice, shared meal, sleep; simulation settlement neither imports a spouse nor transfers their credit.
+K8.W3-TT2: the seed’s denomination was unpinned; later source windows name silver/source stone without a general exchange. Proposed local copper ledger, not canon: meal 2, bed 8, lesson 12, practice tool 20 copper units. Calendar: each body's lived year separately; birthday draw is source-reported, proposed spring training fair is original. Jobs: kitchen prep, kit repair, archive copying, supervised practice assistance. Rice/vegetables and training-house dorm, outer family versus simulation household distinct. Routine: ordinary work, fitting practice, shared meal, sleep; simulation settlement neither imports a spouse nor transfers their credit.
 
 More: K6.W3-TT27 Default lets a remembered simulated acquaintance remain an outer stranger; Dial reintroduction, not a forced bond. K7.W3-TT23 records who endorsed a prediction after it failed. K8.W3-TT22 compares birthday expectations with outer ages instead of adding simulated decades to the body.
 
@@ -883,3 +883,8 @@ Root rounds 10/11 appeared after the completed-lane snapshot. CR1/CR2 redirect l
 3. **W19-A3:** Consider one relationship/start overlay only after the selected canon slice is playable, with exact base pin and independent state.
 
 Final claim: documentation consolidated only. Source/built/browser/persistence/director states remain exactly scoped above; no gameplay change, build, test suite, save action, commit or publication.
+
+
+## Institution pass and title-specific evidence reconciliation B615
+
+一年抽取一詞條，模擬的也可以？: the [institution pass](../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds) adds silver/source-stone context,70percentautumnharvest tithe, separately unspecified earnings tuition, monthly rival-sect tax and later court-only levy by era. No rate between currencies or source meal price is pinned. Root test/sect seat, actual realm/odds, owned/equipped slot, each lived year and simulator settlement differ. Preserve this card’s copper values as authored; no other simulator’s carry law or book’s economy is imported. No native behavior is newly verified.

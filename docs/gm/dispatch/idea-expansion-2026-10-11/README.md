@@ -47,3 +47,10 @@ coverage, granular catalog extraction, interactions, implementation reproduction
 and playable review. These are targeted next tranches, not a new dispatched wave.
 Runnable code is not dispatched from this planning assignment. Existing private
 saves, sealed truths and concurrent absorption changes remain untouched.
+
+
+## Content reconciliation B485: current disposition and preserved history
+
+Historical planning owner and retained idea coverage under current AD36/AD43 and authority rules. Preserve G1–G8 and their distinct starts, powers, social life, continuity, engine, material, review and micro concerns. Seven workers covering eight lanes is not eight independent workers; returned G1 also carried G8. The179 cards are proposals, and693 acceptance cases were specified, not run. Structural/peer validation and an implementation queue do not establish runtime implementation, natural acquisition, native play or acceptance of every idea. Full source-book qualification, all396 intake artifacts and every world were explicitly outside this wave's proof.
+
+The native planning ledger, reconciliation, queue, coverage and follow-up gates retain detail/provenance rather than being replaced by a generic archive pointer. Compatible world alternatives are palettes, not shared universal laws. Specific missing consumer/contracts and source questions remain their owners' gaps; merely naming a title/skill/status audit or VFX family does not implement it. The opening live-owner statement, dispatch reservations and agent identities are dated recovery information, not proof of current writers or a present instruction to dispatch. This review reads the whole README, not each linked lane/report/JSON body. Existing later ledgers retain their separately recorded coverage; no new agents, chats, source reading or runtime wave follows from this historical brief.

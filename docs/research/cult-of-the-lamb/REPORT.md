@@ -76,3 +76,12 @@ The numerical source examples explain the inspected code; none is selected YAIR 
 The asset reader inventoried 5,676 MonoBehaviours: 5,403 decoding errors from missing/stripped type detail and 273 anonymous metadata-only reads. **Zero serialized MonoBehaviour defaults received semantic coverage.** Mixed resource inputs and the catalog remain privately available for repair, but most addressable bundles are unexpanded. The full content catalogs, firstpass/dependency semantics, every exceptional actor, combat family, complete DLC graph, persistence/migration/atomicity and OS-offline behavior are outside this finite pass.
 
 Documentation/source-span/hash/link checks are the acceptance gate for this research. Gameplay, browser, unit/regression, save/reload/import, rollback, keyboard and director checks remain **deferred and unrun**. Any future implementation must retain that backlog and its implemented-unverified status until its actual permitted journey is exercised. [CHECKPOINT.md](CHECKPOINT.md) owns this lane's completion and release.
+
+
+## Coverage-map reconciliation B622
+
+B622fully reads all fields of [COVERAGE.json](COVERAGE.json),68file-span records and16causalpaths covering LAMB-F01–F47. The declared9324inclusiveunionlines/47IDscheck arithmetically; this does not reread externalC# or certify live behavior. Export3967, selected68, firstpasssemantic0and serializedMonoBehaviourdefaultssemantic0stay independent. Missingdecoder/bundle/default details remain open.
+
+Retain the useful distinct joins: personalneed before jobreservation, stockcustody through queue/build/refund, known dissent/warning/retainedidentity, earnedlevel versus cappedfunction versus appointedoffice, paidcare/food/relationship/sourceexceptions, frozenmission/deliveredreturn, homeresidentoccupancy/combatfatigue, timepause domains, fuel/spatialwinter/ranchcare and local/metaDLCstate. Staticpath completion does not prove savefailureatomicity, OSofflinepolicy, wholecampaign/combat or actualconsent. Sourceprobabilities/cultauthority are not a reusable consentpolicy.
+
+P01–P03remain originalcandidate joins into existing owners, with a currentoverlapcheck before implementation; do not rediscover alreadydelivered work as a new gap. Source formulas/patches/entitlementbranches are datedpin-specific evidence. Current PROJECTretires the firstmilestone and keeps Frontier/Mistglassas testbeds; AD36/AD43and optionalhumanreviewAD42govern any selected slice. No new sourcebody/acquisition, sourcecode, runtime/build/browser/save or accountaction occurs.

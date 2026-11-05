@@ -2,7 +2,7 @@
 
 Status: proposed authoring workflow, 2026-10-13. Commissioned audit/expansion under [dispatch](DISPATCH.md); no dedicated agent, model, runtime feature or candidate world is selected. This supplements [N5](../SELF_AS_PLAYER_LORE_CONSIDERATIONS_2026-10-13.md#dedicated-narrative-and-original-world-author-proposed-future-role), rather than replacing the [GM](../../GAME_MASTER_PROMPT.md) or [world-actionability contract](../../gm/WORLD_ACTIONABILITY_GM_PROMPT.md).
 
-Authority remains [USER_VISION](../../USER_VISION.md), [PROJECT](../../../PROJECT.md) and relevant world owners. Original worlds, strong starts, reliable memories, cooperative hosts, direct agency and ordinary life are allowed. Canon-first world order and the one-realm/one-prestige milestone remain intact. This future writing unit does not resume paused worlds or add a release gate.
+Authority remains [USER_VISION](../../USER_VISION.md), [PROJECT](../../../PROJECT.md) and relevant world owners. Original worlds, strong starts, reliable memories, cooperative hosts, direct agency and ordinary life are allowed. Current PROJECT governs canon-first ordering and retires the one-realm/one-prestige milestone. This future writing unit does not resume paused worlds or add a release gate.
 
 ## Audit: what the role still needs
 
@@ -83,7 +83,7 @@ Score each dimension 0 (absent/contradictory), 1 (plausible but thin), or 2 (dem
 | R4 | Continuity and integration | Clear identity/retention, recorded consequences, knowledge channels and named state gaps. |
 | R5 | Taste and evidence | Source/invention labels are honest; director can assess tone, attraction and pacing from an actual scene. |
 
-A reasonable first unit is one original world brief, one entry snapshot, three core cast notes, one short opening and three conditional follow-ups, including quiet success. Deliver a continuity delta and state-gap list. Human review selects, revises or rejects tone, premise and desired pursuit; passing this rubric does not accept the world. Future implementation needs its own rebuilt browser and applicable persistence evidence.
+A reasonable first unit is one original world brief, one entry snapshot, three core cast notes, one short opening and three conditional follow-ups, including quiet success. Deliver a continuity delta and state-gap list. Optional human review under AD42can select, revise or reject tone, premise and desired pursuit; rubric scores do not select a world or prove gameplay. Future implementation needs its own rebuilt browser and applicable persistence evidence.
 
 Offline AI-assisted drafting can produce reviewed, frozen content. Possible future runtime AI would require a separate decision about state access, memory, determinism, latency and failure handling. This packet commits to neither architecture nor infinite simulation.
 
@@ -155,3 +155,14 @@ explicit. Reuse the world owner rather than inventing another event registry.
 [Repeatability](../../TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15)
 is qualified by chance and means. These details are authoring recommendations,
 not a new scene, source claim, universal director or implementation assignment.
+
+
+## Content reconciliation B614: causal writing and continuation
+
+F1: Full actual review covers157input lines, F1–F5/R1–R5, the entire original Grey Weir demonstration/D1–D4, inputs/role/source/continuity rubric and W1–W5/OD8/detail-review addenda. Oversized combined output was recovered with complete tail reading before full credit. USER_VISION3661–3698explicitly records OD7/OD8: natural course unless changed, authored plots/simulation by mode, truth/knowledge/view separate and actual world correction mechanisms possible. The narrative guide restates those ideas; its workflow/rubric/sample scene remains proposed. It selects no permanent worker, AI provider, runtime generator, new world or infinite simulation.
+
+F2: Preserve one finite premise/current-situation unit, actor competence/resources/private aims/non-player ties, observed source voice versus original examples, information channel and actual state-consumer intent. Literal-self premise does not authorize invented biography or outside expertise. The demonstration is wholly authored public content, not a selected world/source law or a hidden designer truth. Controlled experiment/quiet employment/cooperation/departure are compatible alternatives, contingent on real tools, knowledge, agreement and funds, rather than mandatory catastrophe or loyalty grind. Prose can describe intended consequence without implementing body/stock/knowledge/permission.
+
+F3: W1baseline, W2disturbance, W3propagation, W4playablebeat and W5aftermath keep occurrence/discovery, attempt/result, source/counterfactual and observer/author truth distinct. When a necessary cause disappears, its dependent beat changes; independent plans continue. OD8’s later correction makes world-supported fate/heavenlywill restoration possible with actual reach/cost/means, not a blanket ban on replacement or a universal self-correcting canon. Repeatability remains chance/means-qualified. Selected clocks do not advance because chat is silent or a browser is closed.
+
+F4: Save exact premise/revision, material commitments, participants, knowledge channels, superseded history and next eligible situation in existing world/timeline owners; a synopsis alone cannot rewrite a promise. Avoid a duplicate universal lore/event registry or compulsory five-role hierarchy. Rubric0–2and a proposed first unit are comparison aids, not product approval or extra universal gates. Current PROJECT retires the old one-realm/prestige line; canon-first/current selected sequence remains. Human taste review is optional under AD42, with actual world selection and implementation authority separate. No new writing assignment, worker, source reading/acquisition, gameplay/build/browser/save or human acceptance proof occurs.

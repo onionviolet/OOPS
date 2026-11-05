@@ -71,3 +71,12 @@ Integration of WPL8a. It needs:
 3. Then rebuilt-browser evidence at 1366×768 for A1–A4.
 
 The lane's unit tests are not that gate; they prove only the pure modules.
+
+
+## Content reconciliation B492: phase, consumer and evidence chronology
+
+Historical pure-module loader delivery under AD36/AD43. Read every manifest/load/population/save/fixture/invariant row and A1–A4/N1–N5. This lane explicitly has no gameplay wiring or browser evidence. Its62 focused tests, deliberately broken/reverted freeze-on-reveal check and1853 pass/3todo aggregate establish bounded source checks, not1856 passing tests or any played school. Synthetic341-person population,736560 queries and local budget/size figures are descriptive fixture measurements, not all-world cost or scale guarantees.
+
+Manifest roles/axes/locks, membership-derived ordering, counterparts, lazy cohorts/draw records, per-instance pins and delta/migration/dormancy are separately implemented leaf contracts. They do not establish a current live Save/Export/Import owner merely because a helper section can serialize. INV2 is loader-visible and runtime INV7 remains unwired; do not flatten the listed invariant states into complete integration. Private-research refusal and license metadata are loader behavior at this identity, not a universal source-acquisition ban. Text-blind fingerprints and sealed-term lint are scoped sentinels, not proof of every indirect disclosure path.
+
+Later P2, fully read in B486, records a distinct bundled MoL registry consumer and its own no-Cyoria-browser/revision-pin limits; that does not prove the proposed test-school population/save-delta path was wired. The WPL8a debug visit and its new saved-key compatibility are proposed future work in this checkpoint. Historical approval/owner checks cannot override later recorded user authority or manufacture a fresh permission loop, and old1366 viewport is not today's desktop matrix. Current source, candidate, locks and linked design/test bodies were not inspected by this full checkpoint review. Preserve the precise missing consumer rather than declaring all loaders absent or every leaf playable.

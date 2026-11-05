@@ -81,3 +81,10 @@ Landed after round 2's improvement passes:
 Every slice is still unwired. `sw-wire` owns wiring from `WIRING_HANDOFF_FROM_L-A.md`, and `sw-slots` is building the Chrome floor runner. Most lanes still skip Codex, so Sonnet does work Codex could.
 
 Overnight: Weibao is asleep. The overnight supervisor (`local_9346d8a9`, [rules](OVERNIGHT_2026-10-30.md)) nudges idle lanes on a ~40-minute tick, because this coordinator's cross-session sends cap at 10 per user turn. Next items went to `sw-road` (next cities), `sw-adv` (typed abilities volumes 2-8, more spells), `sw-calendar` (GM38 curfews, volume 1 dated scenes), `sw-bridge` (new read models) and `sw-absorb` (timing gap, place rebuild, gates). Each lane leaves a morning block at its last commit.
+
+
+## Content reconciliation B497: historical whole-book phase
+
+Historical whole-book family queue under AD32/AD36/AD43/AD45/AD51. Preserve full-book/every-little-idea intent, all eight families, memory-owner exclusion, other-book boundary and later Round2 transfer: sw-wire takes host integration, sw-absorb retains lead data/gates, sw-slots supplies the runner and sw-gaps folds intake. Volume walk and GM/WA codes are navigation, not source-read or playable coverage. The141 intake lines and listed commits are not141 accepted decisions or working features. Folding proposals into rule/GM/QR6 owners does not establish acceptance; silence under a default-proceeds choice proposal is not human acceptance.
+
+The overnight every-slice-unwired statement is dated, not current proof that later B/R consumers remain absent. Old model assignments, three/ten delegated-lane counts, commits,90/85/88-percent usage thresholds, Nov2 hard end,40-minute nudges and send caps establish no current worker/process/permission or new dispatch. Do not wrap current limited npm test again because of this old gate instruction. Later source/consumer owners and current Klein-first direction preserve the horizon without restarting this wave. Full queue, tables and ending were read; no family ledgers/intake/commits/chapters or live workers were inspected.

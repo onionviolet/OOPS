@@ -88,3 +88,10 @@ engine support, native UI consumers, actual target/ownership/contact semantics,
 NPC symmetry, scheduler/offline interactions and save compatibility, together
 with concrete implementation order and browser acceptance. Full source coverage
 and playable acceptance remain separate gates in the report.
+
+
+## Content reconciliation B500: source limits and actual executed scope
+
+Full F1/P1–P5/A1–A5 research-scope review under AD32/AD36/AD38/AD43. Later follow-up authorizes audit execution; the linked report owns actual coverage, findings and proposals, not this scope alone. Four earlier bounded official-anime references mean the old only-blocked-wiki description was incomplete. Fresh2026-10-11 Josuke/Rohan official-page summaries are adaptation baselines, not manga scenes or exhaustive repair/command/activation/expiry proof; Hand/stopped-time anchors were reused rather than rechecked. The wiki remains blocked_no_revision and S24 remains open at this record's scope.
+
+One-Stand/shared-damage/visibility/range assumptions are questions with exceptions, not mandatory weakness puzzles. Preserve innate acquisition/control/evolution/transfer/death, non-Stand bodily systems, everyday livelihoods, private versus observed knowledge, actual contact/order/time kinds and part/continuity/ordinary-start possibilities. Strong powers can replace work or simply overpower a target without a required mundane counter. The five acceptance fixtures specify hidden-rule knowledge, differing durable responses, object/service custody, evidence-limited automation and persistence; none ran here and they do not select a JoJo campaign. This full scope review inspects no new official page/wiki/manga/anime or linked audit report and dispatches no reading/runtime/native work.

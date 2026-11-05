@@ -73,3 +73,12 @@ Recoverable boundary: C01 `dd7501bb`, C02 `2a355072`, foundation merge `4df76598
 All campaign proof browsers/harnesses closed. Full campaign remains authorized
 and incomplete; resume W1-C03 here without a new chat or permission. Local
 rebuilt dist/index are unstaged; root retains main integration/installation.
+
+
+## Content reconciliation B492: phase, consumer and evidence chronology
+
+Mixed pause/resumption/campaign chronology under AD32/AD36/AD41/AD42/AD43. Read all later-scope banners and lower historical states. The bounded R15 G9 resumption and subsequent full W1 campaign authorization supersede the old blanket RESUME ONLY and paused paragraphs for their own stated scope. Later parent disposition records that campaign ended incomplete with gates open/unmerged at that check; old active-single-writer, branch/PID/worker and immediate C03 instructions do not establish a live owner or today's execution queue. Current project direction leaves Frontier/Mistglass as test beds and makes Klein-first the build focus, so retaining historical full-world authority does not restart a competing world campaign during this document reconciliation.
+
+Preserve all S00–S14 open gates and3803 mixed accounting rows without a completion percentage. G9 provider leaves and C01/C02/integration are seeded-native, not natural acquisition or whole-section completion. Source test counts620/625/628 and their affected contracts/persistence groups bind different input identities; do not add or normalize them into a current universal suite. N5's broader regional conversation stays open. Ignored p09/p10 companions are required artifacts for the recorded root integration, not delivered by public code/docs alone. Frozen p01–p08 and immutable editions retain their ownership boundary.
+
+The old1600×1100 desktop evidence is not present target-matrix proof. Director taste/human review is optional under AD42, separate from unresolved actual section/consumer evidence. Branch commits and main integration restrictions were that campaign's authority, not authorization for commits, source changes, new chats or installed-app writes now. This full checkpoint review reads no assignment/progress/capsule/private content, linked campaign reports, current branch or source body by implication. Recover any future selected task from its actual incumbent and current priorities, preserving old failures rather than asking for already recorded permission or treating the campaign as complete.

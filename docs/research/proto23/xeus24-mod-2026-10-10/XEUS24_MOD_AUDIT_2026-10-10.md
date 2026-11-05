@@ -131,3 +131,8 @@ Not fixed and out of scope: the skill tooltip prints the literal text
 - The pacing shift from fix 3 needs a judgment call.
 - Panel layout on narrow screens.
 - Keyboard access.
+
+
+## Content reconciliation B531: title delivery and proposal boundaries
+
+The Xeus24 report records a pinned source/notes audit split across readers; the mod was never played and its measurements are attributed to its author. Titles, Renown, star crafting, cultivation, save slots and catch-up are distinct source ideas, not universal YAIR rules. F3's keyed title object prevents that particular positional-list doubling mechanism, not every duplicate grant or stacked-bonus bug. O1 records a historical26-title implementation, derived replacement bonuses, unknown-ID retention and explicit old-empty compatibility; six focused and279 whole-suite checks bind that older input only. The actual first kill, defeat and reload trials differ from a synthetic120-kill backfill; final import after wiping test storage is not fresh earned long-horizon coverage. XP multiplier precedence repair changes other formerly dormant bonuses and pacing, beyond title tuning. Rank/worn/passive Renown, live-gate readiness, generated codex, optional catch-up and backup rotation remain candidates; source-specific pill bottlenecks and max-HP tribulation are dials, not global laws. Human feel is optional review under AD42; old narrow-screen backlog is not a new mobile gate. No runtime, counts or upstream PR status reverified here.

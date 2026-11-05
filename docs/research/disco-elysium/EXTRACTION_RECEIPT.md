@@ -25,3 +25,10 @@ Before the extraction/decompilation phase that could write more than 200 MB, `df
 Once normalized text and useful recovery outputs existed, removed only this task's redundant full typetree JSON and generated il2cpp.h, 192,397,397 bytes in total. CLEANUP.json records the deletion. Raw useful source inputs, normalized text, selected scenes, raw component slices, metadata signatures and address maps remain private. No install file was deleted or changed.
 
 No game launch, save/settings access, build, test of YAIR gameplay, source edit, commit, push or uninstall. Pass complete; Weibao can remove the install at his choice. Runtime/native activation and the broader content coverage remain exactly as bounded in COVERAGE.md.
+
+
+## Content reconciliation B469: complete record and actual evidence scope
+
+All27 receipt lines were read alongside the already reviewed [coverage owner](COVERAGE.md). Seven retained inputs, normalized112962-node indexing,53 primitive project/effect pointer bindings, selected scene text and17 x86_64 ranges have distinct scopes. Failed full typetree decoding was replaced by selected header/field-order recovery; opaque translation/string tails were not decoded. DummyDll bodies are stubs. Architecture selection recovered x86_64 metadata/address maps, not ARM parity, original C++ or executed game behavior. Next-known-address ranges and generic aliases require their recorded field/instruction qualifications.
+
+SDK/tool versions, VM/file offsets, disk availability and the192397397-byte cleanup are dated extraction facts. They do not establish current installed tools/free space or authorize another cleanup/uninstall. The full install was not copied; useful raw inputs and signatures stayed private, while music/voice/art and most assets remained unread. Runtime/native activation, personal save/settings, rendered UI and YAIR integration were explicitly untested. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern a selected consumer. No retained binary/corpus/source, tool, disk inventory, license, game process, player save or cleanup was newly inspected or performed.

@@ -31,3 +31,10 @@ Lane E2 is the sole follow-up of finished D5 for bounded MAW-X8/X9 coverage. Aut
 ## Final integration state
 
 Current `master` merged into this branch: `Already up to date` at `3dfc49cf3422c0262d86810df47459f53f3a4a67`. Commit only the three lane-owned paths. Never merge to master or push.
+
+
+## Content reconciliation B473: complete record and current owner boundaries
+
+The complete33-line checkpoint was reviewed as a documentation/mapping delivery. Authoritative module names, degrees, consumers, examples and source hashes establish the inspected source/router window, not implemented gameplay or demonstrated absorption. Combat math/settlement, resident/helper lifecycles, site domains/geography and browser-local layout/gameplay saves stay distinct owners. A new register row cannot create a missing consumer or make grep/export listings runtime proof.
+
+The recorded primary overlap and hunk-only integration instruction preserve concurrent D5 work. Branch/master equality and the final commit-only/no-master-push command were historical lane boundaries, not current write/commit authorization or a report that the changes are integrated now. Current [systems register](../../../SYSTEMS_REGISTER.md), [map](../../../systems/COMBAT_PEOPLE_SITES_UI.md), [PROJECT](../../../../PROJECT.md) and AD32/AD36/AD51 govern current routing; this review does not add another register or copy the old dirty owner wholesale. The old22-register/41-AD/125-link checks are tied to that delivery, with no runtime/build/browser performed. No original source hash, branch merge, module, game, user save or live process was newly checked.

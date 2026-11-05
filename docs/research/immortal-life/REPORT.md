@@ -18,7 +18,7 @@ Shown = directly inspected data or type schema. Stated = localized description, 
 
 ## Ranked PROPOSALS
 
-All unselected. One realm and one prestige layer remains the first milestone. Optional spiritual entry, useful mundane paths, supported idle practice and repeatable options remain reachable. No global once-only rule is proposed. UI packets target 1440 × 900 desktop/laptop; mobile work is deferred. No YAIRPG source/build/browser change is claimed.
+These dossier proposals remain unselected by this research pass. [Current scope](../../VISION_DIGEST.md) retires the one-realm/one-prestige gate. Optional spiritual entry, useful mundane paths, supported idle practice and repeatable options remain reachable. No global once-only rule is proposed. UI packets target 1440 × 900 desktop/laptop; mobile work is deferred. No YAIRPG source/build/browser change is claimed.
 
 | Rank/code | Proposed result | Existing owner | Disposition and cost |
 |---|---|---|---|
@@ -48,3 +48,14 @@ All unselected. One realm and one prestige layer remains the first milestone. Op
 Proposed owner edits for the coordinator: link this dossier from the existing research index; retain the no-autonomy/no-rebirth proof boundaries; replace the older Immortal Life payload gap with this dated receipt. Do not turn these proposals into accepted product direction.
 
 Remaining gaps: live table selection, exact costs/failure settlement, autonomous NPC cultivation, marriage/disciples/rivals execution, lifespan and next-life rules, full quest/realm semantics. [Checkpoint](CHECKPOINT.md) names every unread family. Research output is ready for coordination; whole-game and playable acceptance remain open.
+
+
+## Content reconciliation B596: full coverage record and source limits
+
+F1: Actual full review of COVERAGE.json covers all 36 selected table-family rows, original resources.assets/path IDs, counts, hashes, coverage labels and every header/trailer field. The 296 TextAssets and 291 parsed JSONs are extraction/parse counts. The five remaining names (SensitiveWords, the crane-race action information asset, line-breaking leading/following characters and Decorate) are explicitly non-JSON or parse failures, not five proven missing mechanics. All 36 rows say selected rows/fields rather than complete semantics; no native body or personal save was read. Original JSON/schema/hashes remain unchanged.
+
+F2: Seven Level rows and nine Breakthrough rows are different recorded tables, alongside four BreakthroughMaps and four BreakthroughMapConfig rows. Do not collapse their counts into a single ladder or choose which reaches live play without a loader/consumer. Six professions' 90 LifeSkillLevel rows and four LifeSkill rows do not make work mastery, realm preparation and capacity one XP ledger. SchoolSalary, SchoolUnlockGroup, SchoolDevelopment, SchoolRenown and School are distinct configurations; their counts do not establish paid stock, teacher availability, restoration settlement or whole-sect autonomy. PlayerValueVersionModify's single row does not prove migration/recovery, and 19775 Language entries do not equal manually read text or executable effects.
+
+F3: NPC67, NPCSchedule371, FavourLevels6, FavourLv4, Marry12 and MarryEvent60 preserve separate identities and purposes. The two similarly named favor tables need their own consumer before combining thresholds. The report's invitation/stay interpretation remains the bounded semantic account; names alone do not prove romance, children or lineage. An empty NPCEvent table does not erase authored Task/Trigger content, and 413 Trigger/393 Task rows do not prove every reachable event. Scheduled movement and animation do not establish offscreen cultivation, paid duties, autonomous breakthrough or native failure handling.
+
+F4: Preserve work-to-preparation, facility-to-teaching, voluntary roommate stays, finite attributed supply requests, separate class learning/capacity, process-specific blessings and causal schedule overrides as optional useful adaptations in existing owners. Coverage review adds no source body, gameplay, selected cache, save, browser or acceptance evidence. Current scope retires the old one-realm/one-prestige gate. No acquisition, runtime experiment, private-state access, deletion, relocation, commit or push occurs.

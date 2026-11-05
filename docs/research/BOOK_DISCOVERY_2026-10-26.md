@@ -196,8 +196,7 @@ LATER / DELEGATE
 - G4: RR-direct route for titles Z-Library lacks (Super Minion, Daily Grind,
   Delve, Chaotic Craftsman, Last Ship in Suzhou, Flower That Bloomed Nowhere,
   Player 0.4): existing lncrawl-polite fork, first chapters only, haiku-level.
-- G5: Forge of Destiny Book 3 (Aethon 2026 listed in metadata, absent on
-  Z-Library) via publisher/other supported route.
+- G5, historical: Forge of Destiny Book3 had an unresolved acquisition route despite successful2026metadata. Later LIBRARY_INDEXrecords1–3held; do not repeat the old absent/unheld recommendation.
 - G6: The Menocht Loop (RH2, rank 7) is a second time-loop RR title still unheld.
 - G7: Continuations once quota allows: Path of Ascension 7+, Beware of Chicken 6+,
   Mana Mirror 5+, later Dungeon Life and 12 Miles Below.
@@ -227,3 +226,18 @@ LATER / DELEGATE
 - P5: Daily plan: at most 5–10 slots per day on series with a named reading
   need; keep 5 spare for repairs. Each purchase must name its series,
   volume range and edition cutoff in the receipt.
+
+
+## Content reconciliation B625: discovery versus later acquisition
+
+B625 reviews the entire companion discovery/candidate record. Preserve the distinctive reasons for each proposed source and the source-local IDs, while using [LIBRARY_INDEX](LIBRARY_INDEX.md) for holdings and [the ranked queue](SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md) for recorded reading. Later acquisitions and source receipts supersede old negative title searches and download recommendations. A missing result in a capped fuzzy search is not proof of absence, and a large or small file is an inspection lead rather than a completeness verdict.
+
+Keep published-volume, serial-chapter, omnibus, translation, LN/WN, adaptation and edition boundaries. Visual media remain supplemental under the recorded priority, but may contain distinct adaptation-specific events or rules; do not silently import them into the novel baseline. Preserve Japanese/source-language leads with explicit OCR/translation provenance. Quota, premium, provider health, interrupted jobs and proposed capture routes are historical; none authorizes a new transfer, retry, worker or reading batch. This content review verifies no current private file or external source.
+
+F1: Full 229-line discovery report reviewed: all C1–C15 works, refresh corrections, old-list O6–O10 continuations, R1–R4 routes, V1–V3 checks, October28 G1–G8 ideas and P1–P5 quota plan. These are dated search/edition metadata and collection rationales, not source reading, successful delivery, current quota/premium status, current remote availability or a full publication inventory. Fifteen refresh searches/five extra metadata lookups differ from the initial16queries/16metadata checks including one screened title. Result caps/fuzzy matches and absent local title matches do not prove provider or physical absence.
+
+F2: Preserve C1 apprenticeship/teacher obligations, C2 System investigation, C3 hostile environment/technology/exploration, C4 gradual island life, C5 institutional training and unequal preparation, C6 use-growth/threshold history. C7modern economic cultivation differs from same-author Soulhome; C8poet-magic institutions/generations, C9nonhuman community, C10inquiry/culture, C11strange education, C12hospital support, C13radical biology/time, C14collective political life and C15investigation remain distinct discovery reasons. These premises are publisher/author/secondary-reported and rationale inferred, not audited canon or new user-favorite declarations. Keep languages, translations, omnibus contents, variant titles and exact edition/cutoff questions separate.
+
+F3: Refresh C3 closes apparent 12Miles3/6 search gaps and C5 finds2026Forge metadata; neither verifies file contents. October28G5’s Forge3absence claim conflicts with earlier successful metadata and later actual acquisition. Later LIBRARY_INDEXrecords Forge1–3, Elydes1–3, StreetCultivation1–3, Raksura three-title omnibus, Steerswoman1–2 and later4, VitaNostra/Dragon’sEgg, full WanderingInn through19 with split/compilation limits, PrimalHunter1–16, Azarinth1–7, HWFWMthrough13, and a recorded Menocht continuation beyond its opening. Catalog rows also identify held ManaMirror titles and Stubborn1–5. These later recorded/container states supersede this shortlist’s no-local-match/unheld recommendations within their scope; they are not fresh physical-file audits. Wrong-author LesserKindred assets cannot fill Kirstein3. DailyGrind compilation covers only200–276 per later spine scan, so acquired is not whole-story complete.
+
+F4: Keep the older RR-direct/continuation/unusual-source ideas as an unselected research palette. HOLDINGS refresh/53-file preparation recommendations were historical tasks, not proof they remain undone; current books/run owners govern preparation and reading. PerfectRun/SuperSupportive and existing samples already have recorded research, so G8“not in lists” cannot restart them as wholly new. Published-book versus serial mapping, author/translator identity, combined-edition contents and aliases need a specific question before source claims. Slots/premium-expiry/free-route/jobs/refusals remain dated observations, not a new spending plan or transport permission. No blocked route reset, provider budget/job mutation, download, browser/account access or source reading occurs.

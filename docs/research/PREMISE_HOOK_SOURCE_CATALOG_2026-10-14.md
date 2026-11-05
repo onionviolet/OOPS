@@ -174,3 +174,14 @@ Also see the Dragon Ball row in PH6 (Raditz as a grim sibling reunion).
 10. **RN10: Changeling folklore.** PH2. Public domain, playable from either side, with the comic "ancient fairy coddled as a baby" variant.
 
 These are reading choices, not permission to acquire books.
+
+
+## Content reconciliation B582: all source rows and evidence limits
+
+F1: Full actual176-line review reads all66 full work rows in PH1–PH10, cross-references, evidence/holdings rules, C1–C5 and RN1–RN10. Section counts8+7+7+6+6+4+7+7+6+8 sum66; inferred priority counts28+28+10 also sum66. Neither count establishes source-body qualification. VERIFIED explicitly means a dated metadata/synopsis or search-summary inspection; native spellings, fit, tone and priority retain independent MEMORY/STATED/INFERRED limits. Weak swapped-daughter rows, recalled details and unresolved near matches remain visibly uncertain.
+
+F2: Preserve the distinct reading questions: cross-species care and learned habits, protective or exploitative swaps, motive-driven misunderstanding, layered household knowledge, latent lineage, unusual arrival vessels, wrong reference groups, actual egg versus small-body/companion starts, staggered or refused reunions and grim inversions. These examples do not make all caretakers oblivious, all lineages gifts or all reunions desirable. A public familiar-work premise is not a newly generated sealed truth; actual hidden selected outcomes follow the project's disclosure rules.
+
+F3: PH8 distinguishes actual egg play, an ant/new creature, a cell-stage game and a rider raising another body. PH7 separates public rank, real capability, social judgment and hidden access. PH9 permits adoptive and birth family to coexist or a reunion to be refused. PH10 shows consequences without making every rescued child or good deed generate punishment. A comic source's coincidence is a proposed premise, not a universal mechanism turning rumor into truth. Each source's adaptation/edition/continuity and relevant causal details need inspection before implementation.
+
+F4: F2/C2 holdings are historical filename/title checks, not present absence, valid file identity, imported/read state or permission to reacquire. Current library catalogues and chapter-range coverage own that question. RN rankings and reading-time suggestions remain proposals, not dispatch, acquisition, buying, new build order or frontier permission. Failed-route history and the unidentified clip stay preserved; this pass did not search upstream pages or ask for the clip again. The audit's new B582 source seam narrows present premise-axis and conditional sealing claims without certifying these works or private sheets. No download, source-body read, library change or runtime work occurred.

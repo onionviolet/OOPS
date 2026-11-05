@@ -87,3 +87,12 @@ Browser proof and final combined checks follow below. Full `npm test` is intenti
 - `git diff --check` on Q3 owned paths: PASS.
 
 Q3 integration gate complete before Q4 source edits. Human pacing/taste acceptance, normal-app adoption and master integration remain separate. No push.
+
+
+## Content reconciliation B498: chronology, corrections and exact proof scope
+
+Full original lane plus later C1 integration chronology under AD32/AD36/AD42/AD43. Baseline already had civil/clerk entry and later church profiles, so no duplicate start was needed. The29−8−12−4=5-pound priced opening is proposed background funding/accounting, not charges deducted twice or native paper/clothing/travel items. Existing5-year term/secrecy/travel claims differ from an actual general enforcement engine. First-week-on-signing and seven-day collect_pay are existing authored command semantics, not new primary-source wage certification. Historical probationer carryover predates the later launch slice's own purse rule.
+
+New enrollment adds only existing-map knowledge, staged with actual publication; old civil balances/contract timestamps and no-entry-history saves stay unchanged. The initial workroom-based knowledge basis failed real save validation before report-in created that situation; replacing it with supported optional unattributed knowledge plus validation is the recorded correction. No old save history, money or assets are backfilled. Earlier73-pass/one-import-failing-file wildcard is superseded at the later integration identity by91/91 after replacing tests for the retired assessor/factory API with current pathwayDoses cases. No removed runtime API was restored simply to satisfy copied context. Initial uncommitted/no-merge text is historical after40e186d1 andba40dcc9d.
+
+Both fresh profiles earn/spend and roundtrip via native UI/test-hook clock.102+12−24+18=108;1200+720+12−24+18=1926, with repeated salary disabled. Original baseline old-save1920 proof, five earlier pathway fixtures and later integration browser build have distinct identities; do not add them into one uninterrupted route. The final Q3 gate retains no full npm test here—reserved for final Q5—and no proof of natural weekly pacing or14/21 matrix. Optional fonts404 means fallback typography, not font parity. Q3 source integration is distinct from master publication/normal-app adoption and all of Q4/Q5. All final hashes/table/C1 paragraphs were read. No actual source, profile/save, screenshot, artifact or current branch was inspected by this document review; human taste is optional AD42.

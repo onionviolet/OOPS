@@ -99,3 +99,12 @@ Remaining integration overlap, rechecked on this resume: primary still has
 uncommitted changes in `src/display.js`, `src/crafting_home.js`,
 `src/home_content.js` and `src/home_panel.js`. Integrate the narrow C3 hunks with
 those owners, then rebuild. The untracked copied `scripts/mcp/` remains untouched.
+
+
+## Content reconciliation B503: source fixes versus restored generated files
+
+Historical C3 source fixes and forward cleanup under AD36/AD41/AD42/AD43. Preserve P2 real patrol skill_required tooltip defect, BFA3 false experimental100-percent/Makes preview and BHB2 residence-stock versus shared-chest confusion as three different fixes. The display gathering guard does not change wages/time; experimental attempt eligibility is not success and known-recipe numeric odds stay unchanged; residence wording repairs identity while custody/save owners remain intact. Coverage blockers/wrapper/MCP issues belong to C2, not automatically game-source bugs. Old first-build collision check happened late in the isolated worktree, not a primary write; keep that admitted process gap.
+
+The sole full2877/2882 run has four socket-denied cases and one VM-lint timeout, followed by targeted9/9 and1/1 passing checks. No full green command is claimed; no timeout/production behavior changed to hide failure. Browser's first wrong submenu assertion and initial listen restriction are failed probes, separate from subsequent source-specific native controls/payment/refusal/storage/reload results.1920 screenshots are not a full larger-font/viewport matrix or natural acquisition proof. No new mechanics/balance/save schema was added to fix presentation.
+
+Later G1 forward commit corrects the original generated-file delivery mistake. It restores only dist/map/index version to master while source/tests/probe remain identical to the verified input; branch-tip bundle intentionally is the master's bundle, not a C3-built artifact. Thus earlier exact-source proof remains historical and merger must rebuild source integration. Do not demand another equivalent old-source suite merely for artifact cleanup, and do not treat cleanup as current installed/playable integration. Old commit/head instructions, primary overlap and untouched copied MCP paths are dated, not current permission to resolve HEAD, overwrite incumbent hunks or publish. All original final checks/cleanup ending were read; no current branch, source, generated blob, screenshot, runtime, private save or test was inspected/run by this document review. Human taste is optional AD42.

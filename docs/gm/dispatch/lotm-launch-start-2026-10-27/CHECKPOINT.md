@@ -78,3 +78,17 @@ surface: Tingen start view (place service, center)
 | FLR6 | Agent-verified, not human-reviewed. The route is ordinary play, not a fixture. |
 
 Status: done at the floor for the purse and confirm step. The entry record is kept for later consumers.
+
+
+## Content reconciliation B494: later state and actual downstream use
+
+Historical bounded ordinary Tingen choice/purse delivery under AD36/AD42/AD43 and WER. Preserve three axes and nine answers, one written option per axis plus explicitly unwritten alternatives, deliberate preview/Back/confirm and fresh Village crossing. The chosen probationer host's480-pence purse and civil in-person1200-pence purse are different local starts; the102 Village money is recorded left behind, not converted, duplicated or already returned. Proposed two-pound amount is authored, not a complete canonical wealth claim. Existing enrolled saves without entry retain old money; new optional entry records produce the explicitly forward-only older-reader refusal boundary.
+
+The start-confirm/purse reaches a real native price/wage consumer. The entry record/leftBehind has no downstream return consumer here, so a persisted field is not a playable AD12 reciprocal return. Shared Your beginning integration, cocoon/by-design, later era, young hosts and inventory currency units remain this older slice's separate gaps. Later KJ2's developer-menu/ordinary-start policy belongs to a distinct lead route and its later authority; this older ordinary clerk/civil evidence does not make the source-protagonist route an ordinary supported start. Launch PLAY versus in-world selection remains the recorded visible scope.
+
+Browser probationer and MCP civil walks are two tested cases at different routes, not one combined native/browser replay of every life. Rebuilt1920/1536 ×14/21 and literal persistence support the named bounded confirm/purse claim; leftBehind display/use remains absent. The141 focused cases overlap with the3494 final suite. Script receipt route:natural is this actual fresh Village-to-choice route, not proof all omitted starts/eras/source windows work. No current linked evidence, source file, private save, installed app or runtime was inspected by this complete checkpoint review. Old next-order priorities/commit state and enrollment default do not override later current campaign direction or authorize new gameplay work.
+
+
+## Later return evidence B495: the bounded missing route now has a consumer
+
+Later scoped evidence under AD36/AD43: the fully read [RET3/RET4 return checkpoint](../lotm-return-2026-10-27/CHECKPOINT.md) records the subsequent fresh Village → Tingen → Village → Tingen route and literal persistence on its own named build. It closes this older receipt's missing return for the specific connection/snapshot-supported route; it does not retroactively add a return test to the original launch bundle. Old Tingen saves lacking a snapshot retain no invented Village, and in-place fallback remains distinct. Actual continuing-self skill/body/companion/duty reconciliation and arbitrary cross-world travel are broader mechanisms, not proven by restoring two snapshots. The original entry/purse evidence and unimplemented entry-record consumers retain their own scopes; no current source, build, save or installed-app proof is added by this pointer.

@@ -20,3 +20,8 @@
 | `craft_ready.save.txt` | 65,928 | Village | same, Old axe equipped, Rough wood log x2 | Woodworking > Items: **Processed rough wood** makeable (needs 1 log, success 30%); **Processed wood** not makeable (needs "Unknown raw wood" x0/1, the Wood log is not yet known) and every other visible row unavailable |
 
 Both: 0 kills, 0 deaths, Lv 0 hero named "Hero", Vivid scheme and Workspace layout by default.
+
+
+## Content reconciliation B466: declared fixture and later crafting evidence
+
+The complete22-line fixture README was reviewed against the later crafting checkpoint/B87 correction. The recipe declares one direct availability edit substituting for an Infested-field clear, then actual teaching, equipment and gathering controls. This is a generated crafting-state route, not an earned natural combat clear or proof of opening-to-crafting balance. The two saved files, byte sizes, seven stations, known/unknown ingredients and30% attempt preview describe the recorded bundle; four fresh-context loads with zero page errors establish only that fixture loading slice. Rebuilding or serving commands here were not executed by this reconciliation. Later [checkpoint](../../CHECKPOINT.md) and its research-map correction qualify old equipment-receipt gaps; the fixture record does not prove today's source absence or UI geometry. Current [UI rules](../../../../../UI_RULES.md), [PROJECT](../../../../../../PROJECT.md) and AD36/AD43 govern selected checks. Preserve the explicit save edit and actual UI steps; no personal save, fixture payload, browser, source or test was opened.

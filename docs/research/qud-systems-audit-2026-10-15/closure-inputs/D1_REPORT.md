@@ -19,3 +19,10 @@ D3 (local_764c576a, id found via list_sessions after the receipt was written; qu
 - D3 and Qud messages were queued, not confirmed read.
 - Integration owners run their own combined gate once after integrating.
 - Weibao plays GTL6; commit and push await his yes.
+
+
+## Content reconciliation B478: retained D1 closure and original owner routing
+
+The complete39-line copied input receipt and complete transfer report were read. This is D1 progression-gate dependency closure evidence retained under Qud, not a Qud mechanic/source audit. The copy retains original D1-relative brief/checkpoint/audit links; unresolved copied-relative paths do not establish those owners absent. The [original D1 checkpoint](../../../gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md) supplies later integration/release history, while [Qud CURRENT](../CURRENT.md) owns research continuation. B476 already reconciles the original receipt's source snapshot; no new module is implied by this retained copy.
+
+The packet's seven tracked patches, six new files, clean apply/build/arch and24 focused tests support the frozen dependency candidate, not receiver gameplay, a clean full suite or current main. Queued messages were not confirmed reads; a message cannot transfer actual integration/custody by itself. The later original checkpoint records source landing, separately from push and combined gates. Preserve snapshot hashes, exclusions and the changed-doc hash reason; do not replay ALL_TRACKED.patch over today's dirty checkout. AD36/AD43 and AD42 optional review govern any selected consumer; the old human/commit/watcher instructions grant no current action. No patch payload, source code, branch/ref, message, worktree, test/build/browser, private or personal save was newly accessed or changed.

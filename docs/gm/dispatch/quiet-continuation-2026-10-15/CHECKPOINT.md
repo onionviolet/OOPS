@@ -19,3 +19,10 @@ artifact check passes. Director feel acceptance remains OPEN.
 Do not rerun completed gates without a relevant code/source change. Next useful
 step is Weibao's playable review and adjacent UI owner's shared-shell integration,
 not an automatic extra cheat wave. Canonical documentation remains with its owner.
+
+
+## Content reconciliation B466: bounded reciprocal proof and current gate
+
+All21 lines were read with the report's explicit limits and release section. D28 reciprocal connection, the quiet faculty, paused A/B routes, optional repeat and import publication fix are bounded recorded delivery, not a general world/death/copy/portable-storage engine. The76-test result is74 passing plus two independently reproduced baseline failures, separate from37 browser assertions/four context-isolated routes. Preserve both rather than relabeling this a wholly green suite. Adult-human body/selected-mastery, Frontier-only and compatible-history constraints remain actual adapter scope at those inputs, not permanent design impossibilities. A normal-timer loop does not imply terminal rescue or all death immunity. Histories were not silently pruned; a rejected guarded transition retained the prior life.
+
+The old preview server/owner release and adjacent shell-integration suggestion are history, not current verified process state or a new wave. Current [PROJECT](../../../../PROJECT.md), [UI rules](../../../UI_RULES.md) and AD36/AD43 govern relevant changed-input proof. Under AD42 the report's “remaining authoritative human gate” is optional review, not a technical blocker or a reason to revoke bounded agent evidence. Current broad worlds and lead-life work do not become restricted to this adapter. No source, report-linked JSON, candidate bundle, test/browser, stored life or private content was newly exercised here.

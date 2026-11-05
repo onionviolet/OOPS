@@ -26,3 +26,10 @@
 | D&D / Wizards of the Coast | [P9](../p9/DND.md), [source contract](../../../../worlds/dnd/SOURCE_CONTRACT.md) | Revised p103 crafting differs from legacy5.1 p88. Select one ruleset; preserve chosen SRD licence/attribution. A ruleset is not a particular world's history. |
 
 Chapter/rule qualification, real adapters, rebuilt play and persistence remain open. No new source collection in this lane.
+
+
+## Content reconciliation B469: complete record and actual evidence scope
+
+All28 lines were reviewed against P26's proposal/delivery tail. Ten local beat shapes retain explicit evidence depth: synopsis, secondary/book-cited audit, one selected rewrite opening, author FAQ, general memory and a scoped rules reference are not interchangeable primary scene qualification. Roles/preconditions/turns/outcomes are INFERRED or ORIGINAL possibilities, not extracted recurring canon beats. Keep Cradle binding/rank details, Traveler's Gate transfer laws, serial-revision differences, Mistborn era/alloy gates and the selected D&D ruleset distinct. A specific SRD page is not a world's history, and a blocked wiki is not proof the needed source fact is absent everywhere. The table's original URLs/locators were not newly opened or verified here.
+
+Unknown chapter/era/law stays attached to the selected mechanism, not a ban on a whole world or a requirement to finish every source before an unrelated scene. Original supported fixtures remain possible with their honest label. The report's source-corpus stage, natural/seeded routes, persistence and disclosure gates were proposals, not executed gameplay. Current [PROJECT](../../../../../PROJECT.md), [world pass rules](../../../../WORLD_PASS_RULES.md), [UI rules](../../../../UI_RULES.md) and AD36/AD43 govern a selected consumer; old1366/1600 dimensions and human acceptance phrasing do not override current desktop/AD42 scope. No rule PDF, chapter/dossier, site, private truth, new source acquisition or gameplay was read by proxy or executed.

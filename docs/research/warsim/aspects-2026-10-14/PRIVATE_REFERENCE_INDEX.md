@@ -19,3 +19,8 @@ No raw dialogue, story, data or native code is stored in this repo folder. These
 | Prior REA/direct comparison | `~/.codex/research/warsim-rea/notes/` and prior REA_TRIAL.md | Measurement reused; no REA service launched this pass |
 
 New extract/tool/receipt digests are in `~/.codex/research/warsim-aspects-2026-10-14/extract/HASHES.txt`. IDs are snapshot addresses. Full text changes across builds require new IDs or an explicit mapping; row-number stability is not assumed.
+
+
+## Content reconciliation B467: complete record and scoped followthrough
+
+The complete21-line retention index was reviewed. Retained authored tables/dialogue pools, hash captures, literal-reference scans, selected assembly/decompiles, relation cells, helper names and positional save locators have different evidence depths. A next-symbol span is metadata; a RIP-relative reference is not every-path reachability; unaligned exploratory bytes are explicitly excluded. Fourteen-by-fifteen writer cells and input flags are not a live Relations snapshot. Exported full text is not all eligibility predicates or a decoded graph, and writer/integer-reader locator counts do not establish complete string joins or legacy loading. Snapshot addresses and build-scoped IDs require mapping after changes. This guide points to private research, not personal saves. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern a named consumer; no private artifact, native tool, game, database, player state or entitlement was newly inspected. Retained old service/tool statements do not prove a live process.

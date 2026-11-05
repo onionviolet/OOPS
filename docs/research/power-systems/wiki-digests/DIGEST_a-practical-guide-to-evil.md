@@ -70,3 +70,10 @@ No absent slot implies that this source forbids it. Source penalties and loophol
 ## Dump addendum source gate
 
 abridged-guide-to-evil.fandom.com: unavailable_name_guesses. No dump-backed mechanic or law-lore claim was acquired for this subject. Existing source status is not upgraded.
+
+
+## Content reconciliation B491: source status and actual consumer limits
+
+Blocked source identity and retained analyst leads under AD32 and source qualification. Read every E8C/E8/E8D row, family/source labels and final dump gate. No article revision or dump-backed mechanic was acquired: the403 attempt and unavailable name guesses retain blocked_no_revision status. The prior western-lane mapping is not upgraded by preservation or by this content review. Name/Role/Aspect, narrative pressure, three-aspect reference, soul damage and inheritance labels are unverified research leads here, not facts to implement as canon.
+
+The many unknown oath fields are unknown rather than prohibitions or proof of absent mechanics. Narrative pressure versus certainty, role succession versus automatic heir transfer and public title versus private aspect are useful questions to verify against a real source passage/revision. Three aspects is a prior mapped reference, not a newly imposed cap on original YAIR worlds. No confirmed gag, breach law, loophole or source penalty follows. Preserve this compact gap map and its linked prior lane without retrying the failed host or replacing exact unknowns with franchise memory. Current review reads the digest, not SERIES.json, web/wiki, dump or primary novel; it neither claims a fresh fetch failure nor authorizes acquisition/research/implementation.

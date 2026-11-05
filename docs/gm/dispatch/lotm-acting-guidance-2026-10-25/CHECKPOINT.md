@@ -160,3 +160,10 @@ fonts, report/return retention and screenshot inspection. Confirm no page errors
 guidance disclosure and no bypass. Exact build/source identity and any remaining
 limits go here before explicit runtime ownership release. Until then this is
 source-ready, implemented-unverified in the rebuilt UI.
+
+
+## Content reconciliation B516: historical scope, actual consumers and later proof
+
+The delivered-local receipt supersedes the lower SOURCE READY/A1–A3 pending gate text. Exact source-ready hashes were reused after the coordinator supplied the frozen4db87189 bundle/HTML/input identity; this lane reused5focused tests and did not rerun a full suite. The selected join explains current acting consumption through known commands, not a new action, digestion law or progression store. Notebook text alone leaked unseen district variants; exact completion plus remembered notebook evidence distinguishes a known action. Pre-dose/unlearned/settled guidance is absent. Pending and cancelled readings countzero, completed countsone, repeatable and one-time actions preserve their existing behavior.
+
+Find is navigation with no gameplay delta: it focuses an existing action or offers its ordinary walk route rather than executing, paying, learning or moving. The final natural Seer journey includes recovery, resource refusal and six completed acts settling digestion/normal assessment; a separate earned Savant entry/study is the second consumer, not all pathways. Two earned pending/completed Save/reload/export/perturb/literal-import checkpoints retain the relevant state, with cancel/walk perturbations and navigation-only keyboard return separately exercised. Actual14/21px paragraphs/rows at1920/1536 and inspected screenshots establish the bounded service view, not mobile or every layout. A nonexistent Reports selector was a harness correction without source change. Preserve interrupted/no-retained evidence separately from the final complete new-origin run. No current source, old private export or browser was re-exercised here; normal-app adoption, commit and packaging remain distinct from dated local proof. Human review is optional under AD42.

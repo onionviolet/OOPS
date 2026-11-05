@@ -17,3 +17,8 @@ The following order is a later acceptance/reuse priority, not five new implement
 Evidence: [five-direction owner audit](YAIR_OWNER_NOTES.json), [qualified source findings](FINDINGS.json), [current acceptance owner](../../gm/reference-gameplay/ACCEPTANCE_BACKLOG.md). These checks remain deferred and unrun. No director decision, acceptance date, new world, runtime dependency, save migration or implementation order is selected by this report.
 
 After actual original source arrives, resume only the five [unmet gameplay-source paths](COVERAGE.json). A new packet must name a concrete player action and a genuinely missing source-backed consumer after a fresh owner read, with its prerequisites/costs/aftermath, persistence compatibility and observable later acceptance. Current implementation work need not wait for that intake.
+
+
+## Coverage and historical owner-fit scope B616
+
+B616fully reads [the coverage map](COVERAGE.json), all34pinned span records, nine framework/mod paths, original GAME1–5gaps and all YAIRowner/snapshot/reader/supplement fields. Conditional third-party fallback completion coexists with0/5original game traces. Wrapper/callback availability does not certify original internals, execution revalidation, mutation rollback or durable partial quest progress. Zero new packets preserves the existing five local authored reuse journeys rather than inventing duplicate systems. Source availability and no-missing-consumer statements belong to the dated intake, not a fresh whole-machine/current-YAIRaudit. No original code/decompile or fresh gameplay/persistence proof is added; AD42human review remains optional.

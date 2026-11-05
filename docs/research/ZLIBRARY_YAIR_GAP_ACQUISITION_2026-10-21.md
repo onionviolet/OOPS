@@ -68,3 +68,12 @@ volume's actual household/education passages and save source-qualified notes in
 its private owner. That is separate from acquiring the source; no whole-book
 reader run was launched here. Stock desktop app, Calibre libraries and user game
 saves were unchanged. No commit or push was performed.
+
+
+## Content reconciliation B491: source status and actual consumer limits
+
+Historical exact-source acquisition, not live library completeness, under AD32/AD35 and source qualification. G1/G2 select one English Part3 volume1 for a named household/education gap, not bulk capture, whole-book reading or a Calibre import. Scoped negative title/filename searches do not establish absence under all translations/locations, and the20-result catalogue bound does not rule out a compilation. Publisher metadata provides selection context rather than verified household mechanics.
+
+V1's acquisition and cache retry consume different operations: one download, then request_issued:false from the verified cache. Offline launcher readiness is separate from the live session's exact successful tool gate. Quota/session state is dated and no account secrets/URLs are retained. V2's bytes/hash/ZIP CRC/OPF metadata and57 prepared spine entries establish that artifact's structure, not authenticated complete publisher variants. Preserve21 empty-text members and22 image warnings alongside22 retained image assets; they may concern image-only material rather than missing prose and have not been visually/semantically read here.
+
+V3 remains extracted-not-read. Ignored artifacts and prepared hashes do not supply source-law qualification or implementation. The CURRENT-STATE label is historical2026-10-21 scope, not today's source-library membership, quota, tool state or newest edition. The next actual household passage review remains a separate source task under current direction; this content reconciliation performs no acquisition, source prose/image read, Calibre write, app/status query or save access. Keep the exact private artifact route and useful selection rationale without treating the old download brief as present permission to fetch another volume.

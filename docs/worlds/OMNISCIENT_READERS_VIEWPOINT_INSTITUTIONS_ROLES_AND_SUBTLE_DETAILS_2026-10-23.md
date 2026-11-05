@@ -6,7 +6,7 @@ Sealed secrets: ORV is a public franchise, so none of this is sealed. Late-story
 
 ## 1. What the repo already has, and ORV's tier
 
-ORV is not on the world core kit card list (`docs/worlds/WORLD_CORE_KIT_2026-10-14.md` has no ORV card; no ORV file exists in `docs/worlds/`). Tier by evidence: research-heavy, design-light, no world pack.
+ORV is not on the world core kit card list (`docs/worlds/WORLD_CORE_KIT_2026-10-14.md` has no ORV card; no ORV file exists in `docs/worlds/`). Tier at the recorded2026-10-23 input: research-heavy, design-light, no world pack in that census.
 
 | Owner (all private under `docs/research/novels/`, gitignored, except where noted) | What it holds | Use here |
 |---|---|---|
@@ -29,9 +29,9 @@ Extraction: a deterministic script (zip read only, `python3 -I`) pulled `chap_NN
 | W2 | ch44, ch45, ch47, ch51, ch52 | 10,853 | Mixed: whole chapters, not consecutive | Station kings, flags, rumors, prophets census | haiku, 1 call | 46 rows |
 | W3 | ch91, ch98, ch100, ch109, ch110 | 10,170 | Mixed: whole chapters, not consecutive | Bureau penalties, sponsor contract, sponsor selection, store membership | haiku, 1 call | 38 rows |
 | W4 | ch259, ch402, ch495, ch523 | 11,346 | Mixed: whole chapters, not consecutive | Clock census (ch259), late penalties and Bureau stress, epilogue patronage | haiku, 1 call | 38 rows |
-| Total | 20 chapters of 551 | 43,725 | | | 4 readers | |
+| Total | 19 chapters of 551 | 43,725 | | | 4 readers | |
 
-Census: a keyword census (Bag, shop, trade, rumor, group/station, sponsor/contract, penalty, clock) ran over all 551 chapters (about 1.27M whitespace words; average chapter about 2,300). The census only picked windows. It is not reading, and the 531 unwindowed chapters count as unread by this pass (they were read by the earlier dossier, which is reused).
+Census: a keyword census (Bag, shop, trade, rumor, group/station, sponsor/contract, penalty, clock) ran over all 551 chapters (about 1.27M whitespace words; average chapter about 2,300). The census only picked windows. It is not reading, and the 532 unwindowed chapters count as unread by this pass (they were read by the earlier dossier, which is reused).
 
 Budget: coordinator plus 4 haiku readers, one at a time, 0 repairs; 4 of the 4-reader allowance, 43,725 of about 48,000 words, each window at most 12,000 words. Each reader wrote one file and returned a short note, 6 or fewer tool uses. Reader tier was set to haiku in the first brief (WPR6). Claims the coordinator did not open are tagged "reader-only" in the tables below. Reader output files are scratch (session scratchpad), not saved in the repo; the tables below are the durable record.
 
@@ -56,7 +56,7 @@ Labels: SHOWN (scene or system message), STATED (a named speaker), INFERRED, PRO
 
 Not re-read but already in the dossier: Chungmuro Landlord Alliance, Geumho Station, Theatre Dungeon, Paradise and Dark Castle refuge, Syswitz Factory, First Murim, Salvation Church, Peace Land, Oz, Next City.
 
-Not found in the windows (WPR23): a general guild registry, a public ranking board, and a tax authority other than station levies. Searched where: W1-W4 plus the census; a ranking "board" is not a keyword hit in the 20 chapters, though nebula votes and candidate selection are in the dossier. The census did not search for these as terms. They are unverified absences, not confirmed ones.
+Not found in the windows (WPR23): a general guild registry, a public ranking board, and a tax authority other than station levies. Searched where: W1-W4 plus the census; a ranking "board" is not a keyword hit in the 19 chapters, though nebula votes and candidate selection are in the dossier. The census did not search for these as terms. They are unverified absences, not confirmed ones.
 
 ## 4. Person-to-person roles (WPR10)
 
@@ -81,7 +81,7 @@ Companion party roles in the flag period (sentry, operations, area-denial turret
 | Single currency, many sinks | Coins buy stats, shop items, memberships, contracts, search queries, penalty fees | ch14, ch36, ch110, SHOWN |
 | Memberships | Gold 5,000 C; platinum 100,000 C; platinum unlocks a meeting right | ch36:b35-b38; ch109:b103-b105, verified |
 | Search is metered | 5 free per day, then 100 C | ch14:b47-b48, verified |
-| Prices span five orders | 100 C search to 1,500,000 C heart; auction 500,000 to 3,000,000 C | ch14:b60-b73, ch318, SHOWN |
+| Price examples span more than four orders | 100 C search to 1,500,000 C heart; auction 500,000 to 3,000,000 C | ch14:b60-b73, ch318, SHOWN |
 | Donations flow through the dokkaebi | Channel splits donations; a sponsorless incarnation costs the constellation a heavy fee, which is Dokja's bargaining basis | ch15:b107-b111, verified |
 | Sponsor coins are not free gifts | They can come bundled with penalties on the receiver | ch100:b129-b141, verified |
 | Fame pays | 5,000 C came from a song spreading the protagonist's fame [S epilogue] | ch523:b65-b67, SHOWN |
@@ -126,7 +126,7 @@ Starts: the windows add to start S1-S7 (existing) that a sponsorless, subscribed
 
 Failure: station failure kills the whole group (ch44:b97-b109 reader-only); missing a daily station in King's Road kills the group (ch47:b32 verified); breaking a stream contract destroys both parties (ch15:b99 verified); an injury in a solo meeting costs coins, not life (ch110:b25-b26 verified); a dokkaebi in breach faces Bureau steps up to a third punishment worse than destruction (ch109 reader-only); a bounty failure outcome was not in the window.
 
-Surfaces: system messages in square brackets announce flag status, coins consumed, member upgrades, contract completion and coin sponsorship; the Bag shows stock counts, item sheets and a cart; the channel shows a subscriber count (9,999 at the cap); the Character List skill shows sponsor, attributes and evaluation, and blocks on non-characters (ch45, ch52 reader-only). A fine-print line hid a 3,500 C deduction in a "special sponsorship" window (ch523:b37, verified). An idle player misses the unread-message pile (47 hours of unread messages in ch259, reader-only) and the day-bound quotas.
+Surfaces: system messages in square brackets announce flag status, coins consumed, member upgrades, contract completion and coin sponsorship; the Bag shows stock counts, item sheets and a cart; the channel shows a subscriber count (9,999 at the cap); the Character List skill shows sponsor, attributes and evaluation, and blocks on non-characters (ch45, ch52 reader-only). A fine-print line hid a 3,500 C deduction in a "special sponsorship" window (ch523:b37, verified). The47-hour unread-message pile (ch259, reader-only) and day-bound quotas are timing examples. An idle/compressed route can preserve messages and due events under AD52.
 
 ## 9. Source spot-check (WPR18, WPR19)
 
@@ -158,10 +158,10 @@ Unchecked, reader-only: the rows citing ch45 Rumours Expert, ch51 prophet counts
 | EF1 | A shop exists only while its operator is broadcasting | Operator availability, region, channel health | The Bag runs through a dokkaebi's channel; a channel cut or error shuts the shop (ch14:b20-b22, b35) | Auction house and Exchange run separately (ch75, ch318) |
 | EF2 | Information search costs a small metered amount | Daily free quota, coin price per search | 5 free, 100 C each after (ch14:b47) | Skills like future sight cost the body (ch318, reader-only) |
 | EF3 | Memberships unlock listings and rights | Tier price, who may buy | Gold 5,000 C, platinum 100,000 C (ch36, ch109) | Incarnations are not normally eligible for platinum; executives checked it (ch109:b105 context) |
-| EF4 | Who may buy is set by custom, not a written rule | Operator's goodwill, bargaining | Bihyung's claim failed when Dokja called out the lack of a rule (ch14:b17-b22) | Regulation gaps close over time (ch91, reader-only) |
+| EF4 | Bihyung's sponsored-only access claim is overcome in the cited negotiation | Operator's goodwill, bargaining | Bihyung's claim failed when Dokja called out the lack of a rule (ch14:b17-b22) | Regulation gaps close over time (ch91, reader-only) |
 | EF5 | A contract names parties, scope, duration, exit and penalty | Split ratio, duration, exclusivity, command rights | Stream contract (ch15), co-sponsor contract (ch36), sponsor contract (ch98) | Contracts can be bought rather than offered; the buyer can add conditions through a constellation (ch36:b108) |
 | EF6 | Sponsorship has side effects | Penalty type tied to coins sent | Coins arrived with speed, attack and defense penalties (ch100) | Sponsors who bear the incarnation goodwill send plain coins (ch14:b118, ch15:b4) |
-| EF7 | Rule-breaking meets a coin or probability bill before a body bill | Severity, who reports | Solo-meeting injury fee in coins (ch110), Bureau probability debt (ch109) | Breach of a stream contract destroys both parties (ch15:b99) |
+| EF7 | Selected enforcement uses coin, probability or bodily consequences | Severity, who reports | Solo-meeting injury fee in coins (ch110), Bureau probability debt (ch109) | Breach of a stream contract destroys both parties (ch15:b99) |
 | EF8 | A territory is held by a flag, on a timer | Flag colour, representative reputation, scenario | 5-minute white flag (ch44); a king needs reputation as well (ch44:b81) | Empty flagpole can be filled by anyone with a flag (ch47, reader-only) |
 | EF9 | A group promises protection, not harmony | Leader style, taxes, deputy powers | Chungmuro's no-tax rule (ch44, reader-only) vs a landlord alliance that taxed (ch44) | Brown-flag restriction is life-linked (ch52, reader-only) |
 | EF10 | Fame converts to coins, and patronage pays channels | Audience, patron | 5,000 C from a song; monthly patronage [S] (ch523) | A suspended-donation Bureau action starves channels [S] (ch495, reader-only) |
@@ -173,7 +173,7 @@ Unchecked, reader-only: the rows citing ch45 Rumours Expert, ch51 prophet counts
 |---|---|---|---|
 | C1 | Repo ECONOMY reader: Behind the Scenes Contract 15,000 C (ch36) | Text: list price 10,000 C; 15,000 C consumed is contract plus potions (ch36:b40-b47) | Source supersedes. Mark the repo line stale in the private reader file; pack should use 10,000 |
 | C2 | Repo ECONOMY reader: Platinum membership "WIKI" 100,000 C | Text shows 100,000 C consumed for platinum (ch109:b103-b105) | Upgrade WIKI to SHOWN |
-| C3 | A dokkaebi says no one can hurt anyone in a solo meeting (ch109 reader-only) | Text shows an injury penalty in coins per hit (ch110:b25-b26) | Both readings kept. The claim is a protection promise; the fee is how it is enforced. Both cited |
+| C3 | A dokkaebi says no one can hurt anyone in a solo meeting (ch109 reader-only) | Text shows an injury penalty in coins per hit (ch110:b25-b26) | Both readings kept. The claim is a protection promise; the assessed fee is a consequence after harm, not proof harm was prevented. Both cited |
 | C4 | Bihyung: only sponsored incarnations may use the Bag (ch14:b17) | Dokja: no rule says so; Bihyung agrees to open it (ch14:b18-b22) | Kept as custom plus a bargaining loophole, EF4 |
 | C5 | Deep dive O2 says coins are the single currency | Auction lots and the Temporary Pledge barter listing take items, not coins (ch15:b65-b70, ch75) | Coins are the default; barter listings exist (reader-only for ch15) |
 | C6 | Deep dive: scenario 1 sponsorship is "contract screen" with refusal | Text: refusing a sponsor draws a Sponsor Selection, a subscriber threshold and a dispute about penalties when no sponsor is chosen (ch100) | Refusal has a later cost beyond attention. Not a conflict, an extension |
@@ -234,9 +234,22 @@ Lessons to fold into `docs/WORLD_PASS_RULES.md` (not edited here, WPR26):
 - Verify cost figures by reading the consumed-coin line and its neighbors, because a bundled purchase can make a single total look like the item price (ch36: 15,000 C was contract plus potions).
 - A haiku reader can flag its own ambiguity (the 10:0 split) and gets the direction right only if the coordinator reads the adjacent lines; keep the coordinator spot-check on any "ambiguous" flag.
 - A reader may attribute a gift to the wrong cause (ch98 sponsor coins); spot-check money rows first.
-- A census by keyword picks windows efficiently but 20 of 551 chapters is a sample; say so in the manifest.
+- A census by keyword picks windows efficiently but 19 of 551 chapters is a sample; say so in the manifest.
 - Two Calibre IDs can hold the identical file; hash before counting them as separate editions.
 
 ## 15. Review state (WPR21)
 
 Highest state reached: source-spot-checked (12 claims plus two reader errors corrected). Reader-only rows are unverified. Not rules-reconciled with a build; codes touched: WPR1-WPR32, AU1-AU15, AD36 (lean verification, no tests run), AD38 and WPR5 (defaults, dials, reasons), AGENTS sealed secrets (none applicable). No conflict with standing UI direction found, and no UI work was done. Nothing was committed, no npm command was run, and no file outside this one was changed.
+
+
+## Content reconciliation B606: contracts prices and information scope
+
+F1: Actual full review covers all242lines, four windows, all institution/role/money/clock/power/start/failure/surface rows,12source-check groups plus reader-error notes, EF1–EF11, C1–C6, G1–G8 and F1–F10. Window counts5+5+5+4=19chapters, not20;532of551 are outside this pass, though an earlier dossier records whole-supplied-edition work.43725words sum correctly. Census, dossier reuse, reader-only claims and coordinator-opened claims stay distinct. Calibre18/44's identical reported MD5 is one supplied edition, not independent corroboration; translation boundary near370, provenance and absent post551side stories remain explicit. This review opens no raw novel body and does not upgrade historical reader-only rows.
+
+F2: C1's10000Behind-the-Scenes Contract list price differs from15000checkout including5000potions. The economy reader is corrected with that exact locator and reported source-check provenance. C2platinum100000is historically source-checked atch109b103–105; this does not upgrade Diamond500000or unrelated wiki-only values. Contract conditions, initial down payment, stream donation split10:0in Dokja's favor versus operator commission, general sponsor gifts and particular penalized sponsorships are separate. The unnamed5000donation after reactions is not a signing entitlement. No total checkout becomes one item's price or income becomes funded merchant inventory.
+
+F3: Channel-gated Bag, separate Exchange, auction, membership listing/meeting rights and storefront quotas are different mechanisms. One sponsored-access claim being overcome by bargaining does not establish every access rule is merely custom. Five free searches/day,100afterward,500perinjury/124hits=62000 and twenty-minute meeting are source-scene figures, not global player limits or anti-exploit policy. A protection claim followed by actual injury and assessed fee is not physical impossibility of harm. Institutions' claimed rule, actual adjudication and bodily/probability/coin aftermath differ; not every violation receives a coin bill first.
+
+F4: Flags, representative possession, reputation for king title, deputy authority, defection, local tax and scenario timer are separate states. King's Road10stations/10days with at leastone/day differs from12-daytarget deadline and five-minutecapture. Sponsor-selection countdown/subscriber threshold, contract term, quota reset, recruitment window and compensation delay are different clocks. Seven-person team means up tosixhelpers, while listed role categories need not all be occupied. Compressed/idle play can preserve due events, available information and actual authority under AD52; a fictional unread pile does not prove idle players must miss messages.
+
+F5: Prophet depth, rumor carrier, planted information, timeline divergence, permissioned revelation and late probability cost are not omniscient shared knowledge. Mortal encouragement, co-sponsor command rights, full constellation sponsorship, channel contract and informal patronage have different suppliers/recipients and scope. Source-local violence/death/exclusivity remains a world mechanism with a reason, not an adopted all-world rule. Keep ordinary shelter/work/care and actors' refusal alongside station politics. Preserve useful rights bundles, total-cost surfaces, source-qualified sponsorship effects, contractual settlement and dated-knowledge ideas in existing owners. Old no-pack/card census is dated; no current implementation absence or playable proof is inferred. G1–G8 and unopened reader-only claims remain exact gaps; no new research launch, source acquisition, gameplay, worker or priority change occurs.

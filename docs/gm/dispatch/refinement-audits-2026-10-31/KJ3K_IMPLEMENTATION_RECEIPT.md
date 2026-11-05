@@ -58,3 +58,12 @@ Not run: full `npm test`, bundle build, 14/21 px captures, human play-through, c
 ## Next
 
 kjw2 from ch24 P034. Start money 2760 (assumed); first act places the player at the flat.
+
+
+## Content reconciliation B488: preserved scope and later evidence
+
+Historical six-intent consumer and authored currency fill under AD36/AD42/AD43. Preserve place aliases as translations/reused identities, and the repaired action origin versus destination distinction: an offered act starts where the player stands and moves on completion. One non-player relocation per act is a workaround, not an established cause/fix for KJ3E's freeze. Source-qualified purchase/fare costs and known private/public facts remain separate from banknote denominations, created item stock or full firearms behavior. Cane bought/loaded-round facts are knowledge/state markers here; inventories are asserted unchanged, so the cane is not a native usable inventory item.
+
+The native arithmetic is internally consistent:2883 minus90 minus6 gives2787; minus27 gives2760. However the final27 includes an assumed three coppers, and2760 is therefore authored/assumed, not an exact canonical recovered purse. Keep the24-pence note component, unknown copper count and authored minutes explicit for kjw2 rather than laundering the final balance through an exact test. A changed dinner plan records closure through celebration.smaller while preserving the earlier treat promise key as history. Planned withdrawal and later range/legal consumers are not completed just by withholding/later-reader tables.
+
+The whole-knowledge Nighthawk regex was unsuitable because Melissa already held an older invitation note; final new-key disclosure checks have narrower scope and do not erase that older knowledge. Prescan catches over-length strings, not semantic accuracy or current native line behavior. Two route attempts retain the first origin-place timeout and pack restore/rebuild; the second151-second seeded KJ3J route and literal import establish the named bundle/pack continuation. No font captures, civil-clock, ordinary-start, human or current shared-dist proof is added. The full receipt was read; private source, pack and runtime were not.

@@ -21,3 +21,8 @@ status and each checkpoint before reporting progress or reassigning files.
 R1 is not re-dispatched: its existing chat and publication record remain the
 owner of preference sync, nested triage and correction-sweep work. The original
 consideration report/code map remain read-only evidence for both new chats.
+
+
+## Content reconciliation B467: complete record and scoped followthrough
+
+The complete23-line dispatch record was read with the later UI release and non-UI B385 checkpoint sections. Creation was dispatch, not completed implementation. The later saved checkpoints qualify the initial brief: bounded UI evidence/releases and non-UI documentary corrections have their own inputs, checks and remaining scopes. The two historical chat IDs, configured-default-model wording and writer assignments are not current process/ownership evidence or permission to create chats now. R1 remains a separate preference-sync/publication owner; a repository pointer does not publish vault changes. Keep previous no-dispatch statements as earlier phases rather than treating them as a continuing veto or inventing approval of unseen outgoing text. Current [PROJECT](../../../../../PROJECT.md), [UI rules](../../../../UI_RULES.md), AD32/AD36 and optional human review govern selected changes. No chat was polled, created, messaged or resumed; no runtime, preference source, install, publication, commit or push was performed.

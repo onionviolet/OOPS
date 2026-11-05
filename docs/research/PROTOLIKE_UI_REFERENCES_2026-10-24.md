@@ -105,3 +105,10 @@ a click.
 
 - No Discord collection this pass; the cultivation card's source post is uncited.
 - No runtime change and no browser evidence; the card above is a sketch.
+
+
+## Content reconciliation B519: PROTOLIKE_UI_REFERENCES_2026-10-24
+
+All107lines retain screenshot-derived inspiration, not shipped donor behavior or implemented OOPS UI. The old git-ls-remote/content-empty observation dates the captured repository state; the uncited experimental Discord card lacks author/channel/date, so it cannot be attributed as a current shipped feature. Purpose/governing factors/selected method/stage progress is a useful card hierarchy. Actual field/tutor/body/location conditions come from execution owners; stages appear when the world has them, and knowledge disclosure differs from existence. The sketch's866/25000, names, quantities and appointments are illustrative, not a new stage model or current field state. The Oct24 no-stage claim is a source snapshot, not today's root model inventory.
+
+F3's compact job/cancel row can reuse real jobs without building a separate timer store. F4's first-try reward is a proposed gameplay discovery loop, not merely a cheap cosmetic hover and not authority to add one-time grants; item perishability needs its actual cause. F5 production pressure/volume/power/readouts and batch verbs require real consumers, and a displayed9873years estimate does not establish an accurate time engine or desired pacing. F6 part-making/finishing/role chips are adaptable forms under MR11/AD38 rather than exclusive item categories. F7's skill rows and worn-container capacities retain later application status; screenshot geometry is not native custody/capacity support. Desktop current scope, accessibility and accurate known blockers govern any selected card. No screenshot artifact was newly inspected, Discord source recovered, repository queried or UI/runtime changed in this pass. Preserve useful structural patterns and provenance gaps without treating reference approval as implementation or all-world art direction.

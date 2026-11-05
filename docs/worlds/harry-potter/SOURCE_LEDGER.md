@@ -78,3 +78,10 @@ The school timetable, first-year optional repair tutorial, adult prior learning,
 original tutor/trader, quantities, local purses/debts, costs and practice thresholds
 are labelled original slice proposals. H6–H8's supplemental wand evidence remains
 separate from these novel windows. No whole-canon acquisition/reading claim follows.
+
+
+## Institution source and lead-route reconciliation B603
+
+F1: [The institution pass](../HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b603-historical-research-and-current-owners) supplies bounded prior novel-window evidence for coin units, named roles, institutional procedure, law exceptions and term rhythm; it does not authenticate the mixed compilation or complete every scene. B603 visually checks PDFpages246–248 after PDF-screen failed, correcting a provisional banner mistaken for final House Cup settlement. Fee/currency/edition searches retain their limits.
+
+F2: The live [Harry window plan](../../gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md) owns current lead-seat delivery and exact receipt status. The old only-Polyjuice/no-school/no-cast labels are dated snapshots. Keep Harry's lead route, ordinary school/trade/nursery proposals, Polyjuice branch coins and source prices distinct. No full timetable/grade/Ministry/cast or ordinary-start proof is added; no collection or new PDF/source acquisition occurred.

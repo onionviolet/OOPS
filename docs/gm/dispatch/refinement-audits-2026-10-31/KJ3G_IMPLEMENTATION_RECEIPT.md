@@ -39,3 +39,10 @@ Three episodes, one builder lineage, all in one room with one recurring actor. T
 ## Next
 
 The armory and Old Neil (ch19 P059 onward; sweep row s1.16's end and the next rows). That window adds a new place and a new actor, which is the first real test of the changed preflight.
+
+
+## Content reconciliation B482: scope, findings and remaining evidence
+
+Historical scope and incomplete integration, reconciled under AD36, AD42, AD43 and current first-useful-seam direction. The nine KJ3G intents cover the stated ch17–19 window on the KJ3E bundle with the recorded pack; source-shard reading is the original author's reported evidence, not a new source read here. Duty, wage, clearance, weekly rest and artifact-grade knowledge are distinct from executing their systems. The unchosen day off and private resolve to stay do not establish a scheduled rest day or a promised path. No photo, artifact document or item was created. Preserve the told categories and private/public distinction without treating one speaker's account as universal engine truth.
+
+The preflight, one seeded native route and literal export/import are three different checks. KJ3F-completed seed coverage does not establish ordinary entry, counterfactual choices, civil time or 14/21 px desktop layout. The one-room recurrence and no-new-actor window limit the comparison: 11/4/1 runner execution counts are not a controlled speedup or a general preflight guarantee. PF13 remains a proposal. The next armory boundary is a dated handoff, qualified by KJ3H's chapter correction; it grants no new dispatch or execution authority. No current pack/source/browser rerun or human acceptance is claimed by this content review.

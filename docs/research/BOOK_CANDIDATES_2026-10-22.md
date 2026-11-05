@@ -4,8 +4,7 @@ Holdings and missing sources: the live answer is [LIBRARY_INDEX](LIBRARY_INDEX.m
 
 Acquisition receipt for the next round: [2026-10-24](BOOK_ACQUISITION_RECEIPT_2026-10-24.md).
 
-Type: RESEARCH / PROPOSAL. Audience: Weibao and acquisition lanes. Nothing here is
-downloaded, bought or accepted as canon. Rows say what was findable, not what
+Type: RESEARCH / PROPOSAL. Audience: Weibao and acquisition lanes. This discovery pass performed no acquisition and made no product decision; later acquired holdings are recorded in LIBRARY_INDEX. Rows say what was findable, not what
 should be implemented. Paraphrase only; no book text.
 
 Weibao's tiering for this pass: light novels and other text first, official
@@ -110,7 +109,7 @@ Found on Bookracy, none checked for duplicates beyond the holdings list.
 | A Certain Magical Index (Vols 2, 7, 8) | Science and magic split; Vol 7 `bd5a14e1` |
 | DanMachi LN 08 `84f9979f`; Astrea Record 02 | Falna and level-up system; early volumes not queried |
 | Shadow Slave Vol 1 to 7 `a1438419` | Duplicates held chapter EPUBs; no 3001+ edition seen. See not found list |
-| Lord of the Mysteries Vol 1 to 8 `e03c56ba` (7.5 MB, 2018) | Old fan translation, 7.5 MB for 8 volumes; flag as partial. Not the official English |
+| Lord of the Mysteries Vol 1 to 8 `e03c56ba` (7.5 MB, 2018) | Reported old fan translation,7.5MBfor8volumes; inspect contents before judging completeness. This candidate is not verified as official English |
 | Worth the Candle `a03e52d5` (4 MB omnibus) | Web novel, fan-hosted AO3 export also `8995307d` |
 | Wildbow Ward `d2ff0298`, Twig `0a65274b` | Worm is held; sequel and sibling for the powers genre |
 | The Wandering Inn, He Who Fights with Monsters, Defiance of the Fall, Primal Hunter, Beware of Chicken | LitRPG and cultivation web novels; Primal Hunter `7e5fd57a`, Beware `5aec2fce`; mechanic fit unreviewed |
@@ -173,8 +172,7 @@ Official colored or "Book Version" duplicates exist for several.
 | Bleach volumes 66 to 72 as Bookracy cbz (`cd2bc23b`, `d9a48ab2`, `ddee22f4`) | n/a | Duplicate of queued Bleach; ignore |
 
 Held-novel pairs (Solo Leveling, ORV, Regressor, Second Life Ranker, Lord of the
-Mysteries, Reverend Insanity, SSS-Class) add pictures, not new rules; take them
-last.
+Mysteries, Reverend Insanity, SSS-Class) are visual supplements under this pass’s priority. Any adaptation-specific rules need their own medium/edition label; take these last in this dated order.
 
 ## 5. Not found, try next time
 
@@ -363,7 +361,7 @@ translate; epubs need no OCR.
 Weibao asked about manhwa and manhua versions of held books. Suwayomi search is
 read-only and returns series entries (several sources per title, plus doujinshi);
 chapter completeness and which source is cleanest were not checked. Adaptation
-art follows the novel loosely, so these add visuals and pacing, not new rules.
+may change events, depiction and rules, so preserve the specific adaptation baseline while using it as a visual supplement.
 
 | Held novel | Suwayomi series ids seen | Notes |
 |---|---|---|
@@ -457,3 +455,20 @@ the English entries above, Bleach and Naruto novels (about 14 small epubs, light
 on quota), FMA novels, El-Melloi Case Files, Bookworm Part 2 and Part 5 Vol 1 and
 short stories, and the Dungeon Meshi Japanese World Guide. Z-Library should be
 reserved for items Bookracy lacks (Naruto, Bleach and FMA novels have both).
+
+
+## Content reconciliation B625: editions, supplements and later owners
+
+B625 reviews the entire companion discovery/candidate record. Preserve the distinctive reasons for each proposed source and the source-local IDs, while using [LIBRARY_INDEX](LIBRARY_INDEX.md) for holdings and [the ranked queue](SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md) for recorded reading. Later acquisitions and source receipts supersede old negative title searches and download recommendations. A missing result in a capped fuzzy search is not proof of absence, and a large or small file is an inspection lead rather than a completeness verdict.
+
+Keep published-volume, serial-chapter, omnibus, translation, LN/WN, adaptation and edition boundaries. Visual media remain supplemental under the recorded priority, but may contain distinct adaptation-specific events or rules; do not silently import them into the novel baseline. Preserve Japanese/source-language leads with explicit OCR/translation provenance. Quota, premium, provider health, interrupted jobs and proposed capture routes are historical; none authorizes a new transfer, retry, worker or reading batch. This content review verifies no current private file or external source.
+
+F1: Entire459-line candidate owner reviewed: original holdings/method/top30, all further text and public-domain leads, visual table, not-found/flags/order/limits, same-day databook/JP/Fate/ReZero/HP extras, visual adaptations and volume-by-volume additions. Approximately140+110searches,133Calibre records and provider IDs are historical metadata evidence. Later same-day tables supersede earlier apparent misses: HPsibling/screenplays, ReZero12/13/18/19/23 and extras, FateZeroJP1/strangeFake4, Bleach/Naruto/FMA prose, Bookworm and DungeonMeshi guide candidates. No result counts, edition availability or possession are freshly verified here.
+
+F2: Preserve text-first/companions-next/visual-last preference for that pass, unusual institutional/ordinary-life/myth/magic-construction candidates, exact language/media/edition and source-local row identity. FateCoreRPG is distinct from TypeMoon Fate; Shadowrun magic/tech is a useful different-world comparison rather than inherently not fitting broader project inspiration. LN/WN numbers, arc numbers, manga chapters, Japanese anthologies, artbooks, novelization, screenplay, game scenario and main novels are not interchangeable baselines. ReZero“nearly complete” and guessed official-English reach describe capped provider searches, not a publication census or equivalent WN/LN coverage. Japanese/translation authorization recorded in this history does not erase OCR/translation provenance or auto-start new acquisition.
+
+F3: Sizes flag an inspection question, not proof of partial text, scan quality or wrong edition. The7.5MBLOTM omnibus,4.9MBSlime/22volumes, small Fate PDFs, large fanbooks/CoC and small Planescape need package/contents/language checks. Correct the row that states partial solely from size. A result’s language field or author spelling is not embedded metadata proof. Image-heavy EPUB/PDF may need OCR; text extraction, protected hidden layers, actual reading and translation accuracy stay separate. No referencedPDF is opened here. Gospel-style/retail/WN collection boundaries and compilation coverage must use current AR36b method, not missing volume numbers.
+
+F4: Visual adaptations are supplements under the requested priority, but can change depiction, pacing, events and rules; the old blanket“not new rules” wording is narrowed. Select medium/edition/era explicitly before claiming canon, without promoting a different adaptation into the novel baseline. Series search entries/doujinshi/colored/book versions are not clean chapter-complete captures. No actual queue is live merely because a dated document assigns an owner. Preserve all candidate series and adaptation IDs for navigation without resuming that lane.
+
+F5: Later library/receipt/current source owners supersede old“not held” and query-failure recommendations. The existingJJKnovelcorrection already records held VIZtitles and remains. LOTMEnglish/COI1026latercomplete editions, ReZero later source research, current HPdeveloperroute and many later acquisition rounds mean the old recommendeddownloadorder cannot be executed as a present backlog. Do not infer any new named gap without the actual coverage route/holdings check. This full candidate review adds no new edition authenticity, release/quota/private-file/container/primary-source reading claim. No downloading/spending/library mutation/source capture, reader, runtime, deletion/move, commit or push.

@@ -33,7 +33,7 @@ Codes touched (WPR22): WPR1-WPR32, AU1-AU15, WA3, WA6, WA8, WA11, AD36-AD38, kit
 | `docs/worlds/world-core-kit-2026-10-14/cards/harry-potter.md` (K1-K18, contradictions C1-C12) | Floor ratings and gaps | proposals; W1 floor D partial, R partial/missing on K2/K3/K8/K13 |
 | `docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md` WG6 | Term-and-holiday rhythm gap | proposal; HP "has not had this pass" |
 | `docs/research/novels/harry-potter/census-2026-10-19/HP_CENSUS_REPORT.md` | 256 records (spells, subjects, school roles, textbooks); read windows B1 p52, p110, p137 | 32 read, 224 read-window |
-| `src/world_packs/book_hp_pack.js`, `src/hp_brewing_*.js`, `tests/hp_brewing.test.js`, `tests/world_pack_hp.test.js` | The only HP runtime: one pinned Polyjuice slice | read only, nothing built or run |
+| `src/world_packs/book_hp_pack.js`, `src/hp_brewing_*.js`, `tests/hp_brewing.test.js`, `tests/world_pack_hp.test.js` | HP runtime inspected in this pass’s 2026-10-23 snapshot: one pinned Polyjuice slice | read-only, nothing built or run |
 
 ### Windows (pre-extracted by script `build_windows.py`; one reader at a time; haiku set explicitly)
 
@@ -104,7 +104,7 @@ Labels: SHOWN (a scene), STATED (speaker or narrator), INFERRED, PROPOSED. "Open
 | Fountain of Magical Brethren | coins thrown in; proceeds to St Mungo's | B5:PDF-p1987 |
 | Gift Christmas-pudding Sickle | a silver Sickle baked into a slice | B1:PDF-p163 |
 
-- F3 (searched, section 7): no school fees or tuition appear in any of the seven books (zero hits for "tuition" and "school fees" in B1 to B7). Hogwarts costs the family only the equipment list, which carries no prices (B1:PDF-p52 to p53, W1 reader and census). Hospital and Leaky Cauldron prices are not stated either (section 7).
+- F3 (searched, section 7): the listed searches found no school fee/tuition passages. The inspected equipment list has no prices (B1:PDF-p52 to p53, W1 reader and census). No hospital or Leaky Cauldron fee was found in the scoped checks (section 7); these results do not establish every service is free or that equipment is the complete cost.
 - F4 (STATED, W1, opened B1:PDF-p59, p60): Gringotts holds vaults by number, opened with a key plus a goblin escort in a rail cart; a high-security vault has no keyhole and a goblin's touch opens it; the goblin says it is checked roughly once a decade and that a non-goblin would be trapped. A Dumbledore letter lets Hagrid retrieve a package (the contents are a late-story item [S], B1:PDF-p114). Hagrid gives Harry Muggle bills for the trip (B1:PDF-p51; reader row, unopened). Coin currency is wizard-only: a boy needs wizard money for shops and Muggle money elsewhere (B2:PDF-p304 mention, opened in census).
 - F5 (SHOWN/STATED, opened): information moves by owl. About a hundred owls arrive at breakfast (B1:PDF-p108); the Daily Prophet is delivered by owl for a coin (B1:PDF-p48); the Ministry used owls inside the building until paper aeroplane memos replaced them because of the mess (reader W3, B5:PDF-p1990, unopened). A hearing time change was sent by owl and missed (B5:PDF-p1994, opened for the time and venue; who sent which notice is contradicted inside the text, section 6).
 
@@ -123,7 +123,7 @@ Labels: SHOWN (a scene), STATED (speaker or narrator), INFERRED, PROPOSED. "Open
 
 ### Person-to-person roles (WPR10)
 
-- F6 (STATED/SHOWN, opened B1:PDF-p91, p100, p104, p108, p111, p122): a house is a family unit. McGonagall (Transfiguration, Deputy Head, Head of Gryffindor) says triumphs earn house points and rule-breaking loses them, and the House Cup goes to the house with the most at year end. A ghost tells the new house that Slytherin had the cup six years in a row; the final banner scene shows a seventh (B1:PDF-p246). Snape docks a point for cheek; points are taken by named staff in scenes and awarded for answers.
+- F6 (STATED/SHOWN, opened B1:PDF-p91, p100, p104, p108, p111, p122): a house is a family unit. McGonagall (Transfiguration, Deputy Head, Head of Gryffindor) says triumphs earn house points and rule-breaking loses them, and the House Cup goes to the house with the most at year end. A ghost tells the new house that Slytherin had the cup six years in a row; the initial end-feast decorations anticipate a seventh (B1:PDF-p246), before later point awards change the outcome (PDF-p247–248, visually checked in B603). Snape docks a point for cheek; points are taken by named staff in scenes and awarded for answers.
 - F7 (STATED, opened B1:PDF-p104): a prefect cannot control Peeves; only the Bloody Baron can. A prefect leads first years to the common room (B1:PDF-p98 to p105) and relays rules. Percy is the shown prefect; during the troll alarm a teacher orders prefects to lead their houses back (B1:PDF-p139, speaker not checked).
 - F8 (SHOWN/STATED): Filch and Mrs Norris patrol and report; no magic in the corridors between classes (Dumbledore at the welcome feast, B1:PDF-p102). Hagrid is both the guide to the wizarding world for a Muggle-raised child and a person whose own record shows how the school punishes: expelled in his third year with the wand snapped, allowed to stay as gamekeeper (B1:PDF-p47, opened).
 - F9 (STATED, opened B5:PDF-p2587, p2594 to p2597): the Head of House meets every fifth-year in the first week of the summer term about a career, from a timed list on a board; Heads of House are gatekeepers of their own NEWT classes (McGonagall: an "Exceeds Expectations" OWL, Snape: only "Outstanding"). A government inspector (Umbridge) may sit in and interrupt a career meeting, and a Ministry can screen mail and parcels (B5:PDF-p2585 reader row, unopened).
@@ -173,7 +173,7 @@ All PROPOSED as engine rows; the source side is labelled in section 4.
 
 ## 6. Contradictions and divergences kept (WPR20)
 
-- X1 (inside the text, kept): house cup streak. The welcome-feast ghost says six years in a row (B1:PDF-p100) and the year-end feast shows a seventh (B1:PDF-p246). Not a conflict; it is a clock that advances. Pinned as "six at start, seven at the end" for a first-year window.
+- X1 (source interpretation corrected by B603): the welcome-feast ghost reports six previous wins (B1:PDF-p100). The later initial banner/standings anticipate another win (PDF-p246), but late awards change the final result (PDF-p247–248). Keep provisional display, added points and final settlement as separate states; the original seventh-final-win reading was wrong.
 - X2 (kept): a Gryffindor password changes during the window (B1:PDF-p105 to p126). Passwords are a changing state, not a fixed name.
 - X3 (kept): the hearing notice. The W3 reader recorded that the stated notice story and the clerk's account of a missed owl do not match (B5:PDF-p1994 to p1998). Only the time and venue change was opened (p1994). The conflict itself is unverified.
 - X4 (kept): Harry's Defence record. Umbridge's note says poor results and McGonagall says high marks with a competent teacher (W4 reader, B5:PDF-p2595 to p2596, unopened for exact wording). Both sides are speakers' claims.
@@ -182,7 +182,7 @@ All PROPOSED as engine rows; the source side is labelled in section 4.
 - X7 (repo, authored anchors vs source): K8.W3-HP's four-price board (bread 2 Knuts, guest bed 8 Sickles per night, lesson 3 Sickles, kit 1 Galleon) is labelled INFERRED test anchors. The novels show different anchors (newspaper 5 Knuts, beetle eyes 5 Knuts a scoop, Knight Bus 11 Sickles, wand 7 Galleons) and no guest-bed rate was found (section 7). The authored board is not contradicted, but it also does not match any shown price; keep it labelled authored.
 - X8 (repo, trolley): W7 HP-KM2 says the trolley costs "a Sickle or two" per snack from a companion page; the novel shows one armful of mixed sweets for 11 Sickles and 7 Knuts (B1:PDF-p81). Both can hold per item; the novel gives no per-item price.
 - X9 (reader error, corrected): the W1 reader put Ollivander's payment at p65 to p66 and the W4 reader said the whipping form was "held by Filch"; Filch takes it from Umbridge's desk drawer (B5:PDF-p2606, opened). The W3 reader placed courtrooms "in the Department of Mysteries basement"; the text only says old Courtroom Ten is downstairs (B5:PDF-p1994, opened).
-- X10 (edition): B1 reads as the US text and B5 as the UK text in one PDF. Two units appear with differing owl fares for a paper: five Knuts (B1:PDF-p48, as told by Hagrid) and a Knut (B5:PDF-p2095, p2165). Treat the newspaper fare as unit-dependent per edition, not as a conflict.
+- X10 (edition): B1 reads as the US text and B5 as the UK text in one PDF. Two units appear with differing owl fares for a paper: five Knuts (B1:PDF-p48, as told by Hagrid) and a Knut (B5:PDF-p2095, p2165). Keep the differently quoted newspaper fares with their exact units and contexts. Edition is one unverified explanation, not an established cause.
 
 ## 7. Searches that found nothing (WPR23)
 
@@ -210,7 +210,7 @@ Every price, fee or rate in sections 4 to 6 was opened by `ctx.py` against the e
 | 4 | Hagrid expelled in third year, wand snapped, allowed to stay | B1:PDF-p47 | matches; the reader's "gamekeeper only in Harry's thought" is wrong, Hagrid says it |
 | 5 | Term 1 September; reply by 31 July | B1:PDF-p40 | matches |
 | 6 | House points rule and Cup | B1:PDF-p91 | matches |
-| 7 | Slytherin six years, seventh at year end | B1:PDF-p100, p246 | matches both |
+| 7 | Six prior years; initial seventh-win decorations before final awards | B1:PDF-p100, p246–248 | Prior check stopped too early; B603 visually checks the changed final settlement |
 | 8 | Ministry levels 7 to 2, Mysteries after | B5:PDF-p1989 to p1996 | matches; reader's page numbers right |
 | 9 | Charge text: Decree 1875 Paragraph C, Statute Section 13 | B5:PDF-p2001 | matches |
 | 10 | Clause Seven; Charter of Rights | B5:PDF-p2010, p2004 | match |
@@ -258,7 +258,7 @@ ACT NOW (done here): F1 and X5 upgrade the coin conversion from a fan excerpt to
 
 ACCOUNT FOR NOW:
 - The two kit profiles (school-facing term slice, nursery/household) are still alternatives (contradiction C1 is OPEN). The floor card below picks the school-facing term slice only as the proposal that matches the windows read; it does not select the profile. The nursery profile can borrow K2, K3 (potions side), K8 prices and the Ministry laws unchanged.
-- Hogwarts entry cost is the equipment list, not a fee. A "tuition" mechanic would be an invention (F3).
+- The equipment list is a known entry cost; no tuition fee was found by this pass’s scoped searches (F3). A proposed fee needs its own source or authored label.
 - A mixed-edition PDF means two units and spellings coexist. Pin one edition per fact (section 6, X10).
 
 LATER/DELEGATE:
@@ -290,7 +290,7 @@ Floor tier means authoring readiness (WA6); none of these is a built or played c
 - Dial: era (the Trace and Decree are 1875 and later), location (Muggle-inhabited or not), person (minor or adult), who enforces (staff, Ministry).
 - In-world reason and cost: the Ministry detects minors' magic with the Trace (B7:PDF-p3706); costs are a hearing, a warning, school expulsion risk (B1:PDF-p47) and, for the worst curses, life in Azkaban (B4:PDF-p1323).
 - Source locator and label: B5:PDF-p2001, p2010, p2004 (STATED, opened); B4:PDF-p1323, B7:PDF-p3706, B3:PDF-p643, B6:PDF-p3280, B1:PDF-p59 to p60, p91, p102 (STATED/SHOWN, opened).
-- Current repo coverage: partial in spirit only. The pack has two access-law mechanics for a potion (student store versus private store, and a notice-and-standing penalty for unlicensed taking: `rules.noticeAfterMinutes`, `noticeStandingLoss`, `discoverStandingLoss`), labelled stated or original. No school, Ministry or age law exists as an engine fact. Kit card: K2 R missing.
+- Repo coverage observed on 2026-10-23: a partial thematic match within the inspected potion branch. The pack has two access-law mechanics for a potion (student store versus private store, and a notice-and-standing penalty for unlicensed taking: `rules.noticeAfterMinutes`, `noticeStandingLoss`, `discoverStandingLoss`), labelled stated or original. No school, Ministry or age law exists as an engine fact. Kit card: K2 R missing.
 - Smallest playable slice: five gate rows (E1 underage, E5 age and permission, E6 house points, E7 yard rules, E8 money) as pack facts with a consumer each: a spell attempt outside school by a minor opens a warning; a Hogsmeade trip checks a permission form; a class gives or takes a house point; coins convert at 17/29/493. Done check: one refusal and one allowed case per gate, and a save/reload that keeps the warning and the points.
 
 ### K3 Power core
@@ -299,7 +299,7 @@ Floor tier means authoring readiness (WA6); none of these is a built or played c
 - Dial: wand fit and owner, teacher, year, grade, legality (E1), setting.
 - In-world reason and cost: the wand chooses its wizard (B1:PDF-p66); costs are lessons, practice time, a wand price (7 Galleons, B1:PDF-p68) and the legal risk. Misuse is policed (E1).
 - Source locator and label: B1:PDF-p66, p68; B6:PDF-p2964; B5:PDF-p2001, p2011; B1:PDF-p219 (SHOWN or STATED as stated above; spell mechanics beyond naming are not read this pass, so they stay INFERRED/unverified).
-- Current repo coverage: only the potion branch (Polyjuice formula, doses, degraded and failed outcomes, `rules.*`) is source-implemented and tested; no wand, class, grade or spell state. Kit card: K3 R missing. Built and browser state of the potion slice: unassessed here.
+- Repo coverage observed on 2026-10-23: the inspected potion branch (Polyjuice formula, doses, degraded and failed outcomes, `rules.*`) is source-implemented and tested; no wand, class, grade or spell state. Kit card: K3 R missing. Built and browser state of the potion slice: unassessed here.
 - Smallest playable slice: a first-year skill ladder of one subject (Charms or Potions) with a teacher, a wand and the O/E/A/P/D/T grade, three techniques taught in order, and one assessed lesson that sets the grade. Done check: learn, use, fail with a stated cause, grade written, saved.
 
 ### K6 Cast (minimum named people with roles)
@@ -308,16 +308,16 @@ Floor tier means authoring readiness (WA6); none of these is a built or played c
 - Dial: era (which staff exist), how often they appear, their attitude to a newcomer.
 - In-world reason and cost: a newcomer meets a guide first (Hagrid), a Head of House next, the Ministry only through a hearing; costs are points, favours, trust.
 - Source locator and label: B1:PDF-p40, p47, p57, p61, p68, p91, p102, p108, p111 (STATED/SHOWN, partly opened); B5:PDF-p1999, p2645 (opened); p1991 (Shacklebolt) from the W3 reader row, unopened.
-- Current repo coverage: one unnamed role, "the Potions master", in the pack (`book.hp.cat.potions_master`, label "role, unnamed", B2:PDF-p454); three original household people (Mara Fen, Elias Brook, Nessa Vale) in `src/feature_expansion_book_roster.js` with no native binding. No canon cast, no schedules. Kit card: K6 R partial.
+- Repo coverage observed on 2026-10-23: one unnamed role, "the Potions master", in the pack (`book.hp.cat.potions_master`, label "role, unnamed", B2:PDF-p454); three original household people (Mara Fen, Elias Brook, Nessa Vale) in `src/feature_expansion_book_roster.js` with no native binding. No canon cast, no schedules. Kit card: K6 R partial.
 - Smallest playable slice: six canon people as schedule-bearing T2 records (Dumbledore, McGonagall, Snape, Hagrid, Filch, Percy) with role, place and one verb each (ask, report, dock a point, give tea, patrol, escort), reading and writing the K2 point and permission gates. Done check: each person appears at its place at its hour and a remembered act changes a reaction.
 
 ### K8 Daily life and economy (a school day, meals, prices, a term rhythm)
 
 - Default: a first-year school day is a morning owl post at breakfast in the Great Hall (B1:PDF-p108), classes by subject (Herbology three times a week, Astronomy at midnight on Wednesdays, flying on Thursday, Harry's Friday afternoon free, B1:PDF-p107, p114, p109), a feast on arrival (B1:PDF-p98 to p100), dormitory with a password (B1:PDF-p105) and a midnight rule enforced by the caretaker (B1:PDF-p124). Prices from F2. Term rhythm: 1 September start, Christmas stay, Easter break, summer-term exams in two weeks, results by owl (B1:PDF-p40; B5:PDF-p2587, p2647; B6:PDF-p2964).
 - Dial: year at school, house, whether the player boards or lives at home, region.
-- In-world reason and cost: coin units 17/29; costs are the equipment list (no fees, F3), owl fares and train snacks, Apparition fee.
+- In-world reason and cost: coin units 17/29; costs include the equipment list (no fee found in the scoped check, F3), owl fares and train snacks, Apparition fee.
 - Source locator and label: as above (SHOWN/STATED, opened).
-- Current repo coverage: none for school life; a 60-coin slice purse and a 6-unit store stock in the pack (`startPurse: 60`, `storeStock: 6`) with prices "original". Kit card: K8 R missing; the card's authored price board (bread 2 Knuts, bed 8 Sickles, lesson 3 Sickles, kit 1 Galleon) is a labelled test anchor and is not in code.
+- Repo coverage observed on 2026-10-23: none for school life; a 60-coin slice purse and a 6-unit store stock in the pack (`startPurse: 60`, `storeStock: 6`) with prices "original". Kit card: K8 R missing; the card's authored price board (bread 2 Knuts, bed 8 Sickles, lesson 3 Sickles, kit 1 Galleon) is a labelled test anchor and is not in code.
 - Smallest playable slice: one repeating school week (breakfast and post, three classes, a free afternoon, an evening rule) on a term clock with five priced goods (newspaper 5 Knuts, beetle eyes 5 Knuts per scoop, train armful, Knight Bus 11 Sickles, a wand 7 Galleons). Unfed play stays comfortable (accepted direction). Done check: a week passes with no menu skip; a purchase converts units correctly; reload keeps the week.
 
 ### K13 Signature loop
@@ -326,5 +326,20 @@ Floor tier means authoring readiness (WA6); none of these is a built or played c
 - Dial: potion chosen, teacher, assessment strictness, how closely the staff watch.
 - In-world reason and cost: ingredients sit in two stores (student, private); stewing and moon timing cost days; misuse costs standing (pack `rules`); the brew is secret in a bathroom (B2:PDF-p427, p432).
 - Source locator and label: B2:PDF-p432 to p433, p454, p486 to p488 (STATED/SHOWN per the pack's evidence list; not re-read this pass). Class assessment: B1:PDF-p110 to p112 (Snape quiz, a point lost, read in the census).
-- Current repo coverage: the Polyjuice slice is source-implemented in `src/hp_brewing_state.js`, `hp_brewing_domain.js`, `hp_brewing_panel.js` and the pack, with `tests/hp_brewing.test.js` and `tests/world_pack_hp.test.js`. Build, browser and persistence states are unassessed by this pass. It is standalone: no school clock, house points or grades. Kit card: K13 R missing at the card's date; this slice postdates the card.
+- Repo coverage observed on 2026-10-23: the Polyjuice slice is source-implemented in `src/hp_brewing_state.js`, `hp_brewing_domain.js`, `hp_brewing_panel.js` and the pack, with `tests/hp_brewing.test.js` and `tests/world_pack_hp.test.js`. Build, browser and persistence states are unassessed by this pass. It is standalone: no school clock, house points or grades. Kit card: K13 R missing at the card's date; this slice postdates the card.
 - Smallest playable slice that meets the floor: attach the existing brew to the term-week loop from K8: a Potions lesson assigns a brew, the existing cauldron and stores supply it, the teacher grades it on the O/E/A/P/D/T ladder, and house points change by the result (K2 E6). Done check: one rebuilt journey from fresh origin at the target desktop viewport through gather, brew, assess, points, save, reload, import (WPR32).
+
+
+## Content reconciliation B603: historical research and current owners
+
+F1: Full actual review covers all330lines, W1–W4/43431historical reader words, WPR9–WPR17 coverage, F1–F23, E1–E10, X1–X10, all20spot-check groups, search limits, exact remaining windows and K2/K3/K6/K8/K13 authoring cards. Initial combined output was truncated; the full document was recovered in three bounded ranges. Historical reader/spot-check/source-implemented labels and old test counts are not new raw-book reads, tests or gameplay. This pass's budget/worker limits are dated dispatch history, not current authorization or live workers.
+
+F2: Source correction, not merely routing: X1/F6/spot-check7 mistook a provisional end-feast banner for final House Cup settlement. PDF-screen on the pinned compilation failed with an xref-object error; no clean extracted-text result is claimed. Visual reading of original PDFpages246–248 (printed245–247) shows the initial banner/standings, later awards, tie-breaking points and changed decorations. A final outcome cannot be initialized from the earlier banner. The original source remains unchanged and exact old report wording is preserved in amendments; this review adds only those three visually read pages, not a novel reread or edition authentication.
+
+F3: Preserve units versus observations:17Sickles/29Knuts/493conversion is a located prior source finding; individual quotes, basket totals, wages, prize/reward/fine and donation flows are different economic facts. The train armful is not a per-snack price. Differing newspaper fares may depend on context/edition or another unresolved cause; US/UK spelling clues do not prove that edition caused the price difference. Zero hits for tuition/fees and selected lodging/healer windows are search limits, not proof all school/hospital/lodging services are free or every cost is equipment. Named fees need actual source or an authored label. Mixed-edition provenance remains hypothesis; page tags are not printed page numbers.
+
+F4: Keep the source roles and separate gates: institution jurisdiction, actual witnesses, underage magic detection versus actor attribution, stated law versus enforcement and emergency exception, wand custody/use/fit versus registration, guardian form versus age, teacher-specific NEWT threshold versus general grade, skill versus job admission, permission versus room access and debt versus trust. A teacher's life-sentence statement, Dumbledore's jurisdiction claim, reader-only floor/role/notice reports and the actual hearing outcome have different evidence levels. The Trace's report of magic near minors is not an infallible actor identity. E1–E10 remain proposed engine defaults with local era/person/location/enforcer dials, not universal hard bans or complete wizarding law.
+
+F5: Dated only-Polyjuice/no-cast/no-school/no-denomination claims are superseded as current whole-HP statements by the live Harry lead plan's W1–W4 and holdings receipts. Current hpLeadHoldingsReaders reads the actual player's resource under the pack currency ladder separately from other holders. That source seam and receipt statuses do not prove every school day, grade, timetable, canon cast, Ministry system or ordinary start. Keep the old Polyjuice slice's authored coins and local people separate from Harry's actual lead seat and source-grounded W4 currency/wand records. The nursery, student, trader and other lives remain compatible proposals; current PROJECT keeps Harry alongside Klein and does not reinstate the retired prestige gate.
+
+F6: Preserve useful daily rhythm, post/notice/result surfaces, named staff with duties, priced goods, changing passwords, remembered consequences and source-backed law/tool/grade distinctions through the existing HP owners. WA6 readiness cards and proposed smallest slices are not AD43 completion or a replacement build order. Native first-person learning needs learned/useful consumers, actual access/custody, age/body, state settlement and fresh proof; a role label or paragraph is insufficient. Train/first term/shop/dueling/Ministry/decree/exam/Apparition/late-story/supplemental gaps keep their exact stated scopes until later qualified evidence resolves them. No source PDF is altered, no gameplay/source code/test/build/browser/private save/worker/acquisition/delete/move/commit/push occurs.

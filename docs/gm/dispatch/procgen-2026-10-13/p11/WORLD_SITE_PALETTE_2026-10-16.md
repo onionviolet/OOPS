@@ -177,3 +177,14 @@ rebuilt browser behavior and human discovery/clarity/pacing judgment are separat
 This pass is local design synthesis. No external canon verification, implementation,
 user-save access, build, test run, commit or push. Local reference/format checks
 establish documentation integrity only.
+
+
+## Content reconciliation B573: world law discovery and restoration
+
+F1: Actual full review covers all179 original lines: P1–P5, WT1–WT8, DT1–DT7, UT1–UT6, ST1–ST14, SC1–SC4 and all boundaries. The world palette is optional original design and no named franchise landmark/source mechanic is qualified by its genre row. Current SR rules/PROJECT/AD33 govern selected procedures; NPC-heavy work and layouts retain later user changes at their actual scopes, not the old all-deferred statement. Current UI owners supersede the1366 target. No world, source pass, implementation or active queue is selected here.
+
+F2: Preserve distinct world laws beyond renamed nouns: technological apparatus/energy, living substrate, dream relation and temporal continuity can interact without enabling their whole family. Original/frontier examples do not authorize new Frontier depth against current PROJECT. A source-world greenhouse/workroom/cave requires qualified place/era/law, while an original site need not await every novel. Intact/ordinary/peaceful sites remain valid; no mandatory lost civilization, supernatural artifact or fight. Named secrets stay within their discovery route.
+
+F3: Discovery lead/location/entrance/known extent/interpretation/executable use are separate evidence states, but one actual strong action may establish several and no seven-click ritual is required. Deterministic site truth differs from attempted reading/chance and reopening detail is not a new generation draw. Useful output can be material, object, information, measurement, actual function or access; historical prose or a filled bar alone does not demonstrate an engine consumer. Apparatus usefulness while installed differs from portable loot and body/tool compatibility remains local.
+
+F4: ST1–ST14 preserve actual custody/installed components, present habitat/past function, evidence/destructive work, activation/stabilization, intrinsic sample/local support, retreat, containment, provenance, ownership, alternative routes, renewal/clock, directional cross-world use and communicated knowledge. Costs and aftereffects follow real selected mechanisms. Do not negate a working power to protect a puzzle or impose unmodelled ecology/disease/legal penalties. Default first-slice warnings/retreat do not forbid a source-qualified or selected harsh threat under current loss rules. Failure need not erase discoveries or provide universal free undo. SC1–SC4 remain alternatives and meaningful later possibilities, not four compulsory dispatched slices. Save/import/draw/known-return cases remain future scoped evidence; no new runtime or source proof, worker, migration, deletion, commit or push.

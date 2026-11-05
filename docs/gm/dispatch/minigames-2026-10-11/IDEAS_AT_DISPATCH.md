@@ -81,3 +81,12 @@ paying twice. Browser acceptance should prove fund/pass, contribution of actual
 materials, one settlement, a repair/use/tenant choice and delegation within its
 budget. Those checks are proposed and not run.
 
+
+
+## Content reconciliation B496: actual consumer and retained proposal scope
+
+Full MG01–MG10 economic/management palette under AD5/AD31/AD32/AD38. Preserve the user's named investing/property interest separately from the proposed detailed loops. These can be ongoing livelihoods, not a universal quick minigame format or selected first implementation. Each world supplies actual institutions; no bank/stock market/deed/tenant-law prerequisite is imposed everywhere. MG01 distinguishes loan, equity, future-goods purchase and patronage; those create different actual rights/settlements. Real interventions can improve enterprise inputs. Supported foresight can be accurate without an arbitrary market exception; speculative reports do not expose hidden future outcomes by default.
+
+MG02 separates ownership, occupancy, alteration and leasing, actual occupants/rooms/facilities, repair and choice of use. A home can be valuable with no rent; complaints/arrears need real causes rather than mandatory owner punishment. A deed's local institutional scope differs from physical carriage or a mechanism that genuinely carries jurisdiction/property. Heirs receive actual surviving rights, not automatically the same person/skill/self. MG03–MG10 retain shops/inns, appraisal/auction, caravan/shipping, farming/care, workshop capacity, lending/mutual aid, festivals/programs and collections/restoration with each actor/stock/history/delivery/delegation consumer. Do not collapse all into an interest timer or duplicate distributable payout.
+
+The connected workshop/neighbor-room candidate is a proposal with pass/repair/fund/use/lease/lodging alternatives, not a required Frontier start or all-city simulation. Stock/cash reserves, mandates and escalation are actual delegation terms rather than NPC autonomy disappearing into an automation flag. Source of return, committed versus liquid holdings, own versus others' knowledge, clock/away policy and once-per-operation settlement remain exact gaps before any selected implementation. Proposed browser/persistence checks were not run. Useful specific interactions are folded into the existing economy/property owner with original IDs and backlink; this detailed source palette remains. No acquisition, real financial recommendation, gameplay feature, worker or new runtime authority follows from this review.

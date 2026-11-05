@@ -6,7 +6,7 @@ Weibao: "more to consider? other stuff and more? save and extend accordingly Sen
 
 Evidence labels: **SHOWN** means inspected current public source; **STATED** means a document says it; **INFERRED** means synthesis or proposal; **UNKNOWN** means this pass has not established it. SHOWN does not mean rebuilt, browser exercised or human accepted. Source lines describe the dirty checkout read on 2026-10-14 and must be refreshed before implementation. No `SECRETS*`, private pack or personal save was opened.
 
-Authority: [USER_VISION](../../USER_VISION.md), [PROJECT](../../../PROJECT.md), then the fitting design owners. STATED accepted direction: desktop/laptop first, information appears through discovery, applicable idle progression can be passive, food gives benefits without hunger death, and local life stages fit world/era/lore. The fixed romance/partner rule in [COMMON](../../gm/dispatch/relationship-prereqs-2026-10-14/runs/COMMON.md) and 29:DV1 requires **both people 18+ by body age and adult in appearance**; claimed, soul or species age cannot substitute. Everything reasonable remains reachable through fitting world/person/means; these tables are palettes, not a universal release checklist. The one-realm/one-prestige milestone and held Soldier's Life work remain as owned in PROJECT.
+Authority: [USER_VISION](../../USER_VISION.md), [PROJECT](../../../PROJECT.md), then the fitting design owners. STATED accepted direction: desktop/laptop first, information appears through discovery, applicable idle progression can be passive, food gives benefits without hunger death, and local life stages fit world/era/lore. The fixed romance/partner rule in [COMMON](../../gm/dispatch/relationship-prereqs-2026-10-14/runs/COMMON.md) and 29:DV1 requires **both people 18+ by body age and adult in appearance**; claimed, soul or species age cannot substitute. Everything reasonable remains reachable through fitting world/person/means; these tables are palettes, not a universal release checklist. Current PROJECT retires the one-realm/one-prestige milestone; the Soldier kit retains its paused runtime scope.
 
 ## 1. One-page map
 
@@ -164,3 +164,8 @@ All SSG rows are **INFERRED gaps in these named parts**, not claims that the who
 [29]: 29_RELATIONSHIP_PREREQUISITES.md
 [30]: 30_LIFE_STAGES_AND_CUSTOM.md
 [31]: 31_INNER_LIFE_HOUSEHOLD_COMMUNITY.md
+
+
+## Implementation-palette scope reconciliation B614
+
+The [implementation palette](40_IMPLEMENTATION_CONSIDERATIONS.md#content-reconciliation-b614-historical-seams-and-current-owner-boundaries) is fully reviewed across all70IMrows. Keep logs as projections, actual completed occurrence/replay identity as the relevant supplier, and audience-qualified delivered knowledge separate from unique economic claims. A later genuine act can count without duplicating the same cause. Current selected source still shows32recent relationship memories plus longer cause receipts; trimming the former does not prove safe deletion of the latter or of unsettled reader-needed terms. Historical byte/workload goals and SSBfile sketches remain proposals, not runtime proof/current dispatch. AD51permits a reasonable shared design before a second case validates it; current PROJECT retires the old milestone, and human fiction review is optional under AD42.

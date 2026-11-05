@@ -89,3 +89,12 @@ No Tor software was installed or started, and no user book was acquired.
 Direct HTTPS is also supported after the upstream domain-verification setup.
 The remaining gate is a reachable endpoint, live search/metadata lookup and a
 user-selected authorized acquisition with a verified cache retry.
+
+
+## Content reconciliation B500: source limits and actual executed scope
+
+Historical toolkit setup/0.3 upgrade under AD32/AD35/AD36. O1–O5 separate structured failure recovery, literal local search/bounded hash-cited reads, edition comparison/EPUB lookup, paragraph/spine parsing and verified nonoverwriting receipts. Ten-tool upgrade/276 offline cases and installed-entrypoint fixture workflow supersede initial six-tool/256-case setup for that version; counts are not added. EPUB file lookup differs from Calibre DB/PDF access. Version1 receipts remain original; v2 verification uses a new edition destination. Extraction/spine/member/hash checks still do not establish semantic reading or every publisher variant.
+
+Initial9050 proxy failure/no Tor process is earlier than the isolated19050 Tor bootstrap/live anonymous search/12-field metadata gate, which was stopped afterward. Those are different execution states, not a current running listener or an active service claim. Prepared app registration is not verified registration. The exact fork commit/push and isolated environment installation are historical observations, not current remote/installed revision proof. Retained MIT attribution and Rookslog-inspired standard-library parsing differ from importing an entire converter/RAG pipeline. Literal full-text-search naming versus actual ordinary search stays version-qualified, not a newly queried service claim.
+
+The remaining authenticated acquisition/cache gate is this0.3 handoff's then boundary. The later fully read Bookworm report (B491) records one selected edition/session's real desktop acquisition/cache/quota/preparation, without establishing this original environment, every edition, long recovery or app registration. Do not keep the broad ability wholly unverified merely because this older toolkit stops earlier, and do not promote one later source acquisition to whole-library reading. Source acquisition must use current tool/library owners when actually selected. This full report read opens no fork code, current MCP/proxy/account status, book prose, Calibre DB or save and authorizes no fetch/install/login/worker.

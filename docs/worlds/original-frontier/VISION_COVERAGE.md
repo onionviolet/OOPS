@@ -23,3 +23,8 @@ Freeze the new post-acceptance native encounter receipt, exact stock/lot-result 
 The next broader expansion can add a full mill/farm/mountain/river arc, an original research/invention lineage or a more advanced craft assembly with its own required outcomes. Those remain visible desires, but none is selected by quietly opening every region or importing every book system into Frontier. The current finite campaign should be complete within its chosen footprint before adding another required roster. That sequencing does not impose a permanent one-event or low-skill ceiling.
 
 Source facts, current code/contract, new proposals and deferred behavior remain distinct. No new full-book reading, external research, gameplay/save suite, private-save/source mutation or runtime edit was used for this matrix.
+
+
+## Content reconciliation B411: retained scope and current authority
+
+Preserve the request-to-owner matrix, later desires and original source locators. Its required/next/freeze language describes the October 5 bounded campaign plan, not today’s project dispatch or an obligation to reopen Frontier. Current direction keeps Frontier as a playable testbed while LOTM-first work and Harry Potter alongside follow their live owners. The 33-parent/15-step footprint and seven cumulative endings are local authored scope, not evidence that the campaign shipped or a permanent limit on skills, inherited regions, teaching, institutions or later worlds. Existing mastery caps and named feat counts are local examples, not world-independent ceilings. Useful source/body/tool/stock/willingness/knowledge/return distinctions remain in their existing owners. No linked request, ending or implementation body gains review credit through this matrix.

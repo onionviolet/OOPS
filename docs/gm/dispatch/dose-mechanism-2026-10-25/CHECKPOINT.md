@@ -30,3 +30,10 @@ Target viewport for the UI: desktop 1920x1080 and 1536x864; mobile deferred.
 - Brewed doses are holdable and sellable; drinking is "not yet written" for all, with the unmet rite shown as a stated loss-of-control risk. Seer was not mapped to the issued dose: it would break the "held exactly once" Seer envelope rule.
 - Alternate main materials (OR lines) are not modeled; row gaps say so.
 - dist/bundle.js and index.html were already modified by other sessions at start; the rebuild includes their uncommitted home_school work.
+
+
+## Content reconciliation B473: complete record and current owner boundaries
+
+All32 lines were reviewed. Shared process readiness/gaps/ledger, HP formula/state, unchanged shipped LOTM command definitions and the larger ingredient/formula bench have separate evidence. A product-agnostic envelope is not one potion behavior. The43 rows,109 ingredients and158 generated commands include inspect-only, priced and acquisition branches; neither totals nor golden definitions establish all dose functions. The recorded browser flows cover CC, pre-change compatibility and one other brew/hold/sell route at the stated desktop/text sizes. HP has engine/fixture evidence only. Focused143 checks and3173 full tests are not additive independent coverage.
+
+Retain concrete authored local policies: premium, stock count, revision-scoped seeding, no restock, docks formula desk and unmapped issued-dose envelope. Inspect-only high-sequence rows, absent alternate main-material OR selection and drink-not-written states were this snapshot's scope, not a current global source/runtime inventory. A formula row or warning does not implement ingestion, ritual, actor faculty or outcome. Preserve source rule versus authored price/time/lots and the changed shared home_school inputs in the build. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), [UI rules](../../../UI_RULES.md), AD36/AD43 and optional review govern later claims. No formula corpus, fixture, current source, browser, build, test or save was newly opened or executed.

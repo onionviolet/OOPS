@@ -83,3 +83,12 @@ Later playable gate: Operator cannot perform incompatible simultaneous work; rem
 Source: ONI-F13, ONI-F14, ONI-F27, ONI-F34. Risk: This is the broadest packet and should follow an agreed shared interface; source terminal/depot internals and whole offscreen simulation remain incomplete.
 
 No gameplay, save, browser or regression suite was run. Source/narrow artifact checks cannot verify these future behaviors. [PACKETS.json](PACKETS.json) retains exact current owner pointers and acceptance needs.
+
+
+## Coverage and current selection scope B623
+
+B623fully reads [COVERAGE.json](COVERAGE.json),23completepathrecords and62completeevidenceobjects; everyE01–E62isreferenced and all39findingIDsarecovered. These structuralchecks accompanyactualcontentreview, not fresh externalcode/gameplay. Nativepressure/heat/phase/diseaseimplementation, broadcatalogues/stress/worldgen/rocketinterior/persistence/offscreenfrontiers remain explicit. Staticrepresentativepaths do not become whole-system/runtimecoverage.
+
+Preserve actualmaterial/payload/mass/heat/disease consumers, body-specificsupport/recovery, learned/granted/aptitude/morale distinctions, typedresearchpayment, alternativeplantnutrients versus jointlyrequiredconverterinputs, lifecycle/egg/output custody, played/render/autosave clocks and native/managedsaveboundaries. SourceUngrantSkillmutatesmastery; equipmentremoval doesnotprove separatelyearnedknowledge survives. The originalborrowedtool proposal should keep thoseowners distinct. Serializedfailurebranches donotprove atomicdurability; mountedDLCdoesnotproveentitlement/activation.
+
+Allfiveoriginalpackets remain useful alternatives with exact custody/time/consumer/failure checks. TheiroptionalFrontierworkshop proposal launchesno newdepth under currentPROJECT; currentoverlapchecks precede choosing a gap. Actual source may allow differentfreeproduction/parallelcontrol/bodypolicies, so packetconstraints remain localfixtures. AD36/AD43and optionalreviewAD42governselectedruntimeevidence. No external sourcebody/game/save/account/entitlement/acquisition/build/browser/test operation occurs.

@@ -888,3 +888,8 @@ Root rounds 10/11 appeared after the completed-lane snapshot. CR1/CR2 redirect l
 3. **W19-A3:** Consider one relationship/start overlay only after the selected canon slice is playable, with exact base pin and independent state.
 
 Final claim: documentation consolidated only. Source/built/browser/persistence/director states remain exactly scoped above; no gameplay change, build, test suite, save action, commit or publication.
+
+
+## Institution pass and title-specific evidence reconciliation B615
+
+巫師你好，我是偽人: the [institution pass](../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds) keeps occult1000GBPcash versus800internal budget at25percent premium/20percent reverse discount. Mundane £1/25/15/12anchors remain authored. Broker asks/advance/buyer offer/private valuation differ; witness/oath does not guarantee goods or identity. Later source windows add referral/read-access/offline-membership terms with no fee found, not universal free entry. Anchor/rite/source/charged power needs its actual mechanism, with ordinary alternatives; the hunt/kill slice is proposed. No new source-body/runtime proof.

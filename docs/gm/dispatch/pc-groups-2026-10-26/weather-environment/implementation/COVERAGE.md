@@ -32,3 +32,8 @@ Status: implementation dispatched, not verified gameplay. The six briefs contain
 
 Cross-group contracts must be agreed against live owner evidence, not implemented twice. A source gap records the exact missing fact and affected detail; independent work continues. First-slice completion does not close remaining selected rows.
 
+
+
+## Content reconciliation B462: later bounded followthrough routing
+
+The complete34-line ownership map remains a dispatch-era acceptance map. Later [combined coverage](evidence/W6/COMBINED_COVERAGE.md) and [W6 final checkpoint](W6.md) record bounded S1 followthrough; their explicit remaining PC/F/G6E/G6A/J1 gaps survive. Do not read this header as a current claim that every lane is unverified, or read one later pilot as closure of the whole map. B462 inspected the actual field/forecast plans and every combined detail/disposition row; no source, gameplay or current integration was rerun (AD32/AD36/AD43).

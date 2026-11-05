@@ -210,3 +210,14 @@ kept two. Parent review:
 - **D2** (`.claude/worktrees/d2-decision-reasons-c6d17b`, session `local_cbe1e18d-af8a-474c-a6cb-57d355b92f32`):
   not mine. It was started by the itch.io features session `local_c1a96817-04a5-4cd2-b5c6-d80abc66a4a3`
   (GAP_AUDIT F3/D2). This parent never owned it and does not release or finish it.
+
+
+## Content reconciliation B570: pilot corrections and later landings
+
+F1: Actual full review covers all212 original lines: GTL1–GTL6/GTR1–GTR35 state, GTL10 successor, D1/D3 transfer, narrow R3 release/return, Paradise correction, master landing and worktree release. Read the chronology, not the initial uncommitted/pending tables alone. Current gate-owner B300 and overflow reconciliation retain their producer/state/consumer qualifications. No underlying runtime, branch, source book, worktree, candidate, image or saved game was newly inspected.
+
+F2: The first GTL10 pilot stopped without code because its live-and-source-stated criterion found no candidate; matching13 input receipts and9 focused passes do not deliver a new policy. D3's later brief permits an authored original-world mechanism and its Mistglass conversion has its own bounded50/50/build/arch/1920/persistence receipt. That is compatible with GTL10's original blocked result, not proof the entire overflow family stayed blocked or all five worlds gained policies. Current overflow owner already traces D3's converted practice/carry/loss join. Mirrored parent XP differs from a conserving spill; no unselected universal conservation or pressure tax is imposed.
+
+F3: The later master-landing section explicitly closes source application for D1, D3 and the Paradise fix under e3c50c0c3, superseding earlier receiver-pending claims at that historical identity. R3 inspector fix remains a separate post-D1 input with focused19/19 and narrow presentation scope; learned persistent state differs from reacquisition eligibility. Paradise chart-before-enrollment was corrected with a failing old-host control,4/4 new and38/38 relevant tests plus isolated browser/persistence; the earlier no-fix-requested note is history. Neither relayed messages, byte identity nor master ancestry alone proves receiver combined gates or today's runtime. The initial2689/2691 suite is not all green merely because failures are attributed to other sessions.
+
+F4: Worktree retirement/release records identify historical ownership and already-landed copies, not authorization to delete, archive or take over current folders. Human play/dial review is optional feedback under AD42, not a technical blocker or new approval request here. Existing source/focused/build/native/persistence/commit/push states remain separate. Later PROJECT/AD36/AD43/AD51 govern selected work; no old model allocation, staffing, source acquisition, migration, branch merge, cleanup, commit or push is executed.

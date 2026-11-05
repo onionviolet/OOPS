@@ -55,3 +55,14 @@ LATER: the next contiguous home/follow-up situation needs source qualification b
 ## Progress and remaining scope
 
 Prior delivered route: 16 opening-household stages + 18 shopping/ritual/gathering stages + 15 recovery/meal/notebook stages = 49 explicit playable stages, through chapter 9's knock. This slice implements 18 more, reaching the end of chapter 10. Stage counts are action inventory, not an exhaustive source denominator or completion percentage. Most of KJ3 Tingen and all later campaign packages remain open. Next source qualification begins after this visit; no subsequent scene is silently included.
+
+
+## Content reconciliation B487: distinctions, later evidence and retained gaps
+
+Historical18-stage visitor continuation and repaired presentation under AD36/AD42/AD43. Preserve B1's chapter/continuity windows and the explicit inferred storage bridge: same gun/five rounds move from the older coat checkpoint to the source-supported drawer before retrieval, without rewriting the old save or creating a second weapon. Authored search/concealment weighting is not a stochastic detection probability or a general investigative/legal engine. A warning, an expert's attributed two-day promise and an acknowledged account are not automatic arrest, an actual expert examination or a scheduled appointment.
+
+Existing actor bodies, settled arrival/visit/departure, physical custody and recipient knowledge are different owners. The visit holds an itinerary without resurrecting missing actors or reconstructing memory; admission and settlement require actual recipients. The concrete UI defect was false re-admission blockers for participants already reserved by that same pending job. Matching the actual job command and showing remaining work/Stop repairs that projection while preserving genuine unrelated-job blockers and native settlement. Navigation does not grant knowledge or silently activate Stop.
+
+The route bundle and final presentation bundle share a recorded pack, with changed commandId projection/pure consumer separately exercised by three final checks. Ten native route groups across18 earned stages are not a final-bundle full-route replay, fresh opening-to-ch10 proof or exhaustive source coverage. The stopped superseded suite is excluded; final4921/4921 retains its actual input identity and overlapping focused checks are not added. MCP sampled startup rather than independently playing the full visit. Old preview/PID and private copied assets are not current installed/delivered state.
+
+The49 prior plus18 new stages describe action inventory, not a novel completion percentage. Later source qualification, firearm integration, ordinary starts, procedural careers, purse accounting and combat remain their distinct gaps. Human review is optional. This review reads the full receipt, not private source/pack/test saves/screenshots, current source or logs; it renews no runtime proof or old worker reservation.

@@ -159,3 +159,10 @@ Ranked by value per cost: (1) D&D SRD 5.2.1, free under CC-BY-4.0, version-locke
 chapters for the SM9 daily-life pass, checking the local copy first; (3) the three Harry
 Potter in-universe books. Fate material books follow when Fate becomes active; anime-world
 databooks wait for their place in the canon-first order. Download needs Weibao's yes.
+
+
+## Content reconciliation B530: historical routing and later coverage
+
+The queue preserves chronology, not current entitlement/tool installation. Later AQ routing and registry notes supersede the original none-owned/no-dotnet snapshot and buy recommendations for the six subsequently owned titles; Wolf Hall is specifically owned/source-read as Ren'Py rather than the old speculative Unity route. The completed Kingdom of Loathing, Discworld MUD, Super Robot Wars, Modding Tree and cultivation-idler dossiers are finite passes, not full-source completion. Existing owned local read-only mechanic passes were standing scope, but this documentation task launches none. Missing source/library metadata does not establish missing content, and old unapplied QUEUE_EDITS.patch is a proposal. Media titles/editions/availability and rankings remain historical candidates; game-original adaptation data is not automatically novel canon. Use current registry scoped doctor and actual chapter coverage before a selected route; no download, purchase, install or reacquisition follows from a queue row.
+
+Retain the original queue, attempts and addenda as history. This documentation pass changes no source files, holdings, extraction, reading progress, account state or acquisition jobs.

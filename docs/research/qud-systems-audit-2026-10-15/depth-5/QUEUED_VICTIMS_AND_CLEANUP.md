@@ -47,3 +47,14 @@ The [five-definition blueprint chain](../private/depth-5/BLUEPRINT_CHAIN.json) i
 | 5 | Other Qud systems | Retain depth 4 unread families and exact cumulative line complements; this queue pass does not close them |
 
 No fixes, product decisions or native reproduction follow automatically from these research questions.
+
+
+## Content reconciliation B485: current disposition and preserved history
+
+Version-qualified static research with unresolved lifecycle ownership, reconciled under AD32 and source/evidence rules. Preserve F1–F4 and Q1's five bounded consumers. Deferred classification uses DestinationZoneID null plus tracking eligibility, unlike destination initialization's null-or-empty condition. Queue removal/inactivation is not death or graveyard registration. Contextless and explicitly tracked actors follow different branches; a player/important actor result cannot establish ordinary queued NPC/item behavior.
+
+Destination resolution conditionally processes Queue and Locations together, ignores individual Teleport Boolean results, logs per-victim exceptions, then clears the collections. An explicit entrant's later veto can coexist with earlier queue processing. A returned ApplyVortex true is not proof of successful landing. Exceptions, invalid/already-contextual entries and missing destinations have distinct fates. The absence of a retry ledger in this method is scoped, not proof that every external owner is absent.
+
+The inherited serializer trace reportedly excludes Queue/Locations/InitialTurn, stronger than attribute inspection alone. Cell traversal cannot serialize an actor removed from that cell, but other referenced roots remain open; serializing a victim elsewhere does not reconstruct the omitted vortex association. No whole-game save-loss claim follows. Temporary expiration, GetContentsEvent-defined contents, teardown/graveyard storage, zone release and final pooling are different routes. A default256 graveyard capacity is a pinned stock detail, not a YAIR storage rule. Blueprint composition is not a complete inherited-hook or mod audit. Pooling the parent does not prove destruction, relocation or refund of earlier victims.
+
+Retain the prioritized questions about global reference traversal, contents/pooling, failed teleport, dynamic parts/mods and unrelated unread families. This review reads the entire public trace, not private decoded classes, line locators, blueprint JSON or native Qud. Static decoded branches are not a reproduced bug or verified native save-loss scenario. No automatic game fix, universal queue design or native research run is authorized by retaining these questions.

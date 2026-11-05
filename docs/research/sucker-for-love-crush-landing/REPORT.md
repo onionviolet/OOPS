@@ -73,3 +73,10 @@ Parent rechecked the installed/private raw hash and requested `steam://uninstall
 ## Final Steam receipt, 2026-10-09
 
 Source scope: GameMaker tables and17 selected instruction bodies. Parent verified retained-copy gates and requested uninstall through Steam. Final observed removal state: **verified-manifest-absent-and-log-success**. [Per-app receipt](../../gm/dispatch/steam-installs-2026-10-09/SUCKER_UNINSTALL.json). No dialog clicked or game launched. Parent owns the dossier after reader handback. Earlier acquisition-only queue text is superseded by this pass.
+
+
+## Content reconciliation B407: actual read coverage and historical evidence
+
+All 4,034 unique instruction bodies were decoded across 752,914 boundaries without unresolved references or invalid branch boundaries. Manual consequential review covered 17 selected code bodies, not every branch or dialogue route. Typed memories, separately retained endings and preparation callbacks remain optional original proposals. Unused Break-subopcode semantics, native VN dispatch/extensions, localization, reachability and runtime persistence remain unqualified. The later dated verified removal receipt supersedes the earlier unverified request within this historical dossier; neither is a fresh installation check.
+
+This reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.

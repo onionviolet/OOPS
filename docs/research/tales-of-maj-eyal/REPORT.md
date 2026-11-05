@@ -45,3 +45,8 @@ No additional generic AI, status/cooldown, mastery, material, achievement, accou
 No tests, builds, browser/gameplay, save/reload/import/failure, installation, personal-save/profile access, commits, pushes, publication or automation ran. Later playable/save/director gates for every proposal remain **unperformed**. Existing code retains its implemented-unverified state.
 
 Reviewed code headers identify GPL-3.0-or-later and root COPYING supplies GPLv3. Root COPYING-MEDIA restricts `/data/gfx` media to ToME use; component licenses vary. Notices are provenance evidence, not a blanket term for every file. No ToME code, names, world, prose or assets are proposed for copying into YAIR. The deliverable is original behavior design through current YAIR owners.
+
+
+## Coverage-map content and selected-source boundaries B616
+
+B616fully reads every field of [the coverage map](COVERAGE.json), all37file/hash/range/reader records and fiveT1–T5paths. Inclusive union arithmetic agrees at3112selected lines; this is not a new read of those external lines or whole files. The five mechanical distinctions and three original packets remain useful: actual mastery/function, payment/reservation/cleanup, contextual tactical choice, method/category/profile reward and equipped material/Blockconsumer. The packet’s former blanket test deferral is historical; selected implementation follows current AD36/AD43, with human review optional under AD42. No currently missing YAIRconsumer or source behavior is freshly established by a frozen span map. Source gaps in excluded hooks/profile durability/RNG/DLC/balance remain explicit.

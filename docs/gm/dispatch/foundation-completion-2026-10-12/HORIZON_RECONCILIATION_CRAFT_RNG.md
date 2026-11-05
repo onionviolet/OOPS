@@ -37,3 +37,10 @@ Read input bindings:
 | src/crafting_recipes.js | 9a196429052a1ad8d0ff6e48ff978e638f6c8956a9ef429040720ed71143c3a3 |
 | src/misc.js | fb68556cee90d303cf980d992b637d37c46bd14501d14436df35d990ba6ac510 |
 | src/display.js | 0714c5b2b278472cc6d6d3f0720090425f835f51b1818289c4ae89fce1a71d66 |
+
+
+## Content reconciliation B476: complete record and current evidence boundary
+
+All39 lines and nine input bindings were read. The finite gate distinguishes project-owned random streams/committed outcomes from upstream Math.random, whose hidden generator state this project neither stores nor restores. A deterministic chance/quality modifier and a ledger sequence are not a new RNG owner. The inspected selected native craft path staged item/XP/ledger effects with rollback; the record does not promise identical uncommitted quality on retry. Successfully stored output stays exact; a rejected attempt can consume platform entropy while restoring owned data. This is a scoped source/application conclusion, not a global exception to save integrity or permission for preview draws.
+
+F5's publication/rollback description and Q4's remaining actual failed-write→retry→native roundtrip gate were source reasoning and an unrun request at this snapshot. Do not mark that journey passed from this document or revive it as today's blanket blocker without its later owner evidence. A future selected same-outcome retry, replay, luck/fate or durable craft-draw contract needs its own actual stream/result mechanism. Current [PROJECT](../../../../PROJECT.md), [architecture rules](../../../ARCHITECTURE_RULES.md), AD22/AD36/AD43 govern the selected consumer. No original source body, current platform state, random draw, native craft, test/build/browser or personal save was inspected or executed. Historical hashes and source routing remain history, not a broad current RNG audit.

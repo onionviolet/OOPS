@@ -89,3 +89,12 @@ Not run: full `npm test`, a build, 14/21 px captures, human play-through, civil 
 ## Next
 
 kjw6 from ch32 P001: Klein in the alchemy room (`lotm.place.kj3o.alchemy-room`) with the cup (fact `book.lotm.kj3o.potion.made`, not in inventory), Old Neil there. Start money 802 (a ceiling). B1's first native proof is the drink at ch32 P010.
+
+
+## Content reconciliation B500: source limits and actual executed scope
+
+Historical11-act watch-only brewing window under AD36/AD42/AD43/AD49. Preserve all ten intent rows/Q1–Q9 corrections and actor/withholding tables. A minted minimal alchemy room works in the recorded route, while anchorOnly alternative was not tested. The cup is potion.made knowledge/fact with no actual inventory holder. Old Neil performs every brew step; Klein watches. No lead bench, recipe, ingredient stock or brew verb exists from these notes, and B1 ingestion/source/pool is explicitly absent until the next window. A true knowledge of ingredients does not grant execution or ingestion. Sequence choice name is first told in answer, private reasons remain undisclosed.
+
+Eight-pound outfit debit2722−1920=802 is native accounting, but remains an upper bound inherited from unknown earlier debits and above the separate272 pooled bound. Source payer is unstated; charging the sole tracked purse at price disclosure is an authored abstraction of the earlier purchase, not a newly proven payment day or reconstructed complete household wealth. Unpriced fare/allowance/salary/materials are not numerical zero-cost source facts. The1260-minute fill corrects the brief's assumed780 and10:36 versus18:36, not a full civil-time calibration. All later duration values remain labelled fill.
+
+One seeded KJ3N run on pinned B9 source plus scratch pack, literal import, zero-ingestion/pool/item assertions and selected leak checks support that bounded window, not a fresh campaign, current repo pack or built brewing engine. No14/21 captures, civil-clock, full suite or new build were run by that lane. Format trims and preflight are not semantic/source proof; the output schema/cup marker has an intended next consumer but no claim it was exercised in this receipt. Full public receipt read adds no new chapter/pack/source/browser/private-save inspection or human acceptance.

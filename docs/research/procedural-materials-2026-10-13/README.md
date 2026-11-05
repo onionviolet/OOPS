@@ -30,3 +30,10 @@ Workers may inspect shared source but may not write each other's files or spawn 
 Each lane supplies bounded source-backed mechanisms, separates facts/inferences/proposals and names an observable proof. Coordinator reads all five artifacts, spot-checks surprising source/code claims, resolves overlaps and contradictions, verifies local links and saves a ranked joined report. Research completion does not imply implementation or native gameplay acceptance.
 
 Status: all five workers completed; coordinator synthesis and bounded spot checks completed. [Joined report](REPORT.md) owns the findings, recommendations and evidence limits. Research is complete; gameplay implementation was not dispatched.
+
+
+## Content reconciliation B474: complete research record and later scope
+
+All32 lines were reviewed. This was a user-authorized five-lane research/design expansion, with distinct implementation audit, book/canon, procedural contracts, references and cross-system questions. Completion of bounded artifacts and coordinator spot checks is not implemented generator/resolver, source-authenticated every-world material catalogue or a native useful product. The [deep round](deep/README.md) is later research breadth, not automatic implementation of its contracts; both reports preserve their own examples, selective source checks and unrun vectors.
+
+Material truth, actor observation, exact canon, functional substitution and original generation remain separate. Available local text does not mean fully read, and a wiki lead is not a pinned essential source claim. Useful quantity/process/known prediction/observed result/output are selected consumer questions rather than compulsory meters. The1366-first laptop target and fixed realm/prestige boundary are historical: current [PROJECT](../../../PROJECT.md), [making rules](../../MAKING_RULES.md), [UI rules](../../UI_RULES.md), AD36/AD43/AD51 govern selected work. Historical sole-writer/subagent assignments do not authorize spawning or a new research wave. No source/corpus/wiki/PDF, runtime, tool install, test/build/browser, save, acquisition or publication was newly performed here.

@@ -24,3 +24,10 @@ Input: `99d3a202` plus actions world check and clearance regression. Checks/resu
 - `git diff --check` on owned Q4 paths: PASS.
 
 Q4 playable integration gate complete before Q5 source edits. Grade-2 issuance and human taste/pacing are not exercised; normal-app adoption and master integration remain open. No new rulebook or accepted direction; all values remain proposals. No push.
+
+
+## Content reconciliation B471: complete current record and later evidence routing
+
+The complete26-line checkpoint was reviewed. It records a reused shared clearance leaf and a concrete stale-participant bug: matching location text did not establish the same actor world. The added world/life/place refusal regression and recorded grade3 sign-out/return/import journey support their exact inputs. Grade2 is rule-table coverage with no invented stock/promotion, not a played issuance route. Public reasons, group eligibility, custody, actual transfers and earned/fixture scope retain separate evidence. The second-world shared-leaf fixture does not prove a whole second source world or its institutions.
+
+Six focused checks, the fresh1920 build/browser/persistence journey and unrun final Q5 full suite are separate. Byte-identical command definitions and unchanged save fields mean no new people/items/roles were awarded on load in that slice; this review does not certify every current old save or later role/clearance edit. Current [PROJECT](../../../../PROJECT.md), [architecture rules](../../../ARCHITECTURE_RULES.md), AD36/AD43 and AD42 optional review govern selection. Historical branch/merge/owner, pre-Q5 completion, normal-app adoption and no-push claims remain dated. No code, rule table, image, JSON, seal truth, private/personal save, native journey or test/build was newly exercised.

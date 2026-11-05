@@ -146,3 +146,12 @@ That older-build path was reasoned from source, not run.
 - **Further adapters** (items, people, starts, several activities, native item
   inputs) are outside this slice and each needs its own gate.
 - **Older-build load** of an authored save was not run.
+
+
+## Content reconciliation B478: full editor report and finite supported scope
+
+The complete148-line G7 report was read, including the step-by-step authoring route, all13 check rows, defects, nine shared-main integration hunks, compatibility and explicit limits. One authored site/one timed work/one gather lifecycle through schema1 is a bounded editor, not a general world compiler. Native coin is a real publication consequence; site material/product are local counters, not native inventory. Draft-file export/import and gameplay-save literal roundtrip are separate paths. Reset removes this local authored site/progress while retaining earned coin under that prototype; reading the route does not invoke reset or authorize deleting anything now.
+
+The natural label is defined as fresh UI-only QA, with28 recorded checks and585 source tests. Correcting a label without changing steps differs from supplying a new playthrough; hashes and saved results were not opened here. Validation, edit lock, gathering eligibility, timing, cancel/refund, new-site visibility and spam-free pure context were specific repaired consumers. Native items, people, multiple sites/activities, starts/custom clocks and unknown-property rejection retain their own adapter scopes. Older-build loading was source-reasoned, not exercised, unlike the named current old-save and new-save journeys. No count establishes general authoring completeness.
+
+Current [PROJECT](../../../../../../../PROJECT.md), [architecture rules](../../../../../../ARCHITECTURE_RULES.md), [UI rules](../../../../../../UI_RULES.md), AD36/AD43/AD51 and optional human review govern selected current work. The1600×1100 layout, bottom-bar/category location, scroll and collapsed panel policy are dated reversible choices, not current required screen composition. Later root integration can qualify the worker's pending hunks, without treating this report as current branch/process/app status. No source, runtime, editor, UI, JSON, image, save, build/test/browser, commit or install was newly exercised.

@@ -74,3 +74,8 @@ Queued vortex serialization, scheduling, expiry and cell-save consumers are now 
 ## Depth7 continuation,2026-10-15
 
 [Recovery consumers](depth-7/REPORT.md) now distinguish retained effects/credit/HP access, generic null-origin movement and the missing automatic target selector. Party cell scans and AI nowhere guards are traced; exact unread owners are linked from [CURRENT](CURRENT.md). Metadata field references are navigation evidence only. Research only; no native recovery performed.
+
+
+## Qud source-index and integration chronology B587
+
+Full B587 reviews of the [merge/closure plan](MERGE_PLAN_2026-10-23.md#content-reconciliation-b587-candidate-closure-and-remaining-real-gaps) and [source index](SOURCE_INDEX.md#content-reconciliation-b587-complete-index-and-source-read-boundaries) preserve their distinct proof layers. Later isolated closure combines G1–G7 plus D1/R3/narrow estate label and records2729/2729 after the earlier2716/2718 candidate. D3 stays unselected; normal-click obstruction after1536resize, ignored achievements packaging, attribute-owner/G7 gaps and overwritten G3 receipt JSON remain explicit. This is not present primary integration or fresh browser proof. All128source-index rows were read here, while35full/60window/33navigation are attributed prior private-source statuses, not newly qualified bodies. Raw XML/ancestor counts do not establish semantic recipes/eligibility; retained hashes, lost early epoch chronology and normalized parses remain separate. Current AD36/AD42/AD43/AD51 and existing owners control any later work; no source extraction, integration, gate rerun, worker or commit follows.

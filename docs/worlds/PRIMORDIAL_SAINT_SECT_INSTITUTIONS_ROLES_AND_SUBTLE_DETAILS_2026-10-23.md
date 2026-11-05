@@ -1,6 +1,6 @@
 # Primordial Saint Sect: institutions, roles, talents, subtle details and floor card (2026-10-23)
 
-Research and proposals, not accepted decisions and not implemented. Pass: WPR9-WPR17 (places, roles, institutions and law, money and information, time, power subtleties, starts, failure, surfaces) plus a WA6 floor card (K2, K3, K6, K8, K13), with extra weight on talents. Mode: reuse-and-check plus bounded read (WPR1). Owner file: this one, created by instruction (WPR3). It is not yet linked from any brief, card or index because the task said to touch nothing else (section 15). Review state reached: drafted, with 27 claim groups source-spot-checked by the coordinator (WPR21). Nothing here is built, browser-verified or director-accepted.
+Research and proposals, not accepted decisions and not implemented. Pass: WPR9-WPR17 (places, roles, institutions and law, money and information, time, power subtleties, starts, failure, surfaces) plus a WA6 floor card (K2, K3, K6, K8, K13), with extra weight on talents. Mode: reuse-and-check plus bounded read (WPR1). Owner file: this one, created by instruction (WPR3). It is not yet linked from any brief, card or index because the task said to touch nothing else (section 15). Initial review reached drafted/source-spot-checked27groups (WPR21); sections17–19 add later review and scoped blocker closures, without gameplay proof. Nothing here is built, browser-verified or director-accepted.
 
 Spoiler tags: [S] marks late-story twists and anything past roughly Ch 300 that is not needed for the early sect. The sealed-secret rule (WPR8) is not triggered: the book has no repo pack or sealed truth, and the [S] items are public book plot, not player-facing secrets.
 
@@ -207,7 +207,7 @@ Observed output forms: White Dual Cultivation Prodigy (c0002 p48); Purple "Has T
 ## 7. Starts, failure, aftermath and surfaces (WPR15-17)
 
 **Starts.** The registered-disciple start is a line-up at a plateau of Chen kingdom's blood offerings (c0001 p1-10). The panel starts: Longevity 18, no cultivation, talent, method, ability or treasure (c0001 p17-23). Other starts: a life lasts until death; later starts can use anchors (first at Foundation, AUDIT_1 Ch 131) or a Celestial Spirit birth menu (c0289 p39-41); the Sword Pavilion (Ch 289 title) and overseas are other entry places [S for later].
-**Failure.** Death spends one page; debt is erased; the chosen reward is the only carry. Plain examples: killed by a Pleasure Hall partner (c0002 p29-31), refined into Innate Qi by Liu Xin (c0005 p44), self-detonated to escape a loose-end killing (c0015 p3-6, reader).
+**Failure.** Death spends a page in the inspected restart; section19 observes no collection after the intake reset, without establishing every later anchor’s debt behavior. The selected reward and retained start state need their particular carry contract. Plain examples: killed by a Pleasure Hall partner (c0002 p29-31), refined into Innate Qi by Liu Xin (c0005 p44), self-detonated to escape a loose-end killing (c0015 p3-6, reader).
 **Aftermath.** The world resets; the sect remembers nothing of the old life. The Book's own marks (karma wipe) are covered in AUDIT_1.
 **Surfaces.** The disciple token is the surface (CP, news, rent, loans, missions); the Book panel lists name, longevity, cultivation, talents, methods, abilities, treasures, pages. An idle player misses nothing in the source (no away-time clock found).
 
@@ -217,7 +217,7 @@ Observed output forms: White Dual Cultivation Prodigy (c0002 p48); Purple "Has T
 | --- | --- | --- |
 | F1 | The sect's only observed scouting is the intake register: gifted recruits are killed for materials, mediocre ones kept for labour; no aptitude test or root reading is in Ch 1-7. | SHOWN. c0001 p42-53. V |
 | F2 | Cultivation depends on talent but has no spiritual roots; anyone with will can start. | STATED. c0004 p30. V. Later use of "spiritual root" (31 lines) unchecked |
-| F3 | Every disciple has a secret price and credit is capped at that total value, so debt can always be collected from the body. | STATED by Zhao. c0009 p65-66. V |
+| F3 | Every disciple has a secret price and credit is capped at that total value, this states the sect’s collection premise, without proving actual recovery in every case. | STATED by Zhao. c0009 p65-66. V |
 | F4 | Loan pricing: zero-down first loan, 36% a year, ten years; the quoted 460 a year fits simple interest; the Three Rivers Society charges the same rate despite its charity framing. | c0006 p33-35; c0034 p43. V |
 | F5 | The skeleton bubble: 200 to a 7,000 peak, crash to 200 then 50 after an official sect announcement, with Lu making 20,000 gross on ten units; the pool winner is probably a plant. | c0016-17; c0015 p49-50. V/inferred |
 | F6 | A talent in the Book is a panel record with a tier, a name and a rule-rewriting text, not a stat; sources are forfeit-all rolls, Golden Nature settlement and integration. | SHOWN. c0002, c0052, c0289. V |
@@ -238,9 +238,9 @@ Observed output forms: White Dual Cultivation Prodigy (c0002 p48); Purple "Has T
 
 | ID | Default | Dial | In-world reason and cost | Evidence |
 | --- | --- | --- | --- | --- |
-| EF1 | Everyone has a sect price; credit cannot exceed it | How the price is computed, who sees it | Lets the sect never lose money; cost is that talent rises to be killed | c0009 p66, V |
+| EF1 | Everyone has a sect price; credit cannot exceed it | How the price is computed, who sees it | The sect aims to secure collection against person-value; realized recovery/profit remains unproved | c0009 p66, V |
 | EF2 | Talent (aptitude) is valued by usefulness; gifted are harvested, mediocre kept | Sect, world and rank | Worth in materials versus labour | c0001 p53, V |
-| EF3 | First loan is zero down at 36% a year over ten years | Rate, length, collateral, borrower rank | Debt is a leash; restart erases it | c0006 p33, V |
+| EF3 | First loan is zero down at 36% a year over ten years | Rate, length, collateral, borrower rank | Debt is a leash; section19 shows a particular intake reset without observed collection, not universal forgiveness | c0006 p33, V |
 | EF4 | Currency is contribution points for early-rank disciples | Currency by rank (CP then merit then incense) | Higher ranks have other value | c0293 p43, V; later currency U |
 | EF5 | A restart menu offers four slots and spends a page | Slot set, page total, refunds | Finite lives; only one reward carries | c0001, c0289, V |
 | EF6 | Restart loops from the previous life, not from a fixed start | Anchors and overwrite | Memory is the wealth | c0015 p24-25, V |
@@ -309,7 +309,7 @@ Suggestions (separate, short): treat "worth to the sect" as a reusable pricing m
 2. Ch 18-33 plus Ch 35-60 consequence passes: about 12k each, closes the foreknowledge payoff rows.
 3. Talent census (Ch 575, 827 and all panel forms): about 12k.
 4. Post-Ch-47 currency and price pass: about 12k.
-5. Ch 233-347 Sword Pavilion and Dang Mo: about 12k, defer behind the first milestone.
+5. Ch233–347 Sword Pavilion and Dang Mo: about12k, proposal governed by current PROJECT; the old first-milestone deferral is retired.
 
 ## 15. Review state (WPR21) and follow-ups
 
@@ -355,7 +355,7 @@ Five records. Each lists default, dial, in-world reason and cost, locator, evide
 
 ### K8 Daily life and economy (jobs, meals, prices, a day's rhythm)
 
-- **Default.** CP income by missions at single digits (c0003 p33), posts (c0007 p67), selling items, bounties, merit pick of 10 CP a month, Immortal Bloom at 150 CP a flower (c0008 p43); rent 30 CP a month (c0003 p25); methods at 100 CP and up; Sword Pill kit 2,000 CP; day rhythm: monthly rent and merit pick, 3-year intake, 30-year zombie tide. No meals or daily routine found in the windows.
+- **Default.** CP income by missions at single digits (c0003 p33), posts (c0007 p67), selling items and bounties; a merit pick spends10CP rather than earning a wage, Immortal Bloom at 150 CP a flower (c0008 p43); rent 30 CP a month (c0003 p25); methods at 100 CP and up; Sword Pill kit 2,000 CP; day rhythm: monthly rent and merit pick, 3-year intake, 30-year zombie tide. No meals or daily routine found in the windows.
 - **Dial.** Currency scale, rent, mission pay, season.
 - **Reason and cost.** Costs outrun pay (Lu's budget in c0008 p63-68), so credit is needed and credit is a trap.
 - **Source and label.** STATED/SHOWN, V for the prices above; meals and jobs-by-hour not found.
@@ -385,7 +385,7 @@ State reached: **rules-reconciled on the cited codes** (WPR21); drafted and sour
 **Disposition: READY (rank 1) for the packet thread**, NEEDS MECHANISM for the same-body restart loop. Codes: AD1, AD6, AD11, AD12, AD14, AD19, AD33 (cast kept to one clerk), AD38, WA1, WA3-WA6, WA8, WA11, WA19, ECR credit and dated terms, GTR1-GTR4, GTR9, AR12. No conflict found.
 Runtime owners reused: `economy_standing.js` loans (rate per term via `owedNow`; limit from standing tier, so a body-value limit and a fixed rate need two additive optional fields), `progression_gates.js` for the refusal, `obligations_ledger.js` for the coin row, `carry_ledger.js` rebirth boundary. Not hosted: same-person restart with an anchor (implementation map C17 gap) and the death-menu picker (`cheat_cards.js` C0 contract only).
 Correction found (keep both): the debt erasing on restart is a character's belief (c0006 p40) and the sect's answer is the price cap (c0009 p64-66); it is not a source rule, so the packet makes it a dial. Section 8's EF3 reason text "restart erases it" should be read that way.
-W4 window (Haiku, c0075, c0076, c0080, c0088, c0089, c0090, 10,821 words, return in `passes-2026-10-23/W4_P2_return.md`): the Merit Pool is a prize draw staked with a year's contribution points, prize colours gold and purple with a seven-colored jackpot (c0089 p61-64, five locators reopened); "merit" elsewhere is a moral ledger and fuel (c0075 p21-22, c0080 p62-64). Not found: entry rule, fee, winner count, monthly schedule, debt, loan, tribute, rent, stipend. A Ch 66-99 census found 0 CP hits and 1 "contribution", so the rest of Ch 66-99 is combat and arc text with no price rows.
+W4 window (Haiku, c0075, c0076, c0080, c0088, c0089, c0090, 10,821 words, return in `passes-2026-10-23/W4_P2_return.md`): the Merit Pool is a prize draw staked with a year's contribution points, prize colours gold and purple with a seven-colored jackpot (c0089 p61-64, five locators reopened); "merit" elsewhere is a moral ledger and fuel (c0075 p21-22, c0080 p62-64). Not found: entry rule, fee, winner count, monthly schedule, debt, loan, tribute, rent, stipend. A Ch 66-99 census found 0 CP hits and 1 "contribution", this lexical result does not prove the unread remainder has no price rows under other units or wording.
 Exact unread remainder: Ch 66-74, 77-79, 81-87, 91-99 (not read), Ch 1-25, 29-32, 34-45, 47-64 as listed in section 12, Ch 100+; second-half manual price; game-year length for the rate conversion.
 
 ## 19. W5 packet-blocker closure (2026-10-24, source-gap coordinator, Sonnet 5.5)
@@ -405,3 +405,18 @@ State reached: source-spot-checked by the coordinator on every row below (locato
 **Corrections to earlier notes.** (1) The packet's "merit pick of 10 CP a month, locator not separately reopened" now has a locator (c0012 p8). (2) W4's "staking a year's CP" is a thought in c0089 p61 and does not fix the entry rule. (3) The packet's test idea "1,360 after one year" is a lump-sum reading; the source schedule is a flat 460 a year (100 principal plus 360 interest); assert the formula, not the narration. (4) The packet's "restart makes the debt moot" dial now has a SHOWN basis for the loop (intake reset), so `drops` is better supported than before; the reason text should say the restart returns to intake, not that the sect forgives.
 
 **Still open.** The second-half price (authored), days per month (authored), Merit Pool odds and the monthly versus yearly limit. Ch 1-3, 16-21, 23-27, 29-33 and 35-65 were only touched by keyword; unread remainder otherwise as in section 18.
+
+
+## Content reconciliation B609: intake reset and talent supplier
+
+F1: Actual full review covers407input lines, initial four windows/28chapters/46312words, all27check groups, later independent W2/W3/W4/W5, every institution/role/price/time/talent/gap row, F1–F18/EF1–EF11/C1–C9/five cards. The supplied MTL SHA3c9263d447569a7422b05847b57d572b942bf40ebe3cd59117b11149ce743437 records1437story chapters across1–1441 with295/506/751/1096missing and translation-working-note contamination in preceding members. The scout's1441distinct claim is qualified from this historical extraction receipt, not a fresh raw-source check. Exact translation aliases, audit versus paragraph locators and title/counter numbering remain separate. No novel body or second translation was newly read.
+
+F2: Section19 supersedes earlier packet blockers: the pool entry rule is located; monthly10CPpick, yearly-stake thought and yearly-limit recollection still conflict. Rigged-winner belief is Lu's conclusion and later fate-lure material does not prove physical draw manipulation. Staking10is expense credited to pool, not wage or mission income. Odds and monthly/yearly choice remain authored/unresolved rather than a source constant. Two different lives selling tenat2000for20000gross and twentyat3000for60000gross do not conflict; gross sales are not net profit. The unsupported3000/4000/5000climb is distinct from checked descending steps. Literal no-CP hits do not establish no later prices or institutions.
+
+F3: A1000principal,36percent/year, ten-year loan has stated460yearlyinstallment and4600total; splitting100principal+360interest is a compatible inference, not a fresh financial authority or compound rule. Three Rivers30interest-free days and36annual rate can coexist as a candidate schedule; exact accrual/payment remains qualified. Twelve rent cycles support360rent/year;30daymonths/360dayyear are authored, not source calendar. The second-half price stays unknown; guessed10000complete-formula price differs from an actual1500two-volume method sale and from the partial1000purchase/delivery. Token issue, method entitlement, item delivery, custody and actual learning are separate.
+
+F4: Credit capped at a stated total person-value is an institutional claim, not a proven guarantee of recovery or profit. Replace salvage-value paraphrase in SCOUT with total value and preserve its history. In the observed intake reset, debt collection is not seen and first-exchange eligibility is renewed; sect forgiveness, every later anchor reset, all external creditors and completed aftermath are not proven erased. Later section18's belief-only qualification is advanced by section19's shown intake-reset case, without expanding it to all restarts. Keep body price/collateral, recovery and debt boundary separate. No forced anti-exploit defense follows from the source.
+
+F5: Aptitude/usefulness to sect, named tiered Book talent, Golden Nature, realm, position/share and actor knowledge differ. Golden Nature can be willingly given while alive, acquired after death or supplied in a vial; defeating an NPC is not itself the settlement supplier. Settlement output, delayed activation, carry choice, retained prior start and a later anchor are different state transitions. Tiers do not supply fixed combat ranks. A single intake scene plus stated policy is not exhaustive whole-world practice; no-root reflection and unseen numeric person-prices remain source-scope questions. Keep live-source institutional coercion distinct from adopted gameplay. Late public-canon [S]labels do not create designed sealed IDs or player discovery proof.
+
+F6: Initial21earlychapters plus W2six plus W4six yield33distinct fully windowed chapters below100, and seven selected later chapters, under the reported historical ranges; targeted W5paragraph opens do not add whole-chapter credit. This is receipt arithmetic, not new source reading. Old lists that call those same ranges unread are superseded by their exact union; audits and keyword opens keep separate depth. Existing minimal card supersedes no-card claims; READY/rank1 is historical packet readiness, not current gameplay certification. Inspect applicable shared economy/carry/restart consumers before new fields/modules; old names are not a tested current implementation. Retire the first-milestone deferral. Preserve exact missing-source, integration, reward/clock/debt/pool and second-half-price gaps without acquisition, worker, runtime edit or fresh behavior proof.

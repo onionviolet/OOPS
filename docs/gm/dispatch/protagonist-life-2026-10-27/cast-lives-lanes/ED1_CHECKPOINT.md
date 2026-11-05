@@ -46,3 +46,10 @@ The importer and overlay are data tooling only. No in-game reader or paragraph-t
 - `node scripts/lead_run/align_editions.mjs` — passed; 1,394 main chapter links, 27 below-floor chapters among chapters with Chinese text, 3 Chinese-source gaps. The private spot-check file contains the opening, midpoint, lowest 1:1 share, volume 5 regression sample and volume 4 source-duplication sample.
 - Clean-output rerun plus `shasum -a 256` — passed with identical hashes: overlay `1026e6783e815e1d760a9fe5e7e88daeddc12d6a3e313f3409fa054395c0a703`, chapter scores `3a7c9ec26d171a4eba9fa0ebd434277074d787e7dc045fe7c07a3b57bb5f79ad`.
 - An explicit Python trailing-space/final-newline scan of the three resume-owned source/checkpoint files passed. No gameplay, bundle, browser, save, or human-play verification applies to this data-only slice.
+
+
+## Content reconciliation B417: edition identity and grouped reach limits
+
+Edition import, chapter identity and length-based grouped alignment are distinct from semantic translation or per-paragraph correspondence. The1,394 main chapter links include1,364 aligned,27 below floor andthree absent Chinese chapters; coarse1:73/1:69 groups remain whole-span links. The duplicated80-paragraph block is a concrete source observation, while slightly low character ratios do not alone establish shard defects. CoI’s1,178 existing shard chapter IDs match source numbering within1,180 imported chapters, but the absent Calibre34 EPUB prevents full text-to-text comparison. Official/OldTL preference and ratio floors describe tooling policy, not independently certified translation quality. No reader integration or current corpus parity follows. Preserve full-group reached gating to prevent a coarse group exposing later text early.
+
+The original source and overlay remain untouched. This read does not acquire an edition, repair shards or certify the current in-game reader; those require their actual source and reader owners.

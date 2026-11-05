@@ -39,3 +39,12 @@ KJ3H is the first window since KJ3E with several new actors and places, and the 
 ## Next
 
 ch21 (the old friend) from sweep rows s2.7 onward. Delegate the window read to a haiku reader that returns a structured brief, then check it against the text before building.
+
+
+## Content reconciliation B482: scope, findings and remaining evidence
+
+Historical scope and incomplete integration, reconciled under AD36, AD42 and AD43. KJ3H corrects the earlier handoff boundary: the armory scene is ch20 after ch19 P059. Its twelve-pound advance is recorded as 2880 pence, with the seeded balance changing 3 to 2883. This is an actual money effect in the recorded route, whereas the half-weekly-pay repayment promise remains fact/knowledge without a deduction schedule. Banknotes are represented as money rather than inventory items. The bullets allowance, badge, range and dropped original ammunition remain distinct from issued stock or executable use.
+
+One actor relocation per act is the recorded workaround for the undiagnosed two-actor freeze, not evidence that the freeze was repaired. An armory-anteroom representation does not establish a mapped upstairs route. Private recognition remains player knowledge rather than shared actor knowledge. The first runner's stale copied end assertion is retained as a harness failure; the second run's nine intents and 211 seconds do not measure source-reading efficiency or prove every branch. The stale ten-intent generated scope remains a disclosed artifact discrepancy: a corrected builder that was not rerun does not change the saved pack bytes.
+
+Fresh-origin seeded play, literal import and presence preflight retain their separate scopes. No counterfactual, civil-clock, font-scale, ordinary-start or human evidence is added here. PF13 is still a proposal across one builder lineage. The dated next-reader/model instruction is historical workflow, not a present request to spawn a reader or change current authority. This review read the whole receipt, not the linked source text, generated pack or runtime.

@@ -2,7 +2,7 @@
 
 2026-10-22. **PROPOSAL.** Saves findings only; the LATER rows are not authorized work.
 Extends [CHECKPOINT](CHECKPOINT.md). Evidence: extracted B2 text (page tags), the
-[Hogwarts games findings](../../research/hogwarts-games/FINDINGS.json) F1-F15 (verified
+[Hogwarts games findings](../../../research/hogwarts-games/FINDINGS.json) F1-F15 (verified
 page/wiki summaries, not game builds), MR1-MR36, AD6-AD8, AD33.
 
 ## ACT NOW (done this round, data only)
@@ -71,3 +71,14 @@ reason the source windows were pinned instead of borrowing a game menu.
 
 Round 2, if asked, would read the p454-460 diversion window and the Hogwarts
 Legacy potion-station evidence directly rather than through the saved findings.
+
+
+## Content reconciliation B491: source status and actual consumer limits
+
+Full proposal-round review under AD32/AD36/AD43 and MR1–MR36: A1–A3, C1–C4, five observer rows, all saved-game comparisons and L1–L8 retain distinct meanings. The source-shown late addition, hidden site/book route and clothing mismatch differ from the all-at-once craft abstraction; full-moon window width is an authored calendar dial. Data-row29-test rerun is historical evidence, not a new full suite. This review reads the report, not actual prepared novel or Hogwarts game builds. The saved-game findings link is repaired from its real directory while preserving the original href in an explicit amendment.
+
+C1's transformation marker needs an actual useful donor-dependent consumer before the old slice establishes more than its bounded craft result. C2's recipe-known start differs from earning knowledge through book/note/teaching/trial; missing one route does not make every possible method impossible. C3's separate purse/lots versus shared item/money carrier is an integration distinction, not completed simply by naming S1. C4's64-entry prose cap can drop old display text while durable standings/debts remain; totals by kind cannot replace consequential identity, terms or evidence. Keep actual history references where a consumer needs them, with compaction fitting that owner rather than a mandatory second archive store.
+
+Observer truth, holder knowledge, witnessed samples/appearance, donor presence/permission and actual local stock remain separate. Proposed symptom/appearance cues must follow real mechanism and knowledge rather than leak the hidden author truth. A generic output grep is a limited sentinel, not proof against every indirect text/price/timing leak. Directional foreign compatibility uses actual local mechanisms; do not turn a label or missing adapter into a universal metaphysical refusal. The one-hour reference and witnessed source events stay qualified to the original report's edition/window rather than becoming new verified reading.
+
+The useful L1–L8 staged process, sensory feedback, knowledge routes, downstream disguise/clothing/presence, diversion/material acquisition, native carriers, author inspection and missing browser branches remain proposed with named done checks, not a newly dispatched backlog or current proof that no later owner has implemented them. Old model assignments and later-round reading suggestions do not authorize workers, source expansion or runtime now. No full-book/source-game/runtime/pack/private-save inspection or broader delivered transformation claim is added.

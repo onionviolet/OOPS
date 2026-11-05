@@ -340,3 +340,8 @@ Not found (this window): tuition fee, term length, instructor pay, entrance exam
 | Local rank currency | A derived-world faction keeps its own points; Paradise sees only the rank notice | World chooses whether local points buy Paradise-origin goods | sid76 p4 (store item origin) |
 | Tier step bundle | A promotion notice names a right, a duty and a cost together | Per tier, attempts vary (two at tier 8, none shown elsewhere) | sid3268 p41; sid2513 p29-30 |
 | Staged local currency thresholds | Two numbers for "promotion" (10,000 and 130,000 CP) can coexist | One is the mission threshold, the other the next local rank | sid98 p47; sid99 p56 (I) |
+
+
+## Facility source and local-standing reconciliation B610
+
+The [facilities pass](../REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b610-facilities-local-currency-and-evidence-scope) reconciles its three rounds without upgrading keyword excerpts to full source reading. The existing local-board/hub-service split and corrected15000CPgene-liquid versus13000CPSmashingFairy/reference3800PC remain. Local contribution/merit wording, rank thresholds versus balance, Hunter office/shop level/tier, real refresh/leave clocks and negative standing versus debt are separate. F29’s school fee absence is unverified at coordinator level; no-price-found does not establish free tuition. No equivalent-mechanism absence, universal queue rule or new module is proven by literal scans. Designed secrets remain ID/route/status; public canon is not automatically a sealed new truth.

@@ -26,3 +26,10 @@ Read user-role messages from 351 top-level local OOPS project JSONL logs in `/Us
 ## How to use this index
 
 For each selected UI slice, trace the relevant CUI references into the existing owner and current inputs, distinguish already-fixed work from remaining gaps, and verify the player's real journey. Keep the deeper UI backlog in the [implementation tracker](IMPLEMENTATION_TRACKER.md); avoid treating every historical idea or screen as a new universal gate. No new implementation status is asserted by this index.
+
+
+## Content reconciliation B471: complete current record and later evidence routing
+
+All28 lines and CUI1–CUI12 were read. The search covered filtered user-role text from351 local logs, with128 keyword hits including irrelevant matches; it was not128 complaints or complete conversation/image/cloud coverage. This reconciliation read the index, not the underlying logs or attachments. Preserve exact user-source pointers and the earlier35-chat sample as distinct evidence windows, without treating these paraphrases as new project rules (AD32).
+
+The durable concerns are whole-screen composition, nearby interaction/context, adjustable panels/readable text, purposeful identity/color, consistent glance/full facts, varied suitable forms/prose, distinct useful world basics, actual mechanical states, lead scene flow, combat/harm home, reference-image roles and real-game fidelity. Current [DESIGN](../../../../DESIGN.md), [UI rules](../../../UI_RULES.md), [vision](../../../USER_VISION.md), current [PROJECT](../../../../PROJECT.md) and actual task owners supply authority. A historical complaint is not a current reproduced defect; a gallery or screenshot is not full experience evidence. Later prose-first/whimsy/task-layer direction and current viewport rules qualify old surface suggestions, while mechanical truth, saved observations and reliable feedback remain owned by their actual consumers. Keep relevant CUI references in selected work and preserve deeper backlog in its tracker; this index does not activate every historical request or authorize a new UI wave. No original chat, image, live screen, source, browser or runtime was reopened.

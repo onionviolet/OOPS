@@ -50,9 +50,9 @@ release gate or prestige layer. See [packets](IMPLEMENTATION_PACKETS.md).
 | P4 | Give useful surplus outputs competing destinations: summon research versus examination, meal versus alchemy, orb versus dust | Inventory, crafting, food and original economy authoring |
 | P5 | Reward optional self-imposed constraints with useful convenience or capability; reserve them for the next life and allow cancellation | World/start dials, life transition and challenge authoring |
 | P6 | Let allies work away from the party, with explicit time and stamina costs and persistent work receipts | Party, everyday life and time resolution |
-| P7 | Separate long-lived work capacity from current work progress, as Envy separates speed investment from routine level | Skill practice and progression, within the existing one-prestige milestone |
+| P7 | Separate long-lived work capacity from current work progress, as Envy separates speed investment from routine level | Skill practice and progression, without adding a new prestige layer |
 
-Keep the familiar opening, one realm/one prestige milestone, flexible carry dials,
+Keep the familiar opening, existing optional prestige, flexible carry dials,
 comfortable unfed ordinary play and desktop/laptop-first presentation. A source's
 finite caps, Ruby purchases and narrow unlock schedule are observations, not new
 YAIRPG constraints. No copying of game code, prose or assets is proposed.
@@ -92,3 +92,12 @@ Status: **PARTIAL**, with bounded source/data extensions complete. Full callback
 offline, combat and story journeys remain named in [checkpoint](CHECKPOINT.md).
 Research checks passed; no YAIRPG source edit, build, gameplay, installation,
 commit or director acceptance is claimed.
+
+
+## Coverage-map content reconciliation B621
+
+B621reads every field and record of [the coverage map](COVERAGE.json): fourhistoricalinputhashes/17prior-tablecomparisons,12tables and136selected CSVrecord-IDpairs out of3046inventoryrows. Greed22and restrictiontranslation9are full selected-table counts; other tables remain bounded. Build/hashparity does not restore missingnativecorpus, prove currentinstallation, read callbacks or execute a route. StatusPARTIALstays accurate for underlyingresearch; fullmapreview is distinct.
+
+Preserve the carrier/reset split,10balanceexceptions, inheritedaccessvsproficiency, Envycapacityvsprogress, Alchemyscore/allowance, activequests/temporaryeffects, manual/AHAallocation and offlineeligibility. Sevenlatefamilies and22Greed/21routines/88Pride/fourbooks measure differentthings. Pride55/555parser and Wrath/Alchemyreleasecode remain unread. Fourmentorlessons can accumulate by authoredinheritance but no actualfour-life/minimumlife proof was performed.
+
+P1–P7remain useful unselected originalreuse proposals with currentowner checks needed. The retired one-realm/prestige milestone is not restored; humanreviewoptionalAD42and currentAD36/AD43govern selectedruntime evidence. No new sourcebody/readcredit for the136externalrows, recovery/acquisition, sourcecode/runtime/save/test/build/browser operation occurs.

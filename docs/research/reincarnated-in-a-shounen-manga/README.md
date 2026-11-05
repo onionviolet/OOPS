@@ -133,3 +133,12 @@ late-rule reconciliation and the reusable reader brief. The source-specific
 prompts and the pre-fold template remain private receipts. Current AU1–AU15
 rules govern future work, including the source-sized full-book plan and bounded
 fresh reader contexts. This fold performed no new reading or acquisition.
+
+
+## Content reconciliation B619: source and preservation scope
+
+F1: Full135-line READMEactual content reviewed: available-source reading boundary, savedEPUB, original/reusableprompts, source/entryanchors, fourtoolroutes plus backgroundcapture, acquisitionpolicy exception, timeoutrecoveries, privatepreservation validation and playbookfold.255storychapters plus announcement atentry181is256entries, not256storychapters; laterentry andchapternumbers differbyone. Reported434016words/fullbodycoverageandhashchecks are the2026-10-16receipt, not a fresh body read or present catalogue census. Inactive/lastavailable/unresolved ending does not certify finished novel. Initialthreechapter sample is superseded for research scope, not erased.
+
+F2: Sourcebodies/originalHTMLowncapture identity; renderedDOM is not rawHTTP response. EPUBsimplifiespresentation and retains source lineanchors, structural/text roundtrip reports do not prove externalreader visual acceptance. Gitignored source/notes/EPUB/prompts require an actual independent personal backup if desired; this pass performs neither backup nor public commit/export. Literal readerbriefs/steering differ from post-run reusable template. Current sourceusage rules govern future runs; exact historical grants/robots exception/timeouts do not renew source/browser permission or dispatch readers. A403route stopped, successful backgroundroute remains separately qualified rather than renamed successful lncrawl transport. No current installation/version/site claim or external fetch occurs.
+
+F3: Preserve method: saved-source/notes/receipt-first, edition/hash and entrymapping, full reading separately from capture/hash/keyword search, and late-rule corrections without rereading entirecatalogue. Public RS11–RS26palette and private full dossier have different detail/disclosure scopes. This complete READMEread gives no fresh private-file/raw-story review. Present PROJECTKlein/HPpriorities and AD42optional human review govern chosen future work; no new adaptation, gamefeature, acquisition, worker or runtime proof occurs.

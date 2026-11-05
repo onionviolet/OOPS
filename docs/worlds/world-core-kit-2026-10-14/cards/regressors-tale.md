@@ -12,4 +12,9 @@ Owner for detail: [institutions, roles and floor card](../../REGRESSORS_TALE_INS
 | K8 daily life | Stone table in the pass doc (section 4); 1 SS a month clan support; meals, rent and wages not found | m40 p26; m99 p78-89 | none |
 | K13 loop | Wake at the anchor, fox beat, herbs, institution route, gate, die or age out, return with understanding intact | m0, m2, m40, m56, m80 | missing |
 
-Open: star-duration reading (C1, span versus cumulative), root-sale and bribe prices (unopened), auction and guild fees (not found where searched), [S] chapters m455-456 and parts of m223 stay sealed (WA11).
+Open: star-duration reading (C1, span versus cumulative), root-sale and bribe prices (unopened), auction and guild fees (not found where searched), [S]chapters m455–456 and parts ofm223 retain spoiler-light/public-canon scope; this does not create designed sealed truth (WA11).
+
+
+## Institution and source-scope reconciliation B609
+
+The [institution pass](../../REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-rights-currency-and-loop-evidence) later section16 keeps C1 unresolved as interval/cumulative wording. Paid conference entry, recommendation, interview and contest grant particular institutional rights, rather than gating every institution. Source quotes remain edition/life-local; no stable silver/spirit exchange or rent quote is pinned here. The fox opening, conference and monthly duty belong to distinct periods, and regression is the protagonist's specific capability. This card supersedes the pass's early absent-card follow-up. All coverage cells remain historical/proposed, with no fresh runtime or whole-profile proof.

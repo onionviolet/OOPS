@@ -79,3 +79,12 @@ surface: Tingen start view and workroom (place service); Continuing connection p
 | FLR6 | Agent-verified, not human-reviewed; route natural |
 
 Status: done at the floor.
+
+
+## Content reconciliation B495: later evidence and preserved gaps
+
+Historical bounded two-life return delivery under AD10/AD12/AD36/AD42/AD43 and WER. This later receipt supplies the missing original Village-return consumer from the earlier launch-start checkpoint. Branching preserves the actual Village boundary before in-place Tingen enrollment; resume restores102 Village money and its no-LOTM slice, then480-pence Tingen money/exact slice on reciprocal return. Those are separate life snapshots/resources, not a cross-world coin conversion or duplicated purse. A new connection uses the existing record; an older Tingen save with no Village snapshot does not fabricate a prior life.
+
+The returnable route and no-port/non-adult/challenge in-place fallback have different terms. A failed branch retains the Village state. Resumed Tingen's continuation UI defect was repaired by separating writable continuation from rewind-only eligibility; allowing ordinary continuation does not enable Tingen rewind. New branch itself has no reload while persistence/return restoration retains its native transition path. The exact two-life snapshot size measurements motivate a later file-storage question, not proof of arbitrary many-life storage cost or a selected migration.
+
+Fresh rebuilt headless route and literal import across both lives support this specific snapshot-based return at the named build. No separate MCP resume hop was played; the seeded UUID consumption workaround belongs to the harness, not actual browser behavior. Matrix1920/1536 ×14/21 and3497 full tests retain their original scopes, not all GP knowledge/body/companion/duty reconciliation or arbitrary current continuing-self merge. Old paused snapshots are not automatic carriers for every later learned ability or independently aging body. This whole checkpoint review opens no source, save, private artifact or browser, and supplies no current installation/persistence proof. Human review is optional; deferred friendly life name/date/money/files remain distinct old follow-ups.

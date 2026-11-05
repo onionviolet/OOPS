@@ -127,3 +127,8 @@ all five leaves and reconciled a too-broad affection claim: compulsion of a
 signature alone does not grant affection, while a separate affection-changing
 power may actually change feelings under its declared mechanism. These checks
 establish document integrity and bounded source findings, not playable behavior.
+
+
+## Content reconciliation B412: useful mechanisms and later direction
+
+Preserve the actual distinction among altered feeling, belief, attention, memory, goal, motor control and allegiance. Duration of an operation differs from the lifetime of its consequences. A private causal receipt is not automatically the target’s memory, awareness, attribution or proof, and release need not expose a source or undo spent resources and past actions. A power that genuinely changes affection can do so; a signature-only compulsion supplies no such feeling by implication. Strength remains task-specific and can dominate without a mandatory detection/counter/backlash tax. The same-ID stacking, expiry, knowledge replacement and 32-memory-tail observations are dated inspected source spans, not a renewed current code audit or universal retention policy. The six gatekeeper profiles remain alternatives; no universal architecture, current worker reservation, paused-world resumption or active build follows from this historical coordinator index.

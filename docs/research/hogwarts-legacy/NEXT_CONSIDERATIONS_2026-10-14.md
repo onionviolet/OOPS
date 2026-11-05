@@ -63,3 +63,12 @@ the other session's research wave; leave them to that owner.
 - **L7 Method inspector:** a dev-only view that shows why a learned method
   can or cannot be used right now (teacher, body, tool, brace, hours) would
   make LP1 to LP3 easier to test and tune. Inspection only, no mutation.
+
+
+## Content reconciliation B490: retained findings and evidence boundaries
+
+Historical housekeeping/proposal inventory under AD32/AD36/AD41/AD42/AD43. X1–X4 sizes, merge ancestry, dirty generated-only worktrees and249GB free were observations at2026-10-14, not live deletion readiness. Even the old Safe verdict requires fresh current ancestry, dirty/index/untracked ownership, recovery and inbound/tool checks before any retirement; this reconciliation grants no deletion, uninstall or branch action. Tool repos support reproducibility; installed game/source payload and retained evidence are separate assets. Other sessions' installs remain outside this brief.
+
+A1's seven failing tests and combined LP2/LP3 requirement decision are historical integration facts, not seven reproduced current failures. Both legitimate return and brace requirements must be tested in combination rather than dropping one to satisfy single-lane tests. K1 combined crowding and K2 combined literal import are named proof gaps; isolated slice passes do not imply combined coverage. The1366 viewport is historical, not today's desktop matrix. K3's40-step harness issue and K4's port collision are diagnostic questions; raising a budget alone does not certify gameplay or resolve a slow/hung route.
+
+Retain L1's four actual cross-slice joins, L2's research-to-owner fold, L3's remaining capture families, L4's ranked unsent re-audits, L5's available-source candidates, L6's120 wool/24 failed cloth attempts and L7's read-only method inspector. Those outcomes are useful alternatives, not present implementation/acquisition/dispatch authority. A finite unlucky replay does not alone establish the probability distribution or required balance change. Human play is optional AD42 review rather than a universal prerequisite to consider fitting joins. Current source/install state, later merges, native/UI/full-suite behavior and purchase availability were not inspected in this full-document read.

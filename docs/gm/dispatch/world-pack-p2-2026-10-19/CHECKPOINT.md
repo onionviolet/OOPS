@@ -52,3 +52,12 @@ Digest noise removed (per-run only): `saved_at`, `last_rewarded_export`, RNG see
   (names the pack cites, not definitions); moving them is a follow-up.
 - Pack-in-JS: the pack is a `.js` data module because the architecture scan only resolves
   `.js` imports under `src/`; it stays JSON-round-trippable (tested).
+
+
+## Content reconciliation B486: authority, suppliers and proof boundaries
+
+Historical behavior-preserving pack-loader slice under AD36/AD43. A projection-only registry installs a bundled plain-data JS pack while adapters preserve export names; no saved pack revision or new tick owner was added. Non-function export equality and JSON-round-trippability test different properties. The registry's loud dormant/error failure guards against silently installing an empty world, but does not establish every loaded definition's source fidelity. The six law/job/food/price lint records and T2/core-floor classification are representation/coverage claims, not a full playable Cyoria world.
+
+Six-seed300-step simfuzz baseline/final equality and normalized browser digests are bounded regression comparisons. Removing per-run saved timestamps, RNG seeds and UUIDs means normalized digest parity is not literal complete-save byte equality or proof of all random outcomes. The browser boots and talks to an elder; it never reaches Cyoria. Preserve the explicit WA19 browser-journey backlog despite engine/native-binding checks. The npm-test cell points to another report without a result/count here; do not invent a green aggregate from this checkpoint.
+
+Pack revision pinning WA10/WAC5 deliberately remains absent to retain save shape, and IDs/locations/footprints/text still in the ID module remain a follow-up. Keeping a JSON-round-trippable JS module reflects the then scanner's import support, not a universal architecture ban on JSON. The old rebuild-after-merge instruction, branch and dist state are historical, not present execution authority. This whole-file content review reads neither linked test/report/source bodies nor a current browser artifact; it adds no gameplay, installation or persistence proof.

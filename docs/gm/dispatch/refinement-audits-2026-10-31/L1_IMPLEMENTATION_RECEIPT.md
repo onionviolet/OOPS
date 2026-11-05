@@ -20,3 +20,8 @@ Round row L1 of [B2/B3 more to consider](B2_B3_MORE_TO_CONSIDER_2026-11-03.md) (
 - No novel paragraph pinned: all rows are `I`, locators point to the repo's ability rows. Upgrade to `S`/`T` needs text passes.
 - Old Neil's, Dunn's and Leonard's pathway and sequence are not stated in the repo, so they read the open floor. Savant has no formula row pathway, so the sv hostile reads the open floor.
 - Other pathways (Sun, etc.), sequences 7 and below, and the cast pack are untouched. No combat engine or UI consumer exists; hidden-strength split (shown vs believed vs actual) is not modelled here.
+
+
+## Content reconciliation B470: receipt scope and later consumer evidence
+
+All22 L1 receipt lines were read. Ten rows for five pathways/two sequences, the physical/perceptual shapes, open floors and no_band refusal were a bounded data/source/test slice at that date. Evidence I and ability-row locators are authored inference, not pinned novel paragraphs or current character truth. Three focused tests, build/architecture/rules checks and zero native consumer exercise are separate states. Later LCB1–LCB3 changes supersede selected scale/subject assumptions; do not repeat L1's old cast floor assignments or no-consumer statement as current fact. The cast pack, unknown actual strength and displayed/believed values retain separate owners. Current [PROJECT](../../../../PROJECT.md), AD49/AD32/AD36/AD43 govern selected implementation; this reconciliation adds no combat consumer or source qualification and ran no runtime/test/build/browser.

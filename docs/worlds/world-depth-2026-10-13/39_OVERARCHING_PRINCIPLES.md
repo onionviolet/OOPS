@@ -46,10 +46,10 @@ Places where several parts touch the same state and could disagree.
 |---|---|---|---|
 | OA17 | **Mood** | 31 IL1-IL3, 34 VL9, 35 health, 38 HB13 | One spirits band, many writers; keep it one state, not four. |
 | OA18 | **Habits and routines** | 31 IL13, 34 VL15, 38 HB1/HB11, 29 RI | Accepted occurrences as the authority for habits, patterns and idle contact; logs are projections (part 40 IMX1). |
-| OA19 | **Reputation scales** | 21, 31 IL22, 33 institutions, 38 HB3 | Neighborhood, institution and fame as separate audiences over one cause log. |
+| OA19 | **Reputation scales** | 21, 31 IL22, 33 institutions, 38 HB3 | Neighborhood, institution and fame as separate audiences over actual caused and delivered accounts; shared IDs do not require a universal cause log. |
 | OA20 | **Age and body** | 30, 35, 29 DV1-DV3, 36 MC14 | Body, soul, apparent and legal age as separate facts everyone reads the same way. |
 | OA21 | **Signals** | 36, 37, 38, 20 UF4, 21 SU | One signal registry with cooldown adjectives instead of per-part one-off lines. |
-| OA22 | **News and gossip** | 31 IL20-IL21, 29 SSG2, 21 | One claim object with source, delay and accuracy, used by gossip, news and rumor. |
+| OA22 | **News and gossip** | 31 IL20-IL21, 29 SSG2, 21 | A report descriptor with source, recipient, delay and basis can serve gossip/news/rumor; economic unique claims retain their separate owner. |
 | OA23 | **Values and acts** | 34 VL25, 29 RQ7, 21 | Act tags on causes are read by values, renown and law alike, through a typed descriptor added only as needed; today `s.causes` is a relationship receipt map, not a universal journal (part 40 IMX4). |
 | OA24 | **Continuity** | 29 RCL/RX, 38 HB16, 30 heirs, 35 death | One carrier model for what crosses lives and worlds. |
 
@@ -63,3 +63,8 @@ Places where several parts touch the same state and could disagree.
 | OA28 | **Hidden-layer leaks.** Many views, many chances to show truth. | A lint over UI reads (DV24, 36 MC47). |
 | OA29 | **Contradicting owners.** Two parts define the same state differently. | Part 32 canonical rows; one owner per state, recorded. |
 | OA30 | **Agent drift.** Proposals read as accepted. | Every part says "proposals only"; only Weibao's words change direction (AGENTS). |
+
+
+## Shared occurrence and report-owner reconciliation B614
+
+The [part40review](40_IMPLEMENTATION_CONSIDERATIONS.md#content-reconciliation-b614-historical-seams-and-current-owner-boundaries) qualifies OA19/OA22alongside existing OA18/OA23corrections. Shared causal identifiers need not be a universal occurrence database, and a settled unique reward claim is not a rumor/news report. Preserve actual producer, recipient delivery, attribution/basis/correction and affected reader; audience judgement can disagree with author truth. Current selected source cause receipts deduplicate relationship delivery, with recent memories separately bounded. Useful shared descriptors are proposed where needed under AD51/AR11/AR12, rather than new mandatory schemas or two-consumer-before-design gates.

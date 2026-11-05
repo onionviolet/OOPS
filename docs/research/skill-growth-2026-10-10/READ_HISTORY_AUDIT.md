@@ -233,8 +233,8 @@ STATED example.
   a cultivation sect (STATED). In each, the outsider's growth is illegible to
   the locals' measuring tools.
 - **Power as contract.** Super Supportive's System is named as a warrior's
-  contract (READ), so its levels double as service owed (L8). This is the
-  clearest verified L8 in his history.
+  contract (READ), so its levels double as service owed (L8). The contract name is chapter-READ, while the table labels service owed MEMORY.
+  This is a candidate L8 analogy, not verified proof that rank measures debt.
 - **Status grows in the open.** Super Supportive's public dissects villains'
   skills from one appearance (READ). Ranks are spectator sport, which ties to
   L9 visibility.
@@ -266,3 +266,14 @@ STATED example.
 Alternates: DIE. RESPAWN. REPEAT. (66643) for banking (G24), but only 4
 public chapters remain. Applied Cultivation (97091) for origin points and
 sect contribution economics.
+
+
+## Content reconciliation B618: evidence and current scope
+
+F1: Complete268-line read-history audit reviewed: method, all66title rows, G23–G32andL11–L18proposals,12standout subtleties, five ranked picks and alternates. Count66agrees with the actual table;189favorite/follow rows, about75progression works and reported19early-chapter reads are historical intake/reader reports, not new source/user-reading certification. Followed is not deeply read, failed/stubbed chapters are not read, and early/recollected/marketing evidence cannot establish full-story caps/endpoints. No catalogue/account/current-availability lookup or novel body read occurs.
+
+F2: Its strongest L8conclusion conflicts with its own Super Supportive row: contract name/offer odds/ranks are labeled READ while service owed is MEMORY. A contract title alone does not prove rank measures investment or duty debt. Correct that conclusion while preserving exact original in this receipt. G23harvest need not make keeping growth universally criminal; that is a source-specific regime. G24lump-size conversion differs from ordinary XP spending/upkeep; Dreamer’s Throne spending alone does not prove banking-to-grade. G26territory/ecology/capacity are different carriers, not all inner worlds automatically one formula. G29systemverdict differs from ordinary social judgment; G30numericalmilestones do not establish universally visible title/power. Keep G31role-based rules and G32actual economic ownership rather than assuming every custody gate scales growth.
+
+F3: L11remaining-lifespan timer, rank-caused life extension and a level literally denominated in years are different. An Orange-core lifespan increase alone does not prove its rank number is years-left. L12observed threat differs from faculty; L13caste/access differs from power; L14market price/body value differs from level; L15floor/depth differs from character strength; L16relative cohort position differs from physical growth; L17verdict differs from independently granted title; L18quantified measurement needs its actual unit. Preserve unusual mechanisms without converting analogies into proven source laws.
+
+F4: Proposals for throwing away XP overflow, noble information privilege, infant-clone source changes, adaptation pain, fixed faculty, spectator appraisals and broken-system fuel remain source-qualified. No universal anti-lucky-kill cap, pain cost, corruption, weak starting life or compulsory grind is adopted. Existing merged G/Lcrosswalk governs; retain source-local numbers with document name. Later reading candidates/prices/chapter counts are dated research priorities, not a present acquisition queue or current recommendation. Human review is optional under AD42; current PROJECTbook-world order governs selection.

@@ -38,3 +38,10 @@ Slice 2, contribution:
 - Missions are minimal rows: no deadlines, issuers other than Hale and the Library elder, or reward kinds beyond contribution (DWF155 remainder). No secrecy duty or heat (DWF153, DWF156).
 - The rite commands and store figures are proposals; scale them per world.
 - `dist/bundle.js` and `index.html` carry other sessions' uncommitted work and are not part of this commit.
+
+
+## Content reconciliation B480: complete record and actual later evidence
+
+All40 lines were read. The ritual predicate/principle/substitution model and observed met/substituted/partial/absent bench grades are a preview/hook slice; no Sequence5 dose was consumed or made safer, and its displayed odds were not rolled. The5/90/recovery/feeling-window values, acquisition props and store/mission figures are authored dials, not source-qualified probabilities or universal ritual policy. A transition can require sustained/history support rather than just a final-frame fact. A fitting ritual can fail physically or have different supported outcomes; this local never-a-lock model is not every world's law.
+
+Contribution earned/spent and store bought counters are distinct from items, eligibility and actual institutional rights. Two LOTM assignments, the scoped merit buys and the probe-only sect CP purchase were named browser journeys; fire grass/primer possession still did not implement their use. Cultivation breakthrough and HP Animagus suggestions remained unbuilt. Missing moon, higher ingestion, broader missions/secrecy/heat and incomplete formula material conditions stay exact scope gaps. The3186/3188 pass result with two separately reproduced baseline failures is not a fully green suite; unchanged golden commands and selected migration assertions do not certify all current saves. Current [PROJECT](../../../../PROJECT.md), [world-pass rules](../../../WORLD_PASS_RULES.md), AD49/AD36/AD43 and optional review govern current claims. No source, ritual result, book/PDF, item, code, JSON, test/build/browser or personal save was newly inspected; branch/no-merge/other-build statements are historical.

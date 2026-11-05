@@ -15,3 +15,10 @@ Six ranked original options are in [IMPLEMENTATION_PACKETS.md](IMPLEMENTATION_PA
 Build24320660, macOS Mono Unity2021.3.33f1. Three small assemblies are hash-matched; compiled Ink and managed wrappers were recovered. The initial MonoBehaviour decoder failed, and a repaired sample still could not decode a complete PlayMaker graph. Bounded shipped-guide text was read in place with byte locators instead. Exact dice thresholds, odds, recipe quantities and full state transitions remain opaque. This is a completed finite source pass with those limits, not a full reconstruction or a gameplay test. [Findings](FINDINGS.json), [coverage](COVERAGE.json), [intake](INTAKE.json).
 
 No game was launched, no save/settings/install was modified, and no YAIR source/build/commit was made. The artbook was inventoried but unread. Weibao may remove the install after this pass; future opaque scene-graph work would need it again.
+
+
+## Content reconciliation B407: actual read coverage and historical evidence
+
+Bodily condition, food, dice capacity, broken skills, medical access and corporate claims remain separate. Action clocks and cycle clocks have different causes. The 1,398 indexed Ink roots and bounded text windows do not establish complete story or executable graphs. Scene decoding failed and SERIALIZED_TEXT.json failed to write with Errno28; neither is recovered evidence. Exact dice odds, numerical transitions, save RNG and offline policy remain unknown.
+
+This reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.

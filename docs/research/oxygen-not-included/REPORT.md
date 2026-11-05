@@ -67,3 +67,12 @@ These source joins suggest richer original worlds beyond the five selected packe
 Verified here: complete managed recovery, retained input/export hashes,62 named semantic evidence locators and the finite chain analysis. JSON, source-locator, hash and document-link checks belong to the final validation receipt. No launch, personal saves/profiles, new runtime/canonical owner, source-library mutation, purchase, enablement, commit, publication or automation. No game/unit/browser/save/failure/regression suite was run; the current implementation-first phase defers those gates. Full-source export is not full-source reading.
 
 Root may reconcile the user's cleanup condition against the completed finite scope and explicit unread/native limits. This GM performs no uninstall. The pinned source and rule snapshot can be reused without depending on the live installation once that separate gate is reconciled.
+
+
+## Coverage-map content reconciliation B623
+
+B623fully reads [COVERAGE.json](COVERAGE.json),23completepathrecords and62completeevidenceobjects; everyE01–E62isreferenced and all39findingIDsarecovered. These structuralchecks accompanyactualcontentreview, not fresh externalcode/gameplay. Nativepressure/heat/phase/diseaseimplementation, broadcatalogues/stress/worldgen/rocketinterior/persistence/offscreenfrontiers remain explicit. Staticrepresentativepaths do not become whole-system/runtimecoverage.
+
+Preserve actualmaterial/payload/mass/heat/disease consumers, body-specificsupport/recovery, learned/granted/aptitude/morale distinctions, typedresearchpayment, alternativeplantnutrients versus jointlyrequiredconverterinputs, lifecycle/egg/output custody, played/render/autosave clocks and native/managedsaveboundaries. SourceUngrantSkillmutatesmastery; equipmentremoval doesnotprove separatelyearnedknowledge survives. The originalborrowedtool proposal should keep thoseowners distinct. Serializedfailurebranches donotprove atomicdurability; mountedDLCdoesnotproveentitlement/activation.
+
+Allfiveoriginalpackets remain useful alternatives with exact custody/time/consumer/failure checks. TheiroptionalFrontierworkshop proposal launchesno newdepth under currentPROJECT; currentoverlapchecks precede choosing a gap. Actual source may allow differentfreeproduction/parallelcontrol/bodypolicies, so packetconstraints remain localfixtures. AD36/AD43and optionalreviewAD42governselectedruntimeevidence. No external sourcebody/game/save/account/entitlement/acquisition/build/browser/test operation occurs.

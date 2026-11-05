@@ -453,7 +453,7 @@ Memory: Mira remembers household aid; Torren actual material custody; Eda record
 | K7.W3-TT41 ([W3/K7.W3-TT41](../W3_PEOPLE_INSTITUTIONS_LIFE.md#w3-tt4-b4-humanitys-inheritor-estate-and-ruin-settlement)) | Original estate household | Guest, authorized operator, steward; repair/care obligations | Scope of command, actual upkeep, custody | Permission downgrade and device refusal under source-qualified rules |
 | K7.W3-TT42 ([W3/K7.W3-TT42](../W3_PEOPLE_INSTITUTIONS_LIFE.md#w3-tt4-b4-humanitys-inheritor-estate-and-ruin-settlement)) | Local relief church/settler council | Applicant, helper, appointed custodian (original ladder) | Aid distribution and affiliation claims | Service restriction or civic dispute; ancestry is not automatic personal authority |
 
-K8.W3-TT4: source currency unverified; proposed settlement service vouchers, no automatic power. Four anchors: meal 1 voucher, bed 3/night, lesson 5, maintenance kit 8. Calendar: local day/year versus machine cycles; original restoration day festival. Jobs: salvage sorting, maintenance, garden care, archive indexing. Communal staples and estate guest room; household includes residents and intelligences with separate property/permission. Routine: care round, funded repair, archive appointment, communal dinner, rest or machine maintenance as body permits.
+K8.W3-TT4: later source windows name gold pounds/royal scrolls without validating these authored prices; proposed settlement service vouchers, no automatic power. Four anchors: meal 1 voucher, bed 3/night, lesson 5, maintenance kit 8. Calendar: local day/year versus machine cycles; original restoration day festival. Jobs: salvage sorting, maintenance, garden care, archive indexing. Communal staples and estate guest room; household includes residents and intelligences with separate property/permission. Routine: care round, funded repair, archive appointment, communal dinner, rest or machine maintenance as body permits.
 
 More: K6.W3-TT47 Default lets a steward disagree with a rightful claimant's plan; Dial competing records, because authority and judgment differ. K7.W3-TT43 distinguishes device command from employee consent. K8.W3-TT42 prices legacy upkeep rather than treating ancient machines as cost-free servants.
 
@@ -889,3 +889,8 @@ Root rounds 10/11 appeared after the completed-lane snapshot. CR1/CR2 redirect l
 3. **W19-A3:** Consider one relationship/start overlay only after the selected canon slice is playable, with exact base pin and independent state.
 
 Final claim: documentation consolidated only. Source/built/browser/persistence/director states remain exactly scoped above; no gameplay change, build, test suite, save action, commit or publication.
+
+
+## Institution pass and title-specific evidence reconciliation B615
+
+全人類的繼承者: the [institution pass](../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds) adds gold-pound compensation and scroll/coin distinction while preserving817200claimed versus827200itemized total. Future-tax payment has a200–300yearquote, not a supplied universal tax rate. Council/gallery relative weights are reported, exact one vote per gallery person inferred. Public use/private ownership/living-human status, purity reading, title and actual office remain distinct. Machine factual adjudication does not read motives; authority to link machinery is separate from the highest title. Source-value observations do not validate this card’s service vouchers or grant power. No new source-body/play proof.

@@ -35,3 +35,10 @@ steps that refer to those files. `NATIVE-EXPORTS-MANIFEST.json` records every or
 `pack-evidence.py` verifies the archive before compacting exports. The G10 heir fixture stays directly
 available. Source logs are gzip-compressed. Full browser binding trace is compressed with a compact summary.
 No file is over 2 MB; no `dist/`, HTML, profiles, personal saves or raw novel text belongs in the commit.
+
+
+## Content reconciliation B475: complete record and exact joined evidence
+
+All37 lines were read. This is QA instrumentation and reproduction guidance, not an authoring adapter or a request to launch its local servers, eval endpoint, build or browser. Initial helper order, reset fixtures and staged journal continuation affect reproducibility; avoiding a corrected-case replay differs from a complete independent fresh replay. Retained failed harness attempts and final corrected outcomes remain separate. Probe outputs before and after repair, normal standard-smoke without test bridge and the heir fixture with real debt have distinct scopes. A source-generated fixture or resumed case is not natural acquisition or a new creator ability.
+
+The old-reader check rebuilt an actual earlier commit and rejected complete reserve/retort envelopes before reaching itinerary grammar. That cannot be cited as proof the earlier grammar itself was checked. Literal downloaded exports and hash manifests preserve exact artifact bytes, not automatic semantic success of every archived file. Private archives and raw state were not opened here; no source prose or personal saves were accessed. Current [PROJECT](../../../../../../../PROJECT.md), AD32/AD36/AD43 and actual evidence owners govern selected reruns. Historical ports, symlink instructions, worktrees, profiles and requirements are not current live handles or new removal/commit authority. No command in this guide was executed.

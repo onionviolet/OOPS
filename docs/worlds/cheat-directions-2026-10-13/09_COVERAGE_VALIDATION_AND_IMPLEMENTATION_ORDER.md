@@ -176,3 +176,8 @@ No broader code audit, runtime change, build or browser/persistence test was run
 No sealed scenario truth or new franchise rule is asserted. All three slices and
 coverage conventions are proposals; actual campaign, writer, source profile,
 operations and authoring acceptance cases remain to be selected by the owning task.
+
+
+## Content reconciliation B412: useful mechanisms and later direction
+
+Keep the six-axis lattice and route-specific enumerated/defined/executable/playable/verified distinctions. Definition validity, useful natural acquisition, actual output consumer and durable pending/completed state prove different claims. Pairwise joins do not prove critical multi-axis ordering; include collisions actually relevant to a selected route without converting dormant ideas into required gates. Source transfer, prediction and resurrection need their real operations; descriptions or restored HP cannot substitute. Refine U3 by current AD51: implement a useful shared seam for its first genuine consumer when warranted; a second actual use validates or revises shared semantics, not permission to begin. S1–S3 are optional staged proposals, not today’s dispatch. Their recording artifact can require a new contract, and a stored capsule does not prove later delivery. The one-realm/one-prestige milestone sentence was superseded October 24. The 1366×768 target is historical; selected new UI needs the current named desktop/laptop viewport and rebuilt proof. No present random-stream, generated-definition, save or continuity behavior is reverified by this document read.

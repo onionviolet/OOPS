@@ -216,3 +216,14 @@ whitespace checks. No game build is relevant to these documentation changes.
 
 Changelog: 2026-10-21, Codex: recorded the requested combined-platform proposal,
 all named tool roles, source/account limits, current holdings and pilot gates.
+
+
+## Content reconciliation B581: selected stack and acquisition boundaries
+
+F1: Full actual218-line review includes T1–T10, F14–F16, P1–P5, L1–L4, B1–B5, I1–I5 and pinned-source/verification history. The opening2026-10-22 implementation update supersedes the earlier selected-stack uninstalled status and routes to its external implementation owner. This review does not independently verify that installed state or make every optional provider delivered. Preserve the scout's API composition, one planner/catalogue/job ledger, bounded provider adapters and separate upstream databases instead of a monolithic code merger.
+
+F2: One writer per concern remains useful: planner request/reservation, provider execution, immutable intake/promotion, reader progress and derived curation. Reconcile provider job IDs on restart; a retry is not a fresh acquisition. CLU's documented Komga-to-CLU relative-path progress mapping is not two-way identity sync. Reserve multi-issue packs once and map contents before new jobs. Account/provider limits are shared across adapters, while source-parallelism is neither RPS nor daily allowance. Metadata operations can have network/cache effects. A wrapper's sleep/archive controls do not prove extension-wide stop-on-rate-limit behavior.
+
+F3: Keep exact archive hashes, ordered page hashes, semantic edition/translation/continuity, fractional chapters/extras and observed coverage separate. Hash mismatch can be repackaging; title or perceptual match cannot authorize discarding a different edition. Validate archive/page decoding/order/placeholders and actual content range before promotion. Presence/header/metadata checks on72records/71paths/69PDFs do not certify full hashes, repaired extraction or reading. Scoped absence of CBZ/CBR or Suwayomi is dated and bounded, not present whole-device absence. Bibliographic candidates remain proposals, not downloads, purchases or verified gaps.
+
+F4: L4 routes derived OCR/vision to the existing source workflow with asset identity, transform coordinates, language and uncertainty. [The B580 OCR review](MANGA_OCR_AND_VISION_OPTIONS_2026-10-22.md#content-reconciliation-b580-pilot-limits-and-locator-identity) qualifies the later English pilot and locator stability. Source acquisition, validated file, extraction, actual reading and adaptation remain separate. Current tool registry/library/coverage/acquisition owners govern any later run; the scout's specific API routes, licenses, install gaps and network support were not rechecked. No services, configuration, catalogue, source file, job, transfer, spending, deletion, commit or push were changed.

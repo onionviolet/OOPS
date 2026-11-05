@@ -43,3 +43,12 @@ Reading: the preflight removed the class of failure KJ3E lost about four runs to
 ## Follow-up (same day)
 
 The preflight rule above is applied: a visit holds a participant only after its arrival act, and a schedule match with no hours is AMBIGUOUS. Re-run on KJ3E and KJ3F: still 0 blockers; the broken `enter` variant now reports AMBIGUOUS where it used to pass. The next slice is [KJ3G](KJ3G_IMPLEMENTATION_RECEIPT.md).
+
+
+## Content reconciliation B484: contract and preflight chronology
+
+Historical contract transition and corrected preflight under AD36/AD42/AD43. Five intents accept and close the pending offer; contractual wage terms and unit organization remain knowledge, not paid income or a wage schedule. The unchanged money/inventory assertion is material. A five-year contract fact does not establish five years of enforced simulation. The source window, thumbprint and private pack identity remain the original author's qualified evidence, not a new chapter read here.
+
+The initial presence preflight's zero blockers missed a real admission failure: arrival relocation cannot satisfy its own required-participant precondition. The same-day follow-up supersedes the earlier not-applied tool status. Visit holding begins after arrival, and a no-hours schedule match is AMBIGUOUS; the broken variant subsequently reports ambiguity, not a proven blocker or universal placement solution. Native placement workaround and static preflight diagnosis remain separate.
+
+One uninterrupted native run starts from KJ3E's completed checkpoint on its unchanged bundle, not a fresh campaign. Literal import proves position/contract at that identity. Four runner executions, a repaired temp symlink and ID-string errors are retained without attributing them to gameplay or hiding retries. The two differently sized episodes and reused builder do not establish sweep speedup; both required source reading. No counterfactual, font capture, civil-clock or human evidence is added. KJ3G owns the later duties/tour continuation; the dated next step does not dispatch it again.

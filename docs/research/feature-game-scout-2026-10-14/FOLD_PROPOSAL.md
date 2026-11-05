@@ -1,5 +1,7 @@
 # Feature scout fold proposal, 2026-10-14
 
+Current reading, B583: section2 donor folds and section3 FS1–FS9 already have later explicit uptake in the existing packet/chain owners. The opening waiting-for-yes language below describes the original proposal stage. [Reconciliation and exact owner scope](#content-reconciliation-b583-later-authorized-folds-and-donor-limits).
+
 **PROPOSAL only.** Nothing here edits [PACKETS.md](../cross-game-synthesis-2026-10-14/PACKETS.md) or [modular production chains](../../MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md) until Weibao says yes. No packet rank, owner or gate changes; these are new source comparisons only.
 
 Inputs: the "Feature answers" tables of the ten lanes in [feature scout SESSIONS](../../gm/dispatch/feature-scout-2026-10-14/SESSIONS.md). All ten exited by 21:08 with CHECKPOINT Status **PARTIAL**; every lane answered all of its feature questions, and PARTIAL refers to aspects, runtime and named gaps (see [section 4](#4-partial-lanes-and-gaps-worth-a-resume)).
@@ -143,3 +145,16 @@ python3 runs/launch.py <lane> <prompt_file> <session id>
 
 - All game-level `private/` folders created by these lanes are gitignored (`git check-ignore` passed). No nested `private/` under `rimworld/feature-pass-2026-10-14/` or `minecraft/tfc-chains-2026-10-14/`; RimWorld kept deep detail in its `~/.codex` work area instead.
 - Nothing committed. The coordinator commits each lane output dir per SESSIONS.md.
+
+
+## Content reconciliation B583: later authorized folds and donor limits
+
+F1: Full actual145-line review includes FP1–FP6, every donor clause and caution, FS1–FS9, Q1–Q5, explicit unread branches, housekeeping and historical resume command. The opening proposal-only/wait-for-yes statement is superseded within its scope by the existing2026-10-15 user quote in PACKETS added-donors and modular-chain Round6 owners. Those owners already fold section2 donors and explicitly adopt section3 FS1–FS9. This reconciliation does not duplicate that round, allocate codes or renew historical commit/push authority. Other proposed rank/order/worker/launch changes remain unselected.
+
+F2: FP1 preserves actual predicate-bound blockers, rate-qualified ETA, paused work and forecast versus actual outcomes, while donor durable last-result joins remain unshown. Kittens' cap-impossible arithmetic ETA, one global failure-reason slot and silent boolean craft failures are cautions, not patterns to copy. FP2 keeps retained recipe knowledge, page-progress multiplier and direct XP separate; teacher/library/deck/practice routes differ. Sapiens' bounded no-teacher result is not whole-game absence. FP3 distinguishes real spend, eligibility threshold, paid or free prep and retained consequences; a closer exception can beat patience termination, and an unread paid branch supplies no evidence. No universal romance penalty, stress tax or training cap follows.
+
+F3: FP4 shows competing uses joined by actual item identity, not that every item is valid in every destination. No sampled donor's side-by-side destination quote does not prove YAIR is first across all games. Free stock, held inputs, hauling priority, job entitlement and useful return differ. FP5 keeps learned/unlocked/researched/affordable/storage-limited/allowed-worker/permission-to-use-stock/target conditions distinct. Sapiens being the only new sampled permission donor does not establish unique industry support or full ownership simulation. Source data and controlled fixture behavior do not establish current native admission, rendered UX or save recovery.
+
+F4: FS1–FS7 retain stage-specific interrupt/reset/fuel/custody, actual climate predicates, lot-held elapsed change settled before movement, passive versus staffed time, containers, branches and selected part-property transfer. An API offering copy/merge/average does not show which vanilla flags use it. FS8's separate body/gene/health fields need real readers before claiming independent behavior. FS9's evidence unlock is not a correction/revision ledger; retain the bounded research donor distinction. Current AD36/AD38/AD51/AD52 and existing chain owner qualify uptake, with no universal climate, fixed body cap, mandatory manual first run or new scheduler.
+
+F5: All ten feature questions being answered does not make the ten PARTIAL lanes full aspects/runtime/source coverage. Q1–Q5 and old paid-asset/native-launch limits are dated follow-up options; existing later receipts may supersede them. Historical launcher/session/commit instructions are not live work authorization. No source donor, private fixture, executable, save, installed state or current worker was rechecked. Original useful comparisons, negative results and named unread reducers/branches remain preserved.

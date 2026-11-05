@@ -8,7 +8,7 @@ Edition: English MTL, Gemini 2.5 Flash, Calibre ID 13, read-only copy at `/Users
 
 Reuse first: HUB_LIFE_ECONOMY_AND_PEOPLE (sections 1-4), WORLD_BRIEF, NS01, and the world-core-kit card (contradiction register read, K-sections skimmed). The paradise-depth typed claims were not re-read.
 
-New consecutive reading this run (three disjoint windows, text pre-extracted to scratch files by a deterministic script, then read whole):
+New source reading used whole selected members and the explicitly listed paragraph ranges; these scattered selections are not three consecutive whole-chapter spans:
 
 | Reader | Windows (all paragraphs of each unless a range is given) | Approx. words |
 |---|---|---|
@@ -67,11 +67,11 @@ Rows: how people meet; what they owe; what the role can offer or refuse; how a m
 | Team and teammates | Companions, plus a team space | Pocket money, shared pickup in "Team Space", shared risk | Teammates take the crafted goods; a leader decides who sells at the stall | Landing apart at World Conflicts; delegated room expansion | sid2199 p6; sid2206 p4-16; sid2348 p2-6 SHOWN/STATED |
 | Broker and trader between groups | Direct negotiation of a team promotion scroll (one tier up, max SSS) | A deposit card of 1,000,000 PC settled after haggling from 4,000,000 asks | Offers a swap plus coin; refuses to reveal how much it needs the item | Neither side reveals need; wrong counter-bids shift the settlement | sid2204 p2-15; sid2199 p66-72 SHOWN/STATED |
 | Auction hosts, front-row buyers, group leaders | Prior lane: tickets, seats, staged feuds | Ticket fee; sellers pay commission | See HUB_LIFE section 4 | See HUB_LIFE section 4 | sid459, sid462, sid463 via HUB_LIFE |
-| Rivals and enemies | In-world; hub rule bars brawls | Avoid revenge outside arena | The rule is a hub-only protection (STATED); derived worlds are free to kill | A threat in the hub is empty; the threat shifts to a promise to hunt in a derived world | sid26 p15-19 SHOWN |
+| Rivals and enemies | In-world; hub rule bars brawls | Avoid revenge outside arena | The rule is a hub-only protection (STATED); derived worlds are free to kill | The inspected direct threat is blocked by the hub rule; other harms or later-world pursuit require their actual mechanisms | sid26 p15-19 SHOWN |
 | Newcomer versus high rank | Seen in the central square | None | A visible newcomer who is unmasked draws caution because strangers fear a hidden monster | Tier 5 grants free stall use, room expansion and a new facility | sid27 p13-15 STATED; sid2199 p4-13 STATED |
 | Informants | Employees, friends, guild peers | Payment; reciprocal intel | Sell scoped explanations | Treat as scoped; see HUB_LIFE | sid26; HUB_LIFE |
 | Guild or faction groups | Teams, Paradise-wide factions | Leader elections in conflicts | See sid3805 p55-67 | Imprint colors identify Paradise (sky-blue Heaven's Revelation, blood-red Reincarnation, pale gold Holy Light, deep dark gold Saint Realm) | sid3806 p46-47; sid3805 p55-74 STATED |
-| Contract and debt | Hub debts are mostly private bargains; failure debts belong to specific severe tasks | See HUB_LIFE | Void Tree credit works as a standing debt with hidden score | Low credit hides stock | sid4106 p7-19 STATED |
+| Contract and debt | Hub debts are mostly private bargains; failure debts belong to specific severe tasks | See HUB_LIFE | Void Tree credit is a standing/access rating with a hidden score; no debt principal is established here | Low credit hides stock | sid4106 p7-19 STATED |
 
 Open role gaps (budget did not reach): mission-board staff, medical staff, gene-service staff, a registrar for cursed items, teaching-institute instructors, a larger set of rival teams, how a regular joins a guild (the previous lane shows only sale events), and the exact etiquette of the arena queue.
 
@@ -86,7 +86,7 @@ Open role gaps (budget did not reach): mission-board staff, medical staff, gene-
 - F7 (STATED, sid2940 p3-5): Title forging costs 10 / 20 / 50 / 100 / 200 SC by main-title star and halves with no main title. Cheaper fodder improves the final result (STATED); stock is limited and later tiers cost more (STATED).
 - F8 (STATED, sid4106 p14-60): Abyss Shop currency, 0.1 conversion, Greed Pouch tenfold repeat price, refresh reset, and credit-hidden stock. The loophole is that a refresh resets the repeat price (STATED: price reverts to 1 glaze).
 - F9 (INFERRED from helper reports and spot-check): "Warehouse", "Judgment Hall", "Arbitration Hall", "Healing Institute", "Repair Hall" and "Underground Market" in the keyword census are derived-world institutions. They must not be copied into the hub facility list.
-  - Revised 2026-10-23 (round 2, Weibao's correction): the keyword hits are not excluded from Reincarnation Paradise content. Institutions inside derived worlds count and are catalogued per world, tagged LOCAL, PARADISE-PROVIDED or PARADISE-RESTRICTED, in [the derived-world institutions file](paradise-hub/DERIVED_WORLD_INSTITUTIONS_AND_HUNTER_BENEFITS_2026-10-23.md). The one thing F9 still holds is the tag: a Judgment Hall or Healing Institute is not a hub facility and is not reachable from the hub. Round 2 also found the hub gaps (mission board, gene, cursed-item handling, queue) mostly absent, section 13.
+  - Revised 2026-10-23 (round 2, Weibao's correction): the keyword hits are not excluded from Reincarnation Paradise content. Institutions inside derived worlds count and are catalogued per world, tagged LOCAL, PARADISE-PROVIDED or PARADISE-RESTRICTED, in [the derived-world institutions file](paradise-hub/DERIVED_WORLD_INSTITUTIONS_AND_HUNTER_BENEFITS_2026-10-23.md). The one thing F9 still holds is the tag: a Judgment Hall or Healing Institute is tagged to its actual derived world; its name alone does not make it a hub building or establish any travel edge. Round 2 also found the hub gaps (mission board, gene, cursed-item handling, queue) mostly absent, section 13.
 - F10 (STATED, sid26 p34-38, p56; sid126 p15): employees are contractors who failed a first mission, make one derived-world trip every two months, and have a 4,000 PC exemption leaf from death penalties. This sits beside NS01-C02 (trial noncompletion removes hunter status; MTL adds death), without resolving it. See contradictions below.
 
 ## 6. Contradictions with existing repo docs
@@ -228,7 +228,7 @@ No fabricated claim found among the 27 checked rows; helper locators were accura
 - F17 (S, sid1356 p16-26): a guild needs at least five free contractors; a one-person guild exists but cannot recruit. Hub guilds offer unique skills and a shared repository.
 - F18 (H, sid3797 p14-18): a purchased judicial post is a recurring-payment trap, with Active Ore as the currency. Fraud the text itself shows.
 - F19 (H, sid2158 p41, p91): a staged hearing; paid councillors; a five-day deferral. Local institutions take bribes without Paradise stopping it.
-- F20 (not found, WPR23): no hub mission board, team board, gene service or cursed-item registrar in the whole spine (section 6 of the new file).
+- F20 (bounded not-found, WPR23): the selected whole-spine term searches found no identified hub mission board, team board, gene service or cursed-item registrar; alternate wording remains possible (section 6 of the new file).
 - F21 (S, sid4603 p80 vs p61-76): cursed items can auto-apply on pickup yet are also described as all sold to the Void Tree. Both kept.
 
 ## 14. Contradictions with repo docs and within the text (kept, WPR20)
@@ -245,7 +245,7 @@ ACT NOW (done in the new file):
 
 ACCOUNT FOR NOW (constraints on current work):
 - A1 Benefit stacking: the text shows layered gates, not one tier ladder: tier rights (sid2199), shop level (sid4577), permission levels (sid4038), title slots, Void Tree credit (sid4592 p95), and mission grades (sid4185). Model each as a separate counter so a status cannot be flattened to "tier N". Source: text. Proposal: keep these as five fields on a status record.
-- A2 Away player: employees run shops and enter a world every two months; Hunters accrue Honor Experience only by kills and missions; the shop refresh runs every 10 natural days and banks attempts if auto refresh is off (sid4591 p20). So an idle Hunter keeps refresh attempts, not shop level. Employee income is presumably small-margin trade (sid135 p44). Anything else is P.
+- A2 Away player: employees run shops and enter a world every two months; the selected notices tie Honor Experience gains to kills and missions; the shop refresh runs every 10 natural days and banks attempts if auto refresh is off (sid4591 p20). The selected notice supports banked refresh attempts; it does not prove every form of unattended growth absent under all other means. Employee income is presumably small-margin trade (sid135 p44). Anything else is P.
 - A3 Starts that are not first arrival: a Tier 5 start owns a room, a stall right and a facility but also five duties (sid2199 p8-13); a Lv 40+ shop start can summon the shop in a world. A first-day contractor start sees four signs only (round 1). Propose the status record carries the duties so a later start is not all benefit.
 - A4 What the world remembers: the Void Tree credit (hidden, can go very negative; sid4106 p7-19 round 1), employee status suspension of 30 days (sid285 p31), Team Slaughterer warnings (sid2159 p74), a bounty emblem (Sinner's Emblem, U sid4021 p55). Hunters are tracked by factions and a guild commission board (U).
 - A5 Fraud and abuse shown by the text itself: a judicial post sold with tribute (F18), a staged hearing (F19), the Greed Pouch refresh reset (round 1 F8), nested reinforcement chains to summon Hunters, a healer exploit closed by rewording a permission (sid4038 p81-83 U), a false guide (round 1). AD22: model only as costly mechanisms, not hardening.
@@ -268,7 +268,7 @@ History: round 2 listed V02 sid33-136, V31, tiers 1-4 and 6-9, sid3935-3936, sid
 
 ## 17. Review state (WPR21) and next pass (WPR25)
 
-Highest state: drafted, with consequential claims source-spot-checked (section 11). Not rules-reconciled (no AD, WA, PIR or ECR row text reread beyond the cited codes), not built, not browser-verified, not director-accepted. Rules touched: WPR1-WPR24, AU1-AU6, AU10, AU14, AD5, AD22, AD38, WA1, WA5. Suggested next pass: the derived-world institutions for V02 and V31 (readiness: both have catalog rows, source available, no round yet). No commit made; no file outside the two named files was edited.
+Highest state: drafted, with consequential claims source-spot-checked (section 11). Not rules-reconciled (no AD, WA, PIR or ECR row text reread beyond the cited codes), not built, not browser-verified, not director-accepted. Rules touched: WPR1-WPR24, AU1-AU6, AU10, AU14, AD5, AD22, AD38, WA1, WA5. Historical next-pass suggestion: V02/V31; section18–23nowrecords a later excerpt pass, with remaining whole-body gaps in section16. No commit made; no file outside the two named files was edited.
 
 ## 18. Round 3 (2026-10-23): plan and manifest (written before dispatch)
 
@@ -292,7 +292,7 @@ Reader invocations used: 5 of 5 (R1 to R5, all haiku, set in the first brief), 0
 
 ## 19. Round 3 source spot-check ledger (WPR18-WPR19)
 
-Opened by the coordinator at the `sid/p` locators. Result: matches, wrong, or unverified. 24 rows checked.
+Opened by the coordinator at the `sid/p` locators. Result: matches, wrong, or unverified. 25 rows listed:20opened/coordinator/corrected rows and5unverified rows.
 
 | Reader | Claim | Locator | Result |
 |---|---|---|---|
@@ -330,10 +330,10 @@ One helper error found (R1 pricing). Other claims not listed above stay marked U
 - F23 (H, sid121 p13-15): killing a senior local official ends the Hunter's local standing at once (exclusion, CP revoked) and sets the Department on him. A Paradise mission does not shield local consequences.
 - F24 (H, sid99 p58): spending local points does not lower rank, per a Paradise helper. Separates "rank" from "balance".
 - F25 (S, sid2528 p12): Witch Guild contract: the guild's agent owes a contract and a door only, nothing after. Local institutions can disclaim the Hunter's fate even when Paradise forces execution on failure.
-- F26 (H, sid2513 p25-30; sid2880 p57-61; sid3338 p40-45; sid4034 p46-47): every tier step pairs a right with a duty or cost (disclosure ban and fee at 6; refusing to promote still defaults to Tier 7; consignment fee at 8; Honor Shop stops refreshing at 9). Supports F11.
+- F26 (H, sid2513 p25-30; sid2880 p57-61; sid3338 p40-45; sid4034 p46-47): the selected tier notices pair particular rights with duties or costs (disclosure ban and fee at 6; refusing to promote still defaults to Tier 7; consignment fee at 8; Honor Shop stops refreshing at 9). Supports F11.
 - F27 (H, sid2597 p4-8; sid2336 p31-33): Honor Shop regulation text exists in two versions; sid4185 omits it. The rule that the shop must not be mentioned, on pain of forced execution, appears as rule 3 of five.
 - F28 (H, sid3936 p85-86): an asylum of contractors sells referrals into survival-trial investments, costing the investor credit rating. A credit-rating mechanism, not a place.
-- F29 (not found, WPR23): no fee, term, instructor pay or exam appears in sid3935-3936 or sid4577 p2-58. Teaching in the Dragon Academy window is knowledge exchange in kind plus a letter of recommendation, not a fee-based school.
+- F29 (reader-only bounded absence, WPR23): the reader found no fee, term, instructor pay or exam in sid3935–3936/sid4577p2–58; section19does not independently verify that absence. Teaching in the Dragon Academy window is knowledge exchange in kind plus a letter of recommendation, not a fee-based school.
 
 ## 21. Contradictions and unresolved readings (kept, WPR20)
 
@@ -358,7 +358,7 @@ ACCOUNT FOR NOW (constraints on current work):
 - A7 Local currency separate from Paradise Coins: keep a per-world faction balance (CP) beside Paradise Coins and Soul Coins, with a store that may convert (F22). Source: text. Proposal: do not fold CP into coins.
 - A8 Local consequence tracking: exclusion, a hunting order and revoked balance (F23) are world memory (extends A4 of round 2).
 - A9 Tier steps as bundles with attempt dials: attempts vary (two at tier 8, none shown elsewhere), so attempts are a field, not a constant (F26).
-- A10 Honest absences: fee-free teaching and unlisted guild fees mean a world's school may be an exchange, not a purchase (F29). Do not invent a tuition table.
+- A10 Honest absences: no fee found is not proof of fee-free teaching. The F29absence row is unverified at coordinator level; keep exchange-in-kind as the inspected example and unknown tuition explicit.
 - A11 Translation hygiene: MTL name drift (Quinque spellings, Guild/Society, rank/Tier) needs an alias table before data entry.
 
 LATER/DELEGATE (level, effort, done check):
@@ -372,4 +372,19 @@ Suggestions (not gates): next pass on V44 Agency and V51 Asylum, since the Asylu
 
 ## 23. Round 3 review state (WPR21) and next pass (WPR25)
 
-Highest state: drafted, with consequential claims source-spot-checked (section 19, 24 rows; one helper error found and corrected; five rows unverified). Not rules-reconciled, not built, not browser-verified, not director-accepted. Rules touched: WPR1-WPR24, AU1-AU6, AU10, AU14, AD5, AD22, AD38, WA1, WA5. Suggested next pass: V44 Agency plus the remaining excerpt-only parts of V02 (see item 1 above). No commit made; no file outside the two named files was edited; no npm run.
+Highest state: drafted, with consequential claims source-spot-checked (section19,25rows,20opened/coordinator/corrected and5unverified; one helper error corrected). Not rules-reconciled, not built, not browser-verified, not director-accepted. Rules touched: WPR1-WPR24, AU1-AU6, AU10, AU14, AD5, AD22, AD38, WA1, WA5. Suggested next pass: V44 Agency plus the remaining excerpt-only parts of V02 (see item 1 above). No commit made; no file outside the two named files was edited; no npm run.
+
+
+## Content reconciliation B610: facilities local currency and evidence scope
+
+F1: Actual full review covers375input lines, all three rounds/windows/review ledgers, F1–F29, nine engine-fact rows, A1–A11, currencies/facilities/roles/contradictions/gaps and current source limits. Round2helper windows sum61669 and round3 sum52464words; mixed keyword excerpts remain search-level, not whole chapters or whole novel. Round2has35ledger rows,27wholly matched and8with uncertainty/unverified scope; round3has25rows,20opened/corrected/coordinator checks and5unverified, not24checked plus five more. Its blue-liquid price error is corrected in the existing derived owner. MTL snapshot and sid/paragraph identity, original-language U and compilation gaps remain separate; no raw source body was newly read.
+
+F2: F9’s later user correction keeps derived-world institutions in Paradise content, with local/provided/restricted and source-era tags. A local hall is not automatically a hub building; that does not prove it unreachable through every actual travel edge. Guild-local board atsid4594 is not evidence no mission service exists under any wording. Narrow literal scans/no queue/no tuition/no staff to inspected source scope. F29’s school absence row is unverified beyond the stated fee/referral spot check, so fee-free teaching is not established. The existing derived owner already separates local guild board, gene potion and hub services; preserve that rather than dropping derived content.
+
+F3: Tier, imprint/access level, Hunter office, Honor Shop level, permission expenditure, title, mission grade, body/stat requirements and Void Tree credit have distinct suppliers/consumers. Selected notices pair rights/duties but do not prove every tier step has the same bundle. Status conversion, possible restored Hunter role, entry rights and leave intervals remain speaker/era-qualified; first-mission failure and three failed promotions are different routes. Origin leave, derived-world obligation, hub rest, refresh and trial duration are different clocks. No evidence here makes every failed mission death, all staff immune, or every hub threat harmless. Alias concealment is a scoped permission claim, not proof against every observer.
+
+F4: Paradise Coins, Soul Coins, graded crystals, Honor medals, Temporal Power, War Merit, local contribution/merit wording, Active Ore mass and gold pounds/coins remain distinct. Blue gene liquid15000CPpluspost, Smashing Fairy13000CPpluspost/reference3800PC and TypeC8000CPpluspost are separate items; a reference price does not define a universal exchange. Promotion counters, local balance and source-reported rank retention differ; unresolved10000/130000threshold and six-versus-seven naming stay gaps. A hidden negative credit rating is standing/access evidence, not an actual debt principal or payment obligation. Exact round-era quotes, material quantities, discounts, offers, paid purchases and source-dependent conversion eligibility stay attributed.
+
+F5: Hall entry, earned points, image instruction, dangerous upgrade trial, actual absorption reward, purchased medicine, chosen anesthesia, repair, body function and source-supported permanent growth are separate. One observed three-to-seven stat gap does not identify a universal cap-removal trigger. Teacher image is not a living source teacher or all-technique transfer. Paid service is not guaranteed gain; a quote is not consent/settlement. Particular alchemy accidents, crystal splitting and potion reuse consequences cannot define all crafting. Rooms, invitations, stored stock and carrier/return rights differ; hub protection is not universal invulnerability. Preserve meaningful comfort, leisure, companion refusal/pocket money, local staff motives and paid support beside combat.
+
+F6: Honor Shop stock rules/refresh/mission summoning are era/shop-level specific; Abyss shop is a different authority/currency/access and hidden-credit channel. Lottery first-free/tenfold/restart price does not fix every shop or justify new anti-exploit gates. Title forging and earned status are not universal counters. Existing source-hub, independent-Goa and original Exchange are separate profiles; a contractor, native, employee, Hunter and nonhuman visitor need actual rights/body/clock contracts. Current PROJECT governs ordering; this historical multi-pass suggestion launches no new world/readers. Fold useful service/quote/custody, rights-and-duties, local consequence and clock distinctions into actual Paradise owners. No new runtime/source-code/build/browser/save/human proof, acquisition, worker, deletion/move, commit or push occurs.

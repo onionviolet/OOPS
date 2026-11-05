@@ -37,3 +37,10 @@ State ` M` = tracked, dirty; every dirty hunk of the seven tracked files is a ga
 - Existing overarching-reconciliation artifacts `r3-*` are a competing candidate; D1 does not use them.
 
 Reproduce: apply `d1-package/patches/ALL_TRACKED.patch` to HEAD and copy `d1-package/files/*` (package built from this receipt).
+
+
+## Content reconciliation B476: complete record and current evidence boundary
+
+All39 lines were reviewed with the progression checkpoint's later integration/release entries. This input manifest describes the exact dirty/untracked primary closure at its frozen HEAD, including indirect registry projection and the reveal-chain lesson gate. An importer or hash does not prove consumer behavior. Seven tracked dirty files as gate hunks and six then-untracked whole files differ from unrelated owner patches; the two grown doc hashes intentionally differ from an older checkpoint. Preserve these original bytes and exclusions rather than copying a historical whole dirty file or assuming all future hunks still belong to D1.
+
+The later checkpoint records D1/D3/Paradise source landing via an O/F/A integration candidate, qualifying the receipt's untracked/missing-dependency status. It explicitly does not verify receiver combined gates or push. Worktree release by one owner does not release D2 or establish a currently idle process. The reproduce command and archived-path instructions are history, not an assignment to apply patches or retire worktrees now. Current [PROJECT](../../../../PROJECT.md), [progression rules](../../../PROGRESSION_GATE_RULES.md), AD32/AD36/AD51 govern a selected seam. No source file, patch package, branch/ref, build, suite, browser, user save or live worker was newly verified.

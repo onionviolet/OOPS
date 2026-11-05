@@ -15,3 +15,10 @@
 Seven ranked original options are in [IMPLEMENTATION_PACKETS.md](IMPLEMENTATION_PACKETS.md), with 26 smaller options in [SMALL_TOUCHES.md](SMALL_TOUCHES.md). One crew contract, separate crisis pressure, remembered helpers, an overclock tradeoff, repair aftermath, local recovery policies and docked support are independently selectable proposals. They are not accepted decisions or authorization to build.
 
 Build24313348, macOS Mono Unity2022.3.40f1. Six small managed inputs are retained hash-matched, along with selected code, four compiled Ink scripts and55 guide records. Numerical PlayMaker graphs remain opaque; narrative/guide text is not executable verification. The sketchbook and Spindlejack PDFs were inventoried but unread. No game was launched, no saves/settings/install/runtime were changed, and no build/commit/uninstall occurred. This completed finite source pass leaves future scene recovery and any selected proposal’s playable/save acceptance open. [Findings](FINDINGS.json), [coverage](COVERAGE.json), [intake](INTAKE.json).
+
+
+## Content reconciliation B407: actual read coverage and historical evidence
+
+Crew relationships, contract supply, personal stress, damaged dice and difficulty-specific recovery remain useful independent ideas. The 1,596 indexed Ink roots, selected narrative windows and 55 guide records do not prove the executable numerical graph. Conflicting permanent-glitch messages retain unresolved active binding. No successful first-game scene decoder can be inherited as sequel coverage, and no offline work or save/RNG qualification follows.
+
+This reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.

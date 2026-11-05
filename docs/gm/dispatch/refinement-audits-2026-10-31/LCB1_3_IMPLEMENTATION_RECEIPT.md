@@ -21,3 +21,10 @@ Rows LCB1-LCB3 of [the combat deep dive](LOTM_COMBAT_DEEP_DIVE_2026-11-03.md) (b
 - No browser run; no consumer exists. Nothing persisted, so no save/reload/import.
 - Authored rows for Death/Tyrant etc. now sit at or below the curve; the curve rows for the other 12 pathways are inferred from leans only (LCB9 pins them).
 - LCT2 assumes a trained adult's control axis is 0 (training adds notches on strength).
+
+
+## Content reconciliation B470: receipt scope and later consumer evidence
+
+All23 receipt lines were reviewed with the combat design's LCT1/LCB1–3 context. Open signed notches, gain/logistic dials,22 pathway leans,12 mapped formula keys/10 null keys, the Sequence9–5 curve and dated subjects are authored model choices, not canon magnitudes or a universal power law. Ten transformed L1 rows and signature clipping are distinct changes. The disclosed extra signature cap enforces the chosen three-hit calibration; it is not established merely by a general firearm comparison. Keep that modeling deviation visible rather than importing the cap into source law, forcing every low-sequence body to equal durability, or requiring every advantage to pay a balancing cost. Higher-grade interactions follow actual supported mechanisms; a curve lookup alone does not prove them.
+
+Fourteen focused checks and the pre-commit4922-pass/five-fail run have different scopes. The corrected Math.random counter rerun does not erase the failed full run or prove the four other cases unrelated on a clean baseline. No later full clean rerun, native fight, persistence or observer-safe UI is supplied by this receipt. Hook declarations are not implemented fate effects. Current [PROJECT](../../../../PROJECT.md), AD38/AD49/AD36/AD43 and actual source/consumer owners govern further work. No numerical row, test, ability source, book passage, runtime or browser was newly inspected or changed here.

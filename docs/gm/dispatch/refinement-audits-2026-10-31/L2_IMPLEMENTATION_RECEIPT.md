@@ -25,3 +25,10 @@ Deliverable: [L2_DIGESTION_ACTING_NOTE.md](L2_DIGESTION_ACTING_NOTE.md). Researc
 ## Checks
 
 - `git diff --stat` shows only the two files above. No tests run (docs only).
+
+
+## Content reconciliation B470: receipt scope and later consumer evidence
+
+All27 research receipt lines were read with the digestion note's F3/F4 tail. The104856-paragraph official-edition corpus,531 keyword hits and about50 contextual passages are search/sample scope, not full acting-principle or whole-book reading. Missing non-keyword role passages, Chinese/Old-TL/side-story/COI sources, differently numbered locators, higher-sequence rituals and independent second-reader review remain exact source gaps. Text labels, testimony, inference and authored residual risk must stay distinct; a proposed low residual risk for an unshown lower-sequence case is not a demonstrated canon value. The feedback passages conflict as recorded rather than proving a universal audience rule.
+
+The original round's O1 no-digestion-consumer statement is stale. B470 read the current120-line pathway factory: pathwayFacts derives digested from acting>=row.digest; assessment and promotion requirements consume it, and current examination completion also checks the row's digestion fact. This is inspected source evidence, not proof of a played sequence, complete per-pathway acting model or risk/timing fidelity. The note's scalar quality, slow route, exam knowledge and outside-assessor proposals remain unimplemented by this reconciliation; current absence elsewhere was not rescanned. Current [PROJECT](../../../../PROJECT.md), [world-pass rules](../../../WORLD_PASS_RULES.md), AD49/AD36/AD43 and existing source-locator owners govern selection. No primary text, private corpus, combat data, test/build/browser or saved life was opened or altered.

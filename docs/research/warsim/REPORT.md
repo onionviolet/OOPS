@@ -76,3 +76,13 @@ launch, save read, gameplay, save/reload or import test. Exact battle resolver,
 economy arithmetic, weighted encounter dispatch and generator save lifecycle
 remain unread. [CHECKPOINT.md](CHECKPOINT.md) lists every gap and next route.
 No gameplay completion or director acceptance is claimed.
+
+
+## Installed text coverage accounting B588
+
+The full [table B588 review](TABLE_COVERAGE.md#content-reconciliation-b588-all-file-rows-and-semantic-limits) reads all255file rows:145inventory-only,95alias-prefix/count and15schema/representative. Those documentary categories do not qualify full payload/native semantics or reproduce the stated race-combination count. Preserve race/filter/source-data names versus actual mechanic readers, credits/settings/old concepts versus new gameplay and explicit private Saves/Scores exclusion. This does not reopen personal saves or current installation. Existing report native/static claims retain their historical input and battle/economy/encounter/save-lifecycle limits.
+
+
+## Native map coverage and gap reconciliation B590
+
+The full [B590 map review](pass-2026-10-14-systems/REPORT.md#content-reconciliation-b590-full-native-family-map-and-parent-gaps) reads32systems,143helpers,255tables,28parent gaps and2owner notes, with16inferred routing blocks. Keep source-static/local rule, retained output, metadata/byte-span and gameplay proof distinct. All28parent gaps remain open or partly extended; selected relations/roster/monster/reward/refresh joins do not finish AI, persistent journal, companion/string isolation, whole economy/battle/events or RNG/save lifecycle. G01/G02 retain existing broad life/presentation owners rather than claim no owner. Original mutable/private exclusions, timeout/ABI/jump-table limits and current build-order authority remain; no raw native body, private payload/save, source game, browser or current installation was rechecked.

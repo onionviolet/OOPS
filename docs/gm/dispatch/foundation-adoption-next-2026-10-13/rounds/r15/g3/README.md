@@ -59,3 +59,12 @@ or decompress them to the same paths before running the browser steps. Older
 manual exports superseded by the current replay are retained only in the local
 archive, with hashes and dispositions in `evidence/COMPACTION.json`. Never
 commit the generated bundle, HTML version change or a browser profile.
+
+
+## Content reconciliation B488: preserved scope and later evidence
+
+Historical replay procedure and qualified comparison, under AD36/AD43. The fixture uses a genuine historical test export through native import/load, then an explicit hero-name change and listed stock addition before native create/encode and second-model reload. It is a synthetic prepared fixture, not naturally earned resource acquisition or a personal save. The current merged-build step sequence and older fa10c/fa13 worker steps are separate evidence sets. Merely retaining a step file or executable command is not proof that it ran today.
+
+Save/reload/Export/literal file-input Import comparisons span character, person inventories, expansion, calendar, location, NPCs/equipment with explicitly listed exporter-populated display caches. Preserve strict earlier cache-comparison failures and qualified replacements; a normalized/excluded-field result is not byte-exact full-state equality. Fatigue/debit observations and support-loss probes have their named scopes. Stopping wall-clock timers after a durable reservation isolates observation without editing game values, but it is still a special timing fixture rather than entirely ordinary uninterrupted live play.
+
+Gzip compaction preserves original uncompressed bytes/hashes and requires decompression for the literal-import route; compacting evidence before the replay finishes could remove required inputs. Retained archive dispositions are history, not discarded coverage. The1600×1100 replay is its historical viewport, not present1920/1536/14/21 UI coverage. Old port, profiles and shell/repl instructions are recovery data and were not executed here. This full README review does not inspect fixture JSON, source probes, browser images, result files or current processes, and creates no regenerated bundle or renewed persistence proof.

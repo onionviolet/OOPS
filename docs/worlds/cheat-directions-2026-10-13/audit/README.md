@@ -37,3 +37,8 @@ This recommendation does not authorize implementation or pick a world/card. Publ
 ## Delivery and checks
 
 Five independent reports and this reconciliation are saved. Coordinator source spot checks confirmed typed selection records and the narrower current apprentice/kin inheritance heuristic. Proposal refinements were made only in reports 06 and 10; shared project direction and runtime files were not edited by this audit. All local link targets and document formatting were checked after integration. No tests, build or fresh-browser gameplay/persistence proof were run.
+
+
+## Content reconciliation B412: useful mechanisms and later direction
+
+The five-lane audit and ten example scenarios are historical design review, not a current delegation request or a new selection. Preserve immediate powerful premises, long quiet mastery, independent world purposes, authored AU differences and real recipient/carrier/custody distinctions. A feasible route witness differs from a syntactically valid generator, and final distribution can differ from a biased rejection process. The old typed-start/apprentice/kin source observations identify that pass’s checked seams, not present whole-repository absence of dynamic definitions or recipient support. Its recommended precompiled variant is an optional route; a recording artifact still needs a real recording consumer. Current AD51 permits the first useful shared seam when its consumer warrants it, with another genuinely different case validating/revising it rather than granting permission to start. All five linked leaves retain their own review scope.

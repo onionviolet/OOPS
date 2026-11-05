@@ -70,3 +70,13 @@ Read-only owners: [USER_VISION](../../USER_VISION.md), [current direction](../..
 Proposed owner follow-through: coordinator links this audit and selects only the needed leaf; current runtime/UI owners recover reservations and current source before executing. No automatic expansion of world roster or first milestone. Public source data remains private outside git; no original game prose/assets/code were copied into YAIRPG. No sealed YAIRPG truth was designed or disclosed.
 
 Documentation done checks and unread table are in [CHECKPOINT](CHECKPOINT.md). All implementation, rebuilt native UI, exact persistence and human acceptance remain OPEN for unexecuted proposals.
+
+
+## Content reconciliation B464: historical dispatch or palette scope
+
+The complete17-line multiworld audit prompt was read. Its five-SHOWN/five-INFERRED per-lane spot-check target is the original audit requirement, not proof the checks were performed by reading this prompt. The report's ten MWA packets map to existing K/P owners; they are proposals, not ten adopted mechanics. The original nested-world root path is stale as this report already records; the dispatch owner supplies the route. Old installing/not-installed statements, owner labels, next-slice ranking and1366×768 gate remain dated. Use current [PROJECT](../../../PROJECT.md), [UI rules](../../UI_RULES.md), [architecture](../../ARCHITECTURE_RULES.md) and exact source-qualified world laws for a selected consumer. Carrying a method, useful foreign operation, relationship continuity and differing world rules need their actual evidence; neither a premise comparison nor a world name proves them. No source game/site, audit sample, private payload, install, UI/browser or current module was rechecked here; source-lane checks and their remaining gaps stay with their original receipts.
+
+
+## Multi-world audit scope reconciliation B583
+
+The full [seventy-check audit B583 review](AUDIT.md#content-reconciliation-b583-all-seventy-checks-and-later-authority) reads C1–C10 and every S/I row for HR/SU/R2/KH/TS/MD/MI. Preserve structural/source, stated rule, parsed asset, tutorial, screenshot and proposed adaptation as distinct proof layers. R2 build/schema match remains conditional, KH data/model counts do not prove personal history or save-container compatibility, TS rules are not digital algorithms, MUD tutorials are not server code and MI images do not prove transfers/offline work. Named local-law/carry/knowledge/history possibilities remain useful without universal penalties or derived caps. Current OD/AD16/AD38/AD42/AD43/AD51/AD52 qualify historical viewport/Projects/milestone/human gates. No source sample or gameplay was rerun.

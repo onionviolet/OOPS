@@ -2559,3 +2559,8 @@ The release pass replaces PROJECT’s stale L2b and publication summaries. Previ
 ## 2026-11-04 four-group integration closeout
 
 The [integration record](../audits/FOUR_GROUP_INTEGRATION_2026-11-04.md) owns the joined release and maintained artifact homes. [Exact superseded PROJECT lines](../audits/four-group-integration-2026-11-04/superseded-project-lines.json) preserve all four nonblank summary lines replaced since `f15a37f90`, including the earlier local-AI prose wording. Their authority/status is historical; current USER_VISION and owning rules govern. The preservation record establishes neither authorship nor new acceptance.
+
+
+## 2026-11-05 campaign stage-summary reconciliation (B552)
+
+The current campaign plan records33 slices/515 selected stages through KJ3AE (431 at KJ3Z plus21+16+13+15+19). Corrected only PROJECT’s obsolete count sentence, preserving endpoint links, mechanism priority and all other prose. This is reported plan arithmetic, not a fresh replay or exhaustive denominator. Superseded wording: “Twenty-eight slices now contain 431 selected stages/intents, not an exhaustive campaign denominator.”

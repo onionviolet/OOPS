@@ -80,3 +80,12 @@ Not run: full `npm test`, a build, 14/21 px captures, human play-through, civil 
 ## Next
 
 kjw12 from ch43 P085 on the third-floor landing: clock 12479, money 791 (a ceiling), pool 2/1, session closed, position the carriage place, Leonard with Klein (his visit ends at `floor3`; kjw12 places him), revolver rounds 5. Needs its own brief.
+
+
+## Content reconciliation B496: actual consumer and retained proposal scope
+
+Historical16-act search continuation under AD36/AD42/AD43. Preserve Q1–Q7, actor-per-verb and all withheld/later-reader rows. Source-issued/consumed/priced ration supports the selected native7-pence debit798→791; unmodeled other costs make791 an upper bound, not a complete source purse. Gun prices, hire rates, fares and commission terms are knowledge/facts here, not paid contracts, timed hired-carriage settlement or stock. Signed/held-copy facts and found floors do not instantiate a contract item or physical building. No new block place was minted; the player remains at the carriage place even while search notes refer to floors.
+
+B5 dowsing is a free authored act with method facts, not an actual B5 method object; M1 commission, M2 time-hire and M3 medium-assisted dowsing remain proposals. One floor3 Spirit Vision tap is an actual metered use with3/0→2/1 pool/strain, not a whole unseen aura model. Leonard's two sequential visits/placed arrival and preflight correction supply this route, while the next window still needs to place him after floor3 departure. No fallback cut was needed; that means the16-intent window passed, not every requested mechanism was implemented.
+
+One334.2-second run has three boots/one import plus per-act checkpoints; RESUME batching was available but unused. Final literal import followed by reload covers its actual ending state and retained earlier-window facts. It does not prove14/21 visual layout, civil clock, fresh entry, all disclosure or a new runtime build. A listed before-commit rules command is not an explicit result. B10 bundle/scratch-pack identity differs from current shared source. Leak assertions are selected-window/new-key sentinels rather than every possible observation. Current full-public-receipt review reads no private source/pack/seed/runtime/captures or actual personal save.

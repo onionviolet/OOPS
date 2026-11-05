@@ -18,7 +18,7 @@ Codes touched (WPR22): WPR1-WPR32, AU1-AU15, AD36-AD38, WA3/WA8, LTS1-LTS14, K6/
 
 - Source used: Calibre Library copy at `Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub`. Its SHA-256 matches the repo's recorded `6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d`.
 - It is the **Chinese** supplied compilation (title 诡秘之主最, author 爱潜水的乌贼, language zh, OPF modified 2021-01-17, publisher listed as StarPress). Identifies the compilation, not authentic publication provenance. 1,394 numbered story chapters in eight parts.
-- Stale path: `LOCAL_LIBRARY.md` and `read_epub.py` still name `~/Sync/CalibreLibrary/...`; the Calibre Library path above is the working one on 2026-10-23. Only one other LOTM EPUB exists (the English sequel), excluded.
+- Stale path: `LOCAL_LIBRARY.md` and `read_epub.py` still name `~/Sync/CalibreLibrary/...`; the Calibre Library path above is the working one on 2026-10-23. At that dated availability check the other listed LOTM EPUB was the English sequel, excluded. This is not a current source inventory; PROJECT now records an English-v1 first-novel lead route.
 - Locator convention: `[serial pN]`, serial = EPUB member number `lotm_c_NNNN`, p = nonempty `<p>` counted from 1 (matches `full-book/lord-of-mysteries/EDITION.md`). Older reader notes use "member" for the same number. English glosses of 机械之心 vary in the repo (Machinery Hivemind, Mechanical Heart, Steam and Machinery church team); this file keeps the Chinese and treats the English as a translation-dependent gloss (WPR4).
 
 ## 2. Manifest: reuse, windows, budget (WPR2, WPR7)
@@ -43,7 +43,7 @@ Word unit: **1 Chinese character counts as 1 word** (strict reading; declared be
 | W2 | mixed (not consecutive) | 494 A New Identity p1-70; 498 The Growing Tarot Club p1-82; 499 Living Costs p1-77; 495 Asymmetry p1-35 of 65 | 11,983 |
 | W3 | consecutive | 522 The Bishop Returns p1-83; 523 p1-98; 524 Is It Over p1-120; 525 Scaring p1-52 of 100 | 11,997 |
 | W4 | consecutive, late book, [S]-heavy | 1355 Summary Report p1-76; 1356 Strange City p1-82; 1357 Pride p1-99; 1358 Seven Members p1-73 of 89 | 11,998 |
-| Total | | 4 windows, 17 chapters (13 whole, 4 partial) | **47,973** |
+| Total | | 4 windows, 16 chapters (12 whole, 4 partial) | **47,973** |
 
 Why these: keyword census over all 1,394 chapters (inst/money/power/info term counts, kept in the scratchpad) plus the named thin spots in LOTM_RULES "Gaps": Machinery Hivemind and Mandated Punishers internals, Psychology Alchemists terms, how a Beyonder joins, a non-first-arrival start, Tarot Club growth. All four sit outside serials 1-369 (already reviewed), so they add new coverage.
 
@@ -142,7 +142,7 @@ Labels: shown, stated(who), inferred(who), proposed. "V" = I opened the locator 
 
 | Code | Default | Dial | In-world reason and cost | Exception the text itself shows |
 |---|---|---|---|---|
-| EF1 | Joining a church team is a signed contract, not a potion. | Term, pay, secrecy scope and travel limits vary per world and per rank. | Church wants control and secrecy; the recruit trades travel and privacy for pay (F7, F17). | Only the new clerk can be hired within a week (F8). |
+| EF1 | Joining a church team is a signed contract, not a potion. | Term, pay, secrecy scope and travel limits vary per world and per rank. | Church wants control and secrecy; the recruit trades travel and privacy for pay (F7, F17). | One later observed clerk hire takes a week (F8), without establishing a universal hiring schedule. |
 | EF2 | Jurisdiction follows worship, then territory. | Strength of the territory fallback; whether a royal body takes a case over. | Churches avoid fights over a case; mixed cases escalate (F1, F2). | Mobile elite units cross jurisdictions (WORLD.md r023). |
 | EF3 | A promotion needs digestion, examination by a senior deacon, and months or years of waiting. | Wait length and examiner rank vary by church and sequence. | Loss of control after hurried promotion (F9, F18). | A hidden method (acting) shortens it (LOTM_RULES s1). |
 | EF4 | Secret trades hold money and item with a trusted broker until verified. | Verification method (divination, test) and the broker's cut. | Fraud and forged formulas; the broker stakes reputation (F10, F11, F15). | Barter at equal value replaces cash (F13). |
@@ -150,7 +150,7 @@ Labels: shown, stated(who), inferred(who), proposed. "V" = I opened the locator 
 | EF6 | Sealed items are issued by grade, clearance and group size. | Number held per cathedral; whether a team may carry them. | Danger grades (F4); the team takes out three only for a large operation (F3). | Local teams carry them in a long chase. |
 | EF7 | An oath can bind the mind, not just the person. [S] | Which targets trigger it; whether the maker can lift it. | The binding comes from the swearer's own spirituality (F20). | None shown; loophole closing is the swearer's choice. |
 | EF8 | Masks and roles shape the wearer. [S] | How strong; what inner strength counters. | Role drift is a loss-of-control route (F21, LOTM_RULES s1). | A rested or resistant wearer withstands it. |
-| EF9 | A cheap wonderful item with a trivial price is the dangerous one. | Price, wish count, the twist's strength. | Easy gains in this world draw large costs (F22). | The first use is free and not counted. |
+| EF9 | A particular apparently cheap wish item carries a hidden danger; price alone does not classify every item. | Price, wish count, the twist's strength. | Easy gains in this world draw large costs (F22). | The first use is free and not counted. |
 | EF10 | A new identity costs money, papers and a custody arrangement, and old ties stay known to the teams. | Document price and who vouches. | The state controls passage (F16, F25). | None shown. |
 | EF11 | After a rule is broken, the local team seals the matter first and headquarters audits later. | Speed of reply; what witnesses sign. | Containment before accountability (F12, F27). | An outsider can return evidence indirectly to avoid blame. |
 
@@ -231,9 +231,9 @@ Limits: the Chinese edition's authenticity is unverified; reader paraphrases may
 
 **ACCOUNT FOR NOW (constraints on current work):**
 1. LTS13: mark Warden Hale as an authored stand-in for a senior-deacon examination and keep the dial "local pre-screen"; do not claim the source uses a warden.
-2. Any LOTM price table must carry a source band and a premium, never a single price (F13, F14, F15).
+2. A LOTM quote should retain its exact scene, units, offer and verification context. Infer a market band or premium when evidence supports it; a single sourced quote remains valid within its own scope (F13–F15).
 3. K8 anchors in the card stay proposals; do not use them as stated prices for Tingen.
-4. Jurisdiction by faith (F1, F2) should constrain any "which team answers" feature in the slice before it grows past the Seer start.
+4. Jurisdiction by faith (F1/F2) is a candidate for a team-routing feature; F2 remains an unreviewed lead here and needs its actual source before implementation.
 
 **LATER/DELEGATE (level, effort, done check):**
 
@@ -265,3 +265,18 @@ Files needing links (this pass touched nothing else, WPR3, WPR28):
 - private store: a pointer in `docs/research/novels/lord-of-mysteries/` to the 苏尼亚 spelling, the Calibre path and the edition note
 
 Lessons for the playbook (WPR26): a window's keyword census picks where terms are dense, not where existing notes are weak, so read the gap lines of the owner notes first; declare the word unit for non-space languages; never put an unsourced "earlier notes say" claim in a reader capsule (it produced a false contradiction, X8); check the real spelling of a name before logging a zero (苏尼亚 not 索尼娅).
+
+
+## Content reconciliation B604: institution evidence and current scope
+
+F1: Full actual review covers all267lines, W1–W4, all WPR9–WPR17 rows, F1–F29, EF1–EF11, X1–X8, spot-check table, exact unread windows and next-pass/owner suggestions. Four windows each contain three whole chapters plus one partial:16chapters/12whole/fourpartial, not17/13/four. Their47973declared Chinese-character word units sum correctly. Window/census/worker-note/spot-checked/integrated/source/runtime states remain distinct. Earlier r039–r145 notes are leads where marked L, not fresh source or accurate-note approval.
+
+F2: Keep the exact Chinese compilation SHA6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d and serial/nonempty-paragraph convention.1394numbered story chapters and the later serial370–1402resume wording need a manifest crosswalk before selecting a range; counts alone do not authorize an out-of-range read. This pass's only-other-English-file statement is dated, superseded as current availability by PROJECT's English-v1 Klein route. Chinese serials cannot silently become English chapter/paragraph locators or sequel spines. No raw Chinese source was newly read and current source availability was not inventoried.
+
+F3: Civil contract, travel/secrecy/registration restrictions, salary/allowance/advance repayment, initiation, formal field rank, examiner authority and potion digestion are different mechanisms. A stated church waiting rule is not an unavoidable pathway law; EF3 already records a different method. Hedged headcounts and inferred local team sizes are not exhaustive staffing constants. Jurisdiction-by-faith's F2 is L-level in this pass, so a routing implementation cannot call it independently verified without its actual source. Operational sealed-item count varies by mission; grade/clearance/group authorization are not proof every team action has the same equipment or costs. Named bilingual team glosses need stable source identity, not duplicate systems.
+
+F4: Broker custody of both sides, authenticity verification, authority to carry an offer versus bind a seller, informant split, cash/barter terms, agent commission/floor and price comparison are separate. Exact scene quotes can stand alone with context; a few quotes do not prove a market-wide band or require every price to have a measured premium. Different city/class/time and authored bread/bed anchors are compatible variants. New papers/appearance/travel spending/custody/old ties are not a reset that deletes cash, legal obligations or actual actor identity. Keep actual holder, offer, payment and attribution through any selected trade/access adaptation.
+
+F5: Later mind/oath/mask/wish and dangerous-item material retains exact source labels and [S]scope; no designed sealed truth is disclosed. A particular cheap wish item does not prove cheapness predicts danger for every item. Loophole, consent, psychological effect, information clearance, exceptional capability and aftermath require their actual mechanisms, not global prohibitions or mandatory anti-exploit gates. Observed local containment, secrecy requests, headquarters report and evidence return are distinct states; they do not certify every lawful-power use or all institution enforcement.
+
+F6: Existing LTS authored examiner/six-act rate remain prototype divergences where recorded, rather than source contradictions or reasons to rewrite a live campaign. PROJECT/campaign/mechanism owners govern Klein's current route; this historical next-pass list launches no workers or code. Preserve the useful contract-join, funded escrow, source-qualified price/floor, institution rights, travel-paper, attribution and consequence ideas in existing owners. Hospitals/banks/newspapers/markets/Seq9prices/jurisdiction/tier wording and unreviewed source ranges remain scoped gaps. No current runtime/native/source-body/build/browser/save proof, acquisition, worker/thread, deletion, relocation, commit or push is added.

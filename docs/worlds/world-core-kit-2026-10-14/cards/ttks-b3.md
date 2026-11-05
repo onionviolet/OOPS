@@ -874,3 +874,8 @@ Root rounds 10/11 appeared after the completed-lane snapshot. CR1/CR2 redirect l
 3. **W19-A3:** Consider one relationship/start overlay only after the selected canon slice is playable, with exact base pin and independent state.
 
 Final claim: documentation consolidated only. Source/built/browser/persistence/director states remain exactly scoped above; no gameplay change, build, test suite, save action, commit or publication.
+
+
+## Institution pass and title-specific evidence reconciliation B615
+
+咒回：特級的我去死滅打宿儺了！: the [institution pass](../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds) later W5/W6add the specific shared-body Maki contract, restricted abilities/one life/no rewind, abort and the altered clan succession/reform. Archive and submit differ from a reversible attempt or irreversible visit. Clan and wider recognition occur through actual delivered will/notice/ceremony, with actors retaining their knowledge. This fan novel’s date, offices, units and reforms do not rewrite the mainstream JJKowner. Yen prices here remain original anchors, not board fees. No native chain or full daily-life source evidence is added.

@@ -325,8 +325,7 @@ pass, the same 3 unrelated failures as after A1 (`cheat_awakening` 2, `ui_contra
 1). `check:arch` exit 0; `check:rules` PASS (6 untracked-link warnings);
 `check:rule-behavior` exit 0.
 
-**Gaps (implemented-unverified for play).** No consumer yet: RS26 is the first.
-Not wired into structured packs. Save/reload is a JSON roundtrip of expansion
+**Gaps at the2026-10-17engine-only checkpoint.** No consumer was present then; RS26 was the proposed first. The October19Reedbankreceipt below supersedes that consumer/structured-pack gap for its selected pack. This does not establish RS26delivery. Save/reload is a JSON roundtrip of expansion
 state, not native Save/Import. One test per hypothesis (repeat tests are a later
 dial). A world must author the truth fact or the test refuses.
 
@@ -423,3 +422,16 @@ beliefs, refit available), refit, Import of the pre-refit save in the game's
 clicked; the import file was built in the same encoding from the saved string.
 1366×768 not checked. No automatic host runs `enforce` commands. Human play
 acceptance and the RS26 UI merge stay open.
+
+
+## Content reconciliation B619: source palette and consumer chronology
+
+F1: Full425-line considerationsactual content reviewed: RS11–RS26, all G1–G8gating/fixture variants, A1/A2ordereduserrequests/engine-onlyreceipts/domainruleapplication and final Reedbankconsumer/persistence receipt. Source facts/inherited memories/attributed explanation/YAIRproposal remain distinct. No cited privatechapter/dossier/novelbody/source-code/test was reread or rerun. Public franchiseplot facts are not sealed randomizedYAIRtruth; preserve in owner without reproducing twists in chat.
+
+F2: Keep RS11ordinary/exigent/exceptional creationroutes; RS12aptitude/reserve/output/control/institutionrank; RS13activation/procedure/promise/charge/recharge/lastingprice/termination; RS14author/holder/executor/target/boundsubject and actual transferloophole; RS15assistedexecution vs independentlylearnedmastery; RS16actualtruth vs observedhypothesis/falseexplanation. Assistance need not teach hiddensteps, but actual source may directly grant skill. No universal training/sacrifice/consent/anti-loophole limit is adopted. Continuing effects need actual carriers, not a new generic skillinventory or all-power proseinterpreter.
+
+F3: RS17memory/itemlead/map/technical/divination/inheritedknowledge have distinct provenance/precision; RS18changeddependencies do not cause globalreliability decay or mandatory compensated catastrophe; RS19predictionwording/interpretation/reaction/actualoutcome differ; RS20later world-instance/actor-history correction supersedes preliminary fixed-loop assumption while source-supported literal fate remains possible. RS21carrier/continuingperson differs from information alone, RS22acceptedcommand interruption follows actual contract, RS23exposedinformation/report distortionneedsmeans, RS24companions/sitesactualagency and RS25reusedmechanism/newapplication remain useful. Laterfate/identity/revival mechanismattribution and unresolvedavailableending stay explicit, not whole-story certainty.
+
+F4: RS26unselectedprototype/Oct17orderedUImergeandplaycondition differ from actual A1thenA2engine-onlyauthorizations and Oct19Reedbankconsumer. Worlddata activation, empty-only recharge, lastingprice, author-vs-holderrestriction, separateenforcer/parties/sourceWorld, claimdependencies/means/precision and hypothesisauthoredresult are usefulexistingseams, not new dispatch or replicated sourceworlds. Fourfixtures are testcontent, not fourimplementedworlds; digest-backed mechanics are not fresh manga primaryreading. Current AD5/AD38permit actual worldlaw mechanisms and exceptions; the historical no-self-enforcing phrasing does not prohibit a real operative law. A1source-worldconditiondefault and destinationauthority need actual compatible mechanisms, not arbitrary overpowering labels.
+
+F5: Engine-only A1/A2datedtest counts/failures/JSONroundtrips cannot establish current tests or nativeplay. The later Reedbankreceipt supersedes early no-consumer/notpack-wired/no-seeds gap for that selected pack: explicitstartseeds, finitepegs/empty-onlyrefit/lastingprice, stalebelf vs stableclaim and testresultprojection. Its browserSave/reload/import used same-encoding constructed file; actualExportbutton was unclicked. No automaticenforcehost, no nativetransfer/breachtest, 1366viewportunchecked, and RS26/UIreceiptstatus remain separate gaps in that historicalscope. Deterministic0/1hypothesisweights alone do not establish writeatomicity/secret-safeeveryroute/whole-RNGreplay. Old UIplaycondition is a historicalspecificinstruction; generalhumanreviewoptionalAD42does not let this audit assert that specificcondition fulfilled. No current gameplay/native/persistence/sourceclaim is renewed; current direction governs buildorder.

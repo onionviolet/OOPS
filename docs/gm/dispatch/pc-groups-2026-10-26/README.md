@@ -71,3 +71,10 @@ and give Weibao a concise linked final. No need to wait for another prompt.
 Chat IDs and prompts are retained in THREADS.json. Creation is dispatch, not a
 claim that any audit or proposed gameplay has completed.
 
+
+
+## Content reconciliation B492: phase, consumer and evidence chronology
+
+Historical phase router under AD32/AD36/AD43. Read both the later implementation phase and original audit-only brief, all G1–G7 rows and closing dispatch qualification. The subsequent user instruction selects implementation and cross-group follow-through rather than leaving every group permanently audit-only. It does not make this router proof of completed gameplay, create current writers or authorize fresh chats today. Keep PC1–6 connected making, PC7–14 substitution, PC15–22 process, PC23–26 cross-craft, PC27–43 materials, PC44–53 environment and PC54–60 sources assigned to their existing reports/integration owners.
+
+Original ACT NOW audit corrections and ACCOUNT/LATER proposals retain their status even after fitting implementation was selected: selection does not accept every mechanical expansion as a world law. Dated frozen procedural-audit counts are not current source or UI evidence. Producer/state/consumer, failure/recovery, persistence, observer knowledge and world distinctions remain the substantive review questions, not dispatch/report existence. The separate other-systems owner is not implicitly absorbed into these seven lanes. Old exclusive write areas, chat IDs and no-more-chats restrictions describe their phases; current file/source authority governs any new bounded work. This full router read inspects no linked seven report bodies, runtime, test or saved source. Existing group completion evidence stays in their own receipts; no metadata routing credit is substituted for it.

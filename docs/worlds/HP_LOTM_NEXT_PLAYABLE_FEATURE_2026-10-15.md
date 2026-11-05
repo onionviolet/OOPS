@@ -1,5 +1,7 @@
 # HP versus early LOTM: next playable feature recommendation
 
+> Current use, B551: this is the dated comparison, not the current build queue. [PROJECT](../../PROJECT.md#current-focus) owns Klein/HP sequence; [the later risk answer](../gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md#liq1-answer-canon-decides-2026-10-15) supersedes the closing LIQ1-pending line. Later implementation and campaign receipts own delivery at their exact scopes.
+
 2026-10-15. Source-qualified design recommendation. **No runtime dispatch,
 implementation, accepted start or final balance.** [Request](../USER_VISION.md#hp-versus-early-lotm-feature-comparison-request-2026-10-15).
 This resolves the BF1/BF3 comparison in the [feature register](BOOK_WORLD_FEATURE_GAPS_2026-10-15.md).
@@ -226,3 +228,16 @@ This comparison remains the source/selection rationale. LIQ1 risk scope is pendi
 no canon safety guarantee or runtime assignment follows. The plan explicitly
 preserves post-ingestion commitment across lesson interruption and adds LOTM to
 active-world/compatibility considerations instead of bypassing native ownership.
+
+
+## Content reconciliation B551: later risk answer and current campaign owner
+
+F1: Full228-line comparison read, including REC1, HP-C1–C3, five LOTM source windows, D1–D5, seam map, acceptance proposals, Q1–Q3/R1–R3, historical hashes and plan follow-through. This is an October15 recommendation with dated source/code inspections. Current [PROJECT](../../PROJECT.md#current-focus) selects Klein's full developer journey and Harry alongside it; this comparison neither reopens that selection nor restricts the campaign to the original local-adult Seer proposal. Ordinary low-spoiler starts remain separately owned. No linked source book, page or current runtime was reverified here.
+
+F2: The closing LIQ1-pending statement is superseded by the [answered discussion](../gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md#liq1-answer-canon-decides-2026-10-15): user criterion is canon-led risk, not invented fatal odds or supervision immunity. The [later implementation section](../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#runtime-authorization-and-first-engine-slice-2026-10-19) also supersedes this comparison's planning-only/no-native-path snapshot at its selected leaves, with later native/campaign proof owned by current receipts. Those exact later sections were inspected now; source-only engine proof must not be promoted into native proof by association. No new risk poll, runtime dispatch or duplicate initiation build follows.
+
+F3: Preserve HP custody, allegiance, fit, damage, eligibility and usable performance separately. Borrowed/unmatched does not universally mean unable, a wand-required method does not outlaw wandless means, and page existence supplies no numerical affinity formula or adult eligibility law. The feature owner already folds HP-C1–C3, so no competing correction is needed there. Exact spell/body/tool case and source-set boundaries stay useful; a failed bounded local corpus search never proves no source exists in the user's library.
+
+F4: LOTM source acquisition, method learning, control/exertion, material observation, digestion and rank are distinct. A cup/job/recipe is not source grant; a bounded positive observation is not safety, exact identity or full hidden-stock knowledge. Preview consumes nothing; an actual ingestion persists despite unfinished/cancelled teaching. Supplier allocation/production/custody, real target instances, stop/recovery and coherent publication are meaningful selected checks. More capable faculties or methods remain possible under AD38; this first feature's exclusions do not permanently ban source-supported alternatives. Authored numbers, safety assumptions and workshop-tray application remain proposals rather than source measurements.
+
+F5: Keep the paper acceptance matrix as future evidence requirements for its selected operation, with current AD36/AD43 and desktop owners qualifying1366/human-gate wording under AD42. Historical primary-window/hash checks and typed-effect validation do not validate the whole novel, current dirty build, body binding, installed app or all persistence transitions. Existing module patterns do not transplant MoL fuel law into Seer use or make profile status activation a native join. Broader digestion, promotion, foreign-body and cross-world cases remain useful separately owned work, not gates added to every slice. Original rationale and receipts are preserved; no gameplay, acquisition, private save, migration, browser/build, worker, deletion, commit or push occurred.

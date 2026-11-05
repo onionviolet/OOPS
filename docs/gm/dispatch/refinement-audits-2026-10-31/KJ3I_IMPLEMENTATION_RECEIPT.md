@@ -47,3 +47,12 @@ Additional PF13 fields for KJ3I:
 ## Next
 
 ch22 from sweep row s2.11. Add a builder lint for note keys that equal an act's completion key, and for acts whose place differs from the player's current place without a prior move.
+
+
+## Content reconciliation B485: current disposition and preserved history
+
+Historical six-intent continuation and incomplete item integration under AD36/AD42/AD43. Preserve the split arrival/greeting: an arrival act cannot use its own visit as prior participant support. The later issue records held facts/knowledge, not ammunition, badge, holster item ownership or usable custody. Ten and thirty ammunition statements retain their source-window context rather than merging with ch20's dropped-bullets note; TD9 remains the missing operational stock/custody consumer. Open diary/Sequences questions provide later story consumers, not completed inquiry or a closed badge-range request.
+
+Do not give the lead an unheard closing exchange or invent its speaker. Reused rooms/stairs and explicit arrivals do not establish complete schedules. Static preflight warnings about earlier ended visits and the successful native overlap are distinct: this route's no-hang outcome does not solve KJ3E's specific undiagnosed freeze or prove a global two-visit invariant. Four runs plus a read-only probe retain their failures: wrong action location, note/completion-key collision causing early arc completion, and copied-runner typo. A note key matching an act's completion marker is a concrete producer/state collision to check, not a newly implemented lint just because the Next paragraph requests one.
+
+The seeded KJ3H checkpoint, final151-second run, unchanged2883 balance/inventories and literal import support the original bounded continuation. No14/21 px screenshots were taken, so headless native success cannot become visual proof. Civil clock, broad counterfactuals and human play remain untested here. Reader brief/checker plus coordinator reread, approximate reading/authoring/proof timings and five corrected sweep rows are separately attributed; they do not establish PF13 speedup or fresh source reading in this reconciliation. The ch22 handoff remains a historical boundary, not new execution authority.

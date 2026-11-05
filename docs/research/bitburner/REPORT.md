@@ -38,3 +38,8 @@ The live YAIR source already has guarded size/error handling (`src/save_files.js
 The offline source comment says production is at most half online, but the experience expression actually uses confidence without that half factor. This audit follows the expression rather than repeating that comment as a universal rule. Source-specific offline estimates are not a YAIR balance recommendation. Bitburner import comparison does not prove rollback or atomicity of every loader.
 
 Retained source and hashes remain private under `~/.codex/research/bitburner/`; only derived audit documents live here. Preserve both games’ attribution and YAIR LICENSE. No copying of source/UI/lore is proposed.
+
+
+## Content reconciliation B408: connected mechanisms and proposal boundaries
+
+The six selected chains preserve distinct startup resource admission, research payment/unlock propagation, reset retention, estimated offline production, inspectable automation and save/import stages. Offline estimates differ by subsystem and may run after a script-start attempt that fails admission; they are not uninterrupted execution or a universal half-rate rule. Import comparison is not blanket atomicity/rollback proof. Full API/interpreter, economy, unlock/retention fields, cloud/build parity and migration coverage remain excluded. Preserve all six original proposals and 26 touches. P6’s old PROJECT one-prestige reference is historical: the October 24 direction retired the one-realm/one-prestige milestone gate. A preview remains an optional idea; no reset policy or implementation is selected by this audit.

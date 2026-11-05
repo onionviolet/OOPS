@@ -54,3 +54,12 @@ Not run: full `npm test` (content-only, AD36), bundle build, 14/21 px captures, 
 ## Next
 
 ch23 from sweep row s2.14. Add the builder's 200-character check as a pre-scan so it reports every over-length string at once.
+
+
+## Content reconciliation B487: distinctions, later evidence and retained gaps
+
+Historical five-intent continuation under AD36/AD42/AD43. All five deep intents remained separate after the failed fold test. The planned university withdrawal, promised Monday start and planned dinner are not completed actions, appointments or paid meals. Rozanne's guesses, reported path counts and unknown ranks stay attributed rather than world truth; spoken basics/dream/meeting knowledge differs from private reasons. The actual Daly meeting and inferred rank remain distinct. Twelve banknotes as fact/knowledge with no modeled denomination must not be counted as another cash grant; the recorded2883 balance is unchanged.
+
+Preserve all five withholding/later-reader rows. An open fact without a named scheduled consumer remains open, not silently complete. First-act location is the existing stairs and movement is an effect; the held visit then supports the hall interaction. The original quiet result and no freeze do not prove general actor scheduling. One seeded KJ3I route on the copied KJ3E bundle and literal import support the stated continuation, not dirty shared dist or a fresh complete campaign. No14/21 px captures were taken; no visual-floor proof follows from headless execution. Civil clock and human play are untested.
+
+PF13 still is not a speedup finding. Four pre-write content-cap failures are distinct from one successful native route; a pre-scan is a requested lint idea, not implemented merely because it appears under Next. Keep the200-character cap as this pack's existing format, not a universal prose-length rule. The copied final bundle identity is historical evidence, not an instruction that a temporary folder remains available or should serve every future proof. This content review adds no source/shard, pack, browser or current build verification.

@@ -163,3 +163,10 @@ next step is a different copy or source. PG 73533 file choice is not yet done.
   tab in the Z-Library app to refresh the route). Quota still unknown.
 - PG 73533 (Poetic Edda) file choice, Ravenloft/Sword Coast/Eberron and the rest of the
   backlog remain open.
+
+
+## Content reconciliation B530: historical routing and later coverage
+
+The leading acquisition-only/no absorption status governs all listed files, including PDFs whose header/page counts are structural checks, not content review. Planescape95 pages is flagged partial, not the full set. Initial server-side cache speculation was superseded by the local90-second expect_download and150-second outer caps, then the successful6-minute Log Horizon5 test; the shared download lease and initially untested fix remain part of chronology. A600-second stall does not alone prove a remote server cause. Later October25 delivered Log Horizon5/NGNL4/Slime16 supersede earlier failures only for those assets; October25 harvest further reports Cradle11–12 and Log Horizon3–4 completion. Re:Zero TOC matching/redirect differences are dated count/coverage checks, not chapters read or current publication completeness. Review-renamed interrupted jobs are historical operations, not permission to clear refusals or retry today. The later user direction recorded in the reviewed October27 acquisition receipt that Log Horizon is not useful and should not be continued supersedes this file's earlier retry priority. Current LIBRARY_INDEX and chapter coverage own present holdings; preserve this receipt and its failed attempts without treating old gaps as new download orders.
+
+Retain the original queue, attempts and addenda as history. This documentation pass changes no source files, holdings, extraction, reading progress, account state or acquisition jobs.

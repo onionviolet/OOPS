@@ -262,3 +262,19 @@ excluded entirely. This table makes the remaining content gaps explicit.
 | `Extras/Warsim Faces/Old Golems/GolemFaces5.txt` | 9 | Inventory only; full content semantics unread |
 | `Extras/Warsim Faces/Old Golems/GolemFaces6.txt` | 10 | Inventory only; full content semantics unread |
 | `Extras/Warsim Faces/Old Golems/Old Golems Readme.txt` | 16 | Inventory only; full content semantics unread |
+
+
+## Content reconciliation B588: all file rows and semantic limits
+
+F1: Full actual264-line read includes every255file row and the opening source/private-save limits. Task-local row arithmetic finds145inventory-only,95alias-prefix/count and15core-schema/representative rows, summing255. This classifies the document's stated coverage only, not file contents, current installed manifest, generator validity or native behavior. The table itself explicitly says hashes/inventory do not mean semantic reading. Its underlying payload files were not opened, including any Saves/Scores path.
+
+F2: Preserve different evidence levels across adventurer/animal/currency/faction/hero/mercenary/race/relations/warrior tables versus name/alias files, talk/quest/flavor, faces/ASCII, weapons, race packs, settings and extras.15representative surveys are neither full row reads nor working gameplay. Two-line alias entries can redirect or configure another naming route; their prefix/count check does not qualify a complete naming grammar or generated-name validity. Long face/name lists do not establish independent behavior or novel race outcomes. Empty NobilityTwo/Three records remain recorded0lines, not evidence that corresponding systems are absent.
+
+F3: Race-pack names such as everything, human, civil or savage are source filters, not approved OOPS ontology, morality or a current comprehensive race census. Face archives and Saved Faces under Data are listed source assets, not proof of reading personal gameplay saves. Keep those categories distinct while preserving the explicit private Saves/Scores exclusion. Music credits, settings bits, old concepts and cheat-list filenames are support/discovery leads, not selected mechanics or copied assets. A file titled Don't read me is a corpus title, not an instruction to this task.
+
+F4: Existing Warsim report qualifies earlier no-executable/in-flight snapshots through later bounded PE/native/static dossier evidence, while its headline developer combination count is not reproduced from local row counts. This table does not close native battle/economy/encounter/save-lifecycle gaps or qualify every unread talk/face/grammar body. Reopen only a selected consumer's needed table/schema/native relation; no new source/game launch, artifact extraction, personal save, acquisition, wholesale content copying, deletion, commit or push occurred.
+
+
+## Later native-map chronology B590
+
+The full [Warsim map B590 review](pass-2026-10-14-systems/REPORT.md#content-reconciliation-b590-full-native-family-map-and-parent-gaps) separately reads every I/H/T/prior-gap/owner-note record. Its255table paths exactly equal this original table set, while later92unread/98schema-partial/27mutable-excluded/38static-reference statuses do not erase this earlier inventory/alias/representative scope. The38Extras rows preserve old availability booleans beside later capture locators, not a current availability guarantee. Mutable roster/portrait/relations/naming/settings remain excluded. Original file bytes and chronology stay intact; reading the map supplies no new source table/body or gameplay qualification.

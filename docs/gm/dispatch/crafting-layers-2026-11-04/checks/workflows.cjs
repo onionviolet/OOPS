@@ -1,0 +1,21 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path');
+const root=process.cwd(),out=path.join(root,'work/crafting-layers-20261104');
+const {launchChrome}=require(path.join(root,'scripts/ui_helpers.cjs'));
+const {startFresh}=require(path.join(root,'docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs'));
+const seed=JSON.parse(fs.readFileSync('/tmp/crafting-layers-seed.json','utf8'));
+(async()=>{const browser=await launchChrome();const checks=[];try{
+ const c=await browser.newContext({viewport:{width:1920,height:1080}});await c.route('**/private_packs/manifest.json',r=>r.fulfill({json:{schema:1,packs:[]}}));await c.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},seed);
+ const p=await c.newPage();p.setDefaultTimeout(15000);await p.goto('http://127.0.0.1:18765/?test_hooks=1',{waitUntil:'domcontentloaded'});await p.waitForFunction(()=>window.simulationTestHooks,null,{timeout:60000});await startFresh(p);await p.evaluate(()=>simulationTestHooks.pause());
+ const open=id=>p.getByRole('combobox',{name:'Other known panels'}).selectOption(id);
+ await open('herbal-experiments');await p.locator('#crafting_gather').click();await p.locator('[data-craft-material]').first().check();
+ assert.equal(await p.locator('#crafting_engine_home [data-craft-commit]').innerText(),'Try one batch');assert.equal(await p.locator('#crafting_engine_home [data-craft-amount]').count(),0);assert.match(await p.locator('#crafting_engine_home [data-craft-detail]').innerText(),/unknown until observed/);await p.screenshot({path:out+'/experiment-14.png'});
+ await p.locator('#crafting_timed').check();await p.locator('#crafting_engine_home [data-craft-commit]').click();
+ assert.match(await p.locator('[data-craft-firing]').innerText(),/already spent/);await p.screenshot({path:out+'/held-brazier-14.png'});
+ const before=await p.evaluate(()=>simulationTestHooks.project('crafting'));await p.keyboard.press('Escape');await open('herbal-experiments');const after=await p.evaluate(()=>simulationTestHooks.project('crafting'));assert.deepEqual(after,before);checks.push('experiment: uncertainty and single explicit trial; staged hold shows spent means; close/reopen preserves work');
+ await p.locator('[data-craft-firing-action="abandon_firing"]').click();assert.equal(await p.locator('[data-craft-firing-action]').count(),0);checks.push('brazier: explicit abandon settles its real waste policy');
+ await open('hp-polyjuice');await p.locator('[data-hp-action="begin"]').click();
+ await p.locator('[data-hp-select="ingredient"]').selectOption({index:1});await p.locator('[data-hp-select="route"]').selectOption({index:1});await p.locator('[data-hp-action="acquire"]').click();
+ const slots=p.locator('#hp_brewing select').filter({has:p.locator('option[value^="L"]')});await slots.first().selectOption({index:1});await p.locator('[data-hp-action="brew"]').click();
+ assert.match(await p.locator('[data-hp-work]').innerText(),/played minutes remaining/);await p.screenshot({path:out+'/hp-work-14.png'});checks.push('HP: acquire exact lot, configure and start original trial; current cauldron work has a separate review layer');
+ await c.close();fs.writeFileSync(out+'/workflows.json',JSON.stringify({checks,route:'fresh origin; declared stock; native domain UI actions',viewport:'1920x1080; default text'},null,2));console.log('PASS',JSON.stringify(checks));
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1});

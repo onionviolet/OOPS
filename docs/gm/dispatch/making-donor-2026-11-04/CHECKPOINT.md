@@ -36,3 +36,10 @@ Approved by Weibao 2026-11-04 (playability plan round 12 addendum, row 7). One m
 
 ## Not done (later depth, proposals)
 Rebound damage for under-offering; Stone reserves; array legibility and falsification; craft-engine consumer; weapon-rune inscription beyond the affix reroll; primary-source (manga or Brotherhood scene) pin before any FMA-labelled content.
+
+
+## Content reconciliation B478: actual rune accounting and missing build identity
+
+All38 receipt lines were read. The exchange ledger, worn-release/quote, domain rollback and recarve preview form a selected native rune-accounting consumer. Released strip credit, newly debited wood and retained residue are distinct; surplus remembered material is not an inventory log. That local accounting is authored in the game's units, not a canon FMA price law or an implemented rebound/Stone mechanism. A source-supported recovery/creation law could behave differently without duplicating this actual stock accidentally. The secondary wiki revision and packet reference do not establish primary-scene source qualification.
+
+The receipt deliberately remains built because its browser run lacks a recorded build SHA256. Reported carve/recarve, dimensions/text sizes, zero page errors and literal persistence are retained observations, not discarded, but they do not meet a pinned browser-verified identity by themselves. No new saved field differs from claiming every earlier/later game state compatible.18 and12 focused results cover their actual ledger/rune/pledge slices; no fresh whole-suite result is implied. The craft-engine consumer, weapon inscription, source pin, rebound/Stone and legibility work remain separate. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), AD49/AD36/AD43 and AD42 govern selected extension. No primary source, private excerpt, current code, quote, screenshot, browser/test/build or personal save was newly opened or run.

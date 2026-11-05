@@ -19,7 +19,7 @@ and uses independent visible panels; mobile optimization is deferred.
 Each slice needs a rebuild and changed-behavior browser exercise from a fresh
 origin. Persistence changes also need save/reload/import and interrupted-payment
 checks appropriate to that slice. No test count substitutes for playable proof
-or director acceptance. Reuse existing consumers rather than copying this game's
+under current AD43; human review is optional under AD42. Reuse existing consumers rather than copying this game's
 implementation or adding a parallel subsystem merely to match its menu count.
 
 Proposed owner edits for a coordinator: link P1/P2 from the life-transition owner,
@@ -27,3 +27,12 @@ P3 from the offline audit, and P4 from ordinary production/food considerations.
 Keep every proposal marked unselected until Weibao selects it. Province War may
 reuse the queue, competing-stock and away-work lessons through its own owners;
 this dossier makes no changes to that project.
+
+
+## Current scope and evidence reconciliation B621
+
+B621reads every field and record of [the coverage map](COVERAGE.json): fourhistoricalinputhashes/17prior-tablecomparisons,12tables and136selected CSVrecord-IDpairs out of3046inventoryrows. Greed22and restrictiontranslation9are full selected-table counts; other tables remain bounded. Build/hashparity does not restore missingnativecorpus, prove currentinstallation, read callbacks or execute a route. StatusPARTIALstays accurate for underlyingresearch; fullmapreview is distinct.
+
+Preserve the carrier/reset split,10balanceexceptions, inheritedaccessvsproficiency, Envycapacityvsprogress, Alchemyscore/allowance, activequests/temporaryeffects, manual/AHAallocation and offlineeligibility. Sevenlatefamilies and22Greed/21routines/88Pride/fourbooks measure differentthings. Pride55/555parser and Wrath/Alchemyreleasecode remain unread. Fourmentorlessons can accumulate by authoredinheritance but no actualfour-life/minimumlife proof was performed.
+
+P1–P7remain useful unselected originalreuse proposals with currentowner checks needed. The retired one-realm/prestige milestone is not restored; humanreviewoptionalAD42and currentAD36/AD43govern selectedruntime evidence. No new sourcebody/readcredit for the136externalrows, recovery/acquisition, sourcecode/runtime/save/test/build/browser operation occurs.

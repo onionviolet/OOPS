@@ -226,3 +226,14 @@ data and screenshots stay under the existing gitignored private directory.
 Normal-play observations N1–N4 remain separate from these seeded demonstrations.
 C1's production implementation and its saved-layout compatibility remain owned
 by [C1_REPORT](../gm/dispatch/ui-foundation-2026-10-15/C1_REPORT.md).
+
+
+## Content reconciliation B581: reference, normal play and delivered shell
+
+F1: Full actual228-line review includes P23-1–5, G1–7, M1–5, T1/L1, SR1–4, later C1 authorization and N1–4 normal-play versus seeded-lab observations. Early research-only/no-source-run status belongs to that earlier pass. Later ordinary source play and lab demonstrations supersede it only in their exact scopes. Store screenshots show pictured layouts; indexed Melvor/wiki results, API docs, pinned code and official articles are different evidence. No external source, private manifest, old port or worker was revalidated here.
+
+F2: Preserve stable player/work/log, adjacent task detail, named direct navigation, known-only search/recipe uses/notices and actual observer eligibility. Seven Local actions is not a global destination cap. Pins and inspectors alter presentation, not service reach or remote-operation authority. Compact and expanded forms share actual owner/commands while preserving selection, focus, filters and scroll. Inspect, leave, stop, cancel and commitment settlement differ; a historical back callback is a dated source observation, not proof current browsing cancels work. Stable tick rows, non-color feedback, reduced motion and truthful conditional ETA remain useful considerations.
+
+F3: SR4 records authorized native-shell refactoring, rather than a transplanted engine/DOM with foreign timers/saves. Later C1/V1/R2/R3 execution and B139 in [the foundation owner](../UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md) own integration evidence and limits. The old apothecary-first trial,1366target, queue holds, writer reservation, default choice and source-license observation are historical. Current desktop/laptop task viewport and AD42 optional human review apply. No human visual acceptance, changed current default, present source parity or fresh browser proof follows from this review.
+
+F4: Ordinary N1–N4 reports earned reveal, settings/home/reading and actual material-consuming craft. A seeded lab tests native renderers/commands after supplied prerequisites, not ordinary acquisition, every feature or YAIR integration. Proto23 immediate item/recipe action and repeated-tab close behavior need not be inherited with its appearance. Preserve independent design and provenance without converting missing upstream license metadata into a prohibition on authorized local inspection. No UI/runtime/save/source edits, visible window, new dispatch, deletion, commit or push occurred.

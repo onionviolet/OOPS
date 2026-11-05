@@ -93,3 +93,14 @@ The later authorized download pass is recorded in the
 and [multiverse/text design considerations](tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md).
 The current inventory includes Voices of the Datasphere and Rifts Megaverse
 Builder. Captured/prepared remains separate from fully read or implemented.
+
+
+## Content reconciliation B502: current-use scope and retained source questions
+
+Full G6–G10/L01–L12/B1–B7/T1–T3/A1 scout chronology under AD32/AD35/AD36. Distinct-world systems plus portable growth is the requested comparison, not merely a universe label on a prestige loop. Official descriptions/design articles are advertised procedure/premise evidence, not played quality or exact carryover. Multiverse Loot Hunter is the scout's strongest advertised match, Multiverse Idle demo/coming-soon state is historical, and the MUDs' linked worlds/guilds do not prove all destinations give freely collectable independent powers. RetroMUD's timeout/excerpt remains lower assurance, not source absence. Jumpchain/GURPS/Your Chronicle/Theory of Magic were already known, not newly discovered gaps.
+
+Twelve filename/size/PDF-header checks establish local candidates at that date, not reading, edition equivalence, machine-wide absence or current possession. This reconciliation reads the public report only and opens no PDF, so no hidden/extracted PDF text is used. Any future actual PDF read needs the current screening/reading workflow. The later acquisition-follow-up supersedes earlier missing-title inventory for named Voices of the Datasphere/Rifts Megaverse Builder, not a full new title roster, chapter read or gameplay adoption. Named book/tabletop source details stay with the catalogue/private owners.
+
+The Strange's retained identity/stat pools versus changed foci/body/gear is a useful contrast, not a rule that all acquired powers stay simultaneously executable or must be suppressed in YAIR. Traveling, rebirth/continuation, actual source acquisition and useful home consumer remain different tests. Publisher/authors/editions matter: Monte Cook Games is a publisher,5e/Cypher Planebreaker differ, Invisible Sun is separate, GURPS listing is not an actual download. Torg reality axioms are an optional model, not mandatory foreign-power loss. SRD availability is not setting-prose/asset/game licensing clearance.
+
+A1's digital trials, existing L03/L07 reading and B-priorities are research recommendations, not present purchases, game launch, full-source/implementation assignment or a final source roster. Preserve person/carrier/learned-versus-granted/return/home-use questions without forcing all worlds through one retention model. All original closing/acquisition paragraphs were recovered70–94 after truncation. No current web/store, book/page, catalogue, install, tool or private save state was independently checked.

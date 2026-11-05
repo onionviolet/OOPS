@@ -43,7 +43,7 @@ Word unit: **whitespace-separated English words in paragraph text, markers exclu
 | W2 | consecutive | s622-s628: Smell of Death through Hanth Island chapters (Church of Earth Mother, Port Hanth) | 11,713 | Densest church-operations stretch in a census (79 church hits per 7 chapters); treatment, graves, clergy, a region outside Trier |
 | W3 | consecutive | s79-s85: Sufferer, Joint Investigation Team, Key, Dream Divination, A Sudden Encounter, Dirk, Appropriating | 11,659 | Bureau 8 plus Hivemind plus Church joint team assembly; replaced an earlier choice (s174-s179) after the advisor showed it re-read ground already reviewed |
 | W4 | consecutive | s375-s380: Gathering Venue, Different Teams, An Earlier Transmigrator, Investigation, Bold Speculation, Bell Chimes | 10,933 | Gatherings, teams and information trade; the "earlier transmigrator" topic |
-| Total | | 4 windows, 25 chapters, all whole chapters | **45,318** | within the 48,000 plan |
+| Total | | 4 windows, 26 chapters, all whole chapters | **45,318** | within the 48,000 plan |
 
 Reader tool use (observed): 6 / 8 / 7 / 5 tool calls; 117,793 / 117,291 / 124,615 / 111,084 subagent tokens (about 111k to 125k each, AU4 pilot figure). Each reader wrote its table to the private store and returned under 200 words.
 
@@ -130,10 +130,10 @@ Labels: shown, stated(who), inferred(who), proposed. Check column: **V** = I ope
 | Code | Finding | Label and locator | Check |
 |---|---|---|---|
 | F20 | Non-first-arrival: the protagonists start inside a loop in Cordu, with a joint team arriving from outside; the player route "an ordinary newcomer in the Trier market district" is a repo proposal, not a book start. | shown [s79-s85]; proposed (repo recognition adapter) | V as shown |
-| F21 | Living beside the original cast: the first-novel cast is present as remote patrons, not physical neighbors. Madam Magician (Fors) answers by letter through a messenger doll and enters dreams; Mr. Hanged Man pays an intermediary; the late Tarot gathering names Justice, Hanged Man (Alger), Magician (Fors), Sun, Judgment, Star, Hermit, Moon and Franca as the Empress. [S] Nighthawk team names reappear only inside a dream-city reflection of the first novel. [S] | shown [s458:p51-59] (R), [s380:p31-32] (R), [s1178:p40-51] (V), [s936:p64] (V) | V on s1178, s936 |
+| F21 | Living beside the original cast: the selected windows show first-novel cast as remote patrons; they do not establish whole-book absence of physical encounters. Madam Magician (Fors) answers by letter through a messenger doll and enters dreams; Mr. Hanged Man pays an intermediary; the late Tarot gathering names Justice, Hanged Man (Alger), Magician (Fors), Sun, Judgment, Star, Hermit, Moon and Franca as the Empress. [S] The listed Nighthawk term hits belong to a dream-city reflection of the first novel, within the searched translation. [S] | shown [s458:p51-59] (R), [s380:p31-32] (R), [s1178:p40-51] (V), [s936:p64] (V) | V on s1178, s936 |
 | F22 | Failure on the investigation side: the Cordu loop cannot be ended by the loop's inside; a forced end by an outside force kills everyone in the area (Pualis's statement as relayed). The official answer when outsiders cannot solve a case is destruction, as with Bansy Harbor (F5). | stated(Aurore relaying Pualis) [s81:p17] (R); stated(Lumian) [s623:p55] | V (p55) |
 | F23 | A sealed Demon continues to kill a few people while the Church seals and monitors rather than ends it; the Church's own protection for witnesses is the failure that shows. [S] | stated/shown [s623], [s625:p43] | V (p43) |
-| F24 | Surfaces: a bounty board and cathedral sermon are everyday signals; a Beyonder gathering (a venue reached by incantation) is the visible market; the player-visible clocks are the 6 a.m. reset, the two-hour gathering cap, a watch drift and a bell. A passive idle player would miss the invitation chain (letter then incantation then team). | inferred(coordinator) from F7, F15, F16 | n/a |
+| F24 | Surfaces: a bounty board and cathedral sermon are everyday signals; a Beyonder gathering (a venue reached by incantation) is the visible market; the player-visible clocks are the 6 a.m. reset, the two-hour gathering cap, a watch drift and a bell. The invitation/channel/eligibility chain needs actual support; any idle or compressed route must preserve those mechanisms (AD52), rather than being ruled out by this example. | inferred(coordinator) from F7, F15, F16 | n/a |
 
 ## 5. Engine facts (WPR5: default, dial, in-world reason and cost, exceptions the text shows)
 
@@ -143,7 +143,7 @@ Labels: shown, stated(who), inferred(who), proposed. Check column: **V** = I ope
 | E2 | Joint first-response | One mid plus two low Beyonders, then escalate | Cordu: three mid | Cost of a first round; relayed rule of thumb (F3) | Not a statute |
 | E3 | Currency | 1 verl d'or = 100 coppet; lick = 5 coppet | Prices range from coppet to 15,000 verl d'or for a Sequence 8 characteristic | Small coins for the street, notes for formulas (F12-F14) | Foreign units (risot, setta, degan) in Feynapotter and on Hanth |
 | E4 | Sealed items | Grades 3 to 0, lower is more dangerous | Churches share serials (reuse) | Strong negative effects (F17) | Grade 0 artifacts (reuse) |
-| E5 | Convergence | Same and neighboring pathways cross more as Sequence rises | Higher Sequence dampens it (reuse) | Fate pulls Beyonders together; more incidents (F18) | A Beyonder can be fated to cross paths early (reuse, unverified) |
+| E5 | Convergence | Same and neighboring pathways cross more as Sequence rises | A source-specific suppression method may differ from the rank-driven trend; this reused claim is unverified | Fate pulls Beyonders together; more incidents (F18) | A Beyonder can be fated to cross paths early (reuse, unverified) |
 | E6 | Daily reset | 6 a.m. body baseline | Boon and characteristic changes persist | Sealed corruption (F16) | Not cured by it: an aura of a stronger being (reuse, unverified) |
 | E7 | Gatherings | Two-hour cap, incantation in, changed line out | A member's outside patron may limit what she sells (Franca, s378:p24) | Safety against accidents (F15) | A Sealed Artifact of uncertain control is the key (W4) |
 | E8 | Boon items | Fate-linked effects with a charge count and cooldown | Seq 4 boon holders | Bad luck after use (reuse) | Dream city cap at Sequence 7 (reuse, unverified) |
@@ -166,13 +166,13 @@ Searched the full 1,180-member extraction by regex on 2026-10-23.
 
 | Term and spellings tried | Hits | Reading |
 |---|---|---|
-| "Mandated Punisher(s)", "Mandate*" | 0 | The Tingen team name does not exist in this book |
+| "Mandated Punisher(s)", "Mandate*" | 0 | The listed English team-name searches found no hit in this supplied extraction |
 | "Punisher" | 10 hits, first s729:p26 | An Arbiter-domain Beyonder under Trier police, not a church team |
 | "Nighthawk" / "Nightwatcher" | 11 / 1 (s936 / s392:p38) | Nightwatcher = Sequence 4 title [s392:p38]; Nighthawks only inside a dream-city reflection [s936:p64] |
 | "Cult", "cult" | 1 / 22 | Cult is used for specific sects, not a standing rival to a church; "heretic" 147 and "evil god" 413 hits |
 | "Steam and Machinery" / "Machinery Hivemind" | 134 / 31 | Present from s4, strongest in s457-s460 and s1050+; one team scene in W1, one in W3 |
 | "Feysac" / "Feynapotter" | 118 / 159 | Feysac is an empire (its Combat church is barred in Intis, s4:p32), not a city; Feynapotter is the Earth Mother country; a Feysac market was not read |
-| "Mystical Market" | 0 | No such market name; trade is by gathering and bar |
+| "Mystical Market" | 0 | The exact market-name search found no hit; the inspected trade examples use gatherings and a bar |
 | "Beyonder Association" | 0 | None |
 
 ## 8. Source spot-checks by the coordinator (WPR18-19)
@@ -200,11 +200,11 @@ I opened these locators in the source: s4:p31-34 (full paragraph s4:p32), s10:p1
 
 Floor-first per WA6 and the user's explicit focus. Each record: default, dial, in-world reason and cost, source locator and label, current repo coverage, smallest playable slice. The repo's LOTM Tingen branch is a separate first-novel slice and is not counted here.
 
-**Repo coverage method (WPR23):** grepped `src/`, `tests/`, `index.html`, `scripts/` for `circle.of.inevitability`, `coi`, `lumian`, `cordu`, `verl d`, `coppet`. Found: `src/feature_expansion_book_recognition.js` (an unactivated source-qualified recognition adapter, `nativeBound: false`, era "Trier market district, asylum identity check and Research Society gathering", three rules coi.sincerity, coi.office, coi.appearance; one-line recognition entry in `src/book_world_player_agency_contracts.js`). Not found: any COI pack in `src/world_packs/` (only `book_hp_pack.js`, `book_mol_pack.js`), any test, any COI currency, job, power or loop. Searched where: those four directories; did not search the minified `dist/bundle.js`.
+**Repo coverage method at the 2026-10-23 input (WPR23):** grepped `src/`, `tests/`, `index.html`, `scripts/` for `circle.of.inevitability`, `coi`, `lumian`, `cordu`, `verl d`, `coppet`. Found: `src/feature_expansion_book_recognition.js` (an unactivated source-qualified recognition adapter, `nativeBound: false`, era "Trier market district, asylum identity check and Research Society gathering", three rules coi.sincerity, coi.office, coi.appearance; one-line recognition entry in `src/book_world_player_agency_contracts.js`). Not found: any COI pack in `src/world_packs/` (only `book_hp_pack.js`, `book_mol_pack.js`), any test, any COI currency, job, power or loop. Searched where: those four directories; did not search the minified `dist/bundle.js`.
 
 ### K2 World laws (5 to 10 engine facts)
 
-- **Default:** E1-E4 and E6 (section 5): two preaching churches in Intis; joint first-response team rule; verl d'or and coppet with lick = 5 coppet; sealed items by grade 3 to 0; 6 a.m. reset for a seal-bearing protagonist; two-hour gathering cap.
+- **Default:** E1-E4, E6 and E7 (section 5): two preaching churches in Intis; joint first-response team rule; verl d'or and coppet with lick = 5 coppet; sealed items by grade 3 to 0; 6 a.m. reset for a seal-bearing protagonist; two-hour gathering cap.
 - **Dial:** covert worship, escalation size, which prices apply, boon items.
 - **Reason and cost:** state-church settlement with Inquisition risk (F1); escalation costs staff (F3); small coins for the street (F12-F13).
 - **Locator and label:** [s4:p31-33] stated; [s82:p46] stated (relayed); [s10:p16-19] stated; [s112:p12] shown; [s30:p4] stated; [s109:p84] stated; [s378:p40] shown.
@@ -232,12 +232,12 @@ Floor-first per WA6 and the user's explicit focus. Each record: default, dial, i
 
 ### K8 Daily life (local money, 2 to 3 jobs, food/bed anchors, calendar, unfed comfortable)
 
-- **Default:** verl d'or and coppet (E3); jobs: motel attendant 65 per month, foreman 150 (s113:p14-15), dance-hall dancer base 1 per day with a 30% house cut (s176:p16), waiter 70 per month (s176:p45); all opened; beds 1 to 1.5 per week shared, rooms 3 to 5 per week; local calendar: a 6 a.m. day, gathering hours, a weekly cleaner. Ordinary unfed play stays comfortable (AGENTS).
+- **Default:** verl d'or and coppet (E3); jobs: motel attendant 65 per month, foreman 150 (s113:p14-15), dance-hall dancer base 1 per day with a 30% house cut (s176:p16), waiter 70 per month (s176:p45); all opened; beds 1 to 1.5 per week shared, rooms 3 to 5 per week; local timing examples: one protagonist’s conditional 6 a.m. body restoration, gathering hours and a weekly cleaner; these do not establish a generic newcomer calendar. Ordinary unfed play stays comfortable (AGENTS).
 - **Dial:** season, peak-season tips (7 verl d'or in a peak day, stated), Beyonder trade at 15,000 verl d'or per characteristic.
 - **Reason and cost:** wages versus rent set what is affordable; formulas and characteristics dwarf wages by two to three orders of magnitude.
 - **Locator and label:** [s10:p16-19], [s111:p22-25], [s113:p14-17], [s134:p3], [s139:p59] stated; [s112:p12] shown.
 - **Coverage:** none (K8 R missing); no ledger, no job, no clock.
-- **Smallest slice:** a funded job-to-rent loop in coppet and verl d'or, one bed anchor, one meal anchor and a 6 a.m. day clock.
+- **Smallest slice:** a funded job-to-rent loop in coppet and verl d'or, one bed anchor, one meal anchor and an explicitly authored ordinary-job day clock; the protagonist’s restoration does not define that clock.
 
 ### K13 Signature loop
 
@@ -248,7 +248,7 @@ Floor-first per WA6 and the user's explicit focus. Each record: default, dial, i
 - **Coverage:** none (kit card: "no T4 action cards"); the adapter has only an identity-check scene.
 - **Smallest slice:** one loop: invitation, gathering with a two-hour clock and one trade, patron report, leave, then a remembered result that opens the next gathering.
 
-**WA6 floor state:** all five parts partial in documents, missing in code. None is claimed built, tested or director-accepted (WPR21).
+**WA6 floor state at the recorded 2026-10-23 input:** all five parts partial in documents, missing in that census. No build, test or human-review evidence is claimed for this dated census (WPR21; AD32/AD43).
 
 ## 11. More-to-consider round (WPR24)
 
@@ -287,3 +287,18 @@ Files needing links (this pass touched nothing else):
 Lesson candidates for WPR26: (1) a sequel's institutions differ from the first novel's, so zero-hit and spelling checks must list the old names (Mandated Punishers, Nighthawk); (2) a recorded `source_path` in a receipt goes stale, confirm by hash; (3) a lane that already read a book fully makes "window by keyword density" wasteful: choose windows where the claim ledger is thinnest in the needed category; (4) a reader brief that names a focus the window does not contain yields invented rows, so check the census for the exact term first.
 
 Private store: `docs/research/novels/lord-of-mysteries/passes-2026-10-23-coi/` holds the four reader returns (W1 to W4), `extract.py`, `census.py`, `loc.py` and `headings.json`. The 2M-word extraction and the window texts were kept in a scratchpad, not the repo, per the earlier lane's no-stored-prose rule.
+
+
+## Content reconciliation B604: sequel scope and clock boundaries
+
+F1: Full actual review covers all289lines, W1–W4, F1–F24, E1–E8, C1–C7, every price/role/search/review/unread row and K2/K3/K6/K8/K13cards. Inclusive chapter ranges are6+7+7+6=26whole chapters, not25;45318declared window words sum correctly. Four-window source depth, the earlier whole-supplied-book lane, unreviewed COI_RULES, selected reopened paragraphs and recognition adapter metadata retain separate evidence scope. Historical author/reader audit approval is not user product adoption.
+
+F2: Supplied English compilation SHAe7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f, unknown creator/translation/authenticity, missing printed label1026, recorded duplicate-text issue, spine-index versus printed-heading and paragraph convention stay explicit. Selected manifest records109/1025/1026/1050/1051/1052 were inspected as metadata; they do not newly validate all1180members or solve duplicate content. First-novel Chinese or current English-v1 LOTM IDs are not sequel spines. Source scenes, claims and raw indexing are distinct from played/adopted content.
+
+F3: Direct selected source read of s109p82–85 (exact member hash matched) confirms the speaker describes a particular sealed-corruption holder's daily body restoration and retained characteristic/boon changes, while separately discussing resetting a place. It does not supply a generic6a.m.Trier workday, transfer those exceptions to every newcomer or prove the notes-level12dayworld-loop/reset implementation. Keep day/time, individual body restoration, place reset, memory and acquired-change carry sets separate. Detailed late mechanisms remain [S]and no altered designed secret is disclosed. The source receipt records only those four newly read paragraphs, not a chapter/book reread.
+
+F4: Intis versus Loen/Feynapotter/other regions and first novel versus sequel institutions need source-specific roles and era. Relayed first-response staffing is not a statute or fixed encounter quota. Civilian staff/protection, brief shelter, eventual departure and failed protection differ. Baboons Research Society is not Tarot Club; Franca's outside-patron approval is not every member's society rule. Personal rank, card, local team, official registry and remote patron are not interchangeable permissions. Selected remote-patron scenes do not prove nobody from the first cast ever appears physically elsewhere. Zero English-term hits do not establish absence under every translation or anywhere in the canon.
+
+F5: Coppet, verl d'or, five-coppet lick, foreign coin, quoted exchange context, gold mass, deposit versus charge, gross wage versus cut and time-unit costs remain separate. Local source quotes do not become universal prices or funded NPC stock. Characteristic convergence tendencies and a possible specific suppression ability need separate evidence; a higher rank does not automatically both strengthen and cancel the same trend. Sealed-item grade, boon source/continuing support, use count/cooldown, negative consequence and dream-layer limits are separate source questions. Preserve useful funded information work, invitation/entry/exit, actor/agency motive, report/corroboration and ordinary livelihood ideas without imposing copied counts or manual-only play.
+
+F6: The current selected recognition record remains nativeBound=false/unactivated-source-qualified-adapter; its sincerity/registry/appearance methods distinguish believed identity, office entitlement and tracking channel. That source inspection does not prove current whole-repository absence of all COI behavior or certify a new playthrough. Date the old floor-card code census; proposed rights/currency/cast/jobs/power/loop rows are not current completion gates. Tarot/academy/lateHivemind/Purifier/Bureau/market/dream/price windows retain their explicit unreviewed scope. Current PROJECT keeps LOTM first and broader worlds; the retired prestige gate is not revived by this source brief. No gameplay/source-code edit, test/build/browser/native run, save access, new acquisition, worker, deletion, move, commit or push occurs.
