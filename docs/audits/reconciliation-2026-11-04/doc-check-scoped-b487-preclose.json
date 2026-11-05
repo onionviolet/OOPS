@@ -1,0 +1,33 @@
+{
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3G_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3H_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/procedural-crafting-ui-2026-10-15/QUD_AUDIT_DISPATCH.md",
+    "docs/gm/dispatch/reference-gap-followup-2026-10-20/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/FIRST_ARC_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ2_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3E_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3F_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_POPULATED_UI_JOURNEY_RECEIPT.md",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/README.md",
+    "docs/gm/dispatch/master-reconciliation-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3I_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/qud-systems-audit-2026-10-15/depth-5/QUEUED_VICTIMS_AND_CLEANUP.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/ingredient-substitution/implementation/README.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/L1_LEAD_OPENING_RECEIPT.md",
+    "docs/gm/dispatch/world-pack-p2-2026-10-19/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_TEST_GATE_REPAIR_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3J_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3B_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/procedural-crafting-ui-2026-10-15/REFERENCE_INDEX.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/COVERAGE.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "a84a4a2bbe0dca4287e9f1e81a112d7678ebf576a2406b5ba66f39971e8bed9b",
+  "adaptation": "Only filespec changed; diagnostics unchanged. Not a shared-tree pass."
+}

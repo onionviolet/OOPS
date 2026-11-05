@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "batch": "B484",
+  "title": "Model-card attribution, contract preflight, historical R1 and complete editorial UI history",
+  "at": "2026-11-05T07:49:37.473412+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/MRockatansky__Gemma-4-31B-Storymaxxed3-GGUF__README.md",
+      "ids": [
+        "O8",
+        "captured Storymaxxed3 card"
+      ],
+      "classification": "source claims / historical implementation / superseded status",
+      "owners": [
+        "docs/research/local-ai-2026-10-14/round2/REPORT.md"
+      ],
+      "disposition": "Source-card claims and retained alternative, reconciled into O8 rather than a new recommendation. The entire captured [Storymaxxed3 card](sources/MRockatansky__Gemma-4-31B-Storymaxxed3-GGUF__README.md) was read, including frontmatter, lineage, training description, sampler and vision pointer. Its author describes a changed base from Storymaxxed1/2, reused preference data with training tweaks, TRL/DPO and intended improvements in prose/dialogue/detail tracking. These are creator claims and opinions, not comparative YAIR results or demonstrated causal planning, semantic discipline, recall or scene-state correctness. The Apache label in this capture and its base links are provenance inputs, not complete resolved rights across every ancestor or proof of an installed runtime.\n\nTemperature1.0, top-p0.95 and top-k64 are this card's stated sampler suggestion, not a measured optimum here or a presently verified Google recommendation. The mmproj URL is a pointer, not a downloaded compatible projector or successful vision test. Captured Markdown and publisher metadata do not establish exact local GGUF weight integrity, quant quality, template equivalence, memory, speed or energy on this Mac. Preserve O8 as an unselected specialist alternative for a named remaining long-scene/voice gap. This document reconciliation performs no live web verification, acquisition, model load or trial, and keeps the captured card unchanged.",
+      "evidence": "Fresh full content read. UI ranges1–85,86–175,176–270 with truncated middle recovered explicitly220–246; all ending tables read. Other three complete. O8 owner inspected only lines55–75; no full-owner credit.",
+      "reopen": "Retain history and unselected ideas; reopen named source, integration or route gap against exact current inputs.",
+      "input_sha256": "f9ca5f9e93a55670eb6196369e79811150322221782f14ed935d7e029ad80a5a",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3F_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "KJ3F",
+        "PF13",
+        "presence follow-up"
+      ],
+      "classification": "source claims / historical implementation / superseded status",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3F_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Historical contract transition and corrected preflight under AD36/AD42/AD43. Five intents accept and close the pending offer; contractual wage terms and unit organization remain knowledge, not paid income or a wage schedule. The unchanged money/inventory assertion is material. A five-year contract fact does not establish five years of enforced simulation. The source window, thumbprint and private pack identity remain the original author's qualified evidence, not a new chapter read here.\n\nThe initial presence preflight's zero blockers missed a real admission failure: arrival relocation cannot satisfy its own required-participant precondition. The same-day follow-up supersedes the earlier not-applied tool status. Visit holding begins after arrival, and a no-hours schedule match is AMBIGUOUS; the broken variant subsequently reports ambiguity, not a proven blocker or universal placement solution. Native placement workaround and static preflight diagnosis remain separate.\n\nOne uninterrupted native run starts from KJ3E's completed checkpoint on its unchanged bundle, not a fresh campaign. Literal import proves position/contract at that identity. Four runner executions, a repaired temp symlink and ID-string errors are retained without attributing them to gameplay or hiding retries. The two differently sized episodes and reused builder do not establish sweep speedup; both required source reading. No counterfactual, font capture, civil-clock or human evidence is added. KJ3G owns the later duties/tour continuation; the dated next step does not dispatch it again.",
+      "evidence": "Fresh full content read. UI ranges1–85,86–175,176–270 with truncated middle recovered explicitly220–246; all ending tables read. Other three complete. O8 owner inspected only lines55–75; no full-owner credit.",
+      "reopen": "Retain history and unselected ideas; reopen named source, integration or route gap against exact current inputs.",
+      "input_sha256": "bc32da2edfe052c5154e01868452d151f6a25a2c2a8d5378517d87273fb7e438",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md",
+      "ids": [
+        "R1 pre-closure",
+        "FA07"
+      ],
+      "classification": "source claims / historical implementation / superseded status",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md"
+      ],
+      "disposition": "Historical pre-closure checkpoint, reconciled under current AD36/AD42/AD43 and shared-owner practice. Read the full chronology rather than stopping at the initial no-implementation paragraph: R1 first exists only in an isolated candidate, then eight bounded paths are surgically integrated after matching before-hashes. Exact restored terms/account validation was repaired after independent counterexamples. Candidate70/70 and integrated12/12 are scoped overlapping checks, not a final native journey or a full suite. The final state here remains implemented-unverified pending natural prerequisite delivery; no new browser acceptance is claimed.\n\nThe useful continuation must draw on legitimate finite prior work/material/funding, actual means and recorded terms. Old injected-resource proof and replayed historical closure cannot substitute for naturally gathered prerequisites. Preserve cancellation/support-loss, stale/capacity/contact/means, restored-output/account tamper, replay/write-failure and literal-import questions as this dated slice's acceptance distinctions, without declaring a new universal gate. Revision4 and old jobs/receipts retain their compatibility boundary.\n\nR2 ordinary ChatGPT review was captured, but FA07 waits on R1 delivery in this checkpoint. Human chain authority resolved the reviewer's proposed successor ban; an acquisition budget boundary does not establish whole-chain blockage. Old worker ownership, reservations, PIDs/ports, High review setting, candidate path and branch are historical observations, not a current running-worker or permission state. Do not replay old dispatch/review/build instructions from this saved snapshot. Other later completion receipts, when used, must retain their own final input identities and proof; no linked body or candidate was inspected in this content review.",
+      "evidence": "Fresh full content read. UI ranges1–85,86–175,176–270 with truncated middle recovered explicitly220–246; all ending tables read. Other three complete. O8 owner inspected only lines55–75; no full-owner credit.",
+      "reopen": "Retain history and unselected ideas; reopen named source, integration or route gap against exact current inputs.",
+      "input_sha256": "0861d7328e0b6bf4df587c351df109495711f457f7f8152dc82e8f9660af9ded",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_POPULATED_UI_JOURNEY_RECEIPT.md",
+      "ids": [
+        "F1–F4",
+        "EU1–EU5",
+        "LT1–LT4",
+        "NE1–NE3",
+        "AP1–AP4",
+        "HC1–HC3",
+        "HL1–HL6"
+      ],
+      "classification": "source claims / historical implementation / superseded status",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_POPULATED_UI_JOURNEY_RECEIPT.md"
+      ],
+      "disposition": "Full mixed-history review under AD36/AD42/AD43, covering F1–F4, EU1–EU5, LT1–LT4, NE1–NE3, AP1–AP4, HC1–HC3 and HL1–HL6 through the later integration pointer. The receipt now has270 pre-fold lines, much more than its original intake estimate. Its first failed4908/4913 suite is historical after the linked repair's reported4914/4914 run; later editorial focused counts overlap and do not become a new full-suite result. The later four-group integration owner governs its own combined input, suite and publication state, not a retroactive widening of every earlier fixture. This review did not read that linked integration body or rerun it.\n\nKeep the actual chronology: shopping summary/known Wait/pence and inventory wording; prepared-room meaning and review-to-status rather than Stop; settled report repairs at their data owner rather than a UI paraphrase/history rewrite; next-preview correction; measured sticky-header clearance; then user-directed removal of prose vignettes and direct native action beside prose. The earlier room/fog visual was subsequently removed, not the current prescribed LOTM presentation. Optional justified art remains a dial; visual attention to actual actions/progress is not a mandate to fabricate a percentage. Due/remaining time and a present quote do not establish a retained admission duration. The current truthful remaining-time display needs no new saved job owner.\n\nPreserve the concrete failure/repair boundaries: wrong home-clock stepping versus local clock; omitted-pack diagnostic rejected; ten-minute probe accidentally settled a three-minute job; missing scene mount; wrong hidden-header geometry; cancellation's second-render focus loss; and generic blocker association later replaced with the actual known public connection reason. A visible nonempty reason alone did not close HL6. Public-reason projection reads a disclosed existing guard without weakening native admission or exposing hidden causes. Review/navigation never implies command activation; repeated Enter and explicit cancellation have separate observed outcomes.\n\nCopy manifests establish bounded text-only deltas and agreement between live/reviewed rows, not current canonical source qualification for every row. Preview, pending intent, settled observation, Reports lifetime and retained Notebook knowledge remain distinct. Old saved observations retain old wording; no all-log persistence, migration or invented participation follows. Quiet uncertainty, characterization and source-supported detail survive the editorial changes; formulaic prose is not proof of AI authorship. Original narrator asides are conditional texture, not character feelings or source quotations.\n\nThe successive earned stage-eight/ten/eleven fixtures and frozen/pinned bundle-pack pairs do not prove ordinary entry, one uninterrupted final-build campaign, all arcs, full accessibility or a new literal Import for each UI slice. Actual14/17/21 px geometry over three desktop targets is stronger than screenshot existence but remains that tested target set. Later source drift and changing shared global checks retain their dated scopes. Released ownership statements do not establish present workers; private packs/proof remain necessary alongside public docs and probes. No current source, private content, screenshot, runtime, installer or publication inspection is claimed here. Preserve optional latency, selected later consumer/prose and genuine duration-bar ideas at their named triggers, without turning them into an all-world framework or campaign prerequisite.",
+      "evidence": "Fresh full content read. UI ranges1–85,86–175,176–270 with truncated middle recovered explicitly220–246; all ending tables read. Other three complete. O8 owner inspected only lines55–75; no full-owner credit.",
+      "reopen": "Retain history and unselected ideas; reopen named source, integration or route gap against exact current inputs.",
+      "input_sha256": "71ff8a03f9f538d7cc0d9a968c68b3d15e816d7aa703a814681ef7e46e111cf2",
+      "input_lines": 270,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          270
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+      "heading": "## Content reconciliation B484: captured O8 model claims",
+      "body": "Source-card claims and retained alternative, reconciled into O8 rather than a new recommendation. The entire captured [Storymaxxed3 card](sources/MRockatansky__Gemma-4-31B-Storymaxxed3-GGUF__README.md) was read, including frontmatter, lineage, training description, sampler and vision pointer. Its author describes a changed base from Storymaxxed1/2, reused preference data with training tweaks, TRL/DPO and intended improvements in prose/dialogue/detail tracking. These are creator claims and opinions, not comparative YAIR results or demonstrated causal planning, semantic discipline, recall or scene-state correctness. The Apache label in this capture and its base links are provenance inputs, not complete resolved rights across every ancestor or proof of an installed runtime.\n\nTemperature1.0, top-p0.95 and top-k64 are this card's stated sampler suggestion, not a measured optimum here or a presently verified Google recommendation. The mmproj URL is a pointer, not a downloaded compatible projector or successful vision test. Captured Markdown and publisher metadata do not establish exact local GGUF weight integrity, quant quality, template equivalence, memory, speed or energy on this Mac. Preserve O8 as an unselected specialist alternative for a named remaining long-scene/voice gap. This document reconciliation performs no live web verification, acquisition, model load or trial, and keeps the captured card unchanged.",
+      "before_sha256": "f59e6f68b9f5639d6ba6613c85f848b0e7904ed9c9d355e134618ea739e24ed1",
+      "after_sha256": "a55e408b9aa10599c3fea5c52af3b978ca37accc43be807065cd6e1268b9eb9f"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3F_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Content reconciliation B484: contract and preflight chronology",
+      "body": "Historical contract transition and corrected preflight under AD36/AD42/AD43. Five intents accept and close the pending offer; contractual wage terms and unit organization remain knowledge, not paid income or a wage schedule. The unchanged money/inventory assertion is material. A five-year contract fact does not establish five years of enforced simulation. The source window, thumbprint and private pack identity remain the original author's qualified evidence, not a new chapter read here.\n\nThe initial presence preflight's zero blockers missed a real admission failure: arrival relocation cannot satisfy its own required-participant precondition. The same-day follow-up supersedes the earlier not-applied tool status. Visit holding begins after arrival, and a no-hours schedule match is AMBIGUOUS; the broken variant subsequently reports ambiguity, not a proven blocker or universal placement solution. Native placement workaround and static preflight diagnosis remain separate.\n\nOne uninterrupted native run starts from KJ3E's completed checkpoint on its unchanged bundle, not a fresh campaign. Literal import proves position/contract at that identity. Four runner executions, a repaired temp symlink and ID-string errors are retained without attributing them to gameplay or hiding retries. The two differently sized episodes and reused builder do not establish sweep speedup; both required source reading. No counterfactual, font capture, civil-clock or human evidence is added. KJ3G owns the later duties/tour continuation; the dated next step does not dispatch it again.",
+      "before_sha256": "bc32da2edfe052c5154e01868452d151f6a25a2c2a8d5378517d87273fb7e438",
+      "after_sha256": "3f2c837ae56e4c6f5c44592c8b3522880f91e325dc91f0f5848abb86e8a4cb1b"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md",
+      "heading": "## Content reconciliation B484: pre-closure integration boundary",
+      "body": "Historical pre-closure checkpoint, reconciled under current AD36/AD42/AD43 and shared-owner practice. Read the full chronology rather than stopping at the initial no-implementation paragraph: R1 first exists only in an isolated candidate, then eight bounded paths are surgically integrated after matching before-hashes. Exact restored terms/account validation was repaired after independent counterexamples. Candidate70/70 and integrated12/12 are scoped overlapping checks, not a final native journey or a full suite. The final state here remains implemented-unverified pending natural prerequisite delivery; no new browser acceptance is claimed.\n\nThe useful continuation must draw on legitimate finite prior work/material/funding, actual means and recorded terms. Old injected-resource proof and replayed historical closure cannot substitute for naturally gathered prerequisites. Preserve cancellation/support-loss, stale/capacity/contact/means, restored-output/account tamper, replay/write-failure and literal-import questions as this dated slice's acceptance distinctions, without declaring a new universal gate. Revision4 and old jobs/receipts retain their compatibility boundary.\n\nR2 ordinary ChatGPT review was captured, but FA07 waits on R1 delivery in this checkpoint. Human chain authority resolved the reviewer's proposed successor ban; an acquisition budget boundary does not establish whole-chain blockage. Old worker ownership, reservations, PIDs/ports, High review setting, candidate path and branch are historical observations, not a current running-worker or permission state. Do not replay old dispatch/review/build instructions from this saved snapshot. Other later completion receipts, when used, must retain their own final input identities and proof; no linked body or candidate was inspected in this content review.",
+      "before_sha256": "0861d7328e0b6bf4df587c351df109495711f457f7f8152dc82e8f9660af9ded",
+      "after_sha256": "675c541a836aedbfb3392442173dd4bb041874c3059c50860f727407cff425b3"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_POPULATED_UI_JOURNEY_RECEIPT.md",
+      "heading": "## Content reconciliation B484: complete UI receipt chronology",
+      "body": "Full mixed-history review under AD36/AD42/AD43, covering F1–F4, EU1–EU5, LT1–LT4, NE1–NE3, AP1–AP4, HC1–HC3 and HL1–HL6 through the later integration pointer. The receipt now has270 pre-fold lines, much more than its original intake estimate. Its first failed4908/4913 suite is historical after the linked repair's reported4914/4914 run; later editorial focused counts overlap and do not become a new full-suite result. The later four-group integration owner governs its own combined input, suite and publication state, not a retroactive widening of every earlier fixture. This review did not read that linked integration body or rerun it.\n\nKeep the actual chronology: shopping summary/known Wait/pence and inventory wording; prepared-room meaning and review-to-status rather than Stop; settled report repairs at their data owner rather than a UI paraphrase/history rewrite; next-preview correction; measured sticky-header clearance; then user-directed removal of prose vignettes and direct native action beside prose. The earlier room/fog visual was subsequently removed, not the current prescribed LOTM presentation. Optional justified art remains a dial; visual attention to actual actions/progress is not a mandate to fabricate a percentage. Due/remaining time and a present quote do not establish a retained admission duration. The current truthful remaining-time display needs no new saved job owner.\n\nPreserve the concrete failure/repair boundaries: wrong home-clock stepping versus local clock; omitted-pack diagnostic rejected; ten-minute probe accidentally settled a three-minute job; missing scene mount; wrong hidden-header geometry; cancellation's second-render focus loss; and generic blocker association later replaced with the actual known public connection reason. A visible nonempty reason alone did not close HL6. Public-reason projection reads a disclosed existing guard without weakening native admission or exposing hidden causes. Review/navigation never implies command activation; repeated Enter and explicit cancellation have separate observed outcomes.\n\nCopy manifests establish bounded text-only deltas and agreement between live/reviewed rows, not current canonical source qualification for every row. Preview, pending intent, settled observation, Reports lifetime and retained Notebook knowledge remain distinct. Old saved observations retain old wording; no all-log persistence, migration or invented participation follows. Quiet uncertainty, characterization and source-supported detail survive the editorial changes; formulaic prose is not proof of AI authorship. Original narrator asides are conditional texture, not character feelings or source quotations.\n\nThe successive earned stage-eight/ten/eleven fixtures and frozen/pinned bundle-pack pairs do not prove ordinary entry, one uninterrupted final-build campaign, all arcs, full accessibility or a new literal Import for each UI slice. Actual14/17/21 px geometry over three desktop targets is stronger than screenshot existence but remains that tested target set. Later source drift and changing shared global checks retain their dated scopes. Released ownership statements do not establish present workers; private packs/proof remain necessary alongside public docs and probes. No current source, private content, screenshot, runtime, installer or publication inspection is claimed here. Preserve optional latency, selected later consumer/prose and genuine duration-bar ideas at their named triggers, without turning them into an all-world framework or campaign prerequisite.",
+      "before_sha256": "71ff8a03f9f538d7cc0d9a968c68b3d15e816d7aa703a814681ef7e46e111cf2",
+      "after_sha256": "42bc10a92e84ae1b59246e387cbcf6fe9dfc262828724107682a1774453d0dfd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 315
+}

@@ -1,0 +1,18 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "44564a55499f2aa3fe0b5e63bbacf5e1e68e305a13f463433671e149d16194d6",
+  "paths": [
+    "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/HORIZON_RECONCILIATION_CRAFT_RNG.md",
+    "docs/gm/dispatch/progression-gates-2026-10-23/D1_INPUT_RECEIPT.md",
+    "docs/gm/dispatch/r1-follow-through-2026-10-26/RECEIPT.md",
+    "docs/gm/home-social-base-2026-10-07/proto23/DEPTH_AUDIT.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not a shared-tree pass."
+}

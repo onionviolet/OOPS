@@ -1,0 +1,8 @@
+{
+  "outbound": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_OUTBOUND_2026-10-13.md",
+  "sent": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_SENT_2026-10-13.md",
+  "sent_body_equal": true,
+  "outbound_sha256": "1550fb454f180f14810eb786b1b36bc4270ba39009467e62e3b43c9ae9edc658",
+  "sent_sha256": "384fc0688e633bd9c01cff601fedb3d9e86fedefdce16e8d2f42598ef08203dd",
+  "scope": "Exact Part1 onward byte equality after both bodies actually read; no proof of transmission, reviewer response, authorization or implementation."
+}

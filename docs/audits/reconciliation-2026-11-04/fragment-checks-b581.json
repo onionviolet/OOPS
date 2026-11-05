@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "owner": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "target": "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+      "fragment": "content-reconciliation-b578-shared-boundaries-and-first-four-worklists",
+      "exists": true
+    },
+    {
+      "owner": "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+      "target": "docs/research/PANEL_DESIGN_ABSORPTION_2026-10-15.md",
+      "fragment": "content-reconciliation-b581-reference-normal-play-and-delivered-shell",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md",
+      "target": "docs/research/MANGA_OCR_AND_VISION_OPTIONS_2026-10-22.md",
+      "fragment": "content-reconciliation-b580-pilot-limits-and-locator-identity",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+      "target": "docs/research/SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md",
+      "fragment": "content-reconciliation-b581-selected-stack-and-acquisition-boundaries",
+      "exists": true
+    }
+  ],
+  "missing": []
+}

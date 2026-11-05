@@ -1,0 +1,15 @@
+{
+  "command": "node same-rule scoped check_doc_slips.mjs",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "19f7e2256439b34d138734ff227179221cc65704340a3f32a0ac743de6413b3a",
+  "paths": [
+    "docs/gm/dispatch/protagonist-life-2026-10-27/PLAN.md",
+    "docs/LIFE_SIM_NORTH_STAR.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "adaptation": "Only filespec restricted to task paths; diagnostic rules unchanged. Not a shared-tree pass."
+}

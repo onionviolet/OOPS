@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "batch": "B604",
+  "title": "LOTM and Circle institution passes: source identity, roles and clock scopes",
+  "at": "2026-11-05T12:46:19.357369+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19",
+        "F20",
+        "F21",
+        "F22",
+        "F23",
+        "F24",
+        "F25",
+        "F26",
+        "F27",
+        "F28",
+        "F29",
+        "EF1",
+        "EF2",
+        "EF3",
+        "EF4",
+        "EF5",
+        "EF6",
+        "EF7",
+        "EF8",
+        "EF9",
+        "EF10",
+        "EF11",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6",
+        "X7",
+        "X8"
+      ],
+      "classification": "source edition, institutional evidence and conditional time/rights mechanisms reconciled",
+      "owners": [
+        "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/research/novels/lord-of-mysteries/BRIEF.md"
+      ],
+      "disposition": "F1: Full actual review covers all267lines, W1–W4, all WPR9–WPR17 rows, F1–F29, EF1–EF11, X1–X8, spot-check table, exact unread windows and next-pass/owner suggestions. Four windows each contain three whole chapters plus one partial:16chapters/12whole/fourpartial, not17/13/four. Their47973declared Chinese-character word units sum correctly. Window/census/worker-note/spot-checked/integrated/source/runtime states remain distinct. Earlier r039–r145 notes are leads where marked L, not fresh source or accurate-note approval.\n\nF2: Keep the exact Chinese compilation SHA6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d and serial/nonempty-paragraph convention.1394numbered story chapters and the later serial370–1402resume wording need a manifest crosswalk before selecting a range; counts alone do not authorize an out-of-range read. This pass's only-other-English-file statement is dated, superseded as current availability by PROJECT's English-v1 Klein route. Chinese serials cannot silently become English chapter/paragraph locators or sequel spines. No raw Chinese source was newly read and current source availability was not inventoried.\n\nF3: Civil contract, travel/secrecy/registration restrictions, salary/allowance/advance repayment, initiation, formal field rank, examiner authority and potion digestion are different mechanisms. A stated church waiting rule is not an unavoidable pathway law; EF3 already records a different method. Hedged headcounts and inferred local team sizes are not exhaustive staffing constants. Jurisdiction-by-faith's F2 is L-level in this pass, so a routing implementation cannot call it independently verified without its actual source. Operational sealed-item count varies by mission; grade/clearance/group authorization are not proof every team action has the same equipment or costs. Named bilingual team glosses need stable source identity, not duplicate systems.\n\nF4: Broker custody of both sides, authenticity verification, authority to carry an offer versus bind a seller, informant split, cash/barter terms, agent commission/floor and price comparison are separate. Exact scene quotes can stand alone with context; a few quotes do not prove a market-wide band or require every price to have a measured premium. Different city/class/time and authored bread/bed anchors are compatible variants. New papers/appearance/travel spending/custody/old ties are not a reset that deletes cash, legal obligations or actual actor identity. Keep actual holder, offer, payment and attribution through any selected trade/access adaptation.\n\nF5: Later mind/oath/mask/wish and dangerous-item material retains exact source labels and [S]scope; no designed sealed truth is disclosed. A particular cheap wish item does not prove cheapness predicts danger for every item. Loophole, consent, psychological effect, information clearance, exceptional capability and aftermath require their actual mechanisms, not global prohibitions or mandatory anti-exploit gates. Observed local containment, secrecy requests, headquarters report and evidence return are distinct states; they do not certify every lawful-power use or all institution enforcement.\n\nF6: Existing LTS authored examiner/six-act rate remain prototype divergences where recorded, rather than source contradictions or reasons to rewrite a live campaign. PROJECT/campaign/mechanism owners govern Klein's current route; this historical next-pass list launches no workers or code. Preserve the useful contract-join, funded escrow, source-qualified price/floor, institution rights, travel-paper, attribution and consequence ideas in existing owners. Hospitals/banks/newspapers/markets/Seq9prices/jurisdiction/tier wording and unreviewed source ranges remain scoped gaps. No current runtime/native/source-body/build/browser/save proof, acquisition, worker/thread, deletion, relocation, commit or push is added.",
+      "evidence": "Both complete docs read in three bounded untruncated ranges each; named source owners/source adapter read as scoped suppliers. Only COI s109p82–85 was newly read from exact hash/member; selected manifest metadata is not body review.",
+      "reopen": "Any selected institution/clock/trade/cast mechanism needs its particular source and current actual consumer/proof; retain source and play gaps without a new mandatory gate.",
+      "full": true,
+      "input_sha256": "5d257ed128f36b7e61e0ac687d218fc83e8ee123832b9a324aae1b7568451a55",
+      "input_lines": 267,
+      "ranges": [
+        [
+          1,
+          267
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19",
+        "F20",
+        "F21",
+        "F22",
+        "F23",
+        "F24",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13"
+      ],
+      "classification": "source edition, institutional evidence and conditional time/rights mechanisms reconciled",
+      "owners": [
+        "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md"
+      ],
+      "disposition": "F1: Full actual review covers all289lines, W1–W4, F1–F24, E1–E8, C1–C7, every price/role/search/review/unread row and K2/K3/K6/K8/K13cards. Inclusive chapter ranges are6+7+7+6=26whole chapters, not25;45318declared window words sum correctly. Four-window source depth, the earlier whole-supplied-book lane, unreviewed COI_RULES, selected reopened paragraphs and recognition adapter metadata retain separate evidence scope. Historical author/reader audit approval is not user product adoption.\n\nF2: Supplied English compilation SHAe7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f, unknown creator/translation/authenticity, missing printed label1026, recorded duplicate-text issue, spine-index versus printed-heading and paragraph convention stay explicit. Selected manifest records109/1025/1026/1050/1051/1052 were inspected as metadata; they do not newly validate all1180members or solve duplicate content. First-novel Chinese or current English-v1 LOTM IDs are not sequel spines. Source scenes, claims and raw indexing are distinct from played/adopted content.\n\nF3: Direct selected source read of s109p82–85 (exact member hash matched) confirms the speaker describes a particular sealed-corruption holder's daily body restoration and retained characteristic/boon changes, while separately discussing resetting a place. It does not supply a generic6a.m.Trier workday, transfer those exceptions to every newcomer or prove the notes-level12dayworld-loop/reset implementation. Keep day/time, individual body restoration, place reset, memory and acquired-change carry sets separate. Detailed late mechanisms remain [S]and no altered designed secret is disclosed. The source receipt records only those four newly read paragraphs, not a chapter/book reread.\n\nF4: Intis versus Loen/Feynapotter/other regions and first novel versus sequel institutions need source-specific roles and era. Relayed first-response staffing is not a statute or fixed encounter quota. Civilian staff/protection, brief shelter, eventual departure and failed protection differ. Baboons Research Society is not Tarot Club; Franca's outside-patron approval is not every member's society rule. Personal rank, card, local team, official registry and remote patron are not interchangeable permissions. Selected remote-patron scenes do not prove nobody from the first cast ever appears physically elsewhere. Zero English-term hits do not establish absence under every translation or anywhere in the canon.\n\nF5: Coppet, verl d'or, five-coppet lick, foreign coin, quoted exchange context, gold mass, deposit versus charge, gross wage versus cut and time-unit costs remain separate. Local source quotes do not become universal prices or funded NPC stock. Characteristic convergence tendencies and a possible specific suppression ability need separate evidence; a higher rank does not automatically both strengthen and cancel the same trend. Sealed-item grade, boon source/continuing support, use count/cooldown, negative consequence and dream-layer limits are separate source questions. Preserve useful funded information work, invitation/entry/exit, actor/agency motive, report/corroboration and ordinary livelihood ideas without imposing copied counts or manual-only play.\n\nF6: The current selected recognition record remains nativeBound=false/unactivated-source-qualified-adapter; its sincerity/registry/appearance methods distinguish believed identity, office entitlement and tracking channel. That source inspection does not prove current whole-repository absence of all COI behavior or certify a new playthrough. Date the old floor-card code census; proposed rights/currency/cast/jobs/power/loop rows are not current completion gates. Tarot/academy/lateHivemind/Purifier/Bureau/market/dream/price windows retain their explicit unreviewed scope. Current PROJECT keeps LOTM first and broader worlds; the retired prestige gate is not revived by this source brief. No gameplay/source-code edit, test/build/browser/native run, save access, new acquisition, worker, deletion, move, commit or push occurs.",
+      "evidence": "Both complete docs read in three bounded untruncated ranges each; named source owners/source adapter read as scoped suppliers. Only COI s109p82–85 was newly read from exact hash/member; selected manifest metadata is not body review.",
+      "reopen": "Any selected institution/clock/trade/cast mechanism needs its particular source and current actual consumer/proof; retain source and play gaps without a new mandatory gate.",
+      "full": true,
+      "input_sha256": "39b0d207b0fd45d97bdfd732c2f33af94220a73f5b1e6d6d9d7fc0c803ff5b5c",
+      "input_lines": 289,
+      "ranges": [
+        [
+          1,
+          289
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B604: institution evidence and current scope",
+      "body": "F1: Full actual review covers all267lines, W1–W4, all WPR9–WPR17 rows, F1–F29, EF1–EF11, X1–X8, spot-check table, exact unread windows and next-pass/owner suggestions. Four windows each contain three whole chapters plus one partial:16chapters/12whole/fourpartial, not17/13/four. Their47973declared Chinese-character word units sum correctly. Window/census/worker-note/spot-checked/integrated/source/runtime states remain distinct. Earlier r039–r145 notes are leads where marked L, not fresh source or accurate-note approval.\n\nF2: Keep the exact Chinese compilation SHA6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d and serial/nonempty-paragraph convention.1394numbered story chapters and the later serial370–1402resume wording need a manifest crosswalk before selecting a range; counts alone do not authorize an out-of-range read. This pass's only-other-English-file statement is dated, superseded as current availability by PROJECT's English-v1 Klein route. Chinese serials cannot silently become English chapter/paragraph locators or sequel spines. No raw Chinese source was newly read and current source availability was not inventoried.\n\nF3: Civil contract, travel/secrecy/registration restrictions, salary/allowance/advance repayment, initiation, formal field rank, examiner authority and potion digestion are different mechanisms. A stated church waiting rule is not an unavoidable pathway law; EF3 already records a different method. Hedged headcounts and inferred local team sizes are not exhaustive staffing constants. Jurisdiction-by-faith's F2 is L-level in this pass, so a routing implementation cannot call it independently verified without its actual source. Operational sealed-item count varies by mission; grade/clearance/group authorization are not proof every team action has the same equipment or costs. Named bilingual team glosses need stable source identity, not duplicate systems.\n\nF4: Broker custody of both sides, authenticity verification, authority to carry an offer versus bind a seller, informant split, cash/barter terms, agent commission/floor and price comparison are separate. Exact scene quotes can stand alone with context; a few quotes do not prove a market-wide band or require every price to have a measured premium. Different city/class/time and authored bread/bed anchors are compatible variants. New papers/appearance/travel spending/custody/old ties are not a reset that deletes cash, legal obligations or actual actor identity. Keep actual holder, offer, payment and attribution through any selected trade/access adaptation.\n\nF5: Later mind/oath/mask/wish and dangerous-item material retains exact source labels and [S]scope; no designed sealed truth is disclosed. A particular cheap wish item does not prove cheapness predicts danger for every item. Loophole, consent, psychological effect, information clearance, exceptional capability and aftermath require their actual mechanisms, not global prohibitions or mandatory anti-exploit gates. Observed local containment, secrecy requests, headquarters report and evidence return are distinct states; they do not certify every lawful-power use or all institution enforcement.\n\nF6: Existing LTS authored examiner/six-act rate remain prototype divergences where recorded, rather than source contradictions or reasons to rewrite a live campaign. PROJECT/campaign/mechanism owners govern Klein's current route; this historical next-pass list launches no workers or code. Preserve the useful contract-join, funded escrow, source-qualified price/floor, institution rights, travel-paper, attribution and consequence ideas in existing owners. Hospitals/banks/newspapers/markets/Seq9prices/jurisdiction/tier wording and unreviewed source ranges remain scoped gaps. No current runtime/native/source-body/build/browser/save proof, acquisition, worker/thread, deletion, relocation, commit or push is added.",
+      "before_sha256": "5d257ed128f36b7e61e0ac687d218fc83e8ee123832b9a324aae1b7568451a55",
+      "after_sha256": "f34daeb5e1303440cdd8516180fa08d08517e2bf46c712f1f1e67659eab48ff0"
+    },
+    {
+      "path": "docs/research/novels/lord-of-mysteries/BRIEF.md",
+      "heading": "## Institution source and campaign routing reconciliation B604",
+      "body": "F1: The [institution pass](../../../worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b604-institution-evidence-and-current-scope) preserves the first-novel Chinese edition's bounded contracts, custody, rank/exam, prices, attribution and source-qualified institutional roles. B604 corrects its window arithmetic to16chapters and dates its source-availability claim. Lead notes, reopened source, accepted product direction and current runtime are different evidence levels under AD32/AD36/AD38.\n\nF2: Current PROJECT/campaign/mechanism owners govern Klein's English-v1 developer route. This historical pass selects no new reader/build, translates no serials by arithmetic and carries no first-novel team or policy automatically into the sequel. Keep named hospitals/banks/market/jurisdiction/price/tier/source-review gaps and authored LTS divergences explicit; existing contract/trade/actor/record owners remain the homes of useful ideas.",
+      "before_sha256": "d592a196ac7de8cbfbe3e6ce8cab63ff576b71d4a419ed5f5b4dc4fdee0f0796",
+      "after_sha256": "437ee37e4fba58695d1fadbaa0585997ea80f366b0a552e39d54cbd4ee3b7eee"
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B604: sequel scope and clock boundaries",
+      "body": "F1: Full actual review covers all289lines, W1–W4, F1–F24, E1–E8, C1–C7, every price/role/search/review/unread row and K2/K3/K6/K8/K13cards. Inclusive chapter ranges are6+7+7+6=26whole chapters, not25;45318declared window words sum correctly. Four-window source depth, the earlier whole-supplied-book lane, unreviewed COI_RULES, selected reopened paragraphs and recognition adapter metadata retain separate evidence scope. Historical author/reader audit approval is not user product adoption.\n\nF2: Supplied English compilation SHAe7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f, unknown creator/translation/authenticity, missing printed label1026, recorded duplicate-text issue, spine-index versus printed-heading and paragraph convention stay explicit. Selected manifest records109/1025/1026/1050/1051/1052 were inspected as metadata; they do not newly validate all1180members or solve duplicate content. First-novel Chinese or current English-v1 LOTM IDs are not sequel spines. Source scenes, claims and raw indexing are distinct from played/adopted content.\n\nF3: Direct selected source read of s109p82–85 (exact member hash matched) confirms the speaker describes a particular sealed-corruption holder's daily body restoration and retained characteristic/boon changes, while separately discussing resetting a place. It does not supply a generic6a.m.Trier workday, transfer those exceptions to every newcomer or prove the notes-level12dayworld-loop/reset implementation. Keep day/time, individual body restoration, place reset, memory and acquired-change carry sets separate. Detailed late mechanisms remain [S]and no altered designed secret is disclosed. The source receipt records only those four newly read paragraphs, not a chapter/book reread.\n\nF4: Intis versus Loen/Feynapotter/other regions and first novel versus sequel institutions need source-specific roles and era. Relayed first-response staffing is not a statute or fixed encounter quota. Civilian staff/protection, brief shelter, eventual departure and failed protection differ. Baboons Research Society is not Tarot Club; Franca's outside-patron approval is not every member's society rule. Personal rank, card, local team, official registry and remote patron are not interchangeable permissions. Selected remote-patron scenes do not prove nobody from the first cast ever appears physically elsewhere. Zero English-term hits do not establish absence under every translation or anywhere in the canon.\n\nF5: Coppet, verl d'or, five-coppet lick, foreign coin, quoted exchange context, gold mass, deposit versus charge, gross wage versus cut and time-unit costs remain separate. Local source quotes do not become universal prices or funded NPC stock. Characteristic convergence tendencies and a possible specific suppression ability need separate evidence; a higher rank does not automatically both strengthen and cancel the same trend. Sealed-item grade, boon source/continuing support, use count/cooldown, negative consequence and dream-layer limits are separate source questions. Preserve useful funded information work, invitation/entry/exit, actor/agency motive, report/corroboration and ordinary livelihood ideas without imposing copied counts or manual-only play.\n\nF6: The current selected recognition record remains nativeBound=false/unactivated-source-qualified-adapter; its sincerity/registry/appearance methods distinguish believed identity, office entitlement and tracking channel. That source inspection does not prove current whole-repository absence of all COI behavior or certify a new playthrough. Date the old floor-card code census; proposed rights/currency/cast/jobs/power/loop rows are not current completion gates. Tarot/academy/lateHivemind/Purifier/Bureau/market/dream/price windows retain their explicit unreviewed scope. Current PROJECT keeps LOTM first and broader worlds; the retired prestige gate is not revived by this source brief. No gameplay/source-code edit, test/build/browser/native run, save access, new acquisition, worker, deletion, move, commit or push occurs.",
+      "before_sha256": "39b0d207b0fd45d97bdfd732c2f33af94220a73f5b1e6d6d9d7fc0c803ff5b5c",
+      "after_sha256": "e9fc7d0bfef08ff63612d4387216c7c6d4b757f6296c429357e75149467fdf8c"
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "heading": "## Institution and body-clock source reconciliation B604",
+      "body": "F1: The [institution pass](../../../../worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b604-sequel-scope-and-clock-boundaries) adds bounded source-local institution, currency, role, invitation and consequence detail. B604 reviews every row, corrects window arithmetic to26chapters and directly reads only s109p82–85 at the matched source/member hash. That passage concerns an individual body-restoration condition; it is not a universal local job calendar or complete Cordu-world reset/carry contract.\n\nF2: Baboons society, Tarot affiliation, outside patron approval, official agency rights, genuine actor, appearance and sincere belief remain separate. Source snapshots/locators are sequel-specific; a zero-hit translation or remote-patron window is not whole-canon absence. The selected recognition record is unactivated/nativeBound=false, not proof of every current runtime surface. This brief remains a research proposal; source-review finalization is not user product acceptance, and current PROJECT retires the old first-milestone gate. No gameplay, acquisition or new worker is authorized by these cross-links.",
+      "before_sha256": "effd8dd0544847ef453f9c25fef7537feaf521b21da74bbda2b1b5ad4e4f950d",
+      "after_sha256": "7a76a9f2bad71d8e5388de545ccb3eaf00fbb25f03ec93608655033bd07f3e63"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 91,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "4 windows, 17 chapters (13 whole, 4 partial)",
+      "to": "4 windows, 16 chapters (12 whole, 4 partial)",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Only one other LOTM EPUB exists (the English sequel), excluded.",
+      "to": "At that dated availability check the only other listed LOTM EPUB was the English sequel, excluded. This is not a current source inventory; PROJECT now records an English-v1 first-novel lead route.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Any LOTM price table must carry a source band and a premium, never a single price (F13, F14, F15).",
+      "to": "A LOTM quote should retain its exact scene, units, offer and verification context. Infer a market band or premium when evidence supports it; a single sourced quote remains valid within its own scope (F13–F15).",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Only the new clerk can be hired within a week (F8).",
+      "to": "One later observed clerk hire takes a week (F8), without establishing a universal hiring schedule.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "A cheap wonderful item with a trivial price is the dangerous one.",
+      "to": "A particular apparently cheap wish item carries a hidden danger; price alone does not classify every item.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Jurisdiction by faith (F1, F2) should constrain any \"which team answers\" feature in the slice before it grows past the Seer start.",
+      "to": "Jurisdiction by faith (F1/F2) is a candidate for a team-routing feature; F2 remains an unreviewed lead here and needs its actual source before implementation.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "4 windows, 25 chapters, all whole chapters",
+      "to": "4 windows, 26 chapters, all whole chapters",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "**Repo coverage method (WPR23):**",
+      "to": "**Repo coverage method at the 2026-10-23 input (WPR23):**",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "E1-E4 and E6 (section 5):",
+      "to": "E1-E4, E6 and E7 (section 5):",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Higher Sequence dampens it (reuse)",
+      "to": "A source-specific suppression method may differ from the rank-driven trend; this reused claim is unverified",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "the first-novel cast is present as remote patrons, not physical neighbors.",
+      "to": "the selected windows show first-novel cast as remote patrons; they do not establish whole-book absence of physical encounters.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "A passive idle player would miss the invitation chain (letter then incantation then team).",
+      "to": "The invitation/channel/eligibility chain needs actual support; any idle or compressed route must preserve those mechanisms (AD52), rather than being ruled out by this example.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "local calendar: a 6 a.m. day, gathering hours, a weekly cleaner.",
+      "to": "local timing examples: one protagonist’s conditional 6 a.m. body restoration, gathering hours and a weekly cleaner; these do not establish a generic newcomer calendar.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "one meal anchor and a 6 a.m. day clock.",
+      "to": "one meal anchor and an explicitly authored ordinary-job day clock; the protagonist’s restoration does not define that clock.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "**WA6 floor state:** all five parts partial in documents, missing in code.",
+      "to": "**WA6 floor state at the recorded 2026-10-23 input:** all five parts partial in documents, missing in that census.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "The Tingen team name does not exist in this book",
+      "to": "The listed English team-name searches found no hit in this supplied extraction",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "No such market name; trade is by gathering and bar",
+      "to": "The exact market-name search found no hit; the inspected trade examples use gatherings and a bar",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "from": "**Final world brief. Accepted 2026-10-07 after the Opus audit recorded in [FINAL_READBACK.md](FINAL_READBACK.md). It remains a proposal: nothing here selects a campaign, implements gameplay, or changes the first milestone (one realm, one prestige layer).** Written from the accepted claims in [claims.json](claims.json) and the consolidated indexes in this folder.",
+      "to": "**Research brief finalized on 2026-10-07 after the audit recorded in [FINAL_READBACK.md](FINAL_READBACK.md). It remains a proposal: source-review finalization does not select a campaign or establish gameplay. Current [PROJECT](../../../../../PROJECT.md) retires the old one-realm/one-prestige gate.** Written from the recorded source claims in [claims.json](claims.json) and the consolidated indexes in this folder.",
+      "reason": "Correct exact counting/source-scope/authority conflation; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "the only other listed LOTM EPUB",
+      "to": "the other listed LOTM EPUB",
+      "reason": "Clarify scoped historical/source statements after document lint; no direction or behavior change."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Nighthawk team names reappear only inside a dream-city reflection of the first novel.",
+      "to": "The listed Nighthawk term hits belong to a dream-city reflection of the first novel, within the searched translation.",
+      "reason": "Clarify scoped historical/source statements after document lint; no direction or behavior change."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "None is claimed built, tested or director-accepted (WPR21).",
+      "to": "No build, test or human-review evidence is claimed for this dated census (WPR21; AD32/AD43).",
+      "reason": "Clarify scoped historical/source statements after document lint; no direction or behavior change."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B602, continuous execution 2026-11-05 |",
+      "to": "| B604, continuous execution 2026-11-05 |",
+      "reason": "Advance active pointer; no full-register credit."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "f34daeb5e1303440cdd8516180fa08d08517e2bf46c712f1f1e67659eab48ff0",
+      "to": "cce555679f81746628c0a4744ed8b971aa47459d2f21a604216f980df3b88bb7",
+      "reason": "Exact inline source and scope corrections recorded above."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "e9fc7d0bfef08ff63612d4387216c7c6d4b757f6296c429357e75149467fdf8c",
+      "to": "da153da952666c9acff26955ff9b716d5ab975d300b01b87c7025d9230c03ec7",
+      "reason": "Exact inline source and scope corrections recorded above."
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "from": "7a76a9f2bad71d8e5388de545ccb3eaf00fbb25f03ec93608655033bd07f3e63",
+      "to": "ebffede2b26671ccd61303ac638d0ec7178ae55c0970f4edaf0441927fc300bd",
+      "reason": "Exact inline source and scope corrections recorded above."
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "cce555679f81746628c0a4744ed8b971aa47459d2f21a604216f980df3b88bb7",
+      "to": "6e2d4ff351fc1e2a6a2dfa379932289058ecbe5dd1d611f1e181ef163882ec07",
+      "reason": "Exact scoped wording clarifications recorded above."
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "da153da952666c9acff26955ff9b716d5ab975d300b01b87c7025d9230c03ec7",
+      "to": "90a43976590fb1abad3d50a6f82638716f21b79a5b65f2207ba544d700bdf66a",
+      "reason": "Exact scoped wording clarifications recorded above."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "01e0204ca1629f470cf8f8e8aebde261e0d96ae38476585db9565302f2548059",
+      "to": "2f815645f9f578305db1a338e8877dee46b0177c253f3f96eaf95e0d8e0b8b28",
+      "reason": "Advance existing checkpoint to B604."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "src/feature_expansion_book_recognition.js",
+      "sha256": "ca8e1035e75210aa78a6e722650d1f452a7cdfb788e275e990f3bbb76f51cff9",
+      "ranges": [
+        [
+          1362,
+          1449
+        ]
+      ],
+      "scope": "Selected sequel record/rules; no full source-file review."
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/CHAPTER_MANIFEST.json",
+      "sha256": "02e538ab3a232bff2752f5b6fa0a346b557c1a78b12eb581add8a145307ab0bf",
+      "selected_indices": [
+        109,
+        1025,
+        1026,
+        1050,
+        1051,
+        1052
+      ],
+      "scope": "Selected metadata only; not whole chapter semantic review."
+    }
+  ]
+}

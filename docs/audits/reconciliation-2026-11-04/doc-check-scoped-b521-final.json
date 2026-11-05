@@ -1,0 +1,30 @@
+{
+  "command": "node check_doc_slips.mjs with explicit task filespec",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/SKILLS_AND_TALENTS.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/batch-reading-2026-10-27/PLAN.md",
+    "docs/gm/dispatch/codex-parallel-2026-10-25/README.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REPORT.md",
+    "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md",
+    "docs/gm/dispatch/itch-wave-2026-10-23/CHECKPOINT.md",
+    "docs/gm/dispatch/lotm-acting-guidance-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md",
+    "docs/gm/dispatch/lotm-whole-life-2026-11-01/CHECKPOINT.md",
+    "docs/research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md",
+    "docs/research/PROTOLIKE_UI_REFERENCES_2026-10-24.md",
+    "docs/research/SOURCE_ACQUISITION_RECEIPT_2026-10-26.md",
+    "docs/research/UI_MICRO_FEEL_AUDIT_2026-10-14.md",
+    "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+    "docs/research/planescape-torment/COVERAGE.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "4a4c85acc8b8e69a80e207e074cc9b2b472048420c1f6bfec20401490044e589",
+  "scope": "Only filespec adapted; diagnostic logic unchanged, not a shared-tree pass."
+}

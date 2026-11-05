@@ -1,0 +1,355 @@
+{
+  "schema": 1,
+  "batch": "B602",
+  "title": "Polyjuice identity palette: actual collected rules and current runtime seams",
+  "at": "2026-11-05T12:30:44.574863+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "ids": [
+        "PJI1",
+        "PJI2",
+        "PJI3",
+        "PJI4",
+        "PJI5",
+        "PJI6",
+        "PJI7",
+        "PJI8",
+        "PJI9",
+        "PJI10",
+        "PJI11",
+        "PJI12",
+        "PJI13",
+        "PJI14",
+        "PJI15",
+        "PJI16",
+        "PJI17",
+        "PJI18",
+        "PJI19",
+        "PJI20",
+        "PJI21",
+        "PJI22",
+        "PJI23",
+        "PJI24",
+        "PJI25",
+        "PJI26",
+        "PJI27",
+        "PJI28",
+        "PJI29",
+        "PJI30",
+        "PJI31",
+        "PJI32",
+        "PJI33",
+        "PJI34",
+        "PJI35",
+        "PJI36",
+        "PJI-N1",
+        "PJI-N2",
+        "PJI-N3",
+        "PJI-N4",
+        "PJI-L1",
+        "PJI-L2",
+        "PJI-L3",
+        "PJI-L4",
+        "PJI-L5"
+      ],
+      "classification": "source misattribution, stale collection gap and proposed-versus-current runtime boundaries",
+      "owners": [
+        "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md"
+      ],
+      "disposition": "F1: Full content review covers PJI1–PJI36, PJI-N1–N4, PJI-L1–L5, both rounds, all identity/gate/rights/consequence rows and collection-status claims. Appearance, actual body/function, behavior/knowledge, carried credentials, record rights, actual actor and observer belief remain useful distinct layers. Exposure that someone is not the donor is separate from recognizing the actor; detection is separate from ending an effect. A gate accepting a presentation does not transfer legal ownership or make every other observer believe it.\n\nF2: Selected local collected source records directly qualify PJI8–PJI13/PJI31–PJI35. PF2 action46 lists success/failure/critical failure without a distinct critical-success trust effect; familiarity can justify a check even without direct interaction. Action47 uses one shared lie roll against listener-specific DCs. Illusory Disguise and Veil base restrictions differ from their heightened voice/scent/specific-person capabilities; Humanoid Form's higher ranks add sensory or size/reach effects, so no-statistics language cannot cover every rank. True Seeing/Truesight use a seeing-through counteract rather than dispelling the disguise; aura masking has its own target/rank/disbelief rules. These are bounded edition records, not rules automatically adopted for HP or every world.\n\nF3: The PF1 Paizo Disguise page was collected via the browser route on November4 and is available locally; its familiarity bonuses are4/6/8/10 and it treats known-person observers as suspicious. This resolves PJI8's waiting-for-table note and the research part of PJI-L5. It does not clear the transport's separate stop state or authorize refetching. Collection is not implementation. Original premature scope/publisher/retrieval statements retain their own dated receipt history.\n\nF4: Current source read: hp_brewing_state.js selected expiry and drink paths consume a dose and sample, create an effect with donor/end time, and reject drinking while an effect or condition exists. Re-dosing extension and advance change-back warning are still proposals at these inspected seams; expiry aftermath is not a proved per-observer witnessed reveal. institution_access.js defines/scopes grant status; its caller in book_world_mol_access.js reads a player's permit and retained skills. It is not a generalized grant-holder/presented-identity authorization check. PJI-L2 must test the actual command consumer, credentials, observer result and permitted scope rather than handing another actor's grant to the status helper. No source behavior was changed or exercised.\n\nF5: Narrow blanket claims rather than invent canon. Common-room password examples do not establish that all Hogwarts wards ignore true identity. The Ageing Potion example does not independently settle Polyjuice versus every Age Line. Blood/named-person credentials require the particular check's actual mechanism and source, not a universal true-self bypass list. The general claim that brewing/use is illegal lacks a specific local institutional authority in this palette, so local policy, misuse and response remain separately proposed. Sample stock/provenance and acting costs need not require a continuously captive or present donor; stored and cooperative supply are possible dials. HP chapter/wiki anchors remain attributed, not freshly reread novels or authenticated whole-canon rules.\n\nF6: Preserve the broader uses: many-drinker decoys, practical clothing/prop preparation, anonymous versus specific impersonation, contextual sensory clues, aura masking, donor simultaneous presence and attributed blame, meaningful inquiry/exposure/escape and source-specific alternate transformations. No global suspicion, automatic rights transfer, inevitable arrest/fight or universal ban follows. PJI-N1–N4 remain proposed state/evidence/persistence requirements, and PJI-L1–L4 remain bounded future consumers with ordinary use, interruption/expiry, supported decline and save/reload/import proof. No new runtime schema, gameplay/build/browser/test result, private save, source acquisition, deletion, relocation, commit or push occurs.",
+      "evidence": "Entire155-line palette read; actual selected local PF2action46/47 and spell153/159/344/355/1491/1663/1727 text records plus full Paizo PF1Disguise page read; current source spans and grant/caller read. One oversized duplicate source output was truncated and affected spell records reread in bounded text-only output.",
+      "reopen": "Before implementation inspect the actual selected gate/observer/state/commit route and qualify the particular HP mechanism; runtime extension/warning/presented identity remain proposals.",
+      "full": true,
+      "input_sha256": "4f1e60f5f046aa124536296588c2f03811ee2f537c2e2984ea51d2f5a2aed57e",
+      "input_lines": 155,
+      "ranges": [
+        [
+          1,
+          155
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "heading": "## Content reconciliation B602: source corrections and runtime boundaries",
+      "body": "F1: Full content review covers PJI1–PJI36, PJI-N1–N4, PJI-L1–L5, both rounds, all identity/gate/rights/consequence rows and collection-status claims. Appearance, actual body/function, behavior/knowledge, carried credentials, record rights, actual actor and observer belief remain useful distinct layers. Exposure that someone is not the donor is separate from recognizing the actor; detection is separate from ending an effect. A gate accepting a presentation does not transfer legal ownership or make every other observer believe it.\n\nF2: Selected local collected source records directly qualify PJI8–PJI13/PJI31–PJI35. PF2 action46 lists success/failure/critical failure without a distinct critical-success trust effect; familiarity can justify a check even without direct interaction. Action47 uses one shared lie roll against listener-specific DCs. Illusory Disguise and Veil base restrictions differ from their heightened voice/scent/specific-person capabilities; Humanoid Form's higher ranks add sensory or size/reach effects, so no-statistics language cannot cover every rank. True Seeing/Truesight use a seeing-through counteract rather than dispelling the disguise; aura masking has its own target/rank/disbelief rules. These are bounded edition records, not rules automatically adopted for HP or every world.\n\nF3: The PF1 Paizo Disguise page was collected via the browser route on November4 and is available locally; its familiarity bonuses are4/6/8/10 and it treats known-person observers as suspicious. This resolves PJI8's waiting-for-table note and the research part of PJI-L5. It does not clear the transport's separate stop state or authorize refetching. Collection is not implementation. Original premature scope/publisher/retrieval statements retain their own dated receipt history.\n\nF4: Current source read: hp_brewing_state.js selected expiry and drink paths consume a dose and sample, create an effect with donor/end time, and reject drinking while an effect or condition exists. Re-dosing extension and advance change-back warning are still proposals at these inspected seams; expiry aftermath is not a proved per-observer witnessed reveal. institution_access.js defines/scopes grant status; its caller in book_world_mol_access.js reads a player's permit and retained skills. It is not a generalized grant-holder/presented-identity authorization check. PJI-L2 must test the actual command consumer, credentials, observer result and permitted scope rather than handing another actor's grant to the status helper. No source behavior was changed or exercised.\n\nF5: Narrow blanket claims rather than invent canon. Common-room password examples do not establish that all Hogwarts wards ignore true identity. The Ageing Potion example does not independently settle Polyjuice versus every Age Line. Blood/named-person credentials require the particular check's actual mechanism and source, not a universal true-self bypass list. The general claim that brewing/use is illegal lacks a specific local institutional authority in this palette, so local policy, misuse and response remain separately proposed. Sample stock/provenance and acting costs need not require a continuously captive or present donor; stored and cooperative supply are possible dials. HP chapter/wiki anchors remain attributed, not freshly reread novels or authenticated whole-canon rules.\n\nF6: Preserve the broader uses: many-drinker decoys, practical clothing/prop preparation, anonymous versus specific impersonation, contextual sensory clues, aura masking, donor simultaneous presence and attributed blame, meaningful inquiry/exposure/escape and source-specific alternate transformations. No global suspicion, automatic rights transfer, inevitable arrest/fight or universal ban follows. PJI-N1–N4 remain proposed state/evidence/persistence requirements, and PJI-L1–L4 remain bounded future consumers with ordinary use, interruption/expiry, supported decline and save/reload/import proof. No new runtime schema, gameplay/build/browser/test result, private save, source acquisition, deletion, relocation, commit or push occurs.",
+      "before_sha256": "4f1e60f5f046aa124536296588c2f03811ee2f537c2e2984ea51d2f5a2aed57e",
+      "after_sha256": "0eb6ea833c90a7b3a874930c6e67245c65eb3887bf4368af3e4ccc7fb252b60d"
+    },
+    {
+      "path": "docs/RIVALS_IDENTITIES_AND_FATE.md",
+      "heading": "## Polyjuice identity and source reconciliation B602",
+      "body": "F1: The [Polyjuice palette](worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md#content-reconciliation-b602-source-corrections-and-runtime-boundaries) keeps actual actor, presented body/voice, behavior/knowledge, carried evidence, recorded rights and observer belief separate. Being exposed as not-the-donor differs from being identified; seeing through an effect differs from ending it; believing a credential does not transfer ownership. These are optional mechanism adaptations under AD32/AD38, not a universal identity law or accepted HP implementation.\n\nF2: B602 corrects the collected PF2 degrees/heightening/shared-roll details and adds the now-collected Paizo PF1 familiarity citation. Current inspected brewing code rejects re-dosing during an active effect; the institutional helper computes grant status and the selected MoL caller reads a player permit. Neither proves the proposed general impersonation/gate/blame/witness/report loop. Particular Age Line/blood/ward checks and local law need their own source/mechanism. Preserve these as specific remaining source/consumer gaps rather than global no-disguise rules or automatic donor-right acquisition.",
+      "before_sha256": "3656c8ec28088a911a46415fd6bd0a28daff5e891198322b710d82811fa2e196",
+      "after_sha256": "afc6d1545650e6d2206ecdd3db656c22f48217e03c297e8cf42e193c7e5eb927"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 95,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "Polyjuice copies a body. It does not copy anything else. Every gate, person and\nward checks a particular set of layers, so whether a disguise works is a\nquestion about which layers that check reads (AD38), not a \"disguised\" flag.",
+      "to": "Treat Polyjuice body/appearance changes separately from knowledge, behavior,\ncarried credentials and recorded rights. A particular gate, person or ward\nreads its own evidence and mechanisms (AD38); a disguise flag alone does not\nsettle every check. Exact HP magical checks still need their own source.",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "a dose gives `{as: donorId, until}`; one more dose extends it;",
+      "to": "a proposed dose gives `{as: donorId, until}`; re-dosing extension would need a new consumer because the current drink path rejects an active effect;",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "each dose needs donor hair; a long impersonation needs a living, held or cooperative donor",
+      "to": "each dose needs a sample with provenance; sustained use needs enough stock, which may be stored, cooperative or coercively obtained under the particular story",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 Impersonate: the GM may give observers a circumstance bonus by how well they know the person, with no fixed number, so the size is a per-world dial. PF1's Disguise familiarity table is waiting on the d20pfsrd collection; cite it once it is in",
+      "to": "PF2 Impersonate leaves familiarity adjustment to the GM. The now-collected Paizo [PF1 Disguise table](https://www.d20pfsrd.com/skills/disguise/) uses +4/+6/+8/+10 for recognition, associates, close friends and intimate familiarity, and treats those viewers as suspicious. These are edition-specific examples, not fixed HP numbers",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "**Only checked when it matters**: passing by needs no roll; observers catch you only if they actively look (Seek) or you interact with them",
+      "to": "**Check when the evidence warrants it**: Seek and direct interaction are common triggers; a familiar observer can justify a check even without direct interaction",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "**Degree of success**: critical success (they trust you more), success (passes), failure (they know you are not who you claim), critical failure (they also recognise who you really are, if they would know you)",
+      "to": "**Degree of success**: success passes, failure exposes the impersonation, and critical failure also identifies you if the observer would know you. The collected action has no separate critical-success trust bonus",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 Impersonate's own degrees; reuse `degreeOf` from the affliction seam",
+      "to": "PF2 Impersonate's listed outcomes; a shared degree helper would still need this action's own outcome mapping",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 Lie ([ID 47](https://2e.aonprd.com/Actions.aspx?ID=47)) rolls once against each listener's own Perception DC",
+      "to": "PF2 Lie ([ID 47](https://2e.aonprd.com/Actions.aspx?ID=47)) makes one shared Deception roll compared against each listener's own Perception DC",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "hide an identity but cannot copy a specific person or the voice, scent or mannerisms; *humanoid form*",
+      "to": "at their base ranks hide identity without voice/scent or specific-person copying; heightened ranks add voice/scent and later specific-person appearance. Mannerisms still need acting; *humanoid form*",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "changes kind but no statistics or abilities. Polyjuice beats both on a specific face and voice;",
+      "to": "at base rank changes kind without granting its special abilities; higher ranks add specified senses or size/reach effects. Compare exact rank and source before judging a specific face/voice capability;",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "Password and face; nothing reads the true self",
+      "to": "Password and face in the cited common-room example; other ward checks need their own source",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "True age, not appearance | GoF: the Ageing Potion fails; a reason, not a ban",
+      "to": "Proposed age-evidence check; exact Polyjuice interaction unresolved | GoF shows an Ageing Potion failure, which does not independently settle every physical-transformation case",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "The true self | A Polyjuiced intruder is still themself to such a ward",
+      "to": "The particular blood/person mechanism, still to qualify | Do not infer all such wards read an unchanged identifier; source and mechanism decide",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "The grant belongs to the donor; the\ncheck decides whether the gate believes you are the donor.",
+      "to": "A proposed check would distinguish the recorded grant subject from the\napparent claimant and actual credentials. Belief does not transfer ownership\nor prove a valid command authorization; the particular gate decides what its\nmechanism accepts. The existing helper supplies grant status, not this check.",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "**Law**: Polyjuice brewing and use is restricted; impersonating an official is a crime with a real response, not an automatic loss",
+      "to": "**Local law and policy**: qualify the particular institution and misuse rather than assuming a general brewing/use ban; impersonation can provoke a supported response with a reason and an exit",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 *illusory disguise* and *veil* vs Impersonate;",
+      "to": "Base-rank PF2 *illusory disguise* and *veil* vs Impersonate; heightened specific-person options need separate comparison;",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 illusion disguises leave voice, scent and mannerisms;",
+      "to": "The cited base-rank PF2 illusion disguises leave voice, scent and mannerisms; heightened versions add voice/scent;",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "with citations and added PJI31-36. PF1's Disguise familiarity numbers wait\n  for the d20pfsrd collection; PJI8 no longer states them.",
+      "to": "with citations and added PJI31-36. B602 later reads the collected Paizo PF1\n  Disguise page, adds its edition-qualified table and corrects PF2 outcome,\n  roll and heightened-rank claims. No runtime implementation follows.",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF1 Disguise table still to cite | Research | Small | PJI8 cites the PF1 familiarity table",
+      "to": "PF1 Disguise table cited in PJI8 by B602 from the locally collected Paizo page | Research | Small | Collection/citation complete; gameplay proposals remain unimplemented by this pass",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "path in `DUMPS.json` is missing). Fetching it again from the\n  public Fandom dump is one 54 MB download, not a crawl.",
+      "to": "the path in `DUMPS.json` was missing at the recorded check). Current payload\n  availability and any reacquisition need their own verified route and scope;\n  this palette does not authorize another download.",
+      "reason": "Actual selected local rule/source/caller review corrects attribution, stale gap or proposal boundary; original wording preserved."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "The Moody plan: a captive in a trunk. A darker life, never a menu option",
+      "to": "The Moody plan is a captive-donor example; a world-specific story can account for coercion and its consequences",
+      "reason": "Remove blanket palette language/clarify exact source outcome after scoped document lint; preserve original wording."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "spreads only by a real report route",
+      "to": "spreads through an actual report or other supported information route",
+      "reason": "Remove blanket palette language/clarify exact source outcome after scoped document lint; preserve original wording."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 Impersonate critical failure only; feeds PJI25",
+      "to": "The collected PF2 Impersonate critical-failure clause; feeds PJI25",
+      "reason": "Remove blanket palette language/clarify exact source outcome after scoped document lint; preserve original wording."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "an anonymous disguise needs only to pass, a specific impersonation must survive people who know the donor",
+      "to": "an anonymous disguise can hide a name; a specific impersonation must survive people who know the donor",
+      "reason": "Qualify exact familiarity/source trigger and proposed warning/observer behavior; no new implementation."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "PF2 Impersonate: detection needs a Seek, or a secret Deception check when you interact",
+      "to": "PF2 Impersonate's usual detection triggers and familiarity exception",
+      "reason": "Qualify exact familiarity/source trigger and proposed warning/observer behavior; no new implementation."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "**The change back is announced** (AD50): a warning near the end, and the reveal is witnessed by whoever is present",
+      "to": "**Proposed change-back warning** (AD50): warn near the end, then resolve who can actually witness the reveal",
+      "reason": "Qualify exact familiarity/source trigger and proposed warning/observer behavior; no new implementation."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B599, continuous execution 2026-11-05 |",
+      "to": "| B602, continuous execution 2026-11-05 |",
+      "reason": "Advance active pointer; no full-register credit."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "0eb6ea833c90a7b3a874930c6e67245c65eb3887bf4368af3e4ccc7fb252b60d",
+      "to": "ce90464b8356a6e265da549a05f1e4e78ae3588a30584193aa241822eadc5f3e",
+      "reason": "Exact inline content corrections above after full-input capture and owner fold."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "ce90464b8356a6e265da549a05f1e4e78ae3588a30584193aa241822eadc5f3e",
+      "to": "e1e1517f59ce996cf0623a5eb5fd04e4a5c4e45a27025093c1f5491094d1e52b",
+      "reason": "Exact source-scope/default wording clarifications recorded above."
+    },
+    {
+      "path": "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md",
+      "from": "e1e1517f59ce996cf0623a5eb5fd04e4a5c4e45a27025093c1f5491094d1e52b",
+      "to": "ac7caa4e45e4b45665f04dc6e2fe5bd9dd88e09a826e0febf12e56d989871cb1",
+      "reason": "Exact scope clarifications above."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "2ad8cdbb1e1371ab161142c53461e7b569a4a624ce81baed99c89e326538d103",
+      "to": "01e0204ca1629f470cf8f8e8aebde261e0d96ae38476585db9565302f2548059",
+      "reason": "Advance checkpoint to B602."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "src/hp_brewing_state.js",
+      "sha256": "fd5efe1e22190163172c1dfc42625b50a863c26e8316f1d7dfd72753ee466dc0",
+      "ranges": [
+        [
+          60,
+          85
+        ],
+        [
+          397,
+          429
+        ]
+      ],
+      "scope": "Inspected source slice only; no behavior execution."
+    },
+    {
+      "path": "src/institution_access.js",
+      "sha256": "e5d1b843a1644ba40daccaf2b7be7578efed3e597921a1c1f7c5c48aae11655f",
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "scope": "Inspected source slice only; no behavior execution."
+    },
+    {
+      "path": "src/book_world_mol_access.js",
+      "sha256": "8f29d11fedb15320dfb0cfa00f800cc53800e59c4bd262ef5b8926ef9aee5a04",
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "scope": "Inspected source slice only; no behavior execution."
+    },
+    {
+      "path": "docs/research/d20/private/aon/action.json",
+      "sha256": "3be3603306a533751d497817edc6a6364725620745eed1022fd213dd6031660e",
+      "records": [
+        "action-46",
+        "action-47"
+      ],
+      "scope": "Exact selected record texts only; not whole collection, fresh site verification or new source acquisition."
+    },
+    {
+      "path": "docs/research/d20/private/aon/disguise_spells.json",
+      "sha256": "85e286a538d3f71a7e874aae52d2d64e8284ea6ba0452603885ae04ef5cadc46",
+      "records": [
+        "spell-153",
+        "spell-159",
+        "spell-344",
+        "spell-355",
+        "spell-1491",
+        "spell-1663",
+        "spell-1727"
+      ],
+      "scope": "Exact selected record texts only; not whole collection, fresh site verification or new source acquisition."
+    },
+    {
+      "path": "docs/research/d20/private/pf1-skills/9d512233c1353c2e.txt",
+      "sha256": "f488318b955cd6b017b31bf1d2ad74e2ffa81d1411ff83923b930bee0caf330e",
+      "records": [
+        "full_text"
+      ],
+      "scope": "Exact selected record texts only; not whole collection, fresh site verification or new source acquisition."
+    }
+  ]
+}

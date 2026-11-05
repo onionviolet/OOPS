@@ -1,0 +1,16 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "950d8c0fff1fd22f966754b22ec7ffbd77742e5e08aa17f5c2670459ab2ea14f",
+  "paths": [
+    "docs/RESEARCH_GENRE_SWEEP.md",
+    "docs/RESEARCH_IDLE_GAMES.md",
+    "docs/PLAYTEST.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "adaptation": "Only filespec changed; identical diagnostic rules. Not a shared-tree pass."
+}

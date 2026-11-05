@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B570",
+  "title": "Progression and overarching checkpoints: returned fixes versus historical pending states",
+  "at": "2026-11-05T11:05:02.167860+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md",
+      "ids": [
+        "GTL1–GTL10/GTR1–GTR35",
+        "D1/D3/R3/Paradise correction",
+        "master landing/worktree release"
+      ],
+      "classification": "full chronological checkpoint review; later source application distinguished from combined proof and broader policy",
+      "owners": [
+        "docs/gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md",
+        "docs/PROGRESSION_GATE_RULES.md"
+      ],
+      "disposition": "F1: Actual full review covers all212 original lines: GTL1–GTL6/GTR1–GTR35 state, GTL10 successor, D1/D3 transfer, narrow R3 release/return, Paradise correction, master landing and worktree release. Read the chronology, not the initial uncommitted/pending tables alone. Current gate-owner B300 and overflow reconciliation retain their producer/state/consumer qualifications. No underlying runtime, branch, source book, worktree, candidate, image or saved game was newly inspected.\n\nF2: The first GTL10 pilot stopped without code because its live-and-source-stated criterion found no candidate; matching13 input receipts and9 focused passes do not deliver a new policy. D3's later brief permits an authored original-world mechanism and its Mistglass conversion has its own bounded50/50/build/arch/1920/persistence receipt. That is compatible with GTL10's original blocked result, not proof the entire overflow family stayed blocked or all five worlds gained policies. Current overflow owner already traces D3's converted practice/carry/loss join. Mirrored parent XP differs from a conserving spill; no unselected universal conservation or pressure tax is imposed.\n\nF3: The later master-landing section explicitly closes source application for D1, D3 and the Paradise fix under e3c50c0c3, superseding earlier receiver-pending claims at that historical identity. R3 inspector fix remains a separate post-D1 input with focused19/19 and narrow presentation scope; learned persistent state differs from reacquisition eligibility. Paradise chart-before-enrollment was corrected with a failing old-host control,4/4 new and38/38 relevant tests plus isolated browser/persistence; the earlier no-fix-requested note is history. Neither relayed messages, byte identity nor master ancestry alone proves receiver combined gates or today's runtime. The initial2689/2691 suite is not all green merely because failures are attributed to other sessions.\n\nF4: Worktree retirement/release records identify historical ownership and already-landed copies, not authorization to delete, archive or take over current folders. Human play/dial review is optional feedback under AD42, not a technical blocker or new approval request here. Existing source/focused/build/native/persistence/commit/push states remain separate. Later PROJECT/AD36/AD43/AD51 govern selected work; no old model allocation, staffing, source acquisition, migration, branch merge, cleanup, commit or push is executed.",
+      "evidence": "Actual original1–212 read in untruncated standalone chunks; gate B300/overflow-owner reconciliation sections read. No proxy source/runtime/receipt execution.",
+      "reopen": "Selected actual owner may resolve a current policy/consumer gap or inspect exact later receipt; old pending/worker/cleanup instructions do not restart.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          212
+        ]
+      ],
+      "input_sha256": "44adb65b7dbc61c702bc1bde695430ebe0284acbed77ff52c91a6e573d1edc5b",
+      "input_lines": 212
+    },
+    {
+      "path": "docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md",
+      "ids": [
+        "F1–F5/R2/R3/R45",
+        "O4/O5/C5 landings/input drift",
+        "temporary-storage coordination"
+      ],
+      "classification": "full chronological checkpoint review; later source application distinguished from combined proof and broader policy",
+      "owners": [
+        "docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md",
+        "PROJECT.md"
+      ],
+      "disposition": "F1: Actual full review covers all206 original lines: F1–F5/R2/R3/R45 assignments, consolidated results and input drift, remaining-owner table, later landing supersession and temporary-storage notice. Its initial dispatch and later returns are separate historical states. Current PROJECT/release owner supersedes the October22 latest-app routing; no new installed artifact, remote, runtime or retained scratch tree is verified by reading this report.\n\nF2: R2's factory/cause source, validator admission and exact implemented status do not prove a switching command or dangerous recovery route. R3's learned-state inspector fix has failing-control/focused19/19/isolated1920 fixture/nonmutation evidence, not natural acquisition or combined gameplay. Matching its isolated bundle to another frozen candidate does not change that route kind. R45/O4 distinguish lineage quality transfer from a legal claimant adapter and two carried duties from broader debt/pledge policy. A kin source can exist while the law caller lacks the adapter; do not restore the stale no-kin-source statement or infer a universal carry policy.\n\nF3: The later complementary final receipt closes the old O4/O5-pending wording for its selected workshop/body/heir/gear/discovery/persistence routes and2727/2727 suite; six unchanged inputs plus changed dist/index require selective evidence reuse. This report correctly does not rerun an equivalent full suite for unrelated moving-tree drift. October25 C5 explicitly records D1/R3/estate-label application in eeae81660 and O/F/A separately in e3c50c0c3, superseding the earlier integration-pending table. Their frozen combined gates remain at their receipt identities. That does not close current app adoption, wider kin/obligation policy or later LOTM consumers. No old ownership reservation or returned report releases unrelated files today.\n\nF4: R45's earlier world inventory is historical: passive pack, source survey, native branch and normal-app entry differ, and later Klein/Harry developer routes follow current PROJECT/entry owners. Unresolved X3/source-rate or authored-act claims retain their exact source/era evidence; no whole-world qualification from landing a file. Broken PROJECT anchor repair was observed and preserved, not claimed as a new edit by consolidation. Proposed correction packets and reported check passes are not new direction.\n\nF5: Storage figures85GiB/32.729GiB/36793duplicates/176bundles are attributed to the cleanup chat and vault receipt, not independently measured here. The warning that old candidate trees can be partial is useful for future bounded verification; it does not erase durable receipts or authorize cleanup/research-payload copies. Assigned retention/exclusion/disposal owner is not implemented prevention. No current temporary folders, private saves or managed worktrees were inspected or removed. AD36/AD42/AD43 preserve exact evidence and optional human review; no new chat, message, runtime, build, suite, acquisition, migration, archive, commit, push or installation occurred.",
+      "evidence": "Actual original1–206 read in untruncated standalone chunks; gate B300/overflow-owner reconciliation sections read. No proxy source/runtime/receipt execution.",
+      "reopen": "Selected actual owner may resolve a current policy/consumer gap or inspect exact later receipt; old pending/worker/cleanup instructions do not restart.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          206
+        ]
+      ],
+      "input_sha256": "d0e3c9cbd3ab11619823be9c95a1f29841ba2c0cf51c3b814b69c221a7bbd315",
+      "input_lines": 206
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md",
+      "heading": "## Content reconciliation B570: pilot corrections and later landings",
+      "body": "F1: Actual full review covers all212 original lines: GTL1–GTL6/GTR1–GTR35 state, GTL10 successor, D1/D3 transfer, narrow R3 release/return, Paradise correction, master landing and worktree release. Read the chronology, not the initial uncommitted/pending tables alone. Current gate-owner B300 and overflow reconciliation retain their producer/state/consumer qualifications. No underlying runtime, branch, source book, worktree, candidate, image or saved game was newly inspected.\n\nF2: The first GTL10 pilot stopped without code because its live-and-source-stated criterion found no candidate; matching13 input receipts and9 focused passes do not deliver a new policy. D3's later brief permits an authored original-world mechanism and its Mistglass conversion has its own bounded50/50/build/arch/1920/persistence receipt. That is compatible with GTL10's original blocked result, not proof the entire overflow family stayed blocked or all five worlds gained policies. Current overflow owner already traces D3's converted practice/carry/loss join. Mirrored parent XP differs from a conserving spill; no unselected universal conservation or pressure tax is imposed.\n\nF3: The later master-landing section explicitly closes source application for D1, D3 and the Paradise fix under e3c50c0c3, superseding earlier receiver-pending claims at that historical identity. R3 inspector fix remains a separate post-D1 input with focused19/19 and narrow presentation scope; learned persistent state differs from reacquisition eligibility. Paradise chart-before-enrollment was corrected with a failing old-host control,4/4 new and38/38 relevant tests plus isolated browser/persistence; the earlier no-fix-requested note is history. Neither relayed messages, byte identity nor master ancestry alone proves receiver combined gates or today's runtime. The initial2689/2691 suite is not all green merely because failures are attributed to other sessions.\n\nF4: Worktree retirement/release records identify historical ownership and already-landed copies, not authorization to delete, archive or take over current folders. Human play/dial review is optional feedback under AD42, not a technical blocker or new approval request here. Existing source/focused/build/native/persistence/commit/push states remain separate. Later PROJECT/AD36/AD43/AD51 govern selected work; no old model allocation, staffing, source acquisition, migration, branch merge, cleanup, commit or push is executed.",
+      "before_sha256": "44adb65b7dbc61c702bc1bde695430ebe0284acbed77ff52c91a6e573d1edc5b",
+      "after_sha256": "ad3a82aa94a3bd89e5b5cff1d2a9f1ae8b5684391b92f7d712a46d96902ee1ba"
+    },
+    {
+      "path": "docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md",
+      "heading": "## Content reconciliation B570: returned results and actual proof scope",
+      "body": "F1: Actual full review covers all206 original lines: F1–F5/R2/R3/R45 assignments, consolidated results and input drift, remaining-owner table, later landing supersession and temporary-storage notice. Its initial dispatch and later returns are separate historical states. Current PROJECT/release owner supersedes the October22 latest-app routing; no new installed artifact, remote, runtime or retained scratch tree is verified by reading this report.\n\nF2: R2's factory/cause source, validator admission and exact implemented status do not prove a switching command or dangerous recovery route. R3's learned-state inspector fix has failing-control/focused19/19/isolated1920 fixture/nonmutation evidence, not natural acquisition or combined gameplay. Matching its isolated bundle to another frozen candidate does not change that route kind. R45/O4 distinguish lineage quality transfer from a legal claimant adapter and two carried duties from broader debt/pledge policy. A kin source can exist while the law caller lacks the adapter; do not restore the stale no-kin-source statement or infer a universal carry policy.\n\nF3: The later complementary final receipt closes the old O4/O5-pending wording for its selected workshop/body/heir/gear/discovery/persistence routes and2727/2727 suite; six unchanged inputs plus changed dist/index require selective evidence reuse. This report correctly does not rerun an equivalent full suite for unrelated moving-tree drift. October25 C5 explicitly records D1/R3/estate-label application in eeae81660 and O/F/A separately in e3c50c0c3, superseding the earlier integration-pending table. Their frozen combined gates remain at their receipt identities. That does not close current app adoption, wider kin/obligation policy or later LOTM consumers. No old ownership reservation or returned report releases unrelated files today.\n\nF4: R45's earlier world inventory is historical: passive pack, source survey, native branch and normal-app entry differ, and later Klein/Harry developer routes follow current PROJECT/entry owners. Unresolved X3/source-rate or authored-act claims retain their exact source/era evidence; no whole-world qualification from landing a file. Broken PROJECT anchor repair was observed and preserved, not claimed as a new edit by consolidation. Proposed correction packets and reported check passes are not new direction.\n\nF5: Storage figures85GiB/32.729GiB/36793duplicates/176bundles are attributed to the cleanup chat and vault receipt, not independently measured here. The warning that old candidate trees can be partial is useful for future bounded verification; it does not erase durable receipts or authorize cleanup/research-payload copies. Assigned retention/exclusion/disposal owner is not implemented prevention. No current temporary folders, private saves or managed worktrees were inspected or removed. AD36/AD42/AD43 preserve exact evidence and optional human review; no new chat, message, runtime, build, suite, acquisition, migration, archive, commit, push or installation occurred.",
+      "before_sha256": "d0e3c9cbd3ab11619823be9c95a1f29841ba2c0cf51c3b814b69c221a7bbd315",
+      "after_sha256": "52f5dba82050db27d1e7103c75d4297e0aed819dee5076380d9ccb4199c13748"
+    },
+    {
+      "path": "docs/PROGRESSION_GATE_RULES.md",
+      "heading": "## Progression dispatch chronology reconciliation B570",
+      "body": "The full [progression checkpoint B570 review](gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md#content-reconciliation-b570-pilot-corrections-and-later-landings) reads GTL10, D1/D3, R3, Paradise and later master-landing records together. GTL10's first no-candidate result remains valid for its original scope; D3's authored Mistglass conversion is a different selected consumer, not a contradiction or global policy adoption. Later e3c50c0c3 source landing supersedes initial uncommitted/receiver-pending labels for the named inputs. R3 preserves learned state versus reacquisition, while Paradise's earlier no-fix note is superseded by its narrow correction/control. Existing B300 and overflow-owner qualifications still govern actual means, mirrored versus conserving gains, real settlement/readers and current proof. A reported landing does not renew a native or combined-gate receipt; human feedback stays optional under AD42. No GTR code, gate policy or runtime changes are made here.",
+      "before_sha256": "d0fa09fbf1db9c25d0c9ef5716baf715583a7f49fc97c03b669978bc5a08e2b1",
+      "after_sha256": "2bcf35a1d7fbc8995e46f1ee83ffa3a6839201f377c055c18217ee4503e9be23"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 150
+}

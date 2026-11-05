@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "batch": "B605",
+  "title": "RI and Shadow Slave institutions: transactions, disclosure and source scope",
+  "at": "2026-11-05T12:55:49.950166+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "W5",
+        "OW3"
+      ],
+      "classification": "bounded institution evidence, stale census and overgeneralized summary reconciled",
+      "owners": [
+        "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md"
+      ],
+      "disposition": "F1: Full actual review covers the272-line input, W1–W4, F1–F10, eight engine-fact rows, C1–C8, every facility/role/price/gap row, later W5 and the October31/OW3 qualifications. W1–W4 total43526words; W5 adds18821, with19000 a rounded budget. These are bounded historical reader/source-check receipts, not a fresh whole-book read. Keep the supplied English edition SHA981c313a5f122272c0f6656df0071bfb43d37715e6ca20c10813a6341833e562, translation/provenance uncertainty and chapter/paragraph locators; no source-body passage was newly read here.\n\nF2: The biennial auction line is Fang Yuan's saving plan, not the house's announced calendar. Gu rock purchase650after discount and free token-holder dissection remain distinct. Token issue count stays U despite the later engine-row shorthand; purple-thorn versus later Shang token identity needs qualification. Bidding/listing, secrecy versus actual leaks, appraisal versus recipe authenticity, private room, advance purchase and staff discipline are separate rights and risks. The inspected host permitting bluffs does not prove every host incapable of intervention. Jia sealed bids and Shang open outcry are compatible venue variants, not a contradiction.\n\nF3: The battle betting-house ban does not establish a ban on forecast/information sales. The existing full-book institution owner already distinguishes the proposed information business, actual later operation, control-risk refusal and appointment. The opening pass's battle fees, surrender, custody and killing claims marked U cannot override that later source-indexed continuation. Clan jail is attributed thought; male inheritance and sect loyalty/exams are region/era observations, not all-world prohibitions. Keep sect3/8/15year exam distinctions, qualification versus office, and source-specific clan/sect contrasts.\n\nF4: W5 supersedes parts of the old next-pass list: gate10/person and total20for two differ from600total at another gate;15discounted meal does not make inferred30a paid list price. Lodging pitches, care80/month rank-one with situational pricing, actual40620Gu sale, dealer offers and inferred recipe-bid units retain transaction state. Rumored10000courtesan invitation, customer seat charge and later token-holder29000purchase are not universal tariffs. Retail/rare auction/rank/region/era prices do not form one rank ladder. Coercive source institutions are documented fiction, not newly selected gameplay.\n\nF5: Existing October31 comparison X1–X12/revisedP1 and B1–B5 current-code crosswalk qualify this dated pass; care versus commissioned refinement, purchase versus acquired control, actual fulfillment and one stock with competing uses remain distinct. Control of a held Gu does not supply a manufacture recipe. Preserve useful auction/custody, paid care, broker evidence, vouching/favor, recipe access and resource allocation ideas in their owners. The previously absent full-book directory now exists with source-indexed continuation; obsolete paths still need exact target selection, not reconstructed claims files. Retire the one-realm first-milestone deferral under current PROJECT. No new worker, acquisition, gameplay implementation or behavior proof is added.",
+      "evidence": "All source-document lines read in bounded chunks; supporting owner sections read only for the specified claims. Historical source checks reused as reported evidence, no new novel body read.",
+      "reopen": "Use exact source/era/holder and selected current consumer before implementing a mechanism; retain unresolved source and playable proof gaps.",
+      "full": true,
+      "input_sha256": "37d5200daa46c29a7b4aaf99f1c27474732b7154f58555dc9d5d56596384ca6c",
+      "input_lines": 272,
+      "ranges": [
+        [
+          1,
+          272
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "EF1",
+        "EF2",
+        "EF3",
+        "EF4",
+        "EF5",
+        "EF6",
+        "EF7",
+        "EF8",
+        "EF9",
+        "EF10",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13"
+      ],
+      "classification": "bounded institution evidence, stale census and overgeneralized summary reconciled",
+      "owners": [
+        "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md"
+      ],
+      "disposition": "F1: Full actual review covers the250-line input, four windows/34chapters/42236words, F1–F11, EF1–EF10, C1–C8, all institution/role/price/search/gap rows and K2/K3/K6/K8/K13. Window heading-inclusive count46150 is not extra body reading. The supplied English edition SHA2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6 covers the inspected1–1840 compilation; later supplied volumes and full-book dossier coverage are different inputs. Provenance/insertion noise stays explicit. No raw novel passage was newly read in B605.\n\nF2: Academy private room, clothes and free meals are observed opening entitlements, not proof of universal free tuition. Ranking from interviews is a narrator's likely explanation, not verified administrative causation; optional counseling/shard offer and later Aspect questions are separate disclosure choices. One four-week stay is not every intake duration. Citizenship's seventh rank has no established full scale. Gate tracking/duty is an institutional claim with no inspected universal penalty; Jet's tether advice is not a law that every independent dies.\n\nF3: Credits, physical shards, contribution points, cohort draft priority and later shard-backed coins are distinct. The selected market shows shard/Memory/credit exchange, but no universal conversion rate or exact credit price. Seven cohorts of six in one42-recruit company do not define every group. Source statements about outskirts population, average yearly intake, rapid commissioning, shop turnover and healer scarcity retain speaker/era/local scope. A particular in-person Spell-assisted Memory transfer is not proof all later transfer methods require co-presence. Sunny's truth-answer Flaw cannot define every Flaw or borrowed original faculty.\n\nF4: C1–C4 are integrated into the kit card: preserve market conversion without inventing a rate, civil rank beside Academy role and Spell rank, source-opening private board beside authored other-era lodging, and Jet/Caster as source-supported role candidates beside the explicitly original Hana Ward. New rows propose usable verbs; they do not create a runtime cast. The original Dreaming world remains distinct. Proposed credits5/20/30/40 stay authored, not recovered prices; board does not purchase mandatory disclosure. Learned technique, trial award, personal Aspect, soul resource, Memory custody and protagonist-specialist craft remain separate mechanisms.\n\nF5: Zero English keyword hits and missing fee lines apply to the inspected searches/windows, not all canon. Spell entry after first Nightmare, Academy preparation and an ordinary visitor are different starts; a candidate does not inherit later protagonist powers. Existing card's later guarded-rest proposals and source-qualified rank/body crossing must be preserved; no automatic sleep disaster or anti-exploit gate follows from this report. Date old no-pack/code findings, retire the first-milestone deferral, retain exact unopened clan/pay/services/market/late-volume ranges and [S]scope without revealing designed secrets. No fresh source-body, runtime, browser, build, save or human acceptance proof is added.",
+      "evidence": "All source-document lines read in bounded chunks; supporting owner sections read only for the specified claims. Historical source checks reused as reported evidence, no new novel body read.",
+      "reopen": "Use exact source/era/holder and selected current consumer before implementing a mechanism; retain unresolved source and playable proof gaps.",
+      "full": true,
+      "input_sha256": "a0c926f03612ecaa076b592bb2e32d45e983dbd74ee77419897dd3b1891605db",
+      "input_lines": 250,
+      "ranges": [
+        [
+          1,
+          250
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B605: venues care and transaction evidence",
+      "body": "F1: Full actual review covers the272-line input, W1–W4, F1–F10, eight engine-fact rows, C1–C8, every facility/role/price/gap row, later W5 and the October31/OW3 qualifications. W1–W4 total43526words; W5 adds18821, with19000 a rounded budget. These are bounded historical reader/source-check receipts, not a fresh whole-book read. Keep the supplied English edition SHA981c313a5f122272c0f6656df0071bfb43d37715e6ca20c10813a6341833e562, translation/provenance uncertainty and chapter/paragraph locators; no source-body passage was newly read here.\n\nF2: The biennial auction line is Fang Yuan's saving plan, not the house's announced calendar. Gu rock purchase650after discount and free token-holder dissection remain distinct. Token issue count stays U despite the later engine-row shorthand; purple-thorn versus later Shang token identity needs qualification. Bidding/listing, secrecy versus actual leaks, appraisal versus recipe authenticity, private room, advance purchase and staff discipline are separate rights and risks. The inspected host permitting bluffs does not prove every host incapable of intervention. Jia sealed bids and Shang open outcry are compatible venue variants, not a contradiction.\n\nF3: The battle betting-house ban does not establish a ban on forecast/information sales. The existing full-book institution owner already distinguishes the proposed information business, actual later operation, control-risk refusal and appointment. The opening pass's battle fees, surrender, custody and killing claims marked U cannot override that later source-indexed continuation. Clan jail is attributed thought; male inheritance and sect loyalty/exams are region/era observations, not all-world prohibitions. Keep sect3/8/15year exam distinctions, qualification versus office, and source-specific clan/sect contrasts.\n\nF4: W5 supersedes parts of the old next-pass list: gate10/person and total20for two differ from600total at another gate;15discounted meal does not make inferred30a paid list price. Lodging pitches, care80/month rank-one with situational pricing, actual40620Gu sale, dealer offers and inferred recipe-bid units retain transaction state. Rumored10000courtesan invitation, customer seat charge and later token-holder29000purchase are not universal tariffs. Retail/rare auction/rank/region/era prices do not form one rank ladder. Coercive source institutions are documented fiction, not newly selected gameplay.\n\nF5: Existing October31 comparison X1–X12/revisedP1 and B1–B5 current-code crosswalk qualify this dated pass; care versus commissioned refinement, purchase versus acquired control, actual fulfillment and one stock with competing uses remain distinct. Control of a held Gu does not supply a manufacture recipe. Preserve useful auction/custody, paid care, broker evidence, vouching/favor, recipe access and resource allocation ideas in their owners. The previously absent full-book directory now exists with source-indexed continuation; obsolete paths still need exact target selection, not reconstructed claims files. Retire the one-realm first-milestone deferral under current PROJECT. No new worker, acquisition, gameplay implementation or behavior proof is added.",
+      "before_sha256": "37d5200daa46c29a7b4aaf99f1c27474732b7154f58555dc9d5d56596384ca6c",
+      "after_sha256": "fd6e2425d02d5024615f7da23f5c133eea17bcddd2fb10a1ba9ad3e58c0a0a4e"
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+      "heading": "## Institution pass reconciliation B605",
+      "body": "The [institution pass](../../../../worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b605-venues-care-and-transaction-evidence) preserves bounded auction/token, care, gate, trade, sect and broker evidence. Its old absent-directory note is historical: this owner now contains source-indexed caravan/Shang and later continuations. In particular the information-sales proposal, attempted control, later operating business and appointment differ from banned battle betting. Exact local quotes, discounts, inferred units, offered versus paid values and paid care versus refinement/control remain separate. The later comparison X1–X12/revisedP1/B1–B5 remains the selected runtime crosswalk, not this source-only pass. The useful mechanisms stay proposals where not adopted; no new gameplay or source-body verification occurs.",
+      "before_sha256": "fad185e5de58ae48f1070e804d0ca0ea99d90614b3d40f8df53ed3a008642d8b",
+      "after_sha256": "d155ef11af62d8c18842e1eb088432516aa082a56bd9577cda7827fe52703dfb"
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B605: institution scope and private board",
+      "body": "F1: Full actual review covers the250-line input, four windows/34chapters/42236words, F1–F11, EF1–EF10, C1–C8, all institution/role/price/search/gap rows and K2/K3/K6/K8/K13. Window heading-inclusive count46150 is not extra body reading. The supplied English edition SHA2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6 covers the inspected1–1840 compilation; later supplied volumes and full-book dossier coverage are different inputs. Provenance/insertion noise stays explicit. No raw novel passage was newly read in B605.\n\nF2: Academy private room, clothes and free meals are observed opening entitlements, not proof of universal free tuition. Ranking from interviews is a narrator's likely explanation, not verified administrative causation; optional counseling/shard offer and later Aspect questions are separate disclosure choices. One four-week stay is not every intake duration. Citizenship's seventh rank has no established full scale. Gate tracking/duty is an institutional claim with no inspected universal penalty; Jet's tether advice is not a law that every independent dies.\n\nF3: Credits, physical shards, contribution points, cohort draft priority and later shard-backed coins are distinct. The selected market shows shard/Memory/credit exchange, but no universal conversion rate or exact credit price. Seven cohorts of six in one42-recruit company do not define every group. Source statements about outskirts population, average yearly intake, rapid commissioning, shop turnover and healer scarcity retain speaker/era/local scope. A particular in-person Spell-assisted Memory transfer is not proof all later transfer methods require co-presence. Sunny's truth-answer Flaw cannot define every Flaw or borrowed original faculty.\n\nF4: C1–C4 are integrated into the kit card: preserve market conversion without inventing a rate, civil rank beside Academy role and Spell rank, source-opening private board beside authored other-era lodging, and Jet/Caster as source-supported role candidates beside the explicitly original Hana Ward. New rows propose usable verbs; they do not create a runtime cast. The original Dreaming world remains distinct. Proposed credits5/20/30/40 stay authored, not recovered prices; board does not purchase mandatory disclosure. Learned technique, trial award, personal Aspect, soul resource, Memory custody and protagonist-specialist craft remain separate mechanisms.\n\nF5: Zero English keyword hits and missing fee lines apply to the inspected searches/windows, not all canon. Spell entry after first Nightmare, Academy preparation and an ordinary visitor are different starts; a candidate does not inherit later protagonist powers. Existing card's later guarded-rest proposals and source-qualified rank/body crossing must be preserved; no automatic sleep disaster or anti-exploit gate follows from this report. Date old no-pack/code findings, retire the first-milestone deferral, retain exact unopened clan/pay/services/market/late-volume ranges and [S]scope without revealing designed secrets. No fresh source-body, runtime, browser, build, save or human acceptance proof is added.",
+      "before_sha256": "a0c926f03612ecaa076b592bb2e32d45e983dbd74ee77419897dd3b1891605db",
+      "after_sha256": "a3ede36e56bde9896e93c0d9e7fa138aa9216c32ec432312c946b7b0280a752a"
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "heading": "## Institution pass C1–C4 reconciliation B605",
+      "body": "The [institution pass](../../SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b605-institution-scope-and-private-board) qualifies C1–C4 for this card. C1: observed Sanctuary exchange permits shards for Memories/credits; there is no pinned general conversion rate. This does not automatically fund the authored depot. C2: the cited seventh-rank citizenship badge is a civil scale of unknown extent, distinct from school roles and Spell rank. C3: the inspected opening Academy grants a private room, clothes and free meals; shared accommodation remains an authored alternate-era arrangement, not that source scene. Counseling remains optional, and interview-based ranking is the narrator's inference.\n\nC4: retain Hana Ward as original. Add source-supported cast candidates Master Jet (government adviser/handler; ask about support, duty or disclosure, with exact availability authored) and Caster (visible ranking peer; request a known comparison or practice only with a selected supported interaction). No schedule or playable conversation was recovered from a roster. Keep those roles separate from Julius/Rock instruction and from later-era staff. These are card-level proposals, with no new runtime roster or full-profile proof. Sunny's truthful-answer Flaw is specific; source board does not compel all personal disclosures. Three source stores of value can exchange locally without a universal rate or proposed5/20/30/40credit prices becoming canon.",
+      "before_sha256": "3168f6b44690482c82d1d8f00b4f9e7b1792e6d3714f80bb143ca37792da6fdb",
+      "after_sha256": "247ae84dd07c94120264057cbc6592c68aab0211b0ff9adc51135cb1f714aa50"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 89,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Dead reference: DESIGN.md D1 links `research/full-book/reverend-insanity/` (checkpoint, synthesis, claims.jsonl); that directory does not exist in this checkout. Treated as unavailable, not reused.",
+      "to": "Historical path check: DESIGN.md D1 linked `research/full-book/reverend-insanity/` (checkpoint, synthesis, claims.jsonl), unavailable at this pass. B605 finds `docs/research/novels/full-book/reverend-insanity/` with current source-indexed owners; choose exact existing targets rather than assuming the old filenames.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "A few hundred ever issued (stated by a clerk)",
+      "to": "Issue count remains UNVERIFIED in this pass; section 2 records the unresolved source check",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Forecast or betting business forbidden near a battle stage",
+      "to": "Battle betting business banned in the cited case; forecast/information sales are distinct",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "defers behind the first milestone's mortal scope, per AD direction (one realm first).",
+      "to": "historical deferral retired under current PROJECT; no one-realm-first gate is restored.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "every money figure is in primeval stones as written.",
+      "to": "money figures retain their written or inferred unit separately; recipe-bid units below are inferred, not explicit on every line.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "The Flaw is a compulsion, not a rule: an asked question forces a truthful answer, silence builds pressure then pain, and wording can bend only within limits (ch0020 p40-42, V). A Flaw can be gamed but not skipped.",
+      "to": "Sunny's particular Flaw compels truthful answers: silence builds pressure then pain, and wording has limits (ch0020 p40-42, V). This does not define every person's Flaw.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "a screen that ranks the batch from interviews.",
+      "to": "a public ranking screen whose interview basis is the narrator’s guess.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Batch ranked by interview results",
+      "to": "Public batch ranking; interview basis inferred by narrator",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Survival needs a clan, a government post or a cohort",
+      "to": "Jet advises a clan, government post or cohort for survival; independent exceptions exist",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Transfer needs both parties present and the Spell",
+      "to": "The inspected transfer uses both parties present and the Spell",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Confirmed absence, EPUB 1-1840 only.",
+      "to": "No price found in the inspected EPUB 1–1840 windows; not a whole-book absence finding.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Source Flaw is a compulsion, not a trade-off cost curve.",
+      "to": "Sunny's inspected Flaw is a compulsion; this does not define all Flaws.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "defer behind the first milestone.",
+      "to": "historical deferral retired under current PROJECT; no new priority selected.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "the Academy buys data with board",
+      "to": "the Academy provides board and separately offers rewards for optional disclosure",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Flaw is a compulsion (ch0020 p40-42).",
+      "to": "Sunny's inspected Flaw is a compulsion (ch0020 p40-42); other Flaws need their own source.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "The tether rule means failure to join anyone is the real risk",
+      "to": "Jet describes isolation as a survival risk, with independents still present",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "from": "free-board Academy, three non-converting stores of value",
+      "to": "free-board Academy, three distinct stores of value with local exchange but no pinned universal rate",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "from": "local civic review; no shard-as-cash conversion inferred",
+      "to": "local civic review; source markets exchange shards, without establishing this depot’s rate or funded stock",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "from": "shared room agreements and family contact vary.",
+      "to": "the inspected opening Academy has private rooms; other-era shared-room agreements and family contact remain authored variants.",
+      "reason": "Correct source-scope or stale direction; exact original retained."
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Not rules-reconciled, built or accepted.",
+      "to": "Not rules-reconciled or built; not accepted (AD32).",
+      "reason": "Clarify product-adoption negation or in-world supply agreement in touched line."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "from": "Issued equipment, returned stock, accepted plan",
+      "to": "Issued equipment, returned stock, agreed supply plan",
+      "reason": "Clarify product-adoption negation or in-world supply agreement in touched line."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "fd6e2425d02d5024615f7da23f5c133eea17bcddd2fb10a1ba9ad3e58c0a0a4e",
+      "to": "6dd9aeee1d68015957365c9c4d3b8173c20c54c6f8015ff2d7eec99848e4cf94",
+      "reason": "Exact inline corrections preserved in post_record_amendments."
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "a3ede36e56bde9896e93c0d9e7fa138aa9216c32ec432312c946b7b0280a752a",
+      "to": "aaea643546c7ebd4fac5cd50b599a8cd6816cf7a13f92ebcfcb3055f0c0475e6",
+      "reason": "Exact inline corrections preserved in post_record_amendments."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "from": "247ae84dd07c94120264057cbc6592c68aab0211b0ff9adc51135cb1f714aa50",
+      "to": "2fe9b031d94b24e9035faa8d4fa7f321e63a33381bcdceb5f52262633d04d12d",
+      "reason": "Exact inline corrections preserved in post_record_amendments."
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "6dd9aeee1d68015957365c9c4d3b8173c20c54c6f8015ff2d7eec99848e4cf94",
+      "to": "92de6eb3a701e02847eb213b0deb198a3c102605d9a660c0e951a09130ea81b0",
+      "reason": "Doc lint clarification."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "from": "2fe9b031d94b24e9035faa8d4fa7f321e63a33381bcdceb5f52262633d04d12d",
+      "to": "bd01758194d63fabeac8bc8a75128154f52433f358d3186a158e54ec5dc2f005",
+      "reason": "Doc lint clarification."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+      "sha256": "d155ef11af62d8c18842e1eb088432516aa082a56bd9577cda7827fe52703dfb",
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "scope": "Only displayed untruncated portion through institution continuation; no full owner review."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "sha256": "2fe9b031d94b24e9035faa8d4fa7f321e63a33381bcdceb5f52262633d04d12d",
+      "ranges": [
+        [
+          430,
+          451
+        ]
+      ],
+      "scope": "K6–K8 selected rows; no full card review."
+    }
+  ]
+}

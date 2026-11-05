@@ -42,7 +42,7 @@ for ledger in ledgers:
                 body = body.replace(amendment['from'], amendment['to'])
         if fold['heading'] not in current or body not in current:
             issues.append([ledger.name, fold['path'], 'missing recorded fold'])
-        for target in re.findall(r'\]\(([^)\s]+)\)', fold['body']):
+        for target in re.findall(r'\]\(([^)\s]+)\)', body):
             if ':' in target.split('/')[0] or target.startswith('#'):
                 continue
             path = target.split('#')[0]

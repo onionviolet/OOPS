@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "batch": "B627",
+  "title": "Acquisition workflow: actual coverage-tool limits, version boundaries and historical execution routes",
+  "at": "2026-11-05T14:22:11.327776+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "ids": [
+        "transport contract",
+        "named browser exceptions",
+        "AR1–AR51",
+        "AR29b",
+        "AR36b"
+      ],
+      "classification": "full workflow/idea content; current tool-contract correction and preserved acquisition history",
+      "owners": [
+        "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+        "docs/research/LIBRARY_INDEX.md"
+      ],
+      "disposition": "F1: Full321-line acquisition-tools owner reviewed: platform/version/reader handoffs, registry/reuse table, transport contract, explicit RR S1–S8/S9–S10/RTOC/Archives-of-Nethys/d20pfsrd exceptions, raw/prepared/reporting/incident history and every localAR1–AR51/AR29b/AR36b row. Initial196–321truncation was recovered with explicit196–219/220–277/278–321reads. TheseARcodes belong to this source-tool owner, not accepted architectureAR1–AR16. No linked tool/profile/fork source, credentials, app version/host status, current quota, license or whole media body was newly verified by reading their pointers.\n\nF2: Preserve transport identity/cache/receipts/stop-state, actualcatalogue URLs, shared directories and source-specific explicit exceptions. Later named user grants can supersede local route preferences within scope; an old run’s exception does not silently authorize a new source or mutate a closure. Browser DOM capture differs from successful polite acquisition, same-origin serial fetch differs from new headless downloader, automatic check completion differs from manual bypass, and transferred raw data differs from prepared EPUB/reading. Existing hardcoded queues are historical examples, not genericcommands to execute. Native windows remain unauthorized; the old visible-Chrome requirement is a dated exercised route, not a reason to disturb foreground work now.\n\nF3: Preserve exact MD5/edition linkage, author disambiguation, source-versus-reader derivatives, file/container/reading/run states and currentwishlist routing. AR4’s old Randidly13/Tree8availability, AR5mock-only membership, AR15rough80quota, AR16disk95percent, AR17Nov1credit and AR49Menocht1 are historical snapshots superseded where laterlibraryreceipts differ. Prices/tier limits/domainavailability/installed-app readiness/parsefractions/starcounts/licenseassumptions are not current recommendations; do not buy, launch, install, schedule a watchlist or delegate from oldrows. AR18samehash consolidation is not permission to delete differenteditions or intentionally repairedsame-text copies. AR40mechanism inspiration is useful but does not override later chosen protagonist/canon content.\n\nF4: A genuine AR36b documentation error is corrected from actual script inspection: library_coverage.py enumerates all HTML/HTM/XHTML ZIPmembers and parses their title tags; it does not validate OPFspine order/coverage. first_gaps exposes at most8integergaps. --compilations scans EPUBmetadata bytes>3MB then uses heuristic title/partcount/chaptermax flags; it is not every held compilation. Raw JSON LIKE matching can miss Unicode-escaped non-Latin titles, and substringhits can include unrelated books. A required toolrun remains useful discovery evidence but a zero/overlap result is not sufficient proof of actual missingtext, allstoreabsence, editionequivalence or route-readiness. Query decoded metadata/exact keys/hash prefixes and selected TOC/volume mapping as needed. No code/tool fix occurs.\n\nF5: B626demonstrates the false-negative case: literalChinese宿命之环queryreturned0, but its exact receipt prefix uniquely matches registered on-disk asset f76f8c412e2f with decodedtitle. The initial12char-prefix-as-fullhash mistake was corrected before dispositions; all10Tier2successes match current metadata/locations. Currentlibraryowner records thatselectedproof. AR36 reuse-first and compilation/unnumbered/author checks remain; sameMD5 detects identicalfiles, not semantic coverage. AR19WNarc mappings cannot fill LNedition gaps or reinstate the falseReZero1/2/9absence claim; source versions differ. Translator availability does not authenticate text or authorize wholearc capture duringreconciliation.\n\nF6: Retain AR45–AR51tutorial/reset/royalroad ideas and RH4consolidation-shape gap as candidate work, with exact currentinputs needed before execution. Paid/member-only/authorhosted/rawOCR/edition/cutoff boundaries remain explicit. Alreadyheld PerfectRun/SuperSupportive/Worm and lateMenochtcontinuations need existingowners before rereading. CurrentPROJECTandactual runauthorization govern implementation/readingpriority; no inheritedagent model,budget,deadline or optionalreview becomes a new gate. No source/network/account/keyaccess, download, libraryregistration, scraper/toolcodechange, nativebrowser, worker, runtime/build/test/saveoperation, deletion/move, commit/push.",
+      "evidence": "Every321lines actualread with truncation recovery; script1–100and B626readonly selected outputs/database matches support narrower contract. No linkedexternaltool/sourcebody/liveprovider proof.",
+      "reopen": "For a selected authorized wave run coverage then resolve exact keys/decodedmetadata/TOC if needed; preserve oldstops and history, no automaticcaptureorpaidreading.",
+      "full": true,
+      "input_sha256": "dea78917bbea8e2c91d9225ffdee3b974aa8d76503c2fbc01583c624f9ba9817",
+      "input_lines": 321,
+      "ranges": [
+        [
+          1,
+          321
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "heading": "## Content reconciliation B627: scope of tools and historical routes",
+      "body": "The full321-line input and every localARrow were read. Keep these source-tool ARcodes distinct from the architecture rulebook. Route checks, quotas, member-key readiness, prices, disk use and app/version statements dated October21–31 are historical evidence. Later [library receipts](LIBRARY_INDEX.md#content-reconciliation-b626-current-routing-and-dated-holdings) supersede old partial holdings and mock-only route states within their actual scope. This review launches no transfer, tool, worker, browser or monthly watchlist.\n\nAR36b’s command remains the required discovery step before a gap recommendation, but its result has narrower meaning than the old description. The current script scans HTMLmembers and their title tags rather than validating OPFspine completeness/order; it reports at most8detected integergaps. Its --compilations route filters EPUBmetadata above3MB and applies heuristics, so small or differently labeled compilations can be missed. A zero non-Latin title query can also be false when raw JSON stores Unicodeescapes. Exact source keys, unique hash-prefix matches and decoded metadata resolved the B626宿命之环case. Fuzzy matches can include unrelated series. Use the actual source/TOC/edition context before a missing-range conclusion; a title scan does not compare narrative text.\n\nPreserve source/reader derivatives, exact edition and author identity, distinct LN/WN/retail/serial/media baselines, unnumbered first volumes, actual compilation overlap and paid-reading approval. WNarc coverage is not automatic possession of an LNedition. A same-hash duplicate is different from another edition or a reader repair intentionally kept with identical story text. AR40’s original mechanism-harvest suggestion does not limit current selected protagonist/canon work.\n\nExisting explicit RR/d20browser grants and transport stops keep their precise source/scope/history. They do not become a new general download grant or a need for unnecessary confirmation within an already authorized run. Keep raw hashes, capture/edition boundaries and actual reading claims separate. For selected future work, current [tool registry](../TOOL_REGISTRY.md), [library](LIBRARY_INDEX.md), [wishlist](DOWNLOAD_WISHLIST_2026-10-30.md) and run owner govern. No current external availability, source fidelity, paid allowance, native tool behavior or installed version is re-certified here.",
+      "before_sha256": "dea78917bbea8e2c91d9225ffdee3b974aa8d76503c2fbc01583c624f9ba9817",
+      "after_sha256": "c5fee34e87416cd4fe20e3927d0dd44711fad2ba1689237370c794d4924cd0dd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 55,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "from": "Without a key, the free route needs the visible Chrome tab.",
+      "to": "The exercised free route used an existing Chrome session. For future authorized work prefer supported background controls; this historical observation does not authorize a visible window.",
+      "reason": "Correct actual tool/search scope and preserve later source/canon/background authority."
+    },
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "from": "reads the live database and, for each EPUB, the spine's part count and the chapter range and gaps from part titles. `--compilations` lists every held multi-chapter EPUB",
+      "to": "queries raw JSON metadata in the live database and, for matching EPUBs, counts HTMLmembers and scans their title tags for numbered chapters, reporting at most8detected gaps. It does not validate OPFspine completeness/order. `--compilations` heuristically lists EPUBs above3MB flagged by title, part count or chapter maximum",
+      "reason": "Correct actual tool/search scope and preserve later source/canon/background authority."
+    },
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "from": "Container facts only: edition equivalence stays unverified",
+      "to": "Container indicators only: edition equivalence stays unverified. A zero non-Latin title match can miss Unicode-escaped JSONmetadata; resolve exact keys/unique hash prefixes and decoded metadata before claiming absence (B626)",
+      "reason": "Correct actual tool/search scope and preserve later source/canon/background authority."
+    },
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "from": "This covers the Re:Zero 1, 2 and 9 gaps by arc (arc 1 = LN 1, arc 2 = LN 2-3, arc 3 = LN 4-9), plus everything past LN 10",
+      "to": "The approximate arc/LN mapping (arc1≈LN1, arc2≈LN2–3, arc3≈LN4–9) describes related story ranges, not interchangeable editions or proof of every later LN. AR36corrects the old supposed1/2/9holdings gaps",
+      "reason": "Correct actual tool/search scope and preserve later source/canon/background authority."
+    },
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "from": "What RR fiction gives this project is mechanisms, not plots:",
+      "to": "For this proposed original mechanism-harvest pass, RR fiction offers:",
+      "reason": "Correct actual tool/search scope and preserve later source/canon/background authority."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+      "from": "c5fee34e87416cd4fe20e3927d0dd44711fad2ba1689237370c794d4924cd0dd",
+      "to": "d21d529794efda4006b5eb43353bf259193c07540049d90a055248ba4a36972f",
+      "reason": "Exact workflow-contract corrections."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "scripts/library_coverage.py",
+      "sha256": "3ead875f75746603e380fc0cd71a9719cf150462cc0de2d563a474003bf81dbe",
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "scope": "Actual query/HTML/title/size/heuristic code; unchanged."
+    },
+    {
+      "path": "docs/audits/reconciliation-2026-11-04/content-b626.json",
+      "sha256": "36430844a9ed72e6af253bf873cd61aea1fa411efe1c2e79791e3b46c257bc39",
+      "scope": "Selected current readonly observations and explicit corrected false-negative limits, not a new source reading."
+    }
+  ]
+}

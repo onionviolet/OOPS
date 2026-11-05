@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "batch": "B522",
+  "title": "Foundation custody, allocation and recovery contracts",
+  "at": "2026-11-05T09:42:19.770452+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/FA19-reconciled.md",
+      "ids": [
+        "FA19",
+        "O05",
+        "H10"
+      ],
+      "classification": "historical reconciled execution contract; retain provenance and scoped proof gaps",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "FA19/O05/H10 corrects the selected seam to identified-object custody, exposure, expiry and replacement in advanceContainerClocks/nextContainerBoundary; capability expiry and Eda knife custody are distinct consumers. Decide applicability and existing sufficiency before proposing a repair. The 22 existing SOURCE checks reported by the later FA20 prompt do not prove a public container consumer or paused World1 N4 native gate. Held title, source knowledge, object expiry, transformed ownership and finite deposits remain separate. Preserve the historical R11 zero-paid error stop, R10 lost-state ambiguity and R8 pre-R10 artifact provenance; snapshots or remembered observations cannot replace literal exports.",
+      "evidence": "Entire prompt read: FA19 149 lines; FA20 1–90 and 91–156; R14 1–125 and 126–252. Supporting checkpoint 1–65 only, not whole-owner credit. No source, native or historical artifact revalidation.",
+      "reopen": "Reopen a selected current consumer or recovery gate only after current source, ownership, compatible evidence and task authority are established.",
+      "input_sha256": "366594edab6a2a95b6e24cfd989a9a6a6ab57707759743c3b2b1706517456d34",
+      "input_lines": 149,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          149
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/FA20-reconciled.md",
+      "ids": [
+        "FA20",
+        "O04",
+        "H12"
+      ],
+      "classification": "historical reconciled execution contract; retain provenance and scoped proof gaps",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "FA20/O04/H12 asks whether one conserved finite support source can already switch between two materially useful eligible activities. Two buildings, labels or a rain cover alone do not establish allocation. The later R14 prompt reports NO_EDIT_SOURCE_SUFFICIENT specifically for transient one-slot field.assembly assignment: rack drying, bench stave fitting and second bench kit use; pending exclusion, cancellation/refund, support loss and duplicate settlement. Five focused plus 69 affected checks are attributed historical SOURCE results, not newly run checks, whole-root save/import validation or native A/B proof. No network, standing utility or generic allocation framework follows from the research title.",
+      "evidence": "Entire prompt read: FA19 149 lines; FA20 1–90 and 91–156; R14 1–125 and 126–252. Supporting checkpoint 1–65 only, not whole-owner credit. No source, native or historical artifact revalidation.",
+      "reopen": "Reopen a selected current consumer or recovery gate only after current source, ownership, compatible evidence and task authority are established.",
+      "input_sha256": "30eb28fdc57d01ef30566e3e478cb6356a58b666e9d16acbbe61ee738a00b5ea",
+      "input_lines": 156,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          156
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/FINAL-reconciled.md",
+      "ids": [
+        "R14",
+        "FA01–FA23"
+      ],
+      "classification": "historical reconciled execution contract; retain provenance and scoped proof gaps",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "R14 distinguishes assessment acceptance from technical chain completion. Zero native attempts is a valid recovery assessment when no genuine compatible unspent artifact and useful authorized route exists, but leaves required technical gates open. Its independent review requires source/evidence bindings and explicit dispositions, and findings do not authorize implementation. R8 import cannot erase R10 spending or losses. Its natural-route, fixed-budget, mandatory error-stop and exact-chat succession constraints belong to that historical attempt; this documentation review launches no reviewer, chat, browser, recovery or retry. The current checkpoint records later R15 integration, lifted World1 pause and eventual deadline stop, so R12–R14 launch-state pauses, ownership IDs, ports and expected branch cannot replace that later history or current inspection.",
+      "evidence": "Entire prompt read: FA19 149 lines; FA20 1–90 and 91–156; R14 1–125 and 126–252. Supporting checkpoint 1–65 only, not whole-owner credit. No source, native or historical artifact revalidation.",
+      "reopen": "Reopen a selected current consumer or recovery gate only after current source, ownership, compatible evidence and task authority are established.",
+      "input_sha256": "537d369429e672632dcb5cfe3d1b0d9069c7098e45e1e31ceefe129ad5d893c2",
+      "input_lines": 252,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          252
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "heading": "## Content reconciliation B522: custody, allocation and recovery scope",
+      "body": "F1: FA19/O05/H10 corrects the selected seam to identified-object custody, exposure, expiry and replacement in advanceContainerClocks/nextContainerBoundary; capability expiry and Eda knife custody are distinct consumers. Decide applicability and existing sufficiency before proposing a repair. The 22 existing SOURCE checks reported by the later FA20 prompt do not prove a public container consumer or paused World1 N4 native gate. Held title, source knowledge, object expiry, transformed ownership and finite deposits remain separate. Preserve the historical R11 zero-paid error stop, R10 lost-state ambiguity and R8 pre-R10 artifact provenance; snapshots or remembered observations cannot replace literal exports.\n\nF2: FA20/O04/H12 asks whether one conserved finite support source can already switch between two materially useful eligible activities. Two buildings, labels or a rain cover alone do not establish allocation. The later R14 prompt reports NO_EDIT_SOURCE_SUFFICIENT specifically for transient one-slot field.assembly assignment: rack drying, bench stave fitting and second bench kit use; pending exclusion, cancellation/refund, support loss and duplicate settlement. Five focused plus 69 affected checks are attributed historical SOURCE results, not newly run checks, whole-root save/import validation or native A/B proof. No network, standing utility or generic allocation framework follows from the research title.\n\nF3: R14 distinguishes assessment acceptance from technical chain completion. Zero native attempts is a valid recovery assessment when no genuine compatible unspent artifact and useful authorized route exists, but leaves required technical gates open. Its independent review requires source/evidence bindings and explicit dispositions, and findings do not authorize implementation. R8 import cannot erase R10 spending or losses. Its natural-route, fixed-budget, mandatory error-stop and exact-chat succession constraints belong to that historical attempt; this documentation review launches no reviewer, chat, browser, recovery or retry. The current checkpoint records later R15 integration, lifted World1 pause and eventual deadline stop, so R12–R14 launch-state pauses, ownership IDs, ports and expected branch cannot replace that later history or current inspection.\n\nRetain the archived reconciled prompts unchanged as historical work contracts. Their imperatives do not grant present execution authority. The six-group R11 Save/reload result and any exact inherited test counts retain their original input scope; this batch reviewed documents and did not reproduce runtime behavior.",
+      "before_sha256": "00079682035a8c6e795e6e7c6fda66c9cc81283a3e879fef9ff46512afb57542",
+      "after_sha256": "7e0583bd6c95a55d21b113aa956947686e6e063673fe965247f95f7fc40b25db"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 200
+}

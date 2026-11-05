@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/gm/dispatch/refinement-audits-2026-10-31/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3L_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3D_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/lotm-q3-2026-10-25/CHECKPOINT.md",
+    "docs/CHEAT_LIBRARY.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "4a7384f7873073fa4aceef656a72eb101d0da10ff4f7539ab15b6f7b31853953",
+  "adaptation": "Only filespec changed, unchanged diagnostics. Not shared-tree pass."
+}

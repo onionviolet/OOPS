@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "batch": "B419",
+  "title": "Complete cast-life plan: lead-first supersession and actual fidelity boundaries",
+  "at": "2026-11-05T05:14:18.448083+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "ids": [
+        "S1–S4",
+        "D1–D5",
+        "F1–F12",
+        "CL1–CL281",
+        "rounds1–20",
+        "B413–B418 retained reconciliation sections"
+      ],
+      "classification": "complete long-form cast-life plan; actual supersession, mechanism/coverage and chronological reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Complete content coverage by verified prior partial prefix and fresh remainder. Preserve all ideas/history; qualify outdated order/adoption/pack-loss/RNG/coverage claims through current owners, and keep actor/time/knowledge/causal effects distinct.",
+      "evidence": "B418 actual prefix1–615 reviewed and exact reviewed_prefix_sha256 checked unchanged; fresh bounded reads616–740,741–880,881–1010,1011–1090,1082–1125,1126–1165,1166–1194. Complete rules-register row72 and selected current PROJECT direction provide authority support without full-file or runtime credit.",
+      "reopen": "Continue remaining inventory. For new implementation use the card, current accepted rule/source owners and exact current code, not dated queue/state or linked evidence by proxy.",
+      "coverage_basis": [
+        {
+          "ranges": [
+            [
+              1,
+              615
+            ]
+          ],
+          "ledger": "docs/audits/reconciliation-2026-11-04/content-b418.json",
+          "reviewed_prefix_sha256": "686ed336e8076d1b24ae4672a6468a2ff7682d46c68f5d7550dbfd76e538cb9c"
+        },
+        {
+          "ranges": [
+            [
+              616,
+              1194
+            ]
+          ],
+          "mode": "fresh actual content reading"
+        }
+      ],
+      "input_sha256": "e1125acd9890db910346e29a6f22ff808a447231e7260e5c6a8db081d4ecf90c",
+      "input_lines": 1194,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1194
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "heading": "## Content reconciliation B419: complete plan, later direction and actual scope",
+      "body": "The complete saved plan is now content-reviewed: B418 actually read1–615, its exact prefix is unchanged, and this continuation reads616–1194 including all remaining CL129–CL281 rows, coordination history and prior reconciliation sections. Those prior partial-review labels describe the state at their dates; this full review supersedes them without upgrading any linked source/runtime evidence.\n\n**Direction and supersession:** CL157–CL160’s NPC-first order is replaced inside this document by the user’s CL268 lead-first direction and then AD44; CL214’s second-case admission gate is explicitly replaced in round15 and current AD51. Keep the be/beside/follow/bystander possibilities; current PROJECT gives Klein’s developer route priority, HP alongside and low-spoiler ordinary starts later. A useful world-specific mechanism can retain its semantics or share the fitting frame; another case validates/revises rather than grants permission. CL226’s be-seat question is answered by round17. CL123/CL194/CL198/CL281’s acceptance questions are historical: the present [rules register](../../../RULES_INDEX.md) records CLR1–CLR13, SUI1–SUI19 and RPT1–RPT12 as binding defaults, with RPT13–RPT14 later standing rules. No repeat approval or new adoption is needed from this read.\n\n**Actual coverage and publication:** CL141 correctly identifies a public-source/canon-data placement defect; CL142 records the user’s later keep-history decision. Do not infer permission to rewrite history or publish any data now. Private pack content, public generic source, existing local history and actual installed/build publication are separate. CL153’s blanket load-without-pack promise is a design intention, not a guarantee for pending jobs: later mechanism receipts require the exact matching owner/definition for pending validation and leave pack-loss recovery unchanged. Stable crosswalk addresses do not by themselves preserve every changed instance, commitment or command revision. The current rule owner governs deliberate quotations and reader presentation; a private provenance class is not a new blanket display policy.\n\n**Fidelity and effects:** preserve CL171–CL177’s choices, inputs/output, causal time/order, actual participants/place, outcome/risk and observable information. A coarse fold can be clean where it truly preserves those meanings; a record/marker is not a paid purchase or executable choice. The earlier scene prose examples and claimed0-of18 score remain dated, not today’s source count or a reason to infer current absence. CL258’s any-actor design is useful, but untaken options still need real supported nouns, rules, means and outcomes; extra integration is not automatically free. CL189’s no-save-change split is conditional on the actual saved mapping/definition contracts, not a universal migration promise. A required first-class book mechanic remains actual engine/consumer work even if a report fragment is useful.\n\n**Time, knowledge and world scope:** story time, locator order, remembered past, actual future event and a fallible vision are distinct. A flashback is not automatically something this actor remembers; an omniscient future scene is not automatically player knowledge, while a truly exact faculty need not be made uncertain. Dream context is world-qualified and need not be a physically separate realm; body position, observer, control and return follow its mechanism. CL260’s blanket every-draw keyed claim and CL261’s per-life variation are proposed policies, not a fresh audit of legacy streams or every RNG consumer. Reproducibility needs actual instance/attempt identity and owned settlement, with legitimate new attempts preserved. Divergence remains open through real mechanisms and supported means rather than a promise that any stated outcome is always attainable.\n\n**Execution and continuation:** the full plan is dated design/coordination history. CL103/CL129’s CLI and usage numbers, historical launch/commit/status lines, rigid count stops, old reading-credit deadline and two-writer proposals are not current state or new authorization. The one-page card/handoff and actual runtime/source owners remain the working entry surfaces. The original narrow slice, MoL structural fit, return/clock policies and wider-world ambitions stay separate from a whole-world completion claim. Full document review here proves none of natural source acquisition, private-pack parity, rebuilt desktop behavior, persistence, installation, commit or deployment.",
+      "before_sha256": "e1125acd9890db910346e29a6f22ff808a447231e7260e5c6a8db081d4ecf90c",
+      "after_sha256": "481d42958d193787ec3166b63c239324775e20dd996d8f91ecb6a7d5cf9a51a6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 480,
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "from": "481d42958d193787ec3166b63c239324775e20dd996d8f91ecb6a7d5cf9a51a6",
+      "to": "00cc96c73fe9fc6972af50e580c07b4e8df75c2a5207bb23bbfdc4cd933a3bb0",
+      "old": "Status: plan and Codex lane briefs. Proposals under the 2026-10-27 adoption entry\n([USER_VISION](../../../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27)):\nadjustable working direction, not frozen spec. No `src/` change, no paid call, no source text in this file.",
+      "new": "Status: dated method, proposals and coordination history; complete content reconciliation is recorded in B419 below. Start current execution from the [cast-lives card](CAST_LIVES_CARD.md), [lead-life rules](../../../LEAD_LIFE_RULES.md) and [PROJECT](../../../../PROJECT.md). Later lead-first direction, adopted rule codes and actual receipts supersede the earlier order, pending-adoption and running labels in this history.\n\nThe 2026-10-27 proposals remain adjustable working direction under the [recorded adoption](../../../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27). This document supplies no fresh runtime, source-reading, installed-state or worker proof.",
+      "reason": "Replace the misleading live-plan entry paragraph with current owner routing; preserve original paragraph in this amendment and all dated rounds in place."
+    }
+  ]
+}

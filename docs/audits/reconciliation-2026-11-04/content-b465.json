@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "batch": "B465",
+  "title": "Ability/world implementation records and story-life checkpoint: concrete consumers and unrun gates",
+  "at": "2026-11-05T06:54:08.050227+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-implementation/abilities/COVERAGE.md",
+      "ids": [
+        "frontier.brace_control/trail_reading/timber_judgment/shared_inquiry"
+      ],
+      "classification": "complete historical implementation/design/coverage record with explicit behavior limits",
+      "owners": [
+        "docs/gm/world-implementation/abilities/COVERAGE.md",
+        "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/story-life-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "Complete review of the14-line four-family coverage map and40-line skill return preserves the exact consumer scope: brace control uses consenting nonlethal responses and actual vitality; trail reading learns a procedure consumed by the existing survey/board owner; timber judgment spends owned logs at the shared bench for actual kits; shared inquiry reserves/funds the teacher and records actual current reports. Family discovery, learned method, mastery, native XP/unlock, source support and executable use remain distinct. Recovery controls are real local consumers, not an invented universal cure. Native readiness/build confirmation and19-command registry validation were explicitly integrated-built-unverified at the recorded source/bundle, with changed behavior/save/failure/discovery/UI gates deferred. No source registry, bundle, publication packet or gameplay was freshly checked here.\n\nThe chosen four-mastery endpoint, paid teacher/Lio/focus requirements, dry bench, usable hands and local base.frontier binding are reversible original definitions for this wave, not global rules for learning, bodies, fees or cross-world powers. Frozen job completion and live response support have different policies. Retaining a method does not conjure its foreign teacher/tool; a genuinely self-sufficient faculty can retain stronger means according to its actual law. The old four-family exception/world hold and implementation-first deferral are historical authorization boundaries, not today's queue or general testing exemption. Current [PROJECT](../../../../PROJECT.md), [lead-life rules](../../../LEAD_LIFE_RULES.md), AD36/AD43 and optional human review govern selected work. Preserve all named unrun acquisition, cancellation, custody, site/weather, native publication, repeat/reload and leak gates without claiming current failure or rerunning them for a documentation review.",
+      "evidence": "Complete14/40/15/17/13-line inputs read; skill-return first two title/blank lines recovered after tail read. Existing15-line story checkpoint also fully reread for later disposition without extra review credit. No linked JSON/source/private/play evidence reopened.",
+      "reopen": "Use current selected consumer, current ownership and exact changed-input evidence. Preserve implemented-unverified and finite original definitions without old global milestone.",
+      "input_sha256": "3efea6af42881d92df653e337e2eeed40ede7d793c237d31eea229f780453c09",
+      "input_lines": 14,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/SKILL_RETURN.md",
+      "ids": [
+        "19commands/4powers/1encounter;S2exports/S3requests1–5"
+      ],
+      "classification": "complete historical implementation/design/coverage record with explicit behavior limits",
+      "owners": [
+        "docs/gm/world-implementation/abilities/COVERAGE.md",
+        "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/story-life-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "Complete review of the14-line four-family coverage map and40-line skill return preserves the exact consumer scope: brace control uses consenting nonlethal responses and actual vitality; trail reading learns a procedure consumed by the existing survey/board owner; timber judgment spends owned logs at the shared bench for actual kits; shared inquiry reserves/funds the teacher and records actual current reports. Family discovery, learned method, mastery, native XP/unlock, source support and executable use remain distinct. Recovery controls are real local consumers, not an invented universal cure. Native readiness/build confirmation and19-command registry validation were explicitly integrated-built-unverified at the recorded source/bundle, with changed behavior/save/failure/discovery/UI gates deferred. No source registry, bundle, publication packet or gameplay was freshly checked here.\n\nThe chosen four-mastery endpoint, paid teacher/Lio/focus requirements, dry bench, usable hands and local base.frontier binding are reversible original definitions for this wave, not global rules for learning, bodies, fees or cross-world powers. Frozen job completion and live response support have different policies. Retaining a method does not conjure its foreign teacher/tool; a genuinely self-sufficient faculty can retain stronger means according to its actual law. The old four-family exception/world hold and implementation-first deferral are historical authorization boundaries, not today's queue or general testing exemption. Current [PROJECT](../../../../PROJECT.md), [lead-life rules](../../../LEAD_LIFE_RULES.md), AD36/AD43 and optional human review govern selected work. Preserve all named unrun acquisition, cancellation, custody, site/weather, native publication, repeat/reload and leak gates without claiming current failure or rerunning them for a documentation review.",
+      "evidence": "Complete14/40/15/17/13-line inputs read; skill-return first two title/blank lines recovered after tail read. Existing15-line story checkpoint also fully reread for later disposition without extra review credit. No linked JSON/source/private/play evidence reopened.",
+      "reopen": "Use current selected consumer, current ownership and exact changed-input evidence. Preserve implemented-unverified and finite original definitions without old global milestone.",
+      "input_sha256": "a408f84148096658de65c2d9ad2e9deac17d8f0a2cb5c0f8a0526f5104ca04a6",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+      "ids": [
+        "areas1–5"
+      ],
+      "classification": "complete historical implementation/design/coverage record with explicit behavior limits",
+      "owners": [
+        "docs/gm/world-implementation/abilities/COVERAGE.md",
+        "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/story-life-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "The complete15-line design input preserves five independently extensible areas: origins/existence, means/acquisition, progression/change, worlds/everyday life and ability semantics/combinations. Catalogue examples do not close the ontology, and a single tier need not describe every faculty. Exact selected definitions and compatible executable primitives still matter. The held combined-review instruction was not implementation approval. Its one-realm/one-prestige sentence is retired by later user direction; current [PROJECT](../../../../PROJECT.md) and accepted world/lead-life owners control scope. Open-ended possibility is not arbitrary callbacks, automatic compatibility or evidence every family is implemented. No new runtime, source qualification, user decision or parallel assignment follows from reconciling this historical input (AD32/AD36/AD51).",
+      "evidence": "Complete14/40/15/17/13-line inputs read; skill-return first two title/blank lines recovered after tail read. Existing15-line story checkpoint also fully reread for later disposition without extra review credit. No linked JSON/source/private/play evidence reopened.",
+      "reopen": "Use current selected consumer, current ownership and exact changed-input evidence. Preserve implemented-unverified and finite original definitions without old global milestone.",
+      "input_sha256": "26e80833fcdf07a94a9a6393d5862a5640f81a626057b42bf67a0dae869b3428",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/README.md",
+      "ids": [
+        "revision21/revision13;E01–9/O01–5;remainder/P1–5/MW01–4"
+      ],
+      "classification": "complete historical implementation/design/coverage record with explicit behavior limits",
+      "owners": [
+        "docs/gm/world-implementation/abilities/COVERAGE.md",
+        "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/story-life-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "All17 original README lines were reviewed. Revision21 remainder c12c1524b341, revision13 Frontier f381c6503a58 and the four-skill246dd626feeb delivery are separate source/native-binding/UI/build receipts, explicitly implemented-unverified at their recorded inputs. Counts of282 maps,19 remainder rows,33 parents/15 steps/seven endings and registry definitions do not prove played campaigns or source-world completion. Keep original static/model/build checks separate from deferred behavior, persistence, failure, keyboard and regression gates; later actual evidence may close only its matched scope. Do not inherit an old implementation-first waiver for new code.\n\nLater [PROJECT](../../../PROJECT.md), [lead-life](../../LEAD_LIFE_RULES.md) and current world rules supersede the retired one-realm/prestige gate, old Frontier/Glasshouse build order and launch/pause/owner statements. Historical releases describe those finite deliveries, not current running workers or new writer/integration/commit/push authority. Actual functions, ending consequences, source qualification, adversary mechanisms and sealed information remain useful requirements when selected. Current AD36/AD43 and AD42 optional review apply. This documentation pass did not inspect the linked JSON/source/bundles, change a runtime, open private content or exercise gameplay.",
+      "evidence": "Complete14/40/15/17/13-line inputs read; skill-return first two title/blank lines recovered after tail read. Existing15-line story checkpoint also fully reread for later disposition without extra review credit. No linked JSON/source/private/play evidence reopened.",
+      "reopen": "Use current selected consumer, current ownership and exact changed-input evidence. Preserve implemented-unverified and finite original definitions without old global milestone.",
+      "input_sha256": "6223324b78267c2a1846aeb6c6b2c8e37a0d97e99326fe9a31b743c779aed56d",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/story-life-2026-10-07/CHECKPOINT_BEFORE_DELIVERY.md",
+      "ids": [
+        "revision2/threecouriercases;68694413/d6b6937c;A1/A2"
+      ],
+      "classification": "complete historical implementation/design/coverage record with explicit behavior limits",
+      "owners": [
+        "docs/gm/world-implementation/abilities/COVERAGE.md",
+        "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/story-life-2026-10-07/CHECKPOINT.md"
+      ],
+      "disposition": "The complete13-line pre-delivery checkpoint was read against this complete15-line revision3 checkpoint. The earlier instruction to rebuild and exercise the story loop was followed by only the specifically recorded partial browser observations and source/model/build delivery; the unavailable browser connection left watch/account/conversation, timed reload/import, keyboard and performance unverified at that date. The optional watching implementation avoided a new site requirement that would strand already-enrolled saves. Additive command/knowledge compatibility is a stated contract, not a newly verified save journey here. Premature source-release disclosure, the pre-hero dynamic item-name failure and the accidental shared-build repair retain their separate causes and records.\n\nHistorical preview ports, processes, child releases and peer reservations are not live handles or permission to restart them. The latest documentation-only task does not resume source integration or browser checks. Current [PROJECT](../../../PROJECT.md), [UI rules](../../UI_RULES.md) and AD36/AD43 govern any selected current consumer; AD42 makes human review optional. The old realm/prestige wording is retired. Preserve known story/cost/clock/observer boundaries and all open technical proof without declaring the later current game broken. No linked evidence file, generated save, source, browser or private library was reopened.",
+      "evidence": "Complete14/40/15/17/13-line inputs read; skill-return first two title/blank lines recovered after tail read. Existing15-line story checkpoint also fully reread for later disposition without extra review credit. No linked JSON/source/private/play evidence reopened.",
+      "reopen": "Use current selected consumer, current ownership and exact changed-input evidence. Preserve implemented-unverified and finite original definitions without old global milestone.",
+      "input_sha256": "5f65e2ead5f2f8b8968ea0c7b34a299e5ab5c24334d577398d694fbcb12c7646",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/world-implementation/abilities/COVERAGE.md",
+      "heading": "## Content reconciliation B465: four-family consumers and exact proof boundary",
+      "body": "Complete review of the14-line four-family coverage map and40-line skill return preserves the exact consumer scope: brace control uses consenting nonlethal responses and actual vitality; trail reading learns a procedure consumed by the existing survey/board owner; timber judgment spends owned logs at the shared bench for actual kits; shared inquiry reserves/funds the teacher and records actual current reports. Family discovery, learned method, mastery, native XP/unlock, source support and executable use remain distinct. Recovery controls are real local consumers, not an invented universal cure. Native readiness/build confirmation and19-command registry validation were explicitly integrated-built-unverified at the recorded source/bundle, with changed behavior/save/failure/discovery/UI gates deferred. No source registry, bundle, publication packet or gameplay was freshly checked here.\n\nThe chosen four-mastery endpoint, paid teacher/Lio/focus requirements, dry bench, usable hands and local base.frontier binding are reversible original definitions for this wave, not global rules for learning, bodies, fees or cross-world powers. Frozen job completion and live response support have different policies. Retaining a method does not conjure its foreign teacher/tool; a genuinely self-sufficient faculty can retain stronger means according to its actual law. The old four-family exception/world hold and implementation-first deferral are historical authorization boundaries, not today's queue or general testing exemption. Current [PROJECT](../../../../PROJECT.md), [lead-life rules](../../../LEAD_LIFE_RULES.md), AD36/AD43 and optional human review govern selected work. Preserve all named unrun acquisition, cancellation, custody, site/weather, native publication, repeat/reload and leak gates without claiming current failure or rerunning them for a documentation review.",
+      "before_sha256": "3efea6af42881d92df653e337e2eeed40ede7d793c237d31eea229f780453c09",
+      "after_sha256": "40bc31a742d5a1f43a9fbe41e61fe4bdaa653422f9c33b858dc35328a0b8d826"
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+      "heading": "## Content reconciliation B465: extensible design input and retired milestone",
+      "body": "The complete15-line design input preserves five independently extensible areas: origins/existence, means/acquisition, progression/change, worlds/everyday life and ability semantics/combinations. Catalogue examples do not close the ontology, and a single tier need not describe every faculty. Exact selected definitions and compatible executable primitives still matter. The held combined-review instruction was not implementation approval. Its one-realm/one-prestige sentence is retired by later user direction; current [PROJECT](../../../../PROJECT.md) and accepted world/lead-life owners control scope. Open-ended possibility is not arbitrary callbacks, automatic compatibility or evidence every family is implemented. No new runtime, source qualification, user decision or parallel assignment follows from reconciling this historical input (AD32/AD36/AD51).",
+      "before_sha256": "26e80833fcdf07a94a9a6393d5862a5640f81a626057b42bf67a0dae869b3428",
+      "after_sha256": "cc9d84b20f9d13799a134fa5060a6bf0c84fc923d0b6366ca53a06d06c56ce1c"
+    },
+    {
+      "path": "docs/gm/world-implementation/README.md",
+      "heading": "## Content reconciliation B465: dated deliveries and current authority",
+      "body": "All17 original README lines were reviewed. Revision21 remainder c12c1524b341, revision13 Frontier f381c6503a58 and the four-skill246dd626feeb delivery are separate source/native-binding/UI/build receipts, explicitly implemented-unverified at their recorded inputs. Counts of282 maps,19 remainder rows,33 parents/15 steps/seven endings and registry definitions do not prove played campaigns or source-world completion. Keep original static/model/build checks separate from deferred behavior, persistence, failure, keyboard and regression gates; later actual evidence may close only its matched scope. Do not inherit an old implementation-first waiver for new code.\n\nLater [PROJECT](../../../PROJECT.md), [lead-life](../../LEAD_LIFE_RULES.md) and current world rules supersede the retired one-realm/prestige gate, old Frontier/Glasshouse build order and launch/pause/owner statements. Historical releases describe those finite deliveries, not current running workers or new writer/integration/commit/push authority. Actual functions, ending consequences, source qualification, adversary mechanisms and sealed information remain useful requirements when selected. Current AD36/AD43 and AD42 optional review apply. This documentation pass did not inspect the linked JSON/source/bundles, change a runtime, open private content or exercise gameplay.",
+      "before_sha256": "6223324b78267c2a1846aeb6c6b2c8e37a0d97e99326fe9a31b743c779aed56d",
+      "after_sha256": "47058cf7b4fd162aafc3db5e047ce10ad50425ca8bee7568e88cc03c5ac1aec9"
+    },
+    {
+      "path": "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+      "heading": "## Content reconciliation B465: pre-delivery history and actual later evidence",
+      "body": "The complete13-line pre-delivery checkpoint was read against this complete15-line revision3 checkpoint. The earlier instruction to rebuild and exercise the story loop was followed by only the specifically recorded partial browser observations and source/model/build delivery; the unavailable browser connection left watch/account/conversation, timed reload/import, keyboard and performance unverified at that date. The optional watching implementation avoided a new site requirement that would strand already-enrolled saves. Additive command/knowledge compatibility is a stated contract, not a newly verified save journey here. Premature source-release disclosure, the pre-hero dynamic item-name failure and the accidental shared-build repair retain their separate causes and records.\n\nHistorical preview ports, processes, child releases and peer reservations are not live handles or permission to restart them. The latest documentation-only task does not resume source integration or browser checks. Current [PROJECT](../../../PROJECT.md), [UI rules](../../UI_RULES.md) and AD36/AD43 govern any selected current consumer; AD42 makes human review optional. The old realm/prestige wording is retired. Preserve known story/cost/clock/observer boundaries and all open technical proof without declaring the later current game broken. No linked evidence file, generated save, source, browser or private library was reopened.",
+      "before_sha256": "ac5ce879839875b0cd5d5063278ac93761c1480d853be5596625073aa5ac3c35",
+      "after_sha256": "2095b60c21f1592767761d2af5336d5d7082d37ed94b7bc6e422ae489406eb81"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 374
+}

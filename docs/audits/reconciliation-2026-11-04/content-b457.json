@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "batch": "B457",
+  "title": "Complete A1/B1/C2 headless sweep and corrected finding causes",
+  "at": "2026-11-05T06:43:33.756211+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/PLAYTEST_SWEEP_2026-10-25.md",
+      "ids": [
+        "P1/P2;BFA1–3/BHB1–2/BMC1–2/BLD1–3/BT1–2;CT1–2/CMC1/CLC6/CCC1/CBC1/CG1–2;G1–8"
+      ],
+      "classification": "complete dated review/research owner with retained evidence and proposal boundaries",
+      "owners": [
+        "docs/reviews/PLAYTEST_SWEEP_2026-10-25.md",
+        "PROJECT.md",
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The complete328-line report retains three distinct input windows. A1's apparently stuck PLAY screen was narrowed in B1 to hidden-text/action matching in the wrapper; C2 additionally repaired native screen-state mutation handling and asynchronous validation/reload observation. CT1 closes the earlier Mistglass/Tingen/continuation entry coverage blockers on its branch. These are not evidence the rendered game lacked those routes. Preserve the original observations and subsequent cause corrections together.\n\nC2's actual journeys support their reached method/dose/work/return/fight and save/import states. CMC1 is an unreached Meditation prerequisite, CLC6 an unaffordable formula, CBC1 an incomplete scoped withdrawal search, and CCC1 an identity replay observation with supporting harness-only UUID evidence. None establishes a current native defect, mandatory cheap formula or absent game-wide route. CG1/CG2 and U1 concern systems excluded from the committed tested build; untestable is different from failed or no reproduction. P2's partly applied patrol step, BFA3's attempt-versus-viable-output probability wording and BHB2's separate store identity remain dated unresolved findings, with no demonstrated item loss. B1 findings were not freshly rerun in C2.\n\nThe instrumented source runner differs from dist and rendered desktop evidence. Export path, bundle identity and full checkout assets have distinct meanings; a lone bundle path would not freeze the test. B1/C2 full-suite sandbox denials and timeout remain visible alongside targeted passing reruns, without inventing a repeated all-green full run. Patch applicability, branch delivery and integration are distinct. [PLAYTEST](../PLAYTEST.md) retains historical proof; current [PROJECT](../../PROJECT.md) and the actual changed consumer govern priority. Current AD36/AD43 evidence and AD42 optional human review apply, without reviving old human blockers or Frontier/Mistglass expansion work. Reopen a named finding against a selected integrated candidate and actual route. This read did not apply patches, inspect linked transcripts, rerun gameplay/tests or verify November5 defect status.",
+      "evidence": "All328 pre-fold lines read in complete consecutive slices; linked source bodies and historical checks not rerun.",
+      "reopen": "Use a named finding or trial for a selected current consumer with current ownership and input-bound proof; keep historical receipts and proposals.",
+      "input_sha256": "454aae658c020e9ff0fb67f91cf42b6e8a225128f016805fec29377f4c367ae8",
+      "input_lines": 328,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          328
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/PLAYTEST_SWEEP_2026-10-25.md",
+      "heading": "## Content reconciliation B457: complete review and later authority routing",
+      "body": "The complete328-line report retains three distinct input windows. A1's apparently stuck PLAY screen was narrowed in B1 to hidden-text/action matching in the wrapper; C2 additionally repaired native screen-state mutation handling and asynchronous validation/reload observation. CT1 closes the earlier Mistglass/Tingen/continuation entry coverage blockers on its branch. These are not evidence the rendered game lacked those routes. Preserve the original observations and subsequent cause corrections together.\n\nC2's actual journeys support their reached method/dose/work/return/fight and save/import states. CMC1 is an unreached Meditation prerequisite, CLC6 an unaffordable formula, CBC1 an incomplete scoped withdrawal search, and CCC1 an identity replay observation with supporting harness-only UUID evidence. None establishes a current native defect, mandatory cheap formula or absent game-wide route. CG1/CG2 and U1 concern systems excluded from the committed tested build; untestable is different from failed or no reproduction. P2's partly applied patrol step, BFA3's attempt-versus-viable-output probability wording and BHB2's separate store identity remain dated unresolved findings, with no demonstrated item loss. B1 findings were not freshly rerun in C2.\n\nThe instrumented source runner differs from dist and rendered desktop evidence. Export path, bundle identity and full checkout assets have distinct meanings; a lone bundle path would not freeze the test. B1/C2 full-suite sandbox denials and timeout remain visible alongside targeted passing reruns, without inventing a repeated all-green full run. Patch applicability, branch delivery and integration are distinct. [PLAYTEST](../PLAYTEST.md) retains historical proof; current [PROJECT](../../PROJECT.md) and the actual changed consumer govern priority. Current AD36/AD43 evidence and AD42 optional human review apply, without reviving old human blockers or Frontier/Mistglass expansion work. Reopen a named finding against a selected integrated candidate and actual route. This read did not apply patches, inspect linked transcripts, rerun gameplay/tests or verify November5 defect status.",
+      "before_sha256": "454aae658c020e9ff0fb67f91cf42b6e8a225128f016805fec29377f4c367ae8",
+      "after_sha256": "01ed162fb7cc93287cd4105a117ce3b75ee0f577de25ed09e0c0c4a05551572d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 400
+}

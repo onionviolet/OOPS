@@ -1,0 +1,11 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "check:docs"
+  ],
+  "exit": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:133: absolute rule word has no default, dial, exception, or reason in this row or paragraph\ndocs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:251: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:36: absolute rule word has no default, dial, exception, or reason in this row or paragraph\ndocs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:293: absolute rule word has no default, dial, exception, or reason in this row or paragraph\ndocs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:302: absolute rule word has no default, dial, exception, or reason in this row or paragraph\ndocs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:21: absolute rule word has no default, dial, exception, or reason in this row or paragraph\n",
+  "scope": "Shared dirty-tree docs, not runtime proof."
+}

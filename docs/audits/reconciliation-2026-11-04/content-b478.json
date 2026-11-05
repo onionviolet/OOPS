@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "batch": "B478",
+  "title": "Qud-retained D1 transfer, full site editor and making donor: actual consumer/proof distinctions",
+  "at": "2026-11-05T07:29:12.615386+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_INPUT_RECEIPT.md",
+      "ids": [
+        "D1/GTL2/3/6;13files/7patch6new;frozen547209e82"
+      ],
+      "classification": "complete retained dependency/editor/making receipt with actual consumer and proof boundary",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+        "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md"
+      ],
+      "disposition": "The complete39-line copied input receipt and complete transfer report were read. This is D1 progression-gate dependency closure evidence retained under Qud, not a Qud mechanic/source audit. The copy retains original D1-relative brief/checkpoint/audit links; unresolved copied-relative paths do not establish those owners absent. The [original D1 checkpoint](../../../gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md) supplies later integration/release history, while [Qud CURRENT](../CURRENT.md) owns research continuation. B476 already reconciles the original receipt's source snapshot; no new module is implied by this retained copy.\n\nThe packet's seven tracked patches, six new files, clean apply/build/arch and24 focused tests support the frozen dependency candidate, not receiver gameplay, a clean full suite or current main. Queued messages were not confirmed reads; a message cannot transfer actual integration/custody by itself. The later original checkpoint records source landing, separately from push and combined gates. Preserve snapshot hashes, exclusions and the changed-doc hash reason; do not replay ALL_TRACKED.patch over today's dirty checkout. AD36/AD43 and AD42 optional review govern any selected consumer; the old human/commit/watcher instructions grant no current action. No patch payload, source code, branch/ref, message, worktree, test/build/browser, private or personal save was newly accessed or changed.",
+      "evidence": "Complete39-line copied receipt, full short D1 report,148-line G7 report and38-line donor checkpoint read. Original D1 later owner and Qud checkpoint tails are scoped context; package/raw source/native evidence not opened.",
+      "reopen": "Use exact current consumer/owner and pinned evidence; preserve copied-relative context, source-only old-reader reasoning and unpinned browser identity without upgrading proof.",
+      "input_sha256": "b6965629e7703e971bc0d4f1639c100283cd3e38c9f196bfe1398738b835c50b",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md",
+      "ids": [
+        "D1package/24focus;queuedvsdelivered;receivercombinedgate"
+      ],
+      "classification": "complete retained dependency/editor/making receipt with actual consumer and proof boundary",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+        "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md"
+      ],
+      "disposition": "The complete39-line copied input receipt and complete transfer report were read. This is D1 progression-gate dependency closure evidence retained under Qud, not a Qud mechanic/source audit. The copy retains original D1-relative brief/checkpoint/audit links; unresolved copied-relative paths do not establish those owners absent. The [original D1 checkpoint](../../../gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md) supplies later integration/release history, while [Qud CURRENT](../CURRENT.md) owns research continuation. B476 already reconciles the original receipt's source snapshot; no new module is implied by this retained copy.\n\nThe packet's seven tracked patches, six new files, clean apply/build/arch and24 focused tests support the frozen dependency candidate, not receiver gameplay, a clean full suite or current main. Queued messages were not confirmed reads; a message cannot transfer actual integration/custody by itself. The later original checkpoint records source landing, separately from push and combined gates. Preserve snapshot hashes, exclusions and the changed-doc hash reason; do not replay ALL_TRACKED.patch over today's dirty checkout. AD36/AD43 and AD42 optional review govern any selected consumer; the old human/commit/watcher instructions grant no current action. No patch payload, source code, branch/ref, message, worktree, test/build/browser, private or personal save was newly accessed or changed.",
+      "evidence": "Complete39-line copied receipt, full short D1 report,148-line G7 report and38-line donor checkpoint read. Original D1 later owner and Qud checkpoint tails are scoped context; package/raw source/native evidence not opened.",
+      "reopen": "Use exact current consumer/owner and pinned evidence; preserve copied-relative context, source-only old-reader reasoning and unpinned browser identity without upgrading proof.",
+      "input_sha256": "e3723c19a12ced3bb8fde510d40b1d3312c754e8ad7c76bfc0a00cefc772e9d7",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+      "ids": [
+        "FA21/C4editor;13checkrows/28browser/585tests;schema1/9mainhunks"
+      ],
+      "classification": "complete retained dependency/editor/making receipt with actual consumer and proof boundary",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+        "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md"
+      ],
+      "disposition": "The complete148-line G7 report was read, including the step-by-step authoring route, all13 check rows, defects, nine shared-main integration hunks, compatibility and explicit limits. One authored site/one timed work/one gather lifecycle through schema1 is a bounded editor, not a general world compiler. Native coin is a real publication consequence; site material/product are local counters, not native inventory. Draft-file export/import and gameplay-save literal roundtrip are separate paths. Reset removes this local authored site/progress while retaining earned coin under that prototype; reading the route does not invoke reset or authorize deleting anything now.\n\nThe natural label is defined as fresh UI-only QA, with28 recorded checks and585 source tests. Correcting a label without changing steps differs from supplying a new playthrough; hashes and saved results were not opened here. Validation, edit lock, gathering eligibility, timing, cancel/refund, new-site visibility and spam-free pure context were specific repaired consumers. Native items, people, multiple sites/activities, starts/custom clocks and unknown-property rejection retain their own adapter scopes. Older-build loading was source-reasoned, not exercised, unlike the named current old-save and new-save journeys. No count establishes general authoring completeness.\n\nCurrent [PROJECT](../../../../../../../PROJECT.md), [architecture rules](../../../../../../ARCHITECTURE_RULES.md), [UI rules](../../../../../../UI_RULES.md), AD36/AD43/AD51 and optional human review govern selected current work. The1600×1100 layout, bottom-bar/category location, scroll and collapsed panel policy are dated reversible choices, not current required screen composition. Later root integration can qualify the worker's pending hunks, without treating this report as current branch/process/app status. No source, runtime, editor, UI, JSON, image, save, build/test/browser, commit or install was newly exercised.",
+      "evidence": "Complete39-line copied receipt, full short D1 report,148-line G7 report and38-line donor checkpoint read. Original D1 later owner and Qud checkpoint tails are scoped context; package/raw source/native evidence not opened.",
+      "reopen": "Use exact current consumer/owner and pinned evidence; preserve copied-relative context, source-only old-reader reasoning and unpinned browser identity without upgrading proof.",
+      "input_sha256": "8cbe193f174e99bed27ece6038970bfe8a3b245a5034a0bc5a7e0b7f225b3e64",
+      "input_lines": 148,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          148
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md",
+      "ids": [
+        "WR9/MAW0/4/5/7/W22W17;exchangeledger;missingbuildhash"
+      ],
+      "classification": "complete retained dependency/editor/making receipt with actual consumer and proof boundary",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+        "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md"
+      ],
+      "disposition": "All38 receipt lines were read. The exchange ledger, worn-release/quote, domain rollback and recarve preview form a selected native rune-accounting consumer. Released strip credit, newly debited wood and retained residue are distinct; surplus remembered material is not an inventory log. That local accounting is authored in the game's units, not a canon FMA price law or an implemented rebound/Stone mechanism. A source-supported recovery/creation law could behave differently without duplicating this actual stock accidentally. The secondary wiki revision and packet reference do not establish primary-scene source qualification.\n\nThe receipt deliberately remains built because its browser run lacks a recorded build SHA256. Reported carve/recarve, dimensions/text sizes, zero page errors and literal persistence are retained observations, not discarded, but they do not meet a pinned browser-verified identity by themselves. No new saved field differs from claiming every earlier/later game state compatible.18 and12 focused results cover their actual ledger/rune/pledge slices; no fresh whole-suite result is implied. The craft-engine consumer, weapon inscription, source pin, rebound/Stone and legibility work remain separate. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), AD49/AD36/AD43 and AD42 govern selected extension. No primary source, private excerpt, current code, quote, screenshot, browser/test/build or personal save was newly opened or run.",
+      "evidence": "Complete39-line copied receipt, full short D1 report,148-line G7 report and38-line donor checkpoint read. Original D1 later owner and Qud checkpoint tails are scoped context; package/raw source/native evidence not opened.",
+      "reopen": "Use exact current consumer/owner and pinned evidence; preserve copied-relative context, source-only old-reader reasoning and unpinned browser identity without upgrading proof.",
+      "input_sha256": "e660aeef889eb471390579b99291b3a9b65e516f90de59819ec7294bd076592e",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md",
+      "heading": "## Content reconciliation B478: retained D1 closure and original owner routing",
+      "body": "The complete39-line copied input receipt and complete transfer report were read. This is D1 progression-gate dependency closure evidence retained under Qud, not a Qud mechanic/source audit. The copy retains original D1-relative brief/checkpoint/audit links; unresolved copied-relative paths do not establish those owners absent. The [original D1 checkpoint](../../../gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md) supplies later integration/release history, while [Qud CURRENT](../CURRENT.md) owns research continuation. B476 already reconciles the original receipt's source snapshot; no new module is implied by this retained copy.\n\nThe packet's seven tracked patches, six new files, clean apply/build/arch and24 focused tests support the frozen dependency candidate, not receiver gameplay, a clean full suite or current main. Queued messages were not confirmed reads; a message cannot transfer actual integration/custody by itself. The later original checkpoint records source landing, separately from push and combined gates. Preserve snapshot hashes, exclusions and the changed-doc hash reason; do not replay ALL_TRACKED.patch over today's dirty checkout. AD36/AD43 and AD42 optional review govern any selected consumer; the old human/commit/watcher instructions grant no current action. No patch payload, source code, branch/ref, message, worktree, test/build/browser, private or personal save was newly accessed or changed.",
+      "before_sha256": "e3723c19a12ced3bb8fde510d40b1d3312c754e8ad7c76bfc0a00cefc772e9d7",
+      "after_sha256": "b2653cd270f09b9486dcb91e382be73afb20831df89c11bacb2395673326cb3d"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+      "heading": "## Content reconciliation B478: full editor report and finite supported scope",
+      "body": "The complete148-line G7 report was read, including the step-by-step authoring route, all13 check rows, defects, nine shared-main integration hunks, compatibility and explicit limits. One authored site/one timed work/one gather lifecycle through schema1 is a bounded editor, not a general world compiler. Native coin is a real publication consequence; site material/product are local counters, not native inventory. Draft-file export/import and gameplay-save literal roundtrip are separate paths. Reset removes this local authored site/progress while retaining earned coin under that prototype; reading the route does not invoke reset or authorize deleting anything now.\n\nThe natural label is defined as fresh UI-only QA, with28 recorded checks and585 source tests. Correcting a label without changing steps differs from supplying a new playthrough; hashes and saved results were not opened here. Validation, edit lock, gathering eligibility, timing, cancel/refund, new-site visibility and spam-free pure context were specific repaired consumers. Native items, people, multiple sites/activities, starts/custom clocks and unknown-property rejection retain their own adapter scopes. Older-build loading was source-reasoned, not exercised, unlike the named current old-save and new-save journeys. No count establishes general authoring completeness.\n\nCurrent [PROJECT](../../../../../../../PROJECT.md), [architecture rules](../../../../../../ARCHITECTURE_RULES.md), [UI rules](../../../../../../UI_RULES.md), AD36/AD43/AD51 and optional human review govern selected current work. The1600×1100 layout, bottom-bar/category location, scroll and collapsed panel policy are dated reversible choices, not current required screen composition. Later root integration can qualify the worker's pending hunks, without treating this report as current branch/process/app status. No source, runtime, editor, UI, JSON, image, save, build/test/browser, commit or install was newly exercised.",
+      "before_sha256": "8cbe193f174e99bed27ece6038970bfe8a3b245a5034a0bc5a7e0b7f225b3e64",
+      "after_sha256": "87d4e8dfd754a43ca2c445caa73b089efd1f1b3587f54b8984abc083f2b9959f"
+    },
+    {
+      "path": "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md",
+      "heading": "## Content reconciliation B478: actual rune accounting and missing build identity",
+      "body": "All38 receipt lines were read. The exchange ledger, worn-release/quote, domain rollback and recarve preview form a selected native rune-accounting consumer. Released strip credit, newly debited wood and retained residue are distinct; surplus remembered material is not an inventory log. That local accounting is authored in the game's units, not a canon FMA price law or an implemented rebound/Stone mechanism. A source-supported recovery/creation law could behave differently without duplicating this actual stock accidentally. The secondary wiki revision and packet reference do not establish primary-scene source qualification.\n\nThe receipt deliberately remains built because its browser run lacks a recorded build SHA256. Reported carve/recarve, dimensions/text sizes, zero page errors and literal persistence are retained observations, not discarded, but they do not meet a pinned browser-verified identity by themselves. No new saved field differs from claiming every earlier/later game state compatible.18 and12 focused results cover their actual ledger/rune/pledge slices; no fresh whole-suite result is implied. The craft-engine consumer, weapon inscription, source pin, rebound/Stone and legibility work remain separate. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), AD49/AD36/AD43 and AD42 govern selected extension. No primary source, private excerpt, current code, quote, screenshot, browser/test/build or personal save was newly opened or run.",
+      "before_sha256": "e660aeef889eb471390579b99291b3a9b65e516f90de59819ec7294bd076592e",
+      "after_sha256": "93447766e5f35bdc897ab0702293d56fe1dd19b2fcd96abfaf70efeaf361f638"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 329
+}

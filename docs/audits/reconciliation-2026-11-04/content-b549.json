@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "batch": "B549",
+  "title": "World succession, death routes and distinct continuity carriers",
+  "at": "2026-11-05T10:29:05.949703+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/SUCCESSION_BY_WORLD.md",
+      "ids": [
+        "opening patterns/world table",
+        "W01–W07",
+        "WN00/WN11–WN25",
+        "WR/WE11–25",
+        "ND1/W11–25",
+        "WI1/WI2/W35 appendix routing"
+      ],
+      "classification": "full actual succession review; source-specific continuity separated from proposed defaults and dated lore/status",
+      "owners": [
+        "docs/worlds/SUCCESSION_BY_WORLD.md"
+      ],
+      "disposition": "F1: Full258-line content reviewed: opening patterns and every world row, R4 W01–W07, WN00/WN11–WN25, WR/WE11–25, ND1/W11–25, WI1/WI2 and evidence-appendix routing. User direction is same player with a different related character, considered per source world. The route/default tables are proposals, not implemented screens or proof of every source. No linked spoiler appendix, private crossing, novel or live source was opened. Source-local reused W/NE/NT/ND codes retain their owner qualification.\n\nF2: Soul, mind/memory, body, practiced skill, power source, object custody, office, family and player perspective can persist differently. Death, missing body, unconsciousness, residual power, remnant, ghost/imprint, copied representation, anchored return, soul confinement and final extinction differ. A new perspective or fresh campaign is not a soul-copy ability. An heir can receive records, access, changed institutions or actual debts without automatically receiving mental mastery; an actual carrier or source can legitimately preserve more. Remembering a recipe does not transfer its stock or faculty. B545/B546 identity carrier/source distinctions qualify the earlier concise table without rewriting its history.\n\nF3: The opening priced/final-death and loop-scars language is a cross-source sketch, not a universal charge or punishment. Keep actual world mechanism, named actor/era/carrier, real cooldown/count and in-world payer where evidenced; no extra balancing penalty, universal once limit, compulsory orphaned branch or soul wound follows. Source ordinary absolutes and the W22 hard-prohibition shorthand describe their selected default mechanism, with justified divergent/original/exceptional means possible under AD5/AD38. Do not universalize early source success rates, one return method or a selected character's terminal outcome to every life/world. A sustained/shared strong source may be stronger without forced compensation.\n\nF4: Recognition needs actual observer access, evidence, signature and means, not a single same-person boolean or public soul registry. Seeing a soul/core, sensing infection, reading a mind, witnessing a return and identifying a previous person are different. Stronger faculties can legitimately combine answers when the selected source supports them. WI1 correctly replaces unexplained/no resurrection with source-specific exceptions; WI2 correctly qualifies infant-memory rebirth and unknown prior-life tests. The narrow source labels and inherited G/U summaries retain uncertainty, including partial/MTL histories; the broader identity follow-up narrows selected old gaps without proving all recognition or continuity laws.\n\nF5: The umbrella/five-book rows are separately bounded source routes, not a merged cosmology; lookup their individual titled owners before any selected implementation or source request. LOTM/COI, FMA versions, Fate routes, D&D profile/setting and sequel/game eras stay separate even in grouped rows. Early practical floors are evidence coverage, not a ban on life in an earlier authored era. Publication/completion/hiatus and latest-frontier cells are dated research assertions, not live verified facts. In particular the supplied later series-status labels should not decide present source availability or scope without verification. No release/publication fact is freshly confirmed here.\n\nF6: ND1's compact route menu is an optional interaction proposal under current WER/UI/design and life owners. Known eligible routes should be understandable; author-only category/secret names must not leak truth or hide a genuinely granted ordinary continuation behind a mandatory riddle. Fresh-era campaign, actual successor, same-character recovery and prestige remain distinct. Source-route discovery can be appropriate while known native options stay accessible. Current Klein/HP sequence and ordinary-start ownership supersede old broad sequencing; source-game pauses remain. No prior-life story, family, debt or workshop is fabricated in an existing save merely to fulfill a proposed hook.\n\nF7: Keep the original source locators, explicit superseded wording and private-appendix route as history. AD16 governs actual inactive-world time; choosing another character does not automatically age all worlds or manufacture unseen events. AD35/AD36/AD42/AD43 scope a later selected route's authoring, changed-state persistence and desktop proof. This review adds no death/reset behavior, save migration, source acquisition, private-save access, secret disclosure, native UI, worker, build, commit or push. Further source checks should resolve an exact selected consequential route rather than every unresolved cosmology before useful play.",
+      "evidence": "Full258-line current owner read in four bounded untruncated chunks. B545/B546 supply reviewed identity-map comparison; underlying spoiler/source bodies not opened.",
+      "reopen": "Only changed content or a selected exact continuation/start requires live source and native proof; continue remaining intake.",
+      "input_sha256": "f1ba916b7e51e890928baac10802d107170ba171974069e8296debb027d58884",
+      "input_lines": 258,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          258
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/SUCCESSION_BY_WORLD.md",
+      "heading": "## Content reconciliation B549: succession carriers and proposed route defaults",
+      "body": "F1: Full258-line content reviewed: opening patterns and every world row, R4 W01–W07, WN00/WN11–WN25, WR/WE11–25, ND1/W11–25, WI1/WI2 and evidence-appendix routing. User direction is same player with a different related character, considered per source world. The route/default tables are proposals, not implemented screens or proof of every source. No linked spoiler appendix, private crossing, novel or live source was opened. Source-local reused W/NE/NT/ND codes retain their owner qualification.\n\nF2: Soul, mind/memory, body, practiced skill, power source, object custody, office, family and player perspective can persist differently. Death, missing body, unconsciousness, residual power, remnant, ghost/imprint, copied representation, anchored return, soul confinement and final extinction differ. A new perspective or fresh campaign is not a soul-copy ability. An heir can receive records, access, changed institutions or actual debts without automatically receiving mental mastery; an actual carrier or source can legitimately preserve more. Remembering a recipe does not transfer its stock or faculty. B545/B546 identity carrier/source distinctions qualify the earlier concise table without rewriting its history.\n\nF3: The opening priced/final-death and loop-scars language is a cross-source sketch, not a universal charge or punishment. Keep actual world mechanism, named actor/era/carrier, real cooldown/count and in-world payer where evidenced; no extra balancing penalty, universal once limit, compulsory orphaned branch or soul wound follows. Source ordinary absolutes and the W22 hard-prohibition shorthand describe their selected default mechanism, with justified divergent/original/exceptional means possible under AD5/AD38. Do not universalize early source success rates, one return method or a selected character's terminal outcome to every life/world. A sustained/shared strong source may be stronger without forced compensation.\n\nF4: Recognition needs actual observer access, evidence, signature and means, not a single same-person boolean or public soul registry. Seeing a soul/core, sensing infection, reading a mind, witnessing a return and identifying a previous person are different. Stronger faculties can legitimately combine answers when the selected source supports them. WI1 correctly replaces unexplained/no resurrection with source-specific exceptions; WI2 correctly qualifies infant-memory rebirth and unknown prior-life tests. The narrow source labels and inherited G/U summaries retain uncertainty, including partial/MTL histories; the broader identity follow-up narrows selected old gaps without proving all recognition or continuity laws.\n\nF5: The umbrella/five-book rows are separately bounded source routes, not a merged cosmology; lookup their individual titled owners before any selected implementation or source request. LOTM/COI, FMA versions, Fate routes, D&D profile/setting and sequel/game eras stay separate even in grouped rows. Early practical floors are evidence coverage, not a ban on life in an earlier authored era. Publication/completion/hiatus and latest-frontier cells are dated research assertions, not live verified facts. In particular the supplied later series-status labels should not decide present source availability or scope without verification. No release/publication fact is freshly confirmed here.\n\nF6: ND1's compact route menu is an optional interaction proposal under current WER/UI/design and life owners. Known eligible routes should be understandable; author-only category/secret names must not leak truth or hide a genuinely granted ordinary continuation behind a mandatory riddle. Fresh-era campaign, actual successor, same-character recovery and prestige remain distinct. Source-route discovery can be appropriate while known native options stay accessible. Current Klein/HP sequence and ordinary-start ownership supersede old broad sequencing; source-game pauses remain. No prior-life story, family, debt or workshop is fabricated in an existing save merely to fulfill a proposed hook.\n\nF7: Keep the original source locators, explicit superseded wording and private-appendix route as history. AD16 governs actual inactive-world time; choosing another character does not automatically age all worlds or manufacture unseen events. AD35/AD36/AD42/AD43 scope a later selected route's authoring, changed-state persistence and desktop proof. This review adds no death/reset behavior, save migration, source acquisition, private-save access, secret disclosure, native UI, worker, build, commit or push. Further source checks should resolve an exact selected consequential route rather than every unresolved cosmology before useful play.",
+      "before_sha256": "f1ba916b7e51e890928baac10802d107170ba171974069e8296debb027d58884",
+      "after_sha256": "e1f99dbf4da96ae906c98e1599a00cfb7707bab0e3b5c3b65885fe418c667f75"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 167,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B548, continuous execution 2026-11-05 |",
+      "to": "| B549, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "83dd74b41470497ab2bf23480fb3a6ebc155a67ec24bad45caa6e927219142c7",
+      "to": "35fbaf81edce114c6a0fa1413c724ed7cd88c87b18e9e25800ae004cfbd4d38b",
+      "reason": "Exact task-owned register advancement."
+    }
+  ]
+}

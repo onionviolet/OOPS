@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "batch": "B482",
+  "title": "Episode money versus promises, actor preflight and the historical Qud research dispatch",
+  "at": "2026-11-05T07:45:47.053151+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3G_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B482-1"
+      ],
+      "classification": "historical dispatch / bounded evidence / incomplete integration",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3G_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Historical scope and incomplete integration, reconciled under AD36, AD42, AD43 and current first-useful-seam direction. The nine KJ3G intents cover the stated ch17–19 window on the KJ3E bundle with the recorded pack; source-shard reading is the original author's reported evidence, not a new source read here. Duty, wage, clearance, weekly rest and artifact-grade knowledge are distinct from executing their systems. The unchosen day off and private resolve to stay do not establish a scheduled rest day or a promised path. No photo, artifact document or item was created. Preserve the told categories and private/public distinction without treating one speaker's account as universal engine truth.\n\nThe preflight, one seeded native route and literal export/import are three different checks. KJ3F-completed seed coverage does not establish ordinary entry, counterfactual choices, civil time or 14/21 px desktop layout. The one-room recurrence and no-new-actor window limit the comparison: 11/4/1 runner execution counts are not a controlled speedup or a general preflight guarantee. PF13 remains a proposal. The next armory boundary is a dated handoff, qualified by KJ3H's chapter correction; it grants no new dispatch or execution authority. No current pack/source/browser rerun or human acceptance is claimed by this content review.",
+      "evidence": "Fresh complete content read, all lines, including tables, limitations and next-step text. No linked source or runtime read implied.",
+      "reopen": "Retain as dated evidence; reopen only against a named current source, integration or verification gap.",
+      "input_sha256": "687d09a308b13a766822d092c95f182136803232d9d4defef77e03d24cfd843f",
+      "input_lines": 41,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3H_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B482-2"
+      ],
+      "classification": "historical dispatch / bounded evidence / incomplete integration",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3H_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Historical scope and incomplete integration, reconciled under AD36, AD42 and AD43. KJ3H corrects the earlier handoff boundary: the armory scene is ch20 after ch19 P059. Its twelve-pound advance is recorded as 2880 pence, with the seeded balance changing 3 to 2883. This is an actual money effect in the recorded route, whereas the half-weekly-pay repayment promise remains fact/knowledge without a deduction schedule. Banknotes are represented as money rather than inventory items. The bullets allowance, badge, range and dropped original ammunition remain distinct from issued stock or executable use.\n\nOne actor relocation per act is the recorded workaround for the undiagnosed two-actor freeze, not evidence that the freeze was repaired. An armory-anteroom representation does not establish a mapped upstairs route. Private recognition remains player knowledge rather than shared actor knowledge. The first runner's stale copied end assertion is retained as a harness failure; the second run's nine intents and 211 seconds do not measure source-reading efficiency or prove every branch. The stale ten-intent generated scope remains a disclosed artifact discrepancy: a corrected builder that was not rerun does not change the saved pack bytes.\n\nFresh-origin seeded play, literal import and presence preflight retain their separate scopes. No counterfactual, civil-clock, font-scale, ordinary-start or human evidence is added here. PF13 is still a proposal across one builder lineage. The dated next-reader/model instruction is historical workflow, not a present request to spawn a reader or change current authority. This review read the whole receipt, not the linked source text, generated pack or runtime.",
+      "evidence": "Fresh complete content read, all lines, including tables, limitations and next-step text. No linked source or runtime read implied.",
+      "reopen": "Retain as dated evidence; reopen only against a named current source, integration or verification gap.",
+      "input_sha256": "11b45d1aff1e416bf4f7589017e5cc81ee73c566835687a220ed2de93d0b833a",
+      "input_lines": 41,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/procedural-crafting-ui-2026-10-15/QUD_AUDIT_DISPATCH.md",
+      "ids": [
+        "B482-3"
+      ],
+      "classification": "historical dispatch / bounded evidence / incomplete integration",
+      "owners": [
+        "docs/research/procedural-crafting-ui-2026-10-15/QUD_AUDIT_DISPATCH.md"
+      ],
+      "disposition": "Historical dispatch and source inventory, reconciled under current research/source authority and AD36/AD43. The explicit 2026-10-15 new-chat request, chat ID, sole write area, allowance snapshot and no-paid-fallback statement describe that dispatch. They neither prove a worker is active now nor authorize a new chat, install, purchase, security change, paid route or execution today. The supplied assembly identity and installed matching binaries are version-qualified historical observations; installation is separate from launch, native operation and save safety.\n\nPreserve the five proposed research families and their producer → state → consumer → removal/persistence/UI chains. Titles, faction status, names and achievements need separate consumers; no universal title-power system follows from a label. Inherent mutation, cybernetic support, trained skill and item-granted ability likewise remain distinct. Recipe deletion versus campfire forgetting, carried versus adjacent ingredients, stored effect structure versus random initialization, and trigger/death ordering are useful concrete questions, not completed conclusions from this brief. Exported classes, XML, lexical strings, cooking-domain mappings and full catalogs establish retained inputs; they do not establish semantic review of every method.\n\nUI source dispatch and focus/activation traces remain separate from prefab wiring, rendered layout/controller feel and native persistence. The historical architecture paper cannot certify the current whole implementation. The requested catalog, family traces, UI report, source index and checkpoint are requested deliverables, not delivery evidence. Preserve private archives and public paraphrase boundaries without copying their bodies into this public dispatch. Current actual-content review covers this entire brief, not the named source classes, archives, later audit outputs or installed app. Later audit owners can resolve the listed gaps using their own explicit evidence; this receipt adds no implementation or acquisition queue.",
+      "evidence": "Fresh complete content read, all lines, including tables, limitations and next-step text. No linked source or runtime read implied.",
+      "reopen": "Retain as dated evidence; reopen only against a named current source, integration or verification gap.",
+      "input_sha256": "ae5c35dbc386af45a0e3df42e2b8014fd914b7f9f48455ec02949fcd1678d858",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3G_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Content reconciliation B482: scope, findings and remaining evidence",
+      "body": "Historical scope and incomplete integration, reconciled under AD36, AD42, AD43 and current first-useful-seam direction. The nine KJ3G intents cover the stated ch17–19 window on the KJ3E bundle with the recorded pack; source-shard reading is the original author's reported evidence, not a new source read here. Duty, wage, clearance, weekly rest and artifact-grade knowledge are distinct from executing their systems. The unchosen day off and private resolve to stay do not establish a scheduled rest day or a promised path. No photo, artifact document or item was created. Preserve the told categories and private/public distinction without treating one speaker's account as universal engine truth.\n\nThe preflight, one seeded native route and literal export/import are three different checks. KJ3F-completed seed coverage does not establish ordinary entry, counterfactual choices, civil time or 14/21 px desktop layout. The one-room recurrence and no-new-actor window limit the comparison: 11/4/1 runner execution counts are not a controlled speedup or a general preflight guarantee. PF13 remains a proposal. The next armory boundary is a dated handoff, qualified by KJ3H's chapter correction; it grants no new dispatch or execution authority. No current pack/source/browser rerun or human acceptance is claimed by this content review.",
+      "before_sha256": "687d09a308b13a766822d092c95f182136803232d9d4defef77e03d24cfd843f",
+      "after_sha256": "cc85468a775ca69743372d9cb7958363b2c05728f369b9aa77eab4bd191ebacf"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3H_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Content reconciliation B482: scope, findings and remaining evidence",
+      "body": "Historical scope and incomplete integration, reconciled under AD36, AD42 and AD43. KJ3H corrects the earlier handoff boundary: the armory scene is ch20 after ch19 P059. Its twelve-pound advance is recorded as 2880 pence, with the seeded balance changing 3 to 2883. This is an actual money effect in the recorded route, whereas the half-weekly-pay repayment promise remains fact/knowledge without a deduction schedule. Banknotes are represented as money rather than inventory items. The bullets allowance, badge, range and dropped original ammunition remain distinct from issued stock or executable use.\n\nOne actor relocation per act is the recorded workaround for the undiagnosed two-actor freeze, not evidence that the freeze was repaired. An armory-anteroom representation does not establish a mapped upstairs route. Private recognition remains player knowledge rather than shared actor knowledge. The first runner's stale copied end assertion is retained as a harness failure; the second run's nine intents and 211 seconds do not measure source-reading efficiency or prove every branch. The stale ten-intent generated scope remains a disclosed artifact discrepancy: a corrected builder that was not rerun does not change the saved pack bytes.\n\nFresh-origin seeded play, literal import and presence preflight retain their separate scopes. No counterfactual, civil-clock, font-scale, ordinary-start or human evidence is added here. PF13 is still a proposal across one builder lineage. The dated next-reader/model instruction is historical workflow, not a present request to spawn a reader or change current authority. This review read the whole receipt, not the linked source text, generated pack or runtime.",
+      "before_sha256": "11b45d1aff1e416bf4f7589017e5cc81ee73c566835687a220ed2de93d0b833a",
+      "after_sha256": "87813b2db107ccc2d70f3c922bff79641b49b9f05637ebe165d4d09be375caec"
+    },
+    {
+      "path": "docs/research/procedural-crafting-ui-2026-10-15/QUD_AUDIT_DISPATCH.md",
+      "heading": "## Content reconciliation B482: scope, findings and remaining evidence",
+      "body": "Historical dispatch and source inventory, reconciled under current research/source authority and AD36/AD43. The explicit 2026-10-15 new-chat request, chat ID, sole write area, allowance snapshot and no-paid-fallback statement describe that dispatch. They neither prove a worker is active now nor authorize a new chat, install, purchase, security change, paid route or execution today. The supplied assembly identity and installed matching binaries are version-qualified historical observations; installation is separate from launch, native operation and save safety.\n\nPreserve the five proposed research families and their producer → state → consumer → removal/persistence/UI chains. Titles, faction status, names and achievements need separate consumers; no universal title-power system follows from a label. Inherent mutation, cybernetic support, trained skill and item-granted ability likewise remain distinct. Recipe deletion versus campfire forgetting, carried versus adjacent ingredients, stored effect structure versus random initialization, and trigger/death ordering are useful concrete questions, not completed conclusions from this brief. Exported classes, XML, lexical strings, cooking-domain mappings and full catalogs establish retained inputs; they do not establish semantic review of every method.\n\nUI source dispatch and focus/activation traces remain separate from prefab wiring, rendered layout/controller feel and native persistence. The historical architecture paper cannot certify the current whole implementation. The requested catalog, family traces, UI report, source index and checkpoint are requested deliverables, not delivery evidence. Preserve private archives and public paraphrase boundaries without copying their bodies into this public dispatch. Current actual-content review covers this entire brief, not the named source classes, archives, later audit outputs or installed app. Later audit owners can resolve the listed gaps using their own explicit evidence; this receipt adds no implementation or acquisition queue.",
+      "before_sha256": "ae5c35dbc386af45a0e3df42e2b8014fd914b7f9f48455ec02949fcd1678d858",
+      "after_sha256": "ef8dcecfe1f58ac8ec706fcc4d6471ed064ef96f0a4b8d3e38a2bfd49152a42c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 323
+}

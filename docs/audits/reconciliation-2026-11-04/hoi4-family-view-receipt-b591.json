@@ -1,0 +1,26 @@
+{
+  "source": "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "989ecc45838fb6eb66636ac9e539d95f2a3183f8679f1729f9540c2406f1abdf",
+  "source_lines": 5104,
+  "view": "docs/audits/reconciliation-2026-11-04/hoi4-family-lossless-view-b591.json",
+  "view_sha256": "f84859aa7fc26e817bbccbcefd60fa639a75f58418cc81750168ba6083e33242",
+  "roundtrip_equal": true,
+  "routing_blocks": 54,
+  "system_rows": 156,
+  "deep_rows": 15,
+  "statuses": {
+    "prior_representative": 67,
+    "representative_deep_read": 39,
+    "small_definition_read": 4,
+    "unread": 14,
+    "empty_definition": 2,
+    "metadata_read": 10,
+    "representative_read": 4,
+    "author_contract_read": 3,
+    "empty_placeholder": 4,
+    "commented_contract_only": 2,
+    "unread_native": 5,
+    "inventory_only": 2
+  },
+  "scope": "Actual complete map review from all header/dictionary/routing values and171records; no downstream source/runtime review by proxy."
+}

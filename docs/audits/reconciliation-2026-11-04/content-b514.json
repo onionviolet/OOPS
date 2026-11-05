@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "batch": "B514",
+  "title": "Complete UI review response and reconciled successor, authority repair and real-zoom boundary",
+  "at": "2026-11-05T09:16:52.757702+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_CHATGPT_RESPONSE_2026-10-13.md",
+      "ids": [
+        "F1–F9",
+        "A1–A5",
+        "P0–P5",
+        "T1–T6",
+        "seven material changes",
+        "R1–R3"
+      ],
+      "classification": "complete external-review and local-successor content reconciled; false authorization and real-zoom gap retained",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md"
+      ],
+      "disposition": "Both complete response and reconciled successor were read (903 and889 lines), including all F1–F9, A1–A5 criteria, P0–P5, T1–T6, backlog/evidence requirements and the seven material-change explanations. An actual body diff confirms three operative local edits plus the provenance/comment and later standing-direction banner. Preserve the captured response intact. Its statement “This is implementation authorization” exceeded the outer review request; R1 correctly removes that fabricated authority. R2 allows the independent blocked PLAY fix earlier, while R3 distinguishes real zoom from CSS emulation and names the unexercised manual check. The later completion banner makes the entire finite prompt historical scope, not a fresh assignment. The capture's timestamp, copy/hash and visible effort claims are provenance records; they were not reverified in a live account here and do not prove model identity or implementation.\n\nThe review meaningfully resolves B513's action-count ambiguity by requiring the actual named routine set instead of manufacturing seven controls. It replaces the6.8percent chrome target with observable space/focus behavior, separates A1 geometry from A5 trade redesign, and tests post-change cumulative consumers in orderA1→A2→A3→A5→A4. These are historical task decisions, not a new universal sequence. Post-combat restoration, actual Tab presses, unoccluded full controls inside scrollports, real recipe/log rows and visible stock/price/transaction controls are stronger checks than DOM counts alone. Keeping the first useful prose line or complete meaningful controls does not forbid deliberate full-task reflow, useful optional detail or long views under later UI direction. Mandatory native-before-expansion ordering is this dated task's design, not a universal classification of current book-world actions. Accurate supported time/payment names must come from native owners; camelCase splitting cannot create a canonical entity label or precision.\n\nP0fresh/P1persisted-default/P2custom/P3narrow/P4authoring/P5export explicitly distinguish existence, storage and render state. Retain their conditional applicability to actual touched stores: changing a preset can affect merge/default readers, and game-save round trips do not automatically prove layout storage. Reuse authentic prior-produced data where possible; an arbitrary version-field fixture is not historical compatibility evidence. Fixture T6 remains progressed/injected and is not a natural earned playthrough. A2's Workspace/Classic choice is evidence-dependent and agent judgment is not user acceptance. The old original-loader Meditation exclusion is conditional, not a permanent native restriction.\n\nThe linked32-line checkpoint was read as a supporting owner and retains A4 emulated completion with real browser zoom explicitly implemented-unverified. Its PASS COMPLETE/banner cannot be broadened to real zoom or current-source proof; the subjective taste item is optional under AD42. No new review credit is granted to its separate REPORT, scripts or persistence fixtures by that lookup. Current desktop/laptop priority supersedes required400px/mobile work; actual affected laptop zoom checks remain scoped. Current AD36 controls focused/full verification and current PROJECT controls build order. The raw response and successor prompt stay unchanged; this fold preserves useful visibility, dependency, store and evidence refinements without relaunching the five-slice pass or certifying present UI behavior.",
+      "evidence": "Both full bodies read in six150-line ranges plus tail, then actual unified diff inspected. Complete32-line checkpoint additionally read as supporting owner; no fresh UI/live-account/source proof.",
+      "reopen": "Use current selected UI owner and exact store/viewport/input identity; real zoom, human feedback and current runtime remain distinct evidence.",
+      "input_sha256": "2a5155affbf72f2619efb6d6aeb27fb5b544a4df4b2db744b3b85ef10675eed1",
+      "input_lines": 903,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          903
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_RECONCILED_2026-10-13.md",
+      "ids": [
+        "F1–F9",
+        "A1–A5",
+        "P0–P5",
+        "T1–T6",
+        "seven material changes",
+        "R1–R3"
+      ],
+      "classification": "complete external-review and local-successor content reconciled; false authorization and real-zoom gap retained",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md"
+      ],
+      "disposition": "Both complete response and reconciled successor were read (903 and889 lines), including all F1–F9, A1–A5 criteria, P0–P5, T1–T6, backlog/evidence requirements and the seven material-change explanations. An actual body diff confirms three operative local edits plus the provenance/comment and later standing-direction banner. Preserve the captured response intact. Its statement “This is implementation authorization” exceeded the outer review request; R1 correctly removes that fabricated authority. R2 allows the independent blocked PLAY fix earlier, while R3 distinguishes real zoom from CSS emulation and names the unexercised manual check. The later completion banner makes the entire finite prompt historical scope, not a fresh assignment. The capture's timestamp, copy/hash and visible effort claims are provenance records; they were not reverified in a live account here and do not prove model identity or implementation.\n\nThe review meaningfully resolves B513's action-count ambiguity by requiring the actual named routine set instead of manufacturing seven controls. It replaces the6.8percent chrome target with observable space/focus behavior, separates A1 geometry from A5 trade redesign, and tests post-change cumulative consumers in orderA1→A2→A3→A5→A4. These are historical task decisions, not a new universal sequence. Post-combat restoration, actual Tab presses, unoccluded full controls inside scrollports, real recipe/log rows and visible stock/price/transaction controls are stronger checks than DOM counts alone. Keeping the first useful prose line or complete meaningful controls does not forbid deliberate full-task reflow, useful optional detail or long views under later UI direction. Mandatory native-before-expansion ordering is this dated task's design, not a universal classification of current book-world actions. Accurate supported time/payment names must come from native owners; camelCase splitting cannot create a canonical entity label or precision.\n\nP0fresh/P1persisted-default/P2custom/P3narrow/P4authoring/P5export explicitly distinguish existence, storage and render state. Retain their conditional applicability to actual touched stores: changing a preset can affect merge/default readers, and game-save round trips do not automatically prove layout storage. Reuse authentic prior-produced data where possible; an arbitrary version-field fixture is not historical compatibility evidence. Fixture T6 remains progressed/injected and is not a natural earned playthrough. A2's Workspace/Classic choice is evidence-dependent and agent judgment is not user acceptance. The old original-loader Meditation exclusion is conditional, not a permanent native restriction.\n\nThe linked32-line checkpoint was read as a supporting owner and retains A4 emulated completion with real browser zoom explicitly implemented-unverified. Its PASS COMPLETE/banner cannot be broadened to real zoom or current-source proof; the subjective taste item is optional under AD42. No new review credit is granted to its separate REPORT, scripts or persistence fixtures by that lookup. Current desktop/laptop priority supersedes required400px/mobile work; actual affected laptop zoom checks remain scoped. Current AD36 controls focused/full verification and current PROJECT controls build order. The raw response and successor prompt stay unchanged; this fold preserves useful visibility, dependency, store and evidence refinements without relaunching the five-slice pass or certifying present UI behavior.",
+      "evidence": "Both full bodies read in six150-line ranges plus tail, then actual unified diff inspected. Complete32-line checkpoint additionally read as supporting owner; no fresh UI/live-account/source proof.",
+      "reopen": "Use current selected UI owner and exact store/viewport/input identity; real zoom, human feedback and current runtime remain distinct evidence.",
+      "input_sha256": "6adc1dbf330f61f8da1f0b3f177a203cbd1ee19eed7283abddce431ee7003da7",
+      "input_lines": 889,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          889
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+      "heading": "## Content reconciliation B514: complete roundtrip review and locally corrected scope",
+      "body": "Both complete response and reconciled successor were read (903 and889 lines), including all F1–F9, A1–A5 criteria, P0–P5, T1–T6, backlog/evidence requirements and the seven material-change explanations. An actual body diff confirms three operative local edits plus the provenance/comment and later standing-direction banner. Preserve the captured response intact. Its statement “This is implementation authorization” exceeded the outer review request; R1 correctly removes that fabricated authority. R2 allows the independent blocked PLAY fix earlier, while R3 distinguishes real zoom from CSS emulation and names the unexercised manual check. The later completion banner makes the entire finite prompt historical scope, not a fresh assignment. The capture's timestamp, copy/hash and visible effort claims are provenance records; they were not reverified in a live account here and do not prove model identity or implementation.\n\nThe review meaningfully resolves B513's action-count ambiguity by requiring the actual named routine set instead of manufacturing seven controls. It replaces the6.8percent chrome target with observable space/focus behavior, separates A1 geometry from A5 trade redesign, and tests post-change cumulative consumers in orderA1→A2→A3→A5→A4. These are historical task decisions, not a new universal sequence. Post-combat restoration, actual Tab presses, unoccluded full controls inside scrollports, real recipe/log rows and visible stock/price/transaction controls are stronger checks than DOM counts alone. Keeping the first useful prose line or complete meaningful controls does not forbid deliberate full-task reflow, useful optional detail or long views under later UI direction. Mandatory native-before-expansion ordering is this dated task's design, not a universal classification of current book-world actions. Accurate supported time/payment names must come from native owners; camelCase splitting cannot create a canonical entity label or precision.\n\nP0fresh/P1persisted-default/P2custom/P3narrow/P4authoring/P5export explicitly distinguish existence, storage and render state. Retain their conditional applicability to actual touched stores: changing a preset can affect merge/default readers, and game-save round trips do not automatically prove layout storage. Reuse authentic prior-produced data where possible; an arbitrary version-field fixture is not historical compatibility evidence. Fixture T6 remains progressed/injected and is not a natural earned playthrough. A2's Workspace/Classic choice is evidence-dependent and agent judgment is not user acceptance. The old original-loader Meditation exclusion is conditional, not a permanent native restriction.\n\nThe linked32-line checkpoint was read as a supporting owner and retains A4 emulated completion with real browser zoom explicitly implemented-unverified. Its PASS COMPLETE/banner cannot be broadened to real zoom or current-source proof; the subjective taste item is optional under AD42. No new review credit is granted to its separate REPORT, scripts or persistence fixtures by that lookup. Current desktop/laptop priority supersedes required400px/mobile work; actual affected laptop zoom checks remain scoped. Current AD36 controls focused/full verification and current PROJECT controls build order. The raw response and successor prompt stay unchanged; this fold preserves useful visibility, dependency, store and evidence refinements without relaunching the five-slice pass or certifying present UI behavior.",
+      "before_sha256": "ddc47d9b3b70fa2059899e706300e7b8496ccdbd1a1b7542f3ecbd250d1f2743",
+      "after_sha256": "7b25d91c5696419738f9043d1babd35842d49e6e3294603c8e81e44018b8473d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 222,
+  "evidence_clarification": "Literal visible calls: response1–150,151–300,301–450,451–600,601–750,751–920 (file ends903); successor1–150,151–300,301–450,451–600,601–750,751–915 (file ends889). Both full bodies visible, with no truncated result. The original evidence phrase describes the chunk shape loosely; these are the exact read spans.",
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B510, continuous execution 2026-11-05 |",
+      "to": "| B514, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "dcb05400e0da581259503d133ee8cf7ef50629264acd4a588a8042abc5be2060",
+      "to": "0e2e25d0ad4f940f9f12709d2669186bb2fc395c33f89b64dc01b8276bae7d23",
+      "reason": "Exact task-owned register row advancement."
+    }
+  ]
+}

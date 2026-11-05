@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "owner": "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+      "target": "gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md#content-reconciliation-b566-depth-variance-and-skill-owner-corrections",
+      "resolves": true
+    },
+    {
+      "owner": "docs/UI_RULES.md",
+      "target": "gm/dispatch/ui-coverage-2026-10-27/PLAN.md#content-reconciliation-b567-coverage-contracts-and-later-rule-status",
+      "resolves": true
+    },
+    {
+      "owner": "docs/UI_RULES.md",
+      "target": "gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md#content-reconciliation-b567-refactor-history-and-proof-limits",
+      "resolves": true
+    },
+    {
+      "owner": "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+      "target": "../sonnet-wave-2026-10-30/PLAN.md#content-reconciliation-b568-whole-book-extraction-and-wiring-history",
+      "resolves": true
+    }
+  ],
+  "missing": 0,
+  "scope": "New-fold heading fragments only; not source or runtime verification."
+}

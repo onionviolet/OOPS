@@ -1,0 +1,16 @@
+{
+  "command": "node temporary same-rule checker with filespec restricted to B419\u2013B421 task edits",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md:2543: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "f173069afbd9787cf2a363f14def1369612bb1f252d7332d490a2e675cf3ba1c",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+  ],
+  "adaptation": "Exactly one filespec replacement; original diagnostic rules retained. No repository checker change. Scoped result is not a shared-tree pass."
+}

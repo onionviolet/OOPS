@@ -1,0 +1,10 @@
+{
+  "batches": [
+    "B454",
+    "B455",
+    "B456"
+  ],
+  "new_local_heading_fragments": 0,
+  "missing": [],
+  "scope": "New folds contain file links without local heading fragments; target presence checked by verifier."
+}

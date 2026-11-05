@@ -1,0 +1,16 @@
+{
+  "input_sha256": "6fb7275390553629c191956e487c3bc2e4776b7c93b5a21f808f5bb5b353df3b",
+  "checks": {
+    "placed_cheats": {
+      "count": 25
+    },
+    "fun_rank": {
+      "count": 25,
+      "incorrect_displayed_totals": []
+    },
+    "meetings": {
+      "count": 33
+    }
+  },
+  "scope": "Arithmetic and row counts on the actually fully read owner, not source/semantic/gameplay proof."
+}

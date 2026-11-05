@@ -1,0 +1,380 @@
+{
+  "schema": 1,
+  "batch": "B612",
+  "title": "LOTM MoL and Shadow recognition maps: full content and scoped current bindings",
+  "at": "2026-11-05T13:22:53.258293+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/lord-of-mysteries/COVERAGE.json",
+      "ids": [
+        "lotm1.appearance",
+        "lotm1.behavior",
+        "lotm1.office",
+        "recognition.lotm1.warning-and-credit",
+        "R020-C21",
+        "R020-C26",
+        "R020-C27",
+        "R020-C22",
+        "R021-C04",
+        "R001-C01",
+        "R001-C10",
+        "R009-C25",
+        "R014-C30",
+        "R001-C05",
+        "R003-C16",
+        "R007-C32",
+        "R008-C32",
+        "R005-C02",
+        "R008-C04",
+        "R008-C05",
+        "R008-C06"
+      ],
+      "classification": "complete frozen recognition-map semantics and current scoped consumer reconciled",
+      "owners": [
+        "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+        "docs/research/novels/lord-of-mysteries/BRIEF.md"
+      ],
+      "disposition": "F1: Full content review covers the989-line frozen JSON, all six root/19world fields, three lotm1appearance/behavior/office rules,17unique evidence objects with full claim/member/hash/paragraph/qualification, continuity, selected trope, two small interactions/two original voices/five stable people/four unknowns/five native gaps/four deferred gates, three topology structures/two edges and five deep-chain phases/four outcomes. Every field and evidence object was actually read through an evidence-factored projection whose decoding equals original; this equality is representational, not semantic proof. Original JSON/schema/bytes stay unchanged.\n\nF2: The Chinese first-novel SHA6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d and seven disjoint member ranges total363integratedstoryitems. Later1402reader-read and47paratext are different states, not this map’s full semantic scope. Current English-v1 Klein work in PROJECT does not change this Chinese snapshot by arithmetic. Manifest/coverage/source-hash booleans are historical pins, not freshly verified source files or product adoption. Source event, narrator, explanation, character assessment and Audrey inference retain qualifiers; no raw chapter/notes body was newly read.\n\nF3: Appearance/admission, habitual behavior, actual actor/body/controller, institutional right, retinue/debt, native source and stored soul stay separate. Observed incongruity supports suspicion, not an identity verdict. Disguise starts before victim death in the captured source reading; killing is not its established activation condition. Stored-slot replacement differs from active-mode switching and actual latency; fragmentary autobiographical access is not universal perfect memory. The registry helper is original comparison machinery, not every noble institution’s canonical office process. Ordinary attendance/report/withdrawal/protection and disputed credit remain viable, without granting another actor’s faculty or rewriting source outcome.\n\nF4: Private lead, received warning, useful outcome, public/proxy attribution, promised estate, available cash and actual settlement are distinct. A later credit claim is not automatically paid from an institution’s stock. Original voices/meter humor and clerical work remain labelled original; paid meter/actual money, shift/time and learned occult mastery have separate suppliers. Gray-fog representation of one carried pendulum is not a duplicate physical item or transport proof. Dream/perception contact conveys a selected received message, not bestowed source power or team-wide knowledge; grayfog/spiritworld distinctions and clocks remain qualified.\n\nF5: Current selected header687–743still reports this specific recognition adapter unactivated/nativeBound=false. The actual source referenceRegistryComparison53–81 uses lotm1office in an original Village host with supplied native body/right/registry/report owners; the catalogue registers declarations without spawning native worlds. This establishes selected code joins, not a fresh executed comparison or the five-phase source reception chain. It does not negate the separate current English-v1 Klein campaign. No current host gameplay/save/UI proof is added. Parent worker labels are historical; map director-acceptance gate is optional under AD42. Keep source-native actor/fuel/latency/custody/observer/settlement/clock gaps distinct from the usable pure comparison.",
+      "evidence": "All19world/sixroot fields and unique full evidence records actually read via reversible repeated-evidence factoring. Selected current source and owner ranges read; no raw source bodies or executed runtime proof.",
+      "reopen": "Keep frozen source baseline; inspect actual current selected campaign/recognition consumers and their matched behavior proof before claiming native chain complete.",
+      "full": true,
+      "input_sha256": "b176563536cfc5074c83412d8fc924ed1edea9b15f1674fcb6f43c61222e6ed4",
+      "input_lines": 989,
+      "ranges": [
+        [
+          1,
+          989
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/mother-of-learning/COVERAGE.json",
+      "ids": [
+        "mol.mana-key",
+        "mol.local-memory",
+        "mol.physical-sound",
+        "recognition.mol.earned-admission",
+        "MOL-C001-04",
+        "MOL-C001-05",
+        "MOL-C005-01",
+        "MOL-C012-01",
+        "MOL-C018-07",
+        "MOL-C026-13",
+        "MOL-C031-08",
+        "MOL-C099-03",
+        "MOL-C103-10",
+        "MOL-C049-05",
+        "MOL-C003-05",
+        "MOL-C001-07",
+        "MOL-C001-10",
+        "MOL-C005-08",
+        "MOL-C054-02",
+        "MOL-C058-03",
+        "MOL-C022-09"
+      ],
+      "classification": "complete frozen recognition-map semantics and current scoped consumer reconciled",
+      "owners": [
+        "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+        "docs/worlds/mother-of-learning/WORLD_BRIEF.md"
+      ],
+      "disposition": "F1: Full content review covers994-line frozen JSON, all six root/19world fields, three molmana-key/local-memory/physical-sound rules,17unique full evidence records, continuity/trope/two interactions/two original voices/five stable people/four unknowns/five native gaps/four deferred gates, three topology structures/two edges and five deep-chain phases/four outcomes. A reversible repeated-evidence projection was asserted equal to original and all projected fields/records were actually read. Original JSON bytes/schema stay unchanged; representation identity does not establish factual truth or runtime.\n\nF2: Exact supplied English SHAe53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf,106chaptersplusEpilogue/107integrateditems and XHTMLp-counting convention stay pinned; original authentication and compilation scope remain qualified. Witnessed, student hearsay, Ilsa policy, library doctrine, character experiment/inference and private later-self interpretation are not one evidence level. No novel source body or full source dossier was freshly read.\n\nF3: The map’s frozen nativeBound=false/current-unactivated wording is stale as a whole-campaign statement. Current profile source1–115reports nativeBound=true and optional book.mol.cyoria binding; main imports/calls createMolNativeBindings, and the native wrapper accepts visitor or explicit Zorian-seat presence with campaign validation. This is selected current source wiring, not newly played or persistence-tested proof. Separately recognizeBookWorld2890–2990still restricts evaluation to source-comparison/original scene, actual carriers/channel/method and supplied completed evidence; binding a Cyoria campaign does not activate this entire recognition/earned-admission chain. Existing WORLD_BRIEF records a bounded exploration route, with historical receipts not rerun. Preserve visitor, Zorian seat, source-loop and original comparison scopes.\n\nF4: Personal-mana key access, institutional certification, physical custody, commercial badge, actual test/record and source eligibility differ. One mana signature test is not a universal soul oracle. Remembered answer requires a particular observer/event/branch; Zorian’s retained recall does not update others’ memories or copy affection. Physical sound and a mind ward need their actual mechanisms, rather than an illusion-category permission. Engine fuel, train shaping restriction, body-control lesson, learned dance steps and ordinary-refusal alternative remain distinct; original desk/dance dialogue stays labelled.\n\nF5: Early experienced recurrence does not prove its full reset/carry domain or trigger. A later accelerated-pocket-copy explanation remains a theory at that disclosure; matriarch interplane limitation is attributed, not every plane travel path tested. Simulacrum/body/soul/counterpart and late private interpretations stay out of early NPC knowledge. The five-phase introduction/gate/lesson/account/closure chain is original proposal with partial/refusal/unauthorized outcomes and actual learned/entitlement consequences, not a canonical quest or playable full month. Keep exact native source/mana/key/history/body/clock/return gaps; no automatic starter faculty, loop or offline catchup follows. Human review is optional under AD42. No source-code mutation, runtime/build/browser/save execution, new source reading or campaign activation is performed here.",
+      "evidence": "All19world/sixroot fields and unique full evidence records actually read via reversible repeated-evidence factoring. Selected current source and owner ranges read; no raw source bodies or executed runtime proof.",
+      "reopen": "Keep frozen source baseline; inspect actual current selected campaign/recognition consumers and their matched behavior proof before claiming native chain complete.",
+      "full": true,
+      "input_sha256": "5024d60addc9e78e6531f9659d223ef4781ad0eb193fe506949ebc9604d9bbcf",
+      "input_lines": 994,
+      "ranges": [
+        [
+          1,
+          994
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/shadow-slave/COVERAGE.json",
+      "ids": [
+        "ss.sincerity",
+        "ss.name-condition",
+        "ss.local-recognition",
+        "recognition.ss.cooperation-without-ownership",
+        "SS-0101-0120-C32",
+        "SS-0006-0020-C20",
+        "SS-0006-0020-C25",
+        "SS-0006-0020-C16",
+        "OE07",
+        "OE16",
+        "OE08",
+        "SS-0006-0020-C22",
+        "SS-0001-0005-C06",
+        "SS-0006-0020-C21",
+        "OE04",
+        "OE05",
+        "OE05",
+        "SS-0101-0120-C30",
+        "SS-0101-0120-C31",
+        "SS-0101-0120-C34"
+      ],
+      "classification": "complete frozen recognition-map semantics and current scoped consumer reconciled",
+      "owners": [
+        "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+        "docs/research/novels/full-book/shadow-slave/BRIEF.md"
+      ],
+      "disposition": "F1: Full content review covers1385-line frozen JSON, six root/19world fields, three sssincerity/name-condition/local-recognition rules,16distinct complete evidence objects, continuity/trope/two interactions/two original voices/six stable people/five unknowns/five gaps/four deferred gates, four topology structures/two edges and five deep-chain phases/four outcomes. All fields/records were actually read in bounded reversible-projection outputs. OE05appears twice with identical scene locators but different qualification text; retain both evidence objects while counting one underlying scene, not two fresh readings. Original JSON bytes/schema stay unchanged.\n\nF2: Captured1000earlychaptersplus14at1576–1589plus5at1788–1792sum1019integrateditems. Reader-reported3000 and separately supplied volumes9–11are not this frozen map’s reviewed credit. The main1840compilation SHA2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6 differs from the three extension hashes, all retained. V11navigation/order exception2737–2739and missing declaredTOC remain edition defects. Historical hash-check booleans are not a new source check; partial map scope does not shrink the source GM’s later1–3000goal. No chapter/worker/source-notes body was newly read.\n\nF3: Early post-Kai-rescue era and later post-Third-Nightmare rules are different exact cutoffs. Kai’s lie-detecting Flaw concerns tested sincerity, not motive/actual identity/all creatures; Sunny’s truth pressure can coexist with misleading inference. Displayed Shadow Bond description and exact name/eligibility condition are not a completed activation test. Later failed recognition is one observer event, not demonstrated erasure of every person/record. Proposed Academy/survivor dialogue is original texture, not recovered author prose. Current selected source2095–2110still reports this adapter unactivated/nativeBound=false; source-comparison rules do not impose a Flaw/name/bond on the Village player.\n\nF4: Actual rescue/physicalgrate/liftingstrength, voluntary promised errands, meaningful refusal/negotiation, water/arrows/cargo and later corrected impressions form a useful independent cooperation chain. Flight is not lifting strength, knowing a True Name is not owning all powers, and an ordinary promise is not magical enforcement. Shared-mind/soul/essence avatars need individual body positions and actual weapons; one summoned Memory sword remains one item. Retained intrinsic faculties, unavailable Spell services, particular body return and stolen fate are separate mechanisms, not actor/source duplication. Later doctrine, subjective presented history and actual exercised passage remain different.\n\nF5: The Bird’s far-side emergence/location and guaranteed restoration remain conditional theory, while Sunny’s actual tested bodily return/selected intrinsic functions have different evidence. A represented Nightmare collapse does not certify literal historical time travel, every passenger route or a universal outside clock. Post-theft exceptions cannot rewrite early Shore history implicitly. Native Dream/Spell/fate/body/essence/material/observer/history/return consumers remain named gaps in this map; frozen parent-integration-required is a historical worker boundary, not a fresh whole-checkout absence claim. Preserve ordinary cooperation, source-specific lost activation conditions and observer-limited reencounter as proposals, without activating source people/worlds or a full native chain. Director review is optional under AD42; no new runtime/build/browser/save/human or raw-source proof occurs.",
+      "evidence": "All19world/sixroot fields and unique full evidence records actually read via reversible repeated-evidence factoring. Selected current source and owner ranges read; no raw source bodies or executed runtime proof.",
+      "reopen": "Keep frozen source baseline; inspect actual current selected campaign/recognition consumers and their matched behavior proof before claiming native chain complete.",
+      "full": true,
+      "input_sha256": "4e1bb61d452fc8dd1f2647e1aa5063fea783bf82d77d8fd547b72e89a81910c4",
+      "input_lines": 1385,
+      "ranges": [
+        [
+          1,
+          1385
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+      "heading": "## Remaining recognition maps: complete content reconciliation B612",
+      "body": "F1: Full content review covers the989-line frozen JSON, all six root/19world fields, three lotm1appearance/behavior/office rules,17unique evidence objects with full claim/member/hash/paragraph/qualification, continuity, selected trope, two small interactions/two original voices/five stable people/four unknowns/five native gaps/four deferred gates, three topology structures/two edges and five deep-chain phases/four outcomes. Every field and evidence object was actually read through an evidence-factored projection whose decoding equals original; this equality is representational, not semantic proof. Original JSON/schema/bytes stay unchanged.\n\nF2: The Chinese first-novel SHA6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d and seven disjoint member ranges total363integratedstoryitems. Later1402reader-read and47paratext are different states, not this map’s full semantic scope. Current English-v1 Klein work in PROJECT does not change this Chinese snapshot by arithmetic. Manifest/coverage/source-hash booleans are historical pins, not freshly verified source files or product adoption. Source event, narrator, explanation, character assessment and Audrey inference retain qualifiers; no raw chapter/notes body was newly read.\n\nF3: Appearance/admission, habitual behavior, actual actor/body/controller, institutional right, retinue/debt, native source and stored soul stay separate. Observed incongruity supports suspicion, not an identity verdict. Disguise starts before victim death in the captured source reading; killing is not its established activation condition. Stored-slot replacement differs from active-mode switching and actual latency; fragmentary autobiographical access is not universal perfect memory. The registry helper is original comparison machinery, not every noble institution’s canonical office process. Ordinary attendance/report/withdrawal/protection and disputed credit remain viable, without granting another actor’s faculty or rewriting source outcome.\n\nF4: Private lead, received warning, useful outcome, public/proxy attribution, promised estate, available cash and actual settlement are distinct. A later credit claim is not automatically paid from an institution’s stock. Original voices/meter humor and clerical work remain labelled original; paid meter/actual money, shift/time and learned occult mastery have separate suppliers. Gray-fog representation of one carried pendulum is not a duplicate physical item or transport proof. Dream/perception contact conveys a selected received message, not bestowed source power or team-wide knowledge; grayfog/spiritworld distinctions and clocks remain qualified.\n\nF5: Current selected header687–743still reports this specific recognition adapter unactivated/nativeBound=false. The actual source referenceRegistryComparison53–81 uses lotm1office in an original Village host with supplied native body/right/registry/report owners; the catalogue registers declarations without spawning native worlds. This establishes selected code joins, not a fresh executed comparison or the five-phase source reception chain. It does not negate the separate current English-v1 Klein campaign. No current host gameplay/save/UI proof is added. Parent worker labels are historical; map director-acceptance gate is optional under AD42. Keep source-native actor/fuel/latency/custody/observer/settlement/clock gaps distinct from the usable pure comparison.\n\nF1: Full content review covers994-line frozen JSON, all six root/19world fields, three molmana-key/local-memory/physical-sound rules,17unique full evidence records, continuity/trope/two interactions/two original voices/five stable people/four unknowns/five native gaps/four deferred gates, three topology structures/two edges and five deep-chain phases/four outcomes. A reversible repeated-evidence projection was asserted equal to original and all projected fields/records were actually read. Original JSON bytes/schema stay unchanged; representation identity does not establish factual truth or runtime.\n\nF2: Exact supplied English SHAe53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf,106chaptersplusEpilogue/107integrateditems and XHTMLp-counting convention stay pinned; original authentication and compilation scope remain qualified. Witnessed, student hearsay, Ilsa policy, library doctrine, character experiment/inference and private later-self interpretation are not one evidence level. No novel source body or full source dossier was freshly read.\n\nF3: The map’s frozen nativeBound=false/current-unactivated wording is stale as a whole-campaign statement. Current profile source1–115reports nativeBound=true and optional book.mol.cyoria binding; main imports/calls createMolNativeBindings, and the native wrapper accepts visitor or explicit Zorian-seat presence with campaign validation. This is selected current source wiring, not newly played or persistence-tested proof. Separately recognizeBookWorld2890–2990still restricts evaluation to source-comparison/original scene, actual carriers/channel/method and supplied completed evidence; binding a Cyoria campaign does not activate this entire recognition/earned-admission chain. Existing WORLD_BRIEF records a bounded exploration route, with historical receipts not rerun. Preserve visitor, Zorian seat, source-loop and original comparison scopes.\n\nF4: Personal-mana key access, institutional certification, physical custody, commercial badge, actual test/record and source eligibility differ. One mana signature test is not a universal soul oracle. Remembered answer requires a particular observer/event/branch; Zorian’s retained recall does not update others’ memories or copy affection. Physical sound and a mind ward need their actual mechanisms, rather than an illusion-category permission. Engine fuel, train shaping restriction, body-control lesson, learned dance steps and ordinary-refusal alternative remain distinct; original desk/dance dialogue stays labelled.\n\nF5: Early experienced recurrence does not prove its full reset/carry domain or trigger. A later accelerated-pocket-copy explanation remains a theory at that disclosure; matriarch interplane limitation is attributed, not every plane travel path tested. Simulacrum/body/soul/counterpart and late private interpretations stay out of early NPC knowledge. The five-phase introduction/gate/lesson/account/closure chain is original proposal with partial/refusal/unauthorized outcomes and actual learned/entitlement consequences, not a canonical quest or playable full month. Keep exact native source/mana/key/history/body/clock/return gaps; no automatic starter faculty, loop or offline catchup follows. Human review is optional under AD42. No source-code mutation, runtime/build/browser/save execution, new source reading or campaign activation is performed here.\n\nF1: Full content review covers1385-line frozen JSON, six root/19world fields, three sssincerity/name-condition/local-recognition rules,16distinct complete evidence objects, continuity/trope/two interactions/two original voices/six stable people/five unknowns/five gaps/four deferred gates, four topology structures/two edges and five deep-chain phases/four outcomes. All fields/records were actually read in bounded reversible-projection outputs. OE05appears twice with identical scene locators but different qualification text; retain both evidence objects while counting one underlying scene, not two fresh readings. Original JSON bytes/schema stay unchanged.\n\nF2: Captured1000earlychaptersplus14at1576–1589plus5at1788–1792sum1019integrateditems. Reader-reported3000 and separately supplied volumes9–11are not this frozen map’s reviewed credit. The main1840compilation SHA2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6 differs from the three extension hashes, all retained. V11navigation/order exception2737–2739and missing declaredTOC remain edition defects. Historical hash-check booleans are not a new source check; partial map scope does not shrink the source GM’s later1–3000goal. No chapter/worker/source-notes body was newly read.\n\nF3: Early post-Kai-rescue era and later post-Third-Nightmare rules are different exact cutoffs. Kai’s lie-detecting Flaw concerns tested sincerity, not motive/actual identity/all creatures; Sunny’s truth pressure can coexist with misleading inference. Displayed Shadow Bond description and exact name/eligibility condition are not a completed activation test. Later failed recognition is one observer event, not demonstrated erasure of every person/record. Proposed Academy/survivor dialogue is original texture, not recovered author prose. Current selected source2095–2110still reports this adapter unactivated/nativeBound=false; source-comparison rules do not impose a Flaw/name/bond on the Village player.\n\nF4: Actual rescue/physicalgrate/liftingstrength, voluntary promised errands, meaningful refusal/negotiation, water/arrows/cargo and later corrected impressions form a useful independent cooperation chain. Flight is not lifting strength, knowing a True Name is not owning all powers, and an ordinary promise is not magical enforcement. Shared-mind/soul/essence avatars need individual body positions and actual weapons; one summoned Memory sword remains one item. Retained intrinsic faculties, unavailable Spell services, particular body return and stolen fate are separate mechanisms, not actor/source duplication. Later doctrine, subjective presented history and actual exercised passage remain different.\n\nF5: The Bird’s far-side emergence/location and guaranteed restoration remain conditional theory, while Sunny’s actual tested bodily return/selected intrinsic functions have different evidence. A represented Nightmare collapse does not certify literal historical time travel, every passenger route or a universal outside clock. Post-theft exceptions cannot rewrite early Shore history implicitly. Native Dream/Spell/fate/body/essence/material/observer/history/return consumers remain named gaps in this map; frozen parent-integration-required is a historical worker boundary, not a fresh whole-checkout absence claim. Preserve ordinary cooperation, source-specific lost activation conditions and observer-limited reencounter as proposals, without activating source people/worlds or a full native chain. Director review is optional under AD42; no new runtime/build/browser/save/human or raw-source proof occurs.",
+      "before_sha256": "70179507f648b298fbe78fd22627506094d85cc198d53c7b8a583478f194d399",
+      "after_sha256": "b8a673f58a4cd3e040d5932d7d335927cb9b0939fb13f5cd082f9fb5a31d0b21"
+    },
+    {
+      "path": "docs/research/novels/lord-of-mysteries/BRIEF.md",
+      "heading": "## Recognition-map content reconciliation B612",
+      "body": "The [recognition map](../../../gm/feature-wave/features/book-world-subtleties/recognition/lord-of-mysteries/COVERAGE.json) is fully content-reviewed at its frozen363Chinese-story-item capture, with17distinct evidence records and all topology/five-phase chain fields. Appearance, observed behavior, right, source/glove mode and actual observer differ; private warning, public attribution, promised estate and paid settlement are separate. Current original reference-desk code consumes lotm1office with actual Village carriers; this is not the source reception, a native faculty or a fresh gameplay run. The separate English-v1 Klein route remains governed by PROJECT. Frozen map unactivated status applies to this adapter, not every LOTM campaign. Preserve source/clock/custody/credit gaps and optional human review under AD42; no raw source was newly read.",
+      "before_sha256": "437ee37e4fba58695d1fadbaa0585997ea80f366b0a552e39d54cbd4ee3b7eee",
+      "after_sha256": "b4618c86b51cf8bd513f45ff29fe97a583694794eed35c81c0829ea75b9a771d"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "heading": "## Recognition-map content reconciliation B612",
+      "body": "The [recognition map](../../gm/feature-wave/features/book-world-subtleties/recognition/mother-of-learning/COVERAGE.json) is fully content-reviewed, including17evidence records and original earned-admission/topology chains. Its frozen unactivated label is historical: current profile nativeBound=true and main/native wrapper wire the optional visitor/Zorian presence. Separately, recognizeBookWorld remains source-comparison-only; these three rules and their full source-native chain are not activated merely by a campaign flag. Exact key/mana test, institutional right, observer/event/branch history, sound/counter and actual lesson remain distinct. Early recurrence is not a completed reset contract; theory/doctrine/late private knowledge stay qualified. This adds selected source-wiring evidence only, not fresh route/build/save proof or blanket completion. Human review is optional under AD42.",
+      "before_sha256": "f5710748c8cc7256e55a5f159dfe1932700460cc2673b0807cd22833468c3722",
+      "after_sha256": "b0be4df228159e790deb702a50640ef6c93b7997e83eb0585ad2eabc9a830d70"
+    },
+    {
+      "path": "docs/research/novels/full-book/shadow-slave/BRIEF.md",
+      "heading": "## Recognition-map content reconciliation B612",
+      "body": "The [recognition map](../../../../gm/feature-wave/features/book-world-subtleties/recognition/shadow-slave/COVERAGE.json) is fully content-reviewed with16evidence objects; duplicated OE05qualifiers refer to the same scene. Its1019captured integrated chapters are distinct from reader-reported3000and later supplied-volume integration, preserving this GM’s1–3000scope. Early sincerity/cooperation and later name-condition/observer-loss snapshots remain separate. Shared essence/avatar bodies and real weapon stock do not duplicate actor/rewards, and conditional Bird emergence/restoration is not actual return proof. Current selected adapter stays unactivated; no native full chain or raw source was newly verified. Ordinary rescue/help/errands/refusal and local reencounter ideas remain source-qualified proposals, with human review optional under AD42.",
+      "before_sha256": "74e655b03a55ed438a7f468b6ccad78a61e72589c3ba82ce4a95c9a8f7c08561",
+      "after_sha256": "f4563c76f09ac09bbccc8d4f5dd426e9231c7453df686f9479bea09c89418dc7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 78,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+      "from": "All native book worlds remain **unactivated**.",
+      "to": "At the2026-10-05worker return all four adapters were unactivated. B612finds the current MoL profile marked nativeBound=true with a bound optional Cyoria campaign; the recognition evaluator still requires source-comparison mode. These are separate scopes (AD32/AD42).",
+      "reason": "Date worker-wide unactivated claim and distinguish current MoL campaign from pure recognition chain."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+      "from": "b8a673f58a4cd3e040d5932d7d335927cb9b0939fb13f5cd082f9fb5a31d0b21",
+      "to": "933a8f430594358b7dd32ac48899b9757b8bdd452014ef794e584834f84f5ff7",
+      "reason": "Exact current-source qualifier."
+    }
+  ],
+  "content_read_projections": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/lord-of-mysteries/COVERAGE.json",
+      "input_sha256": "b176563536cfc5074c83412d8fc924ed1edea9b15f1674fcb6f43c61222e6ed4",
+      "roundtrip_equal": true,
+      "unique_evidence_read": 17,
+      "world_fields_read": [
+        "id",
+        "title",
+        "source",
+        "baselineImmutable",
+        "nativeBound",
+        "nativeWorldStatus",
+        "era",
+        "rules",
+        "replacementAndContinuity",
+        "selectedTropeChain",
+        "smallInteractions",
+        "everydayTextureAndVoice",
+        "stableSourcePeople",
+        "unknowns",
+        "missingNativeBindings",
+        "implementationStatus",
+        "deferredGates",
+        "topologyDisposition",
+        "deepChainDisposition"
+      ],
+      "root_fields_read": [
+        "schema",
+        "capturedAt",
+        "writer",
+        "world",
+        "consumers",
+        "sourceReview"
+      ],
+      "scope": "All projected content read; identity verifies representation only. Original JSON unchanged."
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/mother-of-learning/COVERAGE.json",
+      "input_sha256": "5024d60addc9e78e6531f9659d223ef4781ad0eb193fe506949ebc9604d9bbcf",
+      "roundtrip_equal": true,
+      "unique_evidence_read": 17,
+      "world_fields_read": [
+        "id",
+        "title",
+        "source",
+        "baselineImmutable",
+        "nativeBound",
+        "nativeWorldStatus",
+        "era",
+        "rules",
+        "replacementAndContinuity",
+        "selectedTropeChain",
+        "smallInteractions",
+        "everydayTextureAndVoice",
+        "stableSourcePeople",
+        "unknowns",
+        "missingNativeBindings",
+        "implementationStatus",
+        "deferredGates",
+        "topologyDisposition",
+        "deepChainDisposition"
+      ],
+      "root_fields_read": [
+        "schema",
+        "capturedAt",
+        "writer",
+        "world",
+        "consumers",
+        "sourceReview"
+      ],
+      "scope": "All projected content read; identity verifies representation only. Original JSON unchanged."
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/shadow-slave/COVERAGE.json",
+      "input_sha256": "4e1bb61d452fc8dd1f2647e1aa5063fea783bf82d77d8fd547b72e89a81910c4",
+      "roundtrip_equal": true,
+      "unique_evidence_read": 16,
+      "world_fields_read": [
+        "id",
+        "title",
+        "source",
+        "baselineImmutable",
+        "nativeBound",
+        "nativeWorldStatus",
+        "era",
+        "rules",
+        "replacementAndContinuity",
+        "selectedTropeChain",
+        "smallInteractions",
+        "everydayTextureAndVoice",
+        "stableSourcePeople",
+        "unknowns",
+        "missingNativeBindings",
+        "implementationStatus",
+        "deferredGates",
+        "topologyDisposition",
+        "deepChainDisposition"
+      ],
+      "root_fields_read": [
+        "schema",
+        "capturedAt",
+        "writer",
+        "world",
+        "consumers",
+        "sourceReview"
+      ],
+      "scope": "All projected content read; identity verifies representation only. Original JSON unchanged."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "src/feature_expansion_book_recognition.js",
+      "sha256": "ca8e1035e75210aa78a6e722650d1f452a7cdfb788e275e990f3bbb76f51cff9",
+      "ranges": [
+        [
+          1,
+          115
+        ],
+        [
+          687,
+          743
+        ],
+        [
+          2095,
+          2110
+        ],
+        [
+          2890,
+          2990
+        ]
+      ],
+      "scope": "Selected profile statuses and pure evaluator; not complete file or behavior proof."
+    },
+    {
+      "path": "src/feature_expansion_book_catalogue.js",
+      "sha256": "a31175d8f161012bdbd5c8b0ee9fd48b05d2ba08576565803043d13139a9cf5a",
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "scope": "Declaration registration only."
+    },
+    {
+      "path": "src/feature_expansion_reference_desk.js",
+      "sha256": "d7ade25c6372662deee4ed3e1eece3f765d6cb000a3cbee1f68a27500081a4f7",
+      "ranges": [
+        [
+          53,
+          81
+        ]
+      ],
+      "scope": "Selected LOTM original registry comparison; not all commands/UI."
+    },
+    {
+      "path": "src/book_world_mol_native.js",
+      "sha256": "df68947daecf63118a50ebbd067312ca40fccb40890ad960849a47f72d810797",
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "scope": "Current native wrapper; not full base implementation."
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "3774610d4868b272452182cf8dc94418f0d6604fc9a0b413f580ec6604fa8cb6",
+      "ranges": [
+        [
+          166,
+          166
+        ],
+        [
+          1131,
+          1131
+        ]
+      ],
+      "scope": "Actual import/binder call lines only."
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "sha256": "b0be4df228159e790deb702a50640ef6c93b7997e83eb0585ad2eabc9a830d70",
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "scope": "Scoped current visitor/receipt evidence, not fresh runtime."
+    }
+  ]
+}

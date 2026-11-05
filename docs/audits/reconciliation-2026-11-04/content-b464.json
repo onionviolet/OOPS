@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "batch": "B464",
+  "title": "Start/identity/multiworld prompts and menu palette: complete review against existing followthrough",
+  "at": "2026-11-05T06:51:09.227533+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/runs/index.prompt.md",
+      "ids": [
+        "introfamilyrouter/D1–7/C1–11/V1–5;rounds1–16"
+      ],
+      "classification": "complete historical start/multiworld dispatch or local UI palette",
+      "owners": [
+        "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md"
+      ],
+      "disposition": "The complete13-line index-lane prompt is historical dispatch. Its rounds1–16 family census, brief user quotes, proposed defaults, contradiction flags, dev-probe evidence and ranked candidates were an index assignment, not a new start algorithm. The owner's later B303 reconciliation already preserves its actual194-line reading, source/probe limits and later launch notices. “Read linked outputs” here does not credit this reconciliation with reading their bodies. Current [world-entry rules](WORLD_ENTRY_RULES.md), [lead-life scope](LEAD_LIFE_RULES.md), AD23/AD51/AD52 and actual user direction control selected starts. The old requirement to flag contradictions without resolving them applied to that lane; it does not prevent current owner reconciliation from applying later explicit direction. No new role selection, random roll, dossier pass, start implementation or dispatch follows from this prompt.",
+      "evidence": "Complete13/14/17/19-line input bodies read. Existing output-owner final reconciliation sections inspected for routing only; linked source/dossier/probe/UI evidence not newly read or executed.",
+      "reopen": "Use current selected start/world/task and actual source/consumer evidence. Preserve old suggestions and scopes without replaying dispatch.",
+      "input_sha256": "7b1ab5f4d6e4140960f7317a3889ea991986fe69bbfc1b8b7a8544c20ef90921",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/runs/ideas.prompt.md",
+      "ids": [
+        "sourceE1–14/VX1–10/OX1–12/ES1–7/EM1–12/WF1–17/BF1–12/S1–5"
+      ],
+      "classification": "complete historical start/multiworld dispatch or local UI palette",
+      "owners": [
+        "docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md"
+      ],
+      "disposition": "The complete14-line ideas-lane prompt requested qualified dossier comparison and original possibilities, not primary-book qualification or gameplay implementation. Its requested private paths and source labels are historical dependencies. The later B310 owner reconciliation retains all actual source cutoffs, absent notes, identity/intent/role distinctions and the unimplemented minimal-state sketches. Reading this prompt did not read any private brief, synthesis, chapter or sealed truth. VX/OX possibilities remain available palettes; no inherited title decides the present person's intent, and no copied-memory label alone decides continuity or information sharing. Current [world-entry rules](../WORLD_ENTRY_RULES.md), [lead-life rules](../LEAD_LIFE_RULES.md) and AD32 govern an actual selected consumer. Do not replay the old dossier assignment or treat suggestions as a new queue.",
+      "evidence": "Complete13/14/17/19-line input bodies read. Existing output-owner final reconciliation sections inspected for routing only; linked source/dossier/probe/UI evidence not newly read or executed.",
+      "reopen": "Use current selected start/world/task and actual source/consumer evidence. Preserve old suggestions and scopes without replaying dispatch.",
+      "input_sha256": "354f5e9ce6f2ad6440d92293828a66695da41305126287fffa41d1a6287e9ac9",
+      "input_lines": 14,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/multiworld-research-2026-10-14/lanes/mw-audit.prompt.md",
+      "ids": [
+        "mwspotchecks5SHOWN/5INFERRED;K1–34;MWA-P01–10"
+      ],
+      "classification": "complete historical start/multiworld dispatch or local UI palette",
+      "owners": [
+        "docs/research/multiworld-synthesis-2026-10-14/REPORT.md"
+      ],
+      "disposition": "The complete17-line multiworld audit prompt was read. Its five-SHOWN/five-INFERRED per-lane spot-check target is the original audit requirement, not proof the checks were performed by reading this prompt. The report's ten MWA packets map to existing K/P owners; they are proposals, not ten adopted mechanics. The original nested-world root path is stale as this report already records; the dispatch owner supplies the route. Old installing/not-installed statements, owner labels, next-slice ranking and1366×768 gate remain dated. Use current [PROJECT](../../../PROJECT.md), [UI rules](../../UI_RULES.md), [architecture](../../ARCHITECTURE_RULES.md) and exact source-qualified world laws for a selected consumer. Carrying a method, useful foreign operation, relationship continuity and differing world rules need their actual evidence; neither a premise comparison nor a world name proves them. No source game/site, audit sample, private payload, install, UI/browser or current module was rechecked here; source-lane checks and their remaining gaps stay with their original receipts.",
+      "evidence": "Complete13/14/17/19-line input bodies read. Existing output-owner final reconciliation sections inspected for routing only; linked source/dossier/probe/UI evidence not newly read or executed.",
+      "reopen": "Use current selected start/world/task and actual source/consumer evidence. Preserve old suggestions and scopes without replaying dispatch.",
+      "input_sha256": "11eee4437e6d93b69900c5fc4bd35b71fb001d738296d0bebc97f79dd6005fe7",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/MENU_CONSIDERATIONS.md",
+      "ids": [
+        "F1–2/D1–5;ordinarypatrol/kitreturn/clerk/navigation/focusgate"
+      ],
+      "classification": "complete historical start/multiworld dispatch or local UI palette",
+      "owners": [
+        "docs/gm/dispatch/starts-talents-continuity-2026-10-11/MENU_CONSIDERATIONS.md"
+      ],
+      "disposition": "All19 original lines were reviewed. Preserve the observed patrol-card duplication and unrelated-content ordering concern as October11 screenshot/source observations. People/Work/Projects categories, one next-action layout and a single ordering coordinator were prototype choices, not current mandatory navigation or a reason to replace actual module/content ownership. Current [UI rules](../../../UI_RULES.md) UR1–5/35/53/57/70–74 and [PROJECT](../../../../PROJECT.md) govern task composition, desktop targets and observer-safe disclosure. Keep useful known alternatives, actual costs/irreversibility, timer/cancellation/debt, stable selection/scroll/focus and truthful blocked/started/settled feedback reachable through the chosen task. A layout disclosure is distinct from a gameplay command or save writer. This file's proposed prototype gate is not a passed rendered journey, current confirmed bug or current requirement for those exact categories. No screenshots, live source, browser layout, code, save or accessibility behavior was newly checked.",
+      "evidence": "Complete13/14/17/19-line input bodies read. Existing output-owner final reconciliation sections inspected for routing only; linked source/dossier/probe/UI evidence not newly read or executed.",
+      "reopen": "Use current selected start/world/task and actual source/consumer evidence. Preserve old suggestions and scopes without replaying dispatch.",
+      "input_sha256": "642f70b45bdc0ce03ec430de1b0b0f03c5798683ca89d5aa9ba44cacea6cd84c",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+      "heading": "## Content reconciliation B464: historical dispatch or palette scope",
+      "body": "The complete13-line index-lane prompt is historical dispatch. Its rounds1–16 family census, brief user quotes, proposed defaults, contradiction flags, dev-probe evidence and ranked candidates were an index assignment, not a new start algorithm. The owner's later B303 reconciliation already preserves its actual194-line reading, source/probe limits and later launch notices. “Read linked outputs” here does not credit this reconciliation with reading their bodies. Current [world-entry rules](WORLD_ENTRY_RULES.md), [lead-life scope](LEAD_LIFE_RULES.md), AD23/AD51/AD52 and actual user direction control selected starts. The old requirement to flag contradictions without resolving them applied to that lane; it does not prevent current owner reconciliation from applying later explicit direction. No new role selection, random roll, dossier pass, start implementation or dispatch follows from this prompt.",
+      "before_sha256": "53e5cb630539206760ab26cc081190071cdeb684a75d84c2b1b6da281655007e",
+      "after_sha256": "879a4e6a268c73c27d02de2aac1093b34d37df437b92491e1c0ba3fc79b044f8"
+    },
+    {
+      "path": "docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md",
+      "heading": "## Content reconciliation B464: historical dispatch or palette scope",
+      "body": "The complete14-line ideas-lane prompt requested qualified dossier comparison and original possibilities, not primary-book qualification or gameplay implementation. Its requested private paths and source labels are historical dependencies. The later B310 owner reconciliation retains all actual source cutoffs, absent notes, identity/intent/role distinctions and the unimplemented minimal-state sketches. Reading this prompt did not read any private brief, synthesis, chapter or sealed truth. VX/OX possibilities remain available palettes; no inherited title decides the present person's intent, and no copied-memory label alone decides continuity or information sharing. Current [world-entry rules](../WORLD_ENTRY_RULES.md), [lead-life rules](../LEAD_LIFE_RULES.md) and AD32 govern an actual selected consumer. Do not replay the old dossier assignment or treat suggestions as a new queue.",
+      "before_sha256": "a0c009867b934525a1a39709d360a1cf1287a202f78a9392fb9a700083cdfd59",
+      "after_sha256": "a7ffc694c404023cf80e468aeea316534123d6b39e1d60d19886112c609ef30e"
+    },
+    {
+      "path": "docs/research/multiworld-synthesis-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B464: historical dispatch or palette scope",
+      "body": "The complete17-line multiworld audit prompt was read. Its five-SHOWN/five-INFERRED per-lane spot-check target is the original audit requirement, not proof the checks were performed by reading this prompt. The report's ten MWA packets map to existing K/P owners; they are proposals, not ten adopted mechanics. The original nested-world root path is stale as this report already records; the dispatch owner supplies the route. Old installing/not-installed statements, owner labels, next-slice ranking and1366×768 gate remain dated. Use current [PROJECT](../../../PROJECT.md), [UI rules](../../UI_RULES.md), [architecture](../../ARCHITECTURE_RULES.md) and exact source-qualified world laws for a selected consumer. Carrying a method, useful foreign operation, relationship continuity and differing world rules need their actual evidence; neither a premise comparison nor a world name proves them. No source game/site, audit sample, private payload, install, UI/browser or current module was rechecked here; source-lane checks and their remaining gaps stay with their original receipts.",
+      "before_sha256": "a64a2dff25f73fefec7f090d02f445cd12ab7e8e662ae1c6f3cef4fc8cbc0d59",
+      "after_sha256": "171dbb05267f49e767d6457484807a598fb00badd47ec50ae84092da5480149d"
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/MENU_CONSIDERATIONS.md",
+      "heading": "## Content reconciliation B464: historical dispatch or palette scope",
+      "body": "All19 original lines were reviewed. Preserve the observed patrol-card duplication and unrelated-content ordering concern as October11 screenshot/source observations. People/Work/Projects categories, one next-action layout and a single ordering coordinator were prototype choices, not current mandatory navigation or a reason to replace actual module/content ownership. Current [UI rules](../../../UI_RULES.md) UR1–5/35/53/57/70–74 and [PROJECT](../../../../PROJECT.md) govern task composition, desktop targets and observer-safe disclosure. Keep useful known alternatives, actual costs/irreversibility, timer/cancellation/debt, stable selection/scroll/focus and truthful blocked/started/settled feedback reachable through the chosen task. A layout disclosure is distinct from a gameplay command or save writer. This file's proposed prototype gate is not a passed rendered journey, current confirmed bug or current requirement for those exact categories. No screenshots, live source, browser layout, code, save or accessibility behavior was newly checked.",
+      "before_sha256": "642f70b45bdc0ce03ec430de1b0b0f03c5798683ca89d5aa9ba44cacea6cd84c",
+      "after_sha256": "95193cc0f1e02e203b6402f1fb9762b3976bd0e2e184fda967ce8a20ff65821f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 378,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B460, continuous execution 2026-11-05 |",
+      "to": "| B464, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B464; full remaining objective stays open."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "47a7e315a730389d57d841da4e6f04c260b9bbe22a6f4baaf19425a26fdf9160",
+      "to": "0215546bb0f84ccac74e22c66421340fef8ac45475d4de985a6d3798c485a684",
+      "reason": "Advance active reconciliation through B464; full remaining objective stays open."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "batch": "B540",
+  "title": "Ideas inventory world-card, palette and institutional routing tranche",
+  "at": "2026-11-05T10:13:58.256151+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "ids": [
+        "WKIT-BASE/K-family/W4-X",
+        "RZ/TN/WM/PR/SS/YS/SL-PAUSE/OF-HOME/NEW-CARDS/PSS-RT",
+        "RP1–RP9",
+        "SP1–SP3",
+        "W19-X/A/CR/C-late routing",
+        "UV-BROAD/W1W4/CWD/DEEP-DIVE/CARD-REFRESH",
+        "BF28–BF94 grouped",
+        "institution-role families",
+        "world-depth census intro"
+      ],
+      "classification": "partial actual world-card/source-owner crosswalk review; grouped-route scope and accepted-direction distinction retained",
+      "owners": [
+        "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md"
+      ],
+      "disposition": "F1: Actual new review covers original621–730: WKIT-BASE/K-family/W4-X/RZ/TN/WM/PR/SS/YS/SL-PAUSE/OF-HOME/NEW-CARDS/PSS-RT consolidated rows; RP1–RP9 and SP1–SP3; per-card W19-X/A/CR/C-late routing; UV-BROAD/UV-W1W4/UV-CWD/UV-DEEP-DIVE/UV-CARD-REFRESH; BF28–BF94 grouped rows; institution/role family routing and standalone world-depth census introduction. Together B534–B540 cover original1–730 only. Original731–1169 remains for actual reading. Reading a grouped locator row establishes this crosswalk's content, not every member of its cited family or private source body.\n\nF2: Whole-kit source/design coverage, card census, selected engine reuse, native consumer and current world play are different dimensions. Preserve K1–K34, W4 E/K rows, later MC/KX/NX/RP/SP rounds and each world's edition/era/source/observer/clock qualifiers without turning all kit parts into a compulsory simultaneous build. W19 twenty-card consolidation, eighteen canon-first routes, thirty-card snapshot, six later source cards and UNKNOWN combined grids are different denominators, not a readiness percentage. Each of the five separately indexed book-card routes keeps its actual identity; a shared umbrella label cannot merge their sources, settings or costs. The current larger project intake and newer owner notes do not retroactively expand this frozen census.\n\nF3: Source-card rows and READY first-slice packets are not runtime packs, installed worlds or newly qualified full editions. Re:Zero owner stocks/rewind/event/revelation, loop owner versus bystander, support consent/debt and medium-specific crossing clocks remain source-local meaningful mechanisms with actual consumer gaps. The table itself distinguishes YL1 done, YL2 acquisition-dependent and YL3 proposed gameplay: generic grouped proposal status must not requeue completed research. Soldier's recorded runtime pause is preserved rather than assumed lifted; Original Frontier's finite earned journey does not certify the whole kit. Primordial/Regressor source-reviewed partials and later source-gap updates retain their chronology; a stale no-build row cannot disprove a later exact owned slice. No private pack, proprietary corpus or current source-reading budget was accessed here.\n\nF4: RP/SP preserve useful differences among root proposal, corrected earlier claim, source-based law, original placeholder, weather/calendar ownership, per-instance context, local carrier, scoped rendering and actual journey. Earlier1366 W36 evidence does not impose a present floor or become Export/Import proof when those gates were open. Current successor/receipt and current source determine any remaining native deficit. Round17/19/21 lenses, folklore, leisure, sanitation, climate, little actions and implementation tools remain optional context/texture or named mechanism, not a mandatory generation simulator or a new engine/completion gate. Translation/source labels and known calendar precision stay explicit; no global weather leak, same-tick event bug or fixed old defect is claimed reproduced here.\n\nF5: UV-BROAD's state cell says proposal, but the row's actual content records standing user direction: deeper systems, several paths, distinct worlds and retirement of the one-realm/prestige required gate. Preserve that real authority without marking every related palette accepted. UV-W1W4 is built-and-played only for four matching frozen Frontier/Mistglass journeys, six viewport/text cases and ten persistence states; UV-CWD is explicitly partial for selected C7/C9/C10 native consumers, not all CWD1–CWD12. Commit, app adoption and human feel remain separate. UV-CARD-REFRESH's blocked label is a dated owner/review task, not a present external project stop or authority to rewrite all cards. Current PROJECT controls sequence.\n\nF6: BF28–BF94 grouped design and shared constraints do not certify their underlying source spans. BF90–94 replace the older BF-L list at that snapshot; do not reintroduce superseded priorities. Institution/role ACT means source-note/doc completion where stated. Fanren and Primordial READY packets, MoL money/trade census, Reverend Insanity city-services addenda, and later five-book institution spot checks supersede parts of their older reading lists only for named ranges/codes. They do not deliver current native institutions, every economy or a full-world journey. Source-specific calendar/currency/contract/jurisdiction, membership/access versus competence, proper role recipients and actual costs remain useful candidates. No automatic reader/model wave, acquisition, new worktree, prototype, world priority or gameplay action follows from historical effort estimates and LATER labels. Human review remains optional under AD42; AD35/AD36/AD43 govern selected source/evidence and AD51 shared-seam scope.",
+      "evidence": "Original621–660,661–690,691–730 read completely in bounded outputs. Prior B534–B539 cover1–620. Cited card/source families and private world bodies are not credited by these locator reads; no source corpus or runtime revalidation.",
+      "reopen": "Continue original731–1169, then read appended notes and combine exact cumulative input/range coverage before full-file claim.",
+      "full": false,
+      "ranges": [
+        [
+          621,
+          730
+        ]
+      ],
+      "input_sha256": "355d2e3ea874dc06f06e4b5f98ed230ce580ba6c9a2ea10d008ae5cbecac15f7",
+      "input_lines": 1259
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "heading": "## Content reconciliation B540: world-card, palette and institution routing",
+      "body": "F1: Actual new review covers original621–730: WKIT-BASE/K-family/W4-X/RZ/TN/WM/PR/SS/YS/SL-PAUSE/OF-HOME/NEW-CARDS/PSS-RT consolidated rows; RP1–RP9 and SP1–SP3; per-card W19-X/A/CR/C-late routing; UV-BROAD/UV-W1W4/UV-CWD/UV-DEEP-DIVE/UV-CARD-REFRESH; BF28–BF94 grouped rows; institution/role family routing and standalone world-depth census introduction. Together B534–B540 cover original1–730 only. Original731–1169 remains for actual reading. Reading a grouped locator row establishes this crosswalk's content, not every member of its cited family or private source body.\n\nF2: Whole-kit source/design coverage, card census, selected engine reuse, native consumer and current world play are different dimensions. Preserve K1–K34, W4 E/K rows, later MC/KX/NX/RP/SP rounds and each world's edition/era/source/observer/clock qualifiers without turning all kit parts into a compulsory simultaneous build. W19 twenty-card consolidation, eighteen canon-first routes, thirty-card snapshot, six later source cards and UNKNOWN combined grids are different denominators, not a readiness percentage. Each of the five separately indexed book-card routes keeps its actual identity; a shared umbrella label cannot merge their sources, settings or costs. The current larger project intake and newer owner notes do not retroactively expand this frozen census.\n\nF3: Source-card rows and READY first-slice packets are not runtime packs, installed worlds or newly qualified full editions. Re:Zero owner stocks/rewind/event/revelation, loop owner versus bystander, support consent/debt and medium-specific crossing clocks remain source-local meaningful mechanisms with actual consumer gaps. The table itself distinguishes YL1 done, YL2 acquisition-dependent and YL3 proposed gameplay: generic grouped proposal status must not requeue completed research. Soldier's recorded runtime pause is preserved rather than assumed lifted; Original Frontier's finite earned journey does not certify the whole kit. Primordial/Regressor source-reviewed partials and later source-gap updates retain their chronology; a stale no-build row cannot disprove a later exact owned slice. No private pack, proprietary corpus or current source-reading budget was accessed here.\n\nF4: RP/SP preserve useful differences among root proposal, corrected earlier claim, source-based law, original placeholder, weather/calendar ownership, per-instance context, local carrier, scoped rendering and actual journey. Earlier1366 W36 evidence does not impose a present floor or become Export/Import proof when those gates were open. Current successor/receipt and current source determine any remaining native deficit. Round17/19/21 lenses, folklore, leisure, sanitation, climate, little actions and implementation tools remain optional context/texture or named mechanism, not a mandatory generation simulator or a new engine/completion gate. Translation/source labels and known calendar precision stay explicit; no global weather leak, same-tick event bug or fixed old defect is claimed reproduced here.\n\nF5: UV-BROAD's state cell says proposal, but the row's actual content records standing user direction: deeper systems, several paths, distinct worlds and retirement of the one-realm/prestige required gate. Preserve that real authority without marking every related palette accepted. UV-W1W4 is built-and-played only for four matching frozen Frontier/Mistglass journeys, six viewport/text cases and ten persistence states; UV-CWD is explicitly partial for selected C7/C9/C10 native consumers, not all CWD1–CWD12. Commit, app adoption and human feel remain separate. UV-CARD-REFRESH's blocked label is a dated owner/review task, not a present external project stop or authority to rewrite all cards. Current PROJECT controls sequence.\n\nF6: BF28–BF94 grouped design and shared constraints do not certify their underlying source spans. BF90–94 replace the older BF-L list at that snapshot; do not reintroduce superseded priorities. Institution/role ACT means source-note/doc completion where stated. Fanren and Primordial READY packets, MoL money/trade census, Reverend Insanity city-services addenda, and later five-book institution spot checks supersede parts of their older reading lists only for named ranges/codes. They do not deliver current native institutions, every economy or a full-world journey. Source-specific calendar/currency/contract/jurisdiction, membership/access versus competence, proper role recipients and actual costs remain useful candidates. No automatic reader/model wave, acquisition, new worktree, prototype, world priority or gameplay action follows from historical effort estimates and LATER labels. Human review remains optional under AD42; AD35/AD36/AD43 govern selected source/evidence and AD51 shared-seam scope.",
+      "before_sha256": "355d2e3ea874dc06f06e4b5f98ed230ce580ba6c9a2ea10d008ae5cbecac15f7",
+      "after_sha256": "b27c62de0a182a6e48d04088b64221df223144b620a9a0901bc1f4a0ebc92913"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 173,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "from": "Preserve that real authority without marking every related palette accepted.",
+      "to": "Preserve that real authority under AD32 without marking every related palette accepted.",
+      "reason": "Clarify task wording flagged by document authority lint; no changed source conclusion."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "from": "438c11972a9b2bb188b8f184e821261e4477cd1bd04237515799619f6423fc8f",
+      "to": "e5a7b15ba2be51921aa15956ef7c22679a4a45fa594d5238db45f8028a1d99c6",
+      "reason": "Exact recorded task-wording correction."
+    }
+  ]
+}

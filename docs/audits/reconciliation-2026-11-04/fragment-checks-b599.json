@@ -1,0 +1,17 @@
+{
+  "batches": "B597\u2013B599",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/research/power-systems/wiki-digests/full-dumps/SUCCESSOR_HANDOFF.md",
+      "target": "../CHECKPOINT.md#lane-setup-2026-10-13",
+      "exists": true
+    },
+    {
+      "source": "docs/research/power-systems/wiki-digests/full-dumps/SUCCESSOR_HANDOFF.md",
+      "target": "../CHECKPOINT.md#lane-setup-2026-10-13",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New folds/amendments; direct heading existence only, not linked-body verification."
+}

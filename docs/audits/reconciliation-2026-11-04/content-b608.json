@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "batch": "B608",
+  "title": "Fanren simulator: REAL/SIM prices, run state and later source corrections",
+  "at": "2026-11-05T13:03:53.301345+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12",
+        "EF1",
+        "EF2",
+        "EF3",
+        "EF4",
+        "EF5",
+        "EF6",
+        "EF7",
+        "EF8",
+        "EF9",
+        "EF10",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13",
+        "W2",
+        "W3"
+      ],
+      "classification": "later review supersession, transaction scope and unresolved source discrepancy",
+      "owners": [
+        "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+        "docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md"
+      ],
+      "disposition": "F1: Actual full review covers300input lines, W1–W4/42369character units/20selected chapters,24coordinator-check groups, all facility/role/money/clock/source-gap rows, F1–F12/EF1–EF10/C1–C10/five floor cards and later independent W2/W3 addenda. The fan novel title is distinct from the original Fanren novel and from five other TTKS titles. The supplied Traditional-script mirror JSON SHA d522bf1595ac71b3843f9a41a9b96a26d8b47e55ac22ecafe949b4ceec2c2a31 is a44chapter partial capture;184total and creator/platform are secondary metadata. The dated tried-mirror outcome does not prove no other source exists or current global unavailability. No new acquisition, raw chapter/body read or whole-source verification occurs.\n\nF2: Later section17 supersedes the earlier resolved-C4 statement: off-island investigation assurances, elders' behavior and unavenged ambush retain an open stated-rule/practice tension. Open sea is not a safe zone against other actors. C3distinguishes25years in town from a separate40year ordeal run; do not merge them into one lifespan cost. The table's age21/66 and other age16/19/17 shorthand need the exact run/event crosswalk before deriving a timeline. The later500/470/750caps are per-run values, not a fixed500global meter. Cross-reference slips are corrected to C2fee/C4avenging/C6Qi6threshold without renumbering original IDs.\n\nF3: Start charge, tier draw, reward claim fee, extra-pick cap cost, listed bag and received contents are separate transactions. Section17 confirms a2000reward-fee line at0010p19 while the following1000line's object remains unresolved; the deep dive's blanket inferred-claim-fee gap is qualified with that reused review. First-free/all-rewards is a source exception, not a policy demanding free first runs everywhere. A listed2000versusreceived1000+gap has no established cause; it does not authorize inventing a tax. REAL versus SIM labels, believed20000/recruiter30000/coreglut5000, sold total versus per-core arithmetic, shouted offer versus paid price, pre-auction700000proceeds versus lot bids, and one-way2000teleport all retain state and unit. Claimed currency identity does not itself transfer purchasing power across real/run boundaries.\n\nF4: Raw reward realm differs from learned understanding, actual stabilization, fuel/calm support, mind state and observer-visible breakthrough. A specific context-dependent bloodlust does not prove every reward secretly misfires. A binding clock/obedience claim is not proof killing a provider reverses already acquired effects or all completed control; preserve actual support and aftermath questions under BHR32. Same-realm predation, Qi6threshold, actual later joining, patron exemption and local brawl policy are source-specific motives, not universal sect or rank permissions. A nod-through with no fee shown is not proof no fee exists. Source quantities/forced source situations do not become new player policies.\n\nF5: A forecast keyed to known canon and choices does not make the live world immune to divergence or an omniscient external calendar; actor knowledge and forecast source need SA19/AD9 scope. Real cooldown, zero-time run narration, simulated lived years, real closed cultivation and institutional deadlines remain independent clocks. Nested mortal run and post-run cultivation intervals need their own labels. Later proposed host checkpoint/rewind/carry seams are historical source-reading claims, not fresh current implementation or save proof. Retire the one-realm milestone phrase against current PROJECT; price/tier/menu/cap/context are useful candidate fields, not a compulsory minimal schema or a mandatory misfire. Preserve named source gaps and the unresolved reward/realm discrepancy, without a purchase, worker launch or new runtime gate.",
+      "evidence": "All300lines read in four untruncated chunks, simulator owner678–758 and selected deep dive30–66; supporting owner review is scoped. No new source-body or code/behavior verification.",
+      "reopen": "Keep run-local identity and unresolved fees/realm/age/institution contradictions; selected runtime work needs current producer/state/consumer and actual proof.",
+      "full": true,
+      "input_sha256": "ab6ac834815e191ecfd1e440f849f74055f04d2d0b64a5edf0ffbf63f502c39e",
+      "input_lines": 300,
+      "ranges": [
+        [
+          1,
+          300
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B608: REAL RUN transactions and later corrections",
+      "body": "F1: Actual full review covers300input lines, W1–W4/42369character units/20selected chapters,24coordinator-check groups, all facility/role/money/clock/source-gap rows, F1–F12/EF1–EF10/C1–C10/five floor cards and later independent W2/W3 addenda. The fan novel title is distinct from the original Fanren novel and from five other TTKS titles. The supplied Traditional-script mirror JSON SHA d522bf1595ac71b3843f9a41a9b96a26d8b47e55ac22ecafe949b4ceec2c2a31 is a44chapter partial capture;184total and creator/platform are secondary metadata. The dated tried-mirror outcome does not prove no other source exists or current global unavailability. No new acquisition, raw chapter/body read or whole-source verification occurs.\n\nF2: Later section17 supersedes the earlier resolved-C4 statement: off-island investigation assurances, elders' behavior and unavenged ambush retain an open stated-rule/practice tension. Open sea is not a safe zone against other actors. C3distinguishes25years in town from a separate40year ordeal run; do not merge them into one lifespan cost. The table's age21/66 and other age16/19/17 shorthand need the exact run/event crosswalk before deriving a timeline. The later500/470/750caps are per-run values, not a fixed500global meter. Cross-reference slips are corrected to C2fee/C4avenging/C6Qi6threshold without renumbering original IDs.\n\nF3: Start charge, tier draw, reward claim fee, extra-pick cap cost, listed bag and received contents are separate transactions. Section17 confirms a2000reward-fee line at0010p19 while the following1000line's object remains unresolved; the deep dive's blanket inferred-claim-fee gap is qualified with that reused review. First-free/all-rewards is a source exception, not a policy demanding free first runs everywhere. A listed2000versusreceived1000+gap has no established cause; it does not authorize inventing a tax. REAL versus SIM labels, believed20000/recruiter30000/coreglut5000, sold total versus per-core arithmetic, shouted offer versus paid price, pre-auction700000proceeds versus lot bids, and one-way2000teleport all retain state and unit. Claimed currency identity does not itself transfer purchasing power across real/run boundaries.\n\nF4: Raw reward realm differs from learned understanding, actual stabilization, fuel/calm support, mind state and observer-visible breakthrough. A specific context-dependent bloodlust does not prove every reward secretly misfires. A binding clock/obedience claim is not proof killing a provider reverses already acquired effects or all completed control; preserve actual support and aftermath questions under BHR32. Same-realm predation, Qi6threshold, actual later joining, patron exemption and local brawl policy are source-specific motives, not universal sect or rank permissions. A nod-through with no fee shown is not proof no fee exists. Source quantities/forced source situations do not become new player policies.\n\nF5: A forecast keyed to known canon and choices does not make the live world immune to divergence or an omniscient external calendar; actor knowledge and forecast source need SA19/AD9 scope. Real cooldown, zero-time run narration, simulated lived years, real closed cultivation and institutional deadlines remain independent clocks. Nested mortal run and post-run cultivation intervals need their own labels. Later proposed host checkpoint/rewind/carry seams are historical source-reading claims, not fresh current implementation or save proof. Retire the one-realm milestone phrase against current PROJECT; price/tier/menu/cap/context are useful candidate fields, not a compulsory minimal schema or a mandatory misfire. Preserve named source gaps and the unresolved reward/realm discrepancy, without a purchase, worker launch or new runtime gate.",
+      "before_sha256": "ab6ac834815e191ecfd1e440f849f74055f04d2d0b64a5edf0ffbf63f502c39e",
+      "after_sha256": "22b8a669d1531f88f6b36e5f6f7d9497c0ef47f0641d829ccd390e76d463514f"
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "heading": "## FR institution and run-state reconciliation B608",
+      "body": "The [Fanren simulator institution pass](worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b608-real-run-transactions-and-later-corrections) adds REAL/SIM context and later source-review corrections to FR/SA6/SA8/SA9/SA13/SA16/SA19. Separate start/draw/claim/extra-pick charges, listed and actually received stock, run-local price/age/cap and real cooldown/stabilization. Its later review confirms a2000reward-fee line while the separate1000line remains ambiguous;500/470/750are distinct cap states.25town years and a different40year ordeal are different runs. A particular misfire is context-dependent, not every pick’s required hidden cost. Canon-scheduled forecasts remain source/knowledge-qualified and do not freeze the playable world. The44chapter mirror boundary is a dated supplied-source limit, not proof of current all-mirror availability. No raw body or current runtime was newly verified, and this reference does not launch acquisition or implementation.",
+      "before_sha256": "56c6825f4dc815ae004e1ab1c400c943836b84d35ed454ce9f430e422c9030ae",
+      "after_sha256": "1e0462b752925252cf4ba6230b2691f9cba53af1fb0a088e93522c0013cee391"
+    },
+    {
+      "path": "docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md",
+      "heading": "## Later fee and run-context qualification B608",
+      "body": "The [later institution pass](../../../worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b608-real-run-transactions-and-later-corrections) section17 qualifies the original gap list:0010p19states a2000reward fee, while p21’s separate1000line still has an unresolved object (C2). Its source-reviewed run labels distinguish25town years at0023 from a40year ordeal at0040, and cap500/470/750by state. C4avenging remains an open tension after the later independent review; the original resolved wording is historical. These are reused later review receipts, not fresh raw source reading in B608. Keep C1realm-choice/actual-realm inconsistency, chapter30–31/42–44targeted gaps and45+coverage gaps explicit. No new price formula or current implementation proof follows.",
+      "before_sha256": "447b00285d0e87349b6de8f80b0497f8d1ec4c132a62aad5b7a71fcb3820c999",
+      "after_sha256": "bfd7b01d2d1b064a4da9903e297796961ecd253a18b0e87ec11cf63a68a633a1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 86,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "no simulator behavior exists. No hit in `src/` mentions this book.",
+      "to": "no simulator behavior was established by that dated census. No hit in that search mentioned this book; this is not a fresh current whole-code review.",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "see EF10).",
+      "to": "see EF10, a source-qualified forecast rather than a rule that live divergence is impossible).",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "UNSURE; see C5.",
+      "to": "UNSURE; see C2.",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "See C6.",
+      "to": "See C4.",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "the simulator treats that book's events as a fixed future",
+      "to": "the simulator uses a canon-based forecast in the inspected story",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "so a fighter's safe zone is the open sea",
+      "to": "while other actors can still harm a fighter at sea",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "no fee, check or clerk, so reputation is a shout",
+      "to": "no fee, check or clerk shown in this window; shouted claims are visible signals",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Status: resolved.\n- C5.",
+      "to": "Status: superseded by section17: open stated-rule/practice tension.\n- C5.",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "every pick carries a hidden cost",
+      "to": "a selected reward may carry a context-dependent cost",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "the one-realm milestone is untouched.",
+      "to": "current PROJECT retires the old one-realm milestone; this record selects no new priority.",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "from": "Only the free 44 of 184 chapters exist on any mirror.",
+      "to": "The held44of184chapters came from the dated tried-mirror capture; this does not establish current global availability.",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md",
+      "from": "The claim fee is inferred from stone arithmetic [0005].",
+      "to": "Original inference: claim fee from stone arithmetic [0005]. The later institution pass section17 records an explicit2000reward fee at0010p19; p21’s separate1000line remains ambiguous (C2).",
+      "reason": "Preserve exact wording while applying later source/authority qualification."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Only a C0 data contract (`src/cheat_cards.js`) that allows a `simulator` panel; no behavior",
+      "to": "The dated census found a C0 data contract (`src/cheat_cards.js`) allowing a `simulator` panel; no behavior was established by that inspection",
+      "reason": "Date sole-coverage claim from old code census."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B607, continuous execution 2026-11-05 |",
+      "to": "| B608, continuous execution 2026-11-05 |",
+      "reason": "Advance current checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "22b8a669d1531f88f6b36e5f6f7d9497c0ef47f0641d829ccd390e76d463514f",
+      "to": "7d1904fe1cabfef5fd25d5e6a707bbac0d863f25dfa790dc51fb123ac6bdf771",
+      "reason": "Exact inline qualifiers."
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "from": "1e0462b752925252cf4ba6230b2691f9cba53af1fb0a088e93522c0013cee391",
+      "to": "6b19787daade2b65a5271d00c02e2d0896f9ff52e90dcb7ef9fe26cdaa04c5a6",
+      "reason": "Exact inline qualifiers."
+    },
+    {
+      "path": "docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md",
+      "from": "bfd7b01d2d1b064a4da9903e297796961ecd253a18b0e87ec11cf63a68a633a1",
+      "to": "45223430293290982d1f8f15b845e17a5723819617f31dee38d1334259e70528",
+      "reason": "Exact inline qualifiers."
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "7d1904fe1cabfef5fd25d5e6a707bbac0d863f25dfa790dc51fb123ac6bdf771",
+      "to": "8da9f31a5fc98d500f72bd8d9e9121bfb25fc122d28d3f5f863557456d2f6169",
+      "reason": "Clarify historical coverage."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9ecf9e5600c8f4255f25768f7d948a7efcb9ee40b2628a29046189cf3445e828",
+      "to": "4f7c833c151b8c8ff53e82d0ac5049f9843ca4565cb27ca222707aa5eb070962",
+      "reason": "Pointer toB608; no full register credit."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "sha256": "6b19787daade2b65a5271d00c02e2d0896f9ff52e90dcb7ef9fe26cdaa04c5a6",
+      "ranges": [
+        [
+          678,
+          758
+        ]
+      ],
+      "scope": "Only selected FR/SA/SM rows; no full owner review."
+    },
+    {
+      "path": "docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md",
+      "sha256": "45223430293290982d1f8f15b845e17a5723819617f31dee38d1334259e70528",
+      "ranges": [
+        [
+          30,
+          60
+        ]
+      ],
+      "scope": "Selected original deep-dive30–60, actual end60; no full-file review."
+    }
+  ]
+}

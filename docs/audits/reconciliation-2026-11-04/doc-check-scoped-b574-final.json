@@ -1,0 +1,33 @@
+{
+  "command": "node scripts/.reconcile-doc-slips-b574.mjs",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+    "docs/PROGRESSION_GATE_RULES.md",
+    "docs/SITE_AND_EXPLORATION_RULES.md",
+    "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/README.md",
+    "docs/gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md",
+    "docs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md",
+    "docs/gm/dispatch/potion-pathways-2026-10-24/CHECKPOINT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p11/WORLD_SITE_PALETTE_2026-10-16.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p38/RECEIPT_LOG.md",
+    "docs/gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md",
+    "docs/gm/dispatch/proto23-vfx-2026-10-13/PROTO23_VFX-reconciled.md",
+    "docs/gm/dispatch/refit-k3-2026-10-22/CHECKPOINT.md",
+    "docs/gm/dispatch/village-loop-2026-10-27/GM_PLAN.md",
+    "docs/gm/dispatch/village-loop-2026-10-27/VILLAGE_LOOP_CHECKPOINT.md",
+    "docs/gm/feature-wave/repositories/WORKPLAN.md",
+    "docs/gm/world-completion-2026-10-06/DELIVERY.md",
+    "docs/research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md"
+  ],
+  "original_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "1726f6d2110c7ad9a5274d4db44b5827f0175e5a30e77acee0b993ba10519151",
+  "scope": "Only task path filespec adapted; unchanged diagnostic rules. Separate from whole shared tree."
+}

@@ -1,0 +1,12 @@
+{
+  "batches": "B556\u2013B561",
+  "checked": [
+    {
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "target": "../PROJECT.md#current-focus",
+      "fragment_found": true
+    }
+  ],
+  "count": 1,
+  "scope": "New-fold/banner fragment targets only; no linked-source proof."
+}

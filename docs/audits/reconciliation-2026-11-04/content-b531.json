@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "batch": "B531",
+  "title": "Cultivation discovery, title adoption and compact prompt templates",
+  "at": "2026-11-05T09:55:57.011084+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/PROTOLIKE_AND_CULTIVATION_DISCOVERY_2026-10-22.md",
+      "ids": [
+        "F1–F3",
+        "C1–C11"
+      ],
+      "classification": "dated source-screening/proposal record; scoped implementation and later-owner qualifications",
+      "owners": [
+        "docs/research/protolike-deep-2026-10-22/REPORT.md"
+      ],
+      "disposition": "Initial F1–F3/C1–C11 screening is dated public source/developer evidence, not current releases or ordinary-play verification. CATA testing unlocks, XP and empty cultivation files established a UI prototype at its pinned revision; realm/map tab labels did not establish gameplay. Neko/GauTech fork:false explains why fork-network-only discovery missed derivatives without proving an exhaustive ecosystem. GauTech and original Progress Knight already had dossiers; Neko was user-supplied, not unknown to the user. Developer claims about sect history, family autonomy and many progression layers remain claims until actual consumers are traced. The later four-project report provides selected code/probe evidence beyond screening, but its captured-file counts do not equal full-source reading or save/native proof. Its opening one-realm/prestige milestone wording is superseded by the October24 scope direction; preserve distinct-world institutional continuity, process properties, meaningful advancement and earned-history candidates without making that retired milestone a gate. Search absence is bounded to searched public Markdown, not every private/chat source. Old recommendations, licenses and download/platform availability require fresh verification only for selected follow-up; no new research or adoption is launched.",
+      "evidence": "Complete actual content: discovery136 lines; Xeus1–75,76–133; preset134 lines. Supporting deep REPORT1–55 and local-AI REPORT1–35 read, plus exact router search. No source repository, model, installed runtime, gameplay or benchmark revalidation.",
+      "reopen": "Select a named consumer or evaluation uncertainty and use the current source/model/owner before follow-up; retain historical source and test bounds without launching the archived proposal.",
+      "input_sha256": "76250106803cdaf5348508d7f6b5daaf1eec9f4afaebf3d936eef3ad2ae423fa",
+      "input_lines": 136,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          136
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/proto23/xeus24-mod-2026-10-10/XEUS24_MOD_AUDIT_2026-10-10.md",
+      "ids": [
+        "F1–F7",
+        "O1",
+        "O1b",
+        "A1–A6"
+      ],
+      "classification": "dated source-screening/proposal record; scoped implementation and later-owner qualifications",
+      "owners": [
+        "docs/research/proto23/xeus24-mod-2026-10-10/XEUS24_MOD_AUDIT_2026-10-10.md"
+      ],
+      "disposition": "The Xeus24 report records a pinned source/notes audit split across readers; the mod was never played and its measurements are attributed to its author. Titles, Renown, star crafting, cultivation, save slots and catch-up are distinct source ideas, not universal YAIR rules. F3's keyed title object prevents that particular positional-list doubling mechanism, not every duplicate grant or stacked-bonus bug. O1 records a historical26-title implementation, derived replacement bonuses, unknown-ID retention and explicit old-empty compatibility; six focused and279 whole-suite checks bind that older input only. The actual first kill, defeat and reload trials differ from a synthetic120-kill backfill; final import after wiping test storage is not fresh earned long-horizon coverage. XP multiplier precedence repair changes other formerly dormant bonuses and pacing, beyond title tuning. Rank/worn/passive Renown, live-gate readiness, generated codex, optional catch-up and backup rotation remain candidates; source-specific pill bottlenecks and max-HP tribulation are dials, not global laws. Human feel is optional review under AD42; old narrow-screen backlog is not a new mobile gate. No runtime, counts or upstream PR status reverified here.",
+      "evidence": "Complete actual content: discovery136 lines; Xeus1–75,76–133; preset134 lines. Supporting deep REPORT1–55 and local-AI REPORT1–35 read, plus exact router search. No source repository, model, installed runtime, gameplay or benchmark revalidation.",
+      "reopen": "Select a named consumer or evaluation uncertainty and use the current source/model/owner before follow-up; retain historical source and test bounds without launching the archived proposal.",
+      "input_sha256": "3a145a0dcd1d15d971188c18c754e508880ef21eaaf6bd62746aa76dc6ff0029",
+      "input_lines": 133,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          133
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/SILLYTAVERN_PRESET_FIT_2026-10-14.md",
+      "ids": [
+        "F1–F4",
+        "O1–O3",
+        "A1–A2",
+        "P1–P5"
+      ],
+      "classification": "dated source-screening/proposal record; scoped implementation and later-owner qualifications",
+      "owners": [
+        "docs/research/local-ai-2026-10-14/REPORT.md"
+      ],
+      "disposition": "The preset fit is a catalogue of prompt ideas, not controlled model quality or autonomous coding proof. Pura compact core, distilled Vivarium and selected Voyage prose need translation from frontend macros/order; a JSON module need not be enabled. Community size/compatibility claims and documented8192/2048 launcher limits are dated, not current installed profiles. Closed runtime facts, actor knowledge, player agency, RNG, trades, injuries and elapsed time remain game-owned; offline inventions are labelled proposals. A prompt summary is not durable memory. P1–P5 are newly written task templates, not quoted/tested coding presets, and plain ollama run had no filesystem or shell tools in the inspected launcher. Proposed diffs/checks cannot claim applied edits or executed tests. Preserve concrete reproduction, strongest alternative, bounded counterexample and open-invention boundary. A1/A2 trials remain unrun, and jailbreak/uncensored labels or longer reasoning do not establish better voice, continuity or correctness. Existing P15/T5 owners retain validation/fallback/frozen-text/persistence authority; no model/default/install or runtime route is selected.",
+      "evidence": "Complete actual content: discovery136 lines; Xeus1–75,76–133; preset134 lines. Supporting deep REPORT1–55 and local-AI REPORT1–35 read, plus exact router search. No source repository, model, installed runtime, gameplay or benchmark revalidation.",
+      "reopen": "Select a named consumer or evaluation uncertainty and use the current source/model/owner before follow-up; retain historical source and test bounds without launching the archived proposal.",
+      "input_sha256": "81ed4d11216b222b538646e081880450e9e2499ac44e490d6b29cca5e7d75e45",
+      "input_lines": 134,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          134
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/protolike-deep-2026-10-22/REPORT.md",
+      "heading": "## Content reconciliation B531: initial screening and later selected depth",
+      "body": "Initial F1–F3/C1–C11 screening is dated public source/developer evidence, not current releases or ordinary-play verification. CATA testing unlocks, XP and empty cultivation files established a UI prototype at its pinned revision; realm/map tab labels did not establish gameplay. Neko/GauTech fork:false explains why fork-network-only discovery missed derivatives without proving an exhaustive ecosystem. GauTech and original Progress Knight already had dossiers; Neko was user-supplied, not unknown to the user. Developer claims about sect history, family autonomy and many progression layers remain claims until actual consumers are traced. The later four-project report provides selected code/probe evidence beyond screening, but its captured-file counts do not equal full-source reading or save/native proof. Its opening one-realm/prestige milestone wording is superseded by the October24 scope direction; preserve distinct-world institutional continuity, process properties, meaningful advancement and earned-history candidates without making that retired milestone a gate. Search absence is bounded to searched public Markdown, not every private/chat source. Old recommendations, licenses and download/platform availability require fresh verification only for selected follow-up; no new research or adoption is launched.",
+      "before_sha256": "d3ae849b1270a5336fb392635533df3c48b4d6dcb28969b1c1b8c19a12f6fcb1",
+      "after_sha256": "1d64d156b476d494ca239dcd11c468d075daebc7e896ae909e048b1a01c6cebb"
+    },
+    {
+      "path": "docs/research/proto23/xeus24-mod-2026-10-10/XEUS24_MOD_AUDIT_2026-10-10.md",
+      "heading": "## Content reconciliation B531: title delivery and proposal boundaries",
+      "body": "The Xeus24 report records a pinned source/notes audit split across readers; the mod was never played and its measurements are attributed to its author. Titles, Renown, star crafting, cultivation, save slots and catch-up are distinct source ideas, not universal YAIR rules. F3's keyed title object prevents that particular positional-list doubling mechanism, not every duplicate grant or stacked-bonus bug. O1 records a historical26-title implementation, derived replacement bonuses, unknown-ID retention and explicit old-empty compatibility; six focused and279 whole-suite checks bind that older input only. The actual first kill, defeat and reload trials differ from a synthetic120-kill backfill; final import after wiping test storage is not fresh earned long-horizon coverage. XP multiplier precedence repair changes other formerly dormant bonuses and pacing, beyond title tuning. Rank/worn/passive Renown, live-gate readiness, generated codex, optional catch-up and backup rotation remain candidates; source-specific pill bottlenecks and max-HP tribulation are dials, not global laws. Human feel is optional review under AD42; old narrow-screen backlog is not a new mobile gate. No runtime, counts or upstream PR status reverified here.",
+      "before_sha256": "3a145a0dcd1d15d971188c18c754e508880ef21eaaf6bd62746aa76dc6ff0029",
+      "after_sha256": "fa412bfd5307859a925d1c16c4329125229e9c8957efe5af9d77eb66a65307f9"
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B531: preset ideas and tool/evidence boundaries",
+      "body": "The preset fit is a catalogue of prompt ideas, not controlled model quality or autonomous coding proof. Pura compact core, distilled Vivarium and selected Voyage prose need translation from frontend macros/order; a JSON module need not be enabled. Community size/compatibility claims and documented8192/2048 launcher limits are dated, not current installed profiles. Closed runtime facts, actor knowledge, player agency, RNG, trades, injuries and elapsed time remain game-owned; offline inventions are labelled proposals. A prompt summary is not durable memory. P1–P5 are newly written task templates, not quoted/tested coding presets, and plain ollama run had no filesystem or shell tools in the inspected launcher. Proposed diffs/checks cannot claim applied edits or executed tests. Preserve concrete reproduction, strongest alternative, bounded counterexample and open-invention boundary. A1/A2 trials remain unrun, and jailbreak/uncensored labels or longer reasoning do not establish better voice, continuity or correctness. Existing P15/T5 owners retain validation/fallback/frozen-text/persistence authority; no model/default/install or runtime route is selected.",
+      "before_sha256": "7f9ad3e3c37271d13f7d10bca10c9a0ccae5bb0cb0f08fd0656915524023934f",
+      "after_sha256": "9f2a213cdda6ae69bea473ad617d6e8019896e1bc6950738fe03b0758c52634f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 173
+}

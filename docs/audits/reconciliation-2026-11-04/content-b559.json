@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "batch": "B559",
+  "title": "Technology architecture, comic corrections and lane-result tranche",
+  "at": "2026-11-05T10:43:44.784764+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "ids": [
+        "OM1–11/IM1–8",
+        "CW1–18/RC16–23/T15 corrections",
+        "AB1–12/T1–T16 summaries",
+        "CN1–15/RW opening"
+      ],
+      "classification": "partial actual owner read; internal merge/source correction chronology and incumbent responsibilities",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "disposition": "F1: Actual new review covers original1501–1900: OM1–OM11/IM1–IM8/G23–G28, CW1–CW18/RC16–RC23 with T15 corrections, AB1–AB12, old merge state, all T1–T16 lane-result summaries, CN1–CN15 and round12/RW opening. B556–B559 cover original1–1900 only. Original1901–2087 and appended notes remain. Each lane summary is reviewed here; its underlying report, source payload and runtime tests are not reread by association.\n\nF2: OM truth/knowledge/presentation and actual evidence provenance are useful distinctions, not a demand that every new feature fit one vocabulary, planner, scale enum or monolithic store. Not every flavor discovery must unlock an action. Saved committed history must not reroll on ordinary inspection/reload, while genuine world evolution, revision and selected temporal mechanisms can change truth under their contract. OM11 natural development uses actual world clocks, including AD16's default inactive pause. No universal always-advancing simulation follows.\n\nF3: Preserve internal implementation chronology: IM3/AB7/old merge section call T6 unmerged, but lane-results part2 expressly records T6/T16 merged in5b8989e8, with QA and unbound-demo consumer status. That supersedes old branch state without certifying a current native roadmap or every future version. Historical364/992 tests and216 profiles identify their own evidence, not live performance. IM2 no-owner and AB8 no-pack-loader are dated source observations, not current absence proof. Reuse incumbent knowledge/receipt/pack/observer seams before another store; nonstacking alone never proves unique item-instance identity. AD51 qualifies automatic second-consumer prerequisites while retaining real portability checks.\n\nF4: T15 corrections qualify CW/RC: manufactured versus mined stock, comic versus MCU creator/events, mutant mind detection versus universal power ranking, acquired access versus every fact, and vow versus physical inability. Named examples inspire original proposals rather than validate their powers. Do not impose status-quo pull without an actual in-world reason; diffusion can succeed. RC sample limits, compulsory detectable scan, narrow danger warning, advisor loyalty or stolen files are selected local possibilities, not universal costs or forced weaknesses for all stronger means.\n\nF5: T5's AND/OR display, GOAP search, HTN decomposition and real scheduling are distinct; make versus obtain and capacity/order matter. T11 ambient/market cues need actual saved causes and cannot expose a hidden rival from saturation. T12 corrects TK scientific-scale claims and novice stereotypes, retaining contested theories/effect-size limits; a sourced learning result is not automatic global game law. T4 distinguishes awareness, adoption and production, and working reconstruction from original historical proof. T7 source/body/fuel/method, T8 immutable-root versus moving cursor, T13 economy/provenance overlap and T14 validator/card discrepancies remain meaningful first-use questions, without creating a full simultaneous implementation queue.\n\nF6: CN craft-time cue versus current skill, saved cause versus new state, collapsed details and observer-safe private inspector remain useful. CN7 second-presenter prerequisite, CN9/CN14 human approval sequencing, CN12 worktree cleanup/CN13 whole-file vision cleanup/CN15 push and hot-file worker labels are dated proposals, not current gates or authorization. Current primary checkout, AD36/AD42/AD43/AD51 and Klein/HP priority govern selected work. The old one-realm/prestige milestone is retired. No current file deletion, worktree retirement, source acquisition, private-save read, code/build/browser, worker, staging, commit or push occurred.",
+      "evidence": "Actual original1501–1900 read sequentially in four bounded untruncated outputs. Earlier B556–B558 actual1–1500; linked lane reports not implicitly reviewed.",
+      "reopen": "Continue original1901–2087 and appended notes, then verify prefix identity and actual range union for full credit.",
+      "full": false,
+      "ranges": [
+        [
+          1501,
+          1900
+        ]
+      ],
+      "input_sha256": "9e36074d4def72359b1b7cc9e5d085c37209b42c3d2bf7f3281f5819adcf26d4",
+      "input_lines": 2132
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "heading": "## Content reconciliation B559: architecture, source corrections and lane chronology",
+      "body": "F1: Actual new review covers original1501–1900: OM1–OM11/IM1–IM8/G23–G28, CW1–CW18/RC16–RC23 with T15 corrections, AB1–AB12, old merge state, all T1–T16 lane-result summaries, CN1–CN15 and round12/RW opening. B556–B559 cover original1–1900 only. Original1901–2087 and appended notes remain. Each lane summary is reviewed here; its underlying report, source payload and runtime tests are not reread by association.\n\nF2: OM truth/knowledge/presentation and actual evidence provenance are useful distinctions, not a demand that every new feature fit one vocabulary, planner, scale enum or monolithic store. Not every flavor discovery must unlock an action. Saved committed history must not reroll on ordinary inspection/reload, while genuine world evolution, revision and selected temporal mechanisms can change truth under their contract. OM11 natural development uses actual world clocks, including AD16's default inactive pause. No universal always-advancing simulation follows.\n\nF3: Preserve internal implementation chronology: IM3/AB7/old merge section call T6 unmerged, but lane-results part2 expressly records T6/T16 merged in5b8989e8, with QA and unbound-demo consumer status. That supersedes old branch state without certifying a current native roadmap or every future version. Historical364/992 tests and216 profiles identify their own evidence, not live performance. IM2 no-owner and AB8 no-pack-loader are dated source observations, not current absence proof. Reuse incumbent knowledge/receipt/pack/observer seams before another store; nonstacking alone never proves unique item-instance identity. AD51 qualifies automatic second-consumer prerequisites while retaining real portability checks.\n\nF4: T15 corrections qualify CW/RC: manufactured versus mined stock, comic versus MCU creator/events, mutant mind detection versus universal power ranking, acquired access versus every fact, and vow versus physical inability. Named examples inspire original proposals rather than validate their powers. Do not impose status-quo pull without an actual in-world reason; diffusion can succeed. RC sample limits, compulsory detectable scan, narrow danger warning, advisor loyalty or stolen files are selected local possibilities, not universal costs or forced weaknesses for all stronger means.\n\nF5: T5's AND/OR display, GOAP search, HTN decomposition and real scheduling are distinct; make versus obtain and capacity/order matter. T11 ambient/market cues need actual saved causes and cannot expose a hidden rival from saturation. T12 corrects TK scientific-scale claims and novice stereotypes, retaining contested theories/effect-size limits; a sourced learning result is not automatic global game law. T4 distinguishes awareness, adoption and production, and working reconstruction from original historical proof. T7 source/body/fuel/method, T8 immutable-root versus moving cursor, T13 economy/provenance overlap and T14 validator/card discrepancies remain meaningful first-use questions, without creating a full simultaneous implementation queue.\n\nF6: CN craft-time cue versus current skill, saved cause versus new state, collapsed details and observer-safe private inspector remain useful. CN7 second-presenter prerequisite, CN9/CN14 human approval sequencing, CN12 worktree cleanup/CN13 whole-file vision cleanup/CN15 push and hot-file worker labels are dated proposals, not current gates or authorization. Current primary checkout, AD36/AD42/AD43/AD51 and Klein/HP priority govern selected work. The old one-realm/prestige milestone is retired. No current file deletion, worktree retirement, source acquisition, private-save read, code/build/browser, worker, staging, commit or push occurred.",
+      "before_sha256": "9e36074d4def72359b1b7cc9e5d085c37209b42c3d2bf7f3281f5819adcf26d4",
+      "after_sha256": "31b4adf822ff39b35fb11040e3fb04528f45fd8849056a76c96f14c71d28bc07"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 160
+}

@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B598",
+  "title": "Legacy later static closure and Idling selected-path coverage",
+  "at": "2026-11-05T12:20:21.895983+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/hogwarts-legacy/deep/COVERAGE.json",
+      "ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17",
+        "D18",
+        "D19",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D24",
+        "D25",
+        "D26",
+        "D27",
+        "D28",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "N6",
+        "QL1",
+        "QL2",
+        "QL3",
+        "QL4",
+        "QL5",
+        "QL6",
+        "QL7",
+        "QL8"
+      ],
+      "classification": "complete coverage content and later static closure reconciled without gameplay promotion",
+      "owners": [
+        "docs/research/hogwarts-legacy/deep/REPORT.md"
+      ],
+      "disposition": "F1: Actual complete coverage-document review covers D1–D28, QL1–QL8 routing, N1–N6 native-chain locators/tool outcomes, all preservation/check/install/file/address fields, NP1–NP7, uninstall/boundary flags and every first-pass reconciliation row. Build20773316 and executable SHAb713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1 identify historical static evidence. No private native body, graph, CONV file, executable or current install was newly opened. Original JSON/schema stay unchanged.\n\nF2: This later pass qualifies the earlier C06/C07/C09/C03 gaps and B596's attribution of them. D1 records a cumulative-threshold consumer with loader warnings and no live crossing. D2 traces one eligible non-complete criterion's forwarding path: its final qualifying event can pay, exhausted repetition skips that path, and other sources may still pay. D3's level-crossing grant new−max(old,4) is conditional on the perk manager and distinct from gear ranges/XP modifiers. D4/D5 add tag/defense query and a selected Hard Stupefy exception, not every shield-removal caller or denial of other valid routes. D6/D7 retain final target-side virtual damage/modifier order and exact stagger/recovery math open. D8 ordinary clamped focus gain/spend is separate from combo and sealed S1; full orb/threshold/refusal behavior stays open.\n\nF3: D9–D15 distinguish shared/species AI assets, action suitability, execution tickets, noise radius/intensity, sight/hearing, scoring, awareness/alert curves, memory, follow/repath/wait, typed schedule overrides and creature feeding/toy/social/flight roles. None closes native arbitration/tie-breaking/simultaneous attacker guarantees, per-frame sensing/decay, navigation, override restoration or care-product/offline Boolean/timer consumption. Keep NP2–NP5's concrete defense, budget, observation and meter ideas as optional owner adaptations with actual consumers, interruption and cause feedback; data weights or colors alone do not supply capability.\n\nF4: D16–D18/D24 distinguish explicit line/speaker IDs, visibility versus selectability, mission result/reward branch, separate used-branch write and registration/exclusivity/quest/schedule gates.113 graph IDs=80SUB joins+33unmatched;21 unmatched have embedded English, leaving other unmatched cases explicit.18889 MAIN and34955 SUB entries plus full CONV retention do not decode global condition grammar, most subtitle effects, Boolean writers or flag polarity. Explicit speakers outrank key-prefix guesses. NP6 needs a real write and later consequence, not an assumed relationship score or animation; S1 remains undisclosed.\n\nF5: D19–D28 retain input/accessibility text/assets versus actual usability; nested stock generation versus final checkout/resale/restock; appearances versus power; finished goods/ingredients/recipe ownership/station placement versus reachable purchase alternatives; transient templates versus serializer/save; rewards/containers/material transformations versus full economy;155typed tasks/15886steps versus complete flag/group scheduling;85event definitions versus reachable director sampling. Four inspected health scales of1 do not prove universal health equality or XP policy. NP1 preserves source-specific award exhaustion without imposing a global ladder or removing idle learning. NP7's cooldown/probability/capacity never substitutes for actual eligible actor/place/state support.\n\nF6: 143 parsed packages, database integrity,62unchanged earlier extracts,351files/489350291bytes and matched executable artifacts are recorded preservation/integrity evidence. Both native routes use Ghidra; initial successes, startup timeouts, direct fallbacks and unresolved virtual targets remain separate, not independent decompiler validation. Source package/graph/decoder counts do not establish every semantic path. Uninstall readiness remains historically NO because unselected conversation/ability/AI/map/event packages and the complete archive were not retained; no removal is authorized here. All LP/NP mappings refine proposals rather than adopt them or HP novel canon. No launch, injector, save access, acquisition, current installation check, source/build/browser/runtime pass, deletion, move, commit or push occurs.",
+      "evidence": "All JSON values/records in bounded full outputs; finite Markdown report read for cross-pass meaning and explicit remaining gates; raw underlying bodies not newly read.",
+      "reopen": "Selected future behavior needs current actual source and proof; keep all residual paths and historical source identities.",
+      "full": true,
+      "input_sha256": "3e97e615ed2862fb6d2676a4daee9aa58ad2ed3a269b167269e52a8ab49d3bbd",
+      "input_lines": 1076,
+      "ranges": [
+        [
+          1,
+          1076
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/idling-to-rule-the-gods/COVERAGE.json",
+      "ids": [
+        "ITR-01",
+        "ITR-02",
+        "ITR-03",
+        "ITR-04",
+        "ITR-05"
+      ],
+      "classification": "complete coverage content and later static closure reconciled without gameplay promotion",
+      "owners": [
+        "docs/research/idling-to-rule-the-gods/REPORT.md"
+      ],
+      "disposition": "F1: Actual full coverage review covers ITR-01–ITR-05, all26source-file hashes and exact selected spans, reader repairs, source/export identity, unread areas and final privacy/playable-gate pointers. Every whole_file_read flag is false. Five integrated selected research paths do not establish five whole-file reviews, whole-game semantic coverage or implemented YAIRPG adaptation. Build25514347/assembly11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c are historical pins.149DLL inputs include148resolver references;388generated files/387C#files are one target export, not149decompiled assemblies. Original JSON/schema remain unchanged.\n\nF2: ITR-01 allocation competes across physical/skill/combat roles; target handoff and real fight result differ. A logged negative-idle getter does not prove global conservation. ITR-02 separates actual prerequisite stock, base monument build, separate paid upgrade and derived physical consumers; preserve shortage refusal without copying huge donor scales. ITR-03 separates actual eligibility/confirmation, prospective multipliers, replacement run state, selected retained owners and ordinary NTC enrollment/restriction/completion/reward. Four base factors are not every nested statistic, account carryover or Hard/Root variant. These remain local mechanism comparisons, not a compulsory new prestige/reset or blanket native-progress loss.\n\nF3: ITR-04 Growth launch needs available participants, stores assignment/time and releases competing allocation; elapsed completion enables a claim rather than automatically demonstrating settlement. Default completed claim, qualified early-finish flag, reward eligibility and assignment cleanup differ. ITR-05 active callbacks, offline admission, capped target catch-up, in-memory summary and platform milestone differ. A72hour Android fallback is not a universal Steam cap; no network/Steam success or durable recovered-save atomicity is established. Current YAIRPG time/absence owners, rather than this old donor comparison, govern any future selected adaptation.\n\nF4: Retain the reviewed extraction repairs: creation allocation/cost confusion and duplicate initializer, NTC actual UI/eligibility/symbolic multiplier/reward consumer, pet wrong duplicate completion renderer versus KCMHIOFHCED, and ordinary versus early claim. Source obfuscation/search decoys make an isolated matching name insufficient; exact caller, state and result matter. The historical reader/model records establish prior bounded extraction plus parent review, not currently live workers, permission to spawn or unchecked model correctness. Coverage-map review does not independently rerun those raw source paths.\n\nF5: Whole assembly/late creation/automation/achievements, complete challenge/account carryover, dungeon/equipment/non-Growth campaigns, server/network time/dependencies/assets, recovered compilation/gameplay/balance/performance and save-failure atomicity remain unread or unperformed. Earlier YAIR_AUDIT fingerprints and reuse claims need current affected-source checks before implementation; they do not prove present checkout compatibility. Preserve funded companion work/contest, useful ordinary production and optional craft-supply proposals in their existing packet owner. No player profile/save, launch, new export, runtime/canonical edit, worker, automation, acquisition, deletion, relocation, commit or push occurs.",
+      "evidence": "All JSON values/records in bounded full outputs; finite Markdown report read for cross-pass meaning and explicit remaining gates; raw underlying bodies not newly read.",
+      "reopen": "Selected future behavior needs current actual source and proof; keep all residual paths and historical source identities.",
+      "full": true,
+      "input_sha256": "3d8abc444fe4d4e046eaffd2f63e3b122600a53e778981a0f1cd211c57e697c6",
+      "input_lines": 705,
+      "ranges": [
+        [
+          1,
+          705
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/hogwarts-legacy/deep/REPORT.md",
+      "heading": "## Content reconciliation B598: later static closure and remaining gates",
+      "body": "F1: Actual complete coverage-document review covers D1–D28, QL1–QL8 routing, N1–N6 native-chain locators/tool outcomes, all preservation/check/install/file/address fields, NP1–NP7, uninstall/boundary flags and every first-pass reconciliation row. Build20773316 and executable SHAb713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1 identify historical static evidence. No private native body, graph, CONV file, executable or current install was newly opened. Original JSON/schema stay unchanged.\n\nF2: This later pass qualifies the earlier C06/C07/C09/C03 gaps and B596's attribution of them. D1 records a cumulative-threshold consumer with loader warnings and no live crossing. D2 traces one eligible non-complete criterion's forwarding path: its final qualifying event can pay, exhausted repetition skips that path, and other sources may still pay. D3's level-crossing grant new−max(old,4) is conditional on the perk manager and distinct from gear ranges/XP modifiers. D4/D5 add tag/defense query and a selected Hard Stupefy exception, not every shield-removal caller or denial of other valid routes. D6/D7 retain final target-side virtual damage/modifier order and exact stagger/recovery math open. D8 ordinary clamped focus gain/spend is separate from combo and sealed S1; full orb/threshold/refusal behavior stays open.\n\nF3: D9–D15 distinguish shared/species AI assets, action suitability, execution tickets, noise radius/intensity, sight/hearing, scoring, awareness/alert curves, memory, follow/repath/wait, typed schedule overrides and creature feeding/toy/social/flight roles. None closes native arbitration/tie-breaking/simultaneous attacker guarantees, per-frame sensing/decay, navigation, override restoration or care-product/offline Boolean/timer consumption. Keep NP2–NP5's concrete defense, budget, observation and meter ideas as optional owner adaptations with actual consumers, interruption and cause feedback; data weights or colors alone do not supply capability.\n\nF4: D16–D18/D24 distinguish explicit line/speaker IDs, visibility versus selectability, mission result/reward branch, separate used-branch write and registration/exclusivity/quest/schedule gates.113 graph IDs=80SUB joins+33unmatched;21 unmatched have embedded English, leaving other unmatched cases explicit.18889 MAIN and34955 SUB entries plus full CONV retention do not decode global condition grammar, most subtitle effects, Boolean writers or flag polarity. Explicit speakers outrank key-prefix guesses. NP6 needs a real write and later consequence, not an assumed relationship score or animation; S1 remains undisclosed.\n\nF5: D19–D28 retain input/accessibility text/assets versus actual usability; nested stock generation versus final checkout/resale/restock; appearances versus power; finished goods/ingredients/recipe ownership/station placement versus reachable purchase alternatives; transient templates versus serializer/save; rewards/containers/material transformations versus full economy;155typed tasks/15886steps versus complete flag/group scheduling;85event definitions versus reachable director sampling. Four inspected health scales of1 do not prove universal health equality or XP policy. NP1 preserves source-specific award exhaustion without imposing a global ladder or removing idle learning. NP7's cooldown/probability/capacity never substitutes for actual eligible actor/place/state support.\n\nF6: 143 parsed packages, database integrity,62unchanged earlier extracts,351files/489350291bytes and matched executable artifacts are recorded preservation/integrity evidence. Both native routes use Ghidra; initial successes, startup timeouts, direct fallbacks and unresolved virtual targets remain separate, not independent decompiler validation. Source package/graph/decoder counts do not establish every semantic path. Uninstall readiness remains historically NO because unselected conversation/ability/AI/map/event packages and the complete archive were not retained; no removal is authorized here. All LP/NP mappings refine proposals rather than adopt them or HP novel canon. No launch, injector, save access, acquisition, current installation check, source/build/browser/runtime pass, deletion, move, commit or push occurs.",
+      "before_sha256": "4bf0f0376eab68561012ec723e4b38a9b692d8b5481d2cd3a461ee4d00c983e0",
+      "after_sha256": "2e07407c648f804a879b561c6c04224b8cc827da83f14496166d014554b4619a"
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/REPORT.md",
+      "heading": "## Later source closure reconciliation B598",
+      "body": "F1: The [later deep coverage](deep/COVERAGE.json) and [deep report](deep/REPORT.md) now own the narrower static follow-up to C03/C06/C07/C09 and related rows. D1 records cumulative threshold consumption; D2 records a selected eligible criterion/exhaustion award path; D3 records conditional level-crossing talent cadence; D4/D5 record shield tag/defense admission and the selected Hard exception. Those are later attributed source findings, not freshly rerun native or gameplay proof. Earlier B596 limits remain dated first-pass history rather than a queue to repeat already traced static work.\n\nF2: The follow-up keeps final target-side damage/order, full AI arbitration/sensing, global dialogue condition/effect grammar, care/offline consumption, all refusal routes and live play/save proof open. Ordinary focus is separate from combo and S1. Static table/text/package retention is not exhaustive semantics, novel canon, project adoption or uninstall readiness. B598 fully reviews the later coverage fields and residuals without accessing private sources or altering either coverage JSON.",
+      "before_sha256": "4f00b1547f1f08b847662b0510937eb0895f287bacbdcdb882a0fe974a1d655d",
+      "after_sha256": "94788f264f71d843e0cd1ff5b752e22090b1d01839db997c0cf070017d2af178"
+    },
+    {
+      "path": "docs/research/idling-to-rule-the-gods/REPORT.md",
+      "heading": "## Content reconciliation B598: selected paths versus exported source",
+      "body": "F1: Actual full coverage review covers ITR-01–ITR-05, all26source-file hashes and exact selected spans, reader repairs, source/export identity, unread areas and final privacy/playable-gate pointers. Every whole_file_read flag is false. Five integrated selected research paths do not establish five whole-file reviews, whole-game semantic coverage or implemented YAIRPG adaptation. Build25514347/assembly11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c are historical pins.149DLL inputs include148resolver references;388generated files/387C#files are one target export, not149decompiled assemblies. Original JSON/schema remain unchanged.\n\nF2: ITR-01 allocation competes across physical/skill/combat roles; target handoff and real fight result differ. A logged negative-idle getter does not prove global conservation. ITR-02 separates actual prerequisite stock, base monument build, separate paid upgrade and derived physical consumers; preserve shortage refusal without copying huge donor scales. ITR-03 separates actual eligibility/confirmation, prospective multipliers, replacement run state, selected retained owners and ordinary NTC enrollment/restriction/completion/reward. Four base factors are not every nested statistic, account carryover or Hard/Root variant. These remain local mechanism comparisons, not a compulsory new prestige/reset or blanket native-progress loss.\n\nF3: ITR-04 Growth launch needs available participants, stores assignment/time and releases competing allocation; elapsed completion enables a claim rather than automatically demonstrating settlement. Default completed claim, qualified early-finish flag, reward eligibility and assignment cleanup differ. ITR-05 active callbacks, offline admission, capped target catch-up, in-memory summary and platform milestone differ. A72hour Android fallback is not a universal Steam cap; no network/Steam success or durable recovered-save atomicity is established. Current YAIRPG time/absence owners, rather than this old donor comparison, govern any future selected adaptation.\n\nF4: Retain the reviewed extraction repairs: creation allocation/cost confusion and duplicate initializer, NTC actual UI/eligibility/symbolic multiplier/reward consumer, pet wrong duplicate completion renderer versus KCMHIOFHCED, and ordinary versus early claim. Source obfuscation/search decoys make an isolated matching name insufficient; exact caller, state and result matter. The historical reader/model records establish prior bounded extraction plus parent review, not currently live workers, permission to spawn or unchecked model correctness. Coverage-map review does not independently rerun those raw source paths.\n\nF5: Whole assembly/late creation/automation/achievements, complete challenge/account carryover, dungeon/equipment/non-Growth campaigns, server/network time/dependencies/assets, recovered compilation/gameplay/balance/performance and save-failure atomicity remain unread or unperformed. Earlier YAIR_AUDIT fingerprints and reuse claims need current affected-source checks before implementation; they do not prove present checkout compatibility. Preserve funded companion work/contest, useful ordinary production and optional craft-supply proposals in their existing packet owner. No player profile/save, launch, new export, runtime/canonical edit, worker, automation, acquisition, deletion, relocation, commit or push occurs.",
+      "before_sha256": "54ff7b17b804215f83a264997c9a62f540aea703b6137cfa93bb6ed40092b82a",
+      "after_sha256": "900ae9cfb79383d2605e4c55466887861d6235dec026a44d3488c0d8f001bf97"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 99
+}

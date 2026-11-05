@@ -1,0 +1,64 @@
+{
+  "input_sha256": "5bc17bfbc89e6313c7d89541a9ae5d66746ff213eee627a9412d6b19bbbd6b30",
+  "initial_family_table_counts": [
+    21,
+    24,
+    4
+  ],
+  "initial_family_sum": 49,
+  "numbered_player_cards": [
+    [
+      "1",
+      "Echo Anchor (save and reload)"
+    ],
+    [
+      "2",
+      "Patient Furnace (offline progress)"
+    ],
+    [
+      "3",
+      "Heirloom Compact (legacy and succession)"
+    ],
+    [
+      "4",
+      "Traveler's Pattern Book (blueprints and records)"
+    ],
+    [
+      "5",
+      "Seed Cartographer (seed foreknowledge)"
+    ],
+    [
+      "6",
+      "Rebirth Ledger (prestige multipliers)"
+    ],
+    [
+      "7",
+      "Instinct Inheritance (what survives the reset)"
+    ],
+    [
+      "8",
+      "Earned Habit (automation)"
+    ],
+    [
+      "9",
+      "Fate Steward (incident director)"
+    ],
+    [
+      "10",
+      "Loaded Dice (roll override)"
+    ],
+    [
+      "11",
+      "Hall of Selves (character switching)"
+    ],
+    [
+      "12",
+      "World Deeds (account unlocks)"
+    ],
+    [
+      "13",
+      "Equivalence Ledger (derived price and exchange), proposal 2026-10-23"
+    ]
+  ],
+  "scope": "Counts in the fully read owner; not distinct implementations, source fidelity or current runtime evidence."
+}

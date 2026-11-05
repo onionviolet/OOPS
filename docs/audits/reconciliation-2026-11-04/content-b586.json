@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "batch": "B586",
+  "title": "Proto23 map/dialogue/time/save source review and core-loop scoping palette",
+  "at": "2026-11-05T11:46:55.561218+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "ids": [
+        "sections1–12/all comparison rows",
+        "25row master matrix/P1–P5/gaps"
+      ],
+      "classification": "full dated static reader report; current source/runtime evidence not renewed",
+      "owners": [
+        "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "disposition": "F1: Full actual394-line review covers all12sections, every time/weather/location/NPC/scout/save comparison row, the25row master matrix, P1–P5 and gaps. The claimed original Proto23 source span11500–14768 plus supplemental reads and selected YAIR source files is this reader's dated static evidence, not newly inspected source in B586. SHOWN/INFERRED/UNKNOWN retain that source's meaning. No browser, pinned HTML, source body, source save or current code was reopened. Labels such as only, no weather, fixed NPC, no dojo and no offline are bounded2026-10-10 observations, not present whole-project absence.\n\nF2: A count discrepancy is visible within the text: its13-state weather claim lists14names and IDs100–113, an inclusive14-ID range. Preserve the discrepancy rather than certify a repaired current source census. A per-season stochastic state/duration, deterministic rain/calendar, numeric temperature, local shelter/exposure and visual weather label differ. Same 30-day month/minute cadence does not imply same season/month map, lunar phase, night flag or calendar policy. The impossible hour conjunction and import-key mismatch are static source observations; current runtime failure/recovery, later builds and all exception paths remain unverified.\n\nF3: Calendar progression, active tick, sleep multiplier, instantaneous looped advance, daily/weekly callbacks, occupied travel and wall-clock absence need distinct ownership and units. Pacing arithmetic is illustrative, not measured catch-up equivalence. A function named offline can be an uncalled population sketch while the price index has real separate daily/quest writes; do not call all economic effects dormant because one function is unused. Current AD16/AD17/AD18 and actual absence/clock owners supersede the early global no-offline premise. No new Markov field, weather/lethality/hunger/spoilage tax, automatic world progress or full phase-loop implementation is selected.\n\nF4: Preserve menu place versus region versus travel graph, room screen versus physical route, knowable map versus complete layout, pure availability windows versus stored jobs and rare encounter versus fixed identity. Initializing a screen can have wear/XP/chance hooks, so instant movement need not be free or observational. A maze declaration with no found inbound reference is a bounded reachability signal, not proof of all later builds or alternate dynamic entry. Original visitor-branch content differs from a direct source port. Small services, parcel handoffs, public notices, home objects and attributed dialogue can connect ordinary life without mandatory tutorial ladder,100click bond or population simulation.\n\nF5: Inline dialogue lacks a generic dialogue-state owner but can still persist quest/flags; the statement that it cannot be localized/validated/inspected is overbroad, a tooling/authoring tradeoff rather than impossibility. Data-driven textlines do not themselves prove correct settlement, translation or world state. Scouting's table, per-find multiplier, exhaustion, light/state gates and discovered evidence differ from Perception unlock actions. Remaining-find hints must not reveal sealed counts/rewards. Rising chance need not receive an arbitrary cap under AD22; actual supported probability and occurrence policy decide. XP/elapsed exposure, actual find and completed clue are different facts.\n\nF6: Save grammar, structured envelope, validator/migration, quota guards, owner lock, backup, preflight, publication, current combat state and content revision each need their own compatibility evidence. JSON does not automatically survive every schema change; a claimed guard is not proof every failure preserves old state. Avoid copying a whole-origin clear or deletion fallback, preserving named slots/settings/user data. Load-time derived UI, temporary equipment mutation and reset-to-safe-area observations need actual identity/rollback testing if adopted. Current AD36/AD42/AD43 qualifies historic inferred behavior; preserve the source report and all unknowns without new migration, source collection, gameplay, deletion, commit or push.",
+      "evidence": "Actual full394lines contiguous1–150/151–290/291–394; no clipped output.",
+      "reopen": "Inspect exact current source/clock/observer/custody consumer for a selected proposal or disputed source count.",
+      "input_sha256": "a11fb5dfcead4847e26e47636ec5679c958927633dd65cde38671100c0f51991",
+      "input_lines": 394,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          394
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "ids": [
+        "CL1–CL107 all sections/rows",
+        "final build-order and trigger questions"
+      ],
+      "classification": "full historical core-loop proposal read through later scope and continuation authority",
+      "owners": [
+        "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "disposition": "F1: Full actual312-line review covers CL1–CL3, CL10–CL17, every CL20/CL30 finding/candidate, CL40–CL64, CL70–CL107 and final questions. Preserve the user's correction that heirs need not define the core. CL1's choose pursuit→act/routine→learn/gain→new choice is a useful organizing proposal, not a universal authored formula or accepted core-loop decision. A quiet meaningful scene or self-chosen pursuit need not grant an upgrade or a new consequential choice at every timescale. Discovery can coexist with numbers, mastery, comfort, stories and relationships rather than making all other motives inferior.\n\nF2: The old first-realm/first-prestige/day-loop/making-first/away-before-M3 plan is superseded by current PROJECT and later scope direction. Current Klein-first/HP-alongside and Frontier/Mistglass test-bed roles do not wait for a new prestige trigger, full Village day, generic fresh-life operation, broad absence framework or human playtest. CL20's dated search-agent source report and largest-gap assessment are not current proof that away time, book-world entry, discoveries, makers or continuation are absent. Current AD33's later work-on-it direction qualifies the older global deferrals. No new product priority or draft D2b approval is inferred.\n\nF3: Timescale rows retain useful distinct decisions: current action, routine stop, away recap, project/career, local life and across-world journey. Actual shared clock and source/observer history govern each; more activities do not prove meaningful depth, and fewer clicks need not remove choice. CL64's solved-becomes-routine is one route, not a mandatory prior manual repetition or proof routine work always uncovers a discovery. AD52 allows compressing an understood operation while keeping actual costs, consequences, uncertainty and important decisions. AD16/AD17/AD18 distinguish supported routine work, unused-time bank and known-only recap; no synthetic success or knowledge can fill idle time merely for engagement.\n\nF4: CL41's one generic fresh-life operation is a proposal too broad to merge every listed case. Heir/independent new life, physical rewind, regression, same-self crossing, archive, parallel fresh version and endless current life have different world/body/knowledge/custody/history and commitment semantics. Across-life and across-world carry differ; a source can have no universal prestige currency, and death is not compulsory. Resetting local inventory/standing is not an automatic cost of crossing. Body, soul, source, local law, retained records and actual means decide continuation. A record-only archive is not a resumable body, and a baseline new run does not overwrite the paused prior life.\n\nF5: CL51–CL54's shared verbs/log/pack-fields/card are authoring options, not proof every world fits data alone or every pursuit needs a common routine engine. Existing native/domain commands, current registry and actual source mechanism are the starting owners; a narrow new handler may be needed. Being the character versus guiding another changes knowledge/control and actual actor authority, not merely cosmetic moment-loop wording. Stronger means can retire ordinary friction without mandatory new demands. World-specific lead-pursuit examples need not establish one compulsory main quest, same loops or identical clocks.\n\nF6: CL80–CL107's completed documentation, constraints, model levels and questions are historical plans, not worker dispatch or approvals now owed. Current AD36/AD42/AD43/AD51 governs selected tests, optional human review, floor and shared first seams. Closed-tab behavior claims still need an actual relevant absence route, but this is not a universal full-repo gate for unrelated slices. Old1366target, mandatory migration/card-review, one-prestige completion and question order remain preserved as dated proposals. No source/test/browser/build, actual away run, source acquisition, personal save, worker, deletion, commit or push occurred.",
+      "evidence": "Actual full312lines contiguous1–160/161–312; northstar current B450/B490 owner-tail inspected.",
+      "reopen": "Use current selected world journey and actual continuation/absence semantics, without reviving retired milestone.",
+      "input_sha256": "341f8a13ebd6e3522d121724a39a4814a45644cb9abca0fc9cb2dc6345597ec8",
+      "input_lines": 312,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          312
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "heading": "## Content reconciliation B586: full reader and source-local boundaries",
+      "body": "F1: Full actual394-line review covers all12sections, every time/weather/location/NPC/scout/save comparison row, the25row master matrix, P1–P5 and gaps. The claimed original Proto23 source span11500–14768 plus supplemental reads and selected YAIR source files is this reader's dated static evidence, not newly inspected source in B586. SHOWN/INFERRED/UNKNOWN retain that source's meaning. No browser, pinned HTML, source body, source save or current code was reopened. Labels such as only, no weather, fixed NPC, no dojo and no offline are bounded2026-10-10 observations, not present whole-project absence.\n\nF2: A count discrepancy is visible within the text: its13-state weather claim lists14names and IDs100–113, an inclusive14-ID range. Preserve the discrepancy rather than certify a repaired current source census. A per-season stochastic state/duration, deterministic rain/calendar, numeric temperature, local shelter/exposure and visual weather label differ. Same 30-day month/minute cadence does not imply same season/month map, lunar phase, night flag or calendar policy. The impossible hour conjunction and import-key mismatch are static source observations; current runtime failure/recovery, later builds and all exception paths remain unverified.\n\nF3: Calendar progression, active tick, sleep multiplier, instantaneous looped advance, daily/weekly callbacks, occupied travel and wall-clock absence need distinct ownership and units. Pacing arithmetic is illustrative, not measured catch-up equivalence. A function named offline can be an uncalled population sketch while the price index has real separate daily/quest writes; do not call all economic effects dormant because one function is unused. Current AD16/AD17/AD18 and actual absence/clock owners supersede the early global no-offline premise. No new Markov field, weather/lethality/hunger/spoilage tax, automatic world progress or full phase-loop implementation is selected.\n\nF4: Preserve menu place versus region versus travel graph, room screen versus physical route, knowable map versus complete layout, pure availability windows versus stored jobs and rare encounter versus fixed identity. Initializing a screen can have wear/XP/chance hooks, so instant movement need not be free or observational. A maze declaration with no found inbound reference is a bounded reachability signal, not proof of all later builds or alternate dynamic entry. Original visitor-branch content differs from a direct source port. Small services, parcel handoffs, public notices, home objects and attributed dialogue can connect ordinary life without mandatory tutorial ladder,100click bond or population simulation.\n\nF5: Inline dialogue lacks a generic dialogue-state owner but can still persist quest/flags; the statement that it cannot be localized/validated/inspected is overbroad, a tooling/authoring tradeoff rather than impossibility. Data-driven textlines do not themselves prove correct settlement, translation or world state. Scouting's table, per-find multiplier, exhaustion, light/state gates and discovered evidence differ from Perception unlock actions. Remaining-find hints must not reveal sealed counts/rewards. Rising chance need not receive an arbitrary cap under AD22; actual supported probability and occurrence policy decide. XP/elapsed exposure, actual find and completed clue are different facts.\n\nF6: Save grammar, structured envelope, validator/migration, quota guards, owner lock, backup, preflight, publication, current combat state and content revision each need their own compatibility evidence. JSON does not automatically survive every schema change; a claimed guard is not proof every failure preserves old state. Avoid copying a whole-origin clear or deletion fallback, preserving named slots/settings/user data. Load-time derived UI, temporary equipment mutation and reset-to-safe-area observations need actual identity/rollback testing if adopted. Current AD36/AD42/AD43 qualifies historic inferred behavior; preserve the source report and all unknowns without new migration, source collection, gameplay, deletion, commit or push.",
+      "before_sha256": "a11fb5dfcead4847e26e47636ec5679c958927633dd65cde38671100c0f51991",
+      "after_sha256": "a292612aebfd2c302fd533213f352e4657628d9ca32550e15ea6a4685f1b1d9d"
+    },
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "heading": "## Content reconciliation B586: pursuit shape and superseded milestone",
+      "body": "F1: Full actual312-line review covers CL1–CL3, CL10–CL17, every CL20/CL30 finding/candidate, CL40–CL64, CL70–CL107 and final questions. Preserve the user's correction that heirs need not define the core. CL1's choose pursuit→act/routine→learn/gain→new choice is a useful organizing proposal, not a universal authored formula or accepted core-loop decision. A quiet meaningful scene or self-chosen pursuit need not grant an upgrade or a new consequential choice at every timescale. Discovery can coexist with numbers, mastery, comfort, stories and relationships rather than making all other motives inferior.\n\nF2: The old first-realm/first-prestige/day-loop/making-first/away-before-M3 plan is superseded by current PROJECT and later scope direction. Current Klein-first/HP-alongside and Frontier/Mistglass test-bed roles do not wait for a new prestige trigger, full Village day, generic fresh-life operation, broad absence framework or human playtest. CL20's dated search-agent source report and largest-gap assessment are not current proof that away time, book-world entry, discoveries, makers or continuation are absent. Current AD33's later work-on-it direction qualifies the older global deferrals. No new product priority or draft D2b approval is inferred.\n\nF3: Timescale rows retain useful distinct decisions: current action, routine stop, away recap, project/career, local life and across-world journey. Actual shared clock and source/observer history govern each; more activities do not prove meaningful depth, and fewer clicks need not remove choice. CL64's solved-becomes-routine is one route, not a mandatory prior manual repetition or proof routine work always uncovers a discovery. AD52 allows compressing an understood operation while keeping actual costs, consequences, uncertainty and important decisions. AD16/AD17/AD18 distinguish supported routine work, unused-time bank and known-only recap; no synthetic success or knowledge can fill idle time merely for engagement.\n\nF4: CL41's one generic fresh-life operation is a proposal too broad to merge every listed case. Heir/independent new life, physical rewind, regression, same-self crossing, archive, parallel fresh version and endless current life have different world/body/knowledge/custody/history and commitment semantics. Across-life and across-world carry differ; a source can have no universal prestige currency, and death is not compulsory. Resetting local inventory/standing is not an automatic cost of crossing. Body, soul, source, local law, retained records and actual means decide continuation. A record-only archive is not a resumable body, and a baseline new run does not overwrite the paused prior life.\n\nF5: CL51–CL54's shared verbs/log/pack-fields/card are authoring options, not proof every world fits data alone or every pursuit needs a common routine engine. Existing native/domain commands, current registry and actual source mechanism are the starting owners; a narrow new handler may be needed. Being the character versus guiding another changes knowledge/control and actual actor authority, not merely cosmetic moment-loop wording. Stronger means can retire ordinary friction without mandatory new demands. World-specific lead-pursuit examples need not establish one compulsory main quest, same loops or identical clocks.\n\nF6: CL80–CL107's completed documentation, constraints, model levels and questions are historical plans, not worker dispatch or approvals now owed. Current AD36/AD42/AD43/AD51 governs selected tests, optional human review, floor and shared first seams. Closed-tab behavior claims still need an actual relevant absence route, but this is not a universal full-repo gate for unrelated slices. Old1366target, mandatory migration/card-review, one-prestige completion and question order remain preserved as dated proposals. No source/test/browser/build, actual away run, source acquisition, personal save, worker, deletion, commit or push occurred.",
+      "before_sha256": "341f8a13ebd6e3522d121724a39a4814a45644cb9abca0fc9cb2dc6345597ec8",
+      "after_sha256": "dc8bb1d0e5d43a0dfcb7c1966a5f3169006677e2453a880a3e1537068630a005"
+    },
+    {
+      "path": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "heading": "## Proto23 map and source-reader uptake B586",
+      "body": "The full [R5 B586 review](research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md#content-reconciliation-b586-full-reader-and-source-local-boundaries) preserves actual source-specific room/travel/service/scout/dialogue/weather/save distinctions. The reader contains13weather-states wording beside14names/IDs; no current source census is inferred. Small notices, handoffs, home objects and rare encounters can connect lived places without importing a dojo ladder,100click bond, survival tax or guaranteed clue. Known map/observation/time/meaning differ from source labels or a screen transition. Old only/absent/current-build claims are dated static scope, and declarations/images/save structures do not prove current native behavior. Preserve exact subject, access, return and clue disclosure through actual owners; no new UI or source execution occurred.",
+      "before_sha256": "741df978445acf2fec6535173447dd08c11a233cd498bc27fe5f330a27bae227",
+      "after_sha256": "5c6deb5f26e4b27c8763fbdb7d17a0c18270e3ba5d5cc90816166c591b2dd8db"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "heading": "## Core-loop scoping reconciliation B586",
+      "body": "The full [CL1–CL107 B586 review](reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md#content-reconciliation-b586-pursuit-shape-and-superseded-milestone) preserves the user correction that heirs are optional and not the defining core loop. Pursuit→action/routine→learning/gain→new choice remains a useful proposal, not a requirement that every quiet scene pay progression. Current selected Klein/HP journeys supersede retired single-realm/prestige/making-first/away-before-M3 order. Keep actual choice, source/observer knowledge, meaningful compressed routine and supported work versus unused-time bank distinct. A generic fresh-life card cannot merge heirs, same-self crossing, rewind, new run and archive custody/history. Old source absence, D2b draft approval, mandatory prior manual play and human/card-review gates are not revived. Current AD16/AD17/AD18/AD33/AD36/AD38/AD42/AD43/AD51/AD52 govern selected work.",
+      "before_sha256": "ea62a0801466ed3d99036d4aa81efd30364ca261e09dcc1b00252fe6df6e7c4d",
+      "after_sha256": "2478956ad67cc997a37862a4813e7d5deee208397795b424faeca4d88a9db136"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 116,
+  "post_record_amendments": [
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "from": "# Core loop scoping considerations, 2026-10-16\n",
+      "to": "# Core loop scoping considerations, 2026-10-16\n\nCurrent reading, B586: the pursuit-shape proposal and optional heir framing remain useful. The old first-realm/prestige/making-first plan is historical under current PROJECT; no new approval or milestone gate is needed. [Full content reconciliation](#content-reconciliation-b586-pursuit-shape-and-superseded-milestone).\n",
+      "reason": "Route historical opening to actually reviewed later direction/closure while preserving text."
+    },
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "from": "or accepted core-loop decision",
+      "to": "or selected core-loop decision",
+      "reason": "Clarify the exact scope of selection/source evidence in own new fold."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "from": "dc8bb1d0e5d43a0dfcb7c1966a5f3169006677e2453a880a3e1537068630a005",
+      "to": "569738897683d86ec8755bb0d516da8a56bc9cc0d2fb6d39fd13d4c8ea59d026",
+      "reason": "Scoped current-reading banner."
+    },
+    {
+      "path": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "from": "569738897683d86ec8755bb0d516da8a56bc9cc0d2fb6d39fd13d4c8ea59d026",
+      "to": "e6514972af3b364d4256023fdb5cfd6c2da61e76767155343d23d4a4b0bfc2d2",
+      "reason": "Clarify own fold terminology; initial lint result retained."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "check:docs"
+  ],
+  "exit": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n"
+}

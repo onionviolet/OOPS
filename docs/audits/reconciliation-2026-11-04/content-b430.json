@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "batch": "B430",
+  "title": "Seven complete remaining cast-lane combat, guide and workflow documents",
+  "at": "2026-11-05T05:37:52.048103+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md",
+      "ids": [
+        "schema7tempo;fixturefloor;held-minute loss;later ally correction"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "The tempo runner adopts the existing encounter/finish consumers and retains the legacy duel rather than replacing pursuit state. Earliest-ready moves, safe hand-over, keyed draws and witness effects are shown in a seeded1920road contest with real clicks, mid-fight reload and literal Export/Import; this is not earned whole-life or every-world proof. Banked away ticks are a game-time hold/repayment policy, not wall-clock catch-up. Minutes not folded into the saved fight can be lost on reload in this version. P5 later records held minutes surviving and replaces approximate rival/helper stats with the shared Enemy derivation, explicitly closing F-P4-2. P7 later replaces immediate withdrawal with a real attempt. The parked notes shelf/shortcut defect remains a named UI-owner finding. The same receipt lists condition mishaps as present in its table and absent under limits: retain that internal evidence conflict for source inspection before any mishap claim. Reactions/channelled actions, deceptive intent and attrition are not established. Exact bundle/fixture and click method remain recorded; an unspecified commit-record suite is not a fresh verified pass.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "cfc40cfb20d53ed4fbfd7bc99277ad1cf3318d926e0d0440f9e35651aa3b41e2",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P5_ALLIES_CHECKPOINT.md",
+      "ids": [
+        "goal-weighted allies;order clock;heldminutes persist;notfullplanner"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Allies use the actual tempo clock, party admission/fee and existing result/bond consumers; covering substitutes a real target rather than a free mitigation label. Fear is derived and the four-rule priority selection is not a planner or experience-trained policy. Orders consume speech tempo; same-moment keyed responses replay, while actual time passing can produce a new attempt. Rough half-minute order retention and authored goals are dials/proposals. The fixture browser proves one ally order/moves, win, reload and literal Import, closing the earlier approximate fighter derivation and held-minute reload loss at this version. It does not prove intent misreading, hidden-enemy perception, canon-conditioned choices, pre-fight plans or learning. The skipped prerequisite greeting and unchanged parked-shelf UI finding remain explicit. Fullsuite proof referenced only by an unseen commit record is not independently checked here.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "c81eb51c840b30c6b9fc4e1b3bb5dbbdddb87f1e3091f20a409430310aea3d7f",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P7_BACKING_OUT_CHECKPOINT.md",
+      "ids": [
+        "exitattempt;realturncost;followerfactwithoutconsumer"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Withdrawal and surrender become keyed mechanism attempts, superseding P4's immediate exit. A failed retreat drops guard and delays the player's turn so rivals can strike; this is a real time consequence rather than an arbitrary penalty. Mercy/revenge/speed/tiredness/light/footing and follower probabilities are replaceable dials. The seeded1920browser shows failed attempt, rival strikes, reload/Import and eventual pursuit withdrawal, not all surrender/flee consequences. The saved followed_by fact has no consumer; it does not implement following home, a pursuit check, dropped loot, lost face or returning grudge. Ally-left-behind familiarity is the sole stated reputation effect. Missing exact bundle/fullsuite evidence remains a pointer to its own receipt, not a guessed identity or complete fight certification.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "1b9554ac5ef55be3564a8211c585303ddf1b5e2438096637de6bec67d8268a4e",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/PG1_CHECKPOINT.md",
+      "ids": [
+        "19guidecards;118galleryfigures;136glossary;OCRnotappearance"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "The indexes cover19broad pathway cards,118figures in nine gallery chapters and136glossary rows; the EPUB's328illustrations are a different population. OCR reads image-only headings/summaries, and XHTML supplies captions/placement; no visual appearance review occurred. Null sequence numbers are faithful absence of rung-level source data, not incomplete extraction to fill from franchise memory. Inferred progression crosswalks and likely/none registry labels remain separate from exact joins and executable ability ladders. Ten seeded exact-alias samples and locator completeness verify a limited index slice, not all join semantics, image depictions or source accuracy. Useful candidates remain private research/display/portrait leads pending their actual qualification; no media copy, ladder implementation or runtime adoption is implied.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "e897cafe2f827b145d681c6eb204a59f02fa3d815d9fe7081b1485130b14c31f",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/PG1_GUIDE_GALLERY_BRIEF.md",
+      "ids": [
+        "requestedreferencecomparison;captionversusobserved;sampledjoincheck"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "The historical intake asks for source-labelled comparison, ambiguous English-name joins and optional observed appearance only if images can be viewed, without copying source images. The completed PG1 receipt bounds its output to broad19pathway cards and118galleryfigures rather than all328EPUBillustrations or nonexistent sequence ladders. Captions/OCR/placement supply reference candidates, not observed appearance. Likely joins do not become exact IDs by preference. This brief's research deliverables and sample count remain separate from runtime or whole-source qualification; old file grants/model/commands are not a new dispatch, acquisition or image-copy instruction.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "2fc6c29fb8379a6b04f9201278f01ec71112de10e8f5912886b71cb1cdbdf6ae",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/W1_WORKFLOW_BRIEF.md",
+      "ids": [
+        "repeatablepreflight/launchreview;historicalresume-flagcorrection"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The brief targets reusable preflight, detached launch/status, explicit grants/publication/data probes and synthetic workflow tests. W1's later checkpoint supersedes the initial sandbox failure with host preflight and corrects resume to config sandbox_mode because exec resume does not accept launch's -s. It still parse-checks rather than proves a live resume. Scanner scope excludes scripts/docs, misses untracked paths on fallback and partial-name/place matches; the brief's done language cannot certify those blind spots or presently installed tool/account state. Prepared patches for another writer are review artifacts, not permission to apply old grants or spawn workers now. Current reconciliation reads this contract without running its launch/preflight/spending routes.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "eb3ed67da669c3d7fe0a02b25507b17e4f7f1f204efe5d6437fb73401b812644",
+      "input_lines": 55,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P2_WAKE_QUEUE_BRIEF.md",
+      "ids": [
+        "profilefirst;3sChromeactualgate;derivedprojectionnotclockowner"
+      ],
+      "classification": "complete historical combat or guide receipt/brief with matched later evidence and scope gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The mandate asks for measured Chrome costs before wiring a deterministic actor-tie wake queue, derived on load, with exact synthetic wake order and actual natural-time/349minute browser gates. The already fully reviewed P2 receipt reports narrower Node/instrumented evidence and remaining native fact/preview cost; it does not satisfy the under3sChrome promise or close CO2 merely by adding a queue. P4/P5 later identify349innerboundaries versus one outer durable publication and required stock/support polls, so arbitrary native simulation work cannot be skipped based on projection wakes alone. Preserve the measurement/behavior stop condition and original target as unmet at its receipt rather than converting it to a new universal acceptance gate. Current AD51 supersedes second-world-as-permission wording; first useful seam is sufficient, with later consumers validating it. No runtime optimization, queue registration, timer change or old ownership grant is executed.",
+      "evidence": "Complete actual file read; previously fully read matching W1/P2/F1/G6/MR5 receipts and coordinator chronology compared. No current runtime, source-corpus, browser, private index or process execution.",
+      "reopen": "Use the current owning source/qualified input before selected work; retain dated targets, missing consumers, contradictions and exact verification scope.",
+      "input_sha256": "4d0484d9dc04ec4e95d3852fce44ee8a8354cc4657d1e23923c0c6e3113b72c4",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "heading": "## Content reconciliation B430: tempo fights and guide intake",
+      "body": "Complete receipt/brief review separates implemented mechanism, later supersession, research candidates and missing evidence. This is scoped owner maintenance, not a full reread of the owner or new product direction.\n\n**P4_TEMPO_CHECKPOINT:** The tempo runner adopts the existing encounter/finish consumers and retains the legacy duel rather than replacing pursuit state. Earliest-ready moves, safe hand-over, keyed draws and witness effects are shown in a seeded1920road contest with real clicks, mid-fight reload and literal Export/Import; this is not earned whole-life or every-world proof. Banked away ticks are a game-time hold/repayment policy, not wall-clock catch-up. Minutes not folded into the saved fight can be lost on reload in this version. P5 later records held minutes surviving and replaces approximate rival/helper stats with the shared Enemy derivation, explicitly closing F-P4-2. P7 later replaces immediate withdrawal with a real attempt. The parked notes shelf/shortcut defect remains a named UI-owner finding. The same receipt lists condition mishaps as present in its table and absent under limits: retain that internal evidence conflict for source inspection before any mishap claim. Reactions/channelled actions, deceptive intent and attrition are not established. Exact bundle/fixture and click method remain recorded; an unspecified commit-record suite is not a fresh verified pass.\n\n**P5_ALLIES_CHECKPOINT:** Allies use the actual tempo clock, party admission/fee and existing result/bond consumers; covering substitutes a real target rather than a free mitigation label. Fear is derived and the four-rule priority selection is not a planner or experience-trained policy. Orders consume speech tempo; same-moment keyed responses replay, while actual time passing can produce a new attempt. Rough half-minute order retention and authored goals are dials/proposals. The fixture browser proves one ally order/moves, win, reload and literal Import, closing the earlier approximate fighter derivation and held-minute reload loss at this version. It does not prove intent misreading, hidden-enemy perception, canon-conditioned choices, pre-fight plans or learning. The skipped prerequisite greeting and unchanged parked-shelf UI finding remain explicit. Fullsuite proof referenced only by an unseen commit record is not independently checked here.\n\n**P7_BACKING_OUT_CHECKPOINT:** Withdrawal and surrender become keyed mechanism attempts, superseding P4's immediate exit. A failed retreat drops guard and delays the player's turn so rivals can strike; this is a real time consequence rather than an arbitrary penalty. Mercy/revenge/speed/tiredness/light/footing and follower probabilities are replaceable dials. The seeded1920browser shows failed attempt, rival strikes, reload/Import and eventual pursuit withdrawal, not all surrender/flee consequences. The saved followed_by fact has no consumer; it does not implement following home, a pursuit check, dropped loot, lost face or returning grudge. Ally-left-behind familiarity is the sole stated reputation effect. Missing exact bundle/fullsuite evidence remains a pointer to its own receipt, not a guessed identity or complete fight certification.\n\n**PG1_CHECKPOINT:** The indexes cover19broad pathway cards,118figures in nine gallery chapters and136glossary rows; the EPUB's328illustrations are a different population. OCR reads image-only headings/summaries, and XHTML supplies captions/placement; no visual appearance review occurred. Null sequence numbers are faithful absence of rung-level source data, not incomplete extraction to fill from franchise memory. Inferred progression crosswalks and likely/none registry labels remain separate from exact joins and executable ability ladders. Ten seeded exact-alias samples and locator completeness verify a limited index slice, not all join semantics, image depictions or source accuracy. Useful candidates remain private research/display/portrait leads pending their actual qualification; no media copy, ladder implementation or runtime adoption is implied.\n\n**PG1_GUIDE_GALLERY_BRIEF:** The historical intake asks for source-labelled comparison, ambiguous English-name joins and optional observed appearance only if images can be viewed, without copying source images. The completed PG1 receipt bounds its output to broad19pathway cards and118galleryfigures rather than all328EPUBillustrations or nonexistent sequence ladders. Captions/OCR/placement supply reference candidates, not observed appearance. Likely joins do not become exact IDs by preference. This brief's research deliverables and sample count remain separate from runtime or whole-source qualification; old file grants/model/commands are not a new dispatch, acquisition or image-copy instruction.\n\nUseful ideas and original history remain in place. No source acquisition, private-data publication, runtime change, old lane launch, migration, deletion or commit is selected.",
+      "before_sha256": "2a3c80cfe473a452039671fad842f9bd628b5ca132b00f42d104b5cb24a16ae4",
+      "after_sha256": "68c092a13dab45158d4539990b7ec86bbaa82d84d92dec7a9517641f0fc1e3f8"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B430: historical workflow and profiling briefs",
+      "body": "Complete receipt/brief review separates implemented mechanism, later supersession, research candidates and missing evidence. This is scoped owner maintenance, not a full reread of the owner or new product direction.\n\n**W1_WORKFLOW_BRIEF:** The brief targets reusable preflight, detached launch/status, explicit grants/publication/data probes and synthetic workflow tests. W1's later checkpoint supersedes the initial sandbox failure with host preflight and corrects resume to config sandbox_mode because exec resume does not accept launch's -s. It still parse-checks rather than proves a live resume. Scanner scope excludes scripts/docs, misses untracked paths on fallback and partial-name/place matches; the brief's done language cannot certify those blind spots or presently installed tool/account state. Prepared patches for another writer are review artifacts, not permission to apply old grants or spawn workers now. Current reconciliation reads this contract without running its launch/preflight/spending routes.\n\n**P2_WAKE_QUEUE_BRIEF:** The mandate asks for measured Chrome costs before wiring a deterministic actor-tie wake queue, derived on load, with exact synthetic wake order and actual natural-time/349minute browser gates. The already fully reviewed P2 receipt reports narrower Node/instrumented evidence and remaining native fact/preview cost; it does not satisfy the under3sChrome promise or close CO2 merely by adding a queue. P4/P5 later identify349innerboundaries versus one outer durable publication and required stock/support polls, so arbitrary native simulation work cannot be skipped based on projection wakes alone. Preserve the measurement/behavior stop condition and original target as unmet at its receipt rather than converting it to a new universal acceptance gate. Current AD51 supersedes second-world-as-permission wording; first useful seam is sufficient, with later consumers validating it. No runtime optimization, queue registration, timer change or old ownership grant is executed.\n\nUseful ideas and original history remain in place. No source acquisition, private-data publication, runtime change, old lane launch, migration, deletion or commit is selected.",
+      "before_sha256": "151f65966d13d6c405aa72c8a2bcfee5433bde91a264db69458f5f49304da239",
+      "after_sha256": "6a311fb7149f9ae961de9c345118a89df95bf62dacfc0d1273e66e7c57b6bf13"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 423
+}

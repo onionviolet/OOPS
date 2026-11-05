@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "batch": "B491",
+  "title": "One-source acquisition, authored district route, blocked wiki leads and Polyjuice follow-through",
+  "at": "2026-11-05T08:05:58.567488+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/ZLIBRARY_YAIR_GAP_ACQUISITION_2026-10-21.md",
+      "ids": [
+        "G1/G2",
+        "V1–V3"
+      ],
+      "classification": "historical acquisition / authored prototype / source-blocked leads / retained proposal",
+      "owners": [
+        "docs/research/ZLIBRARY_YAIR_GAP_ACQUISITION_2026-10-21.md"
+      ],
+      "disposition": "Historical exact-source acquisition, not live library completeness, under AD32/AD35 and source qualification. G1/G2 select one English Part3 volume1 for a named household/education gap, not bulk capture, whole-book reading or a Calibre import. Scoped negative title/filename searches do not establish absence under all translations/locations, and the20-result catalogue bound does not rule out a compilation. Publisher metadata provides selection context rather than verified household mechanics.\n\nV1's acquisition and cache retry consume different operations: one download, then request_issued:false from the verified cache. Offline launcher readiness is separate from the live session's exact successful tool gate. Quota/session state is dated and no account secrets/URLs are retained. V2's bytes/hash/ZIP CRC/OPF metadata and57 prepared spine entries establish that artifact's structure, not authenticated complete publisher variants. Preserve21 empty-text members and22 image warnings alongside22 retained image assets; they may concern image-only material rather than missing prose and have not been visually/semantically read here.\n\nV3 remains extracted-not-read. Ignored artifacts and prepared hashes do not supply source-law qualification or implementation. The CURRENT-STATE label is historical2026-10-21 scope, not today's source-library membership, quota, tool state or newest edition. The next actual household passage review remains a separate source task under current direction; this content reconciliation performs no acquisition, source prose/image read, Calibre write, app/status query or save access. Keep the exact private artifact route and useful selection rationale without treating the old download brief as present permission to fetch another volume.",
+      "evidence": "Fresh full content read of all four files and every table. Checked only the original/replacement saved-findings link targets for presence; no linked game/source body read.",
+      "reopen": "Preserve exact source and local consumer gaps; reopen a selected current mechanism/verification question, not the old acquisition/worker shell instructions.",
+      "input_sha256": "579b24db4e1a14458567e5bdb1cb0d25294e76d5f57aac48321c66acdc3804ce",
+      "input_lines": 70,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-q2-2026-10-23/CHECKPOINT.md",
+      "ids": [
+        "Q2",
+        "three district rows",
+        "four baseline fixtures"
+      ],
+      "classification": "historical acquisition / authored prototype / source-blocked leads / retained proposal",
+      "owners": [
+        "docs/gm/dispatch/lotm-q2-2026-10-23/CHECKPOINT.md"
+      ],
+      "disposition": "Historical opt-in region prototype and incomplete verification under AD36/AD43. Preserve Q2's three-district table and derived-fact consumers: vouch attention, duty shifts and dose admission differ from a fully enacted jurisdiction/police/legal system. The institutional faith split is attributed source evidence; district/place allocation, labels, routes, minutes, attention and16/8-hour Machinery shift are authored. Actor/team claim text is not the team's actual body: Hale remains the sole supervisor in this receipt. Local north-dose issuance policy is the prototype's modeled default, not a universal world prohibition.\n\nTwelve generated walks across four places create real timed jobs, but this prototype sets body location to destination at departure and writes arrival on completion. Preserve that limitation rather than claiming actual continuous travel position/absence or applying it to every later world route. Coarse no-other-actions behavior is this occupied prototype path, not a ban on all concurrent travel capabilities. Derived facts add no new saved district fields, while new place/job definitions still create a forward-compatibility boundary: pre-Q2 builds cannot load Q2 walk/district states. Four old fixtures validate the stated backward cases, not all save histories.\n\nThe Corpse Collector mid-act reload differs from unexercised mid-walk reload. Browser save_to_file plus load_progress(string) is string roundtrip, not native exported-file download/file-input Import. DOM-text inspection without screenshots is not rebuilt visual review at14/21 or current desktop floor. The played Seer Clown transition closes Q1's one named earlier gap at this prototype identity, not every higher-dose transition or later native-binding floor. Twenty-nine engine tests include22 prior/seven new cases; docks reading has no test, and off-shift/dose-refusal/browser/second-visit gaps remain explicit. No full suite/rule run was recorded by this lane. Old staging/commit/server instructions and next profile sketch are history, not present authority. This full checkpoint read inspects no current runtime, source, private fixture or browser.",
+      "evidence": "Fresh full content read of all four files and every table. Checked only the original/replacement saved-findings link targets for presence; no linked game/source body read.",
+      "reopen": "Preserve exact source and local consumer gaps; reopen a selected current mechanism/verification question, not the old acquisition/worker shell instructions.",
+      "input_sha256": "1fab3acd97dda789631baeb6f4a9d1e63b24f42414275162deb09dc5d2b74ee5",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_a-practical-guide-to-evil.md",
+      "ids": [
+        "E8C",
+        "E8 axes",
+        "E8D",
+        "blocked_no_revision"
+      ],
+      "classification": "historical acquisition / authored prototype / source-blocked leads / retained proposal",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/DIGEST_a-practical-guide-to-evil.md"
+      ],
+      "disposition": "Blocked source identity and retained analyst leads under AD32 and source qualification. Read every E8C/E8/E8D row, family/source labels and final dump gate. No article revision or dump-backed mechanic was acquired: the403 attempt and unavailable name guesses retain blocked_no_revision status. The prior western-lane mapping is not upgraded by preservation or by this content review. Name/Role/Aspect, narrative pressure, three-aspect reference, soul damage and inheritance labels are unverified research leads here, not facts to implement as canon.\n\nThe many unknown oath fields are unknown rather than prohibitions or proof of absent mechanics. Narrative pressure versus certainty, role succession versus automatic heir transfer and public title versus private aspect are useful questions to verify against a real source passage/revision. Three aspects is a prior mapped reference, not a newly imposed cap on original YAIR worlds. No confirmed gag, breach law, loophole or source penalty follows. Preserve this compact gap map and its linked prior lane without retrying the failed host or replacing exact unknowns with franchise memory. Current review reads the digest, not SERIES.json, web/wiki, dump or primary novel; it neither claims a fresh fetch failure nor authorizes acquisition/research/implementation.",
+      "evidence": "Fresh full content read of all four files and every table. Checked only the original/replacement saved-findings link targets for presence; no linked game/source body read.",
+      "reopen": "Preserve exact source and local consumer gaps; reopen a selected current mechanism/verification question, not the old acquisition/worker shell instructions.",
+      "input_sha256": "a2f94a701319202637af5917a61eeec002d34cf7cfcccfbe497de6cdfc87c339",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md",
+      "ids": [
+        "A1–A3",
+        "C1–C4",
+        "observer rows",
+        "L1–L8"
+      ],
+      "classification": "historical acquisition / authored prototype / source-blocked leads / retained proposal",
+      "owners": [
+        "docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md"
+      ],
+      "disposition": "Full proposal-round review under AD32/AD36/AD43 and MR1–MR36: A1–A3, C1–C4, five observer rows, all saved-game comparisons and L1–L8 retain distinct meanings. The source-shown late addition, hidden site/book route and clothing mismatch differ from the all-at-once craft abstraction; full-moon window width is an authored calendar dial. Data-row29-test rerun is historical evidence, not a new full suite. This review reads the report, not actual prepared novel or Hogwarts game builds. The saved-game findings link is repaired from its real directory while preserving the original href in an explicit amendment.\n\nC1's transformation marker needs an actual useful donor-dependent consumer before the old slice establishes more than its bounded craft result. C2's recipe-known start differs from earning knowledge through book/note/teaching/trial; missing one route does not make every possible method impossible. C3's separate purse/lots versus shared item/money carrier is an integration distinction, not completed simply by naming S1. C4's64-entry prose cap can drop old display text while durable standings/debts remain; totals by kind cannot replace consequential identity, terms or evidence. Keep actual history references where a consumer needs them, with compaction fitting that owner rather than a mandatory second archive store.\n\nObserver truth, holder knowledge, witnessed samples/appearance, donor presence/permission and actual local stock remain separate. Proposed symptom/appearance cues must follow real mechanism and knowledge rather than leak the hidden author truth. A generic output grep is a limited sentinel, not proof against every indirect text/price/timing leak. Directional foreign compatibility uses actual local mechanisms; do not turn a label or missing adapter into a universal metaphysical refusal. The one-hour reference and witnessed source events stay qualified to the original report's edition/window rather than becoming new verified reading.\n\nThe useful L1–L8 staged process, sensory feedback, knowledge routes, downstream disguise/clothing/presence, diversion/material acquisition, native carriers, author inspection and missing browser branches remain proposed with named done checks, not a newly dispatched backlog or current proof that no later owner has implemented them. Old model assignments and later-round reading suggestions do not authorize workers, source expansion or runtime now. No full-book/source-game/runtime/pack/private-save inspection or broader delivered transformation claim is added.",
+      "evidence": "Fresh full content read of all four files and every table. Checked only the original/replacement saved-findings link targets for presence; no linked game/source body read.",
+      "reopen": "Preserve exact source and local consumer gaps; reopen a selected current mechanism/verification question, not the old acquisition/worker shell instructions.",
+      "input_sha256": "1d9de65b75c50c8e06b5095161b49a8c6139acc036d131fed988056a5b763c55",
+      "input_lines": 73,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          73
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/ZLIBRARY_YAIR_GAP_ACQUISITION_2026-10-21.md",
+      "heading": "## Content reconciliation B491: source status and actual consumer limits",
+      "body": "Historical exact-source acquisition, not live library completeness, under AD32/AD35 and source qualification. G1/G2 select one English Part3 volume1 for a named household/education gap, not bulk capture, whole-book reading or a Calibre import. Scoped negative title/filename searches do not establish absence under all translations/locations, and the20-result catalogue bound does not rule out a compilation. Publisher metadata provides selection context rather than verified household mechanics.\n\nV1's acquisition and cache retry consume different operations: one download, then request_issued:false from the verified cache. Offline launcher readiness is separate from the live session's exact successful tool gate. Quota/session state is dated and no account secrets/URLs are retained. V2's bytes/hash/ZIP CRC/OPF metadata and57 prepared spine entries establish that artifact's structure, not authenticated complete publisher variants. Preserve21 empty-text members and22 image warnings alongside22 retained image assets; they may concern image-only material rather than missing prose and have not been visually/semantically read here.\n\nV3 remains extracted-not-read. Ignored artifacts and prepared hashes do not supply source-law qualification or implementation. The CURRENT-STATE label is historical2026-10-21 scope, not today's source-library membership, quota, tool state or newest edition. The next actual household passage review remains a separate source task under current direction; this content reconciliation performs no acquisition, source prose/image read, Calibre write, app/status query or save access. Keep the exact private artifact route and useful selection rationale without treating the old download brief as present permission to fetch another volume.",
+      "before_sha256": "579b24db4e1a14458567e5bdb1cb0d25294e76d5f57aac48321c66acdc3804ce",
+      "after_sha256": "2d5c4d756ff042e66c7edf271086a6b4acea424868f959eb24e6b91e6b9ba1d5"
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-q2-2026-10-23/CHECKPOINT.md",
+      "heading": "## Content reconciliation B491: source status and actual consumer limits",
+      "body": "Historical opt-in region prototype and incomplete verification under AD36/AD43. Preserve Q2's three-district table and derived-fact consumers: vouch attention, duty shifts and dose admission differ from a fully enacted jurisdiction/police/legal system. The institutional faith split is attributed source evidence; district/place allocation, labels, routes, minutes, attention and16/8-hour Machinery shift are authored. Actor/team claim text is not the team's actual body: Hale remains the sole supervisor in this receipt. Local north-dose issuance policy is the prototype's modeled default, not a universal world prohibition.\n\nTwelve generated walks across four places create real timed jobs, but this prototype sets body location to destination at departure and writes arrival on completion. Preserve that limitation rather than claiming actual continuous travel position/absence or applying it to every later world route. Coarse no-other-actions behavior is this occupied prototype path, not a ban on all concurrent travel capabilities. Derived facts add no new saved district fields, while new place/job definitions still create a forward-compatibility boundary: pre-Q2 builds cannot load Q2 walk/district states. Four old fixtures validate the stated backward cases, not all save histories.\n\nThe Corpse Collector mid-act reload differs from unexercised mid-walk reload. Browser save_to_file plus load_progress(string) is string roundtrip, not native exported-file download/file-input Import. DOM-text inspection without screenshots is not rebuilt visual review at14/21 or current desktop floor. The played Seer Clown transition closes Q1's one named earlier gap at this prototype identity, not every higher-dose transition or later native-binding floor. Twenty-nine engine tests include22 prior/seven new cases; docks reading has no test, and off-shift/dose-refusal/browser/second-visit gaps remain explicit. No full suite/rule run was recorded by this lane. Old staging/commit/server instructions and next profile sketch are history, not present authority. This full checkpoint read inspects no current runtime, source, private fixture or browser.",
+      "before_sha256": "1fab3acd97dda789631baeb6f4a9d1e63b24f42414275162deb09dc5d2b74ee5",
+      "after_sha256": "7aeef2edc352a1b4a0cbb863592998941d35d9d872b403c7d1512f1d41d5179e"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_a-practical-guide-to-evil.md",
+      "heading": "## Content reconciliation B491: source status and actual consumer limits",
+      "body": "Blocked source identity and retained analyst leads under AD32 and source qualification. Read every E8C/E8/E8D row, family/source labels and final dump gate. No article revision or dump-backed mechanic was acquired: the403 attempt and unavailable name guesses retain blocked_no_revision status. The prior western-lane mapping is not upgraded by preservation or by this content review. Name/Role/Aspect, narrative pressure, three-aspect reference, soul damage and inheritance labels are unverified research leads here, not facts to implement as canon.\n\nThe many unknown oath fields are unknown rather than prohibitions or proof of absent mechanics. Narrative pressure versus certainty, role succession versus automatic heir transfer and public title versus private aspect are useful questions to verify against a real source passage/revision. Three aspects is a prior mapped reference, not a newly imposed cap on original YAIR worlds. No confirmed gag, breach law, loophole or source penalty follows. Preserve this compact gap map and its linked prior lane without retrying the failed host or replacing exact unknowns with franchise memory. Current review reads the digest, not SERIES.json, web/wiki, dump or primary novel; it neither claims a fresh fetch failure nor authorizes acquisition/research/implementation.",
+      "before_sha256": "a2f94a701319202637af5917a61eeec002d34cf7cfcccfbe497de6cdfc87c339",
+      "after_sha256": "4a28c41c6f170781b1264b966011529054913adf9cadf67b803069531d630015"
+    },
+    {
+      "path": "docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md",
+      "heading": "## Content reconciliation B491: source status and actual consumer limits",
+      "body": "Full proposal-round review under AD32/AD36/AD43 and MR1–MR36: A1–A3, C1–C4, five observer rows, all saved-game comparisons and L1–L8 retain distinct meanings. The source-shown late addition, hidden site/book route and clothing mismatch differ from the all-at-once craft abstraction; full-moon window width is an authored calendar dial. Data-row29-test rerun is historical evidence, not a new full suite. This review reads the report, not actual prepared novel or Hogwarts game builds. The saved-game findings link is repaired from its real directory while preserving the original href in an explicit amendment.\n\nC1's transformation marker needs an actual useful donor-dependent consumer before the old slice establishes more than its bounded craft result. C2's recipe-known start differs from earning knowledge through book/note/teaching/trial; missing one route does not make every possible method impossible. C3's separate purse/lots versus shared item/money carrier is an integration distinction, not completed simply by naming S1. C4's64-entry prose cap can drop old display text while durable standings/debts remain; totals by kind cannot replace consequential identity, terms or evidence. Keep actual history references where a consumer needs them, with compaction fitting that owner rather than a mandatory second archive store.\n\nObserver truth, holder knowledge, witnessed samples/appearance, donor presence/permission and actual local stock remain separate. Proposed symptom/appearance cues must follow real mechanism and knowledge rather than leak the hidden author truth. A generic output grep is a limited sentinel, not proof against every indirect text/price/timing leak. Directional foreign compatibility uses actual local mechanisms; do not turn a label or missing adapter into a universal metaphysical refusal. The one-hour reference and witnessed source events stay qualified to the original report's edition/window rather than becoming new verified reading.\n\nThe useful L1–L8 staged process, sensory feedback, knowledge routes, downstream disguise/clothing/presence, diversion/material acquisition, native carriers, author inspection and missing browser branches remain proposed with named done checks, not a newly dispatched backlog or current proof that no later owner has implemented them. Old model assignments and later-round reading suggestions do not authorize workers, source expansion or runtime now. No full-book/source-game/runtime/pack/private-save inspection or broader delivered transformation claim is added.",
+      "before_sha256": "1d9de65b75c50c8e06b5095161b49a8c6139acc036d131fed988056a5b763c55",
+      "after_sha256": "a935caf899980a13a698143bd59ace57808a7b841ffdd95e2687d192bb5a2698"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 287,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md",
+      "from": "../../research/hogwarts-games/FINDINGS.json",
+      "to": "../../../research/hogwarts-games/FINDINGS.json",
+      "reason": "Original relative link resolved under docs/gm/research and is absent; existing target is docs/research/hogwarts-games/FINDINGS.json."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B488, continuous execution 2026-11-05 |",
+      "to": "| B491, continuous execution 2026-11-05 |",
+      "reason": "Advance current continuous reconciliation through B491."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md",
+      "from": "a935caf899980a13a698143bd59ace57808a7b841ffdd95e2687d192bb5a2698",
+      "to": "efa78ca4de4740eefafa474e79f618ea39713eb3bf8cee8e04ea13007a5a0a8b",
+      "reason": "Repair original selected source hyperlink; preserve original input identity and href."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "5fff11b66a3c6cc532ca9c478f73df06b4c7c3663fcf16f035d08dae7bd9c420",
+      "to": "2b87fa5839665856706933e5ef51d62c91615d241552bf13555ce62e736ed068",
+      "reason": "Exact task-owned register row advancement."
+    }
+  ]
+}

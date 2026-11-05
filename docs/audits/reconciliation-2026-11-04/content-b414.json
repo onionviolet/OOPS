@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "batch": "B414",
+  "title": "Nine paragraph-review and ingest receipts with actual supersessions",
+  "at": "2026-11-05T05:02:57.378298+00:00",
+  "head": "2caf5a85e6dcc171d106f61617327a84bca020cc",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV2_CHECKPOINT.md",
+      "ids": [
+        "54 gap verdicts; chapters9–16"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "All 54 selected cited gaps were paragraph-reviewed, but no adapter rows were emitted. Their 34 no-mechanism, 10 not-action, nine off-seat and one unresolved verdicts are the earlier set; RV7 later reviews the same IDs and supersedes 25 gaps with rows. Do not add both verdict sets or infer a completed mechanism from citation availability.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "77d2c311a8a6642cd337aa0d195a86c4b6905fc2a6ff805c316d8f9b91d09f36",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV4_CHECKPOINT.md",
+      "ids": [
+        "18 opening verdicts; 12 rows/six gaps"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The actual opening shard has five scenes/18 steps, not the approximate 175-step estimate. It reviews existing mappings as well as gaps and rejects thirteen later-volume locator collisions. Twelve rows pass individual/combined adapter checks; durations are labelled fills, fare can remain null and topic has a canon choice. Source order/place corrections still need ingestion; these rows are not completed commands or improved browser fidelity.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "b642e4c048f20ae84142cbf7a586f59a3b5a746ff592f096a9fb9f8e2235d933",
+      "input_lines": 88,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          88
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV5_CHECKPOINT.md",
+      "ids": [
+        "initial ingest; resumes1–4; source IDs/volume-aware mapping"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The first candidate used 429 scenes instead of the driver’s 4,899-scene M4 input; its 18/161 step counts do not measure the later 175/1,491 mappings. Resume 1 restores the full source-step ID set rather than deleting inconvenient steps. Resume 2’s volume audit fails against full inputs; its temporary filtered-input pass does not close compatibility. Resume 3 subsequently uses the volume-aware driver and validates/selects 41/285/1,130 volume-one steps in the respective routes. Resume 4 adds 31 body/two ability rows, skips 167 identical rows and retains 54 differing RV2/RV7 conflicts under row-over-gap/later-equal-kind resolution. Controls rise to 26/210/285 in the three mappings, but remain candidate command IDs without eligibility/settlement/browser/save proof. Old category exclusions remain gaps with metadata in that scorer. An unresolved small accounting discrepancy is retained: the initial added-kind table sums to 12 while its merge-check line reports 11 added rows; no private merger receipt was reopened to resolve it. Exact identities, later replacements and failures stay chronological rather than flattened into a single success count.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "0fab5157fef590c8b5451157168e1d3ba9b282b78c4860d658efe96da240b1c8",
+      "input_lines": 287,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          287
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV6_CHECKPOINT.md",
+      "ids": [
+        "52 verdicts; 14 rows/38 gaps; source-volume mismatch"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "All 52 selected citations are retrievable, but ten bind later-volume steps to unrelated opening-volume paragraphs. These ten remain evidence/citation gaps, not ten proven missing mechanics. Fourteen candidate rows are adapter/registry valid; the other 38 retain actual off-seat, identity, action, stock/timing and consumer gaps. One-minute durations are explicit adapter fills; no guessed wait or stock is introduced. Place corrections and source provenance remain necessary for ingestion.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "ce8d19b9c0533595729bf81808ab692b3a9df7a83d14290303a787cad84f9334",
+      "input_lines": 109,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          109
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV7_CHECKPOINT.md",
+      "ids": [
+        "same54 IDs; 25 rows/29 gaps"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The same 54-ID set supersedes RV2: 12 acts, nine topics and four journeys replace 25 old gaps, with 29 retained typed gaps. Row validation and in-memory merge pass after bounded-string fixes, but source order corrections, actual route approach and moving-vehicle dialogue still need integration. Dream/report/actor context stays separate from waking truth and lead control. The private source corrections are not an additive second set of actions.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "e6d3a8afcc17658e6fbe907065eeebb6b4de38629546982012531119bc55e386",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV8_CHECKPOINT.md",
+      "ids": [
+        "18 reviewed gaps; eight rows/ten gaps"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The selected opening-volume chapter17–24 set ends at 18 gaps, below estimates and the 100-step cap. Eight supported definitions survive corrected string limits and knowledge attribution; ten gaps retain actual group participants, staged wait/travel, money/debt, issued goods/equipment, ammunition, practice fatigue and household custody. A receipt cannot replace those missing material effects. Existing mapped controls were outside this gap-only review.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "191de01462f4962452ebb7b12ea06ee100493f44f7af808657c4b4515a520c54",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV9_CHECKPOINT.md",
+      "ids": [
+        "first100 of153 gaps; 35 rows/65 gaps"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The bounded chapter25–60 review ends in chapter44 and leaves 53 later range gaps outside scope. Preserve 35 candidate rows versus 65 typed gaps, source-provenance volume filtering, actual actor/place/order corrections, unknown fares and labelled durations. Another actor’s work, combat or negotiation does not become a lead command, and an elapsed-time step is not automatically a wait at an inherited location. Static in-memory validity does not establish gameplay coverage.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "48eddb49441bfaf239413f9d8055f158d74de589c82704849189e02ff422ce5c",
+      "input_lines": 103,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          103
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV10_CHECKPOINT.md",
+      "ids": [
+        "first100 of157 gaps; eight rows/92 gaps"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The corrected third-wave-aware probe selects the first100 gaps through chapter84, leaving 57 range gaps outside scope. Forty-eight not-an-action verdicts mean the supplied paragraph fails to support that particular step, even if a different action occurs; fix evidence/anchoring before inferring 48 missing mechanisms. Eight rows are observation/topic/journey candidates, not completed shopping, practice, ritual, custody or combat. Concurrent mapping drift is bounded by the frozen probe identities.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "9857e0f26399024fbf3770faa4f889dce23188bac736fd1ec8f0f7f72afe39e5",
+      "input_lines": 111,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          111
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV11_CHECKPOINT.md",
+      "ids": [
+        "zero eligible review after RV4 exclusion"
+      ],
+      "classification": "paragraph-review and offline-ingest receipt, supersession and denominator reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Zero output is a completed exclusion/boundary check, not interrupted review or new semantic coverage: RV4 already reviewed all18 opening identities, including the six current gaps that this brief excludes. Nine later-volume collisions are excluded. Thirteen boundary citation occurrences and an empty adapter registry prove no new row; re-reviewing old gaps with newer operations needs explicit scope, not padding an expected count. The dated released-writer statement does not verify current workers.",
+      "evidence": "Complete checkpoint body read, including all later resumes and failure history; clipped RV5 middle was recovered in bounded reads. No private paragraph/row/pack or source code re-audit.",
+      "reopen": "Retain exact unresolved evidence/accounting/integration gaps; later source-qualified owners govern any selected re-review or rebuilt gameplay check.",
+      "input_sha256": "31fe82c7c7f329d0f218a73cc5c00b07c8d3591e98380de583b56876bfd4246f",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "heading": "## Content reconciliation B414: paragraph review, input identity and candidate mappings",
+      "body": "These nine complete public receipts were read; private source-bearing ledgers and actual replay/runtime consumers were not reopened. The plan itself remains a partly reviewed owner.\n\n**RV2:** All 54 selected cited gaps were paragraph-reviewed, but no adapter rows were emitted. Their 34 no-mechanism, 10 not-action, nine off-seat and one unresolved verdicts are the earlier set; RV7 later reviews the same IDs and supersedes 25 gaps with rows. Do not add both verdict sets or infer a completed mechanism from citation availability.\n\n**RV4:** The actual opening shard has five scenes/18 steps, not the approximate 175-step estimate. It reviews existing mappings as well as gaps and rejects thirteen later-volume locator collisions. Twelve rows pass individual/combined adapter checks; durations are labelled fills, fare can remain null and topic has a canon choice. Source order/place corrections still need ingestion; these rows are not completed commands or improved browser fidelity.\n\n**RV5:** The first candidate used 429 scenes instead of the driver’s 4,899-scene M4 input; its 18/161 step counts do not measure the later 175/1,491 mappings. Resume 1 restores the full source-step ID set rather than deleting inconvenient steps. Resume 2’s volume audit fails against full inputs; its temporary filtered-input pass does not close compatibility. Resume 3 subsequently uses the volume-aware driver and validates/selects 41/285/1,130 volume-one steps in the respective routes. Resume 4 adds 31 body/two ability rows, skips 167 identical rows and retains 54 differing RV2/RV7 conflicts under row-over-gap/later-equal-kind resolution. Controls rise to 26/210/285 in the three mappings, but remain candidate command IDs without eligibility/settlement/browser/save proof. Old category exclusions remain gaps with metadata in that scorer. An unresolved small accounting discrepancy is retained: the initial added-kind table sums to 12 while its merge-check line reports 11 added rows; no private merger receipt was reopened to resolve it. Exact identities, later replacements and failures stay chronological rather than flattened into a single success count.\n\n**RV6:** All 52 selected citations are retrievable, but ten bind later-volume steps to unrelated opening-volume paragraphs. These ten remain evidence/citation gaps, not ten proven missing mechanics. Fourteen candidate rows are adapter/registry valid; the other 38 retain actual off-seat, identity, action, stock/timing and consumer gaps. One-minute durations are explicit adapter fills; no guessed wait or stock is introduced. Place corrections and source provenance remain necessary for ingestion.\n\n**RV7:** The same 54-ID set supersedes RV2: 12 acts, nine topics and four journeys replace 25 old gaps, with 29 retained typed gaps. Row validation and in-memory merge pass after bounded-string fixes, but source order corrections, actual route approach and moving-vehicle dialogue still need integration. Dream/report/actor context stays separate from waking truth and lead control. The private source corrections are not an additive second set of actions.\n\n**RV8:** The selected opening-volume chapter17–24 set ends at 18 gaps, below estimates and the 100-step cap. Eight supported definitions survive corrected string limits and knowledge attribution; ten gaps retain actual group participants, staged wait/travel, money/debt, issued goods/equipment, ammunition, practice fatigue and household custody. A receipt cannot replace those missing material effects. Existing mapped controls were outside this gap-only review.\n\n**RV9:** The bounded chapter25–60 review ends in chapter44 and leaves 53 later range gaps outside scope. Preserve 35 candidate rows versus 65 typed gaps, source-provenance volume filtering, actual actor/place/order corrections, unknown fares and labelled durations. Another actor’s work, combat or negotiation does not become a lead command, and an elapsed-time step is not automatically a wait at an inherited location. Static in-memory validity does not establish gameplay coverage.\n\n**RV10:** The corrected third-wave-aware probe selects the first100 gaps through chapter84, leaving 57 range gaps outside scope. Forty-eight not-an-action verdicts mean the supplied paragraph fails to support that particular step, even if a different action occurs; fix evidence/anchoring before inferring 48 missing mechanisms. Eight rows are observation/topic/journey candidates, not completed shopping, practice, ritual, custody or combat. Concurrent mapping drift is bounded by the frozen probe identities.\n\n**RV11:** Zero output is a completed exclusion/boundary check, not interrupted review or new semantic coverage: RV4 already reviewed all18 opening identities, including the six current gaps that this brief excludes. Nine later-volume collisions are excluded. Thirteen boundary citation occurrences and an empty adapter registry prove no new row; re-reviewing old gaps with newer operations needs explicit scope, not padding an expected count. The dated released-writer statement does not verify current workers.\n\nThe original estimates, citation probes, reviewed row counts, candidate mappings, adapter checks and executed gameplay use different denominators. Keep them separate and preserve rejected source bindings, superseded gaps, nulls and failed tool paths. No historical request to ingest, resume a lane or run a browser is executed by this documentation reconciliation. Human review remains optional under AD42.",
+      "before_sha256": "3ed09d6c6bd509a577946da2437516aa398ef88c4d5ca91b1b5c9f0d675ac645",
+      "after_sha256": "4ab4d7723aed2c25ba75d1221067ba202221672c3bf18d4ee538d2924a576902"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 504
+}

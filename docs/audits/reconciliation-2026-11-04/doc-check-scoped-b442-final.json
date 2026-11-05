@@ -1,0 +1,18 @@
+{
+  "command": "node same-rule scoped check_doc_slips.mjs",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "661de3936d2cce5c3e3c05e560116c8bb5dfb730c0f3e0ea81bf29193a1f7e3e",
+  "paths": [
+    "docs/RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md",
+    "docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/PLAN.md",
+    "docs/WANDERING_ZONES_AND_INSIGHT.md",
+    "docs/RESEARCH_PROGRESSION_MAGIC.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "adaptation": "Only filespec restricted to task paths; diagnostic rules unchanged. Not a shared-tree pass."
+}

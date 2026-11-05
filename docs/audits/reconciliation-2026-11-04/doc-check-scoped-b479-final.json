@@ -1,0 +1,17 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "2312c464034a1e8912e44d85ffe1fe9effee5737c879c95258eb880cb3615660",
+  "paths": [
+    "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g7/REPORT.md",
+    "docs/gm/dispatch/making-donor-2026-11-04/CHECKPOINT.md",
+    "docs/research/qud-systems-audit-2026-10-15/closure-inputs/D1_REPORT.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not a shared-tree pass."
+}

@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "batch": "B555",
+  "title": "Utopia source audit and late-scale engine/UI pressures",
+  "at": "2026-11-05T10:38:09.038833+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/UTOPIA_ENGINE_UI_AUDIT.md",
+      "ids": [
+        "U1–U12/C1–C3",
+        "N1–N5/O1–O3/V1–V6/L1–L5",
+        "R1–R5/Q1–Q5/SC1–SC5"
+      ],
+      "classification": "full actual source-audit review; disjoint qualification, proposed interfaces and independent scale/lifecycle preserved",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/UTOPIA_ENGINE_UI_AUDIT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md"
+      ],
+      "disposition": "F1: Full162-line audit actually read, with truncated V1–V6 table recovered separately. U1–U12/C1–C3/N1–N5/O1–O3/V1–V6/L1–L5/R1–R5/Q1–Q5/SC1–SC5 and verification all reviewed. Primary source windows are disjoint selected chapters/excerpts, with captured-but-unread pieces explicit. Filename ordinal is not displayed chapter: its selected.json correction matters. Inherited English-edition attribution, Chinese equivalence, community interpretation and character assessment remain qualified. No underlying novel, capture, external page or private artifact was opened now.\n\nF2: Keep controller, body, persona, observer, role skill, attention, practical knowledge, location, route endpoint and independent support paths separate. One current-player job or inspected panel cannot stand in for concurrently active roles. Studying/memorizing trades is not proof of their execution in this specific scene; actual memory/faculty exceptions remain possible under AD38. Nearly5000 people and chosen forecast durations are case values, not universal ritual minima/time law. Unknown strain/reach/allocation cannot become invented precision, one numeric town score or a mandatory all-world population simulator.\n\nF3: Source construction/wishes, physical materials, competent staff, operational services, actual visitors and ritual significance differ. A sourced creation method can legitimately provide strong/free outcomes where it works, without a balancing fee imposed because generic construction normally consumes stock. Guest fear, a conductor's belief, repeated names, dispatched manuscript and retained testimony do not prove danger, working telegraph, same actor, publication or completed legal duty. C1's ten-pence room corrects a broad no-price claim only for that room/time; the400-pound legal threshold is neither purse nor fine.\n\nF4: Mutable entrance is not town replacement. Discovering a destination, traversing it and changing its connection are different operations with actual support/revision/in-flight contracts. Feedback can be falsified; link loss can affect particular bodies without erasing every actor or independent help. Material destruction, surviving imprint, temporary ritual residue, ingredient custody, completed digestion, current body and actual advancement have independent lifetimes. Protection can block needed support. A helper supplies the actual contracted effect, not automatic rank. Authoring unknown expiry/cost must remain distinct from canon; later stronger exception/means may change ordinary limits.\n\nF5: N/V/L rows propose actual producer→consumer/observer/quote/commit/aftermath/return contracts through incumbent owners. Proposed function names are not implemented exports; static source inspection does not establish current repository absence. O1 focus/inspector, O2 dossier and O3 spatial route view are alternatives, not adopted UI or an obligation to render thousands of widgets. One sufficient view with useful detail follows current desktop/design owners, AD36/AD43 and optional AD42 review. Benchmark active entities/support/serialization at the selected scale before imposing technical limits as lore or building a universal DSL.\n\nF6: R1–R5 community paraphrases remain attributed hypotheses and discriminators, not source truth. Sampled public scenes do not settle every body origin, independent worm ontology, universal wish cap, treasury total or aftermath cause. Scene-selection SC rows have subsequent TR/HM/HB audits at named scope; their earlier shortlist is not a new duplicate reading wave or runtime proof. Existing guide/map/brief uptake already routes UT-N1–N5. Add source-local first-use consumers when selected under AD51; do not require this entire late mechanism suite before the next Klein/HP slice. No secret unsealing, gameplay, source acquisition, private save, browser/build, worker/message, migration, deletion, commit or push occurred.",
+      "evidence": "All162 lines read with V table truncation recovered. Situation map full review B553 supplies existing uptake context; source/community pages not reread.",
+      "reopen": "Only selected actual late/analogous consumer or new qualified source requires mechanism/proof work; no new early-game gate.",
+      "input_sha256": "fa89ff4d0d2adf5d06a11acd2bbe895c325d74d4eb26f0f179bc366b34822e27",
+      "input_lines": 162,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          162
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/UTOPIA_ENGINE_UI_AUDIT.md",
+      "heading": "## Content reconciliation B555: composite-scale source and contract boundaries",
+      "body": "F1: Full162-line audit actually read, with truncated V1–V6 table recovered separately. U1–U12/C1–C3/N1–N5/O1–O3/V1–V6/L1–L5/R1–R5/Q1–Q5/SC1–SC5 and verification all reviewed. Primary source windows are disjoint selected chapters/excerpts, with captured-but-unread pieces explicit. Filename ordinal is not displayed chapter: its selected.json correction matters. Inherited English-edition attribution, Chinese equivalence, community interpretation and character assessment remain qualified. No underlying novel, capture, external page or private artifact was opened now.\n\nF2: Keep controller, body, persona, observer, role skill, attention, practical knowledge, location, route endpoint and independent support paths separate. One current-player job or inspected panel cannot stand in for concurrently active roles. Studying/memorizing trades is not proof of their execution in this specific scene; actual memory/faculty exceptions remain possible under AD38. Nearly5000 people and chosen forecast durations are case values, not universal ritual minima/time law. Unknown strain/reach/allocation cannot become invented precision, one numeric town score or a mandatory all-world population simulator.\n\nF3: Source construction/wishes, physical materials, competent staff, operational services, actual visitors and ritual significance differ. A sourced creation method can legitimately provide strong/free outcomes where it works, without a balancing fee imposed because generic construction normally consumes stock. Guest fear, a conductor's belief, repeated names, dispatched manuscript and retained testimony do not prove danger, working telegraph, same actor, publication or completed legal duty. C1's ten-pence room corrects a broad no-price claim only for that room/time; the400-pound legal threshold is neither purse nor fine.\n\nF4: Mutable entrance is not town replacement. Discovering a destination, traversing it and changing its connection are different operations with actual support/revision/in-flight contracts. Feedback can be falsified; link loss can affect particular bodies without erasing every actor or independent help. Material destruction, surviving imprint, temporary ritual residue, ingredient custody, completed digestion, current body and actual advancement have independent lifetimes. Protection can block needed support. A helper supplies the actual contracted effect, not automatic rank. Authoring unknown expiry/cost must remain distinct from canon; later stronger exception/means may change ordinary limits.\n\nF5: N/V/L rows propose actual producer→consumer/observer/quote/commit/aftermath/return contracts through incumbent owners. Proposed function names are not implemented exports; static source inspection does not establish current repository absence. O1 focus/inspector, O2 dossier and O3 spatial route view are alternatives, not adopted UI or an obligation to render thousands of widgets. One sufficient view with useful detail follows current desktop/design owners, AD36/AD43 and optional AD42 review. Benchmark active entities/support/serialization at the selected scale before imposing technical limits as lore or building a universal DSL.\n\nF6: R1–R5 community paraphrases remain attributed hypotheses and discriminators, not source truth. Sampled public scenes do not settle every body origin, independent worm ontology, universal wish cap, treasury total or aftermath cause. Scene-selection SC rows have subsequent TR/HM/HB audits at named scope; their earlier shortlist is not a new duplicate reading wave or runtime proof. Existing guide/map/brief uptake already routes UT-N1–N5. Add source-local first-use consumers when selected under AD51; do not require this entire late mechanism suite before the next Klein/HP slice. No secret unsealing, gameplay, source acquisition, private save, browser/build, worker/message, migration, deletion, commit or push occurred.",
+      "before_sha256": "fa89ff4d0d2adf5d06a11acd2bbe895c325d74d4eb26f0f179bc366b34822e27",
+      "after_sha256": "f902556c6748510500e9ddc48e2ce9b9992f6c11b19543fea6ded5499dc53eec"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 160,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B549, continuous execution 2026-11-05 |",
+      "to": "| B555, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "35fbaf81edce114c6a0fa1413c724ed7cd88c87b18e9e25800ae004cfbd4d38b",
+      "to": "8e13128fb01bc88bfffcee892bd36a85ab97232e683d87b11c35e3064732b76a",
+      "reason": "Exact task-owned register hunk."
+    }
+  ]
+}

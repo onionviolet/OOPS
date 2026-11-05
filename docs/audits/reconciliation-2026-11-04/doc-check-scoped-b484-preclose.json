@@ -1,0 +1,21 @@
+{
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3G_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3H_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/procedural-crafting-ui-2026-10-15/QUD_AUDIT_DISPATCH.md",
+    "docs/gm/dispatch/reference-gap-followup-2026-10-20/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/FIRST_ARC_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ2_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3E_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3F_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_POPULATED_UI_JOURNEY_RECEIPT.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "d67b257dbf03d6b1098b8f2af1d1fe9b4dbd74e473eab0d210762fe23c8c2dc7",
+  "adaptation": "Only filespec changed; diagnostics unchanged. Not a shared-tree pass."
+}

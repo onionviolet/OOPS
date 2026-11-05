@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "batch": "B408",
+  "title": "Automation, glyph work and connected knowledge source maps",
+  "at": "2026-11-05T04:54:52.001225+00:00",
+  "head": "2caf5a85e6dcc171d106f61617327a84bca020cc",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/bitburner/COVERAGE.json",
+      "ids": [
+        "F1–F6; P1–P6"
+      ],
+      "classification": "source-map/report actual-content reconciliation",
+      "owners": [
+        "docs/research/bitburner/REPORT.md"
+      ],
+      "disposition": "The six selected chains preserve distinct startup resource admission, research payment/unlock propagation, reset retention, estimated offline production, inspectable automation and save/import stages. Offline estimates differ by subsystem and may run after a script-start attempt that fails admission; they are not uninterrupted execution or a universal half-rate rule. Import comparison is not blanket atomicity/rollback proof. Full API/interpreter, economy, unlock/retention fields, cloud/build parity and migration coverage remain excluded. Preserve all six original proposals and 26 touches. P6’s old PROJECT one-prestige reference is historical: the October 24 direction retired the one-realm/one-prestige milestone gate. A preview remains an optional idea; no reset policy or implementation is selected by this audit.",
+      "evidence": "Complete JSON values and complete report body read, including recovered output ranges. This is dossier content review, not a renewed underlying source/runtime audit.",
+      "reopen": "Retain proposals and exact unread bounds; reopen for a selected narrow source question or authorized playable change.",
+      "input_sha256": "e34e298f2c250ce906f58b557b2718e973a6655d8266a7c2d609927162c0e336",
+      "input_lines": 228,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          228
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/bitburner/REPORT.md",
+      "ids": [
+        "F1–F6; P1–P6"
+      ],
+      "classification": "source-map/report actual-content reconciliation",
+      "owners": [
+        "docs/research/bitburner/REPORT.md"
+      ],
+      "disposition": "The six selected chains preserve distinct startup resource admission, research payment/unlock propagation, reset retention, estimated offline production, inspectable automation and save/import stages. Offline estimates differ by subsystem and may run after a script-start attempt that fails admission; they are not uninterrupted execution or a universal half-rate rule. Import comparison is not blanket atomicity/rollback proof. Full API/interpreter, economy, unlock/retention fields, cloud/build parity and migration coverage remain excluded. Preserve all six original proposals and 26 touches. P6’s old PROJECT one-prestige reference is historical: the October 24 direction retired the one-realm/one-prestige milestone gate. A preview remains an optional idea; no reset policy or implementation is selected by this audit.",
+      "evidence": "Complete JSON values and complete report body read, including recovered output ranges. This is dossier content review, not a renewed underlying source/runtime audit.",
+      "reopen": "Retain proposals and exact unread bounds; reopen for a selected narrow source question or authorized playable change.",
+      "input_sha256": "629371ecb6e41ce47534e9c9c7bf5a3b1eca3873596a0adf0d13b3bb00504938",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ars-nouveau/COVERAGE.json",
+      "ids": [
+        "E1–E10; T1–T9; F1–F7; P1–P7"
+      ],
+      "classification": "source-map/report actual-content reconciliation",
+      "owners": [
+        "docs/research/ars-nouveau/REPORT.md"
+      ],
+      "disposition": "The 3,304-file preservation set and 85 glyph/recipe inventory are broader than selected static consumers. Keep acquisition/knowledge/book capacity, local modifier attachment, authoring validation, casting validation, payment, delivery and useful effect separate. A successful cast can spend mana before a later ineffective effect. Craft opens a menu rather than proving unattended crafting. Turrets reuse a stored spell with infrastructure Source; specialized workers and owner-linked familiar support are distinct systems. Transport can retain insertion remainders, while the sampled grove/population output calls expose a static ignored-remainder risk that was not reproduced. Loaded tick work and serialized progress establish no closed-app catch-up, universal protection or cancellation guarantee. All seven proposals stay optional; they do not reopen LP1 or require an all-purpose engine. External game/event/recipe consumers, remaining glyphs, configuration/addons and runtime persistence remain unqualified.",
+      "evidence": "Complete JSON values and complete report body read, including recovered output ranges. This is dossier content review, not a renewed underlying source/runtime audit.",
+      "reopen": "Retain proposals and exact unread bounds; reopen for a selected narrow source question or authorized playable change.",
+      "input_sha256": "241dca8fbf2b0121ca9dad0cc09eac2168845019e3288bad698e19571d48ca72",
+      "input_lines": 335,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          335
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ars-nouveau/REPORT.md",
+      "ids": [
+        "E1–E10; T1–T9; F1–F7; P1–P7"
+      ],
+      "classification": "source-map/report actual-content reconciliation",
+      "owners": [
+        "docs/research/ars-nouveau/REPORT.md"
+      ],
+      "disposition": "The 3,304-file preservation set and 85 glyph/recipe inventory are broader than selected static consumers. Keep acquisition/knowledge/book capacity, local modifier attachment, authoring validation, casting validation, payment, delivery and useful effect separate. A successful cast can spend mana before a later ineffective effect. Craft opens a menu rather than proving unattended crafting. Turrets reuse a stored spell with infrastructure Source; specialized workers and owner-linked familiar support are distinct systems. Transport can retain insertion remainders, while the sampled grove/population output calls expose a static ignored-remainder risk that was not reproduced. Loaded tick work and serialized progress establish no closed-app catch-up, universal protection or cancellation guarantee. All seven proposals stay optional; they do not reopen LP1 or require an all-purpose engine. External game/event/recipe consumers, remaining glyphs, configuration/addons and runtime persistence remain unqualified.",
+      "evidence": "Complete JSON values and complete report body read, including recovered output ranges. This is dossier content review, not a renewed underlying source/runtime audit.",
+      "reopen": "Retain proposals and exact unread bounds; reopen for a selected narrow source question or authorized playable change.",
+      "input_sha256": "a4263ceb9895b99d08c57830105b7e0a1b0e73f9cc73d9e6f369be090a9642d3",
+      "input_lines": 113,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          113
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/book-of-hours/COVERAGE.json",
+      "ids": [
+        "BH01–BH17; 38 findings; five packets"
+      ],
+      "classification": "source-map/report actual-content reconciliation",
+      "owners": [
+        "docs/research/book-of-hours/REPORT.md"
+      ],
+      "disposition": "Keep physical book/mastery/skill/expendable memory/soul capacity/commitment separate. Cure can leave fatigue; assistant departure and opened rooms have different persistence. Slot essential conjunction and positive-criterion alternatives differ: the selected room asks Rose 5 OR Lantern 5. Invitations retrieve source tokens and do not establish consent, independent travel or a full NPC economy. Directed pair histories, conflicting earlier interventions and qualified manuscript recipients are useful original adaptation ideas, with every broader branch still scoped unread. The 7,868 raw definitions are not resolved runtime entities; 179 inspected field rows, 56 selected DLC rows and 17 paths are not whole-game/DLC coverage. The selected Pyroglyphics manuscript is not the Sights and Sensations text needed by the sampled casket consumer. Direct WriteAllText plus backups supplies no atomic-write template, and finite decks supply no universal seeded/no-replacement policy. Preserve five proposals and wider findings without converting historical implementation references or director-review wording into new required gates. Current AD42 makes human review optional; actual changed gameplay would still need its appropriate agent verification.",
+      "evidence": "Complete JSON values and complete report body read, including recovered output ranges. This is dossier content review, not a renewed underlying source/runtime audit.",
+      "reopen": "Retain proposals and exact unread bounds; reopen for a selected narrow source question or authorized playable change.",
+      "input_sha256": "b7a922f2b0decb0b0e4aae67ab1cafecc63fae37a363ed1544be5c6c5b0240f5",
+      "input_lines": 303,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          303
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/book-of-hours/REPORT.md",
+      "ids": [
+        "BH01–BH17; 38 findings; five packets"
+      ],
+      "classification": "source-map/report actual-content reconciliation",
+      "owners": [
+        "docs/research/book-of-hours/REPORT.md"
+      ],
+      "disposition": "Keep physical book/mastery/skill/expendable memory/soul capacity/commitment separate. Cure can leave fatigue; assistant departure and opened rooms have different persistence. Slot essential conjunction and positive-criterion alternatives differ: the selected room asks Rose 5 OR Lantern 5. Invitations retrieve source tokens and do not establish consent, independent travel or a full NPC economy. Directed pair histories, conflicting earlier interventions and qualified manuscript recipients are useful original adaptation ideas, with every broader branch still scoped unread. The 7,868 raw definitions are not resolved runtime entities; 179 inspected field rows, 56 selected DLC rows and 17 paths are not whole-game/DLC coverage. The selected Pyroglyphics manuscript is not the Sights and Sensations text needed by the sampled casket consumer. Direct WriteAllText plus backups supplies no atomic-write template, and finite decks supply no universal seeded/no-replacement policy. Preserve five proposals and wider findings without converting historical implementation references or director-review wording into new required gates. Current AD42 makes human review optional; actual changed gameplay would still need its appropriate agent verification.",
+      "evidence": "Complete JSON values and complete report body read, including recovered output ranges. This is dossier content review, not a renewed underlying source/runtime audit.",
+      "reopen": "Retain proposals and exact unread bounds; reopen for a selected narrow source question or authorized playable change.",
+      "input_sha256": "fb5a93adb0183cdc56d58fdca57def4a50bed0ee13b84173f387e61a0ca37eca",
+      "input_lines": 83,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          83
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/bitburner/REPORT.md",
+      "heading": "## Content reconciliation B408: connected mechanisms and proposal boundaries",
+      "body": "The six selected chains preserve distinct startup resource admission, research payment/unlock propagation, reset retention, estimated offline production, inspectable automation and save/import stages. Offline estimates differ by subsystem and may run after a script-start attempt that fails admission; they are not uninterrupted execution or a universal half-rate rule. Import comparison is not blanket atomicity/rollback proof. Full API/interpreter, economy, unlock/retention fields, cloud/build parity and migration coverage remain excluded. Preserve all six original proposals and 26 touches. P6’s old PROJECT one-prestige reference is historical: the October 24 direction retired the one-realm/one-prestige milestone gate. A preview remains an optional idea; no reset policy or implementation is selected by this audit.",
+      "before_sha256": "629371ecb6e41ce47534e9c9c7bf5a3b1eca3873596a0adf0d13b3bb00504938",
+      "after_sha256": "826b3fc8c6f09f8155cfa37b6598657d043f8938b8fad2d594cb306f884cb896"
+    },
+    {
+      "path": "docs/research/ars-nouveau/REPORT.md",
+      "heading": "## Content reconciliation B408: connected mechanisms and proposal boundaries",
+      "body": "The 3,304-file preservation set and 85 glyph/recipe inventory are broader than selected static consumers. Keep acquisition/knowledge/book capacity, local modifier attachment, authoring validation, casting validation, payment, delivery and useful effect separate. A successful cast can spend mana before a later ineffective effect. Craft opens a menu rather than proving unattended crafting. Turrets reuse a stored spell with infrastructure Source; specialized workers and owner-linked familiar support are distinct systems. Transport can retain insertion remainders, while the sampled grove/population output calls expose a static ignored-remainder risk that was not reproduced. Loaded tick work and serialized progress establish no closed-app catch-up, universal protection or cancellation guarantee. All seven proposals stay optional; they do not reopen LP1 or require an all-purpose engine. External game/event/recipe consumers, remaining glyphs, configuration/addons and runtime persistence remain unqualified.",
+      "before_sha256": "a4263ceb9895b99d08c57830105b7e0a1b0e73f9cc73d9e6f369be090a9642d3",
+      "after_sha256": "15e51d0459241481f96fc8ccaa20910a5b40337314940036ae3ecf0373cc5c94"
+    },
+    {
+      "path": "docs/research/book-of-hours/REPORT.md",
+      "heading": "## Content reconciliation B408: connected mechanisms and proposal boundaries",
+      "body": "Keep physical book/mastery/skill/expendable memory/soul capacity/commitment separate. Cure can leave fatigue; assistant departure and opened rooms have different persistence. Slot essential conjunction and positive-criterion alternatives differ: the selected room asks Rose 5 OR Lantern 5. Invitations retrieve source tokens and do not establish consent, independent travel or a full NPC economy. Directed pair histories, conflicting earlier interventions and qualified manuscript recipients are useful original adaptation ideas, with every broader branch still scoped unread. The 7,868 raw definitions are not resolved runtime entities; 179 inspected field rows, 56 selected DLC rows and 17 paths are not whole-game/DLC coverage. The selected Pyroglyphics manuscript is not the Sights and Sensations text needed by the sampled casket consumer. Direct WriteAllText plus backups supplies no atomic-write template, and finite decks supply no universal seeded/no-replacement policy. Preserve five proposals and wider findings without converting historical implementation references or director-review wording into new required gates. Current AD42 makes human review optional; actual changed gameplay would still need its appropriate agent verification.",
+      "before_sha256": "fb5a93adb0183cdc56d58fdca57def4a50bed0ee13b84173f387e61a0ca37eca",
+      "after_sha256": "bc094a05ff2330c1f13cb37957bcfe7aa2380e080d048e7a61d92aed92b5dc92"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 539
+}

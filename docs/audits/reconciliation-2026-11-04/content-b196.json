@@ -293,6 +293,306 @@
       "from": "| B398, continuous execution 2026-11-04 |",
       "to": "| B404, continuous execution 2026-11-04 |",
       "reason": "Advance continuous reconciliation pointer without changing scope or adopting proposals."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B423, continuous execution 2026-11-05 |",
+      "to": "| B429, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation pointer through B429 without changing direction or remaining scope."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B429, continuous execution 2026-11-05 |",
+      "to": "| B432, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer through B432; preserve full remaining scope."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B432, continuous execution 2026-11-05 |",
+      "to": "| B435, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer to B435; retain the complete intake objective."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B435, continuous execution 2026-11-05 |",
+      "to": "| B438, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer through B438; remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B438, continuous execution 2026-11-05 |",
+      "to": "| B442, continuous execution 2026-11-05 |",
+      "reason": "Advance existing reconciliation pointer through B442; full coverage remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B442, continuous execution 2026-11-05 |",
+      "to": "| B445, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer through B445; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B445, continuous execution 2026-11-05 |",
+      "to": "| B447, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer through B447; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B447, continuous execution 2026-11-05 |",
+      "to": "| B450, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer through B450; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B450, continuous execution 2026-11-05 |",
+      "to": "| B453, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active reconciliation pointer through B453; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B453, continuous execution 2026-11-05 |",
+      "to": "| B456, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation pointer; full remaining objective stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B456, continuous execution 2026-11-05 |",
+      "to": "| B460, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation pointer through B460; full remaining scope stays active."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B460, continuous execution 2026-11-05 |",
+      "to": "| B464, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B464; full remaining objective stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B464, continuous execution 2026-11-05 |",
+      "to": "| B467, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation pointer through B467; full remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B467, continuous execution 2026-11-05 |",
+      "to": "| B471, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B471; full remaining objective stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B471, continuous execution 2026-11-05 |",
+      "to": "| B475, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B475; entire remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B475, continuous execution 2026-11-05 |",
+      "to": "| B477, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B477; full remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B477, continuous execution 2026-11-05 |",
+      "to": "| B479, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B479; full remaining scope stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B479, continuous execution 2026-11-05 |",
+      "to": "| B481, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation through B481; full remaining scope unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B481, continuous execution 2026-11-05 |",
+      "to": "| B488, continuous execution 2026-11-05 |",
+      "reason": "Advance continuous current-content record through B488; full coverage remains active."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B488, continuous execution 2026-11-05 |",
+      "to": "| B491, continuous execution 2026-11-05 |",
+      "reason": "Advance current continuous reconciliation through B491."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B491, continuous execution 2026-11-05 |",
+      "to": "| B497, continuous execution 2026-11-05 |",
+      "reason": "Advance current continuous record through B497."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B497, continuous execution 2026-11-05 |",
+      "to": "| B503, continuous execution 2026-11-05 |",
+      "reason": "Advance continuous reconciliation through B503."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B503, continuous execution 2026-11-05 |",
+      "to": "| B510, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B510, continuous execution 2026-11-05 |",
+      "to": "| B514, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B514, continuous execution 2026-11-05 |",
+      "to": "| B521, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B521, continuous execution 2026-11-05 |",
+      "to": "| B530, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B530, continuous execution 2026-11-05 |",
+      "to": "| B535, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B535, continuous execution 2026-11-05 |",
+      "to": "| B548, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B548, continuous execution 2026-11-05 |",
+      "to": "| B549, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B549, continuous execution 2026-11-05 |",
+      "to": "| B555, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B555, continuous execution 2026-11-05 |",
+      "to": "| B561, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B561, continuous execution 2026-11-05 |",
+      "to": "| B568, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B568, continuous execution 2026-11-05 |",
+      "to": "| B574, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B574, continuous execution 2026-11-05 |",
+      "to": "| B577, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B577, continuous execution 2026-11-05 |",
+      "to": "| B581, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B581, continuous execution 2026-11-05 |",
+      "to": "| B585, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B585, continuous execution 2026-11-05 |",
+      "to": "| B589, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B589, continuous execution 2026-11-05 |",
+      "to": "| B592, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B592, continuous execution 2026-11-05 |",
+      "to": "| B596, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active pointer; no full-register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B596, continuous execution 2026-11-05 |",
+      "to": "| B599, continuous execution 2026-11-05 |",
+      "reason": "Advance active pointer; no full-register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B599, continuous execution 2026-11-05 |",
+      "to": "| B602, continuous execution 2026-11-05 |",
+      "reason": "Advance active pointer; no full-register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B602, continuous execution 2026-11-05 |",
+      "to": "| B604, continuous execution 2026-11-05 |",
+      "reason": "Advance active pointer; no full-register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B604, continuous execution 2026-11-05 |",
+      "to": "| B607, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B607, continuous execution 2026-11-05 |",
+      "to": "| B608, continuous execution 2026-11-05 |",
+      "reason": "Advance current checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B608, continuous execution 2026-11-05 |",
+      "to": "| B611, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B611, continuous execution 2026-11-05 |",
+      "to": "| B614, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B614, continuous execution 2026-11-05 |",
+      "to": "| B618, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B618, continuous execution 2026-11-05 |",
+      "to": "| B619, continuous execution 2026-11-05 |",
+      "reason": "Advance existing checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B619, continuous execution 2026-11-05 |",
+      "to": "| B620, continuous execution 2026-11-05 |",
+      "reason": "Advance current checkpoint."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B620, continuous execution 2026-11-05 |",
+      "to": "| B624, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
     }
   ],
   "review_corrections": [
@@ -309,6 +609,338 @@
         "docs/RULES_INDEX.md"
       ],
       "reason": "Correct review-record typo: current state owner is root PROJECT.md, not nonexistent docs/PROJECT.md. No extra source reading inferred."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "125fe3ae822956b0a74b0e297eed4872d7d37e44de82b96da9c87b5340085cf5",
+      "to": "1fdd85c153fe2d1a709b14f6cf0236cc57b98db5725fc2bed9ee86ac52a80b79",
+      "reason": "Advance the existing reconciliation row to B411 without changing status or direction."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "1fdd85c153fe2d1a709b14f6cf0236cc57b98db5725fc2bed9ee86ac52a80b79",
+      "to": "01dcbe60e37f88adf84dfdcdfbdbd681c4cb9b3e5f76978db9b42e6aeb8f33b0",
+      "reason": "Advance the existing reconciliation row to B415 on November5; active scope unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "01dcbe60e37f88adf84dfdcdfbdbd681c4cb9b3e5f76978db9b42e6aeb8f33b0",
+      "to": "63f97940484251a29885d941efab63875068cdcaab21f3ac6e9d8bbb353b9c29",
+      "reason": "Advance the existing active reconciliation pointer to B418; retain full intake scope."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "63f97940484251a29885d941efab63875068cdcaab21f3ac6e9d8bbb353b9c29",
+      "to": "a871417a2be5cbb1e72e9844a7a09e168c85f8e181fd0f42de5e0ae20007c19f",
+      "reason": "Advance existing active reconciliation pointer to B421; full remaining scope unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "a871417a2be5cbb1e72e9844a7a09e168c85f8e181fd0f42de5e0ae20007c19f",
+      "to": "ead23336d4433f074d437df605f5bfc9b6d61ff65655e68e55b2a3cd04116eca",
+      "reason": "Advance existing active reconciliation pointer to B423; full remaining scope unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "ead23336d4433f074d437df605f5bfc9b6d61ff65655e68e55b2a3cd04116eca",
+      "to": "8e6bbd4fab2db44b2fadb464adaef76481ada1763e28f1173fd682dca2800b5e",
+      "reason": "Advance active reconciliation pointer through B429 without changing direction or remaining scope."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "8e6bbd4fab2db44b2fadb464adaef76481ada1763e28f1173fd682dca2800b5e",
+      "to": "9b97ecd9617fd4934c118692da9394ebcfaa41ff1c83a9162b6eaae0f93a199d",
+      "reason": "Advance existing active reconciliation pointer through B432; preserve full remaining scope."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9b97ecd9617fd4934c118692da9394ebcfaa41ff1c83a9162b6eaae0f93a199d",
+      "to": "9e2d2ce01619f837c1ddbe2e065556e3af6c2c4df2b4692386095bfc6685055a",
+      "reason": "Advance existing active reconciliation pointer to B435; retain the complete intake objective."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9e2d2ce01619f837c1ddbe2e065556e3af6c2c4df2b4692386095bfc6685055a",
+      "to": "2c26bb8841d47f7f2c1ce77fb5605994005c5a66c829bc272d8a14d792b615fd",
+      "reason": "Advance existing active reconciliation pointer through B438; remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "2c26bb8841d47f7f2c1ce77fb5605994005c5a66c829bc272d8a14d792b615fd",
+      "to": "ae2cf7158efb4eab080e6d0bc47c00ccbfbdcc5fc3c75cc476790e194da630b0",
+      "reason": "Advance existing reconciliation pointer through B442; full coverage remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "ae2cf7158efb4eab080e6d0bc47c00ccbfbdcc5fc3c75cc476790e194da630b0",
+      "to": "108869dfacc44be406eb8516b516052cb8b8492cb96f5b2d82b936396e5d627c",
+      "reason": "Advance existing active reconciliation pointer through B445; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "108869dfacc44be406eb8516b516052cb8b8492cb96f5b2d82b936396e5d627c",
+      "to": "6ac2c63d0b500512b8b66538947f53cd1adf18329386b4158e541d48ff549864",
+      "reason": "Advance existing active reconciliation pointer through B447; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "6ac2c63d0b500512b8b66538947f53cd1adf18329386b4158e541d48ff549864",
+      "to": "3be4dea2308a3fb30dfb81154fb3e56dd5eb0c0426045f672806b48238dbde58",
+      "reason": "Advance existing active reconciliation pointer through B450; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "3be4dea2308a3fb30dfb81154fb3e56dd5eb0c0426045f672806b48238dbde58",
+      "to": "9aa3020a867b345f850a26dc6233b0179a0b7486f7700d2b66727b7b129be115",
+      "reason": "Advance existing active reconciliation pointer through B453; full objective remains open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9aa3020a867b345f850a26dc6233b0179a0b7486f7700d2b66727b7b129be115",
+      "to": "024c2c2e4b04f5a0509086af93abf0a294418370a9e0ff7560c209df2e0f6186",
+      "reason": "Advance active reconciliation pointer; full remaining objective stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "024c2c2e4b04f5a0509086af93abf0a294418370a9e0ff7560c209df2e0f6186",
+      "to": "47a7e315a730389d57d841da4e6f04c260b9bbe22a6f4baaf19425a26fdf9160",
+      "reason": "Advance active reconciliation pointer through B460; full remaining scope stays active."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "47a7e315a730389d57d841da4e6f04c260b9bbe22a6f4baaf19425a26fdf9160",
+      "to": "0215546bb0f84ccac74e22c66421340fef8ac45475d4de985a6d3798c485a684",
+      "reason": "Advance active reconciliation through B464; full remaining objective stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "0215546bb0f84ccac74e22c66421340fef8ac45475d4de985a6d3798c485a684",
+      "to": "f1f5e3c95475d7d1f6042d9d6a2e7ad8dffb6001a086b3a93f9a6191d6b772b8",
+      "reason": "Advance active reconciliation pointer through B467; full remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "f1f5e3c95475d7d1f6042d9d6a2e7ad8dffb6001a086b3a93f9a6191d6b772b8",
+      "to": "bdba14b2256d472908546623ec8b529a7ad2dcdbb230e6857cbfd23756c3aa2c",
+      "reason": "Advance active reconciliation through B471; full remaining objective stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "bdba14b2256d472908546623ec8b529a7ad2dcdbb230e6857cbfd23756c3aa2c",
+      "to": "ee619a694240a4b49beb0ec910e303c568cda349e940bf45d93b3e4710369ff6",
+      "reason": "Advance active reconciliation through B475; entire remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "ee619a694240a4b49beb0ec910e303c568cda349e940bf45d93b3e4710369ff6",
+      "to": "80e3995a3c1dd099fe22ab2796be144b1b939598662ab561323d1468608df904",
+      "reason": "Advance active reconciliation through B477; full remaining objective unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "80e3995a3c1dd099fe22ab2796be144b1b939598662ab561323d1468608df904",
+      "to": "8f89f2b7cda1cc8d59b8200bdddf9f2f7879ae04158375c2d7f77448d0d3e2c7",
+      "reason": "Advance active reconciliation through B479; full remaining scope stays open."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "8f89f2b7cda1cc8d59b8200bdddf9f2f7879ae04158375c2d7f77448d0d3e2c7",
+      "to": "43438923026a08832019ec35f287c2a95d2bc879d435c3518997a2acf6b9de45",
+      "reason": "Advance active reconciliation through B481; full remaining scope unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "43438923026a08832019ec35f287c2a95d2bc879d435c3518997a2acf6b9de45",
+      "to": "5fff11b66a3c6cc532ca9c478f73df06b4c7c3663fcf16f035d08dae7bd9c420",
+      "reason": "Exact task-owned register advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "5fff11b66a3c6cc532ca9c478f73df06b4c7c3663fcf16f035d08dae7bd9c420",
+      "to": "2b87fa5839665856706933e5ef51d62c91615d241552bf13555ce62e736ed068",
+      "reason": "Exact task-owned register row advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "2b87fa5839665856706933e5ef51d62c91615d241552bf13555ce62e736ed068",
+      "to": "b55f5dcf671f0a0c0ad3f9a7494b7a341fde0dd9e89dcf8b65a20083028a119a",
+      "reason": "Exact task-owned register row advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "b55f5dcf671f0a0c0ad3f9a7494b7a341fde0dd9e89dcf8b65a20083028a119a",
+      "to": "3e4942230b70c7c874c48cb9c98b082e939cc6c65875004320041f8cd8d9db43",
+      "reason": "Exact task-owned register row advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "3e4942230b70c7c874c48cb9c98b082e939cc6c65875004320041f8cd8d9db43",
+      "to": "dcb05400e0da581259503d133ee8cf7ef50629264acd4a588a8042abc5be2060",
+      "reason": "Exact task-owned register row advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "dcb05400e0da581259503d133ee8cf7ef50629264acd4a588a8042abc5be2060",
+      "to": "0e2e25d0ad4f940f9f12709d2669186bb2fc395c33f89b64dc01b8276bae7d23",
+      "reason": "Exact task-owned register row advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "0e2e25d0ad4f940f9f12709d2669186bb2fc395c33f89b64dc01b8276bae7d23",
+      "to": "d5bba9c1688601b26da8483d02364d637c31a061e1a76197a8ac5db4b1b189ad",
+      "reason": "Exact task-owned register advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "d5bba9c1688601b26da8483d02364d637c31a061e1a76197a8ac5db4b1b189ad",
+      "to": "92256da98987efb805e521d28bffd7808affb7c2522fa122c8b8fd3cb62910dd",
+      "reason": "Exact task-owned register advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "92256da98987efb805e521d28bffd7808affb7c2522fa122c8b8fd3cb62910dd",
+      "to": "e341ea1d9664edd17cdc9848fc825b443ca0ececc7b538a6e558be9c14add0fe",
+      "reason": "Exact task-owned register advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "e341ea1d9664edd17cdc9848fc825b443ca0ececc7b538a6e558be9c14add0fe",
+      "to": "83dd74b41470497ab2bf23480fb3a6ebc155a67ec24bad45caa6e927219142c7",
+      "reason": "Exact task-owned register advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "83dd74b41470497ab2bf23480fb3a6ebc155a67ec24bad45caa6e927219142c7",
+      "to": "35fbaf81edce114c6a0fa1413c724ed7cd88c87b18e9e25800ae004cfbd4d38b",
+      "reason": "Exact task-owned register advancement."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "35fbaf81edce114c6a0fa1413c724ed7cd88c87b18e9e25800ae004cfbd4d38b",
+      "to": "8e13128fb01bc88bfffcee892bd36a85ab97232e683d87b11c35e3064732b76a",
+      "reason": "Exact task-owned register hunk."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "8e13128fb01bc88bfffcee892bd36a85ab97232e683d87b11c35e3064732b76a",
+      "to": "23a04586f46e5f881c5d963ebc7df11f7cb084e1067c27cf59d572d7b70019ac",
+      "reason": "Exact task-owned checkpoint hunk."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "23a04586f46e5f881c5d963ebc7df11f7cb084e1067c27cf59d572d7b70019ac",
+      "to": "83041d79221a930a94e3d986f17d713a094a2fc7f75a2c404b26557b2ad2e6ef",
+      "reason": "Exact task-owned checkpoint hunk."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "83041d79221a930a94e3d986f17d713a094a2fc7f75a2c404b26557b2ad2e6ef",
+      "to": "3b5543866a6f61c3112bfeae28883c48e028241e2564b3e0ca3c62df0763e73d",
+      "reason": "Exact task-owned register hunk."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "3b5543866a6f61c3112bfeae28883c48e028241e2564b3e0ca3c62df0763e73d",
+      "to": "81f2a835460868e0aa39f7c7dc02f6f0d8b6bb05d6cc7fc284211457931cc12b",
+      "reason": "Exact task-owned checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "81f2a835460868e0aa39f7c7dc02f6f0d8b6bb05d6cc7fc284211457931cc12b",
+      "to": "83a2778c84952a26c6726b81bde7eaa3e1adef1deb884af18c01517893ead038",
+      "reason": "Exact task-owned checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "83a2778c84952a26c6726b81bde7eaa3e1adef1deb884af18c01517893ead038",
+      "to": "c5534abc6627170b6aa8846d37a6c14c9e893eafcfbf8d23fc540d13e4844a69",
+      "reason": "Exact task-owned checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "c5534abc6627170b6aa8846d37a6c14c9e893eafcfbf8d23fc540d13e4844a69",
+      "to": "02d782042151de2dd0119f5bbe52f268495fdd85e68ca24a8d842a25c3a87dd5",
+      "reason": "Exact task-owned checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "02d782042151de2dd0119f5bbe52f268495fdd85e68ca24a8d842a25c3a87dd5",
+      "to": "80e924ca8ce7210f76f79bb94eb79652c37923f8f3ef528cf92a16b27cc5c47a",
+      "reason": "Exact task-owned checkpoint row."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "80e924ca8ce7210f76f79bb94eb79652c37923f8f3ef528cf92a16b27cc5c47a",
+      "to": "323df8b3ea8c5ab8abb60e41795642d6c5a5e013c5fc92d4f503661cae5b2131",
+      "reason": "Advance existing checkpoint row to B596."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "323df8b3ea8c5ab8abb60e41795642d6c5a5e013c5fc92d4f503661cae5b2131",
+      "to": "2ad8cdbb1e1371ab161142c53461e7b569a4a624ce81baed99c89e326538d103",
+      "reason": "Advance checkpoint to B599."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "2ad8cdbb1e1371ab161142c53461e7b569a4a624ce81baed99c89e326538d103",
+      "to": "01e0204ca1629f470cf8f8e8aebde261e0d96ae38476585db9565302f2548059",
+      "reason": "Advance checkpoint to B602."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "01e0204ca1629f470cf8f8e8aebde261e0d96ae38476585db9565302f2548059",
+      "to": "2f815645f9f578305db1a338e8877dee46b0177c253f3f96eaf95e0d8e0b8b28",
+      "reason": "Advance existing checkpoint to B604."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "2f815645f9f578305db1a338e8877dee46b0177c253f3f96eaf95e0d8e0b8b28",
+      "to": "9ecf9e5600c8f4255f25768f7d948a7efcb9ee40b2628a29046189cf3445e828",
+      "reason": "Pointer throughB607; no full register review."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9ecf9e5600c8f4255f25768f7d948a7efcb9ee40b2628a29046189cf3445e828",
+      "to": "4f7c833c151b8c8ff53e82d0ac5049f9843ca4565cb27ca222707aa5eb070962",
+      "reason": "Pointer toB608; no full register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "4f7c833c151b8c8ff53e82d0ac5049f9843ca4565cb27ca222707aa5eb070962",
+      "to": "1a8ec48346b634b5691ffe2466545da41d32b4472f954f6d8827931711bafb97",
+      "reason": "Pointer throughB611; no full register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "1a8ec48346b634b5691ffe2466545da41d32b4472f954f6d8827931711bafb97",
+      "to": "50e19058dad1a4db86ba535cee7a232af872c6a1c9b7f8b7de8270908e8cc33c",
+      "reason": "B614pointer; no full register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "50e19058dad1a4db86ba535cee7a232af872c6a1c9b7f8b7de8270908e8cc33c",
+      "to": "3e99bf93bd88430a8905f9dbc86892bc95ee4b3072421e0d710336e7d0b17531",
+      "reason": "Pointer throughB618; no full register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "3e99bf93bd88430a8905f9dbc86892bc95ee4b3072421e0d710336e7d0b17531",
+      "to": "d76a1775468f1d3f156adc8c96fa011cfc5c24fd4d1edea68611fd0fbd60e5a7",
+      "reason": "B619pointer; no full register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "d76a1775468f1d3f156adc8c96fa011cfc5c24fd4d1edea68611fd0fbd60e5a7",
+      "to": "9abec234bd9bc69f773c8aea51dead2fa19d834079210dea86d0be39e4154053",
+      "reason": "B620pointer; no full register credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9abec234bd9bc69f773c8aea51dead2fa19d834079210dea86d0be39e4154053",
+      "to": "708b3e8ce0e177b8482a016c48f38de99ae9c38296e6e8beb030ee06aa9505e6",
+      "reason": "Pointer through B624; no full-register review credit."
     }
   ]
 }

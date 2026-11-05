@@ -1,0 +1,10 @@
+{
+  "batches": [
+    "B489",
+    "B490",
+    "B491"
+  ],
+  "new_local_heading_fragments": 0,
+  "missing": [],
+  "scope": "New fold and repaired source links use whole-file targets, structurally checked; no unseen-body reading credit."
+}

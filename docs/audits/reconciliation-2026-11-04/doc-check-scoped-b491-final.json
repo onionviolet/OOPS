@@ -1,0 +1,26 @@
+{
+  "command": "node scripts/check_doc_slips.mjs with only filespec restricted to B489\u2013B491 folds and closeout owners",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/gm/dispatch/hp-arrival-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LORE_EXCEPTION_WORKFLOW_AMENDMENTS.md",
+    "docs/gm/d1-alloy-equipment-2026-10-07/fixture/README.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/R1_RULE_OWNER_RECEIPT.md",
+    "docs/research/far-field-tropes-2026-10-08/PART_3_NEW_IDEAS.md",
+    "docs/research/hogwarts-legacy/NEXT_CONSIDERATIONS_2026-10-14.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3A_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/audit/NATIVE_AUDIT.md",
+    "docs/LIFE_SIM_NORTH_STAR.md",
+    "docs/research/ZLIBRARY_YAIR_GAP_ACQUISITION_2026-10-21.md",
+    "docs/gm/dispatch/lotm-q2-2026-10-23/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/DIGEST_a-practical-guide-to-evil.md",
+    "docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "10ece75ccbe798d65cfab0f1f9ca20aee77e39d35cad595a4b269c51148fddd8",
+  "adaptation": "Only filespec changed; diagnostic rules unchanged. Scoped result, not shared-tree pass."
+}

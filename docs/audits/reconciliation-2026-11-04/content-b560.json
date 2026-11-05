@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "batch": "B560",
+  "title": "Technology owner final corrections and cumulative content completion",
+  "at": "2026-11-05T10:44:45.433775+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "ids": [
+        "RW2–RW10/FT1–FT8",
+        "CA8–CA11/CA12 pointer",
+        "plan reuse/current build routing",
+        "MCW1–MCW8",
+        "B393/B395/B399 existing folds",
+        "B556–B559 cumulative actual ranges"
+      ],
+      "classification": "full cumulative actual owner review; later direction and internal corrections qualify original palette/status",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "disposition": "F1: Full cumulative content review is complete for this owner. B556/B557/B558/B559 actually read original1–500/501–1000/1001–1500/1501–1900; B560 reads original1901–2087 and all appended2088–2147. Original2087-line prefix SHA256399b5c7097bfcea954579e19d7d054eb814a7de1ec265ac01e4eeac9bd766d1b matches B556 exactly. Every row/qualifier in this owner is reviewed, not every linked source/game/lane report or current runtime behavior.\n\nF2: FT1–FT5 correct earlier summaries: doctrine policy versus persistent design capability, derived era versus soft early cost versus hard prerequisite, historical taskmaster versus a proposed idle adaptation, later conditional build order, and actor knowledge's existing stage/value/time/cause/basis owner. Extend that actual owner for a selected evidence consumer instead of adding IM2's proposed second store. FT6–FT8 retain donor limits: unlock/source/bench/subject study and usable knowledge do not prove revisable uncertainty, portable apparatus/fuel or guaranteed taught mastery. No need to reintroduce an empty evidence-owner question from the opening schema.\n\nF3: CA8–CA11 are recorded direction under AD32: direct investigation from available means, discovered and proposed goals, useful alternatives retaining the original objective, and usable imperfect prototypes within their limits. They do not select free-text UI, live model, arbitrary invention success or every factory/framework. Failed hypothesis/procedure, inconclusive finding, working partial and side discovery differ. Research need not be a timer; actual use can give evidence without a guaranteed upgrade. Stronger means can remove normal dependencies. Existing setup is not automatically retrofitted by learning, and independent confirmation is not manufactured from repeated dependent citations.\n\nF4: Current routing already records T6/T16 pure support merged, B1 historical native U40/N19 delivery, B2 fixtures, B3 inspector design, B5 conditional prompts, removed two worktrees and restored source provenance. Old started/unmerged/push/cleanup/first-slice recommendations are history, not a current execution queue or authorization. The broad opening nothing-implemented statement cannot erase selected native delivery. CN14's old wait-for-acceptance wording was superseded within this owner; current AD42/AD51 and PROJECT determine review/sequencing, with no new Frontier depth implied. Retained historical source and original ideas should not be deleted to make a short status summary.\n\nF5: MCW1–MCW8 remain proposals with named triggers. Tier can govern a specific capability rather than every property. Exchange-derived and authored prices can intentionally yield arbitrage without anti-exploit correction. Source-supported upkeep shortfall can stop, degrade or affect another carrier, but mandatory health/nausea/cost is not inferred. Water/thirst/temperature work stays deferred, and regional reputation, quest policy inheritance, seasonal fertility and material-generated families need their actual owner/clock/reader before use. No second timer, universal binary fertility or compulsory reputation bleed follows from the examples.\n\nF6: Existing B393/B395/B399 folds preserve full checkpoint/report and22-roadmap review scopes, graph D/W/N arithmetic versus actual elapsed feasibility, target identity versus functional substitute and distinct source/cue/provenance/custody evidence. Their earlier reviews are attributed; this full owner read does not newly revalidate their source/game facts or passing checks. Current AD8/AD16/AD22/AD36/AD38/AD42/AD43/AD51/AD52 qualify old blanket precision, pause, balance, verification, consumer and compression claims. No implementation, source acquisition, private save, browser/build, model/worker, migration, deletion, worktree move, stage/commit or push occurred. Continue the wider intake; full owner coverage does not close its proposed gameplay backlog.",
+      "evidence": "Actual original1901–2087 and appended2088–2147 read untruncated. Earlier B556–B559 actual1–1900 form complete union. Original2087-line prefix hash matches B556399b5c7097bfcea954579e19d7d054eb814a7de1ec265ac01e4eeac9bd766d1b; no proxy linked-source/runtime credit.",
+      "reopen": "Only changed owner content or a selected exact technology/research consumer needs new source/native proof; continue remaining intake.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          2147
+        ]
+      ],
+      "input_sha256": "31b4adf822ff39b35fb11040e3fb04528f45fd8849056a76c96f14c71d28bc07",
+      "input_lines": 2147
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "heading": "## Content reconciliation B560: cumulative full review and current use",
+      "body": "F1: Full cumulative content review is complete for this owner. B556/B557/B558/B559 actually read original1–500/501–1000/1001–1500/1501–1900; B560 reads original1901–2087 and all appended2088–2147. Original2087-line prefix SHA256399b5c7097bfcea954579e19d7d054eb814a7de1ec265ac01e4eeac9bd766d1b matches B556 exactly. Every row/qualifier in this owner is reviewed, not every linked source/game/lane report or current runtime behavior.\n\nF2: FT1–FT5 correct earlier summaries: doctrine policy versus persistent design capability, derived era versus soft early cost versus hard prerequisite, historical taskmaster versus a proposed idle adaptation, later conditional build order, and actor knowledge's existing stage/value/time/cause/basis owner. Extend that actual owner for a selected evidence consumer instead of adding IM2's proposed second store. FT6–FT8 retain donor limits: unlock/source/bench/subject study and usable knowledge do not prove revisable uncertainty, portable apparatus/fuel or guaranteed taught mastery. No need to reintroduce an empty evidence-owner question from the opening schema.\n\nF3: CA8–CA11 are recorded direction under AD32: direct investigation from available means, discovered and proposed goals, useful alternatives retaining the original objective, and usable imperfect prototypes within their limits. They do not select free-text UI, live model, arbitrary invention success or every factory/framework. Failed hypothesis/procedure, inconclusive finding, working partial and side discovery differ. Research need not be a timer; actual use can give evidence without a guaranteed upgrade. Stronger means can remove normal dependencies. Existing setup is not automatically retrofitted by learning, and independent confirmation is not manufactured from repeated dependent citations.\n\nF4: Current routing already records T6/T16 pure support merged, B1 historical native U40/N19 delivery, B2 fixtures, B3 inspector design, B5 conditional prompts, removed two worktrees and restored source provenance. Old started/unmerged/push/cleanup/first-slice recommendations are history, not a current execution queue or authorization. The broad opening nothing-implemented statement cannot erase selected native delivery. CN14's old wait-for-acceptance wording was superseded within this owner; current AD42/AD51 and PROJECT determine review/sequencing, with no new Frontier depth implied. Retained historical source and original ideas should not be deleted to make a short status summary.\n\nF5: MCW1–MCW8 remain proposals with named triggers. Tier can govern a specific capability rather than every property. Exchange-derived and authored prices can intentionally yield arbitrage without anti-exploit correction. Source-supported upkeep shortfall can stop, degrade or affect another carrier, but mandatory health/nausea/cost is not inferred. Water/thirst/temperature work stays deferred, and regional reputation, quest policy inheritance, seasonal fertility and material-generated families need their actual owner/clock/reader before use. No second timer, universal binary fertility or compulsory reputation bleed follows from the examples.\n\nF6: Existing B393/B395/B399 folds preserve full checkpoint/report and22-roadmap review scopes, graph D/W/N arithmetic versus actual elapsed feasibility, target identity versus functional substitute and distinct source/cue/provenance/custody evidence. Their earlier reviews are attributed; this full owner read does not newly revalidate their source/game facts or passing checks. Current AD8/AD16/AD22/AD36/AD38/AD42/AD43/AD51/AD52 qualify old blanket precision, pause, balance, verification, consumer and compression claims. No implementation, source acquisition, private save, browser/build, model/worker, migration, deletion, worktree move, stage/commit or push occurred. Continue the wider intake; full owner coverage does not close its proposed gameplay backlog.",
+      "before_sha256": "31b4adf822ff39b35fb11040e3fb04528f45fd8849056a76c96f14c71d28bc07",
+      "after_sha256": "d2d771204e7be1d7fceb46e59a90843d5e5d7c44452cf2bc9b801f77df6159ce"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 160,
+  "post_record_amendments": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "from": "# Technology and technological progression (proposal)\n",
+      "to": "# Technology and technological progression (proposal)\n\n> Current use, B560: this is an evolving palette with dated source/status snapshots. FT5 and the later current-build-routing section qualify old missing-owner/unmerged claims; CA8–CA11 record selected research direction under AD32. T6/T16 support and B1’s bounded native delivery are distinct from the remaining proposals. [PROJECT](../PROJECT.md#current-focus) owns current build order. B556–B560 record full actual-content review without a fresh runtime/source audit.\n",
+      "reason": "Add concise current-use pointer, preserving all original palette/source/status history."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "from": "d2d771204e7be1d7fceb46e59a90843d5e5d7c44452cf2bc9b801f77df6159ce",
+      "to": "1e021daa4e7fa21442853b61aecb2716f9912ab3286a9453fe30ea00d2417505",
+      "reason": "Recorded current-use banner insertion."
+    }
+  ]
+}

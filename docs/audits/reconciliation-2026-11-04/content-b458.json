@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "batch": "B458",
+  "title": "Complete whole-project experience/architecture review without reviving its proposed milestone",
+  "at": "2026-11-05T06:43:33.830060+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+      "ids": [
+        "V1/H1–7/Va–c;X1/E1–10;M1/A1/Aa–f;Q1–6;Ca–d/Da–e/Ra–e/Na–e/H1"
+      ],
+      "classification": "complete dated review/research owner with retained evidence and proposal boundaries",
+      "owners": [
+        "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+        "PROJECT.md",
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "All330 lines were reviewed, including authority/evidence labels, exact Foundation input boundaries, seven experience horizons, ten threads, coverage/four-layer maps, six duplication warnings, epistemology, proof-depth assessment, four candidate milestones, five decision rows, durability risks, proposed sequence and long-horizon map. Its own introduction already routes later modularity evidence. Preserve the original review rather than rewriting its dated source facts into current claims.\n\nThe recommended small-workshop C-a and F4/G6-first queue were proposals at the October12 snapshot. The one-realm/one-prestige prerequisite is retired by later user direction. Current [PROJECT](../../PROJECT.md), [vision](../USER_VISION.md), [lead-life rules](../LEAD_LIFE_RULES.md) and AD51 govern selected consumers and shared seams. C-a–d remain useful experience options, not a newly required ordinary-workshop stage before book lives, distinct worlds or portable powers. Old owner reservations, paused-world status, prunable candidates and local process absence cannot grant or revoke current ownership. Later evidence can close its exact historical gaps; this review does not establish that F4/G6 or one-lesson inheritance remain broken now.\n\nRetain its useful distinctions: actual use versus material handover; person knowledge versus sample ownership/location; same-person renewal versus inheritance; biography versus exact gameplay history; dormant carrier versus useful foreign operation; actor-held knowledge versus delivered player observation. Q1–Q6 are experience-depth lenses, not additive test totals, Foundation G codes or new universal completion gates. The full source/world horizon is not closed by a small arc. Strong numerical improvement may be valuable without a new verb; real repeated rewards are possible even though replaying one committed event must not duplicate its settlement. Local two-hand checks, need lists, finite queues, costs, counters, no-preview-reroll and prototype attention policies are not global laws.\n\nThe modularity recommendation keeps actual transaction/identity/clock/knowledge owners and favors measured consumer-driven changes. Its two-consumer extraction heuristic is not permission to duplicate a needed first shared seam under AD51. A source inspection, 15-second import observation, later timeout recovery or fixed boundary budget is not current performance, completed catch-up or broad compatibility. Proposed candidate tests were not run by this review. AD36/AD43 govern current verification and AD42 makes director review optional. This reconciliation reads this report only, without reopening the old queue, reading linked bodies by proxy, changing runtime or renewing source/browser/performance claims.",
+      "evidence": "All330 pre-fold lines read in complete consecutive slices; linked source bodies and historical checks not rerun.",
+      "reopen": "Use a named finding or trial for a selected current consumer with current ownership and input-bound proof; keep historical receipts and proposals.",
+      "input_sha256": "6cf0c1026aa987c1d16817456adaa1e7cfd73691753b5874f57a1f058756e4e3",
+      "input_lines": 330,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          330
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+      "heading": "## Content reconciliation B458: complete review and later authority routing",
+      "body": "All330 lines were reviewed, including authority/evidence labels, exact Foundation input boundaries, seven experience horizons, ten threads, coverage/four-layer maps, six duplication warnings, epistemology, proof-depth assessment, four candidate milestones, five decision rows, durability risks, proposed sequence and long-horizon map. Its own introduction already routes later modularity evidence. Preserve the original review rather than rewriting its dated source facts into current claims.\n\nThe recommended small-workshop C-a and F4/G6-first queue were proposals at the October12 snapshot. The one-realm/one-prestige prerequisite is retired by later user direction. Current [PROJECT](../../PROJECT.md), [vision](../USER_VISION.md), [lead-life rules](../LEAD_LIFE_RULES.md) and AD51 govern selected consumers and shared seams. C-a–d remain useful experience options, not a newly required ordinary-workshop stage before book lives, distinct worlds or portable powers. Old owner reservations, paused-world status, prunable candidates and local process absence cannot grant or revoke current ownership. Later evidence can close its exact historical gaps; this review does not establish that F4/G6 or one-lesson inheritance remain broken now.\n\nRetain its useful distinctions: actual use versus material handover; person knowledge versus sample ownership/location; same-person renewal versus inheritance; biography versus exact gameplay history; dormant carrier versus useful foreign operation; actor-held knowledge versus delivered player observation. Q1–Q6 are experience-depth lenses, not additive test totals, Foundation G codes or new universal completion gates. The full source/world horizon is not closed by a small arc. Strong numerical improvement may be valuable without a new verb; real repeated rewards are possible even though replaying one committed event must not duplicate its settlement. Local two-hand checks, need lists, finite queues, costs, counters, no-preview-reroll and prototype attention policies are not global laws.\n\nThe modularity recommendation keeps actual transaction/identity/clock/knowledge owners and favors measured consumer-driven changes. Its two-consumer extraction heuristic is not permission to duplicate a needed first shared seam under AD51. A source inspection, 15-second import observation, later timeout recovery or fixed boundary budget is not current performance, completed catch-up or broad compatibility. Proposed candidate tests were not run by this review. AD36/AD43 govern current verification and AD42 makes director review optional. This reconciliation reads this report only, without reopening the old queue, reading linked bodies by proxy, changing runtime or renewing source/browser/performance claims.",
+      "before_sha256": "6cf0c1026aa987c1d16817456adaa1e7cfd73691753b5874f57a1f058756e4e3",
+      "after_sha256": "6d6dadcc615d52b1b7b723a90576b6f8097a5f1e51ec6fa14cbbdf9d61731e6c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 399
+}

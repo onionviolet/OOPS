@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "batch": "B561",
+  "title": "Micro/workshop/macro research and connected technology use",
+  "at": "2026-11-05T10:45:35.661900+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+      "ids": [
+        "R1–R7",
+        "MI01–MI12/WS01–WS08",
+        "MA01–MA14/IR01–IR08/J1–J3",
+        "capacity example/acceptance limits"
+      ],
+      "classification": "full actual source-report review; contextual evidence and proposed scale joins retained",
+      "owners": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "disposition": "F1: Full181-line research report reviewed, including R1–R7, MI01–MI12/WS01–WS08/MA01–MA14/IR01–IR08/J1–J3, numeric example and implementation/acceptance limits. Source pages were inspected by the historical report, not reopened now. Official policy/doc, version-labelled wiki and dated design diary retain different evidence types. Reference-game play, installed source and current balance are explicitly unproved. NIST fitness-for-purpose and NASA readiness are analogies for evidence context, not compulsory player levels, external certification or current medical/scientific advice.\n\nF2: Preserve composition/structure/fit, actual reading uncertainty, specific practice, part role, workmanship, unfinished work and repair/custody as selected-consumer dimensions. Strong appraisal can legitimately establish exact facts. A calibration task can improve knowledge without changing the material. Failed work can retain a useful product, evidence, parts or nothing under its actual contract, without mandatory random damage/fatigue. A body without conventional hands can use genuinely supported tools/assistance/faculty; category alone is not prohibition. No generic material simulator, new broad XP system or fields on every object are required by the palette.\n\nF3: Workshop stock, throughput, station/tool custody, shared reservation, staffing, destinations and customer evidence differ. The12-parts/hour,4-parts/pump,3-pumps/hour example is internally consistent: expanding only parts does not raise that assembler's3-pump rate. This is a simple-chain hypothetical, not a solver for shared workers, multiple outputs, changing resource claims or stochastic yield. Better tolerances can change the useful application without increasing volume. Real alternative/superior means may remove bottlenecks. Factorio's anti-productive-loop salvage rationale stays its source design; AD22/AD38 do not require nerfing an intentionally valid creation/profit loop here.\n\nF4: One recipient's adoption is distinct from awareness, prototype maturity, repeat production or regional diffusion. Actual actors, capacity, access, funds, carriers and clocks support each link; no automatic resistance or invented world reaction. MA11 natural development obeys the actual world-clock policy including AD16 inactive pause. Heirs inherit only real supported claims/people/records, and carried devices do not automatically recreate their factory. IR ordinary known crafting needs no compulsory hypothesis form; new goal/research, failed procedure, repeated evidence and independently transferred result retain separate status.\n\nF5: J1 pump/water, J2 taught specialty/order and J3 preservation/delivery remain useful original proposals, not selected Frontier builds or source-qualified book mechanics. Their relative complexity is qualitative, not measured effort. The native formula/source inspection is a dated foundation, not proof all interfaces remain absent now. Current AD36/AD42/AD43/current compatibility govern selected checks, qualifying the report's mandatory human-review and blanket old-save wording. No native route, consumer, source acquisition, private save, build/browser, migration, worker, commit or push occurred.",
+      "evidence": "All181 lines read in two untruncated bounded outputs. Technology owner fully reviewed B556–B560; external pages/native source not reopened.",
+      "reopen": "Only exact selected J/MI/WS/MA/IR consumer or changed source claim needs new qualification and native proof.",
+      "input_sha256": "c09fcc8efc62e95494ea3cdb5e484d5408d4ea592c6ed6f8580faaaf1c8bbfd6",
+      "input_lines": 181,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          181
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+      "heading": "## Content reconciliation B561: evidence, scale and useful consumer boundaries",
+      "body": "F1: Full181-line research report reviewed, including R1–R7, MI01–MI12/WS01–WS08/MA01–MA14/IR01–IR08/J1–J3, numeric example and implementation/acceptance limits. Source pages were inspected by the historical report, not reopened now. Official policy/doc, version-labelled wiki and dated design diary retain different evidence types. Reference-game play, installed source and current balance are explicitly unproved. NIST fitness-for-purpose and NASA readiness are analogies for evidence context, not compulsory player levels, external certification or current medical/scientific advice.\n\nF2: Preserve composition/structure/fit, actual reading uncertainty, specific practice, part role, workmanship, unfinished work and repair/custody as selected-consumer dimensions. Strong appraisal can legitimately establish exact facts. A calibration task can improve knowledge without changing the material. Failed work can retain a useful product, evidence, parts or nothing under its actual contract, without mandatory random damage/fatigue. A body without conventional hands can use genuinely supported tools/assistance/faculty; category alone is not prohibition. No generic material simulator, new broad XP system or fields on every object are required by the palette.\n\nF3: Workshop stock, throughput, station/tool custody, shared reservation, staffing, destinations and customer evidence differ. The12-parts/hour,4-parts/pump,3-pumps/hour example is internally consistent: expanding only parts does not raise that assembler's3-pump rate. This is a simple-chain hypothetical, not a solver for shared workers, multiple outputs, changing resource claims or stochastic yield. Better tolerances can change the useful application without increasing volume. Real alternative/superior means may remove bottlenecks. Factorio's anti-productive-loop salvage rationale stays its source design; AD22/AD38 do not require nerfing an intentionally valid creation/profit loop here.\n\nF4: One recipient's adoption is distinct from awareness, prototype maturity, repeat production or regional diffusion. Actual actors, capacity, access, funds, carriers and clocks support each link; no automatic resistance or invented world reaction. MA11 natural development obeys the actual world-clock policy including AD16 inactive pause. Heirs inherit only real supported claims/people/records, and carried devices do not automatically recreate their factory. IR ordinary known crafting needs no compulsory hypothesis form; new goal/research, failed procedure, repeated evidence and independently transferred result retain separate status.\n\nF5: J1 pump/water, J2 taught specialty/order and J3 preservation/delivery remain useful original proposals, not selected Frontier builds or source-qualified book mechanics. Their relative complexity is qualitative, not measured effort. The native formula/source inspection is a dated foundation, not proof all interfaces remain absent now. Current AD36/AD42/AD43/current compatibility govern selected checks, qualifying the report's mandatory human-review and blanket old-save wording. No native route, consumer, source acquisition, private save, build/browser, migration, worker, commit or push occurred.",
+      "before_sha256": "c09fcc8efc62e95494ea3cdb5e484d5408d4ea592c6ed6f8580faaaf1c8bbfd6",
+      "after_sha256": "aecd193c837a3bd79dc8f24da92856f975ec4c0122eee375a618340847f6b22e"
+    },
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "heading": "## Content reconciliation B561: micro/macro report uptake",
+      "body": "The linked [micro/workshop/macro research report](research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md) now has full actual B561 review of R1–R7, MI/WS/MA/IR/J families, example arithmetic and evidence limits. Preserve its distinct speculative J1–J3 consumer chains and selected-property approach. Historical reference docs/diaries and NIST/NASA analogies do not establish current game balance, compulsory readiness bars or certified measurements. The simple matched-capacity example is illustrative; valid creation/profit is not automatically nerfed to match another game's salvage design. Current clock, body/custody, AD36/AD42/AD43 and incumbent compatibility qualify the old natural-development/human/old-save shorthand. No linked-source re-fetch or gameplay proof was performed.",
+      "before_sha256": "1e021daa4e7fa21442853b61aecb2716f9912ab3286a9453fe30ea00d2417505",
+      "after_sha256": "8f88c0a61c225407c2eb74bc8b598018463bddcb93375200e3621b1823109dd1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 159,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B555, continuous execution 2026-11-05 |",
+      "to": "| B561, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "8e13128fb01bc88bfffcee892bd36a85ab97232e683d87b11c35e3064732b76a",
+      "to": "23a04586f46e5f881c5d963ebc7df11f7cb084e1067c27cf59d572d7b70019ac",
+      "reason": "Exact task-owned checkpoint hunk."
+    }
+  ]
+}

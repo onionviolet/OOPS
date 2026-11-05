@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "batch": "B611",
+  "title": "COI recognition map: complete content and native-chain boundary",
+  "at": "2026-11-05T13:16:50.524808+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/circle-of-inevitability/COVERAGE.json",
+      "ids": [
+        "coi.sincerity",
+        "coi.office",
+        "coi.appearance",
+        "recognition.coi.hearing-without-stolen-chair",
+        "r030-c17",
+        "r030-c31",
+        "r030-c34",
+        "r028-c35",
+        "r029-c03",
+        "r004-c17",
+        "r006-c08",
+        "r030-c18",
+        "q001-c01",
+        "q001-c02",
+        "r002-c05",
+        "r009-c04",
+        "r010-c30",
+        "r050-c687-01"
+      ],
+      "classification": "complete native JSON content review with evidence-qualified comparator and unactivated chain",
+      "owners": [
+        "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+        "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md"
+      ],
+      "disposition": "F1: Full actual content review covers the972-line JSON, all root fields and19world fields, three rules coi.sincerity/coi.office/coi.appearance,14distinct fully qualified evidence objects with all member/hash/paragraph/claim qualifiers, replacement/continuity, original trope chain, two small interactions, two original voices, six stable people, five unknowns, five missing-native bindings, status/four deferred gates, four topology structures/two edges and all five deep-chain phases/four outcomes. Initial oversized rendering was truncated, so complete review used a lossless projection factoring repeated evidence into E1–E14; decoding was asserted equal to original and every projected field/evidence object was actually read in four bounded outputs. That equality verifies representation only; the semantic dispositions here come from the review. Original JSON bytes and schema stay unchanged.\n\nF2: The exact supplied sequel SHAe7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f and captured1170integrateditems/1–1170range are this historical map's scope.1178narrativemembers/afterword and later source-owner1180extraction wording need their own manifest identity, not arithmetic extension. verifiedSourceFileHash=true and pinned manifest/coverage hashes report historical verification, not a fresh EPUB check or source authentication. Character-claim, actor-inference, witnessed and narrator-explicit tags remain distinct; accepted extent means source-review state, not user product adoption. Current branch continues to flag missing label/duplicate/provenance issues; no chapter body/notes corpus was newly read.\n\nF3: Sincere belief under the selected test is not authenticated actual identity. Office eligibility/appointment differs from face/disguise, membership, prepared terms and actual signature. A registry comparator is this original rule implementation, not proven canonical society bureaucracy or the only possible right-verification mechanism. Appearance consistency does not decide soul/controller, potion change, continuing seal or every tracking channel. Observer report, actual test/method, independent carrier IDs and native recorded history must be supplied by real owners; this pure comparator does not perform or charge for them. Ordinary corroboration, privacy/refusal, actual appointment and relocation remain meaningful alternatives without a global permission list.\n\nF4: Ordered material/care actions require actual stock/body/source; knowing the trick supplies none. The specialist identity-check mechanism remains opaque. Original tavern/society dialogue is labelled original and does not become canon by citing a nearby scene. Private Cordu recollection, late dream/fragment hypotheses, symbolic interpretation and one tested absent dream coin do not establish a universal loop, dream inventory exporter, soul diagnosis or shared omniscient team knowledge. Separate dream/waking carriers and edge clocks remain named gaps; no new clock or first-novel loadout is implied.\n\nF5: The selected current source record1362–1449still declares nativeBound=false and unactivated-source-qualified-adapter with the same three rule IDs/era. This limited source read does not certify a full native chain, parent caller/UI/history/save binding or gameplay today. Historical parent-integration-required is a worker boundary, not proof the later parent integration is absent now. The five-phase hearing chain is an authoring proposal; legitimate appointment/decline, provisional outcome and unsigned terms remain distinct. Original Village comparison does not spawn source people/worlds or apply book powers. Source edit, pure rule, actual consumer, changed institution/history, build, persistence and human review remain separate. AD42makes the map's director-acceptance item optional. Preserve complete useful source-qualified identity/office/appearance/topology ideas in INTEGRATION and source brief, without editing frozen JSON, launching runtime work or requiring a new universal gate.",
+      "evidence": "All fields read through an asserted lossless repeated-evidence projection after truncation recovery; current selected source1362–1449 and integration1–63, checkpoint1–11, brief1–60 read as scoped suppliers. No source bodies or runtime commands executed.",
+      "reopen": "Inspect actual native and parent consumers for a chosen source-world chain; frozen map/status/pure rule is not gameplay or source authentication proof.",
+      "full": true,
+      "input_sha256": "85afebfddef991fe38a3fca5653dc8dda18ce97e77832ca63fdf9501c58b25a7",
+      "input_lines": 972,
+      "ranges": [
+        [
+          1,
+          972
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+      "heading": "## COI coverage-map content reconciliation B611",
+      "body": "B611 reviews every field of the [COI map](circle-of-inevitability/COVERAGE.json), preserving its exact JSON bytes. A reversible evidence-factored view recovered initial truncation; the full14evidence records and all rule/continuity/texture/topology/deep-chain fields were read, not merely counted. Current selected source1362–1449retains the same era/three rule IDs and unactivated/nativeBound=false. Sincerity, appearance and a supplied right are narrow findings, with no side-effect/native-chain proof here. The parent-integration-required label is this worker's historical boundary; inspect the actual later host/native/history/UI and proof before calling that parent gap open or closed today. The map's source accepted extent does not mean product adoption, and its director-acceptance item is optional under AD42. Detailed hypotheses and original dialogue retain their labels; missing native source/fuel/custody/observer/history/clock joins remain separate from a pure result.",
+      "before_sha256": "9aed80967d88e019b2604c678dc8e2640c83c32dad4276e04181198235a7caba",
+      "after_sha256": "70179507f648b298fbe78fd22627506094d85cc198d53c7b8a583478f194d399"
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "heading": "## Recognition-map and source-boundary reconciliation B611",
+      "body": "The [COI recognition map](../../../../gm/feature-wave/features/book-world-subtleties/recognition/circle-of-inevitability/COVERAGE.json) is fully content-reviewed in B611, including its three rules,14evidence records, topology and five-phase original hearing chain. Sincerity, actual identity, appearance, institutional entitlement, signature and delivered observer evidence remain separate. Source-specific truth-serum and the original registry comparator are selected analytical mechanisms, not universal truth/office machinery. One absent dream coin and attributed dream theories do not define every crossing, reset or soul state. Its frozen1170item capture is a historical source-review boundary; later source progress does not silently rewrite it. Current selected source remains unactivated/nativeBound=false, without proof of a native playable chain or whole-repo absence. The old proof brief's candidate exclusions remain scoped to that proposal, rather than new standing all-world bans under AD5/AD38. No current gameplay or raw-source/body proof is added; human review is optional under AD42.",
+      "before_sha256": "ebffede2b26671ccd61303ac638d0ec7178ae55c0970f4edaf0441927fc300bd",
+      "after_sha256": "714511929377713e714d5a7083a852435a13ed4e689aa4f433b8512e9766faa5"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 81,
+  "supporting_inputs": [
+    {
+      "path": "src/feature_expansion_book_recognition.js",
+      "sha256": "ca8e1035e75210aa78a6e722650d1f452a7cdfb788e275e990f3bbb76f51cff9",
+      "ranges": [
+        [
+          1362,
+          1449
+        ]
+      ],
+      "scope": "Selected COI source header/rules only; no full file/actual host proof."
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+      "sha256": "70179507f648b298fbe78fd22627506094d85cc198d53c7b8a583478f194d399",
+      "ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "scope": "Original worker interface and boundary, not whole later parent implementation."
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "sha256": "714511929377713e714d5a7083a852435a13ed4e689aa4f433b8512e9766faa5",
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "scope": "Selected source brief body, not underlying novel/source validation."
+    }
+  ],
+  "content_read_projection": {
+    "source_sha256": "85afebfddef991fe38a3fca5653dc8dda18ce97e77832ca63fdf9501c58b25a7",
+    "roundtrip_equal": true,
+    "evidence_records_read": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14"
+    ],
+    "world_fields_read": [
+      "id",
+      "title",
+      "source",
+      "baselineImmutable",
+      "nativeBound",
+      "nativeWorldStatus",
+      "era",
+      "rules",
+      "replacementAndContinuity",
+      "selectedTropeChain",
+      "smallInteractions",
+      "everydayTextureAndVoice",
+      "stableSourcePeople",
+      "unknowns",
+      "missingNativeBindings",
+      "implementationStatus",
+      "deferredGates",
+      "topologyDisposition",
+      "deepChainDisposition"
+    ],
+    "root_fields_read": [
+      "schema",
+      "capturedAt",
+      "writer",
+      "world",
+      "consumers",
+      "sourceReview"
+    ],
+    "scope": "All projected fields and unique evidence objects actually read; lossless equivalence is structural, not evidence of semantics by itself. Original JSON unchanged."
+  },
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B608, continuous execution 2026-11-05 |",
+      "to": "| B611, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "4f7c833c151b8c8ff53e82d0ac5049f9843ca4565cb27ca222707aa5eb070962",
+      "to": "1a8ec48346b634b5691ffe2466545da41d32b4472f954f6d8827931711bafb97",
+      "reason": "Pointer throughB611; no full register credit."
+    }
+  ]
+}

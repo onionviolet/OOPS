@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "batch": "B588",
+  "title": "Warsim file-coverage table and every Taiwu family-index row",
+  "at": "2026-11-05T11:49:40.670922+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/warsim/TABLE_COVERAGE.md",
+      "ids": [
+        "all255file rows",
+        "inventory/schema/alias/private-save coverage categories"
+      ],
+      "classification": "full coverage-document review; source payload semantics retain explicit unread status",
+      "owners": [
+        "docs/research/warsim/TABLE_COVERAGE.md",
+        "docs/research/warsim/REPORT.md"
+      ],
+      "disposition": "F1: Full actual264-line read includes every255file row and the opening source/private-save limits. Task-local row arithmetic finds145inventory-only,95alias-prefix/count and15core-schema/representative rows, summing255. This classifies the document's stated coverage only, not file contents, current installed manifest, generator validity or native behavior. The table itself explicitly says hashes/inventory do not mean semantic reading. Its underlying payload files were not opened, including any Saves/Scores path.\n\nF2: Preserve different evidence levels across adventurer/animal/currency/faction/hero/mercenary/race/relations/warrior tables versus name/alias files, talk/quest/flavor, faces/ASCII, weapons, race packs, settings and extras.15representative surveys are neither full row reads nor working gameplay. Two-line alias entries can redirect or configure another naming route; their prefix/count check does not qualify a complete naming grammar or generated-name validity. Long face/name lists do not establish independent behavior or novel race outcomes. Empty NobilityTwo/Three records remain recorded0lines, not evidence that corresponding systems are absent.\n\nF3: Race-pack names such as everything, human, civil or savage are source filters, not approved OOPS ontology, morality or a current comprehensive race census. Face archives and Saved Faces under Data are listed source assets, not proof of reading personal gameplay saves. Keep those categories distinct while preserving the explicit private Saves/Scores exclusion. Music credits, settings bits, old concepts and cheat-list filenames are support/discovery leads, not selected mechanics or copied assets. A file titled Don't read me is a corpus title, not an instruction to this task.\n\nF4: Existing Warsim report qualifies earlier no-executable/in-flight snapshots through later bounded PE/native/static dossier evidence, while its headline developer combination count is not reproduced from local row counts. This table does not close native battle/economy/encounter/save-lifecycle gaps or qualify every unread talk/face/grammar body. Reopen only a selected consumer's needed table/schema/native relation; no new source/game launch, artifact extraction, personal save, acquisition, wholesale content copying, deletion, commit or push occurred.",
+      "evidence": "Actual full264lines contiguous1–145/146–264; row status arithmetic255=145+95+15, source files not read.",
+      "reopen": "Only a selected content/native question reopens its specific underlying table, not a whole inventory pass.",
+      "input_sha256": "1a0c7f6412fe09a9d66d07328cad4575539dc46231e4dfc0a61a4a6299da02a5",
+      "input_lines": 264,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          264
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "ids": [
+        "all306config rows in13families",
+        "prior/new-trace column distinctions"
+      ],
+      "classification": "full readable family-index review; companion JSON and source bodies remain separate",
+      "owners": [
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md"
+      ],
+      "disposition": "F1: Full actual375-line review reads every306config-system row under all13families plus the opening coverage/owner definitions. Task-local row arithmetic finds258Unread-here rows and48entries routed to S01/S03–S05/S07–S15. These are row-level links, not48independent complete systems, all15Ssections, executed mechanics or current YAIR implementation. Prior named/mentioned/D3 coverage and this pass's new trace are separate columns; undocumented-prior behavior can receive a selected trace without certifying the full family.\n\nF2: Preserve body age/features/medicine/poison versus visual avatar/color/parts and unread Qi/disorder/lineage details; social character/party trace versus unread AI/relationships/planning/personal-needs; production material/tool/equipment trace versus unread village roles/resource/warehouse/construction; and knowledge/read/secret-information/breakthrough classes whose prior coverage remains bounded. A named stat/reference/filter is not a causal reader, and a D3profession progression body does not establish all reading, training or life-skill mechanics.\n\nF3: Economy S08food/tea and S12merchant/caravan, institutions S03organization and S10prison/S11treasury, world S15map/route/state, combat S14artifact and minigame S13debate each point to selected system evidence, not all their neighbor configs. A travel map trace does not read every month/weather/hazard generator; a character body entry does not prove all combat skills, Neili, boss or trial behavior. Event/dialogue rows remain unread here across adventure/remake/task/story/interaction families. UI S09bubble/party links do not establish whole menu/tutorial/accessibility behavior.\n\nF4: Content-authoring/credits/DLC/filter data and save/legacy/succession records remain separately named, not automatically new gameplay features, completed persistence or a universal fresh-life algorithm. Cricket/chicken/Jiao/Loong and other minigame names are preserved leads, with S13's debate semantics kept distinct rather than a generic tactical-game proof. Broader possible owner mappings are explicitly inferred; failure to locate a dedicated owner is a bounded documentation observation, not repository-wide absence or permission to make another framework.\n\nF5: This readable index and its companion FAMILY_MAP are separate artifacts; the remaining JSON map is not credited as reviewed by this Markdown read. The source report's later selected source closures qualify named manufacturing/repair/medicine/prison/treasury/caravan/genome subquestions only. Full content/effects/demographics/save acceptance remain open; no config data, private extraction, ILSpy source body, installed-game state, native UI or personal save was reopened. Preserve all306rows and source-local IDs, with no guessed closures, source execution, rule uptake, worker, deletion, commit or push.",
+      "evidence": "Actual full375lines contiguous1–130/131–260/261–375;306=258unread-here+48S-routed rows.",
+      "reopen": "Review remaining FAMILY_MAP actual records separately; selected semantic bodies retain precise source qualification.",
+      "input_sha256": "ddc80a23cc34bc50644c40fd32f85190a20aa444539d21dc536136b799597f30",
+      "input_lines": 375,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          375
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/warsim/TABLE_COVERAGE.md",
+      "heading": "## Content reconciliation B588: all file rows and semantic limits",
+      "body": "F1: Full actual264-line read includes every255file row and the opening source/private-save limits. Task-local row arithmetic finds145inventory-only,95alias-prefix/count and15core-schema/representative rows, summing255. This classifies the document's stated coverage only, not file contents, current installed manifest, generator validity or native behavior. The table itself explicitly says hashes/inventory do not mean semantic reading. Its underlying payload files were not opened, including any Saves/Scores path.\n\nF2: Preserve different evidence levels across adventurer/animal/currency/faction/hero/mercenary/race/relations/warrior tables versus name/alias files, talk/quest/flavor, faces/ASCII, weapons, race packs, settings and extras.15representative surveys are neither full row reads nor working gameplay. Two-line alias entries can redirect or configure another naming route; their prefix/count check does not qualify a complete naming grammar or generated-name validity. Long face/name lists do not establish independent behavior or novel race outcomes. Empty NobilityTwo/Three records remain recorded0lines, not evidence that corresponding systems are absent.\n\nF3: Race-pack names such as everything, human, civil or savage are source filters, not approved OOPS ontology, morality or a current comprehensive race census. Face archives and Saved Faces under Data are listed source assets, not proof of reading personal gameplay saves. Keep those categories distinct while preserving the explicit private Saves/Scores exclusion. Music credits, settings bits, old concepts and cheat-list filenames are support/discovery leads, not selected mechanics or copied assets. A file titled Don't read me is a corpus title, not an instruction to this task.\n\nF4: Existing Warsim report qualifies earlier no-executable/in-flight snapshots through later bounded PE/native/static dossier evidence, while its headline developer combination count is not reproduced from local row counts. This table does not close native battle/economy/encounter/save-lifecycle gaps or qualify every unread talk/face/grammar body. Reopen only a selected consumer's needed table/schema/native relation; no new source/game launch, artifact extraction, personal save, acquisition, wholesale content copying, deletion, commit or push occurred.",
+      "before_sha256": "1a0c7f6412fe09a9d66d07328cad4575539dc46231e4dfc0a61a4a6299da02a5",
+      "after_sha256": "2b782825455e8664759f9db85bbf8a9b962d8f64f2cadf4f8b8e7500e0750017"
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "heading": "## Content reconciliation B588: all family rows and separate JSON scope",
+      "body": "F1: Full actual375-line review reads every306config-system row under all13families plus the opening coverage/owner definitions. Task-local row arithmetic finds258Unread-here rows and48entries routed to S01/S03–S05/S07–S15. These are row-level links, not48independent complete systems, all15Ssections, executed mechanics or current YAIR implementation. Prior named/mentioned/D3 coverage and this pass's new trace are separate columns; undocumented-prior behavior can receive a selected trace without certifying the full family.\n\nF2: Preserve body age/features/medicine/poison versus visual avatar/color/parts and unread Qi/disorder/lineage details; social character/party trace versus unread AI/relationships/planning/personal-needs; production material/tool/equipment trace versus unread village roles/resource/warehouse/construction; and knowledge/read/secret-information/breakthrough classes whose prior coverage remains bounded. A named stat/reference/filter is not a causal reader, and a D3profession progression body does not establish all reading, training or life-skill mechanics.\n\nF3: Economy S08food/tea and S12merchant/caravan, institutions S03organization and S10prison/S11treasury, world S15map/route/state, combat S14artifact and minigame S13debate each point to selected system evidence, not all their neighbor configs. A travel map trace does not read every month/weather/hazard generator; a character body entry does not prove all combat skills, Neili, boss or trial behavior. Event/dialogue rows remain unread here across adventure/remake/task/story/interaction families. UI S09bubble/party links do not establish whole menu/tutorial/accessibility behavior.\n\nF4: Content-authoring/credits/DLC/filter data and save/legacy/succession records remain separately named, not automatically new gameplay features, completed persistence or a universal fresh-life algorithm. Cricket/chicken/Jiao/Loong and other minigame names are preserved leads, with S13's debate semantics kept distinct rather than a generic tactical-game proof. Broader possible owner mappings are explicitly inferred; failure to locate a dedicated owner is a bounded documentation observation, not repository-wide absence or permission to make another framework.\n\nF5: This readable index and its companion FAMILY_MAP are separate artifacts; the remaining JSON map is not credited as reviewed by this Markdown read. The source report's later selected source closures qualify named manufacturing/repair/medicine/prison/treasury/caravan/genome subquestions only. Full content/effects/demographics/save acceptance remain open; no config data, private extraction, ILSpy source body, installed-game state, native UI or personal save was reopened. Preserve all306rows and source-local IDs, with no guessed closures, source execution, rule uptake, worker, deletion, commit or push.",
+      "before_sha256": "ddc80a23cc34bc50644c40fd32f85190a20aa444539d21dc536136b799597f30",
+      "after_sha256": "8944aa0b0d5f4fef5db7bb37a0fff9b0635159e0e7a15fd53a18dd16cf668ee7"
+    },
+    {
+      "path": "docs/research/warsim/REPORT.md",
+      "heading": "## Installed text coverage accounting B588",
+      "body": "The full [table B588 review](TABLE_COVERAGE.md#content-reconciliation-b588-all-file-rows-and-semantic-limits) reads all255file rows:145inventory-only,95alias-prefix/count and15schema/representative. Those documentary categories do not qualify full payload/native semantics or reproduce the stated race-combination count. Preserve race/filter/source-data names versus actual mechanic readers, credits/settings/old concepts versus new gameplay and explicit private Saves/Scores exclusion. This does not reopen personal saves or current installation. Existing report native/static claims retain their historical input and battle/economy/encounter/save-lifecycle limits.",
+      "before_sha256": "320c62f045b5deea7138efa2662920a5ed424d262e8471ebedd33b868e82aebf",
+      "after_sha256": "5f11544dad2bf43f2ca70ca8ffce88a58c1af6486d40bde9ba80a1d2a06e9bab"
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md",
+      "heading": "## Readable family-index accounting B588",
+      "body": "The full [FAMILY_INDEX B588 review](FAMILY_INDEX.md#content-reconciliation-b588-all-family-rows-and-separate-json-scope) reads all306config rows across13families:258unread-here plus48links to selected S traces. A selected trace is not full coverage of adjacent configs or a complete behavioral system, and prior/D3 coverage remains distinct. Body/visual, character/AI, materials/work, knowledge, trade, institutions, travel, dialogue, combat, UI, content, save and minigame families keep their own consumers. The separate JSON FAMILY_MAP still requires actual record review. No source method, native UI, full demographic/effect/read/save behavior or current game was verified; bounded owner-gap claims remain inferred rather than proof of absence.",
+      "before_sha256": "b338bebbba0eabed24d6ab8175d8fc033fc7a0d52c072487189282abf5779f38",
+      "after_sha256": "28eaacef5f638163f69f8d2dd45d3e1f79750313a56b01c59a6cf90dd233055e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 112
+}

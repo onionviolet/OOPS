@@ -1,0 +1,27 @@
+{
+  "batches": "B612\u2013B614",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+      "target": "../../A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b613-pay-medicine-and-cohort-evidence",
+      "exists": true
+    },
+    {
+      "source": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "target": "worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md#content-reconciliation-b614-causal-writing-and-continuation",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+      "target": "40_IMPLEMENTATION_CONSIDERATIONS.md#content-reconciliation-b614-historical-seams-and-current-owner-boundaries",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+      "target": "40_IMPLEMENTATION_CONSIDERATIONS.md#content-reconciliation-b614-historical-seams-and-current-owner-boundaries",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New targets only; not linked-body verification."
+}

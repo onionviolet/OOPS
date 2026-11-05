@@ -1,0 +1,15 @@
+{
+  "command": "same-rule docs checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "95631b8e8e1d239c860bff8dbdbc42cb748a010be2f8faceec603742c4bfb806",
+  "paths": [
+    "docs/LIFE_SIM_NORTH_STAR.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "batch": "B622",
+  "title": "Cult source map: all causal paths and evidence domains preserved",
+  "at": "2026-11-05T13:57:59.285599+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/cult-of-the-lamb/COVERAGE.json",
+      "ids": [
+        "LAMB-F01",
+        "LAMB-F02",
+        "LAMB-F03",
+        "LAMB-F04",
+        "LAMB-F05",
+        "LAMB-F06",
+        "LAMB-F07",
+        "LAMB-F08",
+        "LAMB-F09",
+        "LAMB-F10",
+        "LAMB-F11",
+        "LAMB-F12",
+        "LAMB-F13",
+        "LAMB-F14",
+        "LAMB-F15",
+        "LAMB-F16",
+        "LAMB-F17",
+        "LAMB-F18",
+        "LAMB-F19",
+        "LAMB-F20",
+        "LAMB-F21",
+        "LAMB-F22",
+        "LAMB-F23",
+        "LAMB-F24",
+        "LAMB-F25",
+        "LAMB-F26",
+        "LAMB-F27",
+        "LAMB-F28",
+        "LAMB-F29",
+        "LAMB-F30",
+        "LAMB-F31",
+        "LAMB-F32",
+        "LAMB-F33",
+        "LAMB-F34",
+        "LAMB-F35",
+        "LAMB-F36",
+        "LAMB-F37",
+        "LAMB-F38",
+        "LAMB-F39",
+        "LAMB-F40",
+        "LAMB-F41",
+        "LAMB-F42",
+        "LAMB-F43",
+        "LAMB-F44",
+        "LAMB-F45",
+        "LAMB-F46",
+        "LAMB-F47",
+        "16paths",
+        "68source records"
+      ],
+      "classification": "complete finite static coverage map; consumer distinctions and present verification authority",
+      "owners": [
+        "docs/research/cult-of-the-lamb/REPORT.md",
+        "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Full1378-line COVERAGE.jsonactualcontent read: everyrootfield, all68completefile/hash/span/total/qualification records,16complete causalpath objects (decision/prerequisite/spend/mutation/consumer/time/failure/aftermath), export/data/deferred/unread bounds. All47LAMB-F01–F47covered by those paths; per-file inclusive union arithmetic totals9324as declared. This is map arithmetic/semantic review, not a fresh9324line externalC#read.3967exports=3574main+393firstpass, selected68main/0firstpassdoes not mean wholefile/wholegame.5676MonoBehaviours=5403decodeerrors+273anonymousmetadatareads; zero serialized-default semanticcoverage. FullfileSHAdoesnot imply fullread. OriginalJSONunchanged.\n\nF2: Peoplebody/care/history and allocationprecedence/reservation differ; permissivelevelgate/constantHappiness/emptyGetXPlegacy helpers are not complete functional models. Productionqueuepayment/frozenvariant/progress/output/refund/missing-silocustody differ from buildingunlock/placementpayment/construction/targetfacilitystate. Faiththoughts/expiry/dissenteligibility/receivednearbycontact/warning/boundedtheft/retainedopponent need actual causal consumers, not globalmoralityorprivateknowledge. Earnedadorationlevel is uncapped in the pinned path while specificproductivity/demonconsumers cap; separatelyappointedoffice has actualservice. Doctrines/ritualnormal/free/forced/cancel/night branches are not a generic consentmodel.\n\nF3: Resurrectionreconciles identity/remains/history and can leave specificstate requiring differentcare; this is not every death/burial/savefailureproof. Foodactualreservation/arrivalspend/abortafterbite/independenteffects/overflow/sourceexception differ. Pairsharedhistory/romance/enmity/fightattribution/sinbeforeattempt/parent-bodyexceptions/eggcare do not establish affirmativeconsent just from probability/success. Missionfreezesactor/start/type/chance/outcome and settlestimedactualdelivery/death; introguarantee/tierconditionalanomaly remain bounded, not universalno-rerollarchitecture. Demons occupy homepersonsupport and return fatigue/history, with selected combat/cargoloss/runsettlement distinct from GameOver/fullreset.\n\nF4: Calendar/UI/simulationpause/frameconversion/skip/active-unloadedrepresentation differ; no OSofflinebehavior follows. Winterfundedadvance/severity/grace/fuel/heatrange/bodyprotection/cold/work/waste has actualexceptions; success-inducedpressure is source-specific, not mandatorybalancing. Ranchhabitat/feed/readiness/caretakerinventory/output/parents/illness/age/offspring differ, including earlyspend-return and absent-playerbranches. DLCflag/namedactor/elapsedclue/recruit/bag/localobjective/metaunlock are separate; packagedsource, entitlementfunction, accountactivation, sourceinspection and livecampaigncoverage are independent. No purchases/entitlementcall or currentversion/date claim.\n\nF5: Three LAMB-P01charter/P02earnedoffice-service/P03residentdispatch are selected researchcandidates, not acceptedbuilds. Existingownedpeople/jobs/stock/knowledge/conditions/nativeleases need currentoverlapcheck; missingjoin claims are dated possibilities. Preserve broader47findings and ecology/career/material/identity options without a new realm, savepublisher, universalneeds/offlineloss or genericXPbar. PROJECTretiresone-realm/prestigegate and keeps Frontier/Mistglassno-new-depth; AD36/AD43define selectedimplementationchecks and AD42humanreviewoptional. Oldresearchdeferredtest list does not authorize laterimplementation to skip currentfloor. No externalC#/assets/defaults/sourcebodyread, game/profile/entitlementaccess, acquisition/worker, implementation/test/build/browser/saveoperation, deletion/move, commit/push.",
+      "evidence": "Everyroot/source/path field actuallyread via complete compact groups; arithmetic verified. Existing packet text read; report selected spans support boundaries, no new externalC#/gameplay/defaults proof.",
+      "reopen": "Use current applicable owner overlap and exact sourcepin when selecting one actual join; researchscope remains finite, no newworld/worker/currentgame claim.",
+      "full": true,
+      "input_sha256": "4b2bf0ed1d9089684e6e01c68ce8de91e2073e80df503a2883ba0b2e15d9cfd7",
+      "input_lines": 1378,
+      "ranges": [
+        [
+          1,
+          1378
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/cult-of-the-lamb/REPORT.md",
+      "heading": "## Coverage-map reconciliation B622",
+      "body": "B622fully reads all fields of [COVERAGE.json](COVERAGE.json),68file-span records and16causalpaths covering LAMB-F01–F47. The declared9324inclusiveunionlines/47IDscheck arithmetically; this does not reread externalC# or certify live behavior. Export3967, selected68, firstpasssemantic0and serializedMonoBehaviourdefaultssemantic0stay independent. Missingdecoder/bundle/default details remain open.\n\nRetain the useful distinct joins: personalneed before jobreservation, stockcustody through queue/build/refund, known dissent/warning/retainedidentity, earnedlevel versus cappedfunction versus appointedoffice, paidcare/food/relationship/sourceexceptions, frozenmission/deliveredreturn, homeresidentoccupancy/combatfatigue, timepause domains, fuel/spatialwinter/ranchcare and local/metaDLCstate. Staticpath completion does not prove savefailureatomicity, OSofflinepolicy, wholecampaign/combat or actualconsent. Sourceprobabilities/cultauthority are not a reusable consentpolicy.\n\nP01–P03remain originalcandidate joins into existing owners, with a currentoverlapcheck before implementation; do not rediscover alreadydelivered work as a new gap. Source formulas/patches/entitlementbranches are datedpin-specific evidence. Current PROJECTretires the firstmilestone and keeps Frontier/Mistglassas testbeds; AD36/AD43and optionalhumanreviewAD42govern any selected slice. No new sourcebody/acquisition, sourcecode, runtime/build/browser/save or accountaction occurs.",
+      "before_sha256": "a8a1910111ee1ecd774319300bea14d493c2aa52904e33c94a8798aee2c59048",
+      "after_sha256": "35f898f7a0afa1fb0f6274f660f7b1046a2b74eca6f15640a15c9898491641c0"
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "heading": "## Coverage and present verification scope B622",
+      "body": "B622fully reads all fields of [COVERAGE.json](COVERAGE.json),68file-span records and16causalpaths covering LAMB-F01–F47. The declared9324inclusiveunionlines/47IDscheck arithmetically; this does not reread externalC# or certify live behavior. Export3967, selected68, firstpasssemantic0and serializedMonoBehaviourdefaultssemantic0stay independent. Missingdecoder/bundle/default details remain open.\n\nRetain the useful distinct joins: personalneed before jobreservation, stockcustody through queue/build/refund, known dissent/warning/retainedidentity, earnedlevel versus cappedfunction versus appointedoffice, paidcare/food/relationship/sourceexceptions, frozenmission/deliveredreturn, homeresidentoccupancy/combatfatigue, timepause domains, fuel/spatialwinter/ranchcare and local/metaDLCstate. Staticpath completion does not prove savefailureatomicity, OSofflinepolicy, wholecampaign/combat or actualconsent. Sourceprobabilities/cultauthority are not a reusable consentpolicy.\n\nP01–P03remain originalcandidate joins into existing owners, with a currentoverlapcheck before implementation; do not rediscover alreadydelivered work as a new gap. Source formulas/patches/entitlementbranches are datedpin-specific evidence. Current PROJECTretires the firstmilestone and keeps Frontier/Mistglassas testbeds; AD36/AD43and optionalhumanreviewAD42govern any selected slice. No new sourcebody/acquisition, sourcecode, runtime/build/browser/save or accountaction occurs.",
+      "before_sha256": "59c778527295fcb9cd963982087c8cafc466c1abcba3ad059ae6f3a7654d822c",
+      "after_sha256": "5543378e35873fbcf2d5ffbbf4d32e078a5612b6bb8b3b5741d1f20c2fb8bad4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 63,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "from": "Same realm/one prestige.",
+      "to": "The old same-realm/one-prestige first milestone is retired; preserve existing saved realm/prestige meaning.",
+      "reason": "Retired milestone and current completion authority supersede historical packet restrictions."
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "from": "Current unit/browser/gameplay/save/reload/import/failure/regression/keyboard/director gates remain deferred. Build/syntax/import/link checks may be used after an authorized implementation.",
+      "to": "The research pass ran no unit/browser/gameplay/save/reload/import/failure/regression/keyboard checks. Any authorized implementation follows current AD36/AD43evidence requirements; human review is optional under AD42.",
+      "reason": "Retired milestone and current completion authority supersede historical packet restrictions."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "from": "5543378e35873fbcf2d5ffbbf4d32e078a5612b6bb8b3b5741d1f20c2fb8bad4",
+      "to": "6c5fb6e5a4a9560b51647a0f409d0dad522cc0c8fcb1d09bd1663f396899a46c",
+      "reason": "Exact packet header correction."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "sha256": "6c5fb6e5a4a9560b51647a0f409d0dad522cc0c8fcb1d09bd1663f396899a46c",
+      "scope": "All original packet content read; no new full-candidate event."
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/REPORT.md",
+      "sha256": "35f898f7a0afa1fb0f6274f660f7b1046a2b74eca6f15640a15c9898491641c0",
+      "ranges": [
+        [
+          1,
+          31
+        ],
+        [
+          48,
+          79
+        ]
+      ],
+      "scope": "Selected source/export/DLC/proposal and proof-boundary sections only; truncated middle not credited."
+    }
+  ]
+}

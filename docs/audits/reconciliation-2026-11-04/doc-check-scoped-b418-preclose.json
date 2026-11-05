@@ -1,0 +1,16 @@
+{
+  "command": "node temporary same-rule checker with filespec restricted to B416\u2013B418 task edits",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "31515fda39439bf6000bad1791fd82a79500695fb0dc387c5c0aec63c715fe1a",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/ED1_CHECKPOINT.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF1_AUDIT.md"
+  ],
+  "adaptation": "Exactly one filespec replacement; all original diagnostic rules retained. No repository checker change. Scoped result is not shared-tree pass."
+}

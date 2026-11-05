@@ -1,0 +1,11 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "check:docs"
+  ],
+  "exit": 1,
+  "stdout": "> check:docs\n> node scripts/check_doc_slips.mjs\n",
+  "stderr": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md:240: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md:446: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "capture": "Transcribed from actual executed tool output before corrections, not a rerun."
+}

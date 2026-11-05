@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "batch": "B426",
+  "title": "Six complete mapping and replay receipts: false folds, source ordering and reproducibility limits",
+  "at": "2026-11-05T05:30:35.080248+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/X1_CHECKPOINT.md",
+      "ids": [
+        "18 legacy rows;1491 generated steps;wait intents not executable windows"
+      ],
+      "classification": "complete historical mapping/replay receipt with late coverage, source ordering and diagnostic corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The18-row legacy mapping and1,491-step M4 mapping have different inputs. Seven seat gaps are retyped rather than credited as solved; the rejected source actor remains a gap. Initial197 wait intents, zero matched walks/talks and missing numeric windows describe offline routing, not actual be actions. Dynamic wait and M4 driver adaptation were prepared owner joins; old launch commands are historical. Later V2 supplies generated-schema support without inventing dates. Preserve the initial result and source/control gaps rather than treating a deterministic mapping file as deterministic gameplay.",
+      "evidence": "Complete actual file read including every X4 resume1–3 and V2 resume1–7; linked previously read pack/adaptor/coordinator chronology compared. No present mapping generation, source-paragraph review, browser or replay execution.",
+      "reopen": "For later replay use exact current source, pack, mapping and bundle identities; retain unknown actors, qualified meanings, comparison omissions and diagnostic captures without promoting accounting to gameplay proof.",
+      "input_sha256": "943b3f5859a8767d46a0395618af37890765267db2eeb409f41947994324e14a",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/X2_CHECKPOINT.md",
+      "ids": [
+        "exact identity/component resolution;references versus actual controls"
+      ],
+      "classification": "complete historical mapping/replay receipt with late coverage, source ordering and diagnostic corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Exact registry/indexId/redirect/alias joins and explicit containing components improve reference resolution without fuzzy identity guesses. Live place235to309/1,491 and people153to1,485/4,164 differ from candidate253to340 places and153to1,538 people. These are repeated source references, not unique entities or gameplay coverage. The empty talk-control map still yields zero actual talk controls despite123 resolved-person candidates; six/seven walk assignments do not prove reachability. Candidate differences and unresolved/ambiguous joins remain with pack/source owners. No aliases or source facts are inferred merely to raise counts.",
+      "evidence": "Complete actual file read including every X4 resume1–3 and V2 resume1–7; linked previously read pack/adaptor/coordinator chronology compared. No present mapping generation, source-paragraph review, browser or replay execution.",
+      "reopen": "For later replay use exact current source, pack, mapping and bundle identities; retain unknown actors, qualified meanings, comparison omissions and diagnostic captures without promoting accounting to gameplay proof.",
+      "input_sha256": "d929de2f9f851b316ca42a78a0eb113c5a3b108359b389d593f663d34e2bc61f",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/X3_CHECKPOINT.md",
+      "ids": [
+        "household verb-object-place join;7 candidate acts;later false-fold correction"
+      ],
+      "classification": "complete historical mapping/replay receipt with late coverage, source ordering and diagnostic corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Seven household mappings require the matching place, verb and disambiguating object; washroom use does not mean washing, and pocket-watch checking does not select an unrelated inspection. Three household gaps retain mismatched place/ambiguous object rather than borrowing a local act. Before/after categories are assignments over the same source steps, not new steps or source-certified actions. Exact no-householdActs fallback is meaningful tooling compatibility. Later X4 resume1 explicitly returns false payment/other matches to gaps, superseding this earlier apparently higher coverage. Twelve synthetic tests and generation are not browser/replay proof.",
+      "evidence": "Complete actual file read including every X4 resume1–3 and V2 resume1–7; linked previously read pack/adaptor/coordinator chronology compared. No present mapping generation, source-paragraph review, browser or replay execution.",
+      "reopen": "For later replay use exact current source, pack, mapping and bundle identities; retain unknown actors, qualified meanings, comparison omissions and diagnostic captures without promoting accounting to gameplay proof.",
+      "input_sha256": "427cecc0029506a305ae01f357cc3340891f1cb889da629a0f8ac101c7836cf5",
+      "input_lines": 65,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/X4_CHECKPOINT.md",
+      "ids": [
+        "11159 actor-unknown steps;1095 false folds retired;source-ordered522journeys;1113candidatecontrols"
+      ],
+      "classification": "complete historical mapping/replay receipt with late coverage, source ordering and diagnostic corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The initial10,047-gap census is superseded by stricter resume1: all11,159 ranged steps are actor-unknown, since scene POV does not identify each actor; nine unlocated steps and candidate-persona scenes are distinct excluded populations. One candidate fold is added while1,095 false folds return to gaps (1,000 talks,86 walks,nine acts). A changed scene is not automatically a walk, a greeting is not a specific conversation, and the sole pay button is not every payment. The7,994 clustered/3,147 unclustered family partition and cheap-control candidates are provisional, not confirmed lead demand or an exhaustive runtime inventory. Resume2 fixes533 volume interleavings by source volume/chapter/paragraph order;522journeys replace616, and only four of544 ranged journey steps have stated origins while540 remain inferred. Ordered family selection removes transport/message misclassification;503acts replace551. The1,111 mapped controls/10,048 gaps and overlapping builder diagnoses do not prove actor, eligibility, source effects or settlement. Resume3 adds one reviewed knowledge-only act and one authored-bound wait, reaching1,113candidate controls, while whole-book paragraph review, alias proposals and large-family unlock remain explicitly partial. Only five of162 waits have same-scene day bindings, and four bound rejects keep actual citation/window/action conflicts. No aliases are forced. Preserve original inputs/previous candidates, raw name-scan failures and narrow added-line passes; later coordinator adoption does not finish unreviewed rows.",
+      "evidence": "Complete actual file read including every X4 resume1–3 and V2 resume1–7; linked previously read pack/adaptor/coordinator chronology compared. No present mapping generation, source-paragraph review, browser or replay execution.",
+      "reopen": "For later replay use exact current source, pack, mapping and bundle identities; retain unknown actors, qualified meanings, comparison omissions and diagnostic captures without promoting accounting to gameplay proof.",
+      "input_sha256": "4ad155cbb6253109f66f511c49dd4b99586986d3c8f03110957192abb8089ee0",
+      "input_lines": 289,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          289
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/V1_CHECKPOINT.md",
+      "ids": [
+        "be entry;null replay;order-window score;no browser run"
+      ],
+      "classification": "complete historical mapping/replay receipt with late coverage, source ordering and diagnostic corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The driver changes visible pick/enroll routing for be while retaining seven missing-seat/control gaps and the other legacy statuses. Reached scores require actual control/wait outcome, source order and window; blocked reasons come from the game. Null-player skips setup legs and compares two fresh lives, but audit-only1candidate/17gaps is accounting, not a route, determinism or fidelity result. Initial natural-clock omission is superseded by V2's explicit normalization and controlled-time work. The lane ran no browser; later coordinator receipts have their own inputs and limited achieved scores.",
+      "evidence": "Complete actual file read including every X4 resume1–3 and V2 resume1–7; linked previously read pack/adaptor/coordinator chronology compared. No present mapping generation, source-paragraph review, browser or replay execution.",
+      "reopen": "For later replay use exact current source, pack, mapping and bundle identities; retain unknown actors, qualified meanings, comparison omissions and diagnostic captures without promoting accounting to gameplay proof.",
+      "input_sha256": "636d6b0104ddcca0e11ad2e2c786e4efe848deeade0ce16868abc342e19e87c5",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/V2_CHECKPOINT.md",
+      "ids": [
+        "generated schema;comparison omissions;paused replay;range and blocked diagnostics"
+      ],
+      "classification": "complete historical mapping/replay receipt with late coverage, source ordering and diagnostic corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "All initial1,491 generated rows are order-only because no numeric day/band window is established; relative text is not converted to a date. Multi-chapter scenes remain ambiguous chapter steps. Each offset batch starts a fresh life, so combined batches are samples rather than a continuous saved playthrough. Resumes explicitly retain normalization/omission policies, test-only fixed seed verification, exact game-minute alignment and fallback exclusions; game time/RNG are not silently discarded. Paired credit requires reached in-order outcomes in both runs plus compared-state agreement. Removing only skillRecords.tracked does not permit arbitrary skill omissions. Resume5 pauses before each life and advances accepted native jobs to actual deadlines, avoids double-advancing synchronous waits, checks destination and observable outcomes, and records interrupted/mismatched work as gaps. Resume6 volume/locator selection intersects bounds before offset and proves source-ID accounting only. Resume7 captures first failed snapshot after a control plus bounded console/page/save diagnostics; a diagnostic capture facility is not a fix for the underlying save error. All lane checks remain synthetic/audit-only, with seed integration and rebuilt two-run browser proof supplied only by separately identified coordinator receipts. Historical2/150 and7/175 results stay limited; source correctness, every action and full-book continuity do not follow from a matching normalized state.",
+      "evidence": "Complete actual file read including every X4 resume1–3 and V2 resume1–7; linked previously read pack/adaptor/coordinator chronology compared. No present mapping generation, source-paragraph review, browser or replay execution.",
+      "reopen": "For later replay use exact current source, pack, mapping and bundle identities; retain unknown actors, qualified meanings, comparison omissions and diagnostic captures without promoting accounting to gameplay proof.",
+      "input_sha256": "3ed5fc8d6fe5be7f4863a4cbce0a30655a7385c81140789accbd90057cf37053",
+      "input_lines": 207,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          207
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B426: corrected mapping and replay evidence",
+      "body": "Six complete mapping/replay receipts preserve the later stricter results alongside their original history. A source-linked command, an available native control, a reached action, a supported source effect and a reproducible continuous life are distinct claims.\n\n**X1:** The18-row legacy mapping and1,491-step M4 mapping have different inputs. Seven seat gaps are retyped rather than credited as solved; the rejected source actor remains a gap. Initial197 wait intents, zero matched walks/talks and missing numeric windows describe offline routing, not actual be actions. Dynamic wait and M4 driver adaptation were prepared owner joins; old launch commands are historical. Later V2 supplies generated-schema support without inventing dates. Preserve the initial result and source/control gaps rather than treating a deterministic mapping file as deterministic gameplay.\n\n**X2:** Exact registry/indexId/redirect/alias joins and explicit containing components improve reference resolution without fuzzy identity guesses. Live place235to309/1,491 and people153to1,485/4,164 differ from candidate253to340 places and153to1,538 people. These are repeated source references, not unique entities or gameplay coverage. The empty talk-control map still yields zero actual talk controls despite123 resolved-person candidates; six/seven walk assignments do not prove reachability. Candidate differences and unresolved/ambiguous joins remain with pack/source owners. No aliases or source facts are inferred merely to raise counts.\n\n**X3:** Seven household mappings require the matching place, verb and disambiguating object; washroom use does not mean washing, and pocket-watch checking does not select an unrelated inspection. Three household gaps retain mismatched place/ambiguous object rather than borrowing a local act. Before/after categories are assignments over the same source steps, not new steps or source-certified actions. Exact no-householdActs fallback is meaningful tooling compatibility. Later X4 resume1 explicitly returns false payment/other matches to gaps, superseding this earlier apparently higher coverage. Twelve synthetic tests and generation are not browser/replay proof.\n\n**X4:** The initial10,047-gap census is superseded by stricter resume1: all11,159 ranged steps are actor-unknown, since scene POV does not identify each actor; nine unlocated steps and candidate-persona scenes are distinct excluded populations. One candidate fold is added while1,095 false folds return to gaps (1,000 talks,86 walks,nine acts). A changed scene is not automatically a walk, a greeting is not a specific conversation, and the sole pay button is not every payment. The7,994 clustered/3,147 unclustered family partition and cheap-control candidates are provisional, not confirmed lead demand or an exhaustive runtime inventory. Resume2 fixes533 volume interleavings by source volume/chapter/paragraph order;522journeys replace616, and only four of544 ranged journey steps have stated origins while540 remain inferred. Ordered family selection removes transport/message misclassification;503acts replace551. The1,111 mapped controls/10,048 gaps and overlapping builder diagnoses do not prove actor, eligibility, source effects or settlement. Resume3 adds one reviewed knowledge-only act and one authored-bound wait, reaching1,113candidate controls, while whole-book paragraph review, alias proposals and large-family unlock remain explicitly partial. Only five of162 waits have same-scene day bindings, and four bound rejects keep actual citation/window/action conflicts. No aliases are forced. Preserve original inputs/previous candidates, raw name-scan failures and narrow added-line passes; later coordinator adoption does not finish unreviewed rows.\n\n**V1:** The driver changes visible pick/enroll routing for be while retaining seven missing-seat/control gaps and the other legacy statuses. Reached scores require actual control/wait outcome, source order and window; blocked reasons come from the game. Null-player skips setup legs and compares two fresh lives, but audit-only1candidate/17gaps is accounting, not a route, determinism or fidelity result. Initial natural-clock omission is superseded by V2's explicit normalization and controlled-time work. The lane ran no browser; later coordinator receipts have their own inputs and limited achieved scores.\n\n**V2:** All initial1,491 generated rows are order-only because no numeric day/band window is established; relative text is not converted to a date. Multi-chapter scenes remain ambiguous chapter steps. Each offset batch starts a fresh life, so combined batches are samples rather than a continuous saved playthrough. Resumes explicitly retain normalization/omission policies, test-only fixed seed verification, exact game-minute alignment and fallback exclusions; game time/RNG are not silently discarded. Paired credit requires reached in-order outcomes in both runs plus compared-state agreement. Removing only skillRecords.tracked does not permit arbitrary skill omissions. Resume5 pauses before each life and advances accepted native jobs to actual deadlines, avoids double-advancing synchronous waits, checks destination and observable outcomes, and records interrupted/mismatched work as gaps. Resume6 volume/locator selection intersects bounds before offset and proves source-ID accounting only. Resume7 captures first failed snapshot after a control plus bounded console/page/save diagnostics; a diagnostic capture facility is not a fix for the underlying save error. All lane checks remain synthetic/audit-only, with seed integration and rebuilt two-run browser proof supplied only by separately identified coordinator receipts. Historical2/150 and7/175 results stay limited; source correctness, every action and full-book continuity do not follow from a matching normalized state.\n\nUseful exact joins, conservative rejects, volume ordering, explicit comparison policies and private failure diagnostics remain with these owners. This reconciliation changes no source corpus, pack, driver, save, gameplay score or accepted direction.",
+      "before_sha256": "e1fbb4fa48a2ccc79c5adb32572c5711ac5dccb45a20bc43e560134fa990ba15",
+      "after_sha256": "833c7a298ef2a4a788afe4e008e3842026a2840d5c236467fa5e0f5128688cf5"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 446,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "from": "advances accepted native jobs to actual deadlines",
+      "to": "advances admitted native jobs to actual deadlines",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "from": "c53c05b6dfa709727901f84cb4a7f3d3b01ebe4a27e359aeddb4aac4d0341dc2",
+      "to": "151f65966d13d6c405aa72c8a2bcfee5433bde91a264db69458f5f49304da239",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    }
+  ]
+}

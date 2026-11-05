@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "batch": "B429",
+  "title": "Six complete visibility, wait, workflow and battle receipts: actual late fixes and remaining owner gaps",
+  "at": "2026-11-05T05:34:03.594638+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/C1_CHECKPOINT.md",
+      "ids": [
+        "64perspective inventory;defaulted missing rows;no behavior"
+      ],
+      "classification": "complete historical visibility, wait, workflow or battle receipt with actual late corrections and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The64frozen inventory rows classify scoped shell/menu/panel/header/report families, not simultaneously visible controls or filtering behavior. Two actual report kinds are retained rather than inventing a third to meet an expectation. Coordinator spots omissions despite the initial unclassified-none claim: workplace/supervisor controls defaulted in-world even though their seat/date matters, and native quest/navigation Reports lack crossing rows. Carry those scoped coverage gaps to actual seat consumers; later D2 adds topic disclosure tags. Source coverage tests do not prove beside/be desktop classification or exhaust every dynamically created control.",
+      "evidence": "Complete actual receipt read, with truncated S1 output recovered by a separate complete read. Coordinator addenda and prior mechanism receipts compared. No current source, runtime, account, browser or worker execution.",
+      "reopen": "Use current actual owners for selected work; retain specific visibility, time, harm-world and exact-save proof gaps without invoking old launches or broad completion claims.",
+      "input_sha256": "a649a7bf4adbdae9f169e801fbcb2a6f48ae4c3fefed35da1f399f7544472662",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/S1_CHECKPOINT.md",
+      "ids": [
+        "derived seat;unknown visible;25/34anchor bug;beside versus be proof"
+      ],
+      "classification": "complete historical visibility, wait, workflow or battle receipt with actual late corrections and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Seat derives from existing profile without a persisted field; follow/bystander defaults are not implemented new starts. Unknown capability IDs remain visible with a development warning, not silently hidden. Initial five-profile probe says no despite its matching count and is preserved as an ambiguous receipt field, not repaired by inference. Final coordinator corrects a concrete filter defect skipping25of34non-prefixed panel anchors and unregistered known-panel capability lookups, applies conflicting host hunks manually and passes six focused tests plus a zero-error beside browser floor. That supersedes prepared-only status at its bundle; it is not be-state proof or blanket cross-world visibility correctness. C1's date-sensitive workplace gaps retain their owners.",
+      "evidence": "Complete actual receipt read, with truncated S1 output recovered by a separate complete read. Coordinator addenda and prior mechanism receipts compared. No current source, runtime, account, browser or worker execution.",
+      "reopen": "Use current actual owners for selected work; retain specific visibility, time, harm-world and exact-save proof gaps without invoking old launches or broad completion claims.",
+      "input_sha256": "c96f90c41b0b7f9406a518b5adce4569b44569a5622dd1b442cb2d9ac57c839d",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/G1_CHECKPOINT.md",
+      "ids": [
+        "wait due boundaries;event-time knowledge;13.4s floor misses3s"
+      ],
+      "classification": "complete historical visibility, wait, workflow or battle receipt with actual late corrections and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Original one-minute host calls freeze349-minute Chrome wait for268s. The fix uses actual unsettled due beats/target with sleep/occupation/write/location rechecks and clipped-step fallback, not a new clock or a universal elapsed accumulator. Final coordinator browser supersedes opening blocked status:349minutesin13.4s, dawn knowledge shown, actual Save/reload/Export/Import and zero page errors. It still misses3starget; the wait used a DOM click, and352quoted/349result differs as natural time passed. Knowledge is dated at the actual event and uses learner exposure/full schedule precedence, not later body location or omniscient pack knowledge. Altered branches teach their authored result, blocked/lapsed beats none; stronger knowledge and terminal deduplication stay. Old terminal beats are not backfilled. MoL's11adapter writes and validated data do not implement its absent native cast-beat driver. Concealment, source-rejected actor/action, held stock and numerical anchor gaps are not closed by the narrower aftermath rescore.",
+      "evidence": "Complete actual receipt read, with truncated S1 output recovered by a separate complete read. Coordinator addenda and prior mechanism receipts compared. No current source, runtime, account, browser or worker execution.",
+      "reopen": "Use current actual owners for selected work; retain specific visibility, time, harm-world and exact-save proof gaps without invoking old launches or broad completion claims.",
+      "input_sha256": "b4b8a1d291ae3aca966b139485a57f873a89d191295e882b1921e85cdde421b8",
+      "input_lines": 156,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          156
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/W1_CHECKPOINT.md",
+      "ids": [
+        "historical live preflight;resume argument fix;scanblindspots"
+      ],
+      "classification": "complete historical visibility, wait, workflow or battle receipt with actual late corrections and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The initial sandbox preflight failure is explicitly superseded by a successful host preflight; that dated allowance/account reading is not current live state. Resume lacks the launch -sflag, so the coordinator changes it to the sandbox_mode config argument and only parse-checks it, not a live resume. Detached process/session records and stripped-key behavior are tooling contracts, not evidence of gameplay or permission to launch old lanes. Scanner limitations remain: only src/tests, whole names of3+characters, missing surname/place tokens, diff fallback misses untracked paths, baseline main hits and parent log-writer process lifetime. Seven synthetic tests and scoped scanner passes cannot certify unscanned scripts/docs, installed access or actual resume success. Current reconciliation launches no worker, changes no limits and reuses no old account claim.",
+      "evidence": "Complete actual receipt read, with truncated S1 output recovered by a separate complete read. Coordinator addenda and prior mechanism receipts compared. No current source, runtime, account, browser or worker execution.",
+      "reopen": "Use current actual owners for selected work; retain specific visibility, time, harm-world and exact-save proof gaps without invoking old launches or broad completion claims.",
+      "input_sha256": "ae76b1dbffa29af003a471ce9616e3c6d20d6f029ca1042c8a2b553f1531e137",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/F1_CHECKPOINT.md",
+      "ids": [
+        "battle structural runner;126differentials;controlled envelope versus create_save"
+      ],
+      "classification": "complete historical visibility, wait, workflow or battle receipt with actual late corrections and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "The staged runner preserves exact legacy road/party/sluice owners, ordered stop/effect/guard/helper hooks and schema6cohort delegation; field care is an observer, not a newly unified battle. Its126equivalence cases across five seeds compare plans/property order, real persistExpansionPlan bytes in a controlled envelope and JSON reload continuation. This is not actual main.create_save byte equivalence, every source fight or a natural browser route. Frozen implementations are test-only and depend on current relative modules; HEAD alone does not freeze those dependencies. Ordinal RNG remains the explicit legacy compatibility path; keyed port availability does not convert old draw semantics. Range/morale/choice UI/canon fight policy and deeper declarative operations remain step2, not implemented by structural extraction. The181focused checks/build/arch pass leaves desktop Reports/persistence comparison and full combined suite distinct. A proposed systems-register patch is not an applied register update.",
+      "evidence": "Complete actual receipt read, with truncated S1 output recovered by a separate complete read. Coordinator addenda and prior mechanism receipts compared. No current source, runtime, account, browser or worker execution.",
+      "reopen": "Use current actual owners for selected work; retain specific visibility, time, harm-world and exact-save proof gaps without invoking old launches or broad completion claims.",
+      "input_sha256": "ab5407eb005c403bd7d0c1e91ec50679e76b682cfb747e95f665c6a69f4a5652",
+      "input_lines": 74,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/G6_LOCATION_CHECKPOINT.md",
+      "ids": [
+        "located hit proposals;extreme-onlyblock;seeded road proof;missing frontierparts"
+      ],
+      "classification": "complete historical visibility, wait, workflow or battle receipt with actual late corrections and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "The road fixture browser proves aimed hit display, slot armor, part injuries affecting later odds/speed, mid-fight reload and literal Export/Import at its input. It seeds amplified rival attack and equipped gear through native owners; it does not show naturally earned early-game injury rates. Head/body/arm/leg mappings,8/18/30thresholds,1.4/1/0.75scales and aim costs are proposals/world dials rather than universally fixed biology. Only the extreme ladder rung blocks per the stated direction. Default body has no part row, shields return before location, foes do not aim and all wounds are announced. The real frontier harm-world lacks parts, so its stored injuries do not act and harmPart can throw; the host's default-row workaround does not close that owning ladder gap. Preserve this named integration request and actual limited floor; the final bundle/full-suite reference requires its own receipt before reuse, not a guessed hash or global fight-complete claim.",
+      "evidence": "Complete actual receipt read, with truncated S1 output recovered by a separate complete read. Coordinator addenda and prior mechanism receipts compared. No current source, runtime, account, browser or worker execution.",
+      "reopen": "Use current actual owners for selected work; retain specific visibility, time, harm-world and exact-save proof gaps without invoking old launches or broad completion claims.",
+      "input_sha256": "17443eaf7abe3aff46f8d6c1148fcdcc1decf959743046675b60ad79ddbcf602",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B429: visibility, wait and workflow",
+      "body": "Complete historical receipts retain their later fixes and narrow verification scopes. This fold maintains existing evidence owners without changing accepted direction or implementing gameplay.\n\n**C1:** The64frozen inventory rows classify scoped shell/menu/panel/header/report families, not simultaneously visible controls or filtering behavior. Two actual report kinds are retained rather than inventing a third to meet an expectation. Coordinator spots omissions despite the initial unclassified-none claim: workplace/supervisor controls defaulted in-world even though their seat/date matters, and native quest/navigation Reports lack crossing rows. Carry those scoped coverage gaps to actual seat consumers; later D2 adds topic disclosure tags. Source coverage tests do not prove beside/be desktop classification or exhaust every dynamically created control.\n\n**S1:** Seat derives from existing profile without a persisted field; follow/bystander defaults are not implemented new starts. Unknown capability IDs remain visible with a development warning, not silently hidden. Initial five-profile probe says no despite its matching count and is preserved as an ambiguous receipt field, not repaired by inference. Final coordinator corrects a concrete filter defect skipping25of34non-prefixed panel anchors and unregistered known-panel capability lookups, applies conflicting host hunks manually and passes six focused tests plus a zero-error beside browser floor. That supersedes prepared-only status at its bundle; it is not be-state proof or blanket cross-world visibility correctness. C1's date-sensitive workplace gaps retain their owners.\n\n**G1:** Original one-minute host calls freeze349-minute Chrome wait for268s. The fix uses actual unsettled due beats/target with sleep/occupation/write/location rechecks and clipped-step fallback, not a new clock or a universal elapsed accumulator. Final coordinator browser supersedes opening blocked status:349minutesin13.4s, dawn knowledge shown, actual Save/reload/Export/Import and zero page errors. It still misses3starget; the wait used a DOM click, and352quoted/349result differs as natural time passed. Knowledge is dated at the actual event and uses learner exposure/full schedule precedence, not later body location or omniscient pack knowledge. Altered branches teach their authored result, blocked/lapsed beats none; stronger knowledge and terminal deduplication stay. Old terminal beats are not backfilled. MoL's11adapter writes and validated data do not implement its absent native cast-beat driver. Concealment, source-rejected actor/action, held stock and numerical anchor gaps are not closed by the narrower aftermath rescore.\n\n**W1:** The initial sandbox preflight failure is explicitly superseded by a successful host preflight; that dated allowance/account reading is not current live state. Resume lacks the launch -sflag, so the coordinator changes it to the sandbox_mode config argument and only parse-checks it, not a live resume. Detached process/session records and stripped-key behavior are tooling contracts, not evidence of gameplay or permission to launch old lanes. Scanner limitations remain: only src/tests, whole names of3+characters, missing surname/place tokens, diff fallback misses untracked paths, baseline main hits and parent log-writer process lifetime. Seven synthetic tests and scoped scanner passes cannot certify unscanned scripts/docs, installed access or actual resume success. Current reconciliation launches no worker, changes no limits and reuses no old account claim.\n\nPreserve original reports, failed checks and useful implementation distinctions; no pack, save, runtime, scan rule, launch, deletion or commit is changed.",
+      "before_sha256": "faee3e9db301ed8f019f35d033a16b69f529b218cf89306be57a01add5333387",
+      "after_sha256": "5854e9f55eaca5bd451bfa848682776f3d7d013c39f7203a447a123b1c813fdc"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "heading": "## Content reconciliation B429: battle structure and located injuries",
+      "body": "Complete historical receipts retain their later fixes and narrow verification scopes. This fold maintains existing evidence owners without changing accepted direction or implementing gameplay.\n\n**F1:** The staged runner preserves exact legacy road/party/sluice owners, ordered stop/effect/guard/helper hooks and schema6cohort delegation; field care is an observer, not a newly unified battle. Its126equivalence cases across five seeds compare plans/property order, real persistExpansionPlan bytes in a controlled envelope and JSON reload continuation. This is not actual main.create_save byte equivalence, every source fight or a natural browser route. Frozen implementations are test-only and depend on current relative modules; HEAD alone does not freeze those dependencies. Ordinal RNG remains the explicit legacy compatibility path; keyed port availability does not convert old draw semantics. Range/morale/choice UI/canon fight policy and deeper declarative operations remain step2, not implemented by structural extraction. The181focused checks/build/arch pass leaves desktop Reports/persistence comparison and full combined suite distinct. A proposed systems-register patch is not an applied register update.\n\n**G6_LOCATION:** The road fixture browser proves aimed hit display, slot armor, part injuries affecting later odds/speed, mid-fight reload and literal Export/Import at its input. It seeds amplified rival attack and equipped gear through native owners; it does not show naturally earned early-game injury rates. Head/body/arm/leg mappings,8/18/30thresholds,1.4/1/0.75scales and aim costs are proposals/world dials rather than universally fixed biology. Only the extreme ladder rung blocks per the stated direction. Default body has no part row, shields return before location, foes do not aim and all wounds are announced. The real frontier harm-world lacks parts, so its stored injuries do not act and harmPart can throw; the host's default-row workaround does not close that owning ladder gap. Preserve this named integration request and actual limited floor; the final bundle/full-suite reference requires its own receipt before reuse, not a guessed hash or global fight-complete claim.\n\nPreserve original reports, failed checks and useful implementation distinctions; no pack, save, runtime, scan rule, launch, deletion or commit is changed.",
+      "before_sha256": "8f68e4b561984d458555bd8fb0c7950329781e4a252fbd970028408a35248cda",
+      "after_sha256": "8f6113947159e6e2bd055ed359e7da1ba877a994d3da0515108fb916f4752812"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 430,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "from": "They neither change accepted design nor certify the present runtime",
+      "to": "They neither change standing design nor certify the present runtime",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "from": "advances accepted native jobs to actual deadlines",
+      "to": "advances admitted native jobs to actual deadlines",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "from": "or a new accepted rule.",
+      "to": "or a new design rule.",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B423, continuous execution 2026-11-05 |",
+      "to": "| B429, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation pointer through B429 without changing direction or remaining scope."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "from": "5854e9f55eaca5bd451bfa848682776f3d7d013c39f7203a447a123b1c813fdc",
+      "to": "c53c05b6dfa709727901f84cb4a7f3d3b01ebe4a27e359aeddb4aac4d0341dc2",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "from": "c53c05b6dfa709727901f84cb4a7f3d3b01ebe4a27e359aeddb4aac4d0341dc2",
+      "to": "151f65966d13d6c405aa72c8a2bcfee5433bde91a264db69458f5f49304da239",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "from": "8f6113947159e6e2bd055ed359e7da1ba877a994d3da0515108fb916f4752812",
+      "to": "2a3c80cfe473a452039671fad842f9bd628b5ca132b00f42d104b5cb24a16ae4",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "ead23336d4433f074d437df605f5bfc9b6d61ff65655e68e55b2a3cd04116eca",
+      "to": "8e6bbd4fab2db44b2fadb464adaef76481ada1763e28f1173fd682dca2800b5e",
+      "reason": "Advance active reconciliation pointer through B429 without changing direction or remaining scope."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "batch": "B424",
+  "title": "Six complete journey, place-act and cast-generation receipts: registry fixes, geography and attribution",
+  "at": "2026-11-05T05:28:41.068575+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/T2_CHECKPOINT.md",
+      "ids": [
+        "native relocation, pending definitions, same-endpoint refusal, arrival membership"
+      ],
+      "classification": "complete historical implementation/generation receipt reconciled against later coordinator chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Journeys reserve a real cost and retain origin until due; actual host relocation and endpoint binding are required, and a cross-world endpoint ID alone supplies no crossing mechanism. Unknown fare differs from explicit zero; paid NPC travel requires an actual purse owner. Admission hours differ from completion origin/support checks. Pending jobs require exact definitions, not dormant-pack bypass. Resume2 could not reproduce the earlier same-endpoint pending failure; equal endpoints are now refused before cost/job creation. Resume3 then locates a different arrival save failure: a valid non-walkable journey destination was omitted from native/envelope place membership. Endpoint membership and authored walking destinations must remain distinct. The be-seat walk guard also needed the actual seat rather than only the overwritten beside profile hint. Later L-A says those candidate fixes were already in the shared tree, superseding prepared-only status; shared focused checks and build/rules pass do not erase the failed/contended full suites or supply rebuilt desktop proof. Divination/ability relocation remains constrained to actual bound journey destinations; body care is not relocation.",
+      "evidence": "Complete actual receipt read, including all resume/final sections and reported checks; compared with the previously fully reviewed coordinator chronology. No current source, private pack, paragraph corpus, registry, browser or gameplay execution.",
+      "reopen": "Use the actual source/consumer and current authority for any later implementation; preserve dated failures, input identities, source/actor gaps and distinct browser/persistence gates.",
+      "input_sha256": "f031db51be35fb76e44ca3502e8ce1789d862fa83f594d3dcbe35d0ad6ff6c09",
+      "input_lines": 340,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          340
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/J3_CHECKPOINT.md",
+      "ids": [
+        "1272 travel steps;616 rows;642 mapped;fare undefined registry defect"
+      ],
+      "classification": "complete historical implementation/generation receipt reconciled against later coordinator chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The 616 generated routes derive from 1,272 travel-family steps; 642 mapped steps include repeated routes, not 642 executed journeys. Rejections retain missing paragraph, unclear destination, same endpoint and repeat categories. Paragraph presence is a locator check, not actor/action qualification; origin/destination/means may be inferred and the one-minute duration is labelled fill. No prices or hours are fabricated. Initial adapter/JSON checks missed the actual registry failure on undefined fare (615/616 installed); missing fare was changed to null while zero and positive prices remain distinct. All616 command quotes then pass actual registry/JSON checks. This is not whole-pack browser or cross-world crossing proof. Loader preflight/typed recovery remains an explicit different gap.",
+      "evidence": "Complete actual receipt read, including all resume/final sections and reported checks; compared with the previously fully reviewed coordinator chronology. No current source, private pack, paragraph corpus, registry, browser or gameplay execution.",
+      "reopen": "Use the actual source/consumer and current authority for any later implementation; preserve dated failures, input identities, source/actor gaps and distinct browser/persistence gates.",
+      "input_sha256": "63677dff628774f6e1bcb9906174a077d1acb70fba66f5b21a99b8cb65eabba4",
+      "input_lines": 100,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/A3_CHECKPOINT.md",
+      "ids": [
+        "542 generated acts;539 exact joins;empty requires array registry defect"
+      ],
+      "classification": "complete historical implementation/generation receipt reconciled against later coordinator chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The 542 new rows preserve the seven objects/nine existing H1 acts and map539/3,283 family steps by exact sourceStep; three chapter-bounded mapping misses and six journey overlaps remain explicit. Five broad operation labels do not establish source-specific physical behavior, an identified actor, stock, price or effects. One-minute duration is labelled fill. Earlier definePlaceActs/JSON success did not install into the actual registry: all542 inserted empty requires arrays failed predicate validation. Regeneration omits only those fields; all551 candidate commands then install in the real registry with the be-seat guard. The optional typed diagnostic patch remains prepared rather than required by that generator fix. Synthetic/registry checks and unchanged-family comparison are not source qualification or rebuilt-browser proof; later coordinator combined-pack adoption has its own input/time identity.",
+      "evidence": "Complete actual receipt read, including all resume/final sections and reported checks; compared with the previously fully reviewed coordinator chronology. No current source, private pack, paragraph corpus, registry, browser or gameplay execution.",
+      "reopen": "Use the actual source/consumer and current authority for any later implementation; preserve dated failures, input identities, source/actor gaps and distinct browser/persistence gates.",
+      "input_sha256": "cd8a6a85574295df2f633b6a0267de0ab4f06d03b97062f95f6cf1069ee2d889",
+      "input_lines": 103,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          103
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/R1_CHECKPOINT.md",
+      "ids": [
+        "base-preserving compiler;timing constraints not dated executable schedules"
+      ],
+      "classification": "complete historical implementation/generation receipt reconciled against later coordinator chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The compiler preserves authored host/start/day-binding/schedule/beat/report/travel authority and exact references while adding explicit people/place/timing rows; no fuzzy identity merges. Ninety-two people and81 routine rows differ from crosswalk fitness denominators;13 unresolved actors remain gaps. Band/order/world-hours text does not invent minutes, numerical shifts or dated reservations, and the unapplied timing adapter does not execute its graph. Tier thresholds are compiler defaults, not accepted world scope. Original candidate/base hashes,22 focused tests, deterministic generation and scratch schema checks establish offline tooling only. Current handoff records later combined adoption, not proof that this original candidate was adopted byte-identically.",
+      "evidence": "Complete actual receipt read, including all resume/final sections and reported checks; compared with the previously fully reviewed coordinator chronology. No current source, private pack, paragraph corpus, registry, browser or gameplay execution.",
+      "reopen": "Use the actual source/consumer and current authority for any later implementation; preserve dated failures, input identities, source/actor gaps and distinct browser/persistence gates.",
+      "input_sha256": "716dee7d0bfaa94b1ee57725653f21adecf20fb246ea703d291abf9ee33bc0ba",
+      "input_lines": 109,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          109
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/R2_CHECKPOINT.md",
+      "ids": [
+        "anchor containment versus walkability;reconstructed baseline;provisional geography"
+      ],
+      "classification": "complete historical implementation/generation receipt reconciled against later coordinator chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Initial places-only output resolves446/1,491 references versus340 on a reconstructed R1-style baseline while walks stay6; resume1 adds travel rows and reports53 walks. These are successive mappings, not execution. Forty-four additional rows include31 walk targets and13 region records; three source route durations are retained but runtime district links still calculate travel time. Twenty-eight two-minute same-district fills and unsupported-district fallback to home retain explicit fill/basis and can misplace distant locations. Desk/corner anchors are not walking destinations. Base rows and householdActs stay unchanged. The regenerated baseline uses a later H1-owned base and reproduces counts but is not the original R1 candidate; an earlier /tmp candidate was overwritten, not repository pack history. Preserve that identity gap and broader geography/time-bridge need rather than accepting reference resolution as geographically correct playability.",
+      "evidence": "Complete actual receipt read, including all resume/final sections and reported checks; compared with the previously fully reviewed coordinator chronology. No current source, private pack, paragraph corpus, registry, browser or gameplay execution.",
+      "reopen": "Use the actual source/consumer and current authority for any later implementation; preserve dated failures, input identities, source/actor gaps and distinct browser/persistence gates.",
+      "input_sha256": "c87a5acd1f7852d08859c019e59fd50fe7978c1375e13044134c5d27e682bd18",
+      "input_lines": 82,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          82
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/R3_CHECKPOINT.md",
+      "ids": [
+        "whole-book identity coverage versus enrollment;64 topics;ambiguity retained"
+      ],
+      "classification": "complete historical implementation/generation receipt reconciled against later coordinator chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The registry has1,499 distinct people/1,507 places; the candidate has1,500 people/1,516 places including preserved prior rows, aliases and two identities retained in references. These denominators do not imply duplicate bodies, complete inner lives or runtime coverage. All prior R1/R2 rows survive canonical comparison; same-name collisions remain distinct without guessed identity merges. Only one exact work hint and no home hint resolve; observed whereabouts do not become residence/employment. New walking targets need supported districts. Sixty-four topics from849 family steps replace13; only19 have paragraph-level speaker cues. Unresolved person falls315to95 while ambiguous person rises248to437 as more candidates become visible, not a regression to be hidden by guessing. Conservative speaker attribution, unresolved place gates, schema/18 focused checks and preservation comparison are offline evidence. Later handoff load failures, rollback and P8 adoption supersede this receipt's initial candidate status without turning it into full-book/source/gameplay proof.",
+      "evidence": "Complete actual receipt read, including all resume/final sections and reported checks; compared with the previously fully reviewed coordinator chronology. No current source, private pack, paragraph corpus, registry, browser or gameplay execution.",
+      "reopen": "Use the actual source/consumer and current authority for any later implementation; preserve dated failures, input identities, source/actor gaps and distinct browser/persistence gates.",
+      "input_sha256": "9f364847f3f2892e262d8487b80c80262489f70dd7849937024009d581024ded",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B424: generated coverage and actual consumer contracts",
+      "body": "Six complete receipts separate generated source mappings, registry contracts and actual host movement. These are content dispositions of historical evidence, not fresh runtime verification.\n\n**T2:** Journeys reserve a real cost and retain origin until due; actual host relocation and endpoint binding are required, and a cross-world endpoint ID alone supplies no crossing mechanism. Unknown fare differs from explicit zero; paid NPC travel requires an actual purse owner. Admission hours differ from completion origin/support checks. Pending jobs require exact definitions, not dormant-pack bypass. Resume2 could not reproduce the earlier same-endpoint pending failure; equal endpoints are now refused before cost/job creation. Resume3 then locates a different arrival save failure: a valid non-walkable journey destination was omitted from native/envelope place membership. Endpoint membership and authored walking destinations must remain distinct. The be-seat walk guard also needed the actual seat rather than only the overwritten beside profile hint. Later L-A says those candidate fixes were already in the shared tree, superseding prepared-only status; shared focused checks and build/rules pass do not erase the failed/contended full suites or supply rebuilt desktop proof. Divination/ability relocation remains constrained to actual bound journey destinations; body care is not relocation.\n\n**J3:** The 616 generated routes derive from 1,272 travel-family steps; 642 mapped steps include repeated routes, not 642 executed journeys. Rejections retain missing paragraph, unclear destination, same endpoint and repeat categories. Paragraph presence is a locator check, not actor/action qualification; origin/destination/means may be inferred and the one-minute duration is labelled fill. No prices or hours are fabricated. Initial adapter/JSON checks missed the actual registry failure on undefined fare (615/616 installed); missing fare was changed to null while zero and positive prices remain distinct. All616 command quotes then pass actual registry/JSON checks. This is not whole-pack browser or cross-world crossing proof. Loader preflight/typed recovery remains an explicit different gap.\n\n**A3:** The 542 new rows preserve the seven objects/nine existing H1 acts and map539/3,283 family steps by exact sourceStep; three chapter-bounded mapping misses and six journey overlaps remain explicit. Five broad operation labels do not establish source-specific physical behavior, an identified actor, stock, price or effects. One-minute duration is labelled fill. Earlier definePlaceActs/JSON success did not install into the actual registry: all542 inserted empty requires arrays failed predicate validation. Regeneration omits only those fields; all551 candidate commands then install in the real registry with the be-seat guard. The optional typed diagnostic patch remains prepared rather than required by that generator fix. Synthetic/registry checks and unchanged-family comparison are not source qualification or rebuilt-browser proof; later coordinator combined-pack adoption has its own input/time identity.\n\n**R1:** The compiler preserves authored host/start/day-binding/schedule/beat/report/travel authority and exact references while adding explicit people/place/timing rows; no fuzzy identity merges. Ninety-two people and81 routine rows differ from crosswalk fitness denominators;13 unresolved actors remain gaps. Band/order/world-hours text does not invent minutes, numerical shifts or dated reservations, and the unapplied timing adapter does not execute its graph. Tier thresholds are compiler defaults, not accepted world scope. Original candidate/base hashes,22 focused tests, deterministic generation and scratch schema checks establish offline tooling only. Current handoff records later combined adoption, not proof that this original candidate was adopted byte-identically.\n\n**R2:** Initial places-only output resolves446/1,491 references versus340 on a reconstructed R1-style baseline while walks stay6; resume1 adds travel rows and reports53 walks. These are successive mappings, not execution. Forty-four additional rows include31 walk targets and13 region records; three source route durations are retained but runtime district links still calculate travel time. Twenty-eight two-minute same-district fills and unsupported-district fallback to home retain explicit fill/basis and can misplace distant locations. Desk/corner anchors are not walking destinations. Base rows and householdActs stay unchanged. The regenerated baseline uses a later H1-owned base and reproduces counts but is not the original R1 candidate; an earlier /tmp candidate was overwritten, not repository pack history. Preserve that identity gap and broader geography/time-bridge need rather than accepting reference resolution as geographically correct playability.\n\n**R3:** The registry has1,499 distinct people/1,507 places; the candidate has1,500 people/1,516 places including preserved prior rows, aliases and two identities retained in references. These denominators do not imply duplicate bodies, complete inner lives or runtime coverage. All prior R1/R2 rows survive canonical comparison; same-name collisions remain distinct without guessed identity merges. Only one exact work hint and no home hint resolve; observed whereabouts do not become residence/employment. New walking targets need supported districts. Sixty-four topics from849 family steps replace13; only19 have paragraph-level speaker cues. Unresolved person falls315to95 while ambiguous person rises248to437 as more candidates become visible, not a regression to be hidden by guessing. Conservative speaker attribution, unresolved place gates, schema/18 focused checks and preservation comparison are offline evidence. Later handoff load failures, rollback and P8 adoption supersede this receipt's initial candidate status without turning it into full-book/source/gameplay proof.\n\nKeep useful compiler defaults, exact-identity joins, explicit ambiguity, base preservation and non-walkable endpoint support with these owners. No source acquisition, private-pack adoption, runtime edit, acceptance decision, deletion or commit is made here.",
+      "before_sha256": "478481f5df9277701f7a22fe820365951e215d361fb990ee3f00809aa7b788e7",
+      "after_sha256": "72a75f4592baeb6569eec5a27a75a6c4681614a6708547b88e56decbb876fabc"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 457
+}

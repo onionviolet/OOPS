@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "batch": "B418",
+  "title": "Cast-life plan original stages, fate/reaction models and early delivery rounds (partial)",
+  "at": "2026-11-05T05:11:11.821886+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "ids": [
+        "S1–S4",
+        "D1–D5",
+        "F1–F12",
+        "CL1–CL128",
+        "sections1–15.2(part)"
+      ],
+      "classification": "partial actual-content review of the long cast-lives plan and its original chronology",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Read and reconcile actual lines1–615; preserve later source/receipt supersessions, mechanism distinctions and optional fate/reaction designs. Remainder616–end still requires actual reading; owner folds alone are not full coverage.",
+      "evidence": "Bounded actual reads1–100 (clipped90–101 recovered),101–215,216–335,336–475,476–615. Current PROJECT selected focus/priorities inspected as support without full-file credit. Earlier B413–B417 complete lane receipts supply their explicitly scoped evidence, not runtime re-verification.",
+      "reopen": "Continue at line616 and read through the current end, checking this prefix identity before combining prior partial coverage. Then reconcile later rounds and inherited pending/accepted labels with their live owners.",
+      "full": false,
+      "ranges": [
+        [
+          1,
+          615
+        ]
+      ],
+      "reviewed_prefix_sha256": "686ed336e8076d1b24ae4672a6468a2ff7682d46c68f5d7550dbfd76e538cb9c",
+      "input_sha256": "4913512e7080c2c868629ae3c8d276e8e1630444c0a5bd3146bf864f31d41085",
+      "input_lines": 1179
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "heading": "## Content reconciliation B418: partial original-plan review, lines1–615",
+      "body": "This pass actually reads lines1–615, through CL128 and the start of section15.2. Sections after that point and later reconciliation folds remain outside this partial pass; do not mark the plan fully reviewed. The original prefix is bound by the reviewed-prefix hash in B418, so later continuation can verify that exact portion before combining coverage.\n\n**Authority and history:** S1–S4 preserve merge/crosswalk, worksheets, paragraph-qualified records and actual engine readers as different stages. Opening F2/F6/F7/F8 describe an October28 snapshot; later L1 and integration receipts already read in B413–B417 supersede selected missing-merge/unwired/prepared labels. Reopening every merge is not required. The early beside-seat/D1/D2 and narrow week are historical choices; current PROJECT prioritizes Klein’s developer route, Harry Potter alongside and later low-spoiler ordinary starts. The additive branch/save decision stays useful history without becoming a new current start default. SUI’s proposed label and waiting-for-acceptance text are superseded by the present owning UI rules; no new adoption occurs here.\n\n**Useful causal distinctions:** source silence stays unknown, not false/free; source order is not a global clock across MoL restarts. A place/scene/registry label does not create a person, item, date, inventory or implemented role. Same-named item types differ from actual held instances. A reported whereabouts, thought, plan or claimed fact cannot move a body or assert world truth. Physical fatigue/recovery and source-qualified work need their actual consumers. Presence counts can guide delivery without proving complete lives or a source-wide tier law.\n\n**CL6–CL50:** off-screen outcome, witnessed nonparticipation and player-caused divergence are different routes. A dependency count is a planning clue; real agents need their own knowledge, motives and means before causing pushback. Temporal protection requires the world’s actual mechanism/time model. The older always-pay-enough/no-wall promise is not universal: a source-grounded absolute or self-consistent history can genuinely constrain an attempted change under its stated means, while the broader project still permits reasoned exceptions. A future actor, prophecy or genuine protection must not be erased by a no-halo implementation slogan. Unknown time law remains unknown; Ordinary is a provisional authoring fallback, not proof about the entire book. Observation-safe quotes may expose supported signs without revealing sealed truth or pretending an unknown reason is known. Keyed weight/collision formulas are proposals, not verified current fate machinery.\n\n**CL29–CL71:** book-row rates and later co-presence are not causal or representative NPC behavior by themselves. Preserve provenance, held-out testing and inferred labels; explicit person/world facts outrank statistical fills. Reaction, perceived cause, remembered knowledge, relationship state, intention and later performed act remain distinct. Repetition damping, group attitude and reputation aggregation are optional local designs: they do not impose universal diminishing returns, forced gossip or a ban on an institution’s real reputation/authority mechanism. Genuine repeated useful gains and quiet settled lives remain possible. The later L7 result is classifier placement, not held-out accuracy; L2c’s co-presence pairs do not establish actual directed response.\n\n**CL72–CL128:** preserve changed data probes, L1 identity guard, corrected selection regex, role-hour gaps and labelled fills, but read old running/waiting/landed/commit/CLI/sandbox/credit-lapse labels as dated receipts. CL98 is corrected by CL103 within the plan; neither is a fresh tool installation or allowance check. Old model recommendations, automatic numerical stops, two-writer ceilings and commit instructions are not present dispatch or authorization. Current AD51 allows an appropriate useful first shared seam; another book validates/revises it. This task launches no reader, worker, runtime check or source acquisition and changes no accepted direction.",
+      "before_sha256": "4913512e7080c2c868629ae3c8d276e8e1630444c0a5bd3146bf864f31d41085",
+      "after_sha256": "e1125acd9890db910346e29a6f22ff808a447231e7260e5c6a8db081d4ecf90c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 480,
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "01dcbe60e37f88adf84dfdcdfbdbd681c4cb9b3e5f76978db9b42e6aeb8f33b0",
+      "to": "63f97940484251a29885d941efab63875068cdcaab21f3ac6e9d8bbb353b9c29",
+      "reason": "Advance the existing active reconciliation pointer to B418; retain full intake scope."
+    }
+  ]
+}

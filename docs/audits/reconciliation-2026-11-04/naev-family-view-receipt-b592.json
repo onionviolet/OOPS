@@ -1,0 +1,26 @@
+{
+  "source": "docs/research/naev/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "85b5d6c371e9b09f4ddf50283ddb8d88b08fae2aae30ab90d21df1044e72a59f",
+  "source_lines": 2581,
+  "view": "docs/audits/reconciliation-2026-11-04/naev-family-lossless-view-b592.json",
+  "view_sha256": "71f18482515e3f657604648ce822095fd48e4bf08b6611c5f30334b73fc4310c",
+  "roundtrip_equal": true,
+  "routing_blocks": 27,
+  "rows": 94,
+  "kinds": {
+    "module": 30,
+    "semantic": 21,
+    "deep-leaf": 15,
+    "residual-leaf": 28
+  },
+  "statuses": {
+    "unread": 25,
+    "sampled-this-pass": 10,
+    "prior-partial": 18,
+    "extended-partial": 10,
+    "source-traced": 15,
+    "partial": 13,
+    "not-established": 3
+  },
+  "scope": "Actual complete map fields read; module/raw-source/runtime not qualified by proxy."
+}

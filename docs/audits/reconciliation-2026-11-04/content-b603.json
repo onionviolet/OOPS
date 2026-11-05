@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "batch": "B603",
+  "title": "HP and Mother of Learning institution passes: actual source and live owners",
+  "at": "2026-11-05T12:40:52.713865+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19",
+        "F20",
+        "F21",
+        "F22",
+        "F23",
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6",
+        "X7",
+        "X8",
+        "X9",
+        "X10",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13"
+      ],
+      "classification": "dated coverage, source interpretation and current owner boundaries reconciled",
+      "owners": [
+        "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/worlds/harry-potter/SOURCE_LEDGER.md"
+      ],
+      "disposition": "F1: Full actual review covers all330lines, W1–W4/43431historical reader words, WPR9–WPR17 coverage, F1–F23, E1–E10, X1–X10, all20spot-check groups, search limits, exact remaining windows and K2/K3/K6/K8/K13 authoring cards. Initial combined output was truncated; the full document was recovered in three bounded ranges. Historical reader/spot-check/source-implemented labels and old test counts are not new raw-book reads, tests or gameplay. This pass's budget/worker limits are dated dispatch history, not current authorization or live workers.\n\nF2: Source correction, not merely routing: X1/F6/spot-check7 mistook a provisional end-feast banner for final House Cup settlement. PDF-screen on the pinned compilation failed with an xref-object error; no clean extracted-text result is claimed. Visual reading of original PDFpages246–248 (printed245–247) shows the initial banner/standings, later awards, tie-breaking points and changed decorations. A final outcome cannot be initialized from the earlier banner. The original source remains unchanged and exact old report wording is preserved in amendments; this review adds only those three visually read pages, not a novel reread or edition authentication.\n\nF3: Preserve units versus observations:17Sickles/29Knuts/493conversion is a located prior source finding; individual quotes, basket totals, wages, prize/reward/fine and donation flows are different economic facts. The train armful is not a per-snack price. Differing newspaper fares may depend on context/edition or another unresolved cause; US/UK spelling clues do not prove that edition caused the price difference. Zero hits for tuition/fees and selected lodging/healer windows are search limits, not proof all school/hospital/lodging services are free or every cost is equipment. Named fees need actual source or an authored label. Mixed-edition provenance remains hypothesis; page tags are not printed page numbers.\n\nF4: Keep the source roles and separate gates: institution jurisdiction, actual witnesses, underage magic detection versus actor attribution, stated law versus enforcement and emergency exception, wand custody/use/fit versus registration, guardian form versus age, teacher-specific NEWT threshold versus general grade, skill versus job admission, permission versus room access and debt versus trust. A teacher's life-sentence statement, Dumbledore's jurisdiction claim, reader-only floor/role/notice reports and the actual hearing outcome have different evidence levels. The Trace's report of magic near minors is not an infallible actor identity. E1–E10 remain proposed engine defaults with local era/person/location/enforcer dials, not universal hard bans or complete wizarding law.\n\nF5: Dated only-Polyjuice/no-cast/no-school/no-denomination claims are superseded as current whole-HP statements by the live Harry lead plan's W1–W4 and holdings receipts. Current hpLeadHoldingsReaders reads the actual player's resource under the pack currency ladder separately from other holders. That source seam and receipt statuses do not prove every school day, grade, timetable, canon cast, Ministry system or ordinary start. Keep the old Polyjuice slice's authored coins and local people separate from Harry's actual lead seat and source-grounded W4 currency/wand records. The nursery, student, trader and other lives remain compatible proposals; current PROJECT keeps Harry alongside Klein and does not reinstate the retired prestige gate.\n\nF6: Preserve useful daily rhythm, post/notice/result surfaces, named staff with duties, priced goods, changing passwords, remembered consequences and source-backed law/tool/grade distinctions through the existing HP owners. WA6 readiness cards and proposed smallest slices are not AD43 completion or a replacement build order. Native first-person learning needs learned/useful consumers, actual access/custody, age/body, state settlement and fresh proof; a role label or paragraph is insufficient. Train/first term/shop/dueling/Ministry/decree/exam/Apparition/late-story/supplemental gaps keep their exact stated scopes until later qualified evidence resolves them. No source PDF is altered, no gameplay/source code/test/build/browser/private save/worker/acquisition/delete/move/commit/push occurs.",
+      "evidence": "Entire document recovered in bounded untruncated reads; current plan/world owner/source seam slices read. HP selected original pages visually inspected after screening failure; selected existing MoL EPUB paragraphs read.",
+      "reopen": "Refresh exact selected source/consumer and build proof for future implementation; preserve every named source gap and historical input identity.",
+      "full": true,
+      "input_sha256": "9f5a827f53c35dbd87e51a015cac41a022eb18dc5ecee51c6a9db2503ecf763f",
+      "input_lines": 330,
+      "ranges": [
+        [
+          1,
+          330
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "EF1",
+        "EF2",
+        "EF3",
+        "EF4",
+        "EF5",
+        "EF6",
+        "EF7",
+        "W5",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13"
+      ],
+      "classification": "dated coverage, source interpretation and current owner boundaries reconciled",
+      "owners": [
+        "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/worlds/mother-of-learning/WORLD_BRIEF.md"
+      ],
+      "disposition": "F1: Full actual review covers all325lines including the later W5 money census, four historical windows/47584words,28spot-check groups, all role/place/money/time/power rows, F1–F10, EF1–EF7, C1–C8, exact unread windows and K2/K3/K6/K8/K13cards. A truncated initial output's spot-check middle was recovered in bounded rereads. The full-book dossier, this window pass, targeted opens, regex census, later W5 and current source/receipts are different evidence units. No whole804945word reread or new book acquisition follows.\n\nF2: Certification, physical badge, commercial licence/permit, academy vouching, mana-keyed access, personal source, rod fuel/control, learned shaping and rank differ. Mentor headcount quota differs from weekly meetings; a class representative's15minute demand is not automatically academy policy. Offers have actor motives and local supply: tutoring clears a detective's quota, field work seeks a team member, household/lab access trades actual means, and rural rewards can be goods. Neither one four-person job nor one instructor's practice estimate defines a universal capacity or gate. Preserve learned control, fuel and useful task consumers rather than copying a bare mana bar or reverse-engineering a universal1/8cast cost from eight observed shots.\n\nF3: Haslush's detective identity is directly confirmed in c015p46–47 of the existing EPUB-derived paragraph file; the current PEOPLE dossier already calls him detective, so C1's old one-word repair request is not an outstanding task there. c010p16–18 directly supports knowing a learned rain barrier after a restart and the distinction between several known designs and one actually castable method; it does not establish every retained ability or a whole reset algorithm. Royal Academy naming remains the located earlier source correction, not a new source authentication. Alternate paragraph schemes need their own crosswalk, not a fixed offset. EF8 was referenced without being defined; the enumerated law list is EF1–EF7 plus a separate inferred incentives pattern.\n\nF4: No currency name found by the listed searches is narrower than no currency name anywhere. Authored crowns and pack prices stay authored; a badge's fraction of one person's savings is not a universal price. The500silver travel quote, barter basket, classroom budget and unknown rent/fees have different contexts. W5 adds specific transport cost/time/border and money-convertibility observations but leaves c085/tuition/aftermath windows open. Its phrase no trade house/tariff or every price cannot be elevated to whole-book absence from those searches. Keep every unresolved quantity explicit; neither an inventory count nor a missing word licenses a source price.\n\nF5: Source loop holder, authored independent guest, source-scened seat, shared restart readout and actual reset execution are distinct. The current world brief preserves a continuous retained visitor branch and later bounded exploration proof. The current pack also contains a Zorian-seat class record with explicit class-knowledge-only/no-spell-learned text; that does not prove a full canonical loop controller or give the independent guest a mana source. Old no-schedules/no-restart/no-technique statements remain dated coverage at the pass's scope, not current whole-pack absence. Actual access helper separates retained skill from grant status; rank/badge rights cannot be conferred by another person's memories or by a UI label. PROJECT's lead sequence and retired milestone qualify the old next-list deferral; no new world build or reader is selected here.\n\nF6: Preserve source-local institutional incentive, points requirement, library triage, personal key, instructor contract, method/fuel/control, household privacy, merchant discretion, source-vs-authored price and within-loop savings ideas in existing world/domain owners. Unknown curfew/hours/calendar, licensing exceptions, bank/fees, mana cost/regeneration, travel/customs, late aftermath, special mind/soul/body and [S]core gaps remain bounded. Only the two selected EPUB paragraph ranges were newly read; secrecy-sensitive details are not disclosed or promoted. Authoring floor cards do not prove runtime, natural routes, persistence or human review. No runtime/schema/source-code edit, new tests/build/browser/save access, acquisition, worker, deletion, relocation, commit or push occurs.",
+      "evidence": "Entire document recovered in bounded untruncated reads; current plan/world owner/source seam slices read. HP selected original pages visually inspected after screening failure; selected existing MoL EPUB paragraphs read.",
+      "reopen": "Refresh exact selected source/consumer and build proof for future implementation; preserve every named source gap and historical input identity.",
+      "full": true,
+      "input_sha256": "bc300a034fac078fed10aced25e7458cb7494270646b0528a4a90e737cd3368f",
+      "input_lines": 325,
+      "ranges": [
+        [
+          1,
+          325
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B603: historical research and current owners",
+      "body": "F1: Full actual review covers all330lines, W1–W4/43431historical reader words, WPR9–WPR17 coverage, F1–F23, E1–E10, X1–X10, all20spot-check groups, search limits, exact remaining windows and K2/K3/K6/K8/K13 authoring cards. Initial combined output was truncated; the full document was recovered in three bounded ranges. Historical reader/spot-check/source-implemented labels and old test counts are not new raw-book reads, tests or gameplay. This pass's budget/worker limits are dated dispatch history, not current authorization or live workers.\n\nF2: Source correction, not merely routing: X1/F6/spot-check7 mistook a provisional end-feast banner for final House Cup settlement. PDF-screen on the pinned compilation failed with an xref-object error; no clean extracted-text result is claimed. Visual reading of original PDFpages246–248 (printed245–247) shows the initial banner/standings, later awards, tie-breaking points and changed decorations. A final outcome cannot be initialized from the earlier banner. The original source remains unchanged and exact old report wording is preserved in amendments; this review adds only those three visually read pages, not a novel reread or edition authentication.\n\nF3: Preserve units versus observations:17Sickles/29Knuts/493conversion is a located prior source finding; individual quotes, basket totals, wages, prize/reward/fine and donation flows are different economic facts. The train armful is not a per-snack price. Differing newspaper fares may depend on context/edition or another unresolved cause; US/UK spelling clues do not prove that edition caused the price difference. Zero hits for tuition/fees and selected lodging/healer windows are search limits, not proof all school/hospital/lodging services are free or every cost is equipment. Named fees need actual source or an authored label. Mixed-edition provenance remains hypothesis; page tags are not printed page numbers.\n\nF4: Keep the source roles and separate gates: institution jurisdiction, actual witnesses, underage magic detection versus actor attribution, stated law versus enforcement and emergency exception, wand custody/use/fit versus registration, guardian form versus age, teacher-specific NEWT threshold versus general grade, skill versus job admission, permission versus room access and debt versus trust. A teacher's life-sentence statement, Dumbledore's jurisdiction claim, reader-only floor/role/notice reports and the actual hearing outcome have different evidence levels. The Trace's report of magic near minors is not an infallible actor identity. E1–E10 remain proposed engine defaults with local era/person/location/enforcer dials, not universal hard bans or complete wizarding law.\n\nF5: Dated only-Polyjuice/no-cast/no-school/no-denomination claims are superseded as current whole-HP statements by the live Harry lead plan's W1–W4 and holdings receipts. Current hpLeadHoldingsReaders reads the actual player's resource under the pack currency ladder separately from other holders. That source seam and receipt statuses do not prove every school day, grade, timetable, canon cast, Ministry system or ordinary start. Keep the old Polyjuice slice's authored coins and local people separate from Harry's actual lead seat and source-grounded W4 currency/wand records. The nursery, student, trader and other lives remain compatible proposals; current PROJECT keeps Harry alongside Klein and does not reinstate the retired prestige gate.\n\nF6: Preserve useful daily rhythm, post/notice/result surfaces, named staff with duties, priced goods, changing passwords, remembered consequences and source-backed law/tool/grade distinctions through the existing HP owners. WA6 readiness cards and proposed smallest slices are not AD43 completion or a replacement build order. Native first-person learning needs learned/useful consumers, actual access/custody, age/body, state settlement and fresh proof; a role label or paragraph is insufficient. Train/first term/shop/dueling/Ministry/decree/exam/Apparition/late-story/supplemental gaps keep their exact stated scopes until later qualified evidence resolves them. No source PDF is altered, no gameplay/source code/test/build/browser/private save/worker/acquisition/delete/move/commit/push occurs.",
+      "before_sha256": "9f5a827f53c35dbd87e51a015cac41a022eb18dc5ecee51c6a9db2503ecf763f",
+      "after_sha256": "69eaa7cf6fde4ff48a1fd1cf6692b1f6231f00246e3fabe60454924831edbf22"
+    },
+    {
+      "path": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+      "heading": "## Institution source and lead-route reconciliation B603",
+      "body": "F1: [The institution pass](../HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b603-historical-research-and-current-owners) supplies bounded prior novel-window evidence for coin units, named roles, institutional procedure, law exceptions and term rhythm; it does not authenticate the mixed compilation or complete every scene. B603 visually checks PDFpages246–248 after PDF-screen failed, correcting a provisional banner mistaken for final House Cup settlement. Fee/currency/edition searches retain their limits.\n\nF2: The live [Harry window plan](../../gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md) owns current lead-seat delivery and exact receipt status. The old only-Polyjuice/no-school/no-cast labels are dated snapshots. Keep Harry's lead route, ordinary school/trade/nursery proposals, Polyjuice branch coins and source prices distinct. No full timetable/grade/Ministry/cast or ordinary-start proof is added; no collection or new PDF/source acquisition occurred.",
+      "before_sha256": "bd25b7e4d6aae9140f5ded119001d9a4d4fc6046307d510bf0063a014c3c899b",
+      "after_sha256": "3782a1a982804550a5f76c73910f80ce50001c0ac66e6a15c18aaf97374f37d7"
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B603: source and current runtime boundaries",
+      "body": "F1: Full actual review covers all325lines including the later W5 money census, four historical windows/47584words,28spot-check groups, all role/place/money/time/power rows, F1–F10, EF1–EF7, C1–C8, exact unread windows and K2/K3/K6/K8/K13cards. A truncated initial output's spot-check middle was recovered in bounded rereads. The full-book dossier, this window pass, targeted opens, regex census, later W5 and current source/receipts are different evidence units. No whole804945word reread or new book acquisition follows.\n\nF2: Certification, physical badge, commercial licence/permit, academy vouching, mana-keyed access, personal source, rod fuel/control, learned shaping and rank differ. Mentor headcount quota differs from weekly meetings; a class representative's15minute demand is not automatically academy policy. Offers have actor motives and local supply: tutoring clears a detective's quota, field work seeks a team member, household/lab access trades actual means, and rural rewards can be goods. Neither one four-person job nor one instructor's practice estimate defines a universal capacity or gate. Preserve learned control, fuel and useful task consumers rather than copying a bare mana bar or reverse-engineering a universal1/8cast cost from eight observed shots.\n\nF3: Haslush's detective identity is directly confirmed in c015p46–47 of the existing EPUB-derived paragraph file; the current PEOPLE dossier already calls him detective, so C1's old one-word repair request is not an outstanding task there. c010p16–18 directly supports knowing a learned rain barrier after a restart and the distinction between several known designs and one actually castable method; it does not establish every retained ability or a whole reset algorithm. Royal Academy naming remains the located earlier source correction, not a new source authentication. Alternate paragraph schemes need their own crosswalk, not a fixed offset. EF8 was referenced without being defined; the enumerated law list is EF1–EF7 plus a separate inferred incentives pattern.\n\nF4: No currency name found by the listed searches is narrower than no currency name anywhere. Authored crowns and pack prices stay authored; a badge's fraction of one person's savings is not a universal price. The500silver travel quote, barter basket, classroom budget and unknown rent/fees have different contexts. W5 adds specific transport cost/time/border and money-convertibility observations but leaves c085/tuition/aftermath windows open. Its phrase no trade house/tariff or every price cannot be elevated to whole-book absence from those searches. Keep every unresolved quantity explicit; neither an inventory count nor a missing word licenses a source price.\n\nF5: Source loop holder, authored independent guest, source-scened seat, shared restart readout and actual reset execution are distinct. The current world brief preserves a continuous retained visitor branch and later bounded exploration proof. The current pack also contains a Zorian-seat class record with explicit class-knowledge-only/no-spell-learned text; that does not prove a full canonical loop controller or give the independent guest a mana source. Old no-schedules/no-restart/no-technique statements remain dated coverage at the pass's scope, not current whole-pack absence. Actual access helper separates retained skill from grant status; rank/badge rights cannot be conferred by another person's memories or by a UI label. PROJECT's lead sequence and retired milestone qualify the old next-list deferral; no new world build or reader is selected here.\n\nF6: Preserve source-local institutional incentive, points requirement, library triage, personal key, instructor contract, method/fuel/control, household privacy, merchant discretion, source-vs-authored price and within-loop savings ideas in existing world/domain owners. Unknown curfew/hours/calendar, licensing exceptions, bank/fees, mana cost/regeneration, travel/customs, late aftermath, special mind/soul/body and [S]core gaps remain bounded. Only the two selected EPUB paragraph ranges were newly read; secrecy-sensitive details are not disclosed or promoted. Authoring floor cards do not prove runtime, natural routes, persistence or human review. No runtime/schema/source-code edit, new tests/build/browser/save access, acquisition, worker, deletion, relocation, commit or push occurs.",
+      "before_sha256": "bc300a034fac078fed10aced25e7458cb7494270646b0528a4a90e737cd3368f",
+      "after_sha256": "30e470b766e5c065d5d1cab6a0aaa575cd538598896aba8c95ad1d818ed9a436"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "heading": "## Institutional roles and source-boundaries reconciliation B603",
+      "body": "F1: [The institution palette](../MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b603-source-and-current-runtime-boundaries) preserves specific distinctions among certification, badge/commercial permission, personal mana, prepared tool, learned method, local key and actual useful work. Mentor quota and meeting cadence, detective role and outward appearance, offered service and actor motive, authored crowns and observed barter/savings are separate. B603 verifies the detective introduction and selected rain-barrier retention paragraph in the existing EPUB-derived source; it does not reread the book or settle a full reset/carry contract.\n\nF2: The continuous visitor branch, later exploration receipt, source-scened Zorian-seat class data and proposed shared loop readout retain separate scope. The inspected class record explicitly grants class knowledge without a learned spell; its presence is not a completed canonical month or automatic guest source acquisition. Old whole-pack absence labels are historical, and the earlier first-milestone deferral does not override current PROJECT. Preserve unknown calendar/fees/units/permit/mana/late-source questions and useful institutional ideas; no runtime or source-body bulk review is claimed.",
+      "before_sha256": "e0b8968b04e618fbfcf11c1c3a194d28666702f5524b2f07b242be7b7bb1087a",
+      "after_sha256": "f5710748c8cc7256e55a5f159dfe1932700460cc2673b0807cd22833468c3722"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 93,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "The only HP runtime: one pinned Polyjuice slice",
+      "to": "HP runtime inspected in this pass’s 2026-10-23 snapshot: one pinned Polyjuice slice",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "the final banner scene shows a seventh (B1:PDF-p246).",
+      "to": "the initial end-feast decorations anticipate a seventh (B1:PDF-p246), before later point awards change the outcome (PDF-p247–248, visually checked in B603).",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "X1 (inside the text, kept): house cup streak. The welcome-feast ghost says six years in a row (B1:PDF-p100) and the year-end feast shows a seventh (B1:PDF-p246). Not a conflict; it is a clock that advances. Pinned as \"six at start, seven at the end\" for a first-year window.",
+      "to": "X1 (source interpretation corrected by B603): the welcome-feast ghost reports six previous wins (B1:PDF-p100). The later initial banner/standings anticipate another win (PDF-p246), but late awards change the final result (PDF-p247–248). Keep provisional display, added points and final settlement as separate states; the original seventh-final-win reading was wrong.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "| 7 | Slytherin six years, seventh at year end | B1:PDF-p100, p246 | matches both |",
+      "to": "| 7 | Six prior years; initial seventh-win decorations before final awards | B1:PDF-p100, p246–248 | Prior check stopped too early; B603 visually checks the changed final settlement |",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "no school fees or tuition appear in any of the seven books (zero hits for \"tuition\" and \"school fees\" in B1 to B7). Hogwarts costs the family only the equipment list, which carries no prices (B1:PDF-p52 to p53, W1 reader and census). Hospital and Leaky Cauldron prices are not stated either (section 7).",
+      "to": "the listed searches found no school fee/tuition passages. The inspected equipment list has no prices (B1:PDF-p52 to p53, W1 reader and census). No hospital or Leaky Cauldron fee was found in the scoped checks (section 7); these results do not establish every service is free or that equipment is the complete cost.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Treat the newspaper fare as unit-dependent per edition, not as a conflict.",
+      "to": "Keep the differently quoted newspaper fares with their exact units and contexts. Edition is one unverified explanation, not an established cause.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Hogwarts entry cost is the equipment list, not a fee. A \"tuition\" mechanic would be an invention (F3).",
+      "to": "The equipment list is a known entry cost; no tuition fee was found by this pass’s scoped searches (F3). A proposed fee needs its own source or authored label.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "costs are the equipment list (no fees, F3),",
+      "to": "costs include the equipment list (no fee found in the scoped check, F3),",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "- Current repo coverage:",
+      "to": "- Repo coverage observed on 2026-10-23:",
+      "reason": "Date five historical floor-card source observations; do not imply current whole-world absence."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Open for a one-word correction.",
+      "to": "Historical one-word correction request; the current PEOPLE dossier already identifies him as detective (checked in B603).",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "The book gives almost no itemised prices. The only numbers are:",
+      "to": "The reviewed windows give few itemised prices. Their selected numerical examples are:",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "V for EF1 to EF6, EF8; U for EF7.",
+      "to": "V for EF1 to EF6; U for EF7. The offer-incentive mechanism is inferred, not EF8.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "None of EF1 to EF8 is an engine fact or rule module;",
+      "to": "At this pass’s recorded input, none of the enumerated EF1–EF7 was registered as an engine fact or rule module;",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "rod missile that spends 1/8 of a starting reserve in the source's units",
+      "to": "rod missile with an authored cost dial; eight observed shots do not establish a universal exact fraction",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "about 12k, defer behind the first milestone.",
+      "to": "about 12k, historical proposed deferral; current PROJECT retires that milestone and owns sequence.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Findings (labels): no currency name, no price list, no trade house or tariff in this edition; the only exchange rates are \"own currency per country\". Authored for any pack: every price (WA8).",
+      "to": "Findings (labels): those searches did not locate a named currency, complete price list, trade house or tariff. Separate national money is a convertibility constraint, not a numeric exchange rate. Unlocated pack prices need authored labels (WA8); source quotes retain their own exact context.",
+      "reason": "Exact source interpretation/search-limit/current-scope correction; original retained."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "read only, nothing built or run",
+      "to": "read-only, nothing built or run",
+      "reason": "Clarify scoped historical/source statements after document lint; no direction or behavior change."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "partial in spirit only.",
+      "to": "a partial thematic match within the inspected potion branch.",
+      "reason": "Clarify scoped historical/source statements after document lint; no direction or behavior change."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "2026-10-23: only the potion branch",
+      "to": "2026-10-23: the inspected potion branch",
+      "reason": "Clarify scoped historical/source statements after document lint; no direction or behavior change."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "69eaa7cf6fde4ff48a1fd1cf6692b1f6231f00246e3fabe60454924831edbf22",
+      "to": "679408051a20e244da32eba11a33a819cac3ee53f6e664bb54fed316424aecb5",
+      "reason": "Inline corrections above after full-input capture and owner folds."
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "30e470b766e5c065d5d1cab6a0aaa575cd538598896aba8c95ad1d818ed9a436",
+      "to": "77a2bea9cbda7ab476011847907ad4b62121f5a852986aae0771a76700e34384",
+      "reason": "Inline corrections above after full-input capture and owner folds."
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "679408051a20e244da32eba11a33a819cac3ee53f6e664bb54fed316424aecb5",
+      "to": "ccd6450d8b95e6f88b86e29460ecb2b1de91f1ed6bff9c69ce8594e9fbf505ab",
+      "reason": "Exact scoped wording clarifications recorded above."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "src/book_world_hp_lead_domain.js",
+      "sha256": "beecc18b1ebfede9b5c36fe1c83e770b1aefaf7c79f1a82df53f023b74ffb844",
+      "scope": "lines24–33actual holdings reader"
+    },
+    {
+      "path": "src/world_packs/book_mol_pack.js",
+      "sha256": "20ffb8f602203ec686092e8da03d27d63eb5b80eb7f77766db04af8e4c489399",
+      "scope": "lines5585–5635selected class record; no full pack review"
+    },
+    {
+      "path": "docs/research/novels/mother-of-learning/passes-2026-10-23/chapters/c015.txt",
+      "sha256": "23bacd18401e67f29351f342d3c74c351f3984aaeaa67e19f274fae35105347e",
+      "scope": "selected paragraphs46–47detective introduction"
+    },
+    {
+      "path": "docs/research/novels/mother-of-learning/passes-2026-10-23/chapters/c010.txt",
+      "sha256": "8fd46d412cf640c854c73fd8baf8a031f3fa1c4b336d0d488f3f8dd7edc31780",
+      "scope": "paragraphs14–18including selected rain barrier"
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/PEOPLE.md",
+      "sha256": "586b019b67ebe35ea8f82a55b364e9db30d0f5506bca2c96bf0adf1846ba3b52",
+      "scope": "selected Haslush row; not full dossier review"
+    }
+  ]
+}

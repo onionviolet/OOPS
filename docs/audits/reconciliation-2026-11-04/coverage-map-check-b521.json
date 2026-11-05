@@ -1,0 +1,100 @@
+{
+  "parent_union": 179,
+  "stated_parent_count": 179,
+  "sections": 15,
+  "selected_leaf_union": 49,
+  "all_ordered_parent_lists_match": true,
+  "per_section": [
+    {
+      "id": "S00",
+      "parents": 15,
+      "selected_leaves": 0,
+      "engine_cards": 1
+    },
+    {
+      "id": "S01",
+      "parents": 20,
+      "selected_leaves": 19,
+      "engine_cards": 2
+    },
+    {
+      "id": "S02",
+      "parents": 51,
+      "selected_leaves": 18,
+      "engine_cards": 3
+    },
+    {
+      "id": "S03",
+      "parents": 20,
+      "selected_leaves": 5,
+      "engine_cards": 0
+    },
+    {
+      "id": "S04",
+      "parents": 60,
+      "selected_leaves": 27,
+      "engine_cards": 2
+    },
+    {
+      "id": "S05",
+      "parents": 58,
+      "selected_leaves": 13,
+      "engine_cards": 2
+    },
+    {
+      "id": "S06",
+      "parents": 52,
+      "selected_leaves": 15,
+      "engine_cards": 2
+    },
+    {
+      "id": "S07",
+      "parents": 95,
+      "selected_leaves": 18,
+      "engine_cards": 3
+    },
+    {
+      "id": "S08",
+      "parents": 15,
+      "selected_leaves": 6,
+      "engine_cards": 2
+    },
+    {
+      "id": "S09",
+      "parents": 55,
+      "selected_leaves": 26,
+      "engine_cards": 2
+    },
+    {
+      "id": "S10",
+      "parents": 27,
+      "selected_leaves": 2,
+      "engine_cards": 3
+    },
+    {
+      "id": "S11",
+      "parents": 63,
+      "selected_leaves": 5,
+      "engine_cards": 4
+    },
+    {
+      "id": "S12",
+      "parents": 41,
+      "selected_leaves": 6,
+      "engine_cards": 2
+    },
+    {
+      "id": "S13",
+      "parents": 37,
+      "selected_leaves": 2,
+      "engine_cards": 3
+    },
+    {
+      "id": "S14",
+      "parents": 119,
+      "selected_leaves": 23,
+      "engine_cards": 10
+    }
+  ],
+  "scope": "Structural counts after actual full value reading. No linked parent/leaf/case bodies or source/runtime qualification established."
+}

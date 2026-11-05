@@ -1,0 +1,17 @@
+{
+  "command": "node same-rule checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "a7a870e08d78c9b551d0001cb2f51647e84ec9a8548368aea003cae7e0a70132",
+  "paths": [
+    "docs/RIVALS_IDENTITIES_AND_FATE.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/rimworld/REPORT.md",
+    "docs/research/rimworld/pass-2026-10-14-systems/REPORT.md",
+    "docs/worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

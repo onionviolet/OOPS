@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "batch": "B460",
+  "title": "Foundation small checkpoints: actual terminal chronology and G9 fixture boundaries",
+  "at": "2026-11-05T06:44:57.914728+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/CHECKPOINT_BEFORE_R15.md",
+      "ids": [
+        "pre-R3/pre-R6/pre-R15; R14 F1–F8; G9 N1–N5 fixture/provider/persistence boundaries"
+      ],
+      "classification": "historical checkpoint/assessment or seeded-native report with later terminal state",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md"
+      ],
+      "disposition": "Five small checkpoint/fixture records were read in full, with this complete83-line owner and the complete105-line G9 report checked for their later dispositions. Pre-R3, pre-R6 and pre-R15 checkpoints are chronology, not current startup instructions. They preserve FA06/FA08 bounded positives, FA07 open natural gates, FA09 paid routines and eight restoration comparisons, FA10 preparation rather than procedure, genuine Export versus transported Save, unchanged versus drifted inputs and separately held owner reservations. Old review settings, exact-ID transfers, account ceilings, local preview handles and successor recipes grant no current write, browser, spending, worker or push authority (AD32/AD36).\n\nR14 F1–F8 distinguish SOURCE assessment acceptance from native chain closure: finite player-owned facility allocation is not a network; synthetic prerequisites are not native use; one-lesson inheritance conflicted with the richer user direction at that snapshot. R8 fail-closed, R10 unavailable paid state/no reconstruction and R11 stopped error/no retry remain distinct permanent evidence. Later named R15 groups supersede selected pending states, without converting every open leaf into a pass. The later campaign instruction and final deadline entry supersede earlier pause/next-decision wording for their exact historical scope. They do not authorize resuming a campaign now. Current [PROJECT](../../../../PROJECT.md) and actual task/ownership control any new work.\n\nG9's fixture record distinguishes actual creator/seeded beginning controls from its temporary definition-selection intervention and explicit provider-loss effects after a real pending charge. These are seeded-native fixture routes, not natural acquisition or a new ordinary selector. Real Save/Export/file input are documented; actual private definitions/exports remain private and were not read here. This reconciliation preserves routes by gate/status without publishing sealed truths. No stopped profile, immutable failed attempt, source library, worker, process, private pack or saved game was opened, reconstructed or replayed.",
+      "evidence": "Complete file body read, plus full83-line current checkpoint and105-line G9 report. No linked private evidence, runtime or source behavior refreshed.",
+      "reopen": "Retain failed/stopped evidence and seeded/native/source scope. Later root chronology overrides old launch/pause instructions; current selected task required.",
+      "input_sha256": "912f75871346e0e4f404c86bb305b0566dda6d45fe76bfa59e52bf19d9543dc0",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/CHECKPOINT_PRE_R6_CLOSURE.md",
+      "ids": [
+        "pre-R3/pre-R6/pre-R15; R14 F1–F8; G9 N1–N5 fixture/provider/persistence boundaries"
+      ],
+      "classification": "historical checkpoint/assessment or seeded-native report with later terminal state",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md"
+      ],
+      "disposition": "Five small checkpoint/fixture records were read in full, with this complete83-line owner and the complete105-line G9 report checked for their later dispositions. Pre-R3, pre-R6 and pre-R15 checkpoints are chronology, not current startup instructions. They preserve FA06/FA08 bounded positives, FA07 open natural gates, FA09 paid routines and eight restoration comparisons, FA10 preparation rather than procedure, genuine Export versus transported Save, unchanged versus drifted inputs and separately held owner reservations. Old review settings, exact-ID transfers, account ceilings, local preview handles and successor recipes grant no current write, browser, spending, worker or push authority (AD32/AD36).\n\nR14 F1–F8 distinguish SOURCE assessment acceptance from native chain closure: finite player-owned facility allocation is not a network; synthetic prerequisites are not native use; one-lesson inheritance conflicted with the richer user direction at that snapshot. R8 fail-closed, R10 unavailable paid state/no reconstruction and R11 stopped error/no retry remain distinct permanent evidence. Later named R15 groups supersede selected pending states, without converting every open leaf into a pass. The later campaign instruction and final deadline entry supersede earlier pause/next-decision wording for their exact historical scope. They do not authorize resuming a campaign now. Current [PROJECT](../../../../PROJECT.md) and actual task/ownership control any new work.\n\nG9's fixture record distinguishes actual creator/seeded beginning controls from its temporary definition-selection intervention and explicit provider-loss effects after a real pending charge. These are seeded-native fixture routes, not natural acquisition or a new ordinary selector. Real Save/Export/file input are documented; actual private definitions/exports remain private and were not read here. This reconciliation preserves routes by gate/status without publishing sealed truths. No stopped profile, immutable failed attempt, source library, worker, process, private pack or saved game was opened, reconstructed or replayed.",
+      "evidence": "Complete file body read, plus full83-line current checkpoint and105-line G9 report. No linked private evidence, runtime or source behavior refreshed.",
+      "reopen": "Retain failed/stopped evidence and seeded/native/source scope. Later root chronology overrides old launch/pause instructions; current selected task required.",
+      "input_sha256": "4014b4a93b9325612651c39c3c9fbda48d165edc661887756b7eba9bd942eaeb",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R3_CLOSURE.md",
+      "ids": [
+        "pre-R3/pre-R6/pre-R15; R14 F1–F8; G9 N1–N5 fixture/provider/persistence boundaries"
+      ],
+      "classification": "historical checkpoint/assessment or seeded-native report with later terminal state",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md"
+      ],
+      "disposition": "Five small checkpoint/fixture records were read in full, with this complete83-line owner and the complete105-line G9 report checked for their later dispositions. Pre-R3, pre-R6 and pre-R15 checkpoints are chronology, not current startup instructions. They preserve FA06/FA08 bounded positives, FA07 open natural gates, FA09 paid routines and eight restoration comparisons, FA10 preparation rather than procedure, genuine Export versus transported Save, unchanged versus drifted inputs and separately held owner reservations. Old review settings, exact-ID transfers, account ceilings, local preview handles and successor recipes grant no current write, browser, spending, worker or push authority (AD32/AD36).\n\nR14 F1–F8 distinguish SOURCE assessment acceptance from native chain closure: finite player-owned facility allocation is not a network; synthetic prerequisites are not native use; one-lesson inheritance conflicted with the richer user direction at that snapshot. R8 fail-closed, R10 unavailable paid state/no reconstruction and R11 stopped error/no retry remain distinct permanent evidence. Later named R15 groups supersede selected pending states, without converting every open leaf into a pass. The later campaign instruction and final deadline entry supersede earlier pause/next-decision wording for their exact historical scope. They do not authorize resuming a campaign now. Current [PROJECT](../../../../PROJECT.md) and actual task/ownership control any new work.\n\nG9's fixture record distinguishes actual creator/seeded beginning controls from its temporary definition-selection intervention and explicit provider-loss effects after a real pending charge. These are seeded-native fixture routes, not natural acquisition or a new ordinary selector. Real Save/Export/file input are documented; actual private definitions/exports remain private and were not read here. This reconciliation preserves routes by gate/status without publishing sealed truths. No stopped profile, immutable failed attempt, source library, worker, process, private pack or saved game was opened, reconstructed or replayed.",
+      "evidence": "Complete file body read, plus full83-line current checkpoint and105-line G9 report. No linked private evidence, runtime or source behavior refreshed.",
+      "reopen": "Retain failed/stopped evidence and seeded/native/source scope. Later root chronology overrides old launch/pause instructions; current selected task required.",
+      "input_sha256": "2d3eb68b7c08dfd280d360b4d32b25580f09b8bb976010f7907367e93a012ede",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/ROOT_RECONCILIATION.md",
+      "ids": [
+        "pre-R3/pre-R6/pre-R15; R14 F1–F8; G9 N1–N5 fixture/provider/persistence boundaries"
+      ],
+      "classification": "historical checkpoint/assessment or seeded-native report with later terminal state",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md"
+      ],
+      "disposition": "Five small checkpoint/fixture records were read in full, with this complete83-line owner and the complete105-line G9 report checked for their later dispositions. Pre-R3, pre-R6 and pre-R15 checkpoints are chronology, not current startup instructions. They preserve FA06/FA08 bounded positives, FA07 open natural gates, FA09 paid routines and eight restoration comparisons, FA10 preparation rather than procedure, genuine Export versus transported Save, unchanged versus drifted inputs and separately held owner reservations. Old review settings, exact-ID transfers, account ceilings, local preview handles and successor recipes grant no current write, browser, spending, worker or push authority (AD32/AD36).\n\nR14 F1–F8 distinguish SOURCE assessment acceptance from native chain closure: finite player-owned facility allocation is not a network; synthetic prerequisites are not native use; one-lesson inheritance conflicted with the richer user direction at that snapshot. R8 fail-closed, R10 unavailable paid state/no reconstruction and R11 stopped error/no retry remain distinct permanent evidence. Later named R15 groups supersede selected pending states, without converting every open leaf into a pass. The later campaign instruction and final deadline entry supersede earlier pause/next-decision wording for their exact historical scope. They do not authorize resuming a campaign now. Current [PROJECT](../../../../PROJECT.md) and actual task/ownership control any new work.\n\nG9's fixture record distinguishes actual creator/seeded beginning controls from its temporary definition-selection intervention and explicit provider-loss effects after a real pending charge. These are seeded-native fixture routes, not natural acquisition or a new ordinary selector. Real Save/Export/file input are documented; actual private definitions/exports remain private and were not read here. This reconciliation preserves routes by gate/status without publishing sealed truths. No stopped profile, immutable failed attempt, source library, worker, process, private pack or saved game was opened, reconstructed or replayed.",
+      "evidence": "Complete file body read, plus full83-line current checkpoint and105-line G9 report. No linked private evidence, runtime or source behavior refreshed.",
+      "reopen": "Retain failed/stopped evidence and seeded/native/source scope. Later root chronology overrides old launch/pause instructions; current selected task required.",
+      "input_sha256": "75f87df12fc49f352ce19095a154e332d4a0bea041995968e10baef4ae8191ce",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/fixture/README.md",
+      "ids": [
+        "pre-R3/pre-R6/pre-R15; R14 F1–F8; G9 N1–N5 fixture/provider/persistence boundaries"
+      ],
+      "classification": "historical checkpoint/assessment or seeded-native report with later terminal state",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md"
+      ],
+      "disposition": "The fixture README and complete105-line report were read together. N1–N4 and the named N5 provider leaves are bounded seeded-native results; broader N5 regional conversation stays OPEN. SOURCE negatives, older N6 compatibility and natural acquisition/pacing retain their separate scopes. A real creator, seeded beginning, temporary live-definition selection, accelerated joined-clock caller, timer hold and post-reservation provider-loss effect are disclosed interventions. They do not establish an ordinary public selector, natural failure incidence or elapsed real-session play. Preserve the failed harness assumptions and corrections rather than treating them as product fixes.\n\nThe final “campaign remains paused / next decision” paragraph is historical. The later [root checkpoint](../../../CHECKPOINT.md) records the user's subsequent full-campaign instruction, launch, final stopped/incomplete state and unmerged tip at its dated check. It supersedes that proposed decision without granting current resumption, merge or push authority. The report's no-runtime-change result and native/source/persistence distinctions remain intact. Private exported definitions stay private; this documentation review inspected neither their payloads nor their sealed truths. Reopen a named gate only under a current selected task, current ownership and changed-input proof (AD32/AD36/AD42).",
+      "evidence": "Complete file body read, plus full83-line current checkpoint and105-line G9 report. No linked private evidence, runtime or source behavior refreshed.",
+      "reopen": "Retain failed/stopped evidence and seeded/native/source scope. Later root chronology overrides old launch/pause instructions; current selected task required.",
+      "input_sha256": "2325f76ecf5b874c9406b5eeebae06e7cbd46feb567616fdb004cd3e06520c75",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md",
+      "ids": [
+        "pre-R3/pre-R6/pre-R15; R14 F1–F8; G9 N1–N5 fixture/provider/persistence boundaries"
+      ],
+      "classification": "historical checkpoint/assessment or seeded-native report with later terminal state",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md"
+      ],
+      "disposition": "The fixture README and complete105-line report were read together. N1–N4 and the named N5 provider leaves are bounded seeded-native results; broader N5 regional conversation stays OPEN. SOURCE negatives, older N6 compatibility and natural acquisition/pacing retain their separate scopes. A real creator, seeded beginning, temporary live-definition selection, accelerated joined-clock caller, timer hold and post-reservation provider-loss effect are disclosed interventions. They do not establish an ordinary public selector, natural failure incidence or elapsed real-session play. Preserve the failed harness assumptions and corrections rather than treating them as product fixes.\n\nThe final “campaign remains paused / next decision” paragraph is historical. The later [root checkpoint](../../../CHECKPOINT.md) records the user's subsequent full-campaign instruction, launch, final stopped/incomplete state and unmerged tip at its dated check. It supersedes that proposed decision without granting current resumption, merge or push authority. The report's no-runtime-change result and native/source/persistence distinctions remain intact. Private exported definitions stay private; this documentation review inspected neither their payloads nor their sealed truths. Reopen a named gate only under a current selected task, current ownership and changed-input proof (AD32/AD36/AD42).",
+      "evidence": "Complete file body read, plus full83-line current checkpoint and105-line G9 report. No linked private evidence, runtime or source behavior refreshed.",
+      "reopen": "Retain failed/stopped evidence and seeded/native/source scope. Later root chronology overrides old launch/pause instructions; current selected task required.",
+      "input_sha256": "61b77cabbc81e520fa1ce3ca0566f110b1c1752a16b251d08f4f382987a9d8e4",
+      "input_lines": 105,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "heading": "## Content reconciliation B460: small checkpoint chronology and fixture limits",
+      "body": "Five small checkpoint/fixture records were read in full, with this complete83-line owner and the complete105-line G9 report checked for their later dispositions. Pre-R3, pre-R6 and pre-R15 checkpoints are chronology, not current startup instructions. They preserve FA06/FA08 bounded positives, FA07 open natural gates, FA09 paid routines and eight restoration comparisons, FA10 preparation rather than procedure, genuine Export versus transported Save, unchanged versus drifted inputs and separately held owner reservations. Old review settings, exact-ID transfers, account ceilings, local preview handles and successor recipes grant no current write, browser, spending, worker or push authority (AD32/AD36).\n\nR14 F1–F8 distinguish SOURCE assessment acceptance from native chain closure: finite player-owned facility allocation is not a network; synthetic prerequisites are not native use; one-lesson inheritance conflicted with the richer user direction at that snapshot. R8 fail-closed, R10 unavailable paid state/no reconstruction and R11 stopped error/no retry remain distinct permanent evidence. Later named R15 groups supersede selected pending states, without converting every open leaf into a pass. The later campaign instruction and final deadline entry supersede earlier pause/next-decision wording for their exact historical scope. They do not authorize resuming a campaign now. Current [PROJECT](../../../../PROJECT.md) and actual task/ownership control any new work.\n\nG9's fixture record distinguishes actual creator/seeded beginning controls from its temporary definition-selection intervention and explicit provider-loss effects after a real pending charge. These are seeded-native fixture routes, not natural acquisition or a new ordinary selector. Real Save/Export/file input are documented; actual private definitions/exports remain private and were not read here. This reconciliation preserves routes by gate/status without publishing sealed truths. No stopped profile, immutable failed attempt, source library, worker, process, private pack or saved game was opened, reconstructed or replayed.",
+      "before_sha256": "b2a4404da30fc1b6a590473fc3166aee58d5b5459892c489ffef6bb8c2babaaf",
+      "after_sha256": "00079682035a8c6e795e6e7c6fda66c9cc81283a3e879fef9ff46512afb57542"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md",
+      "heading": "## Content reconciliation B460: fixture method and later campaign disposition",
+      "body": "The fixture README and complete105-line report were read together. N1–N4 and the named N5 provider leaves are bounded seeded-native results; broader N5 regional conversation stays OPEN. SOURCE negatives, older N6 compatibility and natural acquisition/pacing retain their separate scopes. A real creator, seeded beginning, temporary live-definition selection, accelerated joined-clock caller, timer hold and post-reservation provider-loss effect are disclosed interventions. They do not establish an ordinary public selector, natural failure incidence or elapsed real-session play. Preserve the failed harness assumptions and corrections rather than treating them as product fixes.\n\nThe final “campaign remains paused / next decision” paragraph is historical. The later [root checkpoint](../../../CHECKPOINT.md) records the user's subsequent full-campaign instruction, launch, final stopped/incomplete state and unmerged tip at its dated check. It supersedes that proposed decision without granting current resumption, merge or push authority. The report's no-runtime-change result and native/source/persistence distinctions remain intact. Private exported definitions stay private; this documentation review inspected neither their payloads nor their sealed truths. Reopen a named gate only under a current selected task, current ownership and changed-input proof (AD32/AD36/AD42).",
+      "before_sha256": "61b77cabbc81e520fa1ce3ca0566f110b1c1752a16b251d08f4f382987a9d8e4",
+      "after_sha256": "9600e4b30f743c137720133c0897fa08bb9f8b2ad519c92789e6590c503198f0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 393,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B456, continuous execution 2026-11-05 |",
+      "to": "| B460, continuous execution 2026-11-05 |",
+      "reason": "Advance active reconciliation pointer through B460; full remaining scope stays active."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "024c2c2e4b04f5a0509086af93abf0a294418370a9e0ff7560c209df2e0f6186",
+      "to": "47a7e315a730389d57d841da4e6f04c260b9bbe22a6f4baaf19425a26fdf9160",
+      "reason": "Advance active reconciliation pointer through B460; full remaining scope stays active."
+    }
+  ]
+}

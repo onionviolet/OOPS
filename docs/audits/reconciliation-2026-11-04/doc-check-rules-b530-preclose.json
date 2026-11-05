@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:rules",
+  "exit": 0,
+  "stdout": "\n> check:rules\n> node scripts/check_rules_index.mjs && node scripts/check_receipts.mjs && node scripts/check_direction_sync.mjs\n\nRules index check: 31 register rows, 52 AD codes, 1058 relative links\nPASS (0 warnings)\nPASS (25 receipts checked, 317 explicit legacy paths skipped, 0 problems)\nPASS direction sync\n",
+  "stderr": "",
+  "scope": "Shared dirty checkout; document/registered-rule checks, no runtime verification."
+}

@@ -1,0 +1,24 @@
+{
+  "command": "same-rule docs checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "1fc3be44406e65eb779a8d2eab819a7c569b72c49ebf668889d2166862400f24",
+  "paths": [
+    "docs/TIMELINES_AND_DIVERGENCE.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+    "docs/research/novels/full-book/shadow-slave/BRIEF.md",
+    "docs/research/novels/lord-of-mysteries/BRIEF.md",
+    "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+    "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+    "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+    "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+    "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+    "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

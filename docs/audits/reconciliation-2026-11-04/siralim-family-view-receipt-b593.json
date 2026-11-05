@@ -1,0 +1,22 @@
+{
+  "source": "docs/research/siralim-ultimate/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "ddb8d9edc483c053891be3e166e0ca9e7f370bd1e2619cb53fd2820597ebe2f6",
+  "source_lines": 5174,
+  "view": "docs/audits/reconciliation-2026-11-04/siralim-family-lossless-view-b593.json",
+  "view_sha256": "62acb46296d7a233646c4ae1f80d083501e975803a0e4c4079f030904decfe2a",
+  "roundtrip_equal": true,
+  "routing_blocks": 15,
+  "records": 146,
+  "origins": {
+    "prior_inventory": 102,
+    "semantic_split": 36,
+    "prior_unread": 8
+  },
+  "statuses": {
+    "inventoried_body_unread": 100,
+    "partial_native": 17,
+    "partial_text_or_prior_native": 21,
+    "partial": 8
+  },
+  "scope": "Full actual map review from all146rows,15routing blocks/header/dictionaries. No raw CSV/native body/downstream source or runtime reviewed by proxy."
+}

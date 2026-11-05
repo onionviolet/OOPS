@@ -1,0 +1,17 @@
+{
+  "command": "node scripts/check_doc_slips.mjs with filespec restricted to B480\u2013B481 folds and closeout owners",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "0ef45a2fce1eb0fd8d605a2eb028743d37fed7f9df0c070a373164c0acf55b09",
+  "paths": [
+    "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FIRST_OPENING_RECEIPT.md",
+    "docs/gm/dispatch/ritual-contribution-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/primordial-credit-2026-10-24/CHECKPOINT.md",
+    "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostics unchanged. Scoped result, not shared-tree pass."
+}

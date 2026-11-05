@@ -1,0 +1,25 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "941bf5259131a7fb49500c2b4b12a00b6f3e95b696c8de030a0d9315d774e769",
+  "paths": [
+    "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/COVERAGE.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/COMBINED_COVERAGE.md",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/MENU_CONSIDERATIONS.md",
+    "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+    "docs/research/disco-elysium/COVERAGE.md",
+    "docs/research/factorio/native/READER_GUIDE.md",
+    "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+    "docs/research/multiworld-synthesis-2026-10-14/REPORT.md",
+    "docs/research/sunless-sea/COVERAGE.md",
+    "docs/research/sunless-skies/COVERAGE.md",
+    "docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not shared-tree pass."
+}

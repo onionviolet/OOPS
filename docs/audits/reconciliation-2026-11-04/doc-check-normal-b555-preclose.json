@@ -1,0 +1,6 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "diagnostics": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+  "scope": "Observed normal command after B555; only existing external diagnostic."
+}

@@ -1,0 +1,20 @@
+{
+  "command": "node same checker with task-only filespec",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md:3399: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "paths": [
+    "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md",
+    "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md",
+    "docs/worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md",
+    "docs/worlds/IDENTITY_LAWS_GAPS_2026-10-14.md",
+    "docs/worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md",
+    "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged. Not a shared-tree pass.",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "25444660ad345936c4eac4f4e3e94b92deb54c1ab8fc4d38266fa1b579c2f740"
+}

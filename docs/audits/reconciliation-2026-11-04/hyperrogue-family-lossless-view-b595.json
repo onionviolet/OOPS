@@ -1,0 +1,5546 @@
+{
+  "header": {
+    "schema_version": 1,
+    "lane": "ds-hyperrogue",
+    "date": "2026-10-14",
+    "source_pin": "c7c9a2993b43ee2f4bbac422e565d18fdd98f886",
+    "coverage": "PARTIAL",
+    "runtime_executed": false,
+    "interpretation": "Inventory records are different evidence units and overlap; their count is not a count of independent gameplay systems. Owner mappings are inferred routing only, not readiness.",
+    "families": {
+      "UI rendering and feedback": 32,
+      "modes events and progression": 8,
+      "geometry and mathematical spaces": 41,
+      "combat and actor rules": 6,
+      "save and revision": 7,
+      "world graph and generation": 14,
+      "world simulation": 18,
+      "architecture platform and tooling": 10,
+      "resource and power economy": 7,
+      "dialogue and information": 12,
+      "content authoring": 9,
+      "optional extensions": 4,
+      "social and companions": 2,
+      "ecology and AI": 2,
+      "knowledge and objects": 1,
+      "body and combat": 3,
+      "combat": 2,
+      "knowledge and UI": 2,
+      "events and combat": 3,
+      "body and object puzzles": 2,
+      "world laws and regional loops": 95,
+      "social and AI": 1,
+      "world simulation and materials": 1,
+      "time and world simulation": 1,
+      "combat and UI": 1,
+      "onboarding and UI": 1,
+      "not_established_in_core": 4
+    }
+  },
+  "routing": [
+    {
+      "kit": [
+        "K14",
+        "K19",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11"
+      ],
+      "owners": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K4",
+        "K12",
+        "K16",
+        "K17"
+      ],
+      "packets": [
+        "P10",
+        "P14"
+      ],
+      "owners": [
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "topic_palettes": [
+        "kit:KW3"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K2",
+        "K5",
+        "K34"
+      ],
+      "packets": [
+        "P14",
+        "P16"
+      ],
+      "owners": [
+        "docs/worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K6",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P14",
+        "P25"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/ABILITY_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "body:MT1"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "owners": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K1",
+        "K2",
+        "K5",
+        "K15"
+      ],
+      "packets": [
+        "P14",
+        "P15",
+        "P16"
+      ],
+      "owners": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K2",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P12",
+        "P13",
+        "P14"
+      ],
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K18",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K3",
+        "K9",
+        "K15"
+      ],
+      "packets": [
+        "P05",
+        "P17"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K20",
+        "K14"
+      ],
+      "packets": [
+        "P16",
+        "P21"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K1",
+        "K2",
+        "K5",
+        "K10",
+        "K13"
+      ],
+      "packets": [
+        "P14",
+        "P15",
+        "P16"
+      ],
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4"
+      ],
+      "owner_coverage": "broad_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K6",
+        "K10",
+        "K12",
+        "K16",
+        "K18",
+        "K29"
+      ],
+      "packets": [
+        "P06",
+        "P12",
+        "P25"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "body:MT4",
+        "kit:KW1",
+        "kit:KW4"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K6",
+        "K7",
+        "K11",
+        "K20",
+        "K31"
+      ],
+      "packets": [
+        "P19",
+        "P21",
+        "P15"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1",
+        "kit:KW2",
+        "technology:FT5"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K6",
+        "K10",
+        "K13",
+        "K15"
+      ],
+      "packets": [
+        "P06",
+        "P25",
+        "P08"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/ABILITY_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1",
+        "body:MT1"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K22",
+        "K29"
+      ],
+      "packets": [
+        "P14",
+        "P17",
+        "P12"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "topic_palettes": [
+        "body:MT1",
+        "kit:KW3"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K3",
+        "K6",
+        "K10",
+        "K22",
+        "K15"
+      ],
+      "packets": [
+        "P14",
+        "P06",
+        "P15"
+      ],
+      "owners": [
+        "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topic_palettes": [
+        "body:MT1",
+        "body:MT4",
+        "body:MT5"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K5",
+        "K11",
+        "K14",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P15"
+      ],
+      "owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "topic_palettes": [
+        "technology:FT5",
+        "kit:KW4"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K2",
+        "K5",
+        "K9",
+        "K13",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P13",
+        "P14",
+        "P17"
+      ],
+      "owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6",
+        "chains:ML-R4c",
+        "body:MT2"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K2",
+        "K5",
+        "K14",
+        "K28",
+        "K32"
+      ],
+      "packets": [
+        "P13",
+        "P04",
+        "P10"
+      ],
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "body:MT2",
+        "kit:KW3"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K6",
+        "K7",
+        "K10",
+        "K29"
+      ],
+      "packets": [
+        "P25",
+        "P12",
+        "P15"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW3",
+        "body:MT1"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K10",
+        "K12",
+        "K29",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P24"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW3",
+        "body:MT2"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K2",
+        "K9",
+        "K10",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P15",
+        "P14",
+        "P16"
+      ],
+      "owners": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "body:MT1",
+        "body:MT4",
+        "kit:KW4"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K3",
+        "K10",
+        "K14",
+        "K26"
+      ],
+      "packets": [
+        "P04",
+        "P08",
+        "P14",
+        "P17"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4",
+        "body:MT2"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K18",
+        "K29",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "owners": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4",
+        "body:MT4",
+        "body:MT5"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K1",
+        "K2",
+        "K5",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P15",
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6",
+        "kit:KW4"
+      ],
+      "owner_coverage": "no_dedicated_leaf",
+      "owner_gap": true
+    },
+    {
+      "kit": [
+        "K4",
+        "K11",
+        "K14",
+        "K34"
+      ],
+      "packets": [
+        "P03",
+        "P04",
+        "P14"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "technology:CN14",
+        "kit:KW1",
+        "kit:KW2"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K8"
+      ],
+      "packets": [
+        "P01",
+        "P07",
+        "P18"
+      ],
+      "owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K6",
+        "K22"
+      ],
+      "packets": [
+        "P05",
+        "P15"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topic_palettes": [
+        "body:MT4"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K3",
+        "K11"
+      ],
+      "packets": [
+        "P03",
+        "P09",
+        "P11"
+      ],
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "topic_palettes": [
+        "technology:FT5"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    },
+    {
+      "kit": [
+        "K8",
+        "K9"
+      ],
+      "packets": [
+        "P01",
+        "P02",
+        "P06"
+      ],
+      "owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6"
+      ],
+      "owner_coverage": "existing_design_route",
+      "owner_gap": false
+    }
+  ],
+  "dictionary": {
+    "unit": [
+      "root_module",
+      "nested_group",
+      "named_subsystem",
+      "land_census_entry",
+      "deep_system",
+      "requested_interest_negative"
+    ],
+    "prior_depth": [
+      "unread",
+      "focused",
+      "indexed/selected",
+      "focused_or_named_partial",
+      "metadata_and_generation_locators",
+      "named_or_selected_partial",
+      "not_established"
+    ],
+    "prior_undocumented": [
+      true,
+      false
+    ],
+    "status": [
+      "unread",
+      "prior_partial",
+      "bounded_extension",
+      "documented_static_bounded",
+      "metadata_only_full_runtime_open",
+      "not_established_bounded"
+    ],
+    "remaining": [
+      "Prior depth retained; no new body coverage asserted.",
+      "Host module is not closed by selected function traces; read named untraced consumers before claiming full behavior.",
+      "No body read; file count is prior census, not subsystem closure.",
+      "Named or prior selected body only; full rules/consumers/restore remain open.",
+      "See selected deep-system limits.",
+      "Prior LANDS metadata preserved; all creature/orb/mode consumer closure is not implied by a land locator.",
+      "Closed: unread rescue milestone, revenge, revival and source speech bodies. Open: all prison generation alternatives, princess_ai gate search, every death/mode caller and native roundtrip.",
+      "Closed: default Camelot/princess selection bodies. Open: translations, every talk trigger and persistence of incidental presentation state. The prior wording about stable knight IDs needs this narrower lifetime.",
+      "Closed: selected friend chooser and path lifetime. Open: every stayvalue/movevalue branch, all princess gate-plate planning, and broad hostile AI. No offscreen household simulation shown.",
+      "Closed: central admission and stun formulas. Open: complete killMonster terrain side effects, attack flags Cartesian product, all counters and player defeat modes.",
+      "Closed: representative dragon/kraken structural rules. Open: all spawn/attack/mount branches, worm/hexsnake bodies and transformed-body restore. Lineage remains unsupported by this evidence.",
+      "Closed: mine namespace reveal/mark/status rules and explosion admission. Open: all mine generation probabilities, full visual number display and protection interactions.",
+      "Closed: thermal diffusion, thresholds, core fire staging and timeout mutation. Open: all burnable item rules, wind transport, every geometry and offscreen queue reconstruction.",
+      "Closed: tide construction and clock mapping. Open: all chaos/geometry boundary convergence and native pause/resume. Formula count derived by a separate static arithmetic check, not game execution.",
+      "Closed: central hive target and action rules. Open: bug-city generation, entire offscreen budget, every species and peace/mode branch.",
+      "Closed: selected ambush and terracotta bodies. Open: all pickup callers, geometry placement edge cases, complete give-up behavior and runtime fairness.",
+      "Closed: data/roll/admission and explicit map migration fields. Open: full reward/anger lifecycle, all Chaos swap cases and all visual preview traversal.",
+      "Closed: reload and selected targeting/rollback consumers. Open: all style optimization, mirror recursion, extra achievements and live targeting UX.",
+      "Closed: prior unread core map cell format and selected migration/default branches. Open: complete geometry codecs, external hook consumers, all historic versions, corruption/atomicity and runtime roundtrip.",
+      "Closed: full compact WFC module algorithm and Eclectic callers, excluding opaque built-in dictionary decoding. Open: dictionary census, constraint dead-end rates and all repair consumers.",
+      "Closed: presentation schema, callback lifecycle, recovery controls and default slide authoring structure. Open: every callback's cleanup correctness, extra registered slideshows, accessibility and live lesson feel.",
+      "No such general mechanism established in inspected core; optional groups unread. This is not a whole-repository absence proof."
+    ],
+    "evidence": [
+      "shown_inventory",
+      "stated_metadata_shown_declarations",
+      "shown_static",
+      "inferred_bounded_negative"
+    ]
+  },
+  "records": [
+    {
+      "id": "MOD:3d-models.cpp",
+      "name": "3d-models.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1388,
+        "namespace_signal": "hr"
+      },
+      "source": "3d-models.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:achievement.cpp",
+      "name": "achievement.cpp",
+      "family": "modes events and progression",
+      "size_signal": {
+        "lines": 1094,
+        "namespace_signal": "hr, rg"
+      },
+      "source": "achievement.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:animations.cpp",
+      "name": "animations.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 542,
+        "namespace_signal": "hr"
+      },
+      "source": "animations.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:aperiodic-hat.cpp",
+      "name": "aperiodic-hat.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1233,
+        "namespace_signal": "hr, hat"
+      },
+      "source": "aperiodic-hat.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:arbiquotient.cpp",
+      "name": "arbiquotient.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 640,
+        "namespace_signal": "hr, arbiquotient"
+      },
+      "source": "arbiquotient.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:arbitrile.cpp",
+      "name": "arbitrile.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 2258,
+        "namespace_signal": "hr, arb, convert"
+      },
+      "source": "arbitrile.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:archimedean.cpp",
+      "name": "archimedean.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1632,
+        "namespace_signal": "hr, arcm"
+      },
+      "source": "archimedean.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:asonov.cpp",
+      "name": "asonov.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 268,
+        "namespace_signal": "hr, asonov"
+      },
+      "source": "asonov.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:attack.cpp",
+      "name": "attack.cpp",
+      "family": "combat and actor rules",
+      "size_signal": {
+        "lines": 1401,
+        "namespace_signal": "hr"
+      },
+      "source": "attack.cpp",
+      "deep_systems": [
+        "DS04",
+        "DS05"
+      ],
+      "routing_ref": 3,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:backed-map.cpp",
+      "name": "backed-map.cpp",
+      "family": "save and revision",
+      "size_signal": {
+        "lines": 306,
+        "namespace_signal": "hr"
+      },
+      "source": "backed-map.cpp",
+      "deep_systems": [],
+      "routing_ref": 4,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:barriers.cpp",
+      "name": "barriers.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 1221,
+        "namespace_signal": "hr"
+      },
+      "source": "barriers.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:basegraph.cpp",
+      "name": "basegraph.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1799,
+        "namespace_signal": "hr, subscreens"
+      },
+      "source": "basegraph.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:bigstuff.cpp",
+      "name": "bigstuff.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 2390,
+        "namespace_signal": "hr, altmap"
+      },
+      "source": "bigstuff.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:binary-tiling.cpp",
+      "name": "binary-tiling.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1233,
+        "namespace_signal": "hr, bt"
+      },
+      "source": "binary-tiling.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:blizzard.cpp",
+      "name": "blizzard.cpp",
+      "family": "world simulation",
+      "size_signal": {
+        "lines": 269,
+        "namespace_signal": "hr"
+      },
+      "source": "blizzard.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:cell.cpp",
+      "name": "cell.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 1837,
+        "namespace_signal": "hr"
+      },
+      "source": "cell.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:celldrawer.cpp",
+      "name": "celldrawer.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 3256,
+        "namespace_signal": "hr"
+      },
+      "source": "celldrawer.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:checkmove.cpp",
+      "name": "checkmove.cpp",
+      "family": "combat and actor rules",
+      "size_signal": {
+        "lines": 488,
+        "namespace_signal": "hr, multi"
+      },
+      "source": "checkmove.cpp",
+      "deep_systems": [],
+      "routing_ref": 3,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:classes.cpp",
+      "name": "classes.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 1130,
+        "namespace_signal": "hr, mf"
+      },
+      "source": "classes.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:colors.cpp",
+      "name": "colors.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 312,
+        "namespace_signal": "hr"
+      },
+      "source": "colors.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:commandline.cpp",
+      "name": "commandline.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 551,
+        "namespace_signal": "hr, arg"
+      },
+      "source": "commandline.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:complex.cpp",
+      "name": "complex.cpp",
+      "family": "world simulation",
+      "size_signal": {
+        "lines": 4433,
+        "namespace_signal": "hr, whirlwind, elec, princess, clearing, whirlpool, mirror, hive, heat, tortoise, dragon, sword, kraken, prairie, ca, windmap, halloween, dungeon"
+      },
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS01",
+        "DS02",
+        "DS05",
+        "DS07",
+        "DS09"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:complex2.cpp",
+      "name": "complex2.cpp",
+      "family": "world simulation",
+      "size_signal": {
+        "lines": 1498,
+        "namespace_signal": "hr, brownian, westwall, variant, camelot, mine, terracotta, ambush, dice"
+      },
+      "source": "complex2.cpp",
+      "deep_systems": [
+        "DS02",
+        "DS06",
+        "DS10",
+        "DS11"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:config.cpp",
+      "name": "config.cpp",
+      "family": "save and revision",
+      "size_signal": {
+        "lines": 5022,
+        "namespace_signal": "hr, anims, ccolor"
+      },
+      "source": "config.cpp",
+      "deep_systems": [],
+      "routing_ref": 4,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:content.cpp",
+      "name": "content.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 1813,
+        "namespace_signal": ""
+      },
+      "source": "content.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:control.cpp",
+      "name": "control.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1944,
+        "namespace_signal": "hr, deck, ors"
+      },
+      "source": "control.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:crossbow.cpp",
+      "name": "crossbow.cpp",
+      "family": "combat and actor rules",
+      "size_signal": {
+        "lines": 565,
+        "namespace_signal": "hr, bow"
+      },
+      "source": "crossbow.cpp",
+      "deep_systems": [
+        "DS12"
+      ],
+      "routing_ref": 3,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:crystal.cpp",
+      "name": "crystal.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1821,
+        "namespace_signal": "hr, crystal"
+      },
+      "source": "crystal.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:debug.cpp",
+      "name": "debug.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 984,
+        "namespace_signal": "hr"
+      },
+      "source": "debug.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:dialogs.cpp",
+      "name": "dialogs.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 2250,
+        "namespace_signal": "hr, dialog, zoom"
+      },
+      "source": "dialogs.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:drawing.cpp",
+      "name": "drawing.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 3037,
+        "namespace_signal": "hr, cyl, s2xe, ods"
+      },
+      "source": "drawing.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:embeddings.cpp",
+      "name": "embeddings.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1398,
+        "namespace_signal": "hr, geom3"
+      },
+      "source": "embeddings.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:environment.cpp",
+      "name": "environment.cpp",
+      "family": "world simulation",
+      "size_signal": {
+        "lines": 1039,
+        "namespace_signal": "hr"
+      },
+      "source": "environment.cpp",
+      "deep_systems": [
+        "DS03",
+        "DS07",
+        "DS08"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:euclid.cpp",
+      "name": "euclid.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1471,
+        "namespace_signal": "hr, euc"
+      },
+      "source": "euclid.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:expansion.cpp",
+      "name": "expansion.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1152,
+        "namespace_signal": "hr, ts"
+      },
+      "source": "expansion.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:fake-mobile.cpp",
+      "name": "fake-mobile.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 284,
+        "namespace_signal": "hr"
+      },
+      "source": "fake-mobile.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:fake.cpp",
+      "name": "fake.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 851,
+        "namespace_signal": "hr, fake"
+      },
+      "source": "fake.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:fieldpattern.cpp",
+      "name": "fieldpattern.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1656,
+        "namespace_signal": "hr, fieldpattern"
+      },
+      "source": "fieldpattern.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:flags.cpp",
+      "name": "flags.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 421,
+        "namespace_signal": "hr"
+      },
+      "source": "flags.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:floorshapes.cpp",
+      "name": "floorshapes.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1407,
+        "namespace_signal": "hr, irr, gp"
+      },
+      "source": "floorshapes.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:fundamental.cpp",
+      "name": "fundamental.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 449,
+        "namespace_signal": "hr, fundamental"
+      },
+      "source": "fundamental.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:game.cpp",
+      "name": "game.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 536,
+        "namespace_signal": "hr"
+      },
+      "source": "game.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:geom-exp.cpp",
+      "name": "geom-exp.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1456,
+        "namespace_signal": "hr"
+      },
+      "source": "geom-exp.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:geometry.cpp",
+      "name": "geometry.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1544,
+        "namespace_signal": "hr, geom3"
+      },
+      "source": "geometry.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:geometry2.cpp",
+      "name": "geometry2.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1083,
+        "namespace_signal": "hr, gp"
+      },
+      "source": "geometry2.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:glhr.cpp",
+      "name": "glhr.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 971,
+        "namespace_signal": "hr, glhr"
+      },
+      "source": "glhr.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:goldberg-sub.cpp",
+      "name": "goldberg-sub.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 255,
+        "namespace_signal": "hr, gp"
+      },
+      "source": "goldberg-sub.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:goldberg.cpp",
+      "name": "goldberg.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1524,
+        "namespace_signal": "hr, gp"
+      },
+      "source": "goldberg.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:graph-item.cpp",
+      "name": "graph-item.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 508,
+        "namespace_signal": "hr"
+      },
+      "source": "graph-item.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:graph-monster.cpp",
+      "name": "graph-monster.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 2052,
+        "namespace_signal": "hr, tortoise"
+      },
+      "source": "graph-monster.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:graph-player.cpp",
+      "name": "graph-player.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 814,
+        "namespace_signal": "hr"
+      },
+      "source": "graph-player.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:graph-wall.cpp",
+      "name": "graph-wall.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 567,
+        "namespace_signal": "hr"
+      },
+      "source": "graph-wall.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:graph.cpp",
+      "name": "graph.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 2154,
+        "namespace_signal": "hr, sm"
+      },
+      "source": "graph.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:help.cpp",
+      "name": "help.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1332,
+        "namespace_signal": "hr"
+      },
+      "source": "help.cpp",
+      "deep_systems": [
+        "DS08"
+      ],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:heptagon.cpp",
+      "name": "heptagon.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 327,
+        "namespace_signal": "hr"
+      },
+      "source": "heptagon.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:history.cpp",
+      "name": "history.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 783,
+        "namespace_signal": "hr, spiral, history"
+      },
+      "source": "history.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hprint.cpp",
+      "name": "hprint.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 614,
+        "namespace_signal": "hr, detail"
+      },
+      "source": "hprint.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hud.cpp",
+      "name": "hud.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 844,
+        "namespace_signal": "hr"
+      },
+      "source": "hud.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hyper-main.cpp",
+      "name": "hyper-main.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 105,
+        "namespace_signal": "hr"
+      },
+      "source": "hyper-main.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hyper.cpp",
+      "name": "hyper.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 150,
+        "namespace_signal": "hr, daily"
+      },
+      "source": "hyper.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hyperpoint.cpp",
+      "name": "hyperpoint.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 2061,
+        "namespace_signal": "hr, slr"
+      },
+      "source": "hyperpoint.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hyperweb.cpp",
+      "name": "hyperweb.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 316,
+        "namespace_signal": "hr"
+      },
+      "source": "hyperweb.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:hypgraph.cpp",
+      "name": "hypgraph.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 3848,
+        "namespace_signal": "hr, gp, dq"
+      },
+      "source": "hypgraph.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:inforder.cpp",
+      "name": "inforder.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 54,
+        "namespace_signal": "hr, inforder"
+      },
+      "source": "inforder.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:intra.cpp",
+      "name": "intra.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 1221,
+        "namespace_signal": "hr, intra, walking"
+      },
+      "source": "intra.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:inventory.cpp",
+      "name": "inventory.cpp",
+      "family": "resource and power economy",
+      "size_signal": {
+        "lines": 730,
+        "namespace_signal": "hr, inv"
+      },
+      "source": "inventory.cpp",
+      "deep_systems": [],
+      "routing_ref": 8,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:irregular.cpp",
+      "name": "irregular.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1183,
+        "namespace_signal": "hr, irr"
+      },
+      "source": "irregular.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:items.cpp",
+      "name": "items.cpp",
+      "family": "resource and power economy",
+      "size_signal": {
+        "lines": 769,
+        "namespace_signal": "hr"
+      },
+      "source": "items.cpp",
+      "deep_systems": [],
+      "routing_ref": 8,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:kite.cpp",
+      "name": "kite.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 440,
+        "namespace_signal": "hr, kite"
+      },
+      "source": "kite.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:landgen.cpp",
+      "name": "landgen.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 3239,
+        "namespace_signal": "hr"
+      },
+      "source": "landgen.cpp",
+      "deep_systems": [
+        "DS14"
+      ],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:landlock.cpp",
+      "name": "landlock.cpp",
+      "family": "world graph and generation",
+      "size_signal": {
+        "lines": 1697,
+        "namespace_signal": "hr, ls, lv"
+      },
+      "source": "landlock.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:langen.cpp",
+      "name": "langen.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 508,
+        "namespace_signal": ""
+      },
+      "source": "langen.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-cz.cpp",
+      "name": "language-cz.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 10798,
+        "namespace_signal": ""
+      },
+      "source": "language-cz.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-de.cpp",
+      "name": "language-de.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 3985,
+        "namespace_signal": ""
+      },
+      "source": "language-de.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-fr.cpp",
+      "name": "language-fr.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 9305,
+        "namespace_signal": ""
+      },
+      "source": "language-fr.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-pl.cpp",
+      "name": "language-pl.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 10520,
+        "namespace_signal": ""
+      },
+      "source": "language-pl.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-ptbr.cpp",
+      "name": "language-ptbr.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 5968,
+        "namespace_signal": ""
+      },
+      "source": "language-ptbr.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-ru.cpp",
+      "name": "language-ru.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 7456,
+        "namespace_signal": ""
+      },
+      "source": "language-ru.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-tr.cpp",
+      "name": "language-tr.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 2986,
+        "namespace_signal": ""
+      },
+      "source": "language-tr.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language-zh.cpp",
+      "name": "language-zh.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 9619,
+        "namespace_signal": ""
+      },
+      "source": "language-zh.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:language.cpp",
+      "name": "language.cpp",
+      "family": "dialogue and information",
+      "size_signal": {
+        "lines": 439,
+        "namespace_signal": "hr"
+      },
+      "source": "language.cpp",
+      "deep_systems": [],
+      "routing_ref": 9,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:legacy.cpp",
+      "name": "legacy.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 628,
+        "namespace_signal": "hr, shmup"
+      },
+      "source": "legacy.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:locations.cpp",
+      "name": "locations.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 594,
+        "namespace_signal": "hr, shmup, whirlwind"
+      },
+      "source": "locations.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:makeh.cpp",
+      "name": "makeh.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 127,
+        "namespace_signal": "hr"
+      },
+      "source": "makeh.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:mapeditor.cpp",
+      "name": "mapeditor.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 3856,
+        "namespace_signal": "hr, rulers, mapeditor, mapstream"
+      },
+      "source": "mapeditor.cpp",
+      "deep_systems": [
+        "DS11",
+        "DS13"
+      ],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:mapeffects.cpp",
+      "name": "mapeffects.cpp",
+      "family": "world simulation",
+      "size_signal": {
+        "lines": 1073,
+        "namespace_signal": "hr"
+      },
+      "source": "mapeffects.cpp",
+      "deep_systems": [
+        "DS06",
+        "DS07",
+        "DS08"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:menus.cpp",
+      "name": "menus.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1335,
+        "namespace_signal": "hr"
+      },
+      "source": "menus.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:mobile.cpp",
+      "name": "mobile.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 404,
+        "namespace_signal": "hr"
+      },
+      "source": "mobile.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:models.cpp",
+      "name": "models.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1137,
+        "namespace_signal": "hr, polygonal, models"
+      },
+      "source": "models.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:monstergen.cpp",
+      "name": "monstergen.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 834,
+        "namespace_signal": "hr"
+      },
+      "source": "monstergen.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:monstermove.cpp",
+      "name": "monstermove.cpp",
+      "family": "combat and actor rules",
+      "size_signal": {
+        "lines": 2242,
+        "namespace_signal": "hr"
+      },
+      "source": "monstermove.cpp",
+      "deep_systems": [
+        "DS01",
+        "DS03"
+      ],
+      "routing_ref": 3,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:multi.cpp",
+      "name": "multi.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1235,
+        "namespace_signal": "hr, multi"
+      },
+      "source": "multi.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:multigame.cpp",
+      "name": "multigame.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 475,
+        "namespace_signal": "hr, gamestack, dual"
+      },
+      "source": "multigame.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:mymake.cpp",
+      "name": "mymake.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 468,
+        "namespace_signal": ""
+      },
+      "source": "mymake.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:netgen.cpp",
+      "name": "netgen.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 786,
+        "namespace_signal": "hr, netgen"
+      },
+      "source": "netgen.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:nofont.cpp",
+      "name": "nofont.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 181,
+        "namespace_signal": "hr"
+      },
+      "source": "nofont.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:nonisotropic.cpp",
+      "name": "nonisotropic.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 3425,
+        "namespace_signal": "hr, nisot, sn, nilv, hybrid, product, slr, twist, stretch"
+      },
+      "source": "nonisotropic.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:orbgen.cpp",
+      "name": "orbgen.cpp",
+      "family": "resource and power economy",
+      "size_signal": {
+        "lines": 638,
+        "namespace_signal": "hr, orbgenflags"
+      },
+      "source": "orbgen.cpp",
+      "deep_systems": [],
+      "routing_ref": 8,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:orbs.cpp",
+      "name": "orbs.cpp",
+      "family": "resource and power economy",
+      "size_signal": {
+        "lines": 1887,
+        "namespace_signal": "hr"
+      },
+      "source": "orbs.cpp",
+      "deep_systems": [
+        "DS12"
+      ],
+      "routing_ref": 8,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:passable.cpp",
+      "name": "passable.cpp",
+      "family": "combat and actor rules",
+      "size_signal": {
+        "lines": 706,
+        "namespace_signal": "hr"
+      },
+      "source": "passable.cpp",
+      "deep_systems": [],
+      "routing_ref": 3,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:pattern2.cpp",
+      "name": "pattern2.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 3290,
+        "namespace_signal": "hr, fieldpattern, patterns, ccolor, linepatterns"
+      },
+      "source": "pattern2.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:patterns.cpp",
+      "name": "patterns.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 1150,
+        "namespace_signal": "hr"
+      },
+      "source": "patterns.cpp",
+      "deep_systems": [],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:pcmove.cpp",
+      "name": "pcmove.cpp",
+      "family": "combat and actor rules",
+      "size_signal": {
+        "lines": 1920,
+        "namespace_signal": "hr, orbbull"
+      },
+      "source": "pcmove.cpp",
+      "deep_systems": [
+        "DS02",
+        "DS11",
+        "DS12"
+      ],
+      "routing_ref": 3,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:polygons.cpp",
+      "name": "polygons.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 2619,
+        "namespace_signal": "hr"
+      },
+      "source": "polygons.cpp",
+      "deep_systems": [],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:quit.cpp",
+      "name": "quit.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 735,
+        "namespace_signal": "hr"
+      },
+      "source": "quit.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:quotient.cpp",
+      "name": "quotient.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 430,
+        "namespace_signal": "hr, quotientspace"
+      },
+      "source": "quotient.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:racing.cpp",
+      "name": "racing.cpp",
+      "family": "modes events and progression",
+      "size_signal": {
+        "lines": 1470,
+        "namespace_signal": "hr, racing"
+      },
+      "source": "racing.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:radar.cpp",
+      "name": "radar.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 198,
+        "namespace_signal": "hr"
+      },
+      "source": "radar.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:raycaster.cpp",
+      "name": "raycaster.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 3341,
+        "namespace_signal": "hr, ray, volumetric"
+      },
+      "source": "raycaster.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:reg3.cpp",
+      "name": "reg3.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 2952,
+        "namespace_signal": "hr, reg3, seifert_weber"
+      },
+      "source": "reg3.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:renderbuffer.cpp",
+      "name": "renderbuffer.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 270,
+        "namespace_signal": "hr"
+      },
+      "source": "renderbuffer.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:rug.cpp",
+      "name": "rug.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 1962,
+        "namespace_signal": "hr, rug"
+      },
+      "source": "rug.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:rulegen.cpp",
+      "name": "rulegen.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 2840,
+        "namespace_signal": "hr, rulegen"
+      },
+      "source": "rulegen.cpp",
+      "deep_systems": [],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:rulegen3.cpp",
+      "name": "rulegen3.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 1761,
+        "namespace_signal": "hr, rulegen"
+      },
+      "source": "rulegen3.cpp",
+      "deep_systems": [],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:savemem.cpp",
+      "name": "savemem.cpp",
+      "family": "save and revision",
+      "size_signal": {
+        "lines": 310,
+        "namespace_signal": "hr"
+      },
+      "source": "savemem.cpp",
+      "deep_systems": [],
+      "routing_ref": 4,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:savepng.cpp",
+      "name": "savepng.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 206,
+        "namespace_signal": ""
+      },
+      "source": "savepng.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:scores.cpp",
+      "name": "scores.cpp",
+      "family": "save and revision",
+      "size_signal": {
+        "lines": 436,
+        "namespace_signal": "hr, scores"
+      },
+      "source": "scores.cpp",
+      "deep_systems": [],
+      "routing_ref": 4,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:screenshot.cpp",
+      "name": "screenshot.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 2123,
+        "namespace_signal": "hr, shot, svg, wrl, anims, startanims"
+      },
+      "source": "screenshot.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:shaders.cpp",
+      "name": "shaders.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1073,
+        "namespace_signal": "hr"
+      },
+      "source": "shaders.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:shmup.cpp",
+      "name": "shmup.cpp",
+      "family": "modes events and progression",
+      "size_signal": {
+        "lines": 3238,
+        "namespace_signal": "hr, shmupballs, shmup"
+      },
+      "source": "shmup.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:sky.cpp",
+      "name": "sky.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 730,
+        "namespace_signal": "hr"
+      },
+      "source": "sky.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:sound.cpp",
+      "name": "sound.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 325,
+        "namespace_signal": "hr"
+      },
+      "source": "sound.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:sphere.cpp",
+      "name": "sphere.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 211,
+        "namespace_signal": "hr"
+      },
+      "source": "sphere.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:surface.cpp",
+      "name": "surface.cpp",
+      "family": "geometry and mathematical spaces",
+      "size_signal": {
+        "lines": 867,
+        "namespace_signal": "hr, surface"
+      },
+      "source": "surface.cpp",
+      "deep_systems": [],
+      "routing_ref": 2,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:system.cpp",
+      "name": "system.cpp",
+      "family": "save and revision",
+      "size_signal": {
+        "lines": 2056,
+        "namespace_signal": "hr, rg, scores, anticheat"
+      },
+      "source": "system.cpp",
+      "deep_systems": [
+        "DS01",
+        "DS12",
+        "DS13"
+      ],
+      "routing_ref": 4,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:textures.cpp",
+      "name": "textures.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1787,
+        "namespace_signal": "hr, texture"
+      },
+      "source": "textures.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:tour.cpp",
+      "name": "tour.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1184,
+        "namespace_signal": "hr, tour, LEGAL, ss"
+      },
+      "source": "tour.cpp",
+      "deep_systems": [
+        "DS15"
+      ],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:usershapes.cpp",
+      "name": "usershapes.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 112,
+        "namespace_signal": "hr"
+      },
+      "source": "usershapes.cpp",
+      "deep_systems": [],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:util.cpp",
+      "name": "util.cpp",
+      "family": "architecture platform and tooling",
+      "size_signal": {
+        "lines": 1173,
+        "namespace_signal": "hr"
+      },
+      "source": "util.cpp",
+      "deep_systems": [],
+      "routing_ref": 7,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:vr.cpp",
+      "name": "vr.cpp",
+      "family": "UI rendering and feedback",
+      "size_signal": {
+        "lines": 1709,
+        "namespace_signal": "hr, vrhr"
+      },
+      "source": "vr.cpp",
+      "deep_systems": [],
+      "routing_ref": 0,
+      "unit_ref": 0,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:wfcgen.cpp",
+      "name": "wfcgen.cpp",
+      "family": "content authoring",
+      "size_signal": {
+        "lines": 291,
+        "namespace_signal": "hr, wfc"
+      },
+      "source": "wfcgen.cpp",
+      "deep_systems": [
+        "DS14"
+      ],
+      "routing_ref": 10,
+      "unit_ref": 0,
+      "prior_depth_ref": 2,
+      "prior_undocumented_ref": 0,
+      "status_ref": 2,
+      "remaining_ref": 1,
+      "evidence_ref": 0
+    },
+    {
+      "id": "MOD:yendor.cpp",
+      "name": "yendor.cpp",
+      "family": "modes events and progression",
+      "size_signal": {
+        "lines": 1800,
+        "namespace_signal": "hr, peace, yendor, tactic, simon"
+      },
+      "source": "yendor.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 0,
+      "prior_depth_ref": 1,
+      "prior_undocumented_ref": 1,
+      "status_ref": 1,
+      "remaining_ref": 0,
+      "evidence_ref": 0
+    },
+    {
+      "id": "GROUP:devmods",
+      "name": "devmods optional source group",
+      "family": "optional extensions",
+      "size_signal": {
+        "cpp_files": 20
+      },
+      "source": "devmods/",
+      "deep_systems": [],
+      "routing_ref": 11,
+      "unit_ref": 1,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 2,
+      "evidence_ref": 0
+    },
+    {
+      "id": "GROUP:generators",
+      "name": "generators optional source group",
+      "family": "optional extensions",
+      "size_signal": {
+        "cpp_files": 5
+      },
+      "source": "generators/",
+      "deep_systems": [],
+      "routing_ref": 11,
+      "unit_ref": 1,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 2,
+      "evidence_ref": 0
+    },
+    {
+      "id": "GROUP:hyperroid",
+      "name": "hyperroid optional source group",
+      "family": "optional extensions",
+      "size_signal": {
+        "cpp_files": 1
+      },
+      "source": "hyperroid/",
+      "deep_systems": [],
+      "routing_ref": 11,
+      "unit_ref": 1,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 2,
+      "evidence_ref": 0
+    },
+    {
+      "id": "GROUP:rogueviz",
+      "name": "rogueviz optional source group",
+      "family": "optional extensions",
+      "size_signal": {
+        "cpp_files": 161
+      },
+      "source": "rogueviz/",
+      "deep_systems": [],
+      "routing_ref": 11,
+      "unit_ref": 1,
+      "prior_depth_ref": 0,
+      "prior_undocumented_ref": 0,
+      "status_ref": 0,
+      "remaining_ref": 2,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:01",
+      "name": "wind",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:02",
+      "name": "charge graph",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:03",
+      "name": "rescue",
+      "family": "social and companions",
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS01",
+        "DS02"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:04",
+      "name": "clearing",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:05",
+      "name": "whirlpool",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:06",
+      "name": "mirrors",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS12"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:07",
+      "name": "hive",
+      "family": "ecology and AI",
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS09"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:08",
+      "name": "heat/fire",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS07"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:09",
+      "name": "living caves/fjord",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:10",
+      "name": "tortoise identity",
+      "family": "knowledge and objects",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:11",
+      "name": "dragon",
+      "family": "body and combat",
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS05"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:12",
+      "name": "sword",
+      "family": "combat",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:13",
+      "name": "kraken",
+      "family": "body and combat",
+      "source": "complex.cpp",
+      "deep_systems": [
+        "DS05"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:14",
+      "name": "prairie",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:15",
+      "name": "cellular automaton",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:16",
+      "name": "dungeon",
+      "family": "world simulation",
+      "source": "complex.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:17",
+      "name": "Brownian islands",
+      "family": "world simulation",
+      "source": "complex2.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:18",
+      "name": "Free Fall",
+      "family": "world simulation",
+      "source": "complex2.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:19",
+      "name": "variant features",
+      "family": "world simulation",
+      "source": "complex2.cpp",
+      "deep_systems": [],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:20",
+      "name": "Camelot",
+      "family": "dialogue and information",
+      "source": "complex2.cpp",
+      "deep_systems": [
+        "DS02"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:21",
+      "name": "mines",
+      "family": "knowledge and UI",
+      "source": "complex2.cpp",
+      "deep_systems": [
+        "DS06"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:22",
+      "name": "terracotta",
+      "family": "events and combat",
+      "source": "complex2.cpp",
+      "deep_systems": [
+        "DS10"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:23",
+      "name": "ambush",
+      "family": "events and combat",
+      "source": "complex2.cpp",
+      "deep_systems": [
+        "DS10"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:24",
+      "name": "dice",
+      "family": "body and object puzzles",
+      "source": "complex2.cpp",
+      "deep_systems": [
+        "DS11"
+      ],
+      "routing_ref": 6,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 4,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:25",
+      "name": "access predicates",
+      "family": "world graph and generation",
+      "source": "landlock.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:26",
+      "name": "candidate weighting",
+      "family": "world graph and generation",
+      "source": "landlock.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:27",
+      "name": "geometry validity",
+      "family": "world graph and generation",
+      "source": "landlock.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:28",
+      "name": "custom land lists",
+      "family": "content authoring",
+      "source": "landlock.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:29",
+      "name": "Yendor quest",
+      "family": "modes events and progression",
+      "source": "yendor.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:30",
+      "name": "scenario challenge",
+      "family": "modes events and progression",
+      "source": "yendor.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:31",
+      "name": "tactics",
+      "family": "modes events and progression",
+      "source": "yendor.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:32",
+      "name": "peace",
+      "family": "modes events and progression",
+      "source": "yendor.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:33",
+      "name": "mode coding",
+      "family": "save and revision",
+      "source": "yendor.cpp",
+      "deep_systems": [],
+      "routing_ref": 1,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:34",
+      "name": "orb spawn and relationships",
+      "family": "resource and power economy",
+      "source": "orbgen.cpp",
+      "deep_systems": [],
+      "routing_ref": 8,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:35",
+      "name": "active charges",
+      "family": "resource and power economy",
+      "source": "orbs.cpp",
+      "deep_systems": [],
+      "routing_ref": 8,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:36",
+      "name": "stored activations",
+      "family": "resource and power economy",
+      "source": "inventory.cpp",
+      "deep_systems": [],
+      "routing_ref": 8,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:37",
+      "name": "geometric structures",
+      "family": "world graph and generation",
+      "source": "bigstuff.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:38",
+      "name": "boundaries",
+      "family": "world graph and generation",
+      "source": "barriers.cpp",
+      "deep_systems": [],
+      "routing_ref": 5,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "SUB:39",
+      "name": "move preview rollback commit",
+      "family": "architecture platform and tooling",
+      "source": "pcmove.cpp",
+      "deep_systems": [],
+      "routing_ref": 3,
+      "unit_ref": 2,
+      "prior_depth_ref": 3,
+      "prior_undocumented_ref": 0,
+      "status_ref": 1,
+      "remaining_ref": 3,
+      "evidence_ref": 0
+    },
+    {
+      "id": "LAND:laNone",
+      "name": "???",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1059",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laBarrier",
+      "name": "Great Wall",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1063",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCrossroads",
+      "name": "Crossroads",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1067",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDesert",
+      "name": "Desert",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1079",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laIce",
+      "name": "Icy Land",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1085",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCaves",
+      "name": "Living Cave",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1092",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laJungle",
+      "name": "Jungle",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1096",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laAlchemist",
+      "name": "Alchemist Lab",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1102",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMirror",
+      "name": "Hall of Mirrors",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1106",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laGraveyard",
+      "name": "Graveyard",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1114",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laRlyeh",
+      "name": "R'Lyeh",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1121",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHell",
+      "name": "Hell",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1130",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCocytus",
+      "name": "Cocytus",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1136",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMotion",
+      "name": "Land of Eternal Motion",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1142",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDryForest",
+      "name": "Dry Forest",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1150",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEmerald",
+      "name": "Emerald Mine",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1154",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWineyard",
+      "name": "Vineyard",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1162",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDeadCaves",
+      "name": "Dead Cave",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1166",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHive",
+      "name": "Hive",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1170",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laPower",
+      "name": "Land of Power",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1174",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCamelot",
+      "name": "Camelot",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1187",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laTemple",
+      "name": "Temple of Cthulhu",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1191",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCrossroads2",
+      "name": "Crossroads II",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1195",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCaribbean",
+      "name": "Caribbean",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1202",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laRedRock",
+      "name": "Red Rock Valley",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1206",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMinefield",
+      "name": "Minefield",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1210",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laOcean",
+      "name": "Ocean",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1214",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWhirlpool",
+      "name": "Whirlpool",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1222",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laPalace",
+      "name": "Palace",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1231",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laLivefjord",
+      "name": "Living Fjord",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1236",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laIvoryTower",
+      "name": "Ivory Tower",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1246",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laZebra",
+      "name": "Zebra",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1255",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEFire",
+      "name": "Plane of Fire",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1259",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEAir",
+      "name": "Plane of Air",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1263",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEEarth",
+      "name": "Plane of Earth",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1267",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEWater",
+      "name": "Plane of Water",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1271",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCrossroads3",
+      "name": "Crossroads III",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1275",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laOceanWall",
+      "name": "Sea Border",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1281",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laElementalWall",
+      "name": "Elemental Planes",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1286",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCanvas",
+      "name": "Canvas",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1295",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laPrincessQuest",
+      "name": "Palace Quest",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1299",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWildWest",
+      "name": "Wild West",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1303",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laStorms",
+      "name": "Land of Storms",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1307",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laOvergrown",
+      "name": "Overgrown Woods",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1311",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laClearing",
+      "name": "Clearing",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1315",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHaunted",
+      "name": "Haunted Woods",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1319",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHauntedWall",
+      "name": "Haunted Woods",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1323",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHauntedBorder",
+      "name": "Haunted Woods",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1327",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWhirlwind",
+      "name": "Windy Plains",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1331",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laRose",
+      "name": "Rose Garden",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1335",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWarpCoast",
+      "name": "Warped Coast",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1339",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWarpSea",
+      "name": "Warped Sea",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1343",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCrossroads4",
+      "name": "Crossroads IV",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1347",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEndorian",
+      "name": "Yendorian Forest",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1353",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laTortoise",
+      "name": "Galápagos",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1360",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDragon",
+      "name": "Dragon Chasms",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1364",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laKraken",
+      "name": "Kraken Depths",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1368",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laBurial",
+      "name": "Burial Grounds",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1380",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laTrollheim",
+      "name": "Trollheim",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1389",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHalloween",
+      "name": "Halloween",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1405",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDungeon",
+      "name": "Dungeon",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1417",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMountain",
+      "name": "Lost Mountain",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1426",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laReptile",
+      "name": "Reptiles",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1439",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laPrairie",
+      "name": "Prairie",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1443",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laBull",
+      "name": "Bull Dash",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1447",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCrossroads5",
+      "name": "Crossroads V",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1451",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCA",
+      "name": "Cellular Automaton",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1455",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMirrorWall",
+      "name": "Mirror Wall",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1459",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMirrored",
+      "name": "Reflection",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1462",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMirrorWall2",
+      "name": "Reflection",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1466",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMirrored2",
+      "name": "Reflection",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1470",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMirrorOld",
+      "name": "Mirror Land",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1474",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laVolcano",
+      "name": "Volcanic Wasteland",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1479",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laBlizzard",
+      "name": "Blizzard",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1483",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laHunting",
+      "name": "Hunting Ground",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1487",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laTerracotta",
+      "name": "Terracotta Army",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1491",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMercuryRiver",
+      "name": "Terracotta Army",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1495",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDual",
+      "name": "Crystal World",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1499",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laSnakeNest",
+      "name": "Snake Nest",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1503",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDocks",
+      "name": "Docks",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1507",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laRuins",
+      "name": "Ruined City",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1511",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMagnetic",
+      "name": "Magnetosphere",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1517",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laSwitch",
+      "name": "Jelly Kingdom",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1521",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMemory",
+      "name": "Lost Memory",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1525",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laBrownian",
+      "name": "Brown Island",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1534",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWestWall",
+      "name": "Free Fall",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1546",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laVariant",
+      "name": "Irradiated Field",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1553",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laAsteroids",
+      "name": "Space Rocks",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1570",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laWet",
+      "name": "Wetland",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1576",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laFrog",
+      "name": "Frog Park",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1604",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laEclectic",
+      "name": "Eclectic City",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1639",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCursed",
+      "name": "Cursed Canyon",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1706",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laDice",
+      "name": "Dice Reserve",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1721",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laCrossroads6",
+      "name": "Crossroads VI",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1753",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "LAND:laMasterCrossroads",
+      "name": "Master Crossroads",
+      "family": "world laws and regional loops",
+      "source": "content.cpp:1757",
+      "deep_systems": [],
+      "routing_ref": 12,
+      "unit_ref": 3,
+      "prior_depth_ref": 4,
+      "prior_undocumented_ref": 0,
+      "status_ref": 4,
+      "remaining_ref": 5,
+      "evidence_ref": 1
+    },
+    {
+      "id": "DS01",
+      "name": "Rescue as an escort state machine",
+      "family": "social and companions",
+      "sources": [
+        "complex.cpp:503-816",
+        "monstermove.cpp:1630-1785",
+        "system.cpp:1258-1265",
+        "system.cpp:1879-1880"
+      ],
+      "deep_systems": [
+        "DS01"
+      ],
+      "routing_ref": 13,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 6,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS02",
+      "name": "Ambient speech, acknowledgement and named knights",
+      "family": "dialogue and information",
+      "sources": [
+        "complex2.cpp:333-519",
+        "complex.cpp:706-816",
+        "pcmove.cpp:1109",
+        "pcmove.cpp:1355"
+      ],
+      "deep_systems": [
+        "DS02"
+      ],
+      "routing_ref": 14,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 7,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS03",
+      "name": "Companion utility and lawful pathfinding",
+      "family": "social and AI",
+      "sources": [
+        "environment.cpp:82-304",
+        "monstermove.cpp:1500-1785",
+        "environment.cpp:836-869"
+      ],
+      "deep_systems": [
+        "DS03"
+      ],
+      "routing_ref": 15,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 8,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS04",
+      "name": "Attack grammar, stun and combat aftermath",
+      "family": "combat",
+      "sources": [
+        "attack.cpp:82-181",
+        "attack.cpp:391-438",
+        "attack.cpp:478-550",
+        "attack.cpp:1007-1062"
+      ],
+      "deep_systems": [
+        "DS04"
+      ],
+      "routing_ref": 16,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 9,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS05",
+      "name": "Segmented bodies and mounted movement",
+      "family": "body and combat",
+      "sources": [
+        "complex.cpp:2648-2834",
+        "complex.cpp:2983-3129",
+        "attack.cpp:478-505"
+      ],
+      "deep_systems": [
+        "DS05"
+      ],
+      "routing_ref": 17,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 10,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS06",
+      "name": "Mine knowledge, marking and reveal radius",
+      "family": "knowledge and UI",
+      "sources": [
+        "complex2.cpp:520-668",
+        "mapeffects.cpp:544-549"
+      ],
+      "deep_systems": [
+        "DS06"
+      ],
+      "routing_ref": 18,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 11,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS07",
+      "name": "Thermal simulation, fire and finite transformations",
+      "family": "world simulation and materials",
+      "sources": [
+        "complex.cpp:2073-2375",
+        "mapeffects.cpp:143-159",
+        "environment.cpp:836-895"
+      ],
+      "deep_systems": [
+        "DS07"
+      ],
+      "routing_ref": 19,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 12,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS08",
+      "name": "Tides, hazard phases and truthful countdowns",
+      "family": "time and world simulation",
+      "sources": [
+        "mapeffects.cpp:646-750",
+        "environment.cpp:827-874",
+        "help.cpp:969-991"
+      ],
+      "deep_systems": [
+        "DS08"
+      ],
+      "routing_ref": 20,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 13,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS09",
+      "name": "Hive conflict and local traces",
+      "family": "ecology and AI",
+      "sources": [
+        "complex.cpp:1702-1970"
+      ],
+      "deep_systems": [
+        "DS09"
+      ],
+      "routing_ref": 21,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 14,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS10",
+      "name": "Committed ambushes and delayed awakening",
+      "family": "events and combat",
+      "sources": [
+        "complex2.cpp:670-919"
+      ],
+      "deep_systems": [
+        "DS10"
+      ],
+      "routing_ref": 22,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 15,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS11",
+      "name": "Sentient dice as stateful objects",
+      "family": "body and object puzzles",
+      "sources": [
+        "complex2.cpp:919-1208",
+        "pcmove.cpp:843-868",
+        "mapeditor.cpp:1202-1211",
+        "mapeditor.cpp:1422-1435"
+      ],
+      "deep_systems": [
+        "DS11"
+      ],
+      "routing_ref": 23,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 16,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS12",
+      "name": "Ranged path preview and reload work",
+      "family": "combat and UI",
+      "sources": [
+        "crossbow.cpp:26-117",
+        "crossbow.cpp:217-278",
+        "crossbow.cpp:383-539",
+        "pcmove.cpp:323-345",
+        "orbs.cpp:230-235",
+        "system.cpp:1042-1049"
+      ],
+      "deep_systems": [
+        "DS12"
+      ],
+      "routing_ref": 24,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 17,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS13",
+      "name": "Map topology persistence and versioned restoration",
+      "family": "save and revision",
+      "sources": [
+        "mapeditor.cpp:818-878",
+        "mapeditor.cpp:1131-1306",
+        "mapeditor.cpp:1326-1580",
+        "mapeditor.cpp:1608-1697",
+        "system.cpp:1316-1447"
+      ],
+      "deep_systems": [
+        "DS13"
+      ],
+      "routing_ref": 25,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 18,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS14",
+      "name": "Example-driven generation and repair",
+      "family": "content authoring",
+      "sources": [
+        "wfcgen.cpp:5-112",
+        "wfcgen.cpp:145-240",
+        "landgen.cpp:2636-2684"
+      ],
+      "deep_systems": [
+        "DS14"
+      ],
+      "routing_ref": 26,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 19,
+      "evidence_ref": 2
+    },
+    {
+      "id": "DS15",
+      "name": "Playable lessons with reversible presentation state",
+      "family": "onboarding and UI",
+      "sources": [
+        "tour.cpp:20-164",
+        "tour.cpp:337-455",
+        "tour.cpp:602-646",
+        "tour.cpp:646-1135"
+      ],
+      "deep_systems": [
+        "DS15"
+      ],
+      "routing_ref": 27,
+      "unit_ref": 4,
+      "prior_depth_ref": 5,
+      "prior_undocumented_ref": 0,
+      "status_ref": 3,
+      "remaining_ref": 20,
+      "evidence_ref": 2
+    },
+    {
+      "id": "NEG:1",
+      "name": "households careers and market economy",
+      "family": "not_established_in_core",
+      "source": "content.cpp; complex.cpp; complex2.cpp; items.cpp; prior aspect census",
+      "deep_systems": [],
+      "routing_ref": 28,
+      "unit_ref": 5,
+      "prior_depth_ref": 6,
+      "prior_undocumented_ref": 1,
+      "status_ref": 5,
+      "remaining_ref": 21,
+      "evidence_ref": 3
+    },
+    {
+      "id": "NEG:2",
+      "name": "genetic inheritance parentage and lineage",
+      "family": "not_established_in_core",
+      "source": "content.cpp; complex.cpp; complex2.cpp; items.cpp; prior aspect census",
+      "deep_systems": [],
+      "routing_ref": 29,
+      "unit_ref": 5,
+      "prior_depth_ref": 6,
+      "prior_undocumented_ref": 1,
+      "status_ref": 5,
+      "remaining_ref": 21,
+      "evidence_ref": 3
+    },
+    {
+      "id": "NEG:3",
+      "name": "research tree and technology diffusion",
+      "family": "not_established_in_core",
+      "source": "content.cpp; complex.cpp; complex2.cpp; items.cpp; prior aspect census",
+      "deep_systems": [],
+      "routing_ref": 30,
+      "unit_ref": 5,
+      "prior_depth_ref": 6,
+      "prior_undocumented_ref": 1,
+      "status_ref": 5,
+      "remaining_ref": 21,
+      "evidence_ref": 3
+    },
+    {
+      "id": "NEG:4",
+      "name": "recipe production chains and workforce allocation",
+      "family": "not_established_in_core",
+      "source": "content.cpp; complex.cpp; complex2.cpp; items.cpp; prior aspect census",
+      "deep_systems": [],
+      "routing_ref": 31,
+      "unit_ref": 5,
+      "prior_depth_ref": 6,
+      "prior_undocumented_ref": 1,
+      "status_ref": 5,
+      "remaining_ref": 21,
+      "evidence_ref": 3
+    }
+  ]
+}

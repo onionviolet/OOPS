@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "batch": "B535",
+  "title": "Ideas inventory body, combat, making and economy tranche",
+  "at": "2026-11-05T10:05:28.333655+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "ids": [
+        "AY13/25/27/29/30/31",
+        "BHN1–BHN8",
+        "BHL1–BHL8",
+        "CBL1–CBL10",
+        "crafting-local ER1–ER17",
+        "crafting-local L1–L13",
+        "crafting-local SC1–SC12",
+        "ECL1–ECL5",
+        "ENGINE_EXPANSION:EI2"
+      ],
+      "classification": "partial actual dense-row review; health/combat/making/economic mechanism distinctions preserved",
+      "owners": [
+        "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md"
+      ],
+      "disposition": "F1: Actual new review covers original lines141–220: AY13/25/27/29/30/31; BHN1–BHN8/BHL1–BHL8; CBL1–CBL10; crafting-local ER1–ER17/L1–L13/SC1–SC12; ECL1–ECL5 and ENGINE_EXPANSION:EI2. Together B534 and B535 cover original1–220, not the rest of this inventory or the underlying suppliers. The two appended tranche notes preserve their exact scope. Resume original221–1169 next; do not reread or credit the rest by filename/routing.\n\nF2: AY authored-order/new-line markers, optional role grouping, explicit Leave with local non-leavable reason and absent-person journal belong to the current interaction/navigation owner. A dot is not a count, conversation inspection is not auto-dialogue and a known last-seen location is not current presence. Old1366 acceptance and copied effort prose are dated, with mobile still deferred. Health distinguishes body instance from mind/soul/line/record, and a medicine can act at one layer without mandatory cost beyond itself. Existing condition/tolerance/aging/support owners should be reconciled before another store, but two similar carriers do not automatically justify one universal physiology. Diagnosis/care/cause records may need a distinct owned slice rather than duplicating a condition state.\n\nF3: CBL1's defeat publisher and CBL3's saved-battle publication are marked built-and-played at their historical bounded scope. CBL3 explicitly excludes the later BHL7 injury consumer, so one shared publication record does not deliver all injuries or their real native aftermath. The later L2 health and L2c final-harm/witness distinctions reviewed in B527 remain separate. Subdue, conditional flee/pursuit, durability and idle food/withdraw are per-world candidates, not compulsory new hazards or a universal death outcome. Observer-qualified opponent data differs from own exact native counters under AD8. A MEMORY-to-source pass is an evidence task, not authority to drop useful uncertain ideas or force every world card into numeric lethality.\n\nF4: Crafting ER/L/SC are source-local, not ER research lanes or UI SC codes. Preserve formula identity versus original free mixes, staged ingredient state/order/verb parameters, chemistry versus execution draw, maker means, real stage time/labor, domain logic versus shared envelope, derived observer labels versus true product and quick/guided/deep involvement. Identity depends on actual requirements, not whether the method had a canon label; an effective unconventional method is not prohibited by a coarse GT category. Old compulsory body-ledger-before-all-stacking or split-envelope-before-second-domain advice is a consumer question under AD38/AD51, not a new foundation gate. All catalogue/site/owner/calendar absence and ID-size claims remain dated; B527's selected material reader is useful later evidence without proving arbitrary chemistry or every proposed process.\n\nF5: Generated truth-bearing IDs and frozen recipe witnesses create disclosure boundaries for player views/exports, not evidence that sealed truth was exposed in this review. Distinctive observed appearance can separate unidentified vials without granting hidden identity; a universal identical label is not required. Zero rounded effect versus trace actives, product mass versus carrier count, source placement versus cloned tags, per-harvest variation versus stable site history, stack grades and noncommuting ban/reweight overlays remain meaningful separate ideas. Rewinds restore the proper clock/state contract rather than feeding a backwards timestamp into an unrelated monotonic node. Private author tooling can inspect truth, while user-facing atlas/reports retain IDs/routes/status until discovery. ECL reference baskets can inform a proposed exchange, not create fictional convertibility; rent/absence uses the selected world-clock policy, not automatic offline ticking. Known input cost versus unknown and actual faucet/sink records remain useful economic views. EI2 preserves exact non-person target adapters without pretending a door/pool is an actor or mandating a universal entity rewrite. No source, runtime, body, economy, world law or priority was changed by these crosswalk dispositions.",
+      "evidence": "Actual original141–180 and181–220 read completely, separate bounded outputs. Prior original1–140 reviewed B534; original221–1169 remain unread in this run. Underlying supplier files/receipts, source prose and runtime not revalidated.",
+      "reopen": "Continue original221–1169 in bounded chunks and combine actual range evidence with B534/B535 before any full-file claim.",
+      "full": false,
+      "ranges": [
+        [
+          141,
+          220
+        ]
+      ],
+      "input_sha256": "d4f9f72ab677bc87145fb37a0bd944b666a8266ae64854d8c79e9bed50dc8587",
+      "input_lines": 1180
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "heading": "## Content reconciliation B535: body, combat, making and economy tranche",
+      "body": "F1: Actual new review covers original lines141–220: AY13/25/27/29/30/31; BHN1–BHN8/BHL1–BHL8; CBL1–CBL10; crafting-local ER1–ER17/L1–L13/SC1–SC12; ECL1–ECL5 and ENGINE_EXPANSION:EI2. Together B534 and B535 cover original1–220, not the rest of this inventory or the underlying suppliers. The two appended tranche notes preserve their exact scope. Resume original221–1169 next; do not reread or credit the rest by filename/routing.\n\nF2: AY authored-order/new-line markers, optional role grouping, explicit Leave with local non-leavable reason and absent-person journal belong to the current interaction/navigation owner. A dot is not a count, conversation inspection is not auto-dialogue and a known last-seen location is not current presence. Old1366 acceptance and copied effort prose are dated, with mobile still deferred. Health distinguishes body instance from mind/soul/line/record, and a medicine can act at one layer without mandatory cost beyond itself. Existing condition/tolerance/aging/support owners should be reconciled before another store, but two similar carriers do not automatically justify one universal physiology. Diagnosis/care/cause records may need a distinct owned slice rather than duplicating a condition state.\n\nF3: CBL1's defeat publisher and CBL3's saved-battle publication are marked built-and-played at their historical bounded scope. CBL3 explicitly excludes the later BHL7 injury consumer, so one shared publication record does not deliver all injuries or their real native aftermath. The later L2 health and L2c final-harm/witness distinctions reviewed in B527 remain separate. Subdue, conditional flee/pursuit, durability and idle food/withdraw are per-world candidates, not compulsory new hazards or a universal death outcome. Observer-qualified opponent data differs from own exact native counters under AD8. A MEMORY-to-source pass is an evidence task, not authority to drop useful uncertain ideas or force every world card into numeric lethality.\n\nF4: Crafting ER/L/SC are source-local, not ER research lanes or UI SC codes. Preserve formula identity versus original free mixes, staged ingredient state/order/verb parameters, chemistry versus execution draw, maker means, real stage time/labor, domain logic versus shared envelope, derived observer labels versus true product and quick/guided/deep involvement. Identity depends on actual requirements, not whether the method had a canon label; an effective unconventional method is not prohibited by a coarse GT category. Old compulsory body-ledger-before-all-stacking or split-envelope-before-second-domain advice is a consumer question under AD38/AD51, not a new foundation gate. All catalogue/site/owner/calendar absence and ID-size claims remain dated; B527's selected material reader is useful later evidence without proving arbitrary chemistry or every proposed process.\n\nF5: Generated truth-bearing IDs and frozen recipe witnesses create disclosure boundaries for player views/exports, not evidence that sealed truth was exposed in this review. Distinctive observed appearance can separate unidentified vials without granting hidden identity; a universal identical label is not required. Zero rounded effect versus trace actives, product mass versus carrier count, source placement versus cloned tags, per-harvest variation versus stable site history, stack grades and noncommuting ban/reweight overlays remain meaningful separate ideas. Rewinds restore the proper clock/state contract rather than feeding a backwards timestamp into an unrelated monotonic node. Private author tooling can inspect truth, while user-facing atlas/reports retain IDs/routes/status until discovery. ECL reference baskets can inform a proposed exchange, not create fictional convertibility; rent/absence uses the selected world-clock policy, not automatic offline ticking. Known input cost versus unknown and actual faucet/sink records remain useful economic views. EI2 preserves exact non-person target adapters without pretending a door/pool is an actor or mandating a universal entity rewrite. No source, runtime, body, economy, world law or priority was changed by these crosswalk dispositions.",
+      "before_sha256": "d4f9f72ab677bc87145fb37a0bd944b666a8266ae64854d8c79e9bed50dc8587",
+      "after_sha256": "2f87b85e2be6d4197abbccace4d870df137dab7bc5c393aad314f830c1251c2e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 173,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B530, continuous execution 2026-11-05 |",
+      "to": "| B535, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "92256da98987efb805e521d28bffd7808affb7c2522fa122c8b8fd3cb62910dd",
+      "to": "e341ea1d9664edd17cdc9848fc825b443ca0ececc7b538a6e558be9c14add0fe",
+      "reason": "Exact task-owned register advancement."
+    }
+  ]
+}

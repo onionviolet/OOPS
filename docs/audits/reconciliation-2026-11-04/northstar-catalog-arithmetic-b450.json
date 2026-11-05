@@ -1,0 +1,13 @@
+{
+  "source": "docs/LIFE_SIM_NORTH_STAR.md",
+  "section": "Royal Road audit pointer",
+  "stated_atlas_total": 161,
+  "stated_categories": {
+    "covered": 99,
+    "partial": 47,
+    "new": 10
+  },
+  "category_sum": 156,
+  "unaccounted_difference": 5,
+  "scope": "Arithmetic over the pointer only. Category exhaustiveness and source atlas rows were not newly checked; no claim that the atlas itself contains only156."
+}

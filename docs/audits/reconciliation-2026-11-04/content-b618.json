@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "batch": "B618",
+  "title": "Three growth audits: actual evidence, world differences and local-code collisions",
+  "at": "2026-11-05T13:47:10.697899+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md",
+      "ids": [
+        "G23–G32",
+        "L11–L18",
+        "66title rows"
+      ],
+      "classification": "full historical growth/scale/world content; evidence correction and local-code crosswalk",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md"
+      ],
+      "disposition": "F1: Complete268-line read-history audit reviewed: method, all66title rows, G23–G32andL11–L18proposals,12standout subtleties, five ranked picks and alternates. Count66agrees with the actual table;189favorite/follow rows, about75progression works and reported19early-chapter reads are historical intake/reader reports, not new source/user-reading certification. Followed is not deeply read, failed/stubbed chapters are not read, and early/recollected/marketing evidence cannot establish full-story caps/endpoints. No catalogue/account/current-availability lookup or novel body read occurs.\n\nF2: Its strongest L8conclusion conflicts with its own Super Supportive row: contract name/offer odds/ranks are labeled READ while service owed is MEMORY. A contract title alone does not prove rank measures investment or duty debt. Correct that conclusion while preserving exact original in this receipt. G23harvest need not make keeping growth universally criminal; that is a source-specific regime. G24lump-size conversion differs from ordinary XP spending/upkeep; Dreamer’s Throne spending alone does not prove banking-to-grade. G26territory/ecology/capacity are different carriers, not all inner worlds automatically one formula. G29systemverdict differs from ordinary social judgment; G30numericalmilestones do not establish universally visible title/power. Keep G31role-based rules and G32actual economic ownership rather than assuming every custody gate scales growth.\n\nF3: L11remaining-lifespan timer, rank-caused life extension and a level literally denominated in years are different. An Orange-core lifespan increase alone does not prove its rank number is years-left. L12observed threat differs from faculty; L13caste/access differs from power; L14market price/body value differs from level; L15floor/depth differs from character strength; L16relative cohort position differs from physical growth; L17verdict differs from independently granted title; L18quantified measurement needs its actual unit. Preserve unusual mechanisms without converting analogies into proven source laws.\n\nF4: Proposals for throwing away XP overflow, noble information privilege, infant-clone source changes, adaptation pain, fixed faculty, spectator appraisals and broken-system fuel remain source-qualified. No universal anti-lucky-kill cap, pain cost, corruption, weak starting life or compulsory grind is adopted. Existing merged G/Lcrosswalk governs; retain source-local numbers with document name. Later reading candidates/prices/chapter counts are dated research priorities, not a present acquisition queue or current recommendation. Human review is optional under AD42; current PROJECTbook-world order governs selection.",
+      "evidence": "All actual prose/tables/code/checkpoints read in bounded sections; source snippets and displayed arithmetic separately checked, no primary novel/gameplay or new external research.",
+      "reopen": "Use current owners for selected gaps; preserve source-local code prefixes and historical evidence grades, no automatic new research or implementation.",
+      "full": true,
+      "input_sha256": "b43b92e493984b34c87f73380ca9897b2e8daf3d36207e5ebc4b625ac6c761a0",
+      "input_lines": 268,
+      "ranges": [
+        [
+          1,
+          268
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md",
+      "ids": [
+        "F1–F9",
+        "N1–N11",
+        "P1–P10",
+        "J1–J10",
+        "S1–S20(C2)",
+        "O1–O5",
+        "D1–D5",
+        "A1–A5"
+      ],
+      "classification": "full historical growth/scale/world content; evidence correction and local-code crosswalk",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md"
+      ],
+      "disposition": "F1: Complete466-line C2audit reviewed: F1–F9,11N/10P/10Jsource entries, all scale/cap/spacing/population/gap/trajectory/transfer rows, S1–S14checks, six C2-local S15–S20proposals, O1–O5conversion alternatives, D1–D5pacing/display, all catalogue frequencies/tag subtotals/eight selected examples/genre caveats, full reproduction code, A1–A5source considerations, five fingerprints and checkpoint. Earlier truncated output was recovered by explicit1–96,97–123,124–160and161+reads; no unread middle credited. Catalogue1530rows/42position-fragment exclusions/1488blurbs and regex frequencies remain dated marketing-signal output, not actual shape prevalence, user reading or fresh source authenticity. No external page or primary novel passage was reread.\n\nF2: Keep cap, vocabulary, nesting, spacing, population and operational response composable. C2-local S15orthogonal/S16seat-stock/S17branch-converge/S18response/S19moving-era/S20personal ceiling are proposals, not globally registered codes. C3S15means the same independent-axis family; C3S16cost-wall is a different proposal, not C2S16seat scarcity. Existing merged G/Lmust govern collisions. Scarce characteristics, innate cap, institutional office, version limits, appraised threat, named release, path capacity and demonstrated outcome must not become a universal numeric exchange. Huge finite is not uncapped; scale labels alone do not imply hard gaps. Same-era cohort samples are needed before a population distribution, and foreign unreadable is not absent power.\n\nF3: Formula checks agree: for a zero-intercept linear output1000/100is10, positive intercept changes it; exponential ratio is r^delta, and XP cost is not damage. Current selected Skillconstructor12–34,add_xp175–245,get_coefficient/get_level_bonus347–365retain default60/base40/scaling1.8, total-XP accumulation before capped display, pre-clamp threshold/unlock calculation and cap-normalized bonuses. Current source has explicit skillXP input, preparedUnlock path and source-availability logic, so old line/API shorthand cannot stand as a complete source audit. With M2/level20the ideal coefficient is1.259921at cap60versus1.013959at1000; arithmetic confirms compatibility risk, not tested damage/save behavior. No cap or progression implementation is changed; overflow/Infinity/performance/serialization remain untested questions, not reproduced failures.\n\nF4: Source-specific offline admission, supplies/conditions, breakthrough decision versus earned XP, two ledgers/known ETA and next useful change remain useful candidate displays, not a global idle policy or universal release gates. Official cap/version snapshots are historical and need checking when selecting that source. A1–A5andCOMMON’s old restrictions govern the dated research pass, not current authority to dispatch workers or require human review; AD42makes that review optional. Current PROJECTandrules govern a selected slice. Completed bounded research is compatible with unknown caps/late endpoints/conversion and unperformed native/save checks.",
+      "evidence": "All actual prose/tables/code/checkpoints read in bounded sections; source snippets and displayed arithmetic separately checked, no primary novel/gameplay or new external research.",
+      "reopen": "Use current owners for selected gaps; preserve source-local code prefixes and historical evidence grades, no automatic new research or implementation.",
+      "full": true,
+      "input_sha256": "12e849a3231af80e31a25c568d598dd8d330e7c0b3c5bd038ebdb69db07e7278",
+      "input_lines": 466,
+      "ranges": [
+        [
+          1,
+          466
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/skill-growth-2026-10-10/WORLD_GROWTH_AUDIT.md",
+      "ids": [
+        "W01–W21",
+        "W21a–W21d",
+        "F1–F16",
+        "G1–G41(C3)",
+        "L1–L23",
+        "S1–S16(C3)",
+        "A1–A25"
+      ],
+      "classification": "full historical growth/scale/world content; evidence correction and local-code crosswalk",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/research/skill-growth-2026-10-10/WORLD_GROWTH_AUDIT.md"
+      ],
+      "disposition": "F1: Full588-line C3world-growth audit reviewed:21main sections/fourcandidate subprofiles, all sevenprofilefields, F1–F16, complete24-world comparison rows, G1–G40pluslocalG41/L1–L23/S1–S14pluslocalS15–S16indexes,25A-gap/followup rows, checks/checkpoint. READ in this audit means local owner content, not original franchise proof. Ninecards/fourteenfolders/twooverlaps describe the2026-10-10inventory, not today’s complete world census or implementation coverage. No primary novel/manga/game source, catalogue, account or secret file was newly read. Current PROJECTKlein/HPpriority supersedes generic future-frontier/world-profile sequencing.\n\nF2: Preserve eleven distinct corrections: ANCnormaltrialvsHighTribulation and Priam-specific revival; Gu rank does not itself grant longer life; LOTM/COI/wiki era and boon/potion boundaries; ShadowGateway/ancientroute vs universal Nightmare plus no fixedFlawexchange; suppliedParadiseMTL vs authenticated original/carry rules; Narutosuspectattribution/excludedclaim; HPfatal-vow vs untestedGoblet sanctions; JJKself-vow/mutualsanction/innatebody/lethalmethod distinctions; MoLedition/cap-inference/continuousvisitor vs eligiblelooper; Proto23costcurve asymptotic correction. Gaps are not automatically still current; consult later source owners before reacquisition or new whole-book readers. None authorizes expanding Frontier/Mistglass now.\n\nF3: LocalC3G41restrictionexchange is a proposal for actual changed operative terms, not all vows, promises or imposed birth constraints. LocalC3S15independentaxes aligns with C2S15; C3S16cost-wall differs from C2S16finite-seat-stock. Do not mint/merge unqualified global IDs. The41G/23L/16Sindex entries openly preserve unsupported showcases; missing clean source example is not a nonexistent-world law. Teaching gives the learner a procedure but not proven teacher-XP, production/delegation is not inherently managerXP, inherited source is not mastered procedure, permission/office is not faculty or threat, gift ownership is not use support, narrative event roles are not necessarily a measured Plot Armor mechanism.\n\nF4: Original BayCity/SalvageReach/RedBasin and test/prototype designs need not claim franchise equivalence. Foreign physical means may function despite unreadable local ranks or absent native magic. Numeric schoolyears, office, floors, body value, death return, consent, source and eligibility remain distinct from levels. No common scalar/cap/globalpyramid, universal power suppression or forced weaklife is selected. Protagonist/era/version/suppliedMTL observations do not supply a complete local census. Proposed code holes remain explicit rather than forcing every model into an existing world.\n\nF5: Proto23formula round(50+(level+1)^ln(9level+1))at20gives7474050. Its asymptotic log-cost is on the order of(log level)^2, so faster than fixed polynomial yet slower than e^(c level)for anyfixedpositivec; super-exponential label is incorrect. ActualsourceR2notreread; only displayed equation arithmetic checked. Frontier, originalCyoria guest and broaderbook protagonists are different delivery contexts; prior native bindings/reading completions cannot be erased or renewed by this frozen design profile.25followups are reference proposals, not a new dispatch/acquisition queue or completion blockers for this document. AD36/AD43govern selectedruntime evidence and AD42humanreviewoptional. No gameplay/code, worker, acquisition, personal-save operation, build/test/browser, deletion/move, commit/push occurs.",
+      "evidence": "All actual prose/tables/code/checkpoints read in bounded sections; source snippets and displayed arithmetic separately checked, no primary novel/gameplay or new external research.",
+      "reopen": "Use current owners for selected gaps; preserve source-local code prefixes and historical evidence grades, no automatic new research or implementation.",
+      "full": true,
+      "input_sha256": "b903ad9400ecb895f6af793ca862690d8fa6b51f4375c71002cfbe4252c628b9",
+      "input_lines": 588,
+      "ranges": [
+        [
+          1,
+          588
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md",
+      "heading": "## Content reconciliation B618: evidence and current scope",
+      "body": "F1: Complete268-line read-history audit reviewed: method, all66title rows, G23–G32andL11–L18proposals,12standout subtleties, five ranked picks and alternates. Count66agrees with the actual table;189favorite/follow rows, about75progression works and reported19early-chapter reads are historical intake/reader reports, not new source/user-reading certification. Followed is not deeply read, failed/stubbed chapters are not read, and early/recollected/marketing evidence cannot establish full-story caps/endpoints. No catalogue/account/current-availability lookup or novel body read occurs.\n\nF2: Its strongest L8conclusion conflicts with its own Super Supportive row: contract name/offer odds/ranks are labeled READ while service owed is MEMORY. A contract title alone does not prove rank measures investment or duty debt. Correct that conclusion while preserving exact original in this receipt. G23harvest need not make keeping growth universally criminal; that is a source-specific regime. G24lump-size conversion differs from ordinary XP spending/upkeep; Dreamer’s Throne spending alone does not prove banking-to-grade. G26territory/ecology/capacity are different carriers, not all inner worlds automatically one formula. G29systemverdict differs from ordinary social judgment; G30numericalmilestones do not establish universally visible title/power. Keep G31role-based rules and G32actual economic ownership rather than assuming every custody gate scales growth.\n\nF3: L11remaining-lifespan timer, rank-caused life extension and a level literally denominated in years are different. An Orange-core lifespan increase alone does not prove its rank number is years-left. L12observed threat differs from faculty; L13caste/access differs from power; L14market price/body value differs from level; L15floor/depth differs from character strength; L16relative cohort position differs from physical growth; L17verdict differs from independently granted title; L18quantified measurement needs its actual unit. Preserve unusual mechanisms without converting analogies into proven source laws.\n\nF4: Proposals for throwing away XP overflow, noble information privilege, infant-clone source changes, adaptation pain, fixed faculty, spectator appraisals and broken-system fuel remain source-qualified. No universal anti-lucky-kill cap, pain cost, corruption, weak starting life or compulsory grind is adopted. Existing merged G/Lcrosswalk governs; retain source-local numbers with document name. Later reading candidates/prices/chapter counts are dated research priorities, not a present acquisition queue or current recommendation. Human review is optional under AD42; current PROJECTbook-world order governs selection.",
+      "before_sha256": "b43b92e493984b34c87f73380ca9897b2e8daf3d36207e5ebc4b625ac6c761a0",
+      "after_sha256": "15e8a201c18545e4eda4d21e74a7681dfba466e942ce32e776f09202c32293ac"
+    },
+    {
+      "path": "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md",
+      "heading": "## Content reconciliation B618: evidence and current scope",
+      "body": "F1: Complete466-line C2audit reviewed: F1–F9,11N/10P/10Jsource entries, all scale/cap/spacing/population/gap/trajectory/transfer rows, S1–S14checks, six C2-local S15–S20proposals, O1–O5conversion alternatives, D1–D5pacing/display, all catalogue frequencies/tag subtotals/eight selected examples/genre caveats, full reproduction code, A1–A5source considerations, five fingerprints and checkpoint. Earlier truncated output was recovered by explicit1–96,97–123,124–160and161+reads; no unread middle credited. Catalogue1530rows/42position-fragment exclusions/1488blurbs and regex frequencies remain dated marketing-signal output, not actual shape prevalence, user reading or fresh source authenticity. No external page or primary novel passage was reread.\n\nF2: Keep cap, vocabulary, nesting, spacing, population and operational response composable. C2-local S15orthogonal/S16seat-stock/S17branch-converge/S18response/S19moving-era/S20personal ceiling are proposals, not globally registered codes. C3S15means the same independent-axis family; C3S16cost-wall is a different proposal, not C2S16seat scarcity. Existing merged G/Lmust govern collisions. Scarce characteristics, innate cap, institutional office, version limits, appraised threat, named release, path capacity and demonstrated outcome must not become a universal numeric exchange. Huge finite is not uncapped; scale labels alone do not imply hard gaps. Same-era cohort samples are needed before a population distribution, and foreign unreadable is not absent power.\n\nF3: Formula checks agree: for a zero-intercept linear output1000/100is10, positive intercept changes it; exponential ratio is r^delta, and XP cost is not damage. Current selected Skillconstructor12–34,add_xp175–245,get_coefficient/get_level_bonus347–365retain default60/base40/scaling1.8, total-XP accumulation before capped display, pre-clamp threshold/unlock calculation and cap-normalized bonuses. Current source has explicit skillXP input, preparedUnlock path and source-availability logic, so old line/API shorthand cannot stand as a complete source audit. With M2/level20the ideal coefficient is1.259921at cap60versus1.013959at1000; arithmetic confirms compatibility risk, not tested damage/save behavior. No cap or progression implementation is changed; overflow/Infinity/performance/serialization remain untested questions, not reproduced failures.\n\nF4: Source-specific offline admission, supplies/conditions, breakthrough decision versus earned XP, two ledgers/known ETA and next useful change remain useful candidate displays, not a global idle policy or universal release gates. Official cap/version snapshots are historical and need checking when selecting that source. A1–A5andCOMMON’s old restrictions govern the dated research pass, not current authority to dispatch workers or require human review; AD42makes that review optional. Current PROJECTandrules govern a selected slice. Completed bounded research is compatible with unknown caps/late endpoints/conversion and unperformed native/save checks.",
+      "before_sha256": "12e849a3231af80e31a25c568d598dd8d330e7c0b3c5bd038ebdb69db07e7278",
+      "after_sha256": "7bac34d51f4fb77fc3469fd967cb8fd8ed938a0c02874115a3f01e64981fe83a"
+    },
+    {
+      "path": "docs/research/skill-growth-2026-10-10/WORLD_GROWTH_AUDIT.md",
+      "heading": "## Content reconciliation B618: evidence and current scope",
+      "body": "F1: Full588-line C3world-growth audit reviewed:21main sections/fourcandidate subprofiles, all sevenprofilefields, F1–F16, complete24-world comparison rows, G1–G40pluslocalG41/L1–L23/S1–S14pluslocalS15–S16indexes,25A-gap/followup rows, checks/checkpoint. READ in this audit means local owner content, not original franchise proof. Ninecards/fourteenfolders/twooverlaps describe the2026-10-10inventory, not today’s complete world census or implementation coverage. No primary novel/manga/game source, catalogue, account or secret file was newly read. Current PROJECTKlein/HPpriority supersedes generic future-frontier/world-profile sequencing.\n\nF2: Preserve eleven distinct corrections: ANCnormaltrialvsHighTribulation and Priam-specific revival; Gu rank does not itself grant longer life; LOTM/COI/wiki era and boon/potion boundaries; ShadowGateway/ancientroute vs universal Nightmare plus no fixedFlawexchange; suppliedParadiseMTL vs authenticated original/carry rules; Narutosuspectattribution/excludedclaim; HPfatal-vow vs untestedGoblet sanctions; JJKself-vow/mutualsanction/innatebody/lethalmethod distinctions; MoLedition/cap-inference/continuousvisitor vs eligiblelooper; Proto23costcurve asymptotic correction. Gaps are not automatically still current; consult later source owners before reacquisition or new whole-book readers. None authorizes expanding Frontier/Mistglass now.\n\nF3: LocalC3G41restrictionexchange is a proposal for actual changed operative terms, not all vows, promises or imposed birth constraints. LocalC3S15independentaxes aligns with C2S15; C3S16cost-wall differs from C2S16finite-seat-stock. Do not mint/merge unqualified global IDs. The41G/23L/16Sindex entries openly preserve unsupported showcases; missing clean source example is not a nonexistent-world law. Teaching gives the learner a procedure but not proven teacher-XP, production/delegation is not inherently managerXP, inherited source is not mastered procedure, permission/office is not faculty or threat, gift ownership is not use support, narrative event roles are not necessarily a measured Plot Armor mechanism.\n\nF4: Original BayCity/SalvageReach/RedBasin and test/prototype designs need not claim franchise equivalence. Foreign physical means may function despite unreadable local ranks or absent native magic. Numeric schoolyears, office, floors, body value, death return, consent, source and eligibility remain distinct from levels. No common scalar/cap/globalpyramid, universal power suppression or forced weaklife is selected. Protagonist/era/version/suppliedMTL observations do not supply a complete local census. Proposed code holes remain explicit rather than forcing every model into an existing world.\n\nF5: Proto23formula round(50+(level+1)^ln(9level+1))at20gives7474050. Its asymptotic log-cost is on the order of(log level)^2, so faster than fixed polynomial yet slower than e^(c level)for anyfixedpositivec; super-exponential label is incorrect. ActualsourceR2notreread; only displayed equation arithmetic checked. Frontier, originalCyoria guest and broaderbook protagonists are different delivery contexts; prior native bindings/reading completions cannot be erased or renewed by this frozen design profile.25followups are reference proposals, not a new dispatch/acquisition queue or completion blockers for this document. AD36/AD43govern selectedruntime evidence and AD42humanreviewoptional. No gameplay/code, worker, acquisition, personal-save operation, build/test/browser, deletion/move, commit/push occurs.",
+      "before_sha256": "b903ad9400ecb895f6af793ca862690d8fa6b51f4375c71002cfbe4252c628b9",
+      "after_sha256": "f4502b7eb007bf5207ac3c52e502b4d1fff00fb8f2fd2695b72451ce87d4b983"
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "heading": "## Content reconciliation B618: growth audits and scale-code crosswalk",
+      "body": "B618fully reviews the [read-history](research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md), [C2scale](research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md) and [C3world-profile](research/skill-growth-2026-10-10/WORLD_GROWTH_AUDIT.md) audits. Keep their original source-local IDs and evidence grades. The read-history table actually has66titles, while its claimed strongest debt-level example only labels the contract name/ranks READ and the service duty MEMORY. That does not establish a debt-measuring level. A lifespan increase is not a level denominated in remaining years; ordinary XP expenditure is not lump-size-to-grade banking. Harvest criminality, costly adaptation, class privilege and discarded overflow remain particular source claims or proposals.\n\nC2adds six local S15–S20proposals; C3S15independentaxes aligns with C2S15, while C3S16cost-wall differs from C2S16scarce seats. C3G41restrictionexchange remains proposed and scoped to its actual operative benefit/terms. These are qualified research references, not new global codes or required systems. Preserve unsupported source showcases in the complete G/L/Sindexes. Its21main/fourcandidateprofiles are an October10inventory, not today’s world census, source completeness or adopted rules.\n\nKeep caps, actual capability, stock/seat scarcity, native growth costs, institutional permission, personal source/body, equipment, observer knowledge and population rarity separately meaningful. Current selected Skillconstructor/add_xp/coefficient source retains cap-normalized bonuses and pre-clamp progression; raising a cap can reduce an unchanged saved level’s coefficient. The calculated2^(20/60)≈1.259921versus2^(20/1000)≈1.013959is source arithmetic, not current gameplay/save proof. Proto23’s displayed cost equation gives7474050at20and grows faster than fixed powers but slower than anyfixed-base exponential, not asymptotically super-exponential. Unknown foreign appraisal is not zero power, and a percentile display is not a physical conversion policy.\n\nThe useful source corrections, unusual palettes, low-to-high career differences and25followup questions survive. They do not renew old source gaps, reading plans, available-source snapshots or external account/chapter counts. Current PROJECTandAD36/AD42/AD43/AD51govern selected work; Frontier/Mistglass gain no new depth from this reconciliation and human review stays optional. No raw-source read, source code edit, runtime or personal-save operation occurs.",
+      "before_sha256": "f2fe395413cdcc3e10a85e0348cbe1567b1a3852f3f10ca223bfa1a5e683eae3",
+      "after_sha256": "db6c1464256decb064bc3ce549ccac8c553fc1e08834d27397afdd3bbdaeb8a0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 68,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md",
+      "from": "This is the\n  clearest verified L8 in his history.",
+      "to": "The contract name is chapter-READ, while the table labels service owed MEMORY.\n  This is a candidate L8 analogy, not verified proof that rank measures debt.",
+      "reason": "Resolve contradiction with the audit’s own explicit evidence row; preserve original."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B614, continuous execution 2026-11-05 |",
+      "to": "| B618, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md",
+      "from": "15e8a201c18545e4eda4d21e74a7681dfba466e942ce32e776f09202c32293ac",
+      "to": "b1d83ddbaf593bac125b48ed7ec071a7e4604511c37f3fbe3e656b6222a15802",
+      "reason": "Evidence-label correction."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "50e19058dad1a4db86ba535cee7a232af872c6a1c9b7f8b7de8270908e8cc33c",
+      "to": "3e99bf93bd88430a8905f9dbc86892bc95ee4b3072421e0d710336e7d0b17531",
+      "reason": "Pointer throughB618; no full register credit."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "src/models/skill.js",
+      "sha256": "2ebaa52f4e7dd527fcf0fdfcd34aea019793f99854b5fdf10ce371d4241b36a1",
+      "ranges": [
+        [
+          12,
+          34
+        ],
+        [
+          175,
+          245
+        ],
+        [
+          347,
+          365
+        ]
+      ],
+      "scope": "Selected source only; no callers/persistence/runtime proof."
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "sha256": "db6c1464256decb064bc3ce549ccac8c553fc1e08834d27397afdd3bbdaeb8a0",
+      "ranges": [
+        [
+          474,
+          575
+        ],
+        [
+          644,
+          750
+        ],
+        [
+          900,
+          945
+        ]
+      ],
+      "scope": "Selected live growth/scale and earlier reconciliation sections only."
+    }
+  ]
+}

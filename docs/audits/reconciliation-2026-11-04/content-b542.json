@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "batch": "B542",
+  "title": "Ideas inventory census, exact chat gaps and ranked slices",
+  "at": "2026-11-05T10:18:34.658248+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "ids": [
+        "nested-owner census",
+        "MAW-X4/MIE-G2/Gear/Tools corrections",
+        "I09 a806a367:1279",
+        "SELVES/ORIGINS a806a367:828",
+        "ranked slices1–8",
+        "source deduplication method"
+      ],
+      "classification": "partial actual content review; exact scenario gaps, scoped delivery and obsolete dispatch ordering distinguished",
+      "owners": [
+        "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md"
+      ],
+      "disposition": "F1: Actual new review covers original841–950: nested-owner census, current-status corrections, exact chat-gap report and coordinator correction, ranked buildable proposals, and source/deduplication method. B534–B542 cover original1–950; original951–1169 remains. Census inclusion, headings and code-family extraction do not review each linked body. The historical exclusion of worlds/audits/reviews applied to that extraction lane, not the current project-wide intake.\n\nF2: Preserve the correction rows for MAW-X4/MIE-G2, selected GDP gear evidence, IP1–IP3/TQ62/TQ90 and TQ199. They distinguish helper/caller implementation from graded fit and rebuilt native proof, and bounded gear/tool delivery from independent encounter, layered damage and consumer gaps. The old active D4 ownership of IM1–IM20 does not establish completion or a currently running worker. Refresh actual owner state before any build; this review authorizes no duplicate implementation.\n\nF3: The chat audit explicitly read sanitized human-message records, with 1669 records and 19 bounded views in its historical snapshot. Those figures and its no-read-error claim are attributed historical methods, not a fresh transcript audit here. Its cleaner excluded copied suggestions and instructions, which must not become user direction. Preserve both exact gaps: restrained direct system agency with residual indirect influence, and a lone-wolf search for past-life belongings. The coordinator already corrects the earlier overbroad statement that related custody mechanics fully cover the latter scenario. Unknown story identity need not prevent preserving an original conditional proposal. Neither scenario implies canon, guaranteed inheritance or accepted runtime mechanics.\n\nF4: Existing routes preserve action-dependent future selves, world-specific persistent holders, humorous clues, harvest-to-craft chains, active alongside idle play, cultivation UI references and a measured Rust/WASM option. Their distinct proposal, standing direction and bounded implementation statuses stay separate. Not every joke is a clue, no persistent god is universal, and no stack migration follows from the question. Earlier B532 engine review supplies later host/performance context; reference pictures remain design evidence rather than native delivery.\n\nF5: Ranked slices1–8 are an old suggested build order, not current priority or dispatch authorization. Current Klein/HP direction and scoped owners control sequencing. Keep their useful acceptance invariants: genuine useful ordinary loop, real unavailable-action causes, declared conserved overflow, identity-preserving typed repair, trader-lot retention/disposal, physically fitting substitution with exact selected lots, storage on the actual item clock, and source-qualified shared recipe intake. W1–W4 bounded proof does not certify their combined dirty build; GTO bounded later proof and IP basic repair prevent redispatching already demonstrated slices. AD42 makes director review optional; AD43/AD36 govern relevant verification rather than mechanically imposing every listed check on documentation or unrelated behavior.\n\nF6: Enablement remains distinct from gameplay: register links, harness factoring and seam allowlists do not deliver a player loop. Language/stack and agentic proposals grant no autonomous effects. The four-extractor census and source-status checks explicitly disclaim individual runtime tests and whole-tree release. Preserve these limits, row identities and original receipts rather than deleting duplicate-looking history.",
+      "evidence": "Actual original841–950 read in four bounded untruncated chunks; no linked transcript or leaf-owner reread claimed.",
+      "reopen": "Continue original951–1169 and appended notes before cumulative full credit.",
+      "full": false,
+      "ranges": [
+        [
+          841,
+          950
+        ]
+      ],
+      "input_sha256": "c5cac406ff9600bf0314cfbf385d5c96d053f13e40c5751a48050b47d8116d3a",
+      "input_lines": 1289
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "heading": "## Content reconciliation B542: exact chat gaps and ranked slices",
+      "body": "F1: Actual new review covers original841–950: nested-owner census, current-status corrections, exact chat-gap report and coordinator correction, ranked buildable proposals, and source/deduplication method. B534–B542 cover original1–950; original951–1169 remains. Census inclusion, headings and code-family extraction do not review each linked body. The historical exclusion of worlds/audits/reviews applied to that extraction lane, not the current project-wide intake.\n\nF2: Preserve the correction rows for MAW-X4/MIE-G2, selected GDP gear evidence, IP1–IP3/TQ62/TQ90 and TQ199. They distinguish helper/caller implementation from graded fit and rebuilt native proof, and bounded gear/tool delivery from independent encounter, layered damage and consumer gaps. The old active D4 ownership of IM1–IM20 does not establish completion or a currently running worker. Refresh actual owner state before any build; this review authorizes no duplicate implementation.\n\nF3: The chat audit explicitly read sanitized human-message records, with 1669 records and 19 bounded views in its historical snapshot. Those figures and its no-read-error claim are attributed historical methods, not a fresh transcript audit here. Its cleaner excluded copied suggestions and instructions, which must not become user direction. Preserve both exact gaps: restrained direct system agency with residual indirect influence, and a lone-wolf search for past-life belongings. The coordinator already corrects the earlier overbroad statement that related custody mechanics fully cover the latter scenario. Unknown story identity need not prevent preserving an original conditional proposal. Neither scenario implies canon, guaranteed inheritance or accepted runtime mechanics.\n\nF4: Existing routes preserve action-dependent future selves, world-specific persistent holders, humorous clues, harvest-to-craft chains, active alongside idle play, cultivation UI references and a measured Rust/WASM option. Their distinct proposal, standing direction and bounded implementation statuses stay separate. Not every joke is a clue, no persistent god is universal, and no stack migration follows from the question. Earlier B532 engine review supplies later host/performance context; reference pictures remain design evidence rather than native delivery.\n\nF5: Ranked slices1–8 are an old suggested build order, not current priority or dispatch authorization. Current Klein/HP direction and scoped owners control sequencing. Keep their useful acceptance invariants: genuine useful ordinary loop, real unavailable-action causes, declared conserved overflow, identity-preserving typed repair, trader-lot retention/disposal, physically fitting substitution with exact selected lots, storage on the actual item clock, and source-qualified shared recipe intake. W1–W4 bounded proof does not certify their combined dirty build; GTO bounded later proof and IP basic repair prevent redispatching already demonstrated slices. AD42 makes director review optional; AD43/AD36 govern relevant verification rather than mechanically imposing every listed check on documentation or unrelated behavior.\n\nF6: Enablement remains distinct from gameplay: register links, harness factoring and seam allowlists do not deliver a player loop. Language/stack and agentic proposals grant no autonomous effects. The four-extractor census and source-status checks explicitly disclaim individual runtime tests and whole-tree release. Preserve these limits, row identities and original receipts rather than deleting duplicate-looking history.",
+      "before_sha256": "c5cac406ff9600bf0314cfbf385d5c96d053f13e40c5751a48050b47d8116d3a",
+      "after_sha256": "f3f21da245798bf760a2ed539e1546520cd1d23f9deaf08aa59dd32dff7570f3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 173,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "from": "Neither scenario implies canon, guaranteed inheritance or accepted runtime mechanics.",
+      "to": "Neither scenario implies canon, guaranteed inheritance or selected runtime mechanics.",
+      "reason": "Clarify task wording flagged by document authority lint; no changed source conclusion."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "from": "e5a7b15ba2be51921aa15956ef7c22679a4a45fa594d5238db45f8028a1d99c6",
+      "to": "79d0fdbe4ed3b93664b16d6a3a9bc1a615b736d9f2316760db6703f62ecf9401",
+      "reason": "Exact recorded task-wording correction."
+    }
+  ]
+}

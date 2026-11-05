@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "batch": "B441",
+  "title": "Protagonist-life opening range: beat schema and dated pilot/dispatch scope",
+  "at": "2026-11-05T06:01:04.024309+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/PLAN.md",
+      "ids": [
+        "sections1–9;pilot score/schema/touched inventory;PL-E0–E3/PL-B1/PL-H1/P0–P6/PL-S1;Q0–Q8/R1–R11/PL-A1–5/PL-L1–6;round2 opening"
+      ],
+      "full": false,
+      "ranges": [
+        [
+          1,
+          320
+        ]
+      ],
+      "classification": "selected opening range of evolving protagonist-life plan; later amendments remain unread",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/PLAN.md",
+        "docs/LEAD_LIFE_RULES.md",
+        "PROJECT.md"
+      ],
+      "disposition": "This is a selected-range review, not a full-plan disposition: input lines 1–320 of 1,856 were read, through the opening of round2. The remaining 321–1,856 lines remain open; later plan amendments must be read before claiming a whole-plan resolution. No later direction is inferred from an early header, score or decision table.\n\nThe reviewed opening preserves useful engineering distinctions: beat order versus state dependency; source label versus inference; source chronology versus unsettled date; touched identifier existence versus reachable action; scripted route versus null-player world evolution; world gap versus chance loss, timing overrun or missing mechanism. A noun-search hit count is explicitly only a baseline signal, not a readiness inventory. The illustrative sample rows are format examples, with reused/unchecked locators and a placeholder beat number, not newly qualified source beats. The proposed present/partial/missing meanings differ by category, so an item definition alone does not prove a usable purchase, action or saved outcome.\n\nThe October27 score, local-source census, no-lane-started header, Q0–Q8 launch/edition/budget decisions and proposed lane dependencies are historical planning. Do not reissue them as current permission requests or dispatch work from this intake. The real-book-first revision already displaced Village as pilot; the Village harness is explicitly not the lead world. Today's whole-novel developer route, lead-mechanism scope, HP work alongside it and separate ordinary starts follow [PROJECT](../../../../PROJECT.md), [accepted direction](../../../USER_VISION.md) and [lead-life rules](../../../LEAD_LIFE_RULES.md), with later sections of this plan still to review. A volume1-only proposal does not narrow that later accepted scope.\n\nUseful IDs, schemas and risks remain in this owner. The first reviewed pages do not prove current source availability, collection authority, source qualification, absence of sealed IDs or runtime readiness. Keep source-specific material and sealed truth in their appropriate private owners; public discussion here uses pipeline IDs and proof states. This range review performs no reading/acquisition dispatch, gameplay implementation, source-corpus edit, test, build, browser journey or persistence check.",
+      "evidence": "Read input lines1–170 and171–320, exactly1–320 of1,856. Explicit partial coverage; later321–1856 open. No full-file credit or current source/runtime proof.",
+      "reopen": "Continue actual reading at321 through the original1856-line input and any later owner additions; reconcile all later amendments before full-plan disposition.",
+      "input_sha256": "7629edf9fe22d133af218aea024b70630795be9b9e381e3b800302ab259509cc",
+      "input_lines": 1856
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/PLAN.md",
+      "heading": "## Content reconciliation B441: selected opening range, later amendments still open",
+      "body": "This is a selected-range review, not a full-plan disposition: input lines 1–320 of 1,856 were read, through the opening of round2. The remaining 321–1,856 lines remain open; later plan amendments must be read before claiming a whole-plan resolution. No later direction is inferred from an early header, score or decision table.\n\nThe reviewed opening preserves useful engineering distinctions: beat order versus state dependency; source label versus inference; source chronology versus unsettled date; touched identifier existence versus reachable action; scripted route versus null-player world evolution; world gap versus chance loss, timing overrun or missing mechanism. A noun-search hit count is explicitly only a baseline signal, not a readiness inventory. The illustrative sample rows are format examples, with reused/unchecked locators and a placeholder beat number, not newly qualified source beats. The proposed present/partial/missing meanings differ by category, so an item definition alone does not prove a usable purchase, action or saved outcome.\n\nThe October27 score, local-source census, no-lane-started header, Q0–Q8 launch/edition/budget decisions and proposed lane dependencies are historical planning. Do not reissue them as current permission requests or dispatch work from this intake. The real-book-first revision already displaced Village as pilot; the Village harness is explicitly not the lead world. Today's whole-novel developer route, lead-mechanism scope, HP work alongside it and separate ordinary starts follow [PROJECT](../../../../PROJECT.md), [accepted direction](../../../USER_VISION.md) and [lead-life rules](../../../LEAD_LIFE_RULES.md), with later sections of this plan still to review. A volume1-only proposal does not narrow that later accepted scope.\n\nUseful IDs, schemas and risks remain in this owner. The first reviewed pages do not prove current source availability, collection authority, source qualification, absence of sealed IDs or runtime readiness. Keep source-specific material and sealed truth in their appropriate private owners; public discussion here uses pipeline IDs and proof states. This range review performs no reading/acquisition dispatch, gameplay implementation, source-corpus edit, test, build, browser journey or persistence check.",
+      "before_sha256": "7629edf9fe22d133af218aea024b70630795be9b9e381e3b800302ab259509cc",
+      "after_sha256": "ced84ce03e862598b80fc6e9b307a0a51a42e63a9e75acf0c17569cf7bd173a8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 410
+}

@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "batch": "B596",
+  "title": "Immortal Life, Noita and Hogwarts Legacy coverage content",
+  "at": "2026-11-05T12:12:27.632180+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/immortal-life/COVERAGE.json",
+      "ids": [
+        "CourseRule",
+        "MeditationPoint",
+        "GlobalSettings",
+        "Level",
+        "Task",
+        "BreakthroughMaps",
+        "Grade",
+        "NPC",
+        "SchoolSalary",
+        "Breakthrough",
+        "Study",
+        "NPCSchedule",
+        "FavourLevels",
+        "MarryEvent",
+        "LifeSkillLevel",
+        "BreakthroughMapConfig",
+        "Delegation",
+        "FavourLv",
+        "SchoolUnlockGroup",
+        "PlayerValueVersionModify",
+        "Trigger",
+        "Marry",
+        "ClassSchedule",
+        "FightSkill",
+        "Language",
+        "LifeSkill",
+        "SchoolDevelopment",
+        "Exercise",
+        "NPCEvent",
+        "Pray",
+        "AutoWater",
+        "Course",
+        "PlayerInitialData",
+        "GodnessLevel",
+        "SchoolRenown",
+        "School"
+      ],
+      "classification": "complete coverage-document content review with source/runtime boundaries retained",
+      "owners": [
+        "docs/research/immortal-life/REPORT.md"
+      ],
+      "disposition": "F1: Actual full review of COVERAGE.json covers all 36 selected table-family rows, original resources.assets/path IDs, counts, hashes, coverage labels and every header/trailer field. The 296 TextAssets and 291 parsed JSONs are extraction/parse counts. The five remaining names (SensitiveWords, the crane-race action information asset, line-breaking leading/following characters and Decorate) are explicitly non-JSON or parse failures, not five proven missing mechanics. All 36 rows say selected rows/fields rather than complete semantics; no native body or personal save was read. Original JSON/schema/hashes remain unchanged.\n\nF2: Seven Level rows and nine Breakthrough rows are different recorded tables, alongside four BreakthroughMaps and four BreakthroughMapConfig rows. Do not collapse their counts into a single ladder or choose which reaches live play without a loader/consumer. Six professions' 90 LifeSkillLevel rows and four LifeSkill rows do not make work mastery, realm preparation and capacity one XP ledger. SchoolSalary, SchoolUnlockGroup, SchoolDevelopment, SchoolRenown and School are distinct configurations; their counts do not establish paid stock, teacher availability, restoration settlement or whole-sect autonomy. PlayerValueVersionModify's single row does not prove migration/recovery, and 19775 Language entries do not equal manually read text or executable effects.\n\nF3: NPC67, NPCSchedule371, FavourLevels6, FavourLv4, Marry12 and MarryEvent60 preserve separate identities and purposes. The two similarly named favor tables need their own consumer before combining thresholds. The report's invitation/stay interpretation remains the bounded semantic account; names alone do not prove romance, children or lineage. An empty NPCEvent table does not erase authored Task/Trigger content, and 413 Trigger/393 Task rows do not prove every reachable event. Scheduled movement and animation do not establish offscreen cultivation, paid duties, autonomous breakthrough or native failure handling.\n\nF4: Preserve work-to-preparation, facility-to-teaching, voluntary roommate stays, finite attributed supply requests, separate class learning/capacity, process-specific blessings and causal schedule overrides as optional useful adaptations in existing owners. Coverage review adds no source body, gameplay, selected cache, save, browser or acceptance evidence. Current scope retires the old one-realm/one-prestige gate. No acquisition, runtime experiment, private-state access, deletion, relocation, commit or push occurs.",
+      "evidence": "All fields and records read as bounded complete JSON outputs; referenced raw bodies and private artifacts not newly read.",
+      "reopen": "Inspect actual selected producer/consumer and current proof for any later behavioral claim; preserve every recorded residual gap.",
+      "full": true,
+      "input_sha256": "856d3010bdbeda9ad141e34ce3563ed457eda82121dae2dbd89f5ee2bbce5c51",
+      "input_lines": 305,
+      "ranges": [
+        [
+          1,
+          305
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/noita/COVERAGE.json",
+      "ids": [
+        "data/scripts/gun/gun.lua",
+        "data/scripts/gun/gun_enums.lua",
+        "data/scripts/gun/gun_actions.lua",
+        "data/scripts/gun/procedural/gun_procedural.lua",
+        "data/scripts/gun/procedural/wands.lua",
+        "data/scripts/gun/procedural/general_gun.lua",
+        "data/scripts/perks/perk_list.lua",
+        "data/scripts/perks/perk.lua",
+        "data/scripts/magic/fungal_shift.lua",
+        "data/scripts/status_effects/effect_trip_03.lua",
+        "data/entities/misc/effect_trip_03.xml",
+        "data/scripts/lib/utilities.lua",
+        "data/materials.xml",
+        "data/scripts/status_effects/status_list.lua",
+        "data/scripts/status_effects/hearty_start.lua",
+        "data/scripts/status_effects/hearty_end.lua",
+        "data/entities/misc/effect_wet.xml",
+        "data/entities/misc/effect_oiled.xml",
+        "data/entities/misc/effect_internal_fire.xml",
+        "data/entities/misc/effect_protection_polymorph.xml",
+        "data/entities/misc/effect_polymorph.xml",
+        "data/entities/misc/effect_polymorph_random.xml",
+        "data/entities/player_base.xml",
+        "data/entities/base_humanoid.xml",
+        "data/entities/base_enemy_basic.xml",
+        "data/entities/base_helpless_animal.xml",
+        "data/entities/animals/sheep.xml",
+        "data/scripts/animals/sheep_ingest.lua",
+        "data/scripts/projectiles/mass_polymorph.lua",
+        "data/entities/items/pickup/potion.xml",
+        "data/entities/items/pickup/powder_stash.xml",
+        "data/scripts/items/potion.lua",
+        "data/scripts/items/powder_stash.lua",
+        "data/scripts/items/potion_glass_break.lua",
+        "data/genome_relations.csv",
+        "data/scripts/items/orb_pickup.lua",
+        "data/entities/items/books/base_book.xml",
+        "data/entities/items/books/book_00.xml",
+        "data/scripts/magic/altar_tablet_magic.lua",
+        "external/tools_modding/component_documentation.txt",
+        "data/materials.xml",
+        "data/entities/animals/boss_centipede/ending/sampo_start_ending_sequence.lua",
+        "data/entities/animals/boss_centipede/sampo_init.lua",
+        "data/entities/animals/boss_centipede/sampo_pickup.lua",
+        "external/mods/example/mod.xml",
+        "external/mods/example/init.lua"
+      ],
+      "classification": "complete coverage-document content review with source/runtime boundaries retained",
+      "owners": [
+        "docs/research/noita/REPORT.md"
+      ],
+      "disposition": "F1: Actual full review of COVERAGE.json covers all count fields, all 46 file records with original hashes, exact supplied ranges and boundary text, the NARG revision/file notes, seven opaque areas, four not-run routes and both closing qualifiers. This is a full review of the coverage document, not a new read of the referenced Lua/XML/native/community bodies. Original JSON and schema remain unchanged. requested_system_pass_complete is explicitly bounded by not_exhaustive_game_reconstruction.\n\nF2: 468 materials =224 base+244 children; 325 Reaction+five ReqReaction =330 records, also split 298 two-input+32 three-input and 168 exact+162 tag selectors. Child elements, 94 fields, 76 material tags, 52 reaction tags and four derived selector inputs are different evidence units. materials.xml occurs twice with the same hash and 17030-line source, once for body/ingestion and once for reaction declarations; keep both review scopes without double-counting source or implying full manual semantics. 49 active status rows represent 41 distinct IDs; 132 ingestion materials/133 blocks/149 effect rows and 21 structured stain materials/23 effects also overlap. Genome35 gives 1225 directed cells; 133 asymmetric unordered pairs make a symmetric hostility shortcut unsound. This map does not establish current engine evaluation order.\n\nF3: 422 active action definitions and 106 perk definitions are catalogue counts, not 422 callbacks or 106 effects fully read. Preserve gun.lua's 1–610 range with unread tail, selected gun_actions/procedural/perk sections, wands.lua's first200of14003 and general_gun's symbol-search-only empty ranges. Named short/full reads (enums, fungal shift, TRIP script, status list, hearty start/end and sampo init) keep their bounded prior depth; targeted XML/component/schema/body evidence does not become full native behavior. Ending entry1–150of286, pickup1–85of102 and example init1–65of94 remain partial. Inventoried status scripts, numbered orb templates and base book templates are not all semantic routes or obtainable objects.\n\nF4: Keep material identity, constituent amounts and use routes distinct: loose fuel, coating and ingestion can have different outcomes; binary contact does not cover third inputs or absent participants. Spell assembly/shared groups/prepaid nested payloads are different from collision dispatch and mana-regeneration timing. Stack eligibility, pool repeats, cap and effect operator differ. Fungal cooldown is not mutation expiry; polymorph source-state serialization is not proved restore behavior. These remain useful proposals under existing material, technique, body, discovery and save owners, with no new universal cap or once policy.\n\nF5: Native inheritance/tag expansion/reaction scheduling, dose/wash/cancellation/ignition order, installed secret-recipe generator parity, projectile dispatch, unloaded/future terrain conversion and shift saving, polymorph restore/AI targeting, all secret/ending and callback semantics remain opaque. Community NARG fa614b2eb44c1469053a0306b48f09af0a171d90 is attributed reconstruction, not installed-engine parity. Secret truths remain private. No launch, save roundtrip, YAIR build/test/browser, new community fetch, native extraction, personal-save access, deletion, relocation, commit or push is established by this review.",
+      "evidence": "All fields and records read as bounded complete JSON outputs; referenced raw bodies and private artifacts not newly read.",
+      "reopen": "Inspect actual selected producer/consumer and current proof for any later behavioral claim; preserve every recorded residual gap.",
+      "full": true,
+      "input_sha256": "1ff24012e1c36d54291e61647da50b92374b079e0bf139c5a587c23496276552",
+      "input_lines": 498,
+      "ranges": [
+        [
+          1,
+          498
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/COVERAGE.json",
+      "ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24",
+        "C25",
+        "C26",
+        "C27",
+        "C28",
+        "C29",
+        "C30",
+        "C31",
+        "C32",
+        "C33"
+      ],
+      "classification": "complete coverage-document content review with source/runtime boundaries retained",
+      "owners": [
+        "docs/research/hogwarts-legacy/REPORT.md"
+      ],
+      "disposition": "F1: Actual full review of COVERAGE.json covers C01–C33 individually, all labels, answers, evidence paths and residual limits plus the complete header/trailer. Build20773316 is a historical pin. SHOWN data/static code, STATED shipped text and INFERRED joins remain separate. Every answered status is qualified by its remaining field; unplayed=true, source_edits=false, saves_accessed=false and committed=false remain original. JSON/schema and sealed S1 boundaries are preserved; no private S1 truth was opened or disclosed.\n\nF2: C01–C05 distinguish spell definitions/knowledge/UI candidates, target flags and independent cooldown fields, localized shield advice, actual native predicate, assignment rewards and selected lesson/Lumos consumers. EnemyShieldBreaker=None in sampled base rows does not refute tutorial counters or prove the missing mask. C06–C13 retain zero versus positive XP sources, exhaustion/cap uncertainty, terminal threshold sentinel and unresolved cumulative/delta use, node visibility versus reachability, and first-purchase one-point static chain versus unknown upgrades/respec/awards. The two native routes reproduce one chain, not two independent mechanics or build-matched SDK addresses. Pages versus collection records, chained challenges/counter resets, gear slot/trait/outlier acceptance, costs and final damage/defense remain separate questions.\n\nF3: C14–C19 distinguish station placement/material costs, capacity pools and generator timers; seven recipe and eight plant data rows do not prove offline/cancel/forage/reachability rules. Separate fed, attended, happiness, harvest progress and simulation fields do not prove the exact care Boolean. Four12/4 habitat capacities remain donor defaults, not universal YAIRPG limits. Thirteen family records and birth presentation are not universal breedability: sentinels and null offspring need their own routes. Thirteen adult products can join gear recipes/stat costs without proving every non-gear consumer, vendor or final settlement.\n\nF4: C20–C26 retain bounded absence for score-ledger/house-point and written/practical OWL grading contracts. House/dorm identity, a text label, Cup quest gate/story graph and old curriculum schema do not establish a score economy or functioning yearly assessment. Conversely not located in inspected data is not categorical impossibility. Daily schedule metadata, mission-driven seasons, term state and relationship progression are distinct. Companion lock, forced state, area, schedule, volume and wait location do not yield arbitrary summoning or a general friendship ladder.105 relationship mission records include child/checkpoint rows, not105 distinct playable quests.\n\nF5: C27–C33 retain faction identity versus full hostility/reputation, AI presets versus behavior/perception execution, data vulnerability scales versus final damage order, and shipped fire/night advice versus actual predicates. Nine active-looking puzzle folders,16definitions and304instance rows include unused/test entries; two sampled flows do not prove all reachable trials.640collection rows across11categories/23groups require house/DLC/unlock filters before achievable totals. S1 remains route/status-only with hidden meter/execution/runtime questions open. Lesson-to-useful-verb, causal prerequisites, finite station stock/output, separate care facts, distinct clocks and a companion's present role remain adaptations, not HP novel canon or acceptance. No further native chain, acquisition, launch, save access, source edit, gameplay proof, deletion, relocation, commit or push follows.",
+      "evidence": "All fields and records read as bounded complete JSON outputs; referenced raw bodies and private artifacts not newly read.",
+      "reopen": "Inspect actual selected producer/consumer and current proof for any later behavioral claim; preserve every recorded residual gap.",
+      "full": true,
+      "input_sha256": "0bbf212f2c0db6d9837f858f32d7fca44273cc638823f026f3c7b8ad0b70583f",
+      "input_lines": 471,
+      "ranges": [
+        [
+          1,
+          471
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/immortal-life/REPORT.md",
+      "heading": "## Content reconciliation B596: full coverage record and source limits",
+      "body": "F1: Actual full review of COVERAGE.json covers all 36 selected table-family rows, original resources.assets/path IDs, counts, hashes, coverage labels and every header/trailer field. The 296 TextAssets and 291 parsed JSONs are extraction/parse counts. The five remaining names (SensitiveWords, the crane-race action information asset, line-breaking leading/following characters and Decorate) are explicitly non-JSON or parse failures, not five proven missing mechanics. All 36 rows say selected rows/fields rather than complete semantics; no native body or personal save was read. Original JSON/schema/hashes remain unchanged.\n\nF2: Seven Level rows and nine Breakthrough rows are different recorded tables, alongside four BreakthroughMaps and four BreakthroughMapConfig rows. Do not collapse their counts into a single ladder or choose which reaches live play without a loader/consumer. Six professions' 90 LifeSkillLevel rows and four LifeSkill rows do not make work mastery, realm preparation and capacity one XP ledger. SchoolSalary, SchoolUnlockGroup, SchoolDevelopment, SchoolRenown and School are distinct configurations; their counts do not establish paid stock, teacher availability, restoration settlement or whole-sect autonomy. PlayerValueVersionModify's single row does not prove migration/recovery, and 19775 Language entries do not equal manually read text or executable effects.\n\nF3: NPC67, NPCSchedule371, FavourLevels6, FavourLv4, Marry12 and MarryEvent60 preserve separate identities and purposes. The two similarly named favor tables need their own consumer before combining thresholds. The report's invitation/stay interpretation remains the bounded semantic account; names alone do not prove romance, children or lineage. An empty NPCEvent table does not erase authored Task/Trigger content, and 413 Trigger/393 Task rows do not prove every reachable event. Scheduled movement and animation do not establish offscreen cultivation, paid duties, autonomous breakthrough or native failure handling.\n\nF4: Preserve work-to-preparation, facility-to-teaching, voluntary roommate stays, finite attributed supply requests, separate class learning/capacity, process-specific blessings and causal schedule overrides as optional useful adaptations in existing owners. Coverage review adds no source body, gameplay, selected cache, save, browser or acceptance evidence. Current scope retires the old one-realm/one-prestige gate. No acquisition, runtime experiment, private-state access, deletion, relocation, commit or push occurs.",
+      "before_sha256": "4657e4840758b0da694586dcf17a6461ed4a6579f761de7298da4773070d122b",
+      "after_sha256": "0e4040d5bdb0df50d8141b42820112e8182f695ca702cb97d1e2e68346f12d39"
+    },
+    {
+      "path": "docs/research/noita/REPORT.md",
+      "heading": "## Content reconciliation B596: full coverage record and source limits",
+      "body": "F1: Actual full review of COVERAGE.json covers all count fields, all 46 file records with original hashes, exact supplied ranges and boundary text, the NARG revision/file notes, seven opaque areas, four not-run routes and both closing qualifiers. This is a full review of the coverage document, not a new read of the referenced Lua/XML/native/community bodies. Original JSON and schema remain unchanged. requested_system_pass_complete is explicitly bounded by not_exhaustive_game_reconstruction.\n\nF2: 468 materials =224 base+244 children; 325 Reaction+five ReqReaction =330 records, also split 298 two-input+32 three-input and 168 exact+162 tag selectors. Child elements, 94 fields, 76 material tags, 52 reaction tags and four derived selector inputs are different evidence units. materials.xml occurs twice with the same hash and 17030-line source, once for body/ingestion and once for reaction declarations; keep both review scopes without double-counting source or implying full manual semantics. 49 active status rows represent 41 distinct IDs; 132 ingestion materials/133 blocks/149 effect rows and 21 structured stain materials/23 effects also overlap. Genome35 gives 1225 directed cells; 133 asymmetric unordered pairs make a symmetric hostility shortcut unsound. This map does not establish current engine evaluation order.\n\nF3: 422 active action definitions and 106 perk definitions are catalogue counts, not 422 callbacks or 106 effects fully read. Preserve gun.lua's 1–610 range with unread tail, selected gun_actions/procedural/perk sections, wands.lua's first200of14003 and general_gun's symbol-search-only empty ranges. Named short/full reads (enums, fungal shift, TRIP script, status list, hearty start/end and sampo init) keep their bounded prior depth; targeted XML/component/schema/body evidence does not become full native behavior. Ending entry1–150of286, pickup1–85of102 and example init1–65of94 remain partial. Inventoried status scripts, numbered orb templates and base book templates are not all semantic routes or obtainable objects.\n\nF4: Keep material identity, constituent amounts and use routes distinct: loose fuel, coating and ingestion can have different outcomes; binary contact does not cover third inputs or absent participants. Spell assembly/shared groups/prepaid nested payloads are different from collision dispatch and mana-regeneration timing. Stack eligibility, pool repeats, cap and effect operator differ. Fungal cooldown is not mutation expiry; polymorph source-state serialization is not proved restore behavior. These remain useful proposals under existing material, technique, body, discovery and save owners, with no new universal cap or once policy.\n\nF5: Native inheritance/tag expansion/reaction scheduling, dose/wash/cancellation/ignition order, installed secret-recipe generator parity, projectile dispatch, unloaded/future terrain conversion and shift saving, polymorph restore/AI targeting, all secret/ending and callback semantics remain opaque. Community NARG fa614b2eb44c1469053a0306b48f09af0a171d90 is attributed reconstruction, not installed-engine parity. Secret truths remain private. No launch, save roundtrip, YAIR build/test/browser, new community fetch, native extraction, personal-save access, deletion, relocation, commit or push is established by this review.",
+      "before_sha256": "036eb18c4bbf87605bae11c9a834127655138433470e00c793748903b0284d40",
+      "after_sha256": "aee72fab766cbb18279e5a488569cbccf6037657bb798f8f233c42f238770888"
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/REPORT.md",
+      "heading": "## Content reconciliation B596: full coverage record and source limits",
+      "body": "F1: Actual full review of COVERAGE.json covers C01–C33 individually, all labels, answers, evidence paths and residual limits plus the complete header/trailer. Build20773316 is a historical pin. SHOWN data/static code, STATED shipped text and INFERRED joins remain separate. Every answered status is qualified by its remaining field; unplayed=true, source_edits=false, saves_accessed=false and committed=false remain original. JSON/schema and sealed S1 boundaries are preserved; no private S1 truth was opened or disclosed.\n\nF2: C01–C05 distinguish spell definitions/knowledge/UI candidates, target flags and independent cooldown fields, localized shield advice, actual native predicate, assignment rewards and selected lesson/Lumos consumers. EnemyShieldBreaker=None in sampled base rows does not refute tutorial counters or prove the missing mask. C06–C13 retain zero versus positive XP sources, exhaustion/cap uncertainty, terminal threshold sentinel and unresolved cumulative/delta use, node visibility versus reachability, and first-purchase one-point static chain versus unknown upgrades/respec/awards. The two native routes reproduce one chain, not two independent mechanics or build-matched SDK addresses. Pages versus collection records, chained challenges/counter resets, gear slot/trait/outlier acceptance, costs and final damage/defense remain separate questions.\n\nF3: C14–C19 distinguish station placement/material costs, capacity pools and generator timers; seven recipe and eight plant data rows do not prove offline/cancel/forage/reachability rules. Separate fed, attended, happiness, harvest progress and simulation fields do not prove the exact care Boolean. Four12/4 habitat capacities remain donor defaults, not universal YAIRPG limits. Thirteen family records and birth presentation are not universal breedability: sentinels and null offspring need their own routes. Thirteen adult products can join gear recipes/stat costs without proving every non-gear consumer, vendor or final settlement.\n\nF4: C20–C26 retain bounded absence for score-ledger/house-point and written/practical OWL grading contracts. House/dorm identity, a text label, Cup quest gate/story graph and old curriculum schema do not establish a score economy or functioning yearly assessment. Conversely not located in inspected data is not categorical impossibility. Daily schedule metadata, mission-driven seasons, term state and relationship progression are distinct. Companion lock, forced state, area, schedule, volume and wait location do not yield arbitrary summoning or a general friendship ladder.105 relationship mission records include child/checkpoint rows, not105 distinct playable quests.\n\nF5: C27–C33 retain faction identity versus full hostility/reputation, AI presets versus behavior/perception execution, data vulnerability scales versus final damage order, and shipped fire/night advice versus actual predicates. Nine active-looking puzzle folders,16definitions and304instance rows include unused/test entries; two sampled flows do not prove all reachable trials.640collection rows across11categories/23groups require house/DLC/unlock filters before achievable totals. S1 remains route/status-only with hidden meter/execution/runtime questions open. Lesson-to-useful-verb, causal prerequisites, finite station stock/output, separate care facts, distinct clocks and a companion's present role remain adaptations, not HP novel canon or acceptance. No further native chain, acquisition, launch, save access, source edit, gameplay proof, deletion, relocation, commit or push follows.",
+      "before_sha256": "a7b26d542bbaee008561ff54a7eda7d373d2101d49b90c6a5a4f9a0bb707e534",
+      "after_sha256": "4f00b1547f1f08b847662b0510937eb0895f287bacbdcdb882a0fe974a1d655d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 102,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/immortal-life/REPORT.md",
+      "from": "All unselected. One realm and one prestige layer remains the first milestone.",
+      "to": "These dossier proposals remain unselected by this research pass. [Current scope](../../VISION_DIGEST.md) retires the one-realm/one-prestige gate.",
+      "reason": "Replace stale active milestone; preserve original wording here."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B592, continuous execution 2026-11-05 |",
+      "to": "| B596, continuous execution 2026-11-05 |",
+      "reason": "Advance existing active pointer; no full-register credit."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/immortal-life/REPORT.md",
+      "from": "0e4040d5bdb0df50d8141b42820112e8182f695ca702cb97d1e2e68346f12d39",
+      "to": "f93ec46a5af6e6fb19e9c7209a71dd3cf81ea10db345c108f846c79e887bb50a",
+      "reason": "Scoped milestone correction recorded above."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "80e924ca8ce7210f76f79bb94eb79652c37923f8f3ef528cf92a16b27cc5c47a",
+      "to": "323df8b3ea8c5ab8abb60e41795642d6c5a5e013c5fc92d4f503661cae5b2131",
+      "reason": "Advance existing checkpoint row to B596."
+    }
+  ]
+}

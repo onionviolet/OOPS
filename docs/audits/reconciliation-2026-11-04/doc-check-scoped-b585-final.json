@@ -1,0 +1,29 @@
+{
+  "scope": "Unchanged checker rules; task-path filespec only.",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "193dabb94eb9abe0a5c9446cab869b5fc3b53d6c5064f5397baf24f74d61d56f",
+  "paths": [
+    "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+    "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+    "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+    "docs/RESEARCH_CULTIVATION_PATHS.md",
+    "docs/TECHNOLOGY_AND_PROGRESSION.md",
+    "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-recovered-response.md",
+    "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-report.md",
+    "docs/research/PREMISE_HOOK_AUDIT_2026-10-14.md",
+    "docs/research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md",
+    "docs/research/ROBLOX_ANIME_SCOUT_2026-10-26.md",
+    "docs/research/cross-game-synthesis-2026-10-14/PACKETS.md",
+    "docs/research/feature-game-scout-2026-10-14/FOLD_PROPOSAL.md",
+    "docs/research/multiworld-synthesis-2026-10-14/AUDIT.md",
+    "docs/research/multiworld-synthesis-2026-10-14/REPORT.md",
+    "docs/research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md",
+    "docs/research/proto23/FEATURE_AUDIT_SIDE_BY_SIDE_2026-10-20.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": ""
+}

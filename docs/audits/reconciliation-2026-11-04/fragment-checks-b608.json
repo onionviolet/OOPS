@@ -1,0 +1,57 @@
+{
+  "batches": "B605\u2013B608",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+      "target": "../../../../worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b605-venues-care-and-transaction-evidence",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/shadow-slave.md",
+      "target": "../../SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b605-institution-scope-and-private-board",
+      "exists": true
+    },
+    {
+      "source": "docs/research/novels/full-book/omniscient-reader/WORLD_AND_DAILY_LIFE.md",
+      "target": "../../../../worlds/OMNISCIENT_READERS_VIEWPOINT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b606-contracts-prices-and-information-scope",
+      "exists": true
+    },
+    {
+      "source": "docs/research/novels/omniscient-reader/readers-2026-10-10/ECONOMY_STORIES_PROBABILITY.md",
+      "target": "../../../../worlds/OMNISCIENT_READERS_VIEWPOINT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b606-contracts-prices-and-information-scope",
+      "exists": true
+    },
+    {
+      "source": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "target": "worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md#content-reconciliation-b607-approved-sequencing-and-arena-evidence",
+      "exists": true
+    },
+    {
+      "source": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "target": "USER_VISION.md#long-term-horizon-world-enablement-and-complexity-2026-11-04",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "target": "../USER_VISION.md#long-term-horizon-world-enablement-and-complexity-2026-11-04",
+      "exists": true
+    },
+    {
+      "source": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "target": "USER_VISION.md#long-term-horizon-world-enablement-and-complexity-2026-11-04",
+      "exists": true
+    },
+    {
+      "source": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "target": "worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b608-real-run-transactions-and-later-corrections",
+      "exists": true
+    },
+    {
+      "source": "docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md",
+      "target": "../../../worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b608-real-run-transactions-and-later-corrections",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New targets only; not linked-body verification."
+}

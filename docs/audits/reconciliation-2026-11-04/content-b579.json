@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "batch": "B579",
+  "title": "Abstraction inventory cumulative completion and remaining eleven appendix families",
+  "at": "2026-11-05T11:30:14.707338+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+      "ids": [
+        "ER18-I5–I15 all rows",
+        "ER18 cumulative full inventory"
+      ],
+      "classification": "full cumulative actual document review; historical source locators remain scoped",
+      "owners": [
+        "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+        "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "F1: Cumulative actual review now covers the full original1556-line inventory and B578 note through1573. B578 read original1–480; B579 read481–1573, recovering the clipped presenter rows with1490–1515. The original1556-line byte prefix still matches B578 input SHA. This completes the document review, not a fresh inspection of any listed source file or current census.\n\nF2: I5 contains actual native inventory/equipment/skills, domain slices and authoritative registries alongside immutable definitions, per-call validation sets, accumulation maps, frozen command catalogues and UI row/listener caches. Keep the purpose and ownership of each. Native transaction snapshots, candidate equipment and actor projection records are not duplicate live inventory. Borrowed-stock pools, custody bindings, clock leases, earned-feat records, inherited possessions and retained Ink cursors need their distinct invariants. A common Map label cannot justify consolidating those stores or removing their validation.\n\nF3: I6 distinguishes fact builders, observation admission and knowledge writes from public views and narrative memory. Cross-domain knowledge, fixed source knowledge, actor presence, receipt retention and actual observation are not equivalent evidence. I7 lists staged actions and held-native changes alongside guarded durable writes, publication and presentation settings. Review the actual commit boundary before sharing code: stage/validate, native identity-preserving rollback, durable envelope and post-commit publication are different phases. The table alone proves neither atomicity nor a rollback defect. I8 includes schema migrations and restore paths as well as content-definition validation, route evidence, battle metadata, actor/body/cargo/consent validation, settings normalization and native-reference checks. Do not replace them with one permissive JSON validator or mistake successful definition validation for compatible saved state.\n\nF4: I9 registration includes item/recipe definitions, content admission, native installation, retired content needed by saves and panel/workspace lifecycle. A manifest does not imply all phases have run. I10 separates definition, instance, selected visit, compacted visit history and authored anchor snapshot. I11 preserves counted inventory/storage/trade, custody and permission, carrier passage/clock, projections, departure and heir leftovers as different transfers. Reusing a codec or count helper cannot create a traversable body, consent, ownership or a route, nor duplicate stock. I12 separates local world laws and footprint/policy data from global runtime pacing, browser presentation and start-merge rules; source-local constraints remain defaults with a reason and cost under current authority.\n\nF5: I13 enumerates facts, admissibility previews, public projections, render signatures, people/route knowledge and accepted-work presentation. Cache keys must follow their actual dependencies, and hidden truth must stay outside public projection. I14 presenter rows include DOM helpers, incremental native display updates, panels, particles and layout mounting; common naming does not establish identical lifecycle or a universal renderer. I15 preserves calendar versus duration, exact price versus currency display, sign and rounding, skill reward, disclosed name and text/HTML contracts. These appendix locators help bound a future source review; no new runtime absence, failure, speedup, migration or implementation is established here.\n\nF6: Retain all original worklists and B578 history. Its partial coverage statement is superseded only by this cumulative receipt. Useful shared-seam ideas remain proposals subject to current AD36/AD42/AD43/AD51 and later profiling, with no renewed historical milestone, fixed viewport, human approval gate or second-consumer prerequisite. No source edits, browser run, benchmark, save access, deletion, relocation, commit or push occurred.",
+      "evidence": "B578 original1–480; B579 original481–1556 plus B578 note1557–1573; truncated presenter rows recovered1490–1515; original1556-line prefix SHA matches B578 input.",
+      "reopen": "Reopen selected source locators only for a concrete authorized seam or conflicting later runtime evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1573
+        ]
+      ],
+      "input_sha256": "50d447904208b7d5e5b7358827e008534cae1040eadaff10d68d1c3f18afb7fe",
+      "input_lines": 1573
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+      "heading": "## Content reconciliation B579: completed appendix and cumulative coverage",
+      "body": "F1: Cumulative actual review now covers the full original1556-line inventory and B578 note through1573. B578 read original1–480; B579 read481–1573, recovering the clipped presenter rows with1490–1515. The original1556-line byte prefix still matches B578 input SHA. This completes the document review, not a fresh inspection of any listed source file or current census.\n\nF2: I5 contains actual native inventory/equipment/skills, domain slices and authoritative registries alongside immutable definitions, per-call validation sets, accumulation maps, frozen command catalogues and UI row/listener caches. Keep the purpose and ownership of each. Native transaction snapshots, candidate equipment and actor projection records are not duplicate live inventory. Borrowed-stock pools, custody bindings, clock leases, earned-feat records, inherited possessions and retained Ink cursors need their distinct invariants. A common Map label cannot justify consolidating those stores or removing their validation.\n\nF3: I6 distinguishes fact builders, observation admission and knowledge writes from public views and narrative memory. Cross-domain knowledge, fixed source knowledge, actor presence, receipt retention and actual observation are not equivalent evidence. I7 lists staged actions and held-native changes alongside guarded durable writes, publication and presentation settings. Review the actual commit boundary before sharing code: stage/validate, native identity-preserving rollback, durable envelope and post-commit publication are different phases. The table alone proves neither atomicity nor a rollback defect. I8 includes schema migrations and restore paths as well as content-definition validation, route evidence, battle metadata, actor/body/cargo/consent validation, settings normalization and native-reference checks. Do not replace them with one permissive JSON validator or mistake successful definition validation for compatible saved state.\n\nF4: I9 registration includes item/recipe definitions, content admission, native installation, retired content needed by saves and panel/workspace lifecycle. A manifest does not imply all phases have run. I10 separates definition, instance, selected visit, compacted visit history and authored anchor snapshot. I11 preserves counted inventory/storage/trade, custody and permission, carrier passage/clock, projections, departure and heir leftovers as different transfers. Reusing a codec or count helper cannot create a traversable body, consent, ownership or a route, nor duplicate stock. I12 separates local world laws and footprint/policy data from global runtime pacing, browser presentation and start-merge rules; source-local constraints remain defaults with a reason and cost under current authority.\n\nF5: I13 enumerates facts, admissibility previews, public projections, render signatures, people/route knowledge and accepted-work presentation. Cache keys must follow their actual dependencies, and hidden truth must stay outside public projection. I14 presenter rows include DOM helpers, incremental native display updates, panels, particles and layout mounting; common naming does not establish identical lifecycle or a universal renderer. I15 preserves calendar versus duration, exact price versus currency display, sign and rounding, skill reward, disclosed name and text/HTML contracts. These appendix locators help bound a future source review; no new runtime absence, failure, speedup, migration or implementation is established here.\n\nF6: Retain all original worklists and B578 history. Its partial coverage statement is superseded only by this cumulative receipt. Useful shared-seam ideas remain proposals subject to current AD36/AD42/AD43/AD51 and later profiling, with no renewed historical milestone, fixed viewport, human approval gate or second-consumer prerequisite. No source edits, browser run, benchmark, save access, deletion, relocation, commit or push occurred.",
+      "before_sha256": "50d447904208b7d5e5b7358827e008534cae1040eadaff10d68d1c3f18afb7fe",
+      "after_sha256": "3b7ef5b24765198321ac796110c20b618a0d49005bfc49f97c0011f5878b9977"
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Abstraction inventory appendix completion B579",
+      "body": "F1: Cumulative actual review now covers the full original1556-line inventory and B578 note through1573. B578 read original1–480; B579 read481–1573, recovering the clipped presenter rows with1490–1515. The original1556-line byte prefix still matches B578 input SHA. This completes the document review, not a fresh inspection of any listed source file or current census.\n\nF2: I5 contains actual native inventory/equipment/skills, domain slices and authoritative registries alongside immutable definitions, per-call validation sets, accumulation maps, frozen command catalogues and UI row/listener caches. Keep the purpose and ownership of each. Native transaction snapshots, candidate equipment and actor projection records are not duplicate live inventory. Borrowed-stock pools, custody bindings, clock leases, earned-feat records, inherited possessions and retained Ink cursors need their distinct invariants. A common Map label cannot justify consolidating those stores or removing their validation.\n\nF3: I6 distinguishes fact builders, observation admission and knowledge writes from public views and narrative memory. Cross-domain knowledge, fixed source knowledge, actor presence, receipt retention and actual observation are not equivalent evidence. I7 lists staged actions and held-native changes alongside guarded durable writes, publication and presentation settings. Review the actual commit boundary before sharing code: stage/validate, native identity-preserving rollback, durable envelope and post-commit publication are different phases. The table alone proves neither atomicity nor a rollback defect. I8 includes schema migrations and restore paths as well as content-definition validation, route evidence, battle metadata, actor/body/cargo/consent validation, settings normalization and native-reference checks. Do not replace them with one permissive JSON validator or mistake successful definition validation for compatible saved state.\n\nF4: I9 registration includes item/recipe definitions, content admission, native installation, retired content needed by saves and panel/workspace lifecycle. A manifest does not imply all phases have run. I10 separates definition, instance, selected visit, compacted visit history and authored anchor snapshot. I11 preserves counted inventory/storage/trade, custody and permission, carrier passage/clock, projections, departure and heir leftovers as different transfers. Reusing a codec or count helper cannot create a traversable body, consent, ownership or a route, nor duplicate stock. I12 separates local world laws and footprint/policy data from global runtime pacing, browser presentation and start-merge rules; source-local constraints remain defaults with a reason and cost under current authority.\n\nF5: I13 enumerates facts, admissibility previews, public projections, render signatures, people/route knowledge and accepted-work presentation. Cache keys must follow their actual dependencies, and hidden truth must stay outside public projection. I14 presenter rows include DOM helpers, incremental native display updates, panels, particles and layout mounting; common naming does not establish identical lifecycle or a universal renderer. I15 preserves calendar versus duration, exact price versus currency display, sign and rounding, skill reward, disclosed name and text/HTML contracts. These appendix locators help bound a future source review; no new runtime absence, failure, speedup, migration or implementation is established here.\n\nF6: Retain all original worklists and B578 history. Its partial coverage statement is superseded only by this cumulative receipt. Useful shared-seam ideas remain proposals subject to current AD36/AD42/AD43/AD51 and later profiling, with no renewed historical milestone, fixed viewport, human approval gate or second-consumer prerequisite. No source edits, browser run, benchmark, save access, deletion, relocation, commit or push occurred.",
+      "before_sha256": "136fbea84276bff393c255a054fe186e7caf471374348bcd526b34ee12cd1ee5",
+      "after_sha256": "82f97df65a96193e614d05663b003bd859107c60d26ac43c574e2b54fa4d72e1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 131,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+      "from": "accepted-work presentation",
+      "to": "admitted-work presentation",
+      "reason": "Clarify timed-work admission without policy-acceptance lint ambiguity."
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "from": "accepted-work presentation",
+      "to": "admitted-work presentation",
+      "reason": "Clarify timed-work admission without policy-acceptance lint ambiguity."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+      "from": "39dd3f2e8397b26a9be3ce8807f8703de60390e3025ff060baaa099d8fac40cc",
+      "to": "3d6004c16c066ad5ea1b0a7f7f664619dcc65c2b28ca690b4c5b29f8f4acaa1d",
+      "reason": "Clarify own newly added work-admission terminology."
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "from": "82f97df65a96193e614d05663b003bd859107c60d26ac43c574e2b54fa4d72e1",
+      "to": "e6e217c97ef52f98d7abf641301562cec2d2918b254060b078369aa932e80e74",
+      "reason": "Clarify own newly added work-admission terminology."
+    }
+  ]
+}

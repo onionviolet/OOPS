@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "batch": "B428",
+  "title": "Four complete chance and memory receipts: corrected history semantics and later browser floor",
+  "at": "2026-11-05T05:33:00.737930+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR1_CHECKPOINT.md",
+      "ids": [
+        "compact memory;499711bytes;41stsubject correction;lossy history"
+      ],
+      "classification": "complete chance/memory receipt including coordinator corrections and later real route evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Compact tuples preserve opaque fact/subject/teller identity, hearsay provenance, positive fading detail and atomic byte/validation refusal. The499,711byte300×40fixture is one heavy valid input, not a guarantee for arbitrary long Unicode IDs/days. Initial41stsubject refusal is explicitly superseded by the coordinator's weakest-whole-subject forgetting fix; it is not current no-new-acquaintance policy. Detail folding averages feeling/certainty and retains count/latest date, so exact facts need the external fact log; protected canon details need a retention policy. Calendar conversion is owner supplied, not chapter/native-day interchange. Recall author receipts are not observer-safe UI and repeated invocation cadence is caller-owned. Initial prepared registration waits for its first consumer; MR2 later integrates the combined patch. Eight native/synthetic persistence and91legacy checks do not establish an earned/browser route or recover previously lost episodes; full-suite failures remain historical failures.",
+      "evidence": "Complete actual file read, including all tables, hashes and late coordinator/freeze/clutter corrections. Compared with previously read MR4/MR5. No current source, runtime, browser, memory migration or corpus execution.",
+      "reopen": "Preserve explicit history loss and source identities; later work needs the current owning mechanism, retention policy and exact route rather than old opening labels or aggregate test claims.",
+      "input_sha256": "37f45c8262de913e4fae8e7baa2b0083b563ba746468c04a65714585ac360763",
+      "input_lines": 138,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          138
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR2_CHECKPOINT.md",
+      "ids": [
+        "detached durable memory;mirrored bond baseline;daily gossip;later real browser floor"
+      ],
+      "classification": "complete chance/memory receipt including coordinator corrections and later real route evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Memories stage on a detached transaction and publish only after durable save, preserving failed-save rollback and zero-clock deduplication. Derived axes subtract only represented direct detailed contributions before adding faded memory weights; told copies are not double-subtracted, and compacted/forgotten details fall back to legacy baseline rather than remaining named reactions. Daily gossip uses actual same-world/location living bonded listeners, a start-of-step snapshot and spent opportunity; no same-step cascade, truth rewrite, new timer or closed-app catch-up. Later integration supersedes prepared-only status and fixes missing calendar handling, absent empty-save keys and undefined publication. The browser freeze reproduces with MR2 reversed; exact served-bundle profiling identifies quadratic disabled-reason sibling scans plus observer attribute churn. The coordinator's actual index/write-on-change fixes and A/B evidence retain125visiblebuttons while reducing420reasonnotes to23. Later1920fresh-origin pointer route shows the memory line after Save/reload and supersedes the opening below-floor label for that named-fixture route; original native literal Import evidence stays separate. Failed4091/4093and4117/4119full suites are not clean passes or proof that all current failures are unrelated.",
+      "evidence": "Complete actual file read, including all tables, hashes and late coordinator/freeze/clutter corrections. Compared with previously read MR4/MR5. No current source, runtime, browser, memory migration or corpus execution.",
+      "reopen": "Preserve explicit history loss and source identities; later work needs the current owning mechanism, retention policy and exact route rather than old opening labels or aggregate test claims.",
+      "input_sha256": "7e372f8bf7b1f3dcaea1ed9c488ef2f2746f9785a785729459bbca63fa1a5cdc",
+      "input_lines": 179,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          179
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR3_CHECKPOINT.md",
+      "ids": [
+        "world table revisions;amends preserves harm;event-hash bug;cold cost and later browser"
+      ],
+      "classification": "complete chance/memory receipt including coordinator corrections and later real route evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Temperament is derived from authored trait words and injected world tables; selected id@revmetadata changes behavior and unsupported revisions need migration, not silent structural relabelling. Amends preserves harm and changes its influence; actual conduct produces observed traits rather than meeting automatically exposing them. The old event hash used object.toString and collapsed distinct same-axis causes; corrected hexadecimal lanes prevent future collapse, while lost history cannot be reconstructed. Integer age-before-half-life fixes large-date rounding. Sixty-eight25%perturbations preserve four specific target assertions, not all capacity/gossip/canon calibration. Cached CPU below50msdiffers from cold wall/CPU costs exceeding that target; bounded immutable-snapshot reuse does not prove constant-time simulation. The native route uses hidden document/paused decorative observers, so its runtime/persistence evidence is not foreground actionability. Final coordinator addenda supply actual1920pointer amends/observed-trait Save/reload proof, superseding the opening browser-pending state only for that fixture route. Subsequent world-bound command filtering reduces125to67visiblebuttons/23to6reasons and preserves the route; it is not permission to hide known disabled local choices. Same-day load timeouts and failed/incomplete full suites remain explicit. Mood, trait drift, revenge behavior and dynamic/private lookup ports are not implemented by this receipt.",
+      "evidence": "Complete actual file read, including all tables, hashes and late coordinator/freeze/clutter corrections. Compared with previously read MR4/MR5. No current source, runtime, browser, memory migration or corpus execution.",
+      "reopen": "Preserve explicit history loss and source identities; later work needs the current owning mechanism, retention policy and exact route rather than old opening labels or aggregate test claims.",
+      "input_sha256": "4f98a0764deb9f1bcddcb6ae5b99c71942d40904045a2f4c3f9db93120afe692",
+      "input_lines": 258,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          258
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/CH1_CHECKPOINT.md",
+      "ids": [
+        "factor keys;stratified shuffle defect;512drawbudget;later memory consumers"
+      ],
+      "classification": "complete chance/memory receipt including coordinator corrections and later real route evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Factor keys represent method/tool/helpers/target/period and actual retry effort/conditions, not a hidden attempt ordinal. A genuine changed attempt can legitimately differ; the helper cannot choose all real dependencies for a consumer. Stable passive composition is not a universal stat scale, and512drawsis a bounded implementation budget. Hidden-result projection is a helper contract, not installed UI or authority to expose author receipts. Coordinator fixes a concrete stratification defect: initial successes occupied the first slots; keyed shuffle distributes slots while preserving exact replay. Thirty-nine focused and4,076historical full tests pass at that input, but no player route existed in CH1 itself. Later MR1recall and MR2/MR3memory consumers refine the old no-consumer label without proving every resolver consumer or current tree. World clock, cumulative effort costs, visibility and persistence remain their actual owners.",
+      "evidence": "Complete actual file read, including all tables, hashes and late coordinator/freeze/clutter corrections. Compared with previously read MR4/MR5. No current source, runtime, browser, memory migration or corpus execution.",
+      "reopen": "Preserve explicit history loss and source identities; later work needs the current owning mechanism, retention policy and exact route rather than old opening labels or aggregate test claims.",
+      "input_sha256": "a0caf9dc67a718e1667106a2111a1326efb661d11e05bb5fd637ce85fd559aa4",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "heading": "## Content reconciliation B428: chance and memory corrections through final addenda",
+      "body": "Four complete receipts trace the helper, compact memory, durable effect consumer and temperament route. They preserve both corrected defects and the evidence that actually supersedes initial patch/browser labels. This is scoped owner maintenance, not a complete design reread.\n\n**MR1:** Compact tuples preserve opaque fact/subject/teller identity, hearsay provenance, positive fading detail and atomic byte/validation refusal. The499,711byte300×40fixture is one heavy valid input, not a guarantee for arbitrary long Unicode IDs/days. Initial41stsubject refusal is explicitly superseded by the coordinator's weakest-whole-subject forgetting fix; it is not current no-new-acquaintance policy. Detail folding averages feeling/certainty and retains count/latest date, so exact facts need the external fact log; protected canon details need a retention policy. Calendar conversion is owner supplied, not chapter/native-day interchange. Recall author receipts are not observer-safe UI and repeated invocation cadence is caller-owned. Initial prepared registration waits for its first consumer; MR2 later integrates the combined patch. Eight native/synthetic persistence and91legacy checks do not establish an earned/browser route or recover previously lost episodes; full-suite failures remain historical failures.\n\n**MR2:** Memories stage on a detached transaction and publish only after durable save, preserving failed-save rollback and zero-clock deduplication. Derived axes subtract only represented direct detailed contributions before adding faded memory weights; told copies are not double-subtracted, and compacted/forgotten details fall back to legacy baseline rather than remaining named reactions. Daily gossip uses actual same-world/location living bonded listeners, a start-of-step snapshot and spent opportunity; no same-step cascade, truth rewrite, new timer or closed-app catch-up. Later integration supersedes prepared-only status and fixes missing calendar handling, absent empty-save keys and undefined publication. The browser freeze reproduces with MR2 reversed; exact served-bundle profiling identifies quadratic disabled-reason sibling scans plus observer attribute churn. The coordinator's actual index/write-on-change fixes and A/B evidence retain125visiblebuttons while reducing420reasonnotes to23. Later1920fresh-origin pointer route shows the memory line after Save/reload and supersedes the opening below-floor label for that named-fixture route; original native literal Import evidence stays separate. Failed4091/4093and4117/4119full suites are not clean passes or proof that all current failures are unrelated.\n\n**MR3:** Temperament is derived from authored trait words and injected world tables; selected id@revmetadata changes behavior and unsupported revisions need migration, not silent structural relabelling. Amends preserves harm and changes its influence; actual conduct produces observed traits rather than meeting automatically exposing them. The old event hash used object.toString and collapsed distinct same-axis causes; corrected hexadecimal lanes prevent future collapse, while lost history cannot be reconstructed. Integer age-before-half-life fixes large-date rounding. Sixty-eight25%perturbations preserve four specific target assertions, not all capacity/gossip/canon calibration. Cached CPU below50msdiffers from cold wall/CPU costs exceeding that target; bounded immutable-snapshot reuse does not prove constant-time simulation. The native route uses hidden document/paused decorative observers, so its runtime/persistence evidence is not foreground actionability. Final coordinator addenda supply actual1920pointer amends/observed-trait Save/reload proof, superseding the opening browser-pending state only for that fixture route. Subsequent world-bound command filtering reduces125to67visiblebuttons/23to6reasons and preserves the route; it is not permission to hide known disabled local choices. Same-day load timeouts and failed/incomplete full suites remain explicit. Mood, trait drift, revenge behavior and dynamic/private lookup ports are not implemented by this receipt.\n\n**CH1:** Factor keys represent method/tool/helpers/target/period and actual retry effort/conditions, not a hidden attempt ordinal. A genuine changed attempt can legitimately differ; the helper cannot choose all real dependencies for a consumer. Stable passive composition is not a universal stat scale, and512drawsis a bounded implementation budget. Hidden-result projection is a helper contract, not installed UI or authority to expose author receipts. Coordinator fixes a concrete stratification defect: initial successes occupied the first slots; keyed shuffle distributes slots while preserving exact replay. Thirty-nine focused and4,076historical full tests pass at that input, but no player route existed in CH1 itself. Later MR1recall and MR2/MR3memory consumers refine the old no-consumer label without proving every resolver consumer or current tree. World clock, cumulative effort costs, visibility and persistence remain their actual owners.\n\nPreserve the original detailed history and explicit loss boundaries. No memory compaction, capacity change, migration, gameplay optimization or new product rule is executed by this reconciliation.",
+      "before_sha256": "aebd465bc2006acd61fb14aa8aa7236d53b543a5e48d455a14e1ee39037883ec",
+      "after_sha256": "8f68e4b561984d458555bd8fb0c7950329781e4a252fbd970028408a35248cda"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 436
+}

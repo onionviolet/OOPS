@@ -1,0 +1,9 @@
+{
+  "batches": [
+    "B448",
+    "B449",
+    "B450"
+  ],
+  "new_fragment_links": 0,
+  "scope": "New folds use file links without fragments; targets checked by verify_content.py."
+}

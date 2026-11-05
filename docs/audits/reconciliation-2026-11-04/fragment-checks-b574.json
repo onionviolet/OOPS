@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "owner": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "target": "gm/dispatch/village-loop-2026-10-27/GM_PLAN.md#content-reconciliation-b569-later-village-consumers-and-current-scope",
+      "resolves": true
+    },
+    {
+      "owner": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "target": "gm/dispatch/village-loop-2026-10-27/VILLAGE_LOOP_CHECKPOINT.md#content-reconciliation-b569-watch-relay-and-return-evidence",
+      "resolves": true
+    },
+    {
+      "owner": "docs/PROGRESSION_GATE_RULES.md",
+      "target": "gm/dispatch/progression-gates-2026-10-23/CHECKPOINT.md#content-reconciliation-b570-pilot-corrections-and-later-landings",
+      "resolves": true
+    },
+    {
+      "owner": "docs/research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md",
+      "target": "../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#content-reconciliation-b571-recovered-native-consumers-and-later-seams",
+      "resolves": true
+    },
+    {
+      "owner": "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+      "target": "gm/dispatch/refit-k3-2026-10-22/CHECKPOINT.md#content-reconciliation-b572-two-routes-and-text-size-proof",
+      "resolves": true
+    },
+    {
+      "owner": "docs/SITE_AND_EXPLORATION_RULES.md",
+      "target": "gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md#content-reconciliation-b573-map-claims-and-useful-site-functions",
+      "resolves": true
+    },
+    {
+      "owner": "docs/SITE_AND_EXPLORATION_RULES.md",
+      "target": "gm/dispatch/procgen-2026-10-13/p11/WORLD_SITE_PALETTE_2026-10-16.md#content-reconciliation-b573-world-law-discovery-and-restoration",
+      "resolves": true
+    },
+    {
+      "owner": "docs/gm/dispatch/proto23-vfx-2026-10-13/PROTO23_VFX-reconciled.md",
+      "target": "#content-reconciliation-b574-historical-prompt-and-returned-discovery-slice",
+      "resolves": true
+    }
+  ],
+  "missing": 0,
+  "scope": "New fold/banner fragments; initial helper path resolution failed on an empty local path and was corrected to current file, no source edit."
+}

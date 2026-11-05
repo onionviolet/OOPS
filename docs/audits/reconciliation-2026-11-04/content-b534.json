@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "batch": "B534",
+  "title": "Ideas inventory opening and first mechanism crosswalk tranche",
+  "at": "2026-11-05T10:03:40.475006+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "ids": [
+        "opening/state/summary",
+        "MIE-G1–G14",
+        "PROGRESSION_WORLD_STATE:G1–G14",
+        "MAW-X1–X9",
+        "PT86–PT112 listed subset",
+        "AY6–AY12"
+      ],
+      "classification": "partial actual crosswalk review; retain supplier scope and current authority; remainder open",
+      "owners": [
+        "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md"
+      ],
+      "disposition": "F1: Actual review currently covers original lines1–140 only: opening provenance/state terms, summary, MIE-G1–G14, PROGRESSION_WORLD_STATE:G1–G14, MAW-X1–X9, PT86–PT112 (listed subset includingPT99), and AY6–AY12. Original lines141–1169 remain for substantive review; this is not a whole-inventory verdict. The inventory's source coverage/outline/chat counts describe its October25 extraction and routing, not fresh reads of all suppliers or runtime proof. All ideas stay on the table, and the existing November4 current-routing note prevents dated status and reserved-worker labels from becoming the live build order.\n\nF2: Keep graded admission, native catalogue use, symbolic formula fit, quality/potency/risk/residue, retained provenance, units and directional compatibility as distinct MIE mechanisms. A proposal label does not prove source absence, as the same MIE-G1/G10 text already notes partial implementation. Later material/substitution delivery reviewed in B527 establishes an attributed selected typed-unit/native cooking and directional ORIGINAL HP consumer beyond this snapshot; it does not deliver arbitrary chemistry, every quality reader or universal exchange. The earlier generic pack-save unwired row is also superseded at named registered registry/save seams in the later progress-evidence reconciliation. No new current source check is performed here. Preserve gate descriptor versus actual overflow reader, path shape versus crossing UI, body/attention terms, three kinds of revision pin and frozen pending-command compatibility as separate selected questions.\n\nF3: MAW tooling and integration rows retain their own conditional benefit and ownership. An export-name register scan cannot prove semantic coverage; two harnesses sharing setup does not prove their native outcomes. AD51 qualifies old two-caller/second-world prerequisite language, AD41 replaces automatic worktree creation, AD36 scopes checks, and existing save direction qualifies universal old-fixture requirements. Historical model/effort labels, machine cores, origins, checkout/staging/commit recipes and live D-lane claims grant no current workers, spend, integration or push. The crosswalk's copied extraction fields, such as AY11/AY12 effort/done text, preserve source provenance rather than becoming new runtime commands.\n\nF4: PT86–PT112 retain useful distinctions among natural pace, tickrate, sliced fast-forward, deterministic stepping and Node; model answer format/cache effects are dated measurements, not a current speed promise. Reasoning can change a choice and model disagreement is a heuristic rather than calibrated confidence. Stakes and allowed action remain derived from observer-safe game projections. A seeded route comparison needs matching policy/time/remainder, not a blanket claim all legitimate clocks must equal. Shorter settles await actual authority/publication, and a deferred slow second look is offline analysis rather than permission to replay paid state. Wall-budget exhaustion cannot silently waive required checks. AY6–AY12 preserve station route reuse, inspection versus attack target, shared Back/Escape and departed-person feedback; old proposal/unverified labels require the actual current owner before implementation. These are content dispositions, not source repairs or new universal gates.",
+      "evidence": "Actual original1–100 read with dense-output truncation recovered at60–82, then101–140 read in full. Original body1169 lines at input; remaining141–1169 not credited. Supporting current dispositions already saved in B527/B532/B533 and task report; no underlying runtime/source/body evidence revalidation.",
+      "reopen": "Continue original lines141–1169 in bounded dense-table chunks, then review appended owner notes and cumulative coverage before full-file credit.",
+      "full": false,
+      "ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "input_sha256": "88a34d28b83d8ec341069996f6fb8e60e7d3113d4db1a5defa94e4c5a49de419",
+      "input_lines": 1169
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "heading": "## Content reconciliation B534: opening and first crosswalk tranche",
+      "body": "F1: Actual review currently covers original lines1–140 only: opening provenance/state terms, summary, MIE-G1–G14, PROGRESSION_WORLD_STATE:G1–G14, MAW-X1–X9, PT86–PT112 (listed subset includingPT99), and AY6–AY12. Original lines141–1169 remain for substantive review; this is not a whole-inventory verdict. The inventory's source coverage/outline/chat counts describe its October25 extraction and routing, not fresh reads of all suppliers or runtime proof. All ideas stay on the table, and the existing November4 current-routing note prevents dated status and reserved-worker labels from becoming the live build order.\n\nF2: Keep graded admission, native catalogue use, symbolic formula fit, quality/potency/risk/residue, retained provenance, units and directional compatibility as distinct MIE mechanisms. A proposal label does not prove source absence, as the same MIE-G1/G10 text already notes partial implementation. Later material/substitution delivery reviewed in B527 establishes an attributed selected typed-unit/native cooking and directional ORIGINAL HP consumer beyond this snapshot; it does not deliver arbitrary chemistry, every quality reader or universal exchange. The earlier generic pack-save unwired row is also superseded at named registered registry/save seams in the later progress-evidence reconciliation. No new current source check is performed here. Preserve gate descriptor versus actual overflow reader, path shape versus crossing UI, body/attention terms, three kinds of revision pin and frozen pending-command compatibility as separate selected questions.\n\nF3: MAW tooling and integration rows retain their own conditional benefit and ownership. An export-name register scan cannot prove semantic coverage; two harnesses sharing setup does not prove their native outcomes. AD51 qualifies old two-caller/second-world prerequisite language, AD41 replaces automatic worktree creation, AD36 scopes checks, and existing save direction qualifies universal old-fixture requirements. Historical model/effort labels, machine cores, origins, checkout/staging/commit recipes and live D-lane claims grant no current workers, spend, integration or push. The crosswalk's copied extraction fields, such as AY11/AY12 effort/done text, preserve source provenance rather than becoming new runtime commands.\n\nF4: PT86–PT112 retain useful distinctions among natural pace, tickrate, sliced fast-forward, deterministic stepping and Node; model answer format/cache effects are dated measurements, not a current speed promise. Reasoning can change a choice and model disagreement is a heuristic rather than calibrated confidence. Stakes and allowed action remain derived from observer-safe game projections. A seeded route comparison needs matching policy/time/remainder, not a blanket claim all legitimate clocks must equal. Shorter settles await actual authority/publication, and a deferred slow second look is offline analysis rather than permission to replay paid state. Wall-budget exhaustion cannot silently waive required checks. AY6–AY12 preserve station route reuse, inspection versus attack target, shared Back/Escape and departed-person feedback; old proposal/unverified labels require the actual current owner before implementation. These are content dispositions, not source repairs or new universal gates.",
+      "before_sha256": "88a34d28b83d8ec341069996f6fb8e60e7d3113d4db1a5defa94e4c5a49de419",
+      "after_sha256": "d4f9f72ab677bc87145fb37a0bd944b666a8266ae64854d8c79e9bed50dc8587"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 173
+}

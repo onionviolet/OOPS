@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "owner": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "target": "research/CODEBASE_STRUCTURE_AND_BUNDLE_AUDIT_2026-10-14.md#content-reconciliation-b576-attributed-bytes-and-extraction-boundaries",
+      "resolves": true
+    },
+    {
+      "owner": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "target": "research/RUNTIME_HOTSPOT_AUDIT_2026-10-14.md#content-reconciliation-b576-hotspot-hypotheses-and-later-optimization-results",
+      "resolves": true
+    },
+    {
+      "owner": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+      "target": "../research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md#content-reconciliation-b577-source-specific-reset-and-retention-questions",
+      "resolves": true
+    },
+    {
+      "owner": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "target": "#content-reconciliation-b575-world-scope-and-actual-delivery-layers",
+      "resolves": true
+    }
+  ],
+  "missing": 0,
+  "scope": "New-fold/banner heading fragments only; no source/runtime truth verification."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "chunk_id": "a937c8",
+    "wall_time_seconds": 0.046080292,
+    "exit_code": 0,
+    "original_token_count": 328,
+    "output": "{\"hash\": \"2faa3640bfc8\", \"kind\": \"epub\", \"bytes\": 7896950, \"title\": \"Shadow Slave \", \"author\": \"Guiltythree\", \"parts\": 1873, \"chapters\": [1, 1840, 1840], \"first_gaps\": [], \"compilation\": true, \"on_disk\": true}\n{\"hash\": \"b1151c9f2e7a\", \"kind\": \"epub\", \"bytes\": 2663846, \"title\": \"Shadow Slave - Volume 11: The Song of Ariadne\", \"author\": \"Author: Guiltythree\", \"parts\": 283, \"chapters\": [2721, 3000, 278], \"first_gaps\": [2888, 2889], \"compilation\": true, \"on_disk\": true}\n{\"hash\": \"b8fcea86e276\", \"kind\": \"epub\", \"bytes\": 1542555, \"title\": \"Shadow Slave Novel Vol 9\", \"author\": \"<unknown>\", \"parts\": 422, \"chapters\": [1841, 2260, 420], \"first_gaps\": [], \"compilation\": true, \"on_disk\": true}\n{\"hash\": \"18e8216c63ce\", \"kind\": \"epub\", \"bytes\": 1815487, \"title\": \"Shadow Slave: Volume 10 - Dark Lord’s Dreadful Travelogue\", \"author\": \"Guiltythree\", \"parts\": 462, \"chapters\": [2261, 2720, 460], \"first_gaps\": [], \"compilation\": true, \"on_disk\": true}\n{\"hash\": \"6a7ed51e4370\", \"kind\": \"epub\", \"bytes\": 1003225, \"title\": \"Shadow Slave: Volume 2 - Demon of Change\", \"author\": \"Guiltythree\", \"parts\": 257, \"chapters\": [96, 350, 255], \"first_gaps\": [], \"compilation\": true, \"on_disk\": true}\n5 held records; compilations: 5. If any compilation covers a chapter range, volumes inside it are alternate editions, not gaps.\n"
+  }
+}

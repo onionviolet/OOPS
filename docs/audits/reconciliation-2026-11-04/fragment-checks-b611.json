@@ -1,0 +1,42 @@
+{
+  "batches": "B609\u2013B611",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/research/novels/full-book/regressors-tale/WORLD.md",
+      "target": "../../../../worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-rights-currency-and-loop-evidence",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md",
+      "target": "../../REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-rights-currency-and-loop-evidence",
+      "exists": true
+    },
+    {
+      "source": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "target": "../../../worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-intake-reset-and-talent-supplier",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+      "target": "../../PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-intake-reset-and-talent-supplier",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/paradise-hub/DERIVED_WORLD_INSTITUTIONS_AND_HUNTER_BENEFITS_2026-10-23.md",
+      "target": "../REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b610-facilities-local-currency-and-evidence-scope",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md",
+      "target": "../REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b610-facilities-local-currency-and-evidence-scope",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md",
+      "target": "CANON_PRIORITY_PLAN_2026-10-14.md#content-reconciliation-b610-starts-capability-palette-and-proof",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New targets only; not linked-body verification."
+}

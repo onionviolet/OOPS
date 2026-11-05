@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "batch": "B613",
+  "title": "Soldier institutions: price corrections, later meal quote and cohort scope",
+  "at": "2026-11-05T13:25:50.154140+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13",
+        "W2",
+        "W3"
+      ],
+      "classification": "later addendum integration, incorrect discount/pay inference and stale source scope",
+      "owners": [
+        "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md"
+      ],
+      "disposition": "F1: Full actual review covers349input lines, four windows/46174words,21coordinator-check groups, every facility/role/price/time/power/start/failure/search/gap row, F1–F12/nine unnamed engine facts/C1–C9/five floor cards and later independent W2/W3 addenda. Five extracted volumes total about838kwords; MOBI Book4unextracted by this pass and later Book6coverage differ from the older five-volume dossier. Both old and new paragraph schemes, out-of-order Book1chapter7and Book3chapter181fan-contest contamination stay explicit. Hash checks and ebook-convert availability statements are dated evidence, not live acquisition/tool checks; no source file/conversion/body was newly read.\n\nF2: Runtime pause is retained in the current kit card; the header’s exact PROJECT quote is not present in current PROJECT and is replaced with the actual owner. That does not unpause the world. The card’s old one-realm/prestige wording is retired under current PROJECT while desktop-first and paused scope stay. Source pass rank/readiness and old private prototype are not a new gameplay selection or proof; no pack, military contract, cohort implementation or paused-world gate is activated by review.\n\nF3: Source100copper/silver and100silver/gold,108/540weeklycopper and ratio5 are distinct from large/small coin inference and actual net pay after deductions.540/10000gold times assumed52weeks=2.808gold/year is an illustrative convention, not a source calendar. Wages make a4goldpurchase slow, not impossible; ordinary pay, living entitlements, debt, loot, hauling and command funds have different owners. Total bounty1705gold88silver14copper divided by an inferred75.68goldshare is about22.54, not an exact integral company split or proof all large coins mean ten. Later W2states75gold68silver, providing a source-supported share value without proving every denomination or equal-division formula. Preserve gross/net and per-unit/time/party distinctions.\n\nF4: Guild prices are not uniformly half Imperial prices: cure10versus25gold is40percent, lesser4versus5andgreater40versus50are80percent of quoted Imperial price, with the greater price still retaining its original verification limit. Expiry discounts are item-specific; two1goldcures+six0.5goldointments+four4goldheals=21gold is the later checked purchase. Unused near-expiry stock, quoted list, paid bundle, actual treatment and disease type differ. Later W2adds a14copper tavern meal, so old no-meal summaries are stale within that window; inn price and universal meal rate stay unknown. Authored kit2/6/10/15copper values remain proposals, neither verified source prices nor necessarily contradictory to another scene’s14coppermeal.\n\nF5: Recruiter five-year pitch, medic ten-year debt and twenty-year pension career are different commitments/speakers. Seven-week army versus seven-month Legion training, selected barrack58observation versus56later/unverifiedcycle counts, discretionary cuts, quartermaster debt and commander reserve sanction must not collapse into one mandatory three-cycle/one-third algorithm. Base potential/current stat, per-grade essence potency/supply and actual growth differ; the quoted approximate30minor-per-point below halfpotential does not support a single minor purchase automatically granting one whole point. Command office, ability, noble title and capture policy differ by kingdom/unit/era. Literal no-sergeant/no-court-martial hits do not prove absence of equivalent ranks/procedures under other wording.\n\nF6: Free healing is Brutus’s institutional claim in inspected text, not verified unlimited care everywhere; actual healer/aether, debris removal, potion closing, healing outcome and aftercare remain separate. Mages’ fast tracking makes escape risky, not intrinsically impossible against every reasonable means under AD38. Menagerie unplugged/with-plugs wording is internally ambiguous and remains U pending its exact source, not a new exposure rule. Keep named canon cast beside original anonymous roles rather than replacing either. Useful enlistment/term/debt-firstpay, funded service, medicine/stock, tablet growth/cuts and duty/credit ideas live in the existing card. Exact unopened windows/coin/calendar/rank/care/cohort questions remain; no new raw source, conversion, acquisition, worker, gameplay/build/browser/save/human proof, deletion/move, commit or push occurs.",
+      "evidence": "All349lines read in five bounded ranges; actual card1–12/388–407 and current PROJECT named lookup read. Price/share arithmetic calculated from stated rows; no raw source or gameplay recheck.",
+      "reopen": "Keep runtime paused; source-specific coin/time/price/cut/care questions and actual selected consumers remain before any authorized implementation.",
+      "full": true,
+      "input_sha256": "e6f76242a266e832c77ad2d86f0a0fb405378d2eb08b86b2560053654ae48aa1",
+      "input_lines": 349,
+      "ranges": [
+        [
+          1,
+          349
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B613: pay medicine and cohort evidence",
+      "body": "F1: Full actual review covers349input lines, four windows/46174words,21coordinator-check groups, every facility/role/price/time/power/start/failure/search/gap row, F1–F12/nine unnamed engine facts/C1–C9/five floor cards and later independent W2/W3 addenda. Five extracted volumes total about838kwords; MOBI Book4unextracted by this pass and later Book6coverage differ from the older five-volume dossier. Both old and new paragraph schemes, out-of-order Book1chapter7and Book3chapter181fan-contest contamination stay explicit. Hash checks and ebook-convert availability statements are dated evidence, not live acquisition/tool checks; no source file/conversion/body was newly read.\n\nF2: Runtime pause is retained in the current kit card; the header’s exact PROJECT quote is not present in current PROJECT and is replaced with the actual owner. That does not unpause the world. The card’s old one-realm/prestige wording is retired under current PROJECT while desktop-first and paused scope stay. Source pass rank/readiness and old private prototype are not a new gameplay selection or proof; no pack, military contract, cohort implementation or paused-world gate is activated by review.\n\nF3: Source100copper/silver and100silver/gold,108/540weeklycopper and ratio5 are distinct from large/small coin inference and actual net pay after deductions.540/10000gold times assumed52weeks=2.808gold/year is an illustrative convention, not a source calendar. Wages make a4goldpurchase slow, not impossible; ordinary pay, living entitlements, debt, loot, hauling and command funds have different owners. Total bounty1705gold88silver14copper divided by an inferred75.68goldshare is about22.54, not an exact integral company split or proof all large coins mean ten. Later W2states75gold68silver, providing a source-supported share value without proving every denomination or equal-division formula. Preserve gross/net and per-unit/time/party distinctions.\n\nF4: Guild prices are not uniformly half Imperial prices: cure10versus25gold is40percent, lesser4versus5andgreater40versus50are80percent of quoted Imperial price, with the greater price still retaining its original verification limit. Expiry discounts are item-specific; two1goldcures+six0.5goldointments+four4goldheals=21gold is the later checked purchase. Unused near-expiry stock, quoted list, paid bundle, actual treatment and disease type differ. Later W2adds a14copper tavern meal, so old no-meal summaries are stale within that window; inn price and universal meal rate stay unknown. Authored kit2/6/10/15copper values remain proposals, neither verified source prices nor necessarily contradictory to another scene’s14coppermeal.\n\nF5: Recruiter five-year pitch, medic ten-year debt and twenty-year pension career are different commitments/speakers. Seven-week army versus seven-month Legion training, selected barrack58observation versus56later/unverifiedcycle counts, discretionary cuts, quartermaster debt and commander reserve sanction must not collapse into one mandatory three-cycle/one-third algorithm. Base potential/current stat, per-grade essence potency/supply and actual growth differ; the quoted approximate30minor-per-point below halfpotential does not support a single minor purchase automatically granting one whole point. Command office, ability, noble title and capture policy differ by kingdom/unit/era. Literal no-sergeant/no-court-martial hits do not prove absence of equivalent ranks/procedures under other wording.\n\nF6: Free healing is Brutus’s institutional claim in inspected text, not verified unlimited care everywhere; actual healer/aether, debris removal, potion closing, healing outcome and aftercare remain separate. Mages’ fast tracking makes escape risky, not intrinsically impossible against every reasonable means under AD38. Menagerie unplugged/with-plugs wording is internally ambiguous and remains U pending its exact source, not a new exposure rule. Keep named canon cast beside original anonymous roles rather than replacing either. Useful enlistment/term/debt-firstpay, funded service, medicine/stock, tablet growth/cuts and duty/credit ideas live in the existing card. Exact unopened windows/coin/calendar/rank/care/cohort questions remain; no new raw source, conversion, acquisition, worker, gameplay/build/browser/save/human proof, deletion/move, commit or push occurs.",
+      "before_sha256": "e6f76242a266e832c77ad2d86f0a0fb405378d2eb08b86b2560053654ae48aa1",
+      "after_sha256": "6bb8bb4a24ce89777859c6166750b4c052b8385ba94177cd9ffea2fb28f4e15e"
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+      "heading": "## Institution and price-context reconciliation B613",
+      "body": "The [institution pass](../../A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b613-pay-medicine-and-cohort-evidence) is fully reviewed through later W2/W3. Preserve its source100/100coin ladder and108/540weeklypay separately from net deductions, large/small denomination inference and an authored year length. Guild item prices are not blanket half-price; list/expiry/bundle/care outcome differ. Later W2contains a14coppertavern meal, while this card’s2/6/10/15ledger remains authored and inn price unknown. Original role IDs and named source contacts are compatible alternatives, not invented source identities.\n\nCurrent runtime remains paused. The old one-realm/prestige gate is retired under PROJECT. A source service claim does not create unlimited healing without staff/aether or certify every large city. Tablet cohort counts/discretion/potential and approximate30minor-per-point growth need source-specific progression; one essence purchase is not automatically one point. Term, debt service and pension are distinct. Preserve actual clock/stock/duty/credit and reasonable escape/counterplay; no current gameplay gate is closed and no source body was newly read.",
+      "before_sha256": "9244b956850c5dc7d6a1be71a436f4940b7f71294dd86b1ff9112d36b5a6ef1c",
+      "after_sha256": "a3295c37e56212029ac9e91cf2b21e57b08c431f4d0d073072d31edaa9f889e4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 77,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "(PROJECT.md \"Soldier runtime stays paused\")",
+      "to": "(current kit card’s paused-runtime status; current PROJECT has no exact quoted Soldier line)",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "a shop at half Imperial prices",
+      "to": "a shop with item-specific prices versus Imperial quotes",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "shop at about half Imperial prices",
+      "to": "shop at its quoted item-specific prices",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Pay could never cover healing or gear",
+      "to": "Ordinary pay alone makes the quoted major purchases slow; it does not prove they are impossible",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "each bounty share is about 27 years of legion pay.",
+      "to": "the later W2states75gold68silver per share, about27years under an assumed52weekyear. Total bounty divided by75.68is about22.54, so company-size approximation does not prove a denomination or equal-share formula.",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "near-expiry stock half off",
+      "to": "near-expiry stock has item-specific discounts",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "there is no meal, inn or rank-ladder price (C2, C7)",
+      "to": "W2nowstates one14coppertavern meal; inn price and formal rank ladder remain unqualified (C2,C7)",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "INFERRED, conflicts with source (C2)",
+      "to": "INFERRED proposals, not source prices; C2does not establish a contradiction",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Mages can track a runner in minutes, so flight is not an option",
+      "to": "Mages’ reported fast tracking makes flight risky; supported countermeasures remain possible under AD38",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "a minor essence purchase raises one stat at a stated cost",
+      "to": "a minor essence purchase feeds an explicitly source-qualified growth calculation; it does not automatically grant one whole point",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Half of unplugged patrons fell to the song even with plugs",
+      "to": "The reader’s unplugged/with-plugs exposure wording is ambiguous; response distribution requires an exact source check",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+      "from": "One realm/one prestige; desktop/laptop first; mobile deferred. Runtime remains paused.",
+      "to": "Current PROJECT retires the one-realm/one-prestige gate; desktop/laptop first, mobile deferred. Runtime remains paused.",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+      "from": "K8.W3-SL: source denomination unverified; proposed ration/pay copper ledger:",
+      "to": "K8.W3-SL: later institution pass pins the source100/100copper–silver–gold ladder; these prices remain a proposed ration/pay copper ledger:",
+      "reason": "Correct source/authority/arithmetic scope and retain exact original."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "6bb8bb4a24ce89777859c6166750b4c052b8385ba94177cd9ffea2fb28f4e15e",
+      "to": "5099bea56bdbd4e26f5cf5a145257d7d6c28d45f686fd156b81fd379d16f4af5",
+      "reason": "Exact inline corrections preserved."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+      "from": "a3295c37e56212029ac9e91cf2b21e57b08c431f4d0d073072d31edaa9f889e4",
+      "to": "b009001b305a659513d1cb6b6e9e96b598fdefc24de69e8eccb2ee37ef726ddd",
+      "reason": "Exact inline corrections preserved."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/soldiers-life.md",
+      "sha256": "b009001b305a659513d1cb6b6e9e96b598fdefc24de69e8eccb2ee37ef726ddd",
+      "ranges": [
+        [
+          1,
+          12
+        ],
+        [
+          388,
+          407
+        ]
+      ],
+      "scope": "Selected current pause and K6–K8rows only; no full card review."
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "6829a4f25e2e2d22cb5ae0edd90bbd05b042be4e61f40835940eb7232a2bf86b",
+      "named_lookup": "Soldier/paused/one-realm",
+      "scope": "Targeted current text lookup, not fresh full PROJECT review."
+    }
+  ]
+}

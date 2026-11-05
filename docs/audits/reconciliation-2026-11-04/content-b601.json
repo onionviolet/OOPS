@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "batch": "B601",
+  "title": "RimWorld earlier selected source intervals and later-version boundaries",
+  "at": "2026-11-05T12:27:24.530726+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/rimworld/COVERAGE.json",
+      "ids": [
+        "RW-JOB-01",
+        "RW-JOB-02",
+        "RW-JOB-03",
+        "body-01",
+        "social-01",
+        "RW-STORY-01",
+        "RW-STORY-02",
+        "RW-STORY-03",
+        "RW-STORY-04",
+        "RW-STORY-05",
+        "RW-MATERIAL-01",
+        "RW-MATERIAL-02"
+      ],
+      "classification": "finite selected semantic coverage and distinct edition/input identity",
+      "owners": [
+        "docs/research/rimworld/REPORT.md"
+      ],
+      "disposition": "F1: Full actual content review covers all54file paths, hashes, listed intervals, reader provenance and semantic-line counts, all five mechanic-path/claim-ID groups, source/export identity and remaining/execution fields. Per-file interval unions equal each recorded semantic_lines and sum3697. That arithmetic validates the bookkeeping, not the source semantics; none of the referenced private54source bodies or9213exported C#files was newly read. Original974-line JSON/schema remain unchanged.\n\nF2: This is the supplied local1.6.4871rev573payload with filename rev588 and assembly1.6.9676.17433/SHA3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050. Filename, payload and assembly version schemes differ. It is not the later1.7.4979rev109/a97a01c4319414414c0ca39f3565215e83300dc608dc94b69a27720095b4e751 systems snapshot. Shared filenames, counts or mechanically similar routes do not requalify one edition from the other. The root's no-install observation and unexpanded DLCs are dated intake facts, not a current machine inventory or a contradiction of later installed-source work. Main assembly export is distinct from dependency reference copying and recovered-project execution.\n\nF3: jobs/RW-JOB-01–03 retains admission/real work versus reservation, stock-target hysteresis versus historical completed count, and actual gathered ingredients/unfinished work/creator identity versus a promise of free continuation. Completion, consumption, output custody and cleanup are distinct; releasing a reservation or dropping carried goods is not material refund or durable atomic saving. Keep useful stock buffers and supported interruption policies as proposals under existing work/custody owners rather than duplicate scheduler construction.\n\nF4: needs_health_action/body-01 retains need drain, malnutrition feedback, legal food search, actual returned nutrition and separate mood-break eligibility. Severe-starvation exceptions do not apply universally; no found food means no food job, not conjured recovery. It is not full medicine/armor/body proof or a mandate to import starvation policy. attributed_social_memory/social-01 retains other-actor attribution, directed opinion, different mood/memory lifetimes, per-person limits, fading/expiry, admission failures and a fight branch that can skip ordinary aftermath after initial memory. Temporary friction, permanent promises and journal feedback must not collapse into one scalar or replay reward.\n\nF5: storyteller_incidents/RW-STORY-01–05 separates stochastic category choice, eligible incident, execution recheck, condition registration/duration/ramp, temperature and actual species/light/fertility/season-sensitive plant growth. Rejected ColdSnap at the strict seasonal boundary is not queued until a later season; growth impact is not universal death or fixed yield loss. defs_components_material_production/RW-MATERIAL-01–02 distinguishes declared versus generated recipe requirements, component initialization, product material/quality identity, save/stack/split and actual damage-category/cooldown consumers. Quality/data presence alone is not valid production, and the selected weapon stat/application path is not complete armor/hit/body/combat selection. Donor coefficients stay source facts rather than YAIRPG balance.\n\nF6: Five selected paths and sampled parent review do not prove whole-source, every relation/incident/material, DLC, full food/spatial/medical/combat/quality distribution or runtime correctness. Reader labels are historical contributions, not currently live workers or fresh independent validation. Earlier YAIR fit/fingerprint observations require current affected-source review before implementation; no present compatibility or playable adoption follows from this coverage review. The later family-map report and [B600 map reconciliation](pass-2026-10-14-systems/REPORT.md#content-reconciliation-b600-complete-family-map-and-source-limits) retain separate1.7selected coverage and remaining families. Keep finite kit-stock, caused social friction and frost-sensitive useful plot ideas in existing packets with explicit current ownership and proof. No new extraction, source/game/browser/build/test/save journey, private input read, acquisition, gameplay edit, deletion, relocation, commit or push occurs.",
+      "evidence": "Every54source-span record and all remaining JSON fields read in two complete bounded outputs; finite root REPORT fully read; interval bookkeeping checked without opening source bodies.",
+      "reopen": "For a chosen adaptation trace current actual source consumers and separately prove runtime/persistence; preserve earlier edition and exact partial spans.",
+      "full": true,
+      "input_sha256": "aa86df42055707da48e60db8bf21c762e975893464349f8a4322e085de53ac7e",
+      "input_lines": 974,
+      "ranges": [
+        [
+          1,
+          974
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/rimworld/REPORT.md",
+      "heading": "## Content reconciliation B601: selected source coverage and edition limits",
+      "body": "F1: Full actual content review covers all54file paths, hashes, listed intervals, reader provenance and semantic-line counts, all five mechanic-path/claim-ID groups, source/export identity and remaining/execution fields. Per-file interval unions equal each recorded semantic_lines and sum3697. That arithmetic validates the bookkeeping, not the source semantics; none of the referenced private54source bodies or9213exported C#files was newly read. Original974-line JSON/schema remain unchanged.\n\nF2: This is the supplied local1.6.4871rev573payload with filename rev588 and assembly1.6.9676.17433/SHA3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050. Filename, payload and assembly version schemes differ. It is not the later1.7.4979rev109/a97a01c4319414414c0ca39f3565215e83300dc608dc94b69a27720095b4e751 systems snapshot. Shared filenames, counts or mechanically similar routes do not requalify one edition from the other. The root's no-install observation and unexpanded DLCs are dated intake facts, not a current machine inventory or a contradiction of later installed-source work. Main assembly export is distinct from dependency reference copying and recovered-project execution.\n\nF3: jobs/RW-JOB-01–03 retains admission/real work versus reservation, stock-target hysteresis versus historical completed count, and actual gathered ingredients/unfinished work/creator identity versus a promise of free continuation. Completion, consumption, output custody and cleanup are distinct; releasing a reservation or dropping carried goods is not material refund or durable atomic saving. Keep useful stock buffers and supported interruption policies as proposals under existing work/custody owners rather than duplicate scheduler construction.\n\nF4: needs_health_action/body-01 retains need drain, malnutrition feedback, legal food search, actual returned nutrition and separate mood-break eligibility. Severe-starvation exceptions do not apply universally; no found food means no food job, not conjured recovery. It is not full medicine/armor/body proof or a mandate to import starvation policy. attributed_social_memory/social-01 retains other-actor attribution, directed opinion, different mood/memory lifetimes, per-person limits, fading/expiry, admission failures and a fight branch that can skip ordinary aftermath after initial memory. Temporary friction, permanent promises and journal feedback must not collapse into one scalar or replay reward.\n\nF5: storyteller_incidents/RW-STORY-01–05 separates stochastic category choice, eligible incident, execution recheck, condition registration/duration/ramp, temperature and actual species/light/fertility/season-sensitive plant growth. Rejected ColdSnap at the strict seasonal boundary is not queued until a later season; growth impact is not universal death or fixed yield loss. defs_components_material_production/RW-MATERIAL-01–02 distinguishes declared versus generated recipe requirements, component initialization, product material/quality identity, save/stack/split and actual damage-category/cooldown consumers. Quality/data presence alone is not valid production, and the selected weapon stat/application path is not complete armor/hit/body/combat selection. Donor coefficients stay source facts rather than YAIRPG balance.\n\nF6: Five selected paths and sampled parent review do not prove whole-source, every relation/incident/material, DLC, full food/spatial/medical/combat/quality distribution or runtime correctness. Reader labels are historical contributions, not currently live workers or fresh independent validation. Earlier YAIR fit/fingerprint observations require current affected-source review before implementation; no present compatibility or playable adoption follows from this coverage review. The later family-map report and [B600 map reconciliation](pass-2026-10-14-systems/REPORT.md#content-reconciliation-b600-complete-family-map-and-source-limits) retain separate1.7selected coverage and remaining families. Keep finite kit-stock, caused social friction and frost-sensitive useful plot ideas in existing packets with explicit current ownership and proof. No new extraction, source/game/browser/build/test/save journey, private input read, acquisition, gameplay edit, deletion, relocation, commit or push occurs.",
+      "before_sha256": "488849fc476772f4b39878065d36990c81b57b995de550be09fe4de4053ee7f4",
+      "after_sha256": "df7bc6301d8c5020e1c61659b49667a7b57bd282bf96e38b7f73adeaa13e309f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 96
+}

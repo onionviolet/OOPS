@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "batch": "B607",
+  "title": "Hunger Games: approved sequence, source boundaries and funded arena proposals",
+  "at": "2026-11-05T12:59:53.151355+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "ids": [
+        "HG1",
+        "HG2",
+        "HG3",
+        "HG4",
+        "HG5",
+        "HG6",
+        "HG7",
+        "HG8",
+        "HG9",
+        "HG10",
+        "HG11",
+        "HG12",
+        "HG13",
+        "HG14",
+        "HG15",
+        "HG16",
+        "HG17",
+        "HG18",
+        "HG19",
+        "HG20",
+        "HG21",
+        "HG22",
+        "HG23",
+        "HG24",
+        "HG25",
+        "HG26",
+        "HG27",
+        "HG28",
+        "HG29",
+        "HG30",
+        "HG31",
+        "HG32",
+        "HG33",
+        "HG34",
+        "HG35",
+        "HG36",
+        "HG37",
+        "HG38",
+        "HG39",
+        "HG40",
+        "HG41",
+        "HG42",
+        "HG43",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "WER1–WER17",
+        "T-HG1",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "HG-S1",
+        "HG-S2"
+      ],
+      "classification": "approved sequencing reconciled; source/read/runtime and authored arena boundaries corrected",
+      "owners": [
+        "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+        "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md"
+      ],
+      "disposition": "F1: Full actual review covers312lines, HG1–HG43, seven engine-fact rows, C1–C10, every source/search/review/gap table, WER1–WER17/S1–S6, T-HG1/X1–X4/HG-S1/HG-S2 and M1–M8. Book totals580816and selected135467words sum correctly: one whole first book plus three selected later-book windows, not23percent of every book. Source catalogue prefixes identify supplied editions; integrity/spine extraction, reader labels, coordinator source checks and adopted game rules remain distinct. Seven table groups are marked reopened and two explicitly not reopened; a headline nine opens is a historical invocation claim, not nine independently confirmed table rows. No raw book body or live holdings was newly checked here.\n\nF2: USER_VISION's November4 horizon record explicitly preserves approval of five sequencing changes including this slice after current LOTM-first work. It does not approve the whole horizon, lift WR9, license a download, or accept every proposed arena/exception. Update the master's stale approval question and its obsolete Hunger Games lacks-institution-doc example; retain unproved foundations/current-runtime claims as dated snapshots. This is owner reconciliation, not new gameplay dispatch or commit authorization. The institution pass's own approval statement has a matching user-direction owner, rather than relying on an agent's assertion.\n\nF3: The source's tessera entry weights, current count versus cumulative years, participants versus opponents, eligible volunteering and era-specific victors/student mentors remain separate. Law, tolerated poaching, official starvation records, body condition, private belief and propaganda differ. Exact B4/B5 openings do not establish absence of later sponsor systems or all-era entitlements. HG24's B5:L1168 is outside W12's1–348 coverage and stays an unreviewed locator lead. C9's pack discrepancy remains unopened; self-report versus shown skill and intended fence duty versus actual electricity are compatible observations. Claims about all of B1 lacking a rule need a source question, not a new verified absence.\n\nF4: Audience attention, actual donor funds, mentor mediation, affordability, available stock, delivery, intended recipient, received item and inferred gift message are distinct. A public spectacle can motivate aid without directly paying a gift. Pooling coins in the cited district gift is Katniss's guess. Source quotes do not fund an authored sponsor ledger; sponsor and Gamemaker consumers can read related evidence without one magic number replacing their actors. A former ally's death does not automatically create a redirected gift or another actor's grudge. Reduction in lottery odds is risk mitigation, not a secured exit from a draw. Keep funding, custody and actor reasons explicit.\n\nF5: Source reaping/arena carry restrictions are not universal world-crossing laws or automatic civilian/Academy currency wipes. Quiet arrival does not guarantee no observer notices. Pre-arena schedule, scenario context, ordinary civilian life, selected arena body/skill and later aftermath stay distinct. No supernatural rank ladder does not mean ordinary survival, biotech and institutional systems are absent. Exact-term code searches cannot prove missing equivalent seams; zero-hit names and unread analogous code establish current consumer/proof gaps rather than mandatory fresh modules. AD51 favors inspecting shared seams before selecting a mechanism.\n\nF6: Preserve the proposed three-day1440x900arena, four different-means routes, nonlethal near-end, actual warning/stock/clock/aftercare, persistence checks and source/canon distinctions. BHR16 retains comfortable ordinary unfed play; hunger-lethal exception lacks specific recorded direction. BHR18 retains reviewable away boundaries; source deaths do not bypass that policy. AD50's open reasonable plans and capable counterplay remain distinct from a fixed answer list. Public trigger examples are nonbinding authoring candidates; HG-S1/HG-S2 remain ID/route/status only until actual private truth is authored, without claiming a playable secret or discovery path already exists. Original geography and abstract rivals are this proposal, not unavoidable source-derived implementation requirements. No native/browser/build/runtime/save/human proof, new source reading, worker, acquisition, delete/move, commit or push occurs.",
+      "evidence": "Complete312-line input read in four untruncated chunks; USER_VISION7280–7296, master532–560 and DOMAIN_RULES61–69 are scoped supporting reads. No new source bodies or runtime inspection.",
+      "reopen": "Retain unreviewed ranges and inspect actual shared consumers; approved sequence does not grant hunger-lethal exception or certify proposed slice.",
+      "full": true,
+      "input_sha256": "160e9204a67eb1436eba6e435e396231b382d80edab2a555ca6deb1e9c1527dc",
+      "input_lines": 312,
+      "ranges": [
+        [
+          1,
+          312
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "heading": "## Content reconciliation B607: approved sequencing and arena evidence",
+      "body": "F1: Full actual review covers312lines, HG1–HG43, seven engine-fact rows, C1–C10, every source/search/review/gap table, WER1–WER17/S1–S6, T-HG1/X1–X4/HG-S1/HG-S2 and M1–M8. Book totals580816and selected135467words sum correctly: one whole first book plus three selected later-book windows, not23percent of every book. Source catalogue prefixes identify supplied editions; integrity/spine extraction, reader labels, coordinator source checks and adopted game rules remain distinct. Seven table groups are marked reopened and two explicitly not reopened; a headline nine opens is a historical invocation claim, not nine independently confirmed table rows. No raw book body or live holdings was newly checked here.\n\nF2: USER_VISION's November4 horizon record explicitly preserves approval of five sequencing changes including this slice after current LOTM-first work. It does not approve the whole horizon, lift WR9, license a download, or accept every proposed arena/exception. Update the master's stale approval question and its obsolete Hunger Games lacks-institution-doc example; retain unproved foundations/current-runtime claims as dated snapshots. This is owner reconciliation, not new gameplay dispatch or commit authorization. The institution pass's own approval statement has a matching user-direction owner, rather than relying on an agent's assertion.\n\nF3: The source's tessera entry weights, current count versus cumulative years, participants versus opponents, eligible volunteering and era-specific victors/student mentors remain separate. Law, tolerated poaching, official starvation records, body condition, private belief and propaganda differ. Exact B4/B5 openings do not establish absence of later sponsor systems or all-era entitlements. HG24's B5:L1168 is outside W12's1–348 coverage and stays an unreviewed locator lead. C9's pack discrepancy remains unopened; self-report versus shown skill and intended fence duty versus actual electricity are compatible observations. Claims about all of B1 lacking a rule need a source question, not a new verified absence.\n\nF4: Audience attention, actual donor funds, mentor mediation, affordability, available stock, delivery, intended recipient, received item and inferred gift message are distinct. A public spectacle can motivate aid without directly paying a gift. Pooling coins in the cited district gift is Katniss's guess. Source quotes do not fund an authored sponsor ledger; sponsor and Gamemaker consumers can read related evidence without one magic number replacing their actors. A former ally's death does not automatically create a redirected gift or another actor's grudge. Reduction in lottery odds is risk mitigation, not a secured exit from a draw. Keep funding, custody and actor reasons explicit.\n\nF5: Source reaping/arena carry restrictions are not universal world-crossing laws or automatic civilian/Academy currency wipes. Quiet arrival does not guarantee no observer notices. Pre-arena schedule, scenario context, ordinary civilian life, selected arena body/skill and later aftermath stay distinct. No supernatural rank ladder does not mean ordinary survival, biotech and institutional systems are absent. Exact-term code searches cannot prove missing equivalent seams; zero-hit names and unread analogous code establish current consumer/proof gaps rather than mandatory fresh modules. AD51 favors inspecting shared seams before selecting a mechanism.\n\nF6: Preserve the proposed three-day1440x900arena, four different-means routes, nonlethal near-end, actual warning/stock/clock/aftercare, persistence checks and source/canon distinctions. BHR16 retains comfortable ordinary unfed play; hunger-lethal exception lacks specific recorded direction. BHR18 retains reviewable away boundaries; source deaths do not bypass that policy. AD50's open reasonable plans and capable counterplay remain distinct from a fixed answer list. Public trigger examples are nonbinding authoring candidates; HG-S1/HG-S2 remain ID/route/status only until actual private truth is authored, without claiming a playable secret or discovery path already exists. Original geography and abstract rivals are this proposal, not unavoidable source-derived implementation requirements. No native/browser/build/runtime/save/human proof, new source reading, worker, acquisition, delete/move, commit or push occurs.",
+      "before_sha256": "160e9204a67eb1436eba6e435e396231b382d80edab2a555ca6deb1e9c1527dc",
+      "after_sha256": "96e7aa5c05cc8e5757e21362bfad72d49df26f2ded856b27f86533b8504b6f03"
+    },
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "heading": "## Hunger Games sequencing and evidence reconciliation B607",
+      "body": "The [Hunger Games institution pass](worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md#content-reconciliation-b607-approved-sequencing-and-arena-evidence) exists and contains bounded source review, WER proposals and an unbuilt AD50 arena plan. [Recorded user direction](USER_VISION.md#long-term-horizon-world-enablement-and-complexity-2026-11-04) approves the five named sequencing changes after LOTM-first work, without adopting this entire horizon, world details, acquisition or a hunger-lethal exception. B607 resolves that stale approval question from the actual owner. Difficulty remains unknown without selected implementation/play evidence, even with a source doc. Existing code search is lexical and partly unread: inspect applicable shared seams before declaring every proposed mechanism a new module. Audience attention, real gift funding, broker choice, delivery and Gamemaker response remain separate consumers. Continue actual current PROJECT order; this fold launches no build or worker.",
+      "before_sha256": "2d69c0fe4cadae329bf50d882a83513c5e646c7df398e059d00355c531251c80",
+      "after_sha256": "e6dea80afb378a07c88f5bb16dd54d87c96cfd26310f4c887402994bff98e6dd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 87,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "Weibao approved sequencing a Hunger Games slice on 2026-11-04 through the session that started this pass.",
+      "to": "Weibao’s sequencing approval is recorded in [USER_VISION](../USER_VISION.md#long-term-horizon-world-enablement-and-complexity-2026-11-04), after current LOTM-first work; it does not adopt every arena proposal.",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "partial; no power system exists, this is a survival world",
+      "to": "partial; no supernatural rank ladder is established here; survival, biotech and institutional mechanisms still operate",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "S [B1:L72, L131; B5:L226-230, L1168].",
+      "to": "S/T reader labels [B1:L72, L131; B5:L226-230]; B5:L1168 is an unopened lead outside W12, not inspected evidence.",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "a dead ally leaves a gift redirected to you or a grudge (HG26)",
+      "to": "a later actor may redirect a funded gift or form a grudge for a supported reason; neither follows automatically from death (HG26)",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "the audience-attention number rises with spectacle, so the cheap time is early and the cost is performing for the camera (HG6, S B1:L1737)",
+      "to": "spectacle may attract donors, but actual available funds, mentor choice, priced stock and delivery determine the gift; attention alone is not payment (HG6, S B1:L1737)",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "the audience notices spectacle; a quiet crossing is not noticed",
+      "to": "audience/camera or other observers notice by their actual means; a quiet crossing is not guaranteed unnoticed",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "| WER9 what carries | memories and cheat; a token, no money | same | same | same |",
+      "to": "| WER9 what carries | world crossing uses its declared method; arena intake separately restricts carried gear/token | same, with selected-era intake | declared crossing and Academy property, not automatic arena confiscation | declared crossing and household property, not automatic arena confiscation |",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "Each absent seam is a new mechanism, not a data row.",
+      "to": "The lexical search does not determine whether a seam needs new code, shared-seam adaptation or world data; inspect producer/state/consumer before selecting work.",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "exits: a volunteer, a tessera choice, bribery of an official as seen in B5:L291, or leaving the district, which the travel ban makes costly",
+      "to": "possible routes: qualified volunteering, a supported negotiated intervention, or costly escape; a tessera choice changes odds rather than securing an exit, and B5:L291 bribery remains reader-level evidence",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "The truth for each is to be authored in the gitignored private pack at build time",
+      "to": "The public trigger examples above are nonbinding proposals, not selected HG-S2 truth. The truth for each ID is to be authored in the gitignored private pack at build time",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "from": "Items that change current sequencing (LOTM first, canon-first) and need Weibao's yes: S8 pack save, H2 rewind, Hunger Games slice, the making donor, D&D d20 layer.",
+      "to": "The five sequencing changes, S8 pack save, H2 rewind, Hunger Games slice, the making donor and D&D d20 layer, were approved after current LOTM-first work in [USER_VISION](USER_VISION.md#long-term-horizon-world-enablement-and-complexity-2026-11-04). The rest of the horizon remains proposed.",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "from": "Worlds without a design or institutions doc (Hunger Games, Percy Jackson, Earthsea) rate difficulty as unknown, not low.",
+      "to": "World difficulty stays unknown without selected implementation evidence. Hunger Games now has an [institution pass and unbuilt arena plan](worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md); document existence alone is not a low-difficulty rating.",
+      "reason": "Scoped source/authority/proposal correction; preserve original."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B604, continuous execution 2026-11-05 |",
+      "to": "| B607, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/HUNGER_GAMES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-11-04.md",
+      "from": "96e7aa5c05cc8e5757e21362bfad72d49df26f2ded856b27f86533b8504b6f03",
+      "to": "f000c558320f400962cacf1feb2a7fe3f6ecb5a006e029d32d4e2c68bde0823d",
+      "reason": "Exact inline corrections retained."
+    },
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "from": "e6dea80afb378a07c88f5bb16dd54d87c96cfd26310f4c887402994bff98e6dd",
+      "to": "5c688a88a63a9101cfbbed7bc8ac84efb28c39dd6184d4732f415426b1769d5f",
+      "reason": "Exact inline corrections retained."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "2f815645f9f578305db1a338e8877dee46b0177c253f3f96eaf95e0d8e0b8b28",
+      "to": "9ecf9e5600c8f4255f25768f7d948a7efcb9ee40b2628a29046189cf3445e828",
+      "reason": "Pointer throughB607; no full register review."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "bbed52466dc2b0b98c04a62cfc8b33d26c2281e4a56276dab0484dd6d223ba5c",
+      "ranges": [
+        [
+          7280,
+          7296
+        ]
+      ],
+      "scope": "Named sequencing approval only; not current full owner re-review."
+    },
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "sha256": "5c688a88a63a9101cfbbed7bc8ac84efb28c39dd6184d4732f415426b1769d5f",
+      "ranges": [
+        [
+          532,
+          560
+        ]
+      ],
+      "scope": "Selected horizon and queue; not full master review."
+    },
+    {
+      "path": "docs/DOMAIN_RULES.md",
+      "sha256": "4465d40c978f6f3150704e9ff0f4340d77bef1a9c98659ce90c735af12b2a0f4",
+      "ranges": [
+        [
+          61,
+          69
+        ]
+      ],
+      "scope": "Selected BHR14–BHR19 defaults."
+    }
+  ]
+}

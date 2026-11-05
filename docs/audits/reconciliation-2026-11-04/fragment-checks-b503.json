@@ -1,0 +1,13 @@
+{
+  "batches": [
+    "B498",
+    "B499",
+    "B500",
+    "B501",
+    "B502",
+    "B503"
+  ],
+  "new_local_heading_fragments": 0,
+  "missing": [],
+  "scope": "New fold hyperlinks are whole-file targets checked by structural verifier; original heading locators retained separately, no linked-body credit."
+}

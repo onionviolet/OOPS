@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "batch": "B623",
+  "title": "ONI map: material, body, ecology, source-grant and persistence consumers",
+  "at": "2026-11-05T13:59:38.453452+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/oxygen-not-included/COVERAGE.json",
+      "ids": [
+        "ONI-01",
+        "ONI-02",
+        "ONI-03",
+        "ONI-04",
+        "ONI-05",
+        "ONI-06",
+        "ONI-07",
+        "ONI-08",
+        "ONI-09",
+        "ONI-10",
+        "ONI-11",
+        "ONI-12",
+        "ONI-13",
+        "ONI-14",
+        "ONI-15",
+        "ONI-16",
+        "ONI-17",
+        "ONI-18",
+        "ONI-19",
+        "ONI-20",
+        "ONI-21",
+        "ONI-22",
+        "ONI-23",
+        "ONI-F01",
+        "ONI-F02",
+        "ONI-F03",
+        "ONI-F04",
+        "ONI-F05",
+        "ONI-F06",
+        "ONI-F07",
+        "ONI-F08",
+        "ONI-F09",
+        "ONI-F10",
+        "ONI-F11",
+        "ONI-F12",
+        "ONI-F13",
+        "ONI-F14",
+        "ONI-F15",
+        "ONI-F16",
+        "ONI-F17",
+        "ONI-F18",
+        "ONI-F19",
+        "ONI-F20",
+        "ONI-F21",
+        "ONI-F22",
+        "ONI-F23",
+        "ONI-F24",
+        "ONI-F25",
+        "ONI-F26",
+        "ONI-F27",
+        "ONI-F28",
+        "ONI-F29",
+        "ONI-F30",
+        "ONI-F31",
+        "ONI-F32",
+        "ONI-F33",
+        "ONI-F34",
+        "ONI-F35",
+        "ONI-F36",
+        "ONI-F37",
+        "ONI-F38",
+        "ONI-F39",
+        "E01–E62"
+      ],
+      "classification": "complete representative source map; actual consumer differences and unsupported frontiers",
+      "owners": [
+        "docs/research/oxygen-not-included/REPORT.md",
+        "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Full1077-line COVERAGE.jsoncontent actualread: everyroot/check/unreadfrontier field, all23completeONI-01–23causalpath records and62completeE01–E62path/symbol/line/hash/inspection records. Recovered initial truncated pathserialization by explicit0–8/8–16/16–end groups; evidence in fourgroups. All62evidenceIDsare referenced, no danglingrefs, and pathfindings cover39distinctONI-F01–F39. Those identity checks do not prove source mechanics; actual map semantics were read. OriginalJSONbytes/schema preserved. Whole-source/game coverage false and everypathwhole-system/runtimefalse remain explicit; export/privatehash/locatorchecks do not become gameplay or currentinstall/sourcebody reading.\n\nF2: Materialdefinition/mountedtable/nativeinterface differs from actualsolver; limitedinput massconversion carries heat/disease/output, pressuregateconsumer and physicalpayload/conduitcapacity matter. Power/fuel/wireoverload reach actualwork/damage. Breathprovider/material/breathreserve/station/recovery/suffocation differ; mealexpenditure/finalcalorieDeathMonitorconsumer remain unread. Smoothedbodytemperature/homeostasismodes differ from ambientlabel and universalcaloriedrain. No physicalsciencecertification, mandatoryfatalupkeep or universaltemperaturegrid is adopted.\n\nF3: Aptitude/learnedmastery/grantedcompetence/attributeXP/expectation/morale differ; a stresswarning is not a hardmasterygate. Chorepermission/schedule/emergencyoverride/reach/priority/privacy is not actualwillingcooperation. Researchmaterialwork/typedpoints/prerequisitequeue/purchase/POIunlock differ. LearnedsourceUngrantSkillalsoUnmasterSkill can erase thatsharedmasterydictionary; it does not prove earnedcopyretention. Preserve originalYAIRproposal’s separatederivedtoolsupport/earnedpractice rather than copying destructive sourcecoupling. No liveYAIRlack/defectisreproduced.\n\nF4: ElementConverterjointrequiredinputs differ from PlantElementAbsorberalternatives; growthstall/wildcultivatedrates/ripeclock/outputtemperature differ from automaticreseeding. Creatureconsumptionledger/disease/byproduct/tamewildstarvation/pauseclock/normalizedbreeding/eggcustody are distinct. GameClock600seconds/renderplayedtime/autosave/loadrepair do not establish OSofflineadvancement. Native/managedsaveorchestration/failurebranches/typeheaders are not atomicdurability, migrationoractualsavedgame proof. Mountedfiles/subscription/settings/requiredforbiddencontent/savecontext differ; entitlementAPIswere notinvoked.\n\nF5: Fueledrocket validatedpath/oxidizer/databanks/destination/finalorbitexception differ from completerocketreadiness/interior/landing. Frostybatchfuel/storage/timer/collection and1200kgsteelrepair/feedstock/phasevent/spatialrouting have actualconsumers but broaderfailurepaths remainopen. Bionicoxygen/charge/oil/installedvsassignedslot/boosterwattage/wetdepthprotection/remoteoperator-depot differ from onegenericpowerpool. Prehistoricammunition/target/serializedarrival/impactvsdefeatreward doesnotreadexactcraterdamage. Aquaticswimminggrantsnavigation butnotair/stamina; sourcecoupledgeyserexhalewattage isnotconstantpower. DLCcatalogues/predation/wholeworldgen/stresschores/render/offscreencloud/modfrontiers remainexplicit.\n\nF6: FiveONI-P01temperaturebatch/P02bodysupport/P03borrowedcompetence/P04paidhabitat/P05remoteoperator remain originalunselectedproposals. Existingfinitecrop/stampedmaterial/body/stock/clock/nativepublisher keepowners; selectedgapmustbecheckedagainstcurrentproducer/state/consumer before newmetadata/seam. Particularfinitefeed/oneoperator/absencefreeze/sourcewildpolicy are localcasechoices, not universal bans on freesourceproduction, genuineparallelcontrol or differentbodyneeds. CurrentPROJECTKlein/HPand Frontier/Mistglassno-new-depth qualify P01homeworldcandidate; AD36/AD43andAD42optionalhumanreview governfutureimplementation. No newsource/nativecode/ruleassetbodyread,game/account/entitlement/saveoperation,worker/acquisition,implementation/test/build/browser,deletion/move,commit/push.",
+      "evidence": "Every JSONfield/path/evidenceobject actualread; references checked; supporting reportselected sections and full fivepackets read, initial packetline truncation recovered. No underlyingexternalcode/rulebodyorcurrentruntimeproof.",
+      "reopen": "For an authorized candidate, inspect current overlap and exact pinned source question; nativeopaque/frontier limits remain no proxycompletion.",
+      "full": true,
+      "input_sha256": "758b7a2cee238e91e500f4a12a87f01a174eac609208dfea8a99506452bc6f49",
+      "input_lines": 1077,
+      "ranges": [
+        [
+          1,
+          1077
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/oxygen-not-included/REPORT.md",
+      "heading": "## Coverage-map content reconciliation B623",
+      "body": "B623fully reads [COVERAGE.json](COVERAGE.json),23completepathrecords and62completeevidenceobjects; everyE01–E62isreferenced and all39findingIDsarecovered. These structuralchecks accompanyactualcontentreview, not fresh externalcode/gameplay. Nativepressure/heat/phase/diseaseimplementation, broadcatalogues/stress/worldgen/rocketinterior/persistence/offscreenfrontiers remain explicit. Staticrepresentativepaths do not become whole-system/runtimecoverage.\n\nPreserve actualmaterial/payload/mass/heat/disease consumers, body-specificsupport/recovery, learned/granted/aptitude/morale distinctions, typedresearchpayment, alternativeplantnutrients versus jointlyrequiredconverterinputs, lifecycle/egg/output custody, played/render/autosave clocks and native/managedsaveboundaries. SourceUngrantSkillmutatesmastery; equipmentremoval doesnotprove separatelyearnedknowledge survives. The originalborrowedtool proposal should keep thoseowners distinct. Serializedfailurebranches donotprove atomicdurability; mountedDLCdoesnotproveentitlement/activation.\n\nAllfiveoriginalpackets remain useful alternatives with exact custody/time/consumer/failure checks. TheiroptionalFrontierworkshop proposal launchesno newdepth under currentPROJECT; currentoverlapchecks precede choosing a gap. Actual source may allow differentfreeproduction/parallelcontrol/bodypolicies, so packetconstraints remain localfixtures. AD36/AD43and optionalreviewAD42governselectedruntimeevidence. No external sourcebody/game/save/account/entitlement/acquisition/build/browser/test operation occurs.",
+      "before_sha256": "9d381475a873a160e2cb5698628c4e7f78225e444dfa3e296833ec1fda2f25e5",
+      "after_sha256": "a27dde13c262342f6a866104537835ce6071eb7c0206e1a9631a2beba1f3bec7"
+    },
+    {
+      "path": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "heading": "## Coverage and current selection scope B623",
+      "body": "B623fully reads [COVERAGE.json](COVERAGE.json),23completepathrecords and62completeevidenceobjects; everyE01–E62isreferenced and all39findingIDsarecovered. These structuralchecks accompanyactualcontentreview, not fresh externalcode/gameplay. Nativepressure/heat/phase/diseaseimplementation, broadcatalogues/stress/worldgen/rocketinterior/persistence/offscreenfrontiers remain explicit. Staticrepresentativepaths do not become whole-system/runtimecoverage.\n\nPreserve actualmaterial/payload/mass/heat/disease consumers, body-specificsupport/recovery, learned/granted/aptitude/morale distinctions, typedresearchpayment, alternativeplantnutrients versus jointlyrequiredconverterinputs, lifecycle/egg/output custody, played/render/autosave clocks and native/managedsaveboundaries. SourceUngrantSkillmutatesmastery; equipmentremoval doesnotprove separatelyearnedknowledge survives. The originalborrowedtool proposal should keep thoseowners distinct. Serializedfailurebranches donotprove atomicdurability; mountedDLCdoesnotproveentitlement/activation.\n\nAllfiveoriginalpackets remain useful alternatives with exact custody/time/consumer/failure checks. TheiroptionalFrontierworkshop proposal launchesno newdepth under currentPROJECT; currentoverlapchecks precede choosing a gap. Actual source may allow differentfreeproduction/parallelcontrol/bodypolicies, so packetconstraints remain localfixtures. AD36/AD43and optionalreviewAD42governselectedruntimeevidence. No external sourcebody/game/save/account/entitlement/acquisition/build/browser/test operation occurs.",
+      "before_sha256": "cf1883f44f5fe7deb2abdbed598e11106d4d06f8270f0cf4673918189113b075",
+      "after_sha256": "5c6a3eb686fcef7e0add3e5fb4cac928ce74d4b49e9f2997f27b911b7177e304"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 62,
+  "supporting_inputs": [
+    {
+      "path": "docs/research/oxygen-not-included/REPORT.md",
+      "sha256": "a27dde13c262342f6a866104537835ce6071eb7c0206e1a9631a2beba1f3bec7",
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "scope": "Selected actual source/export/material/body/progression/ecology sections; no full-report credit."
+    },
+    {
+      "path": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+      "sha256": "5c6a3eb686fcef7e0add3e5fb4cac928ce74d4b49e9f2997f27b911b7177e304",
+      "scope": "All fiveoriginalpackets actuallyread, exact P05chain recovered after initial truncation; no new candidate-review event."
+    }
+  ]
+}

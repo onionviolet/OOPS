@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "batch": "B422",
+  "title": "Six records-ready, floor and clock-performance receipts with actual counterexamples",
+  "at": "2026-11-05T05:22:06.921530+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P1_CHECKPOINT.md",
+      "ids": [
+        "six-stage records-ready pipeline;MoL selector correction"
+      ],
+      "classification": "complete pipeline/performance receipt; actual identity, counters, counterexamples and resume fixes",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The runner sequences existing derivation scripts and records stage/input/output identity; successful pipeline execution is not byte reproduction of a different input snapshot. LOTM changed from61 to72 shards,429 to637 scenes and52/187 worksheets changed downstream;135 worksheets and conflict contracts match. MoL’s93 worksheets and main artifacts match, with explicit metadata changes, but the old empty conflict file reveals a LOTM-only selector. The coordinator later applies the range-based selector and obtains six MoL contracts, superseding the prepared/unrun status. Exact old-snapshot reproduction requires the original pinned shard selection, not deleting newly read material. No source-row or gameplay completion follows from records-ready.",
+      "evidence": "Complete actual checkpoint content read, including tables, ownership, all source/input hashes, failure/resume and coordinator addenda. Clipped T1 middle recovered in bounded read. No current code/profile/runtime or private pack recheck.",
+      "reopen": "Keep measurement and proof scope with the exact input; any optimization needs current owner/consumer checks and relevant invariant evidence, not historical rates or a copied old command.",
+      "input_sha256": "d309f3c88edc9268ad8af82de9494071bf22ac4d9bcef5639b0848aae04714bd",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/T1_CHECKPOINT.md",
+      "ids": [
+        "lean union;floor normalization;contended baseline"
+      ],
+      "classification": "complete pipeline/performance receipt; actual identity, counters, counterexamples and resume fixes",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The symlinked lean union writes11.59MB regular files and preserves11 merged outputs byte-identically to the supplied baseline, with three missing people backups still explicit. This is selected structural output parity, not immutable archive retention or complete source qualification. The first browser launch fails before a page; later coordinator fixes HTML content type and save comparison and records a real floor. Its comparison canonicalizes key order,saved_at,skillRecords.tracked and restored zero/false/empty fills, overriding the earlier narrower clock-only wording; do not present it as full exact-save-byte equality. The requested349-minute wait actually advances440 game minutes in45.1s;1,716ms/minute,6.4s pack load and369,902-byte save are contended inputs, not current universal rates. The3s target is a budget, not an achieved measurement.",
+      "evidence": "Complete actual checkpoint content read, including tables, ownership, all source/input hashes, failure/resume and coordinator addenda. Clipped T1 middle recovered in bounded read. No current code/profile/runtime or private pack recheck.",
+      "reopen": "Keep measurement and proof scope with the exact input; any optimization needs current owner/consumer checks and relevant invariant evidence, not historical rates or a copied old command.",
+      "input_sha256": "87b40a31f36c2f8a168e9912737c0c36a0b74e9440cb8b8097a670f0a4fa7702",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P2_CHECKPOINT.md",
+      "ids": [
+        "derived wake queue;181 boundary states;profiling calls versus time"
+      ],
+      "classification": "complete pipeline/performance receipt; actual identity, counters, counterexamples and resume fixes",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The heap owns derived projection wakes, not authoritative clock/location or persistence. Numeric once/daily boundaries can skip projection work; unsupported recurrence, rewinds,epoch/pack changes and externally moved bodies keep their explicit fallback/rebuild/reconciliation. Countdown button identity/focus and live requote are tested at Node DOM scope, not desktop actionability. Exclusive self-time and inclusive nested marks differ;673 facts calls and507 previews remain, so a queue speed claim cannot erase those native consumers. A single Node before/after sample is not a stable Chrome benchmark, natural rate or solved CO3. The settled final route has its own clean error receipt; diagnostic teardown warnings remain separate. The349-minute46.64s wait,270-person gap, browser launch failure, live-linked assets and prepared patch remain scoped historical evidence.",
+      "evidence": "Complete actual checkpoint content read, including tables, ownership, all source/input hashes, failure/resume and coordinator addenda. Clipped T1 middle recovered in bounded read. No current code/profile/runtime or private pack recheck.",
+      "reopen": "Keep measurement and proof scope with the exact input; any optimization needs current owner/consumer checks and relevant invariant evidence, not historical rates or a copied old command.",
+      "input_sha256": "9cb848bcae365f4399608991f40c41c05cce366e8f922190d14614ceec864b28",
+      "input_lines": 94,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          94
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P3_CHECKPOINT.md",
+      "ids": [
+        "read-only publication facts frame;511to151builds/673calls"
+      ],
+      "classification": "complete pipeline/performance receipt; actual identity, counters, counterexamples and resume fixes",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The synchronous read-only publication cache distinguishes state/registry/context inputs and versioned writes; effects suppress caching and invalidate in finally, including partial failures, while cloned transaction states and caller-specific predicate normalization remain separate. It is not a whole-minute/async cache or permission to infer unchanged inputs from clock/cast wakes. Base computations fall511to151, but entry calls remain673 and native context builds11; the requested call-halving gate is not met. Final single-snapshot Node elapsed reduction16.9% does not become a browser/natural-time or full-speed claim. Nine frame tests and82 consumer tests have their own scope; queued-reader teardown warnings remain. TH1/TH2 later fixture changes keep standalone timestamp differences and exact-path guards visible rather than flattening old hashes into current proof.",
+      "evidence": "Complete actual checkpoint content read, including tables, ownership, all source/input hashes, failure/resume and coordinator addenda. Clipped T1 middle recovered in bounded read. No current code/profile/runtime or private pack recheck.",
+      "reopen": "Keep measurement and proof scope with the exact input; any optimization needs current owner/consumer checks and relevant invariant evidence, not historical rates or a copied old command.",
+      "input_sha256": "450cf3703f4d2246222941efd2ca17c814bde878259dbc36e1b93b468842f0a8",
+      "input_lines": 172,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          172
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_CHECKPOINT.md",
+      "ids": [
+        "clock extraction;PartA3of3;PartB2of3"
+      ],
+      "classification": "complete pipeline/performance receipt; actual identity, counters, counterexamples and resume fixes",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The extraction moves existing dispatch/ports while preserving original state/save bytes in all three frozen fixtures. It corrects the premise that349 minutes meant349 outer durable publications: the actual hot loop is349 simulation boundaries. Span-versus-stepped equality fails for fresh-life streams/encounter/visitor state even when beside and reading pass; later source inputs can differ further. Local-life publication therefore cannot be treated as a proven elapsed accumulator. Reading-active setup does not exercise separate native reading completion. Mixed concurrent D1 enrollment failure is excluded by equal committed world modules on both scratch sides, not a passing combined current checkout. PartB stops with a named kernel/controller owner; no new batching, sub3s wait or natural browser gate is claimed.",
+      "evidence": "Complete actual checkpoint content read, including tables, ownership, all source/input hashes, failure/resume and coordinator addenda. Clipped T1 middle recovered in bounded read. No current code/profile/runtime or private pack recheck.",
+      "reopen": "Keep measurement and proof scope with the exact input; any optimization needs current owner/consumer checks and relevant invariant evidence, not historical rates or a copied old command.",
+      "input_sha256": "2b1d007b69aba63f381fe1bc6b22235f19d3ea48f663a8ff8837e91af12b9259",
+      "input_lines": 99,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          99
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P5_CHECKPOINT.md",
+      "ids": [
+        "controller wakes/constraint indexes;resumeheld-stock defect"
+      ],
+      "classification": "complete pipeline/performance receipt; actual identity, counters, counterexamples and resume fixes",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Derived controller wakes omit proven no-op polls while preserving actual boundary order,due phase,RNG,cursors,publication and first lazy initialization; arbitrary/unowned predicates retain polling. The original349to3 boundary result qualifies its frozen on/off fixtures, not all future held work or browser time. Resume1 correctly identifies a gameplay defect: a running unreserved stock cursor relied on ordinary controller boundaries for stock/support changes. Original due times are restored for that case, even at the polling cost. Story-budget tests now use600 actual scheduled checks rather than assuming idle polls should exhaust the cap. A default harness had compared optimized source with itself; the earlier explicitly supplied baseline remains valid, and the corrected same-frozen-source dial matrix separately passes all eight fixture/mode state/save/publication comparisons. Span/stepped differences are retained. Focused repaired failures do not retroactively pass the3906/3908 suite or claim a new full-suite/browser floor.",
+      "evidence": "Complete actual checkpoint content read, including tables, ownership, all source/input hashes, failure/resume and coordinator addenda. Clipped T1 middle recovered in bounded read. No current code/profile/runtime or private pack recheck.",
+      "reopen": "Keep measurement and proof scope with the exact input; any optimization needs current owner/consumer checks and relevant invariant evidence, not historical rates or a copied old command.",
+      "input_sha256": "9cb14b2dca4986959614a6b7cc6f6e7ec844423f271ea01e08077658dd76eefa",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B422: pipeline identity and performance proof boundaries",
+      "body": "Six complete tooling/performance receipts were read and joined to this dated handoff. These are saved measurements and differential checks, not a new profiling run, source execution or runtime optimization.\n\n**P1:** The runner sequences existing derivation scripts and records stage/input/output identity; successful pipeline execution is not byte reproduction of a different input snapshot. LOTM changed from61 to72 shards,429 to637 scenes and52/187 worksheets changed downstream;135 worksheets and conflict contracts match. MoL’s93 worksheets and main artifacts match, with explicit metadata changes, but the old empty conflict file reveals a LOTM-only selector. The coordinator later applies the range-based selector and obtains six MoL contracts, superseding the prepared/unrun status. Exact old-snapshot reproduction requires the original pinned shard selection, not deleting newly read material. No source-row or gameplay completion follows from records-ready.\n\n**T1:** The symlinked lean union writes11.59MB regular files and preserves11 merged outputs byte-identically to the supplied baseline, with three missing people backups still explicit. This is selected structural output parity, not immutable archive retention or complete source qualification. The first browser launch fails before a page; later coordinator fixes HTML content type and save comparison and records a real floor. Its comparison canonicalizes key order,saved_at,skillRecords.tracked and restored zero/false/empty fills, overriding the earlier narrower clock-only wording; do not present it as full exact-save-byte equality. The requested349-minute wait actually advances440 game minutes in45.1s;1,716ms/minute,6.4s pack load and369,902-byte save are contended inputs, not current universal rates. The3s target is a budget, not an achieved measurement.\n\n**P2:** The heap owns derived projection wakes, not authoritative clock/location or persistence. Numeric once/daily boundaries can skip projection work; unsupported recurrence, rewinds,epoch/pack changes and externally moved bodies keep their explicit fallback/rebuild/reconciliation. Countdown button identity/focus and live requote are tested at Node DOM scope, not desktop actionability. Exclusive self-time and inclusive nested marks differ;673 facts calls and507 previews remain, so a queue speed claim cannot erase those native consumers. A single Node before/after sample is not a stable Chrome benchmark, natural rate or solved CO3. The settled final route has its own clean error receipt; diagnostic teardown warnings remain separate. The349-minute46.64s wait,270-person gap, browser launch failure, live-linked assets and prepared patch remain scoped historical evidence.\n\n**P3:** The synchronous read-only publication cache distinguishes state/registry/context inputs and versioned writes; effects suppress caching and invalidate in finally, including partial failures, while cloned transaction states and caller-specific predicate normalization remain separate. It is not a whole-minute/async cache or permission to infer unchanged inputs from clock/cast wakes. Base computations fall511to151, but entry calls remain673 and native context builds11; the requested call-halving gate is not met. Final single-snapshot Node elapsed reduction16.9% does not become a browser/natural-time or full-speed claim. Nine frame tests and82 consumer tests have their own scope; queued-reader teardown warnings remain. TH1/TH2 later fixture changes keep standalone timestamp differences and exact-path guards visible rather than flattening old hashes into current proof.\n\n**P4:** The extraction moves existing dispatch/ports while preserving original state/save bytes in all three frozen fixtures. It corrects the premise that349 minutes meant349 outer durable publications: the actual hot loop is349 simulation boundaries. Span-versus-stepped equality fails for fresh-life streams/encounter/visitor state even when beside and reading pass; later source inputs can differ further. Local-life publication therefore cannot be treated as a proven elapsed accumulator. Reading-active setup does not exercise separate native reading completion. Mixed concurrent D1 enrollment failure is excluded by equal committed world modules on both scratch sides, not a passing combined current checkout. PartB stops with a named kernel/controller owner; no new batching, sub3s wait or natural browser gate is claimed.\n\n**P5:** Derived controller wakes omit proven no-op polls while preserving actual boundary order,due phase,RNG,cursors,publication and first lazy initialization; arbitrary/unowned predicates retain polling. The original349to3 boundary result qualifies its frozen on/off fixtures, not all future held work or browser time. Resume1 correctly identifies a gameplay defect: a running unreserved stock cursor relied on ordinary controller boundaries for stock/support changes. Original due times are restored for that case, even at the polling cost. Story-budget tests now use600 actual scheduled checks rather than assuming idle polls should exhaust the cap. A default harness had compared optimized source with itself; the earlier explicitly supplied baseline remains valid, and the corrected same-frozen-source dial matrix separately passes all eight fixture/mode state/save/publication comparisons. Span/stepped differences are retained. Focused repaired failures do not retroactively pass the3906/3908 suite or claim a new full-suite/browser floor.\n\nUseful next questions stay with their actual owners: distinguish source drift from runner defects; cache exact unchanged read inputs; preserve controller/stock/support wakes and elapsed publication semantics; measure current browser rate separately from instrumented CPU time. An old prepared patch, PID, allowance, target or scratch artifact is not current execution authority. No change to gameplay, tests, source corpus, private pack or accepted direction is made by this reconciliation.",
+      "before_sha256": "7363dc010c03b76b7d3cb73ccbd04be1d9a0954b77907ad20b14f176d0bd11dd",
+      "after_sha256": "c3d3d62eeaf25c192167c78a4eba28f215e240c6acbf37fe054028b7999f4399"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 466
+}

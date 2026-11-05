@@ -1,0 +1,12 @@
+{
+  "batches": "B620",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/LIFE_SIM_NORTH_STAR.md",
+      "target": "USER_VISION.md#run-ending-threats-a-capable-character-can-use-2026-11-03",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New targets only; not linked-body verification."
+}

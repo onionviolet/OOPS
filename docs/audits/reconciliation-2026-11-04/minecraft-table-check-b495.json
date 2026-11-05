@@ -1,0 +1,8 @@
+{
+  "input_sha256": "0ccb1b9f20fade4bd9212f1382823562beedd95b8e953f6988b1095dbb3fef26",
+  "rows": 61,
+  "bytes_sum": 2116396698,
+  "reported_bytes": 2116396698,
+  "matches": true,
+  "scope": "Displayed table arithmetic only, not on-disk artifact integrity/source reading."
+}

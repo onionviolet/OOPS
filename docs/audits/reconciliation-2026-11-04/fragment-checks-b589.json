@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "target": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "fragment": "content-reconciliation-b586-full-reader-and-source-local-boundaries",
+      "exists": true
+    },
+    {
+      "owner": "docs/LIFE_SIM_NORTH_STAR.md",
+      "target": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "fragment": "content-reconciliation-b586-pursuit-shape-and-superseded-milestone",
+      "exists": true
+    },
+    {
+      "owner": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "target": "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md",
+      "fragment": "content-reconciliation-b586-pursuit-shape-and-superseded-milestone",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/qud-systems-audit-2026-10-15/REPORT.md",
+      "target": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "fragment": "content-reconciliation-b587-candidate-closure-and-remaining-real-gaps",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/qud-systems-audit-2026-10-15/REPORT.md",
+      "target": "docs/research/qud-systems-audit-2026-10-15/SOURCE_INDEX.md",
+      "fragment": "content-reconciliation-b587-complete-index-and-source-read-boundaries",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "target": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "fragment": "content-reconciliation-b587-candidate-closure-and-remaining-real-gaps",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/warsim/REPORT.md",
+      "target": "docs/research/warsim/TABLE_COVERAGE.md",
+      "fragment": "content-reconciliation-b588-all-file-rows-and-semantic-limits",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md",
+      "target": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "fragment": "content-reconciliation-b588-all-family-rows-and-separate-json-scope",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md",
+      "target": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "fragment": "content-reconciliation-b589-separate-native-json-map-fully-reviewed",
+      "exists": true
+    }
+  ],
+  "missing": []
+}

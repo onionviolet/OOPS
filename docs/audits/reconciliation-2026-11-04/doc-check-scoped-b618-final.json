@@ -1,0 +1,28 @@
+{
+  "command": "same-rule docs checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "b54fe062559efb297f37078843f8d74b47b120c161e2fd03c5bf820468a87b79",
+  "paths": [
+    "docs/SKILLS_AND_TALENTS.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+    "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md",
+    "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md",
+    "docs/research/skill-growth-2026-10-10/WORLD_GROWTH_AUDIT.md",
+    "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md",
+    "docs/research/streets-of-rogue/REPORT.md",
+    "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+    "docs/research/tales-of-maj-eyal/REPORT.md",
+    "docs/worlds/TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b1.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b2.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b3.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b4.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b5.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

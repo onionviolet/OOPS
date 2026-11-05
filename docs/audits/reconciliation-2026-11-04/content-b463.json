@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "batch": "B463",
+  "title": "Source coverage and native reader: four complete records with exact semantic/runtime limits",
+  "at": "2026-11-05T06:49:54.113785+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/sunless-skies/COVERAGE.md",
+      "ids": [
+        "21selectedroots;20level/10deck/4affiliation;12TextAssets/5tables;mainconfig396–872"
+      ],
+      "classification": "complete bounded source-coverage or native-reader owner; source/runtime evidence remains separate",
+      "owners": [
+        "docs/research/sunless-skies/COVERAGE.md"
+      ],
+      "disposition": "All13 original lines were reviewed. Keep the finite21-root semantic pass separate from structural EOF/field-order validation, enumerated flags and recovered method bodies. The specific legacy, XP, death, hunger/terror and port consumers were selected reading, not every facet, victory, relationship or quest-reset rule. The unread main-config interval and resources remain exact source gaps; normal save hydration, crash/atomicity, combat and platform behavior were not exercised. Developer text and installed method/table disagreement stays attributed rather than silently resolved as current runtime. Manifest/depot presence does not establish entitlement or exclude bundled updates. Private retention totals are the recorded extraction scope, not current disk state. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern any selected consumer. This review did not read retained binary/source artifacts, fetch commentary, launch the game, inspect personal saves or rerun recovery. Preserve the no-launch boundary of the original assignment; reading this coverage record authorizes no runtime or acquisition operation.",
+      "evidence": "Complete13-line input read, every coverage row; original source artifacts and linked findings not read by proxy.",
+      "reopen": "For an authorized named mechanic recover exact retained body/table/claim and consumer; current installation/license/runtime state remains unverified.",
+      "input_sha256": "e147b7cd05de39e931bfdca1066d084a3d36a67cd1c89c1209ad2b25c1472d35",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/sunless-sea/COVERAGE.md",
+      "ids": [
+        "26TextAssets/29persistentqualityflags;LegacyProvider/StoryletProvider/FileHelper;Zubmariner/embedded-versus-Resources"
+      ],
+      "classification": "complete bounded source-coverage or native-reader owner; source/runtime evidence remains separate",
+      "owners": [
+        "docs/research/sunless-sea/COVERAGE.md"
+      ],
+      "disposition": "The complete15-line coverage record distinguishes targeted inheritance/death/family/hunger/terror reading and named managed bodies from exported classes and structurally parsed event/quality tables. “Every narrative row” in the unread list means exhaustive coverage is absent; it does not erase the selected rows already read. Unity Resources and embedded tables have different provenance, and the declared loader/override path is not proof of a user's hydrated current state. DLC depot/content/code presence is separate from entitlement, activation and complete submerged-story coverage. Historical developer feedback is not an independent player-consensus survey. Keep map/discovery, serialization, override, combat and runtime gaps rather than advertising source recovery as playable behavior or an authored YAIR slice. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern follow-up. No original extracted tables, code bodies, install, settings, player save, game launch or runtime path was newly inspected; prior cleanup/removal statements are history, not an instruction to remove anything now.",
+      "evidence": "Complete15-line input read, every coverage row; original source artifacts and linked findings not read by proxy.",
+      "reopen": "For an authorized named mechanic recover exact retained body/table/claim and consumer; current installation/license/runtime state remains unverified.",
+      "input_sha256": "5118e448cbe287d27016e9fe9d4a95a892c64d777c388e1413ed85b39a043f6b",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/disco-elysium/COVERAGE.md",
+      "ids": [
+        "13coverageareas;conversations8/9/943/1045/1076full+selectedexcerpts;53thoughtrows/headers;17x86ranges;C8–C9"
+      ],
+      "classification": "complete bounded source-coverage or native-reader owner; source/runtime evidence remains separate",
+      "owners": [
+        "docs/research/disco-elysium/COVERAGE.md"
+      ],
+      "disposition": "All23 lines and every area row were read. Inventory/search of112962 nodes differs from complete text/script reading of five selected conversations, selected excerpts and actual branch execution. The53 thought summaries and effect arrays are structurally decoded evidence; opaque tail/quip fields and unread benefit consumers remain gaps. Seventeen bounded x86_64 bodies do not establish ARM parity or full native decompilation; shared generic aliases can misname calls. Signatures and state fields are not a save roundtrip. C8–C9 retain contradictory source numbers; stronger serialized configuration does not eliminate possible initialization/override uncertainty without the actual consumer. Soundtrack/artbook depot paths are inventory, not gameplay DLC or entitlement. UI fields and individual discussion reports establish neither rendered accessibility nor a consensus/RNG defect. Eight YAIR proposals remain proposals. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern actual adoption. This review did not open private dialogue/native artifacts, original discussion/developer sources, audio/art, player saves or gameplay, and supplies no new whole-game/source-fidelity claim.",
+      "evidence": "Complete23-line input read, every coverage row; original source artifacts and linked findings not read by proxy.",
+      "reopen": "For an authorized named mechanic recover exact retained body/table/claim and consumer; current installation/license/runtime state remains unverified.",
+      "input_sha256": "6ef1e6a99f3881816f16ad89e523f017bd7378dadf0f35f0e0e3b7d526300b16",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/READER_GUIDE.md",
+      "ids": [
+        "schema2/update/find/extract/summary/reconcile;71arm64LCentries/headerexclusion;initial38bodypass"
+      ],
+      "classification": "complete bounded source-coverage or native-reader owner; source/runtime evidence remains separate",
+      "owners": [
+        "docs/research/factorio/native/READER_GUIDE.md"
+      ],
+      "disposition": "The complete21-line reader guide was reviewed as an operational locator, not a new recovery run. Its update/find/extract/summary/reconcile commands describe private indexed artifacts; illustrative addresses, retained sessions and installed build/tool versions are dated, not current verified handles or commands executed here. Ghidra C-like output and inferred types differ from original C++; hashes/counts, call references, vtable reachability and actual runtime calls are distinct evidence. Keep callable-candidate, generated-function, thunk/import, external-library and both-architecture denominators separate, including the71 additional anonymous arm64 starts and noncallable Mach-O header exclusion at the recorded inventory. Initial38-body reading, later entry/hash retries and excluded assertion tails retain their individual source identities. Native symbols do not establish Lua/DLC source coverage; preserved Steam API/license material does not mean those external bodies were recovered or executed. The [checkpoint](CHECKPOINT.md) owns later progress. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern any selected adoption. No private database/chunk, binary, source binding, installed tool/game, license or personal save was read or executed by this reconciliation.",
+      "evidence": "Complete21-line input read, every coverage row; original source artifacts and linked findings not read by proxy.",
+      "reopen": "For an authorized named mechanic recover exact retained body/table/claim and consumer; current installation/license/runtime state remains unverified.",
+      "input_sha256": "ae13c01fe747964bef9289f6ea40d2b03b73882a0e383ba792244b2343531d56",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/sunless-skies/COVERAGE.md",
+      "heading": "## Content reconciliation B463: complete coverage record and evidence boundaries",
+      "body": "All13 original lines were reviewed. Keep the finite21-root semantic pass separate from structural EOF/field-order validation, enumerated flags and recovered method bodies. The specific legacy, XP, death, hunger/terror and port consumers were selected reading, not every facet, victory, relationship or quest-reset rule. The unread main-config interval and resources remain exact source gaps; normal save hydration, crash/atomicity, combat and platform behavior were not exercised. Developer text and installed method/table disagreement stays attributed rather than silently resolved as current runtime. Manifest/depot presence does not establish entitlement or exclude bundled updates. Private retention totals are the recorded extraction scope, not current disk state. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern any selected consumer. This review did not read retained binary/source artifacts, fetch commentary, launch the game, inspect personal saves or rerun recovery. Preserve the no-launch boundary of the original assignment; reading this coverage record authorizes no runtime or acquisition operation.",
+      "before_sha256": "e147b7cd05de39e931bfdca1066d084a3d36a67cd1c89c1209ad2b25c1472d35",
+      "after_sha256": "9cc1cbd622aa68dfe0e09ae38f58320bc8409165269307e24842c5b1c97af6d1"
+    },
+    {
+      "path": "docs/research/sunless-sea/COVERAGE.md",
+      "heading": "## Content reconciliation B463: complete coverage record and evidence boundaries",
+      "body": "The complete15-line coverage record distinguishes targeted inheritance/death/family/hunger/terror reading and named managed bodies from exported classes and structurally parsed event/quality tables. “Every narrative row” in the unread list means exhaustive coverage is absent; it does not erase the selected rows already read. Unity Resources and embedded tables have different provenance, and the declared loader/override path is not proof of a user's hydrated current state. DLC depot/content/code presence is separate from entitlement, activation and complete submerged-story coverage. Historical developer feedback is not an independent player-consensus survey. Keep map/discovery, serialization, override, combat and runtime gaps rather than advertising source recovery as playable behavior or an authored YAIR slice. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern follow-up. No original extracted tables, code bodies, install, settings, player save, game launch or runtime path was newly inspected; prior cleanup/removal statements are history, not an instruction to remove anything now.",
+      "before_sha256": "5118e448cbe287d27016e9fe9d4a95a892c64d777c388e1413ed85b39a043f6b",
+      "after_sha256": "c9da8969bd36ae9731d802c063519f67ac9f4754733ba6c90a93767dc14f8633"
+    },
+    {
+      "path": "docs/research/disco-elysium/COVERAGE.md",
+      "heading": "## Content reconciliation B463: complete coverage record and evidence boundaries",
+      "body": "All23 lines and every area row were read. Inventory/search of112962 nodes differs from complete text/script reading of five selected conversations, selected excerpts and actual branch execution. The53 thought summaries and effect arrays are structurally decoded evidence; opaque tail/quip fields and unread benefit consumers remain gaps. Seventeen bounded x86_64 bodies do not establish ARM parity or full native decompilation; shared generic aliases can misname calls. Signatures and state fields are not a save roundtrip. C8–C9 retain contradictory source numbers; stronger serialized configuration does not eliminate possible initialization/override uncertainty without the actual consumer. Soundtrack/artbook depot paths are inventory, not gameplay DLC or entitlement. UI fields and individual discussion reports establish neither rendered accessibility nor a consensus/RNG defect. Eight YAIR proposals remain proposals. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern actual adoption. This review did not open private dialogue/native artifacts, original discussion/developer sources, audio/art, player saves or gameplay, and supplies no new whole-game/source-fidelity claim.",
+      "before_sha256": "6ef1e6a99f3881816f16ad89e523f017bd7378dadf0f35f0e0e3b7d526300b16",
+      "after_sha256": "0a2bfc79d2bd6a84aec8b596e1c395549ef35c8d82510457036ed9732d4281d4"
+    },
+    {
+      "path": "docs/research/factorio/native/READER_GUIDE.md",
+      "heading": "## Content reconciliation B463: complete coverage record and evidence boundaries",
+      "body": "The complete21-line reader guide was reviewed as an operational locator, not a new recovery run. Its update/find/extract/summary/reconcile commands describe private indexed artifacts; illustrative addresses, retained sessions and installed build/tool versions are dated, not current verified handles or commands executed here. Ghidra C-like output and inferred types differ from original C++; hashes/counts, call references, vtable reachability and actual runtime calls are distinct evidence. Keep callable-candidate, generated-function, thunk/import, external-library and both-architecture denominators separate, including the71 additional anonymous arm64 starts and noncallable Mach-O header exclusion at the recorded inventory. Initial38-body reading, later entry/hash retries and excluded assertion tails retain their individual source identities. Native symbols do not establish Lua/DLC source coverage; preserved Steam API/license material does not mean those external bodies were recovered or executed. The [checkpoint](CHECKPOINT.md) owns later progress. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern any selected adoption. No private database/chunk, binary, source binding, installed tool/game, license or personal save was read or executed by this reconciliation.",
+      "before_sha256": "ae13c01fe747964bef9289f6ea40d2b03b73882a0e383ba792244b2343531d56",
+      "after_sha256": "0f95a901961ddd0b47cfdc44890825ad15810570ef430a7944f871b7e53a0060"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 382,
+  "review_field_amendments": [
+    {
+      "path": "docs/research/disco-elysium/COVERAGE.md",
+      "field": "ids",
+      "old": "14coverageareas;5fullselectedconversations/8excerpts;53thoughtrows/headers;17x86ranges;C8–C9",
+      "new": "13coverageareas;conversations8/9/943/1045/1076full+selectedexcerpts;53thoughtrows/headers;17x86ranges;C8–C9",
+      "reason": "Use verified thirteen area rows and actual full-conversation IDs; remove unsupported excerpt count. All original rows already read."
+    }
+  ]
+}

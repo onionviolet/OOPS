@@ -1,0 +1,18 @@
+{
+  "batches": "B531\u2013B535",
+  "new_fold_fragment_links": 0,
+  "current_use_banner_fragment_links": [
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "href": "#content-reconciliation-b532-complete-palette-authority-and-evidence-scope",
+      "exists": true
+    },
+    {
+      "path": "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md",
+      "href": "#content-reconciliation-b533-complete-scaling-palette-and-later-corrections",
+      "exists": true
+    }
+  ],
+  "missing": [],
+  "scope": "Actual new banner anchors checked against current headings; file targets checked by verify_content.py."
+}

@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "batch": "B616",
+  "title": "ToME and Streets source coverage: selected paths versus original-game gaps",
+  "at": "2026-11-05T13:38:51.120177+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/tales-of-maj-eyal/COVERAGE.json",
+      "ids": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "classification": "complete code-source map content; selected review/fallback scope and owner reuse",
+      "owners": [
+        "docs/research/tales-of-maj-eyal/REPORT.md",
+        "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Full actual content review covers849-line COVERAGE.json, all root fields, fiveT1–T5paths, all37file records with complete paths/hashes/filelength/readranges/readers/semanticcounts/reviewqualifiers, three reader-repair records, six exclusions and four aggregate counts. Every record was actually read via compact lossless JSON serialization in three bounded row groups, not path/count metadata alone. Per-file inclusive range unions equal each declared semantic_lines, and sum3112; this is receipt arithmetic, not a new reading of3112external source lines. Preserve exact raw JSON bytes/schema and original archive SHAe88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871.\n\nF2: Selected source complete means these five traced paths/37spans, including declarations/helpers/comments, not whole files, all talents/egos/campaign/DLC or gameplay. Engine package and game package are distinct from the C RNGbinding. Reader material-anchor repair/review is not every primary rereading every listed line. Acquisition/hash/readback statements are historical; no current download/version/license/source-file hash validation occurs. Missing RNG/replay lifecycle, all hook variants, serialization/profile durability, balance distributions and art/media remain explicit. Review of this map adds no external-source reading credit.\n\nF3: T1ordinary training prerequisites/points/cap versus force-teach, raw rank versus effective mastery and actual function remain separate. T2eligibility/actionpayment/cooldown/attemptedhit/resistedstatus, reserved stamina capacity versus spent upkeep, effect lifetime/cleanup versus prior damage differ. T3authored NPCkit/legal candidates/current tactical wants/failed-candidate retry/fallback do not establish optimal policy or measured action frequency. T4escort success/failure/attributed betrayal, individual method versus category unlock, actor partial progress versus profile accolade/fate and separate end-chat unlock have different consumers. T5material generation tier/eligible modifier/sequential roll/equipped actual means/Blockconsumer, temporary grant and removal remain distinct; numeric chance code is not a tested distribution or deterministic replay contract. These semantics are read in the existing report/packets, not freshly reverified in external Lua/C.\n\nF4: Preserve the three original proposals: materially different harness fits reaching actual guard/pull costs, finite maintained brace with explicit payment/capacity/release/cleanup, and earned specific lesson versus an actually stocked sleeve. They are alternatives/extensions of existing YAIR owners, not copied ToMEcontent, mandatory new talent/sustain/AI/equipment frameworks or new source worlds. Actual equipped custody, body/source/support, teacher willingness/stock, earned deed and one delivered branch must stay separate. Historical fixed-key consumers/file offsets are not current absence or a new integration grant; reread applicable current producers/state/consumers when a slice is selected.\n\nF5: The packet header’s historical blanket behavior-suite deferral is corrected: current AD36/AD43define applicable focused/completion evidence, and AD42makes human taste review optional. No current source feature is implemented or gateclosed here. Older one-prestige saved meaning is compatibility context rather than a restored project milestone. Exact synthetic source/readback proof, actual runtime/build, native journey/persistence/profile durability, current ownership and human selection remain separate. No new acquisition, source tree mutation/read of excluded code, game launch, runtime implementation/test/build/browser/save/profile access, worker, deletion/move, commit or push occurs.",
+      "evidence": "Every JSON field and record actually read in compact bounded outputs; arithmetic on declared ToME ranges checked. Existing owner report/packet semantics read; no new underlying source-body/gameplay claim.",
+      "reopen": "For a selected runtime slice inspect current applicable owners and exact source question; preserve original-source/profile/RNG/behavior gaps without duplicate frameworks.",
+      "full": true,
+      "input_sha256": "eaa5c674b915dcae1fd4d720718c43806d188a3421c3141b3985c6a8fc15ce73",
+      "input_lines": 849,
+      "ranges": [
+        [
+          1,
+          849
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/streets-of-rogue/COVERAGE.json",
+      "ids": [
+        "GAME-1",
+        "GAME-2",
+        "GAME-3",
+        "GAME-4",
+        "GAME-5",
+        "RL-01",
+        "RL-02",
+        "RL-03",
+        "RL-04",
+        "RL-05",
+        "RL-06",
+        "RL-07",
+        "MOD-01",
+        "MOD-02"
+      ],
+      "classification": "complete code-source map content; selected review/fallback scope and owner reuse",
+      "owners": [
+        "docs/research/streets-of-rogue/REPORT.md",
+        "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Full actual content review covers713-line COVERAGE.json, every root field, all five GAME1–5requested original gameplay rows with zero original source paths, nine framework/mod paths, all34qualified source-span records with complete pins/URLs/hashes/ranges/RL-MODIDs/read-review-integration qualifiers, five YAIRdirection counts/two readerrecords/private snapshots, four coordinator supplements, three unread/four unperformed groups. Complete compact JSON root and three record groups were actually read, not inferred from filename inventory. Original JSON bytes/schema stay unchanged; overlapping intervals are not independent line-reading events.\n\nF2: Conditional available-source fallback complete is compatible with original-game source coverage0/5; it cannot be renamed full game completion. RogueLibs/framework wrappers and actual Wizard mod bodies are third-party code, while original relationship/hostility/ownership, objective settlement, base trait/ability/status actions, material propagation, procedural generation and original unlock debit remain external. Local assembly/decompile unavailability is a dated intake result, not a fresh whole-machine/public-search conclusion or permanent impossibility. No new source access/acquisition/decompile occurs; these explicit gaps do not block completing this document review.\n\nF3: RL01captured options/deferred menu side effects do not prove pure previews or NPC internals. RL02tool/menu reach,time/noise arguments do not show external wear/reaction/quest mutation. RL03use/combine/target/filter/redirect gates do not prove action-callback revalidation or rollback. RL04device reach and technology eligibility do not implement propagation/damage/evacuation/debit. RL05press/hold/release/recharge interface is not decrement/exception-cleanup proof. RL06attach/update/refresh/disposal is not vanilla duration/cleanup guarantee. RL07forced-free unlock and backup restoration are distinct from paid debit/atomic profile save. MOD01prepaidcooldown remains spent on fizzle/caught exception; random choice is not a durable plan. MOD02hit attribution/consumed tag/neutralization completion/payoff and memory-only partial kills have separate lifecycle/failure states. These are bounded findings reused from actual owner report, not freshly read original game code.\n\nF4: Existing five-direction YAIRnotes identify authored shelf alternatives, conserved material/tool chains, source/body/condition-aware fixed NPC choices, local environmental residue and explicit finite conduct/preparation records. Missing consumer none found is relative to that dated read; it does not prove generalized AI, whole city physics, all unlocks or every current path. Later source implementation must inspect its current owner before declaring a new missing subsystem. Zero new packets is a substantive duplicate-disposition, not absent analysis. Keep existing journals/custody/quote/action/durable publisher/history and all actual prerequisites/payments/aftermath; do not mint duplicate stock/schema/progression to compensate for missing source.\n\nF5: Preserve pure source/read/review/integration counters separately from rebuilt natural routes, save/reload/import/failure/keyboard/regression and optional human review under AD42. Private observed copies/hashes document the historical input; read-only chmod is not ongoing freshness or current branch proof. Future proof scenarios in the five existing journeys are specified-not-run, and old source availability/current owner statements are now dated at the report opening. The fallback authorizes no new gameplay/decompile/installation/purchase or user-save access. No runtime/code change, source acquisition, worker, test/build/browser/game launch, deletion/move, commit or push occurs.",
+      "evidence": "Every JSON field and record actually read in compact bounded outputs; arithmetic on declared ToME ranges checked. Existing owner report/packet semantics read; no new underlying source-body/gameplay claim.",
+      "reopen": "For a selected runtime slice inspect current applicable owners and exact source question; preserve original-source/profile/RNG/behavior gaps without duplicate frameworks.",
+      "full": true,
+      "input_sha256": "6683cf12d6acc116a0c3e95583232ebd81bb13eb8e4d2676fa0af9384e1417cc",
+      "input_lines": 713,
+      "ranges": [
+        [
+          1,
+          713
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/tales-of-maj-eyal/REPORT.md",
+      "heading": "## Coverage-map content and selected-source boundaries B616",
+      "body": "B616fully reads every field of [the coverage map](COVERAGE.json), all37file/hash/range/reader records and fiveT1–T5paths. Inclusive union arithmetic agrees at3112selected lines; this is not a new read of those external lines or whole files. The five mechanical distinctions and three original packets remain useful: actual mastery/function, payment/reservation/cleanup, contextual tactical choice, method/category/profile reward and equipped material/Blockconsumer. The packet’s former blanket test deferral is historical; selected implementation follows current AD36/AD43, with human review optional under AD42. No currently missing YAIRconsumer or source behavior is freshly established by a frozen span map. Source gaps in excluded hooks/profile durability/RNG/DLC/balance remain explicit.",
+      "before_sha256": "da9e75cfbf72ca32b7b59a3f7122532bd1d7a114ada59dfdc317c7abf2e3e3b0",
+      "after_sha256": "b24fe878fb301219ea82f1e7e8ed6ccc0610b5fa1d31be3e0ddcc1d2e233c48b"
+    },
+    {
+      "path": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "heading": "## Coverage and present verification policy B616",
+      "body": "B616fully reads every field of [the coverage map](COVERAGE.json), all37file/hash/range/reader records and fiveT1–T5paths. Inclusive union arithmetic agrees at3112selected lines; this is not a new read of those external lines or whole files. The five mechanical distinctions and three original packets remain useful: actual mastery/function, payment/reservation/cleanup, contextual tactical choice, method/category/profile reward and equipped material/Blockconsumer. The packet’s former blanket test deferral is historical; selected implementation follows current AD36/AD43, with human review optional under AD42. No currently missing YAIRconsumer or source behavior is freshly established by a frozen span map. Source gaps in excluded hooks/profile durability/RNG/DLC/balance remain explicit.",
+      "before_sha256": "ecc0cf13c29577c2f75203e8437be6a1c50c3e57dfa4e7cf4bc35d3aed7b48ef",
+      "after_sha256": "17c206338222ba8255e6ab74a20af9c44ebe0d436b32f3b5fb73bb2f432c5d85"
+    },
+    {
+      "path": "docs/research/streets-of-rogue/REPORT.md",
+      "heading": "## Coverage-map content and fallback boundaries B616",
+      "body": "B616fully reads [the coverage map](COVERAGE.json), all34pinned span records, nine framework/mod paths, original GAME1–5gaps and all YAIRowner/snapshot/reader/supplement fields. Conditional third-party fallback completion coexists with0/5original game traces. Wrapper/callback availability does not certify original internals, execution revalidation, mutation rollback or durable partial quest progress. Zero new packets preserves the existing five local authored reuse journeys rather than inventing duplicate systems. Source availability and no-missing-consumer statements belong to the dated intake, not a fresh whole-machine/current-YAIRaudit. No original code/decompile or fresh gameplay/persistence proof is added; AD42human review remains optional.",
+      "before_sha256": "c0c24db0c25db33bc1cde40163edff4ebfcaae7e69dce4a72f7070b6ea504718",
+      "after_sha256": "0f2162a79180f1179d8ef9989b2e63116ef9c550d82d4f83ec2dbd85eeaff1cb"
+    },
+    {
+      "path": "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md",
+      "heading": "## Coverage and historical owner-fit scope B616",
+      "body": "B616fully reads [the coverage map](COVERAGE.json), all34pinned span records, nine framework/mod paths, original GAME1–5gaps and all YAIRowner/snapshot/reader/supplement fields. Conditional third-party fallback completion coexists with0/5original game traces. Wrapper/callback availability does not certify original internals, execution revalidation, mutation rollback or durable partial quest progress. Zero new packets preserves the existing five local authored reuse journeys rather than inventing duplicate systems. Source availability and no-missing-consumer statements belong to the dated intake, not a fresh whole-machine/current-YAIRaudit. No original code/decompile or fresh gameplay/persistence proof is added; AD42human review remains optional.",
+      "before_sha256": "654fe6b663a8aa9c64e35bd53e34c3bd08c4bea09901854c8fbdf8d3a5644a61",
+      "after_sha256": "1dbed484752e9e3a37b35cf9329894f3d57c7115f06e9a144c1ae93dc62f76a0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 72,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "from": "Current project pace defers behavior suites; deliver code as implemented-unverified until later gates pass.",
+      "to": "The2026-10-06research pass ran no behavior suites. Any selected implementation follows current AD36/AD43checks; source edits below that floor remain explicitly unverified, and human review is optional under AD42.",
+      "reason": "Qualify dated intake/test-deferral authority while preserving exact original."
+    },
+    {
+      "path": "docs/research/streets-of-rogue/REPORT.md",
+      "from": "**Available-source review is complete. Original Streets of Rogue gameplay source is unavailable, so the five original-gameplay traces remain unmet.**",
+      "to": "**At the2026-10-06intake, available-source review was complete and original Streets gameplay source was unavailable; the five original-gameplay traces remain explicitly unmet in this frozen report.**",
+      "reason": "Qualify dated intake/test-deferral authority while preserving exact original."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "from": "17c206338222ba8255e6ab74a20af9c44ebe0d436b32f3b5fb73bb2f432c5d85",
+      "to": "5c93eb7056401e0e812ee409f32a53c25f062e7586764a9c80d8e44cc35a5449",
+      "reason": "Exact header qualifiers."
+    },
+    {
+      "path": "docs/research/streets-of-rogue/REPORT.md",
+      "from": "0f2162a79180f1179d8ef9989b2e63116ef9c550d82d4f83ec2dbd85eeaff1cb",
+      "to": "c6b09626c2dc01434f3fa34782af2b24d4aac25c8ef1f3e08af05e3012956d2b",
+      "reason": "Exact header qualifiers."
+    }
+  ],
+  "json_content_review": {
+    "tome_records": 37,
+    "tome_range_union_sum": 3112,
+    "streets_records": 34,
+    "scope": "Every original JSON field/record actually read; compact serialization retains all values; no source-line body review inferred."
+  },
+  "supporting_inputs": [
+    {
+      "path": "docs/research/tales-of-maj-eyal/REPORT.md",
+      "sha256": "b24fe878fb301219ea82f1e7e8ed6ccc0610b5fa1d31be3e0ddcc1d2e233c48b",
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "scope": "Selected mechanics/source scope only."
+    },
+    {
+      "path": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "sha256": "5c93eb7056401e0e812ee409f32a53c25f062e7586764a9c80d8e44cc35a5449",
+      "scope": "All displayed original three-packet content, maintained as owner; no additional candidate review event."
+    },
+    {
+      "path": "docs/research/streets-of-rogue/REPORT.md",
+      "sha256": "c6b09626c2dc01434f3fa34782af2b24d4aac25c8ef1f3e08af05e3012956d2b",
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "scope": "Selected nine framework/mod findings and original-source boundary."
+    },
+    {
+      "path": "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md",
+      "sha256": "1dbed484752e9e3a37b35cf9329894f3d57c7115f06e9a144c1ae93dc62f76a0",
+      "scope": "Displayed five-direction reuse table and exact historical consumer bounds."
+    }
+  ]
+}

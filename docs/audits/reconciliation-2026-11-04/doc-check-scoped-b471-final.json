@@ -1,0 +1,30 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "ed36a6109bb366407d305c3e72aa563213b8425c3d146fee9e0343203d773571",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g2/fixture/README.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g4/README.md",
+    "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
+    "docs/gm/dispatch/lotm-q4-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p26/LIMITED_COVERAGE.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/B2_B3_MORE_TO_CONSIDER_2026-11-03.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/CLAUDE_UI_FEEDBACK_INDEX.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/L1_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/L2A_COMBAT_INTERACTION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/L2_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LCB1_3_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/sonnet-wave-2026-10-30/A_CHECKPOINT.md",
+    "docs/research/disco-elysium/EXTRACTION_RECEIPT.md",
+    "docs/research/qud-systems-audit-2026-10-15/depth-1/COVERAGE.md",
+    "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/TABLE_COVERAGE_DIGEST.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not a shared-tree pass."
+}

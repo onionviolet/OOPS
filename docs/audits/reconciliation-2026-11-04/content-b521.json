@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "batch": "B521",
+  "title": "Complete overlapping idea and opaque-world maps with verified parent joins and explicit local residue",
+  "at": "2026-11-05T09:35:21.140676+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md",
+      "ids": [
+        "F1–F5",
+        "R1–R8",
+        "eight-lane/G8 joins",
+        "coverage/queue boundaries"
+      ],
+      "classification": "complete planning coverage values reviewed; exact parent joins checked while semantic/runtime residue preserved",
+      "owners": [
+        "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md"
+      ],
+      "disposition": "All127reconciliation lines and all JSON values in the834-line idea coverage map were read, including all15S00–S14membership lists, status/counts,14priorVFXfamilies and three pending families. The finite eight-lane return is planning review:179parent contracts/693specified acceptance cases/140consulted-path scopes and0runtime cases. A fresh structural union confirms179unique parent IDs across overlapping section lists; it does not read693case bodies or qualify all140sources. Parent membership repeats deliberately across consumer sections and is not a duplicate implementation, complete local source extraction or section-complete gameplay. Original map stays unchanged.\n\nKeep F1–F5's meaningful joins: coherent start/body/history and actual means; effect/target and carried authority; household/material/service recipients; instance-qualified clocks/archive/return; and title/skill/status/presentation consumers. R1–R8 preserve free/strong variants alongside local constraints, genuine creation/duplication alongside ordinary conservation, partial versus full rewind, real deception versus truth leakage, occupied/frozen versus supported local activity and exact history versus lossy biography. A native title's recognition differs from granted faculty; earned XP differs from bonuses. The old unreachable XP-cap typeof observation and active-effect/bulk ordering hypotheses are source/packet findings, not newly reproduced runtime defects. Likewise consulted current-source snapshots have dated identities, not present-tree absence proof.\n\nThe companion W1 map's parent lists exactly match every idea-map section in order. This is a useful verified navigation join, not semantic equivalence of the179parents and49selected local leaves, nor adoption of every variant. Preserve input full/partial/search/headings-only distinctions,396-artifact intake scope, all179contracts and693proposed cases, prior14VFXfamilies and unread source/local-detail work. Root G7/VFX display grammar and engine adapter choices cannot create a gameplay outcome. A selected existing entry/consumer may proceed without an unrelated initializer/time adapter; old hidden-pool/default-frontier or universal integrator advice is historical task context governed by current PROJECT/AD41/AD51. Current AD42 makes human taste optional feedback. No source reading, source-owned body access, runtime build/test/browser/save, new dispatch or priority selection occurred through this map review.",
+      "evidence": "Full127-line reconciliation and losslessly compact-rendered complete834/1186-line JSON maps read with no truncation. Selected W1REPORT1–45 additionally inspected; no private source/detail/engine/case bodies or gameplay proof.",
+      "reopen": "Read exact retained parent/leaf/case/source supplier and current consumer for a selected implementation; public C0/C1coverage does not close later source/runtime gates.",
+      "input_sha256": "946dafae94720c2b3e3995a523845ec9d0c854f154a807eecc60faf4fe41d788",
+      "input_lines": 127,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/COVERAGE.json",
+      "ids": [
+        "S00–S14",
+        "179parentIDs",
+        "693specified cases",
+        "14VFXfamilies",
+        "three pending families"
+      ],
+      "classification": "complete planning coverage values reviewed; exact parent joins checked while semantic/runtime residue preserved",
+      "owners": [
+        "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md"
+      ],
+      "disposition": "All127reconciliation lines and all JSON values in the834-line idea coverage map were read, including all15S00–S14membership lists, status/counts,14priorVFXfamilies and three pending families. The finite eight-lane return is planning review:179parent contracts/693specified acceptance cases/140consulted-path scopes and0runtime cases. A fresh structural union confirms179unique parent IDs across overlapping section lists; it does not read693case bodies or qualify all140sources. Parent membership repeats deliberately across consumer sections and is not a duplicate implementation, complete local source extraction or section-complete gameplay. Original map stays unchanged.\n\nKeep F1–F5's meaningful joins: coherent start/body/history and actual means; effect/target and carried authority; household/material/service recipients; instance-qualified clocks/archive/return; and title/skill/status/presentation consumers. R1–R8 preserve free/strong variants alongside local constraints, genuine creation/duplication alongside ordinary conservation, partial versus full rewind, real deception versus truth leakage, occupied/frozen versus supported local activity and exact history versus lossy biography. A native title's recognition differs from granted faculty; earned XP differs from bonuses. The old unreachable XP-cap typeof observation and active-effect/bulk ordering hypotheses are source/packet findings, not newly reproduced runtime defects. Likewise consulted current-source snapshots have dated identities, not present-tree absence proof.\n\nThe companion W1 map's parent lists exactly match every idea-map section in order. This is a useful verified navigation join, not semantic equivalence of the179parents and49selected local leaves, nor adoption of every variant. Preserve input full/partial/search/headings-only distinctions,396-artifact intake scope, all179contracts and693proposed cases, prior14VFXfamilies and unread source/local-detail work. Root G7/VFX display grammar and engine adapter choices cannot create a gameplay outcome. A selected existing entry/consumer may proceed without an unrelated initializer/time adapter; old hidden-pool/default-frontier or universal integrator advice is historical task context governed by current PROJECT/AD41/AD51. Current AD42 makes human taste optional feedback. No source reading, source-owned body access, runtime build/test/browser/save, new dispatch or priority selection occurred through this map review.",
+      "evidence": "Full127-line reconciliation and losslessly compact-rendered complete834/1186-line JSON maps read with no truncation. Selected W1REPORT1–45 additionally inspected; no private source/detail/engine/case bodies or gameplay proof.",
+      "reopen": "Read exact retained parent/leaf/case/source supplier and current consumer for a selected implementation; public C0/C1coverage does not close later source/runtime gates.",
+      "input_sha256": "e68a4b364e87376e2ec953a495b31899161f9c79a69bd6b7a9da29c05928b6a3",
+      "input_lines": 834,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          834
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/COVERAGE_MAP.json",
+      "ids": [
+        "S00–S14",
+        "W1E01–E12",
+        "W1SRC01–26/ST01–18/MIC01–04/RET01",
+        "C0/C1/C2–C4completion"
+      ],
+      "classification": "complete planning coverage values reviewed; exact parent joins checked while semantic/runtime residue preserved",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REPORT.md"
+      ],
+      "disposition": "Every value in the1186-line public-safe W1 coverage map was read through lossless compact JSON output, including all15section names/status/applicability/remainder/owner/parent/engine/selected-leaf/review fields and the final completion claim. Do not unseal its opaque source identity or private criteria. All179unique parent IDs match the idea map's ordered section memberships;49unique selected leaves appear across the section lists. S00has no selected leaf but an engine contract, while S03has five selected source leaves and no engine card, demonstrating that horizon accounting, source detail and engine binding are different coverage dimensions. Multiple listings of one leaf are cross-system joins, not independently delivered features. The checked numbers establish only this public map's consistency.\n\nThe map explicitly says C0whole horizon accounted and C1selected planning tranche, with full section source/runtime residue open and noC2/C3/C4world claim. Five supplied edition owners and private direct spot reads do not establish whole-source semantic coverage or later editions. Independent final review labels remain the historical review's scope, not a fresh independent review performed by this pass. The selected49IDs join26source leaves/18starts/fourmicro/onereturn in the supporting REPORT introduction;12engine contracts,16cross-system cases/eightpackets/173specified cases are separate reported dimensions, not extra completed native leaves or freshly read underlying bodies. The report's89joined and90conditional parents likewise require the actual disposition ledger for per-parent semantic proof. Source, start, micro, return and engine symbols do not define new universal permission lists.\n\nKeep named privateDetailOwner and source/runtime remainder fields; a map whose15rows have the same broad remaining text still needs the actual linked private supplier for a precise source/body/case claim. This reconciliation does not invent missing details or claim them accessed. A first conventional start need not wait for all alternate bodies, temporal models or private optional content. The source snapshot's scalar one-active-visit limits and proposed adapters remain dated; actual current consumers and AD51 govern a later selected implementation, with local differences retained. Existing labels do not establish compatibility, default-world replacement, arbitrary return, native controller or installed gameplay. Current AD42 makes a human decision separate from technical proof. Original JSON stays intact, and this fold qualifies public navigation and remaining work without changing sealed facts or launching a packet.",
+      "evidence": "Full127-line reconciliation and losslessly compact-rendered complete834/1186-line JSON maps read with no truncation. Selected W1REPORT1–45 additionally inspected; no private source/detail/engine/case bodies or gameplay proof.",
+      "reopen": "Read exact retained parent/leaf/case/source supplier and current consumer for a selected implementation; public C0/C1coverage does not close later source/runtime gates.",
+      "input_sha256": "149f069713b2e3be826d596ec5f8a5e338e2e82eb2cf1e7622ebd6df0c102987",
+      "input_lines": 1186,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1186
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md",
+      "heading": "## Content reconciliation B521: complete idea map and linked planning boundaries",
+      "body": "All127reconciliation lines and all JSON values in the834-line idea coverage map were read, including all15S00–S14membership lists, status/counts,14priorVFXfamilies and three pending families. The finite eight-lane return is planning review:179parent contracts/693specified acceptance cases/140consulted-path scopes and0runtime cases. A fresh structural union confirms179unique parent IDs across overlapping section lists; it does not read693case bodies or qualify all140sources. Parent membership repeats deliberately across consumer sections and is not a duplicate implementation, complete local source extraction or section-complete gameplay. Original map stays unchanged.\n\nKeep F1–F5's meaningful joins: coherent start/body/history and actual means; effect/target and carried authority; household/material/service recipients; instance-qualified clocks/archive/return; and title/skill/status/presentation consumers. R1–R8 preserve free/strong variants alongside local constraints, genuine creation/duplication alongside ordinary conservation, partial versus full rewind, real deception versus truth leakage, occupied/frozen versus supported local activity and exact history versus lossy biography. A native title's recognition differs from granted faculty; earned XP differs from bonuses. The old unreachable XP-cap typeof observation and active-effect/bulk ordering hypotheses are source/packet findings, not newly reproduced runtime defects. Likewise consulted current-source snapshots have dated identities, not present-tree absence proof.\n\nThe companion W1 map's parent lists exactly match every idea-map section in order. This is a useful verified navigation join, not semantic equivalence of the179parents and49selected local leaves, nor adoption of every variant. Preserve input full/partial/search/headings-only distinctions,396-artifact intake scope, all179contracts and693proposed cases, prior14VFXfamilies and unread source/local-detail work. Root G7/VFX display grammar and engine adapter choices cannot create a gameplay outcome. A selected existing entry/consumer may proceed without an unrelated initializer/time adapter; old hidden-pool/default-frontier or universal integrator advice is historical task context governed by current PROJECT/AD41/AD51. Current AD42 makes human taste optional feedback. No source reading, source-owned body access, runtime build/test/browser/save, new dispatch or priority selection occurred through this map review.",
+      "before_sha256": "946dafae94720c2b3e3995a523845ec9d0c854f154a807eecc60faf4fe41d788",
+      "after_sha256": "dc026f966d0c77c145e6972cf91602dbfeceb5c4db03fe587e105129f71095a5"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REPORT.md",
+      "heading": "## Content reconciliation B521: complete public-safe W1 coverage map",
+      "body": "Every value in the1186-line public-safe W1 coverage map was read through lossless compact JSON output, including all15section names/status/applicability/remainder/owner/parent/engine/selected-leaf/review fields and the final completion claim. Do not unseal its opaque source identity or private criteria. All179unique parent IDs match the idea map's ordered section memberships;49unique selected leaves appear across the section lists. S00has no selected leaf but an engine contract, while S03has five selected source leaves and no engine card, demonstrating that horizon accounting, source detail and engine binding are different coverage dimensions. Multiple listings of one leaf are cross-system joins, not independently delivered features. The checked numbers establish only this public map's consistency.\n\nThe map explicitly says C0whole horizon accounted and C1selected planning tranche, with full section source/runtime residue open and noC2/C3/C4world claim. Five supplied edition owners and private direct spot reads do not establish whole-source semantic coverage or later editions. Independent final review labels remain the historical review's scope, not a fresh independent review performed by this pass. The selected49IDs join26source leaves/18starts/fourmicro/onereturn in the supporting REPORT introduction;12engine contracts,16cross-system cases/eightpackets/173specified cases are separate reported dimensions, not extra completed native leaves or freshly read underlying bodies. The report's89joined and90conditional parents likewise require the actual disposition ledger for per-parent semantic proof. Source, start, micro, return and engine symbols do not define new universal permission lists.\n\nKeep named privateDetailOwner and source/runtime remainder fields; a map whose15rows have the same broad remaining text still needs the actual linked private supplier for a precise source/body/case claim. This reconciliation does not invent missing details or claim them accessed. A first conventional start need not wait for all alternate bodies, temporal models or private optional content. The source snapshot's scalar one-active-visit limits and proposed adapters remain dated; actual current consumers and AD51 govern a later selected implementation, with local differences retained. Existing labels do not establish compatibility, default-world replacement, arbitrary return, native controller or installed gameplay. Current AD42 makes a human decision separate from technical proof. Original JSON stays intact, and this fold qualifies public navigation and remaining work without changing sealed facts or launching a packet.",
+      "before_sha256": "97938f04da40b5a156b4ea715a20d101f6d3c34c20a496911a3897758bde0601",
+      "after_sha256": "4ba1288c0e5180d6d374b10605e2fa33e9a1aff057850746968960fa455a2697"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 203,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B514, continuous execution 2026-11-05 |",
+      "to": "| B521, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "0e2e25d0ad4f940f9f12709d2669186bb2fc395c33f89b64dc01b8276bae7d23",
+      "to": "d5bba9c1688601b26da8483d02364d637c31a061e1a76197a8ac5db4b1b189ad",
+      "reason": "Exact task-owned register advancement."
+    }
+  ]
+}

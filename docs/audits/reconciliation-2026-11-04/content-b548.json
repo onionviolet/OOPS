@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "batch": "B548",
+  "title": "Maker-world catalogue and blueprint-source correction",
+  "at": "2026-11-05T10:26:19.178472+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md",
+      "ids": [
+        "WQ1–WQ14",
+        "W01–W19/WF19–WF24",
+        "B01–B17/BI1–BI4",
+        "E01–E36/F1–F3/Q1–Q3",
+        "MKR-OM15/RC8 source comparison"
+      ],
+      "classification": "full actual maker catalogue review; source-specific manufacture and retained original blueprint proposal distinguished",
+      "owners": [
+        "docs/worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md",
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "F1: Full165-line maker catalogue actually read, recovering the truncated W03/W04 portion before credit. WQ1–WQ14, W01–W19, WF19–WF24, B01–B17, BI1–BI4, E01–E36 and F1–F3/Q1–Q3 retain exact source confidence and proposal status. Its25 folders/17 full-book folders are historical inventory with non-world and duplicate-title routes, not25 playable worlds or17 fully read editions. The first eleven MEMORY rows and inherited SHOWN corrections are content findings, not current external source revalidation.\n\nF2: Preserve the corrected mechanism distinctions: optional item-specific attunement under a selected D&D profile; compatible Elden armaments and distinct upgrade paths; Fallout4 frame/armor/mod/fuel; exceptional Fate projection versus design inspection; manufactured Asauchi versus personal release; FMA continuity and energy conflict; MoL spell/geometry/frame/battery and corrected manifest-specific paragraph locators; weaving versus mundane forging and uncertain original anchor composition. Names, old items, printed symbols and Runehammer/Runestone labels do not establish a universal rune compiler, automatic age power gain or manufacturing recipe.\n\nF3: Legendary Mechanic's cited direct ch5 check concerns combining knowledge/talents into a blueprint, not merging two finished blueprint files. The canonical root's earlier Corrections section already distinguishes this from its original fusion idea. Its imported MKR-OM15 and RC8 shorthand must keep that qualification; the creative finished-design combination remains a proposal rather than discarded history or verified franchise law. A known formula/design is not automatically material, faculty, XP stock, workshop access or executable skill.\n\nF4: Maker roles beside a protagonist are useful on their own. An ordinary carrier/frame/tailor/repair/commission service need not inherit the protagonist's exceptional faculty or await a full profession simulator. Do not mandate a new protagonist bottleneck, universal paid operation or escalating magical/soul craft to justify lived-world work. Actual source can permit effective unusual methods and strong starts under AD38; no automatic equalizing penalty, novice opening or technical category veto follows. A queue is an adaptation choice, not proof of unattended source manufacture. Existing source/actor/body/stock/custody/clock/domain seams and AD51 first useful consumer apply.\n\nF5: Preserve grants versus training, available master versus deceased historical maker, service offer versus completed creation, acquired magical object versus making it, source formula versus memory/stock and recipient/source identity. Shadow Slave3000-source cutoff does not qualify later3024 claims merely cited as a web lead. Sequel/era, novel/adaptation, edition/profile and separate volume outcomes stay bounded. The old source-path relocations, successful hashes and failed web routes describe October14 reading only; this pass opens no book, PDF, private file or external page. Unknown recipes and ambiguous material/energy claims remain named questions rather than new blockers to unrelated work.\n\nF6: Current Klein/HP build direction supersedes dated suggestions about ordinary source roles; paused source-game queues stay paused. Source-corrected WQ14 inventions remain palettes, with any actual seeded secret in a sealed owner and no new truth exposed. Q1/Q2 require exact source only for a selected consequential manufacture route. Q3's useful consumer need not be paid where the actual means is free. AD35/AD36/AD42/AD43 scope selected implementation proof; no runtime, browser, save migration, source acquisition, worker, native UI, commit or push follows from completing this documentation review.",
+      "evidence": "All165 current lines read; truncated W03/W04 recovered. Canonical root Corrections section read and imported MKR-OM15/RC8/WQ rows located for exact source distinction. Underlying books/pages not reread.",
+      "reopen": "Only selected craft/recipe/source changes require exact qualification and native proof; continue remaining intake.",
+      "input_sha256": "dfe4d0d3cd570514c0ed522fe1e7618efdfc844a3b1abea4ce972672f8ca4fae",
+      "input_lines": 165,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          165
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md",
+      "heading": "## Content reconciliation B548: maker mechanisms and source boundaries",
+      "body": "F1: Full165-line maker catalogue actually read, recovering the truncated W03/W04 portion before credit. WQ1–WQ14, W01–W19, WF19–WF24, B01–B17, BI1–BI4, E01–E36 and F1–F3/Q1–Q3 retain exact source confidence and proposal status. Its25 folders/17 full-book folders are historical inventory with non-world and duplicate-title routes, not25 playable worlds or17 fully read editions. The first eleven MEMORY rows and inherited SHOWN corrections are content findings, not current external source revalidation.\n\nF2: Preserve the corrected mechanism distinctions: optional item-specific attunement under a selected D&D profile; compatible Elden armaments and distinct upgrade paths; Fallout4 frame/armor/mod/fuel; exceptional Fate projection versus design inspection; manufactured Asauchi versus personal release; FMA continuity and energy conflict; MoL spell/geometry/frame/battery and corrected manifest-specific paragraph locators; weaving versus mundane forging and uncertain original anchor composition. Names, old items, printed symbols and Runehammer/Runestone labels do not establish a universal rune compiler, automatic age power gain or manufacturing recipe.\n\nF3: Legendary Mechanic's cited direct ch5 check concerns combining knowledge/talents into a blueprint, not merging two finished blueprint files. The canonical root's earlier Corrections section already distinguishes this from its original fusion idea. Its imported MKR-OM15 and RC8 shorthand must keep that qualification; the creative finished-design combination remains a proposal rather than discarded history or verified franchise law. A known formula/design is not automatically material, faculty, XP stock, workshop access or executable skill.\n\nF4: Maker roles beside a protagonist are useful on their own. An ordinary carrier/frame/tailor/repair/commission service need not inherit the protagonist's exceptional faculty or await a full profession simulator. Do not mandate a new protagonist bottleneck, universal paid operation or escalating magical/soul craft to justify lived-world work. Actual source can permit effective unusual methods and strong starts under AD38; no automatic equalizing penalty, novice opening or technical category veto follows. A queue is an adaptation choice, not proof of unattended source manufacture. Existing source/actor/body/stock/custody/clock/domain seams and AD51 first useful consumer apply.\n\nF5: Preserve grants versus training, available master versus deceased historical maker, service offer versus completed creation, acquired magical object versus making it, source formula versus memory/stock and recipient/source identity. Shadow Slave3000-source cutoff does not qualify later3024 claims merely cited as a web lead. Sequel/era, novel/adaptation, edition/profile and separate volume outcomes stay bounded. The old source-path relocations, successful hashes and failed web routes describe October14 reading only; this pass opens no book, PDF, private file or external page. Unknown recipes and ambiguous material/energy claims remain named questions rather than new blockers to unrelated work.\n\nF6: Current Klein/HP build direction supersedes dated suggestions about ordinary source roles; paused source-game queues stay paused. Source-corrected WQ14 inventions remain palettes, with any actual seeded secret in a sealed owner and no new truth exposed. Q1/Q2 require exact source only for a selected consequential manufacture route. Q3's useful consumer need not be paid where the actual means is free. AD35/AD36/AD42/AD43 scope selected implementation proof; no runtime, browser, save migration, source acquisition, worker, native UI, commit or push follows from completing this documentation review.",
+      "before_sha256": "dfe4d0d3cd570514c0ed522fe1e7618efdfc844a3b1abea4ce972672f8ca4fae",
+      "after_sha256": "1d6751e961db11129b4c4a8a40e18b86cb1bf9af35033ca0dd9cfd14d6427b8e"
+    },
+    {
+      "path": "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B548: sourced making and retained blueprint idea",
+      "body": "[Maker-arts source catalogue](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md) has now been fully content-reviewed in B548. The earlier Corrections section already folds its source distinctions. In the imported alias table, MKR-OM15 and RC8 finished-design combination remain useful original proposals; the cited Legendary Mechanic source instead combines knowledge/talents into a blueprint. Do not treat those retained donor labels as verified franchise manufacture or delete the creative idea. WQ MEMORY/inherited-source rows keep their later W1 evidence corrections: local attunement/armament/profile rules, manufactured blank versus soul release, formula versus supplied spell, continuity/energy conflicts and weaving-anchor uncertainty. This is documentation reconciliation under AD32, not a new crafting implementation or source reread.",
+      "before_sha256": "70fb573eba7612f8a91b246b5aeef9b17a39b0c6a23e2e541d323daecd4a2e01",
+      "after_sha256": "ab06e55a75fd4bde674b09450e08b33ce8cbbaa38f2be341246a438f643db422"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 168,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B535, continuous execution 2026-11-05 |",
+      "to": "| B548, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "e341ea1d9664edd17cdc9848fc825b443ca0ececc7b538a6e558be9c14add0fe",
+      "to": "83dd74b41470497ab2bf23480fb3a6ebc155a67ec24bad45caa6e927219142c7",
+      "reason": "Exact task-owned register advancement."
+    }
+  ]
+}

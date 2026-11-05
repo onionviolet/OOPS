@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "batch": "B527",
+  "title": "Material integration and refinement audit follow-through",
+  "at": "2026-11-05T09:48:32.660365+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/RECEIPT.md",
+      "ids": [
+        "M1–M6",
+        "PC43",
+        "G2",
+        "I5",
+        "N2"
+      ],
+      "classification": "dated technical audit/delivery receipt; proof boundaries and later queue supersession preserved",
+      "owners": [
+        "docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "The material receipt closes selected M1–M6/PC43/G2 gates on an exact frozen build; it does not claim every material idea or normal-app adoption. Its route explicitly mixes named cooking/producer prerequisites with real native actions and fresh HP acquisition. Returned cargo, dirty apparatus and condition550 comparisons are synthetic prerequisites, not an earned return journey. Native Bonemeal-to-HP abrasion is a directional ORIGINAL law; reverse structural repair refuses, and names do not grant supernatural characteristic identity. Typed omissions, char versus wood origin, exact consumed/retained cohorts and actual search coverage matter. Budget8 is explicitly incomplete; small timings are descriptive, not performance thresholds. The full command failed 4 missing test inputs at 3452/3456; a six-file dependency supplement and exact affected 14/14 recovery do not rewrite that full command into PASS. PC43 6/6, I5 matrices, four roundtrips and source/asset manifests retain their separate build and inspection scopes. No additional cache/index/migration was justified. Static preview PID5921 was retained then, not live availability now; slot transfer and ended test workers do not prove installation.",
+      "evidence": "Actual whole-file read: material receipt 121 lines; systems receipt 116 dense lines; UI receipt 1–75,76–132. Supporting refinement CHECKPOINT 1–65 and matching tracker rows inspected, not whole-file credit. No runtime/artifact replay or preview/process probe.",
+      "reopen": "Use exact current lane owner and a selected consumer to reproduce unresolved behavior; retain fixture, source, actual native, full-command failure and affected recovery evidence separately.",
+      "input_sha256": "963230e75a99c09b9f6089272c1214510ee82367774476941fce7c80dde46da0",
+      "input_lines": 121,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          121
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/SYSTEMS_RULES_AUDIT_RECEIPT.md",
+      "ids": [
+        "SRR1",
+        "SRR2",
+        "F5–F15",
+        "RFX1–RFX8"
+      ],
+      "classification": "dated technical audit/delivery receipt; proof boundaries and later queue supersession preserved",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md"
+      ],
+      "disposition": "The systems audit reproduces absent-asker witnessed confidence memory and distinct same-text event loss at pure seams; it separately identifies observer-private projection, native fight harm publication window and MoL permission display/Boolean mismatch. Its proposed 30-day access term is not canon, and suspension lacks a delivered producer/persisted load. A passing fight leaf does not prove native publication; a source durability window is not an exercised crash loss. Ordinary unknown inventory may warn/skip, whereas equipped/special/cross-owner references differ: a stub throw did not prove universal import refusal. Generic pack-save tests are not wired Save/Export/Import and do not imply all book state disappears. AD16 pauses inactive worlds by default; source-specific loops, travel, death and independent-life archive remain distinct. Making substitution already had a bounded ORIGINAL HP consumer; arbitrary stages/chemistry remain separate. Rule dials admit one target, so hypothetical second-target bleed is not a current reproduced bug. Four making assertion groups emitted PASS but neither process exited; 58 completed pure tests remain the completed slice.",
+      "evidence": "Actual whole-file read: material receipt 121 lines; systems receipt 116 dense lines; UI receipt 1–75,76–132. Supporting refinement CHECKPOINT 1–65 and matching tracker rows inspected, not whole-file credit. No runtime/artifact replay or preview/process probe.",
+      "reopen": "Use exact current lane owner and a selected consumer to reproduce unresolved behavior; retain fixture, source, actual native, full-command failure and affected recovery evidence separately.",
+      "input_sha256": "94eb3fa25433b4ca7ece845e5732521a803bf99cdfcdfdca466cf9f03e7ae8b2",
+      "input_lines": 116,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          116
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/UI_AUDIT_RECEIPT.md",
+      "ids": [
+        "UIA-R1–UIA-R7",
+        "UIF1–UIF8",
+        "CG3"
+      ],
+      "classification": "dated technical audit/delivery receipt; proof boundaries and later queue supersession preserved",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md"
+      ],
+      "disposition": "The UI audit sampled a stepped lead action, DEV SEEDED fight and structured HP school candidate on isolated rebuilt bytes, not three earned normal-world journeys. Lead route had no reload/import; the center changing to Notebook was not causally isolated. Fight persistence excluded held-away minutes and covered failed withdrawal, not successful exit, healing or final settlement. Effects off was set by a hidden scripted control, proving displayed state rather than navigability. Preserve discovery-safe action ID conditions, reachable story seat, local clock provenance, payment versus debt reduction, known prerequisites versus hidden causes, honest risk wording, focus after redraw and removal of implementation notes/inactive odds. Compact rows versus timetable is a proposal, not accepted direction or comprehension proof. The later tracker supersedes selected October31 failures: L1 opening is agent-verified with three held later actions and 38 mappings still needing review; L2a interaction was verified before L2b, and the current L2b row records November4 DEV SEEDED floor proof. L2c final injury/witness, L3 observer/event, L4 school/form, L5 access/save and L7 mappings remain individually queued. The old ownership row calling L2b stopped at allowance is historical, not a current live-worker claim.",
+      "evidence": "Actual whole-file read: material receipt 121 lines; systems receipt 116 dense lines; UI receipt 1–75,76–132. Supporting refinement CHECKPOINT 1–65 and matching tracker rows inspected, not whole-file credit. No runtime/artifact replay or preview/process probe.",
+      "reopen": "Use exact current lane owner and a selected consumer to reproduce unresolved behavior; retain fixture, source, actual native, full-command failure and affected recovery evidence separately.",
+      "input_sha256": "e7c22d36cf3a05792557b3867318d0d2f034ef4264e42bde2a4d8eb06f05860d",
+      "input_lines": 132,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          132
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/material-foundations/implementation-2026-10-26/RECEIPT.md",
+      "heading": "## Content reconciliation B527: selected material proof boundaries",
+      "body": "The material receipt closes selected M1–M6/PC43/G2 gates on an exact frozen build; it does not claim every material idea or normal-app adoption. Its route explicitly mixes named cooking/producer prerequisites with real native actions and fresh HP acquisition. Returned cargo, dirty apparatus and condition550 comparisons are synthetic prerequisites, not an earned return journey. Native Bonemeal-to-HP abrasion is a directional ORIGINAL law; reverse structural repair refuses, and names do not grant supernatural characteristic identity. Typed omissions, char versus wood origin, exact consumed/retained cohorts and actual search coverage matter. Budget8 is explicitly incomplete; small timings are descriptive, not performance thresholds. The full command failed 4 missing test inputs at 3452/3456; a six-file dependency supplement and exact affected 14/14 recovery do not rewrite that full command into PASS. PC43 6/6, I5 matrices, four roundtrips and source/asset manifests retain their separate build and inspection scopes. No additional cache/index/migration was justified. Static preview PID5921 was retained then, not live availability now; slot transfer and ended test workers do not prove installation.\n\nHistorical delivery is retained; no browser, test, artifact, preview or installed package was reverified by this document review.",
+      "before_sha256": "963230e75a99c09b9f6089272c1214510ee82367774476941fce7c80dde46da0",
+      "after_sha256": "7d0048b3f755e9907c5baa1abcc8bcd1685c242944620296cd95506c852622f5"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md",
+      "heading": "## Content reconciliation B527: October audit findings against later lanes",
+      "body": "F1: The systems audit reproduces absent-asker witnessed confidence memory and distinct same-text event loss at pure seams; it separately identifies observer-private projection, native fight harm publication window and MoL permission display/Boolean mismatch. Its proposed 30-day access term is not canon, and suspension lacks a delivered producer/persisted load. A passing fight leaf does not prove native publication; a source durability window is not an exercised crash loss. Ordinary unknown inventory may warn/skip, whereas equipped/special/cross-owner references differ: a stub throw did not prove universal import refusal. Generic pack-save tests are not wired Save/Export/Import and do not imply all book state disappears. AD16 pauses inactive worlds by default; source-specific loops, travel, death and independent-life archive remain distinct. Making substitution already had a bounded ORIGINAL HP consumer; arbitrary stages/chemistry remain separate. Rule dials admit one target, so hypothetical second-target bleed is not a current reproduced bug. Four making assertion groups emitted PASS but neither process exited; 58 completed pure tests remain the completed slice.\n\nF2: The UI audit sampled a stepped lead action, DEV SEEDED fight and structured HP school candidate on isolated rebuilt bytes, not three earned normal-world journeys. Lead route had no reload/import; the center changing to Notebook was not causally isolated. Fight persistence excluded held-away minutes and covered failed withdrawal, not successful exit, healing or final settlement. Effects off was set by a hidden scripted control, proving displayed state rather than navigability. Preserve discovery-safe action ID conditions, reachable story seat, local clock provenance, payment versus debt reduction, known prerequisites versus hidden causes, honest risk wording, focus after redraw and removal of implementation notes/inactive odds. Compact rows versus timetable is a proposal, not accepted direction or comprehension proof. The later tracker supersedes selected October31 failures: L1 opening is agent-verified with three held later actions and 38 mappings still needing review; L2a interaction was verified before L2b, and the current L2b row records November4 DEV SEEDED floor proof. L2c final injury/witness, L3 observer/event, L4 school/form, L5 access/save and L7 mappings remain individually queued. The old ownership row calling L2b stopped at allowance is historical, not a current live-worker claim.\n\nUse the lane status and latest exact receipt rather than treating October31 source/browser findings as current reproduced defects or every later lane as done. Existing queued done checks remain useful. This reconciliation changes no runtime, priority, source-reading budget, worker ownership or accepted design.",
+      "before_sha256": "4cd63a1ada4e256bb13537c7c96be36b296c1f99c832146a137c8e091832e118",
+      "after_sha256": "200edba8e0cbaaf5f783ae704ad3335add88da3d74aca0ea8ee8845d08250d7f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 184,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md",
+      "from": "worker ownership or accepted design.",
+      "to": "worker ownership or product direction.",
+      "reason": "Clarify ordinary job admission/product-direction wording flagged by the document authority checker."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md",
+      "from": "200edba8e0cbaaf5f783ae704ad3335add88da3d74aca0ea8ee8845d08250d7f",
+      "to": "e9482458b4bf62b01e7c9efd67f1c1f3a8991572e0f636c38773ec5e2ad953c6",
+      "reason": "Exact wording correction; original disposition/input/fold retained."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "batches": "B615\u2013B618",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b1.md",
+      "target": "../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b2.md",
+      "target": "../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b3.md",
+      "target": "../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b4.md",
+      "target": "../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/world-core-kit-2026-10-14/cards/ttks-b5.md",
+      "target": "../../TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b615-five-separate-source-worlds",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New targets only; not linked-body verification."
+}

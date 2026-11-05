@@ -1,0 +1,10 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "chunk_id": "c3c4d4",
+    "wall_time_seconds": 0.062540375,
+    "exit_code": 0,
+    "original_token_count": 220,
+    "output": "{\"hash\": \"a46863a26873\", \"kind\": \"epub\", \"bytes\": 6595584, \"title\": \"Circle of Inevitability\", \"author\": \"Cuttlefish That Loves Diving\", \"parts\": 1192, \"chapters\": [1, 1190, 1190], \"first_gaps\": [], \"compilation\": true, \"on_disk\": true}\n{\"hash\": \"665a94c68a80\", \"kind\": \"epub\", \"bytes\": 6519096, \"title\": \"Circle of Inevitability\", \"author\": \"Cuttlefish That Loves Diving\", \"parts\": 1192, \"chapters\": [1, 1190, 1190], \"first_gaps\": [], \"compilation\": true, \"on_disk\": true}\n{\"hash\": \"e7d156a15f97\", \"kind\": \"epub\", \"bytes\": 6034365, \"title\": \"Lord of Mysteries 2: Circle of Inevitability Novel Chapters | Light Novel World\", \"author\": \"<unknown>\", \"parts\": 1180, \"chapters\": [1, 1180, 1179], \"first_gaps\": [1026], \"compilation\": true, \"on_disk\": true}\n3 held records; compilations: 3. If any compilation covers a chapter range, volumes inside it are alternate editions, not gaps.\n"
+  }
+}

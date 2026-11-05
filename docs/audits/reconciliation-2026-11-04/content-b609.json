@@ -1,0 +1,418 @@
+{
+  "schema": 1,
+  "batch": "B609",
+  "title": "Regressor and Primordial institutions: later corrections and boundary scope",
+  "at": "2026-11-05T13:09:42.176747+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13",
+        "independent-review",
+        "W3"
+      ],
+      "classification": "later source correction, institutional scope and stale readiness reconciled",
+      "owners": [
+        "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/research/novels/full-book/regressors-tale/WORLD.md",
+        "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md"
+      ],
+      "disposition": "F1: Actual full review covers308input lines, W1–W4/43020words, every coordinator-check/institution/role/currency/clock/search/gap row, F1–F10, ten unnamed engine rows, C1–C10, five floor cards and later independent/W3 addenda. Truncated combined output was recovered through complete named ranges before credit. Supplied English EPUB SHA798bfee32222c8b67131266f43ea58a39875b110b06dd0810f0b35e162ad71e1,644members, printed/member/ordinal offsets and stripped versus locator-inflated word counts remain distinct. Duplicate Calibre IDs are one edition, not corroborating sources. Fan-translation/authenticity/completeness uncertainty and mid-battle ending stay explicit. No novel source body was newly read.\n\nF2: Later section16 downgrades C1's7versus43years from a demonstrated contradiction to an unresolved interval/cumulative reading;33years at stars1–4 is one life, not a universal cost. Keep exact life, stage, start/end and event for any duration. Later section17 already links the actual minimal kit card, superseding early no-card and register-before-another-pass follow-ups. Old unactivated-profile/no-runtime findings remain dated; a profile or source-read receipt does not establish an implemented regressor branch or its absence everywhere today. Retire one-realm milestone deferral against PROJECT, without selecting new reading or gameplay.\n\nF3: Ten-day10SSadmission/40dayevent, recommendation token, contest placing, rank threshold, interview, family relationship, official role and teaching hours grant distinct rights. A paid ticket or recommendation does not gate every institution. Extended elder instruction is actor choice, not an unlimited entitlement. Belt stage/potential, actual cultivation, chosen concealment, evidence and observer perception remain separate. The source's fox opening, later conference and monthly clan duty are different periods, not three already available gates in one source-supported first day. Regressor memory/understanding carry does not give every ordinary entrant a regression reset.\n\nF4: Spirit-stone money, silver denomination, ancient-stone1:100reportedexchange and stone-volume180liters differ. Pouch50is a purchase, not a rent quote; bracelet300/27beads/3volumeunits is not300spirit-stones capacity. Ship60000quote/2000reduction/58000inferrednet and separate80000budget preserve actual transaction state. No stable silver-to-spirit exchange is established, so herb-sale silver cannot silently fund a10SSticket. At-least-one-stone clan support is a floor plus unspecified material support, not a universal salary. Source actor statements about coercive pills, jurisdiction or lifespans retain speaker/era and exceptions; refusal and ordinary support remain useful routes.\n\nF5: Four literal auction hits occur in three named members; sparse translated terms do not prove no auction culture or authorize an all-world exclusion. Observed auctions with unopened procedure, broker/guild/tax/bounty/retreat hits and price/meal/wage gaps retain exact scope. The dossier's information network means no broker in these windows is not whole-source absence. Memory, provenance claims, rumor and each cycle's counterpart knowledge differ; m80reset evidence alone does not source-check m58's claimed provenance explanation. Idle/compressed play can preserve due events and supported tactics under AD52. Keep useful timed rights, source-specific institution roles, supported service/stock, understanding reset/carry and separate clocks in the existing WORLD/card owners; no raw source, current runtime, build, browser, save or human acceptance proof occurs.",
+      "evidence": "Full institution documents read in bounded ranges; initial combined-output truncation recovered. Scoped owner/card/scout sections read; no novel source-body or runtime proof.",
+      "reopen": "Keep exact source/life/clock and actual supplier/consumer; inspect current implementation before selecting any gameplay and preserve unresolved source gaps.",
+      "full": true,
+      "input_sha256": "34854fef9767511b6896c42afd5c27e636e30d216331f7599252a32528fc6e84",
+      "input_lines": 308,
+      "ranges": [
+        [
+          1,
+          308
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "EF1",
+        "EF2",
+        "EF3",
+        "EF4",
+        "EF5",
+        "EF6",
+        "EF7",
+        "EF8",
+        "EF9",
+        "EF10",
+        "EF11",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "K2",
+        "K3",
+        "K6",
+        "K8",
+        "K13",
+        "W2",
+        "W3",
+        "W4",
+        "W5"
+      ],
+      "classification": "later source correction, institutional scope and stale readiness reconciled",
+      "owners": [
+        "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+        "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+        "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md"
+      ],
+      "disposition": "F1: Actual full review covers407input lines, initial four windows/28chapters/46312words, all27check groups, later independent W2/W3/W4/W5, every institution/role/price/time/talent/gap row, F1–F18/EF1–EF11/C1–C9/five cards. The supplied MTL SHA3c9263d447569a7422b05847b57d572b942bf40ebe3cd59117b11149ce743437 records1437story chapters across1–1441 with295/506/751/1096missing and translation-working-note contamination in preceding members. The scout's1441distinct claim is qualified from this historical extraction receipt, not a fresh raw-source check. Exact translation aliases, audit versus paragraph locators and title/counter numbering remain separate. No novel body or second translation was newly read.\n\nF2: Section19 supersedes earlier packet blockers: the pool entry rule is located; monthly10CPpick, yearly-stake thought and yearly-limit recollection still conflict. Rigged-winner belief is Lu's conclusion and later fate-lure material does not prove physical draw manipulation. Staking10is expense credited to pool, not wage or mission income. Odds and monthly/yearly choice remain authored/unresolved rather than a source constant. Two different lives selling tenat2000for20000gross and twentyat3000for60000gross do not conflict; gross sales are not net profit. The unsupported3000/4000/5000climb is distinct from checked descending steps. Literal no-CP hits do not establish no later prices or institutions.\n\nF3: A1000principal,36percent/year, ten-year loan has stated460yearlyinstallment and4600total; splitting100principal+360interest is a compatible inference, not a fresh financial authority or compound rule. Three Rivers30interest-free days and36annual rate can coexist as a candidate schedule; exact accrual/payment remains qualified. Twelve rent cycles support360rent/year;30daymonths/360dayyear are authored, not source calendar. The second-half price stays unknown; guessed10000complete-formula price differs from an actual1500two-volume method sale and from the partial1000purchase/delivery. Token issue, method entitlement, item delivery, custody and actual learning are separate.\n\nF4: Credit capped at a stated total person-value is an institutional claim, not a proven guarantee of recovery or profit. Replace salvage-value paraphrase in SCOUT with total value and preserve its history. In the observed intake reset, debt collection is not seen and first-exchange eligibility is renewed; sect forgiveness, every later anchor reset, all external creditors and completed aftermath are not proven erased. Later section18's belief-only qualification is advanced by section19's shown intake-reset case, without expanding it to all restarts. Keep body price/collateral, recovery and debt boundary separate. No forced anti-exploit defense follows from the source.\n\nF5: Aptitude/usefulness to sect, named tiered Book talent, Golden Nature, realm, position/share and actor knowledge differ. Golden Nature can be willingly given while alive, acquired after death or supplied in a vial; defeating an NPC is not itself the settlement supplier. Settlement output, delayed activation, carry choice, retained prior start and a later anchor are different state transitions. Tiers do not supply fixed combat ranks. A single intake scene plus stated policy is not exhaustive whole-world practice; no-root reflection and unseen numeric person-prices remain source-scope questions. Keep live-source institutional coercion distinct from adopted gameplay. Late public-canon [S]labels do not create designed sealed IDs or player discovery proof.\n\nF6: Initial21earlychapters plus W2six plus W4six yield33distinct fully windowed chapters below100, and seven selected later chapters, under the reported historical ranges; targeted W5paragraph opens do not add whole-chapter credit. This is receipt arithmetic, not new source reading. Old lists that call those same ranges unread are superseded by their exact union; audits and keyword opens keep separate depth. Existing minimal card supersedes no-card claims; READY/rank1 is historical packet readiness, not current gameplay certification. Inspect applicable shared economy/carry/restart consumers before new fields/modules; old names are not a tested current implementation. Retire the first-milestone deferral. Preserve exact missing-source, integration, reward/clock/debt/pool and second-half-price gaps without acquisition, worker, runtime edit or fresh behavior proof.",
+      "evidence": "Full institution documents read in bounded ranges; initial combined-output truncation recovered. Scoped owner/card/scout sections read; no novel source-body or runtime proof.",
+      "reopen": "Keep exact source/life/clock and actual supplier/consumer; inspect current implementation before selecting any gameplay and preserve unresolved source gaps.",
+      "full": true,
+      "input_sha256": "39e2872249f17be55dbd99791bff200e7d1c64f3d8c4a21927f5e4c673b5b4f1",
+      "input_lines": 407,
+      "ranges": [
+        [
+          1,
+          407
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B609: rights currency and loop evidence",
+      "body": "F1: Actual full review covers308input lines, W1–W4/43020words, every coordinator-check/institution/role/currency/clock/search/gap row, F1–F10, ten unnamed engine rows, C1–C10, five floor cards and later independent/W3 addenda. Truncated combined output was recovered through complete named ranges before credit. Supplied English EPUB SHA798bfee32222c8b67131266f43ea58a39875b110b06dd0810f0b35e162ad71e1,644members, printed/member/ordinal offsets and stripped versus locator-inflated word counts remain distinct. Duplicate Calibre IDs are one edition, not corroborating sources. Fan-translation/authenticity/completeness uncertainty and mid-battle ending stay explicit. No novel source body was newly read.\n\nF2: Later section16 downgrades C1's7versus43years from a demonstrated contradiction to an unresolved interval/cumulative reading;33years at stars1–4 is one life, not a universal cost. Keep exact life, stage, start/end and event for any duration. Later section17 already links the actual minimal kit card, superseding early no-card and register-before-another-pass follow-ups. Old unactivated-profile/no-runtime findings remain dated; a profile or source-read receipt does not establish an implemented regressor branch or its absence everywhere today. Retire one-realm milestone deferral against PROJECT, without selecting new reading or gameplay.\n\nF3: Ten-day10SSadmission/40dayevent, recommendation token, contest placing, rank threshold, interview, family relationship, official role and teaching hours grant distinct rights. A paid ticket or recommendation does not gate every institution. Extended elder instruction is actor choice, not an unlimited entitlement. Belt stage/potential, actual cultivation, chosen concealment, evidence and observer perception remain separate. The source's fox opening, later conference and monthly clan duty are different periods, not three already available gates in one source-supported first day. Regressor memory/understanding carry does not give every ordinary entrant a regression reset.\n\nF4: Spirit-stone money, silver denomination, ancient-stone1:100reportedexchange and stone-volume180liters differ. Pouch50is a purchase, not a rent quote; bracelet300/27beads/3volumeunits is not300spirit-stones capacity. Ship60000quote/2000reduction/58000inferrednet and separate80000budget preserve actual transaction state. No stable silver-to-spirit exchange is established, so herb-sale silver cannot silently fund a10SSticket. At-least-one-stone clan support is a floor plus unspecified material support, not a universal salary. Source actor statements about coercive pills, jurisdiction or lifespans retain speaker/era and exceptions; refusal and ordinary support remain useful routes.\n\nF5: Four literal auction hits occur in three named members; sparse translated terms do not prove no auction culture or authorize an all-world exclusion. Observed auctions with unopened procedure, broker/guild/tax/bounty/retreat hits and price/meal/wage gaps retain exact scope. The dossier's information network means no broker in these windows is not whole-source absence. Memory, provenance claims, rumor and each cycle's counterpart knowledge differ; m80reset evidence alone does not source-check m58's claimed provenance explanation. Idle/compressed play can preserve due events and supported tactics under AD52. Keep useful timed rights, source-specific institution roles, supported service/stock, understanding reset/carry and separate clocks in the existing WORLD/card owners; no raw source, current runtime, build, browser, save or human acceptance proof occurs.",
+      "before_sha256": "34854fef9767511b6896c42afd5c27e636e30d216331f7599252a32528fc6e84",
+      "after_sha256": "9fa2fb09fb515c79662e20ac809b12b960c9aa699123030b05d69651e99dbfa7"
+    },
+    {
+      "path": "docs/research/novels/full-book/regressors-tale/WORLD.md",
+      "heading": "## Institution and cycle-context reconciliation B609",
+      "body": "The [institution pass](../../../../worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-rights-currency-and-loop-evidence) supplies bounded ticket/intake/teaching, stone-volume versus money, shipquote/reduction, stage/role and observer detail. Its later review keeps7versus43years as an unresolved interval/cumulative reading, not a forced contradiction. The kit card exists; this source owner does not certify a runtime regressor branch. Herb-sale silver cannot fund a spirit-stone ticket without an actual supported exchange or other supplier, and pouch50is not rent. Source public franchise detail stays separate from designed sealed content. Preserve exact unopened guild/auction/mission/duration/provenance gaps and cycle-specific carry/understanding; B609 newly reads no raw novel body.",
+      "before_sha256": "ec6aaa3af055ea319d7e8cb885d62c5eeaf0d2e282b25a1eabadb14bc05c722e",
+      "after_sha256": "8a39ad79a52e088055fd7ba36b009fbcd3027f92cd41fc8b44e987e650c270c7"
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md",
+      "heading": "## Institution and source-scope reconciliation B609",
+      "body": "The [institution pass](../../REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-rights-currency-and-loop-evidence) later section16 keeps C1 unresolved as interval/cumulative wording. Paid conference entry, recommendation, interview and contest grant particular institutional rights, rather than gating every institution. Source quotes remain edition/life-local; no stable silver/spirit exchange or rent quote is pinned here. The fox opening, conference and monthly duty belong to distinct periods, and regression is the protagonist's specific capability. This card supersedes the pass's early absent-card follow-up. All coverage cells remain historical/proposed, with no fresh runtime or whole-profile proof.",
+      "before_sha256": "4d907d3a0e9ad898483ddd307a1172607f6734288c1f98758708537545bf28a1",
+      "after_sha256": "610059c9e1d2404bcba6195b45e774fd91f305e0a02e4aad8732f96842cdcfaf"
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "heading": "## Content reconciliation B609: intake reset and talent supplier",
+      "body": "F1: Actual full review covers407input lines, initial four windows/28chapters/46312words, all27check groups, later independent W2/W3/W4/W5, every institution/role/price/time/talent/gap row, F1–F18/EF1–EF11/C1–C9/five cards. The supplied MTL SHA3c9263d447569a7422b05847b57d572b942bf40ebe3cd59117b11149ce743437 records1437story chapters across1–1441 with295/506/751/1096missing and translation-working-note contamination in preceding members. The scout's1441distinct claim is qualified from this historical extraction receipt, not a fresh raw-source check. Exact translation aliases, audit versus paragraph locators and title/counter numbering remain separate. No novel body or second translation was newly read.\n\nF2: Section19 supersedes earlier packet blockers: the pool entry rule is located; monthly10CPpick, yearly-stake thought and yearly-limit recollection still conflict. Rigged-winner belief is Lu's conclusion and later fate-lure material does not prove physical draw manipulation. Staking10is expense credited to pool, not wage or mission income. Odds and monthly/yearly choice remain authored/unresolved rather than a source constant. Two different lives selling tenat2000for20000gross and twentyat3000for60000gross do not conflict; gross sales are not net profit. The unsupported3000/4000/5000climb is distinct from checked descending steps. Literal no-CP hits do not establish no later prices or institutions.\n\nF3: A1000principal,36percent/year, ten-year loan has stated460yearlyinstallment and4600total; splitting100principal+360interest is a compatible inference, not a fresh financial authority or compound rule. Three Rivers30interest-free days and36annual rate can coexist as a candidate schedule; exact accrual/payment remains qualified. Twelve rent cycles support360rent/year;30daymonths/360dayyear are authored, not source calendar. The second-half price stays unknown; guessed10000complete-formula price differs from an actual1500two-volume method sale and from the partial1000purchase/delivery. Token issue, method entitlement, item delivery, custody and actual learning are separate.\n\nF4: Credit capped at a stated total person-value is an institutional claim, not a proven guarantee of recovery or profit. Replace salvage-value paraphrase in SCOUT with total value and preserve its history. In the observed intake reset, debt collection is not seen and first-exchange eligibility is renewed; sect forgiveness, every later anchor reset, all external creditors and completed aftermath are not proven erased. Later section18's belief-only qualification is advanced by section19's shown intake-reset case, without expanding it to all restarts. Keep body price/collateral, recovery and debt boundary separate. No forced anti-exploit defense follows from the source.\n\nF5: Aptitude/usefulness to sect, named tiered Book talent, Golden Nature, realm, position/share and actor knowledge differ. Golden Nature can be willingly given while alive, acquired after death or supplied in a vial; defeating an NPC is not itself the settlement supplier. Settlement output, delayed activation, carry choice, retained prior start and a later anchor are different state transitions. Tiers do not supply fixed combat ranks. A single intake scene plus stated policy is not exhaustive whole-world practice; no-root reflection and unseen numeric person-prices remain source-scope questions. Keep live-source institutional coercion distinct from adopted gameplay. Late public-canon [S]labels do not create designed sealed IDs or player discovery proof.\n\nF6: Initial21earlychapters plus W2six plus W4six yield33distinct fully windowed chapters below100, and seven selected later chapters, under the reported historical ranges; targeted W5paragraph opens do not add whole-chapter credit. This is receipt arithmetic, not new source reading. Old lists that call those same ranges unread are superseded by their exact union; audits and keyword opens keep separate depth. Existing minimal card supersedes no-card claims; READY/rank1 is historical packet readiness, not current gameplay certification. Inspect applicable shared economy/carry/restart consumers before new fields/modules; old names are not a tested current implementation. Retire the first-milestone deferral. Preserve exact missing-source, integration, reward/clock/debt/pool and second-half-price gaps without acquisition, worker, runtime edit or fresh behavior proof.",
+      "before_sha256": "39e2872249f17be55dbd99791bff200e7d1c64f3d8c4a21927f5e4c673b5b4f1",
+      "after_sha256": "a2131de285d0e01c3d7357dbe1dcbeb00df8fce97b7a89544da1f772c8efb1c7"
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "heading": "## Later institution and source-boundary qualification B609",
+      "body": "The [institution pass](../../../worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-intake-reset-and-talent-supplier) sections17–19 qualify the scout:1437story chapters versus1441numbered labels, four absent bodies/translator-note contamination, total-value rather than salvage-value credit, and Golden Nature supplier not necessarily dead. Defeat alone is not settlement proof. The observed intake reset renews first-exchange eligibility without observed collection; later anchor debt behavior is not established. Merit Pool plant/rigging is Lu's inference, entry timing remains contradictory, and fees are expenses. Preserve this scout's title/sample confidence and dated original routes; the later receipt is reused, not a fresh MTL/source-body read.",
+      "before_sha256": "ef1a221573aebab835174932950af626b8393df185be7006a0307b396cd0217d",
+      "after_sha256": "e8b65cbe14395af8c26703a0a00fece5cc3033af0f7ba3b06baf290365690f44"
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+      "heading": "## Pool entry and intake-reset qualification B609",
+      "body": "The [institution pass](../../PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-intake-reset-and-talent-supplier) section19 locates pool entry atc0012p3–11 and shown drawc0015p34–45, superseding this card's old not-found note.10CPgoes to the pool; monthly versus yearly claims remain unresolved, odds authored. It also pins twelve rent cycles, stated460annualinstallment/4600total, unknown second-half price and intake-reset debt scope. Aptitude, Book talent and Golden Nature are separate; settlement needs its actual strand supplier, not merely a victory. Named [S]material is public canon and not automatically a designed secret. Existing source ranges are historical and not whole-book/current-runtime proof; READY is packet readiness only.",
+      "before_sha256": "4a27651c9a85235fdfb4face029b29406f2e7dfb7ffc69919de78a186dd03865",
+      "after_sha256": "0890c4c11a2a303d098c026c87170b4916b541d2dec8bacbf98aa1864b78ed11"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 84,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "so ART has no auction culture to port (see zero hits).",
+      "to": "these sparse English hits do not establish absence of an auction culture; procedure remains unreviewed (see bounded searches).",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "appears in only four members (m182, m193 twice, m359)",
+      "to": "has four listed hits in three members (m182, m193 twice, m359)",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Both lines exist; kept as a contradiction (section 10).",
+      "to": "Both lines exist; later section16 downgrades this to an unresolved interval/cumulative reading (section10 C1).",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Both stay; maybe cumulative, maybe a different life. Owner: this file, open",
+      "to": "Both stay; section16 downgrades a contradiction to unresolved interval/cumulative reading. Owner: this file, open",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "a paid ticket or recommendation gates every institution",
+      "to": "the inspected conference and clan use their particular ticket, recommendation, contest or interview routes",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "while rented space and tickets cost 10-50 SS",
+      "to": "while the inspected ticket costs10SS and pouch purchase50SS; no rent price is pinned here",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "but defers behind the first slice.",
+      "to": "remains a proposal governed by current PROJECT ordering.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "defer; the first milestone is one realm.",
+      "to": "historical deferral retired under current PROJECT; no one-realm gate is restored.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "An idle player would miss the loophole tactics (healing under a no-injury rule), the recommendation forfeit, and the sect-method filter.",
+      "to": "An idle/compressed route can preserve supported tactics, recommendation choices and sect-method knowledge under AD52; these source examples do not require continuous manual attention.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "The kit card for ART is the first missing base layer; a floor card with real kit registration should come before a fifth pass (WPR25).",
+      "to": "Section17 now links the existing minimal kit card. A new pass targets an actual source gap and current PROJECT scope, rather than repeating registration.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "V (m58 p33 via reader, not opened)",
+      "to": "U (m58 p33 via reader, not opened)",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "so debt can always be collected from the body.",
+      "to": "this states the sect’s collection premise, without proving actual recovery in every case.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Lets the sect never lose money; cost is that talent rises to be killed",
+      "to": "The sect aims to secure collection against person-value; realized recovery/profit remains unproved",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Debt is a leash; restart erases it",
+      "to": "Debt is a leash; section19 shows a particular intake reset without observed collection, not universal forgiveness",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "**Failure.** Death spends one page; debt is erased; the chosen reward is the only carry.",
+      "to": "**Failure.** Death spends a page in the inspected restart; section19 observes no collection after the intake reset, without establishing every later anchor’s debt behavior. The selected reward and retained start state need their particular carry contract.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "5. Ch 233-347 Sword Pavilion and Dang Mo: about 12k, defer behind the first milestone.",
+      "to": "5. Ch233–347 Sword Pavilion and Dang Mo: about12k, proposal governed by current PROJECT; the old first-milestone deferral is retired.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "CP income by missions at single digits (c0003 p33), posts (c0007 p67), selling items, bounties, merit pick of 10 CP a month",
+      "to": "CP income by missions at single digits (c0003 p33), posts (c0007 p67), selling items and bounties; a merit pick spends10CP rather than earning a wage",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "so the rest of Ch 66-99 is combat and arc text with no price rows.",
+      "to": "this lexical result does not prove the unread remainder has no price rows under other units or wording.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "Review state reached: drafted, with 27 claim groups source-spot-checked by the coordinator (WPR21).",
+      "to": "Initial review reached drafted/source-spot-checked27groups (WPR21); sections17–19 add later review and scoped blocker closures, without gameplay proof.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "from": "only 1,441 distinct chapters",
+      "to": "1,441numbered labels; the later institution pass records1,437story chapters with295/506/751/1096absent",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "from": "Book consumes a dead person's \"Golden Nature\" and settles THEIR life into a talent",
+      "to": "Book consumes a Golden Nature strand and settles the supplier’s life into a talent; the later pass records a living gift as well as post-death/vial sources",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "from": "Loans cannot exceed the disciple's total salvage value (Ch 9), so debt is a leash that guarantees the sect never loses.",
+      "to": "Zhao states loans cannot exceed the disciple's total value (Ch9); this is a collection premise, not verified recovery or guaranteed profit.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "from": "Defeating a notable NPC lets you \"settle\" their life into a talent, not power.",
+      "to": "A qualified Golden Nature strand permits settlement of its supplier’s life into a talent; defeating a notable NPC alone does not supply it.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "from": "the player takes them knowing the next life will be debt-free.",
+      "to": "the inspected intake reset shows no recovery and renews first-exchange eligibility; later anchors need their own debt contract.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+      "from": "Merit Pool is a CP-staked prize draw (entry rule not found)",
+      "to": "Merit Pool entry is located in section19:10CPperpick credited to pool; monthly/yearly limit remains unresolved",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+      "from": "Sealed items (Golden Nature settling and later-Book mechanics) stay by ID in the pass doc (WA11).",
+      "to": "Golden Nature/later-Book material is tagged[S]as public canon; this alone does not create designed sealed truth or an ID-backed playable discovery.",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md",
+      "from": "[S] chapters m455-456 and parts of m223 stay sealed (WA11).",
+      "to": "[S]chapters m455–456 and parts ofm223 retain spoiler-light/public-canon scope; this does not create designed sealed truth (WA11).",
+      "reason": "Apply later evidence/authority qualifier; preserve exact original."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "9fa2fb09fb515c79662e20ac809b12b960c9aa699123030b05d69651e99dbfa7",
+      "to": "a4e1f006b9523fc34189a37d233724a129c76666e56593861ecd6b42bad9980e",
+      "reason": "Exact inline source and boundary corrections."
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "from": "a2131de285d0e01c3d7357dbe1dcbeb00df8fce97b7a89544da1f772c8efb1c7",
+      "to": "823a15b0429992a63cc4226ba6218d0a903a47444a44c559ca83449fde3b049c",
+      "reason": "Exact inline source and boundary corrections."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "from": "e8b65cbe14395af8c26703a0a00fece5cc3033af0f7ba3b06baf290365690f44",
+      "to": "ba2ac543e06264a04b86f2eacc2db5611b6dc28bbed4e568ed090743a3b0e8aa",
+      "reason": "Exact inline source and boundary corrections."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+      "from": "0890c4c11a2a303d098c026c87170b4916b541d2dec8bacbf98aa1864b78ed11",
+      "to": "bc4ba46440f0e49abcdc61e8adb840509b511f0c39f2cf9c02d3aba864e586aa",
+      "reason": "Exact inline source and boundary corrections."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md",
+      "from": "610059c9e1d2404bcba6195b45e774fd91f305e0a02e4aad8732f96842cdcfaf",
+      "to": "b0e18e28232b1eee7d1dce92212f61bb7a53daa520b8e4be864e15a0422ff218",
+      "reason": "Exact inline source and boundary corrections."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/novels/full-book/regressors-tale/WORLD.md",
+      "sha256": "8a39ad79a52e088055fd7ba36b009fbcd3027f92cd41fc8b44e987e650c270c7",
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "scope": "Opening WORLD supplier only, no full owner review."
+    },
+    {
+      "path": "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+      "sha256": "ba2ac543e06264a04b86f2eacc2db5611b6dc28bbed4e568ed090743a3b0e8aa",
+      "ranges": [
+        [
+          1,
+          82
+        ]
+      ],
+      "scope": "Selected scout only, no full owner or raw source review."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md",
+      "sha256": "b0e18e28232b1eee7d1dce92212f61bb7a53daa520b8e4be864e15a0422ff218",
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "scope": "Short card input read; used as owner, not an additional new review event."
+    },
+    {
+      "path": "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+      "sha256": "bc4ba46440f0e49abcdc61e8adb840509b511f0c39f2cf9c02d3aba864e586aa",
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "scope": "Short card input read; used as owner, not additional new review event."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source": "docs/research/rimworld/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "5de8153d25ed33261a8b6ccfdd644e6286297bbdcd56e5615a58cb60920e8e2d",
+  "source_lines": 22861,
+  "view": "docs/audits/reconciliation-2026-11-04/rimworld-family-lossless-view-b600.json",
+  "view_sha256": "e42894c86789027c0e61d48dfd7b372ce1618d5551b7c40ee7cd08888ed87225",
+  "roundtrip_equal": true,
+  "systems": 363,
+  "prior_rows": 854,
+  "routing_blocks": 31,
+  "prior_templates": 25,
+  "scope": "All363records read in seven bounded outputs, plus complete header/dictionaries/source paths/sections/patch values/31routes/25prior templates and count shapes. Exact field reconstruction verifies representation integrity, not referenced source behavior."
+}

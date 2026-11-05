@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "batch": "B410",
+  "title": "Cycle/reset route and Vagrus source/text reconciliation",
+  "at": "2026-11-05T04:56:27.469919+00:00",
+  "head": "2caf5a85e6dcc171d106f61617327a84bca020cc",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/majoras-mask/repass-2026-10-14/COVERAGE.json",
+      "ids": [
+        "F1–F5; W1/R1; G1–G5; P1–P7"
+      ],
+      "classification": "actual branch/reset and source-reconciliation evidence review",
+      "owners": [
+        "docs/research/majoras-mask/repass-2026-10-14/REPORT.md"
+      ],
+      "disposition": "Schedule selection, immediate participant validation, talk acceptance, active message execution, notebook recording and retained award guards remain separate. A fresh schedule changes across raw ticks 33441/33442, while an active conversation uses its own action rather than reselecting. Reset clears current quest/return/collectible facts while retained completion/history can suppress another reward; retained completion does not preserve present route eligibility. The 1,179,648 analytical input tuples and zero unresolved direct structural edges do not prove ROM byte identity, native reachability, complete choices or crash safety. Preserve all five named missing asset/generated-input gaps and unavailable prose as null, with focus-based speakers explicitly inferred. No MM3D parity or source-reuse grant follows. The old one-realm/one-prestige scope sentence is historical; that mandatory milestone was retired October 24. Seven proposals and five touches stay optional, without changing present priority or save policy.",
+      "evidence": "Complete listed maps, reports and receipts actually read. Structural/static source statements retain their original proof limits; no runtime or acquisition recheck.",
+      "reopen": "Keep named missing inputs and wider unread branches open; selected ideas can be taken up through live authority and existing owners.",
+      "input_sha256": "712551417221cc2cfc5be3b8883771c4067c189bd09706802d1376050d45f643",
+      "input_lines": 252,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          252
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/majoras-mask/repass-2026-10-14/REPORT.md",
+      "ids": [
+        "F1–F5; W1/R1; G1–G5; P1–P7"
+      ],
+      "classification": "actual branch/reset and source-reconciliation evidence review",
+      "owners": [
+        "docs/research/majoras-mask/repass-2026-10-14/REPORT.md"
+      ],
+      "disposition": "Schedule selection, immediate participant validation, talk acceptance, active message execution, notebook recording and retained award guards remain separate. A fresh schedule changes across raw ticks 33441/33442, while an active conversation uses its own action rather than reselecting. Reset clears current quest/return/collectible facts while retained completion/history can suppress another reward; retained completion does not preserve present route eligibility. The 1,179,648 analytical input tuples and zero unresolved direct structural edges do not prove ROM byte identity, native reachability, complete choices or crash safety. Preserve all five named missing asset/generated-input gaps and unavailable prose as null, with focus-based speakers explicitly inferred. No MM3D parity or source-reuse grant follows. The old one-realm/one-prestige scope sentence is historical; that mandatory milestone was retired October 24. Seven proposals and five touches stay optional, without changing present priority or save policy.",
+      "evidence": "Complete listed maps, reports and receipts actually read. Structural/static source statements retain their original proof limits; no runtime or acquisition recheck.",
+      "reopen": "Keep named missing inputs and wider unread branches open; selected ideas can be taken up through live authority and existing owners.",
+      "input_sha256": "9250fe1307f6158a29b9241afa75bc76224d70edf14ab326578e5f430fa74d07",
+      "input_lines": 78,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          78
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/vagrus/COVERAGE.json",
+      "ids": [
+        "F1–F56; source/text reconciliation; five-table extraction"
+      ],
+      "classification": "actual branch/reset and source-reconciliation evidence review",
+      "owners": [
+        "docs/research/vagrus/REPORT.md"
+      ],
+      "disposition": "The first targeted pass separates developer/player text from installed tables and selected methods. Counted crew, named companions, actual staffing/ration/pay pipelines, scoped skill contributors and authored loyalty/critical-departure effects are connected mechanisms, not autonomous whole-life simulation. Warning is not guaranteed before a large loyalty loss. Reviewed prose promises of worker recovery downtime or ordinary supplies lost on departure have no corresponding action in the selected scripts; external hooks remain unknown, so this is neither a universal absence nor a current reproduced bug. Five reproducible decoded tables, 1,506 C# exports and 46 base/569 subevent graph records are recovery/index counts, not complete narrative/DLC semantics. Preserve failures (including 62,069 custom-tree read errors), route switches and historical cleanup receipts; do not rerun old reproduction commands as part of this review. The later [October 14 pass](pass-2026-10-14/REPORT.md) adds selected event-priority, marginal-price and companion-cap detail while retaining G1–G6; it does not turn the earlier finite-complete label into whole-source closure. Keep eight packets and 30 touches as original options, without generational succession or closed-app production claims. Old uninstall wording is history, not a new action instruction.",
+      "evidence": "Complete listed maps, reports and receipts actually read. Structural/static source statements retain their original proof limits; no runtime or acquisition recheck.",
+      "reopen": "Keep named missing inputs and wider unread branches open; selected ideas can be taken up through live authority and existing owners.",
+      "input_sha256": "465c1af42395b298dd37472cd98f1de4e5249d34cca2a8261a5f85b0275a96ab",
+      "input_lines": 374,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          374
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/vagrus/REPORT.md",
+      "ids": [
+        "F1–F56; source/text reconciliation; five-table extraction"
+      ],
+      "classification": "actual branch/reset and source-reconciliation evidence review",
+      "owners": [
+        "docs/research/vagrus/REPORT.md"
+      ],
+      "disposition": "The first targeted pass separates developer/player text from installed tables and selected methods. Counted crew, named companions, actual staffing/ration/pay pipelines, scoped skill contributors and authored loyalty/critical-departure effects are connected mechanisms, not autonomous whole-life simulation. Warning is not guaranteed before a large loyalty loss. Reviewed prose promises of worker recovery downtime or ordinary supplies lost on departure have no corresponding action in the selected scripts; external hooks remain unknown, so this is neither a universal absence nor a current reproduced bug. Five reproducible decoded tables, 1,506 C# exports and 46 base/569 subevent graph records are recovery/index counts, not complete narrative/DLC semantics. Preserve failures (including 62,069 custom-tree read errors), route switches and historical cleanup receipts; do not rerun old reproduction commands as part of this review. The later [October 14 pass](pass-2026-10-14/REPORT.md) adds selected event-priority, marginal-price and companion-cap detail while retaining G1–G6; it does not turn the earlier finite-complete label into whole-source closure. Keep eight packets and 30 touches as original options, without generational succession or closed-app production claims. Old uninstall wording is history, not a new action instruction.",
+      "evidence": "Complete listed maps, reports and receipts actually read. Structural/static source statements retain their original proof limits; no runtime or acquisition recheck.",
+      "reopen": "Keep named missing inputs and wider unread branches open; selected ideas can be taken up through live authority and existing owners.",
+      "input_sha256": "23dec08afa14456cb3ccdd7d4006a3dd5789fc2c9d2017c05712abc685917395",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/vagrus/RECONCILIATION.md",
+      "ids": [
+        "F1–F56; source/text reconciliation; five-table extraction"
+      ],
+      "classification": "actual branch/reset and source-reconciliation evidence review",
+      "owners": [
+        "docs/research/vagrus/REPORT.md"
+      ],
+      "disposition": "The first targeted pass separates developer/player text from installed tables and selected methods. Counted crew, named companions, actual staffing/ration/pay pipelines, scoped skill contributors and authored loyalty/critical-departure effects are connected mechanisms, not autonomous whole-life simulation. Warning is not guaranteed before a large loyalty loss. Reviewed prose promises of worker recovery downtime or ordinary supplies lost on departure have no corresponding action in the selected scripts; external hooks remain unknown, so this is neither a universal absence nor a current reproduced bug. Five reproducible decoded tables, 1,506 C# exports and 46 base/569 subevent graph records are recovery/index counts, not complete narrative/DLC semantics. Preserve failures (including 62,069 custom-tree read errors), route switches and historical cleanup receipts; do not rerun old reproduction commands as part of this review. The later [October 14 pass](pass-2026-10-14/REPORT.md) adds selected event-priority, marginal-price and companion-cap detail while retaining G1–G6; it does not turn the earlier finite-complete label into whole-source closure. Keep eight packets and 30 touches as original options, without generational succession or closed-app production claims. Old uninstall wording is history, not a new action instruction.",
+      "evidence": "Complete listed maps, reports and receipts actually read. Structural/static source statements retain their original proof limits; no runtime or acquisition recheck.",
+      "reopen": "Keep named missing inputs and wider unread branches open; selected ideas can be taken up through live authority and existing owners.",
+      "input_sha256": "783c74e60203f133ab7e3266db0a6084b770fd528df1b53447f8a8933e916f4a",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/vagrus/EXTRACTION_RECEIPT.md",
+      "ids": [
+        "F1–F56; source/text reconciliation; five-table extraction"
+      ],
+      "classification": "actual branch/reset and source-reconciliation evidence review",
+      "owners": [
+        "docs/research/vagrus/REPORT.md"
+      ],
+      "disposition": "The first targeted pass separates developer/player text from installed tables and selected methods. Counted crew, named companions, actual staffing/ration/pay pipelines, scoped skill contributors and authored loyalty/critical-departure effects are connected mechanisms, not autonomous whole-life simulation. Warning is not guaranteed before a large loyalty loss. Reviewed prose promises of worker recovery downtime or ordinary supplies lost on departure have no corresponding action in the selected scripts; external hooks remain unknown, so this is neither a universal absence nor a current reproduced bug. Five reproducible decoded tables, 1,506 C# exports and 46 base/569 subevent graph records are recovery/index counts, not complete narrative/DLC semantics. Preserve failures (including 62,069 custom-tree read errors), route switches and historical cleanup receipts; do not rerun old reproduction commands as part of this review. The later [October 14 pass](pass-2026-10-14/REPORT.md) adds selected event-priority, marginal-price and companion-cap detail while retaining G1–G6; it does not turn the earlier finite-complete label into whole-source closure. Keep eight packets and 30 touches as original options, without generational succession or closed-app production claims. Old uninstall wording is history, not a new action instruction.",
+      "evidence": "Complete listed maps, reports and receipts actually read. Structural/static source statements retain their original proof limits; no runtime or acquisition recheck.",
+      "reopen": "Keep named missing inputs and wider unread branches open; selected ideas can be taken up through live authority and existing owners.",
+      "input_sha256": "8a5ba730f30e5c4cc809858216f3ca617fcb97ca452bdfebda879129acb4d622",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/majoras-mask/repass-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B410: actual predicates and source-history joins",
+      "body": "Schedule selection, immediate participant validation, talk acceptance, active message execution, notebook recording and retained award guards remain separate. A fresh schedule changes across raw ticks 33441/33442, while an active conversation uses its own action rather than reselecting. Reset clears current quest/return/collectible facts while retained completion/history can suppress another reward; retained completion does not preserve present route eligibility. The 1,179,648 analytical input tuples and zero unresolved direct structural edges do not prove ROM byte identity, native reachability, complete choices or crash safety. Preserve all five named missing asset/generated-input gaps and unavailable prose as null, with focus-based speakers explicitly inferred. No MM3D parity or source-reuse grant follows. The old one-realm/one-prestige scope sentence is historical; that mandatory milestone was retired October 24. Seven proposals and five touches stay optional, without changing present priority or save policy.",
+      "before_sha256": "9250fe1307f6158a29b9241afa75bc76224d70edf14ab326578e5f430fa74d07",
+      "after_sha256": "afeadfbbbeaf04c30fcaa21997871eeb8e25471e0048164749545f8bf17cfc49"
+    },
+    {
+      "path": "docs/research/vagrus/REPORT.md",
+      "heading": "## Content reconciliation B410: actual predicates and source-history joins",
+      "body": "The first targeted pass separates developer/player text from installed tables and selected methods. Counted crew, named companions, actual staffing/ration/pay pipelines, scoped skill contributors and authored loyalty/critical-departure effects are connected mechanisms, not autonomous whole-life simulation. Warning is not guaranteed before a large loyalty loss. Reviewed prose promises of worker recovery downtime or ordinary supplies lost on departure have no corresponding action in the selected scripts; external hooks remain unknown, so this is neither a universal absence nor a current reproduced bug. Five reproducible decoded tables, 1,506 C# exports and 46 base/569 subevent graph records are recovery/index counts, not complete narrative/DLC semantics. Preserve failures (including 62,069 custom-tree read errors), route switches and historical cleanup receipts; do not rerun old reproduction commands as part of this review. The later [October 14 pass](pass-2026-10-14/REPORT.md) adds selected event-priority, marginal-price and companion-cap detail while retaining G1–G6; it does not turn the earlier finite-complete label into whole-source closure. Keep eight packets and 30 touches as original options, without generational succession or closed-app production claims. Old uninstall wording is history, not a new action instruction.",
+      "before_sha256": "23dec08afa14456cb3ccdd7d4006a3dd5789fc2c9d2017c05712abc685917395",
+      "after_sha256": "4c34ebb0f6e7db6b39f471171ded82f7171f3f5097c7021ff11189b190d52f0d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 531
+}

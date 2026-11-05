@@ -1,0 +1,19 @@
+{
+  "command": "node same-rule checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "e0faab4c76b39c3f3c774b171f877e99c0d78666e2d4ffc0d496f776d3340226",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/hogwarts-legacy/REPORT.md",
+    "docs/research/hogwarts-legacy/deep/REPORT.md",
+    "docs/research/idling-to-rule-the-gods/REPORT.md",
+    "docs/research/immortal-life/pass-2026-10-14-systems/REPORT.md",
+    "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+    "docs/research/power-systems/wiki-digests/full-dumps/SUCCESSOR_HANDOFF.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "batch": "B628",
+  "title": "Calibre catalogue and99source requests: exact metadata, useful questions and later access receipts",
+  "at": "2026-11-05T14:26:23.671954+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/CALIBRE_CATALOGUE.md",
+      "ids": [
+        "Calibre1–232"
+      ],
+      "classification": "complete generated metadata catalogue content; alias/edition and scope disposition",
+      "owners": [
+        "docs/research/LIBRARY_INDEX.md"
+      ],
+      "disposition": "F1: All238lines of the generated Calibre catalogue actually read: complete232ID/title/author/format rows and generation/navigation header. Initial combined-output truncation was recovered with explicit196–245catalogue range; all232rows were seen, not merely counted. This is full review of the catalogue’s metadata content, not232book-body/edition/authenticity/container/reading reviews. The selected live database count232agrees, but this does not compare every metadata field/path/file byte. Generated catalogue bytes stay unchanged; conclusions go to the existing library owner.\n\nF2: Preserve meaningful aliases and weak fields: title诡秘之主最, author-changedspellings, unknown/N-A/GeneratedbyNovelGet attribution, genericBook/books(1), Priam-as-author ANC metadata and technical filenames are not authoritative author/edition claims. RTOC17/43, ORV18/44, Solo30/46 and Labyrinth20/45 share or resemble titles without this review proving byte/textduplicates; no deletion or merge follows. Calibre113Foundation is a collected edition,119CraftSequence explicitly namesfivebooks,120SpiceWolf is an omnibus,100Malazancomplete is a titleclaim,207ThreeKingdoms isvolume1of2. Do not infer individualvolume absence or completeness from a single catalogue row.\n\nF3: IDs140–175include ReZeroLN1–10withmixedVol/Volume/zeropaddedtitles, and Fate145/150/160/161usesFateZeroaliases. These explain historical false gaps. Bookworm parts/main/fanbook/shortstory are separate sequences; ReZeroWNArc3interludes/Arc4phasePDFs differ from LN. CursedChildscript/HPcompanions/filmproduction and JJKofficialanimeguide are differentsourcebaselines. 2014D&Dcore/2023settings/GURPSpdfs,203Skysworn/208Ghostwater and196/199/200Cradlebooks are metadataleads, not freshlyscreenedreadablefullfiles or completecurrentfranchise. School/medical/technical/personal rows remain outside this game-source body review and were not opened or classified for study.\n\nF4: The later SourceLibrary holds many continuations not imported here, so this file is one store’s snapshot rather than total collection or a fresh download list. Exact ID/title/author/format helps find a supplier; actual completeness/readstatus lives in library/currentsourceowners, notauthorfoldername. No regeneration, import, metadatarepair, duplicatecleanup, externalfetch, source/PDF/bodyreading, acquisition, worker, runtime/build/saveoperation, deletion/move, commit/push.",
+      "evidence": "All238lines/232complete rows actualread; selected databasecount232fromB626only, no full rowidentity or physicalsource audit. Generatedbytes preserved.",
+      "reopen": "Use exact IDs/decodedmetadata/TOC/sourceowner for selected coverage question; no absence/duplicate/reading inference from thisstorealone.",
+      "full": true,
+      "input_sha256": "1af32feb90a14932163671a4c0cb12b6c04ccd6fba671da891af9d36b956680a",
+      "input_lines": 238,
+      "ranges": [
+        [
+          1,
+          238
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18",
+        "S19",
+        "S20",
+        "S21",
+        "S22",
+        "S23",
+        "S24",
+        "S25",
+        "S26",
+        "S27",
+        "S28",
+        "S29",
+        "S30",
+        "S31",
+        "S32",
+        "S33",
+        "S34",
+        "S35",
+        "S36",
+        "S37",
+        "S38",
+        "S39",
+        "S40",
+        "S41",
+        "S42",
+        "S43",
+        "S44",
+        "S45",
+        "S46",
+        "S47",
+        "S48",
+        "S49",
+        "S50",
+        "S51",
+        "S52",
+        "S53",
+        "S54",
+        "S55",
+        "S56",
+        "S57",
+        "S58",
+        "S59",
+        "S60",
+        "S61",
+        "S62",
+        "S63",
+        "S64",
+        "S65",
+        "S66",
+        "S67",
+        "S68",
+        "S69",
+        "S70",
+        "S71",
+        "S72",
+        "S73",
+        "S74",
+        "S75",
+        "S76",
+        "S77",
+        "S78",
+        "S79",
+        "S80",
+        "S81",
+        "S82",
+        "S83",
+        "S84",
+        "S85",
+        "S86",
+        "S87",
+        "S88",
+        "S89",
+        "S90",
+        "S91",
+        "S92",
+        "S93",
+        "S94",
+        "S95",
+        "S96",
+        "S97",
+        "S98",
+        "S99"
+      ],
+      "classification": "complete acquisition/read questions and historical manual requests; later access-route qualifications",
+      "owners": [
+        "docs/research/SOURCE_REQUESTS.md",
+        "docs/research/LIBRARY_INDEX.md"
+      ],
+      "disposition": "F1: Full189-line SOURCE_REQUESTSowner reviewed: initial manualhandoff/triage/WebToEpubinstructions, all99uniqueS1–S99rows, allURL/why/statuscolumns and Done/LaneD/W/N/additional/animewave sections. Truncated largewikioutput was recovered in115–143/144–170/170–190ranges; everyrowactualread, not host-name routing. Source-localSIDs differ from otherfamilies.99unique/missingzero confirms accounting only, not completed requests or sourceauthenticity. No requestedpage/book/wiki-body was read byproxy.\n\nF2: S1–S5’s five distinct captured titles are already recordedcomplete; S5’s unresolved-titlelabel is obsolete and now names废土边境检查官. Capture source/whole-mirror/readreport qualifications remain with originalowners. S6–S15 preserve tenprecisequestions: bystanderprotectionfailure, resetcarriers, gifttraps, laweditauthority, divinefuel/counter, consumptionunderstanding/memory/execution, negotiatedtrade/lifesupplier, MPgrowth/inputcadence, vesseldeparture/return, and persistentdeath/soulwound. LateravailableCarousel/Godclads/etc copies remove a need to ask foralreadyheld material, but do not automatically verifythesepassages. Keep originalcomparisonquestions without restartingagents.\n\nF3: S16–S88wikirows and S95–S97dump requests mix historical403/robots/redirect/storage/nameguessfailures with laterreview-readydumps. LaterDUMPSrecordsBleach/MHAreview_ready viaWikiTeam; November3libraryrecordsNaruto,LOTM,Mistborn,Dresden,MTG,TowerofGod,SClasses/LazyDungeonMasterheld. SomeDUMPSfieldsstillreflectolderS3failure while laterlibraryrecordsnewroute. Update accessstatus for these selectedrows to reportedlater acquisition, not completedmechanicsreview; requestedrevision/selectedtopicqualification mayremain. Acquisition/metadata/count/hash/reviewready is not everypage/canontextread. OtheroldOpenrows are historicalrequestresidue, not proofcurrentabsence or unavailableallroutes.\n\nF4: Preserve S89bodilycost/export, S90corporatepersonalsettlement, S91perception/overload/range withpublisherbooklistpointer, S92JAwebvsEnglishLN/orbexpiry, S93marketreturn/finaldeathcarrier and S94contractformation/breach/Book2numbering. Two/threechaptersamples and failedaccess remainbounded. S98ToaruLN is a lowprioritysourcequestion, not currentassignment. S99ReZeroArcs1–4alreadyrecordedreviewed and laterLNExacquisitions mean “stillopenEx” is no longer an acquisitioninstruction; actualreadquestions mayremain. Neither sourceavailability nor datedreviewcompletion authorizesnewreading/spending.\n\nF5: ManualWebToEpubinstall/challengehandback instructions are historicaluser-facingoptions, not commandsforagenttoinstallsoftware or disturbforeground. A savedfileinbox doesnotprovewatcher/readeractive; preserve oldnoreadwatcherboundary. CurrentSOURCE_ACQUISITION_TOOLSnamedgrants/stops/sourceversion/AR36b and library/currentwritingowners supersede oldrequestpriority and blanketunavailableclaims. No usermessage sent, toolinstalled, browser/network/keyaccess, worker/sourceacquisition/reading, file/librarymutation, duplicatecleanup, runtime/build/save, deletion/move, commit/push.",
+      "evidence": "Every189lines/99uniqueSrows actualread aftertruncationrecovery; selectedDUMPSstate/routefields and laterlibraryacquisitionschecked, no underlyingpagebodyproof.",
+      "reopen": "Beforeaskingforfreshmaterialcheckexistingcopies/dumps and exactunresolvedpassage; historicalOpenor403isnotnewabsence/acquisitionauthority.",
+      "full": true,
+      "input_sha256": "73b5fe5a968402918797ed18766e772c723fbb4ab7fe1d466754a165aeba3855",
+      "input_lines": 189,
+      "ranges": [
+        [
+          1,
+          189
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "heading": "## Content reconciliation B628: current access versus source questions",
+      "body": "F1: Full189-line SOURCE_REQUESTSowner reviewed: initial manualhandoff/triage/WebToEpubinstructions, all99uniqueS1–S99rows, allURL/why/statuscolumns and Done/LaneD/W/N/additional/animewave sections. Truncated largewikioutput was recovered in115–143/144–170/170–190ranges; everyrowactualread, not host-name routing. Source-localSIDs differ from otherfamilies.99unique/missingzero confirms accounting only, not completed requests or sourceauthenticity. No requestedpage/book/wiki-body was read byproxy.\n\nF2: S1–S5’s five distinct captured titles are already recordedcomplete; S5’s unresolved-titlelabel is obsolete and now names废土边境检查官. Capture source/whole-mirror/readreport qualifications remain with originalowners. S6–S15 preserve tenprecisequestions: bystanderprotectionfailure, resetcarriers, gifttraps, laweditauthority, divinefuel/counter, consumptionunderstanding/memory/execution, negotiatedtrade/lifesupplier, MPgrowth/inputcadence, vesseldeparture/return, and persistentdeath/soulwound. LateravailableCarousel/Godclads/etc copies remove a need to ask foralreadyheld material, but do not automatically verifythesepassages. Keep originalcomparisonquestions without restartingagents.\n\nF3: S16–S88wikirows and S95–S97dump requests mix historical403/robots/redirect/storage/nameguessfailures with laterreview-readydumps. LaterDUMPSrecordsBleach/MHAreview_ready viaWikiTeam; November3libraryrecordsNaruto,LOTM,Mistborn,Dresden,MTG,TowerofGod,SClasses/LazyDungeonMasterheld. SomeDUMPSfieldsstillreflectolderS3failure while laterlibraryrecordsnewroute. Update accessstatus for these selectedrows to reportedlater acquisition, not completedmechanicsreview; requestedrevision/selectedtopicqualification mayremain. Acquisition/metadata/count/hash/reviewready is not everypage/canontextread. OtheroldOpenrows are historicalrequestresidue, not proofcurrentabsence or unavailableallroutes.\n\nF4: Preserve S89bodilycost/export, S90corporatepersonalsettlement, S91perception/overload/range withpublisherbooklistpointer, S92JAwebvsEnglishLN/orbexpiry, S93marketreturn/finaldeathcarrier and S94contractformation/breach/Book2numbering. Two/threechaptersamples and failedaccess remainbounded. S98ToaruLN is a lowprioritysourcequestion, not currentassignment. S99ReZeroArcs1–4alreadyrecordedreviewed and laterLNExacquisitions mean “stillopenEx” is no longer an acquisitioninstruction; actualreadquestions mayremain. Neither sourceavailability nor datedreviewcompletion authorizesnewreading/spending.\n\nF5: ManualWebToEpubinstall/challengehandback instructions are historicaluser-facingoptions, not commandsforagenttoinstallsoftware or disturbforeground. A savedfileinbox doesnotprovewatcher/readeractive; preserve oldnoreadwatcherboundary. CurrentSOURCE_ACQUISITION_TOOLSnamedgrants/stops/sourceversion/AR36b and library/currentwritingowners supersede oldrequestpriority and blanketunavailableclaims. No usermessage sent, toolinstalled, browser/network/keyaccess, worker/sourceacquisition/reading, file/librarymutation, duplicatecleanup, runtime/build/save, deletion/move, commit/push.",
+      "before_sha256": "73b5fe5a968402918797ed18766e772c723fbb4ab7fe1d466754a165aeba3855",
+      "after_sha256": "572c4180cc7c6ae619a7b3b845dace8a6ace994b4a9f06884d0d99ddb33e28db"
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "heading": "## Content reconciliation B628: Calibre metadata and source requests",
+      "body": "B628 reads all232metadata rows of [the generated Calibre catalogue](CALIBRE_CATALOGUE.md). It remains unchanged. Its count agrees with the selected database count, but neither proves every source file is intact or read. Generic/miscredited titles, unnumbered openings, FateZero/ReZero aliases, Bookworm’s separate sequences and omnibuses require the exact source/TOC binding. Same titles and author variants are not authority to delete duplicates; retained reader repairs and distinct editions can be useful. Calibre is one store, so absent continuations here are not total-library gaps.\n\nThe complete [source request list](SOURCE_REQUESTS.md), S1–S99, retains useful precise mechanics questions and original access history. Later dumps/source acquisitions supersede selected old Open access labels; they do not automatically complete the requested revision/scene review. Current source tools and exact library/reading owners route a selected request. This review opens no school, medical, personal or fiction body, starts no watcher or acquisition, and changes no library files.",
+      "before_sha256": "556983475b77d77c6ef0325a628813a784eaeb25958813c4d032d16789005c52",
+      "after_sha256": "ab018376ce1ca0ab6ff3c8fa444d76ffd2423c376efaee44d7b93cbf7d50570e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 53,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "## Start here (triage, 2026-10-10)",
+      "to": "## Historical triage, 2026-10-10\n\nFor selected work now, check [LIBRARY_INDEX](LIBRARY_INDEX.md) and [source tools](SOURCE_ACQUISITION_TOOLS.md) first. The old lane/watcher/availability labels below do not establish a current worker or an unheld source.",
+      "reason": "Route dated requests to current owners and preserve resolved title/acquisition chronology."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "feitubianjingjianchaguan (B5, title to confirm)",
+      "to": "废土边境检查官 (B5; resolved title)",
+      "reason": "Route dated requests to current owners and preserve resolved title/acquisition chronology."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "Still open: Ex prequels, Vols 11+ (card L1).",
+      "to": "The old Ex/11+source request is historical; later library receipts record Ex1–6held. Recheck exact edition and the card’s unresolved reading questions before requesting another copy.",
+      "reason": "Route dated requests to current owners and preserve resolved title/acquisition chronology."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S20 | Lane W wiki: bleach.fandom.com | https://bleach.fandom.com/wiki/Zanpakut%C5%8D | bleach.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S20 | Lane W wiki: bleach.fandom.com | https://bleach.fandom.com/wiki/Zanpakut%C5%8D | bleach.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Bleach: later DUMPSregistry records WikiTeam review_ready (October13); requested revision/topic qualification remains source-specific. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S21 | Lane W wiki: naruto.fandom.com | https://naruto.fandom.com/wiki/Chakra | naruto.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S21 | Lane W wiki: naruto.fandom.com | https://naruto.fandom.com/wiki/Chakra | naruto.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Naruto: November3library receipt records WikiTeam dump held and selected AB12reading; this does not certify every requested Chakra/EightGates page. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S23 | Lane W wiki: myheroacademia.fandom.com | https://myheroacademia.fandom.com/wiki/Quirk | myheroacademia.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S23 | Lane W wiki: myheroacademia.fandom.com | https://myheroacademia.fandom.com/wiki/Quirk | myheroacademia.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | MHA: later DUMPSregistry records WikiTeam review_ready (October13); selected mechanics review is separate. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S38 | Lane W wiki: lordofthemysteries.fandom.com | https://lordofthemysteries.fandom.com/wiki/Acting_Method | lordofthemysteries.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S38 | Lane W wiki: lordofthemysteries.fandom.com | https://lordofthemysteries.fandom.com/wiki/Acting_Method | lordofthemysteries.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | LOTM: November3library receipt records1833article capture held, unread; earlierS3storagefailure is historical. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S40 | Lane W wiki: towerofgod.fandom.com | https://towerofgod.fandom.com/wiki/Administrator | towerofgod.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S40 | Lane W wiki: towerofgod.fandom.com | https://towerofgod.fandom.com/wiki/Administrator | towerofgod.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Tower of God: November3library receipt records an acquired WikiTeam snapshot; requested selected-page qualification remains. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S57 | Lane W wiki: dresdenfiles.fandom.com | https://dresdenfiles.fandom.com/wiki/Magic | dresdenfiles.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S57 | Lane W wiki: dresdenfiles.fandom.com | https://dresdenfiles.fandom.com/wiki/Magic | dresdenfiles.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Dresden Files: November3library receipt records an acquired WikiTeam snapshot; requested selected-page qualification remains. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S63 | Lane W wiki: mtg.fandom.com | https://mtg.fandom.com/wiki/Color | mtg.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S63 | Lane W wiki: mtg.fandom.com | https://mtg.fandom.com/wiki/Color | mtg.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Magic: The Gathering: November3library receipt records an acquired WikiTeam snapshot; requested Color-page qualification remains. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S79 | Lane W wiki: mysranks.fandom.com | https://mysranks.fandom.com/wiki/The_S-Ranks_That_I_Raised | mysranks.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S79 | Lane W wiki: mysranks.fandom.com | https://mysranks.fandom.com/wiki/The_S-Ranks_That_I_Raised | mysranks.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | The S-Classes That I Raised: November3library receipt records an acquired snapshot; requested page/revision qualification remains. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S81 | Lane W wiki: lazydungeonmaster.fandom.com | https://lazydungeonmaster.fandom.com/wiki/Dungeon_Master | lazydungeonmaster.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Open; no revision acquired |",
+      "to": "| S81 | Lane W wiki: lazydungeonmaster.fandom.com | https://lazydungeonmaster.fandom.com/wiki/Dungeon_Master | lazydungeonmaster.fandom.com: HTTP 403. Please supply a permitted revision export or saved mechanics page with its URL and revision ID. Titles and desired pages are in wiki-digests/SOURCE_REQUEST_INDEX.json. | Lazy Dungeon Master: November3library receipt records an acquired snapshot; requested page/revision qualification remains. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "| S97 | Lane W wiki: mistborn.fandom.com | https://mistborn.fandom.com/ | Public S3 dump route: dump_unavailable_storage. Supply a permitted mechanics-page export with URL and revision metadata. | Open; no dump content acquired |",
+      "to": "| S97 | Lane W wiki: mistborn.fandom.com | https://mistborn.fandom.com/ | Public S3 dump route: dump_unavailable_storage. Supply a permitted mechanics-page export with URL and revision metadata. | Mistborn: November3library receipt records an acquired WikiTeam snapshot; priorS3storagefailure is historical, selected mechanics reading separate. See [library wiki receipts](LIBRARY_INDEX.md#wikis-and-rulebooks-acquired-missing-and-routes-2026-11-03). |",
+      "reason": "Later acquired/ready source supersedes historical Open access claim without claiming all requested content reviewed."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "file/librarymutation",
+      "to": "source-file or library mutation",
+      "reason": "Clarify bounded source/metadata statements and avoid misleading universal wording."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "572c4180cc7c6ae619a7b3b845dace8a6ace994b4a9f06884d0d99ddb33e28db",
+      "to": "6aba390e65244eb7cd98f90fada3f94981fd2a35a539bc6c28beda8e1af45b5b",
+      "reason": "Focused selected request status/title/routing corrections."
+    },
+    {
+      "path": "docs/research/SOURCE_REQUESTS.md",
+      "from": "6aba390e65244eb7cd98f90fada3f94981fd2a35a539bc6c28beda8e1af45b5b",
+      "to": "40887aa857cbae0eb85bf2fa54c7708349ed7e09673290eee97c500c765d37b8",
+      "reason": "Precise own-path document check clarification."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/DUMPS.json",
+      "sha256": "c3c057b605c69a79d3c9672391f2f0923ec63379a4a0346bd67a51d767af9e2f",
+      "scope": "Only selected tenhosts state/state_note/archivehash/downloadfile fields; fullregistry/attemptheaderread not credited."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "sha256": "ab018376ce1ca0ab6ff3c8fa444d76ffd2423c376efaee44d7b93cbf7d50570e",
+      "ranges": [
+        [
+          957,
+          1033
+        ]
+      ],
+      "scope": "Later wiki/rulebook acquisitionstates from fullyreadB626input; no underlyingdumpread."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "batches": "B603\u2013B604",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+      "target": "../HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b603-historical-research-and-current-owners",
+      "exists": true
+    },
+    {
+      "source": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "target": "../MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b603-source-and-current-runtime-boundaries",
+      "exists": true
+    },
+    {
+      "source": "docs/research/novels/lord-of-mysteries/BRIEF.md",
+      "target": "../../../worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b604-institution-evidence-and-current-scope",
+      "exists": true
+    },
+    {
+      "source": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "target": "../../../../worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b604-sequel-scope-and-clock-boundaries",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New folds/amendments; heading existence not linked-body verification."
+}

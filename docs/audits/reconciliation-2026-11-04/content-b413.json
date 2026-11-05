@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "batch": "B413",
+  "title": "Ten cast-life receipts: preparation, source-review gaps and later corrections",
+  "at": "2026-11-05T05:01:44.364058+00:00",
+  "head": "2caf5a85e6dcc171d106f61617327a84bca020cc",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/TG1_CHECKPOINT.md",
+      "ids": [
+        "CLR1–CLR4/CLR12; 140-row pilot"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Original citation gate failed 0/140; later replacement input contains 140 text rows and output passes order/schema/registry checks after correcting three actor IDs. The actual gpt-6.1-terra identity differs from the requested Luna. Structural paragraph-basis validation and a replacement input do not score accuracy against reviewed verdicts or retroactively pass the earlier citation command.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "213c0dd80ef5abcfedd2326d4335a15a25fa7b1f7b31fb812f91431a73b66677",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/TG2_CHECKPOINT.md",
+      "ids": [
+        "140-row pilot; reported GPT-6 identity"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "All 140 input/output rows and actor/enumeration/basis checks pass in the historical receipt. Reported GPT-6 differs from requested Luna; output is not evidence about Luna performance. Coordinator scoring against reviewed verdicts remains separate.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "dc49b05940f7b26b92bcd77c6004d7430d69cdceb4d04da98a100709119bba14",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/AD3_CHECKPOINT.md",
+      "ids": [
+        "reviewed exchanges/body/abilities; 36 synthetic checks"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Bounded merge/mapping tooling validates real adapter shapes, rejects same-ID changed content, skips identical repeats and replaces older supported kinds for a reviewed source step. Typed missing place/command gaps remain. The 36 synthetic tests do not prove private ingest, browser replay, gameplay settlement or persistence.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "46dfaf8a9ea082740515b5e155cb852524fb98ae02ca3e1a818ab301123e914d",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/RV1_CHECKPOINT.md",
+      "ids": [
+        "ch1–8; 484 steps/425 gaps; 501/524 references"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Explicitly incomplete: 95.6% scene-evidence retrievability is a probe, not per-step paragraph review. No reviewed-row or gap-verdict file was authored. Keep source review of the actual mapping gaps open instead of turning counts into completed rows.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "653ffba0c906983c8fa079a727049a6324d042689bac8487c42140ba38984c9b",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L2B_CHECKPOINT.md",
+      "ids": [
+        "CL94; 187 worksheets/148 rows/36 usable times"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Complete local worksheet preparation preserves null time bounds and gap notes rather than guessing. Worksheet completeness is not cast record or gameplay implementation. The historical Git index-lock denial documents that attempt, not a current access blocker or a reason to commit here.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "880783226ff4deb58bd0eeb84af4ef5492321c2ef6f7510c9964f23a8de21b57",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L7_CHECKPOINT.md",
+      "ids": [
+        "196 LOTM/100 MoL reactions; classifier placement"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Expanded deterministic labels increase placement from 79 to 116 LOTM and 37 to 63 MoL. The new labels come from the same rule set, so agreement is not held-out semantic accuracy. Actor-label matching yields 107/196 and 35/100 by IDs without paragraph review of unclear triggers. Non-reaction fitness normalization did not complete; the successful LOTM crosswalk comparison excluded provenance hashes. Keep optional explicit class/by fields and the failed comparison gap.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "24d653ec84c477751430ad7c216617a8c1d642db62ecff23693d2eb156253a82",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L6A_CHECKPOINT.md",
+      "ids": [
+        "CL94/CL115; 93 MoL worksheets/139 rows/43 usable times"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The second-book worksheet stage preserves qualified same-loop anchors and separates 1,693 whole-index routine slots from selected usable rows. Its 187/187 byte-identical LOTM comparison qualifies unchanged worksheet outputs for the historical inputs, not complete pipeline or runtime parity. MoL later-loop/unqualified presences remain separate.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "28dfcac4bd1fd2e92b3887ab171d5b02ecc2b1a2d1cb78a5e0eee59d9199eaae",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L6B_CHECKPOINT.md",
+      "ids": [
+        "60 schedules/44 beats; day walk; AR11-M1–M7"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Coordinator clarification supersedes the original numeric-day stop: 25 scenes and 93 worksheets satisfy the actual counts. Data records are structurally verified below gameplay floor, with eight principals, 12 recurring and two role records. Fifteen initial-loop scene bindings coexist with five irregular/unplaced scenes; the [22,36] envelope is replaceable eligibility, not canon dates or an activation command. Festival/restart and 1,426 other-loop/unqualified anchors stay excluded. Explicit aliases/sameActorAs avoid extra bodies; reported foreign whereabouts do not move a local person. Schedule hours are fills and first verified knowledge checkpoints do not prove earlier ignorance. Empty resets reflect input scope, not lack of a source restart. Zero shared-seam changes proves structural fit for 60 schedules/44 marker beats, not live body movement, knowledge, inventory, reset or integrated second-world play. Host/desktop integration and source-qualified narrowing remain open.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "c07719a2741ef561675dc77879efd106715222acefe1725e713e2ae53b58523f",
+      "input_lines": 368,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          368
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L2C_CHECKPOINT.md",
+      "ids": [
+        "conflict selector/after-action addendum"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The later broadened selector supersedes the original zero-contract count: five candidates include three notConflict and two remaining candidates, with one opposing-side field null. After-action pairs broaden from LOTM 5/MoL 4 to 9/21 using explicit option and co-presence bases. Co-presence is not proof a directed response occurred. No fight-step rows in this slice is an input observation, not proof there were no conflicts. The entity-ID citation CLI failed for beat IDs; selected indexed paragraphs were read through a separate local route. Preserve failures and nulls.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "489ba5c72cc29b3e77300e25601d93bba385dd17498804525a5218eba9c96d1c",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L1_CHECKPOINT.md",
+      "ids": [
+        "crosswalk/CL55–CL60; reviewed overlays"
+      ],
+      "classification": "historical cast-data/tooling checkpoint with exact supersession and verification boundaries",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The continued receipt supersedes the initial collision stop without merging uncertain common-label objects. Preserve type/instance identity and source-loop boundaries; proposed new addresses are not runtime matches. Final crosswalk counts are LOTM 297/zero runtime matches and MoL 109/five matches, while touched entity counts are 229/71. Missing costStated is an input field gap, not free action; keyword classification is placement, not semantic validation. The whole suite loaded a 14-test crosswalk version before a later keyword correction, then the final focused 15-test run covered that change. Do not present the full suite as having tested the final crosswalk version. Initial lower counts, stop, narrower regex and unrun counts remain historical.",
+      "evidence": "Complete checkpoint read including later continuation/addendum and historical stop. Underlying private rows, source paragraphs, scripts and tests not reopened or executed.",
+      "reopen": "Use the latest actual owner and selected source inputs before any new execution; retain precise missing review, timing, mapping or integration gate.",
+      "input_sha256": "5e0c7b3450a68b405d5e69e70c884378b9386b08951600754fe892590f572384",
+      "input_lines": 181,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          181
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "heading": "## Content reconciliation B413: actual lane outcomes and preserved gaps",
+      "body": "Ten complete lane receipts were actually read; linked briefs and private inputs gain no transitive review credit. The opening method/authority and final efficiency section of this plan were consulted as owner context; the plan still needs its own complete content review.\n\n**TG1:** Original citation gate failed 0/140; later replacement input contains 140 text rows and output passes order/schema/registry checks after correcting three actor IDs. The actual gpt-6.1-terra identity differs from the requested Luna. Structural paragraph-basis validation and a replacement input do not score accuracy against reviewed verdicts or retroactively pass the earlier citation command.\n\n**TG2:** All 140 input/output rows and actor/enumeration/basis checks pass in the historical receipt. Reported GPT-6 differs from requested Luna; output is not evidence about Luna performance. Coordinator scoring against reviewed verdicts remains separate.\n\n**AD3:** Bounded merge/mapping tooling validates real adapter shapes, rejects same-ID changed content, skips identical repeats and replaces older supported kinds for a reviewed source step. Typed missing place/command gaps remain. The 36 synthetic tests do not prove private ingest, browser replay, gameplay settlement or persistence.\n\n**RV1:** Explicitly incomplete: 95.6% scene-evidence retrievability is a probe, not per-step paragraph review. No reviewed-row or gap-verdict file was authored. Keep source review of the actual mapping gaps open instead of turning counts into completed rows.\n\n**L2B:** Complete local worksheet preparation preserves null time bounds and gap notes rather than guessing. Worksheet completeness is not cast record or gameplay implementation. The historical Git index-lock denial documents that attempt, not a current access blocker or a reason to commit here.\n\n**L7:** Expanded deterministic labels increase placement from 79 to 116 LOTM and 37 to 63 MoL. The new labels come from the same rule set, so agreement is not held-out semantic accuracy. Actor-label matching yields 107/196 and 35/100 by IDs without paragraph review of unclear triggers. Non-reaction fitness normalization did not complete; the successful LOTM crosswalk comparison excluded provenance hashes. Keep optional explicit class/by fields and the failed comparison gap.\n\n**L6A:** The second-book worksheet stage preserves qualified same-loop anchors and separates 1,693 whole-index routine slots from selected usable rows. Its 187/187 byte-identical LOTM comparison qualifies unchanged worksheet outputs for the historical inputs, not complete pipeline or runtime parity. MoL later-loop/unqualified presences remain separate.\n\n**L6B:** Coordinator clarification supersedes the original numeric-day stop: 25 scenes and 93 worksheets satisfy the actual counts. Data records are structurally verified below gameplay floor, with eight principals, 12 recurring and two role records. Fifteen initial-loop scene bindings coexist with five irregular/unplaced scenes; the [22,36] envelope is replaceable eligibility, not canon dates or an activation command. Festival/restart and 1,426 other-loop/unqualified anchors stay excluded. Explicit aliases/sameActorAs avoid extra bodies; reported foreign whereabouts do not move a local person. Schedule hours are fills and first verified knowledge checkpoints do not prove earlier ignorance. Empty resets reflect input scope, not lack of a source restart. Zero shared-seam changes proves structural fit for 60 schedules/44 marker beats, not live body movement, knowledge, inventory, reset or integrated second-world play. Host/desktop integration and source-qualified narrowing remain open.\n\n**L2C:** The later broadened selector supersedes the original zero-contract count: five candidates include three notConflict and two remaining candidates, with one opposing-side field null. After-action pairs broaden from LOTM 5/MoL 4 to 9/21 using explicit option and co-presence bases. Co-presence is not proof a directed response occurred. No fight-step rows in this slice is an input observation, not proof there were no conflicts. The entity-ID citation CLI failed for beat IDs; selected indexed paragraphs were read through a separate local route. Preserve failures and nulls.\n\n**L1:** The continued receipt supersedes the initial collision stop without merging uncertain common-label objects. Preserve type/instance identity and source-loop boundaries; proposed new addresses are not runtime matches. Final crosswalk counts are LOTM 297/zero runtime matches and MoL 109/five matches, while touched entity counts are 229/71. Missing costStated is an input field gap, not free action; keyword classification is placement, not semantic validation. The whole suite loaded a 14-test crosswalk version before a later keyword correction, then the final focused 15-test run covered that change. Do not present the full suite as having tested the final crosswalk version. Initial lower counts, stop, narrower regex and unrun counts remain historical.\n\nThese are dated execution receipts. Their old next/blocked/released/model/commit labels neither verify current workers or permissions nor authorize new work. Current AD42 keeps human review optional, and AD51 uses another world to validate/revise an already useful shared seam. The project’s live source qualification and runtime owners determine present coverage; this fold adds no new reader wave, private ingest or gameplay proof.",
+      "before_sha256": "ed6768ddb80965bfbd5a18eeeeece7b5c9d2e8ca9004823bd5d4bde645703856",
+      "after_sha256": "3ed09d6c6bd509a577946da2437516aa398ef88c4d5ca91b1b5c9f0d675ac645"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 513
+}

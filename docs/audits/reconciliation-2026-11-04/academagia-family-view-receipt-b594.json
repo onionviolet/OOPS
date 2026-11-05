@@ -1,0 +1,11 @@
+{
+  "source": "docs/research/academagia/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "d829023db42c4de06a456da3f731ecc570c549d843efa484d2dc3716c1c1248a",
+  "source_lines": 9600,
+  "view": "docs/audits/reconciliation-2026-11-04/academagia-family-lossless-view-b594.json",
+  "view_sha256": "bf06f27d881d4df3677e5ed8d4d8477bb1d596809d826ce514eedfaf5b0b58ef",
+  "roundtrip_equal": true,
+  "entries": 320,
+  "routing_blocks": 18,
+  "read_scope": "Header, all dictionaries and 18 routing blocks plus all 320 residual records read in bounded outputs. Reversibility proves representation integrity, not source behavior or semantic review of the referenced bodies."
+}

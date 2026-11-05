@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "batch": "B515",
+  "title": "Complete batch-reading, multi-wave supervision and whole-life qualification histories",
+  "at": "2026-11-05T09:22:02.031829+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/batch-reading-2026-10-27/PLAN.md",
+      "ids": [
+        "scored books1–11",
+        "R1–R7",
+        "A/B rounds1–3",
+        "three-shard pilot",
+        "runner/English adapter"
+      ],
+      "classification": "historical experiment/supervision/source checkpoint reviewed; supersession, denominator and proof limits reconciled",
+      "owners": [
+        "docs/gm/dispatch/batch-reading-2026-10-27/PLAN.md"
+      ],
+      "disposition": "The opening proposal/no-live-call state and original R1 strict-schema risk are superseded by section6a's actual historical live rejections and measured results. Keep the chronology rather than saying nothing was submitted. Combined strict schema failed; census-only strict ran; scene-only strict also failed and prompt-mode high scenes produced a bounded gradeB. The sentence saying high effort has not been tried is stale beside its later high run, and the duplicated round3 tables describe the same experiments, not another paid sample. One shard is still n=1; proposed three-shard recall0.75 differs from the earlier0.9 switch criterion and is not a retroactive pass. The later reader-only exact new-entity measure gives12/27 low and21/27 medium; earlier0.63/0.89 and script-filled0.95/0.98 used different denominators/variants.119/126 row count is not exact-name recall0.778; scripted known-name rows are not fresh reader discoveries and can contain false hits. The comparator is agent output, not source ground truth. Name/schema/lint grade does not independently establish complete scenes, choices or correct great weights.\n\nRetain the cost correction: the original25k-output/0.014 two-pass estimate was superseded by about0.022 measured for the tested setting. The Sonnet collect was initially priced as Haiku and later corrected; round2's stated0.0236 increment cannot be treated as reconciled spend because its listed about0.04 Sonnet plus0.0112 census plus0.0034 scenes exceeds that increment. Exact provider usage receipts, not repeated rounded narrative totals or an estimate cap, would settle expenditure. The original claim that Console limits are a hard stop is explicitly corrected by6a's batch-overrun warning; max-usd checked estimated input, not a guaranteed actual-bill ceiling. All prices, model IDs, cache minima, schema limits and expiry terms are dated source captures, not current verified service guidance. No key, API, provider balance or live batch was inspected or run here.\n\nThe language/locator, part-aware chapter, whole-book glossary, source-edition, return-state and repair distinctions remain useful. Source in hand is not runtime readiness; schema-valid extraction is not actual reading or play qualification. The later31-shard/English/whole-series order and repair10percent change were proposals with their stated authorization boundaries, not today's PROJECT queue or a universal AU modification. Book4 and five-title acquisition gaps are dated findings, not freshly established chapter gaps. AU13 repair budgets, old go phrases, Keychain commands, models and script routes remain history. Current-source acquisition tools and exact coverage must govern any later acquisition; use full book titles rather than the ambiguous abbreviation in the archived text. No new source upload, paid call, credential read, source acquisition or reader dispatch follows from saving this reconciliation.",
+      "evidence": "Whole260-line batch plan,203-line parallel timeline and112-line whole-life checkpoint read including all late results/stops; no referenced runtime/private source/provider artifact re-exercised.",
+      "reopen": "Use the exact current source/task owner and separately authorized source/provider/runtime route before renewing any historical result, usage ceiling or worker state.",
+      "input_sha256": "feb5bc17cf6969fe38bc4a0ac146bc78805d114265fd530b638034322f07cc2c",
+      "input_lines": 260,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          260
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/README.md",
+      "ids": [
+        "A1–A3",
+        "B1–B5",
+        "C1–C5",
+        "D1–D7",
+        "E1–E4",
+        "G1 final census",
+        "coordination guideline maintenance"
+      ],
+      "classification": "historical experiment/supervision/source checkpoint reviewed; supersession, denominator and proof limits reconciled",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/README.md"
+      ],
+      "disposition": "The complete multi-wave timeline ends with all supervised workers exited at04:37; earlier live tables, old PIDs, EPERM observations and last-message files do not establish any currently running process. Archived launch/resume/delegation and commit permissions are not current authorization. A1's alleged missing PLAY was later traced to hidden wrapper text after actual start, and C2 separates absent build features from reproduced failures. Dropping A3 avoided overlapping source readers; B2/B3 cards did not build worlds. Q3's initial uncommitted state was superseded by C1 commits/91focused proof, then Q4/Q5 and E1 final branch delivery. E1's2893suite/four-path/six-persistence receipt remains a frozen branch result, not a combined dirty-primary certification.\n\nC3 source fixes differ from its initial committed generated payload; the forward correction removed generated files without changing that runtime proof. D2's2878/2879 plus focused harness repair is not a green final full run. C4's assertion mapping and2877pass are its own inputs, not coverage of every later merged branch. D1's56/73 initial surfaces and16reachable residual cases do not close optional content whose manifest/files were absent. E4 closed bounded M10 tools while explicitly retaining the inherited lamplight excerpt assertion; saved-state Electron mirrors do not prove exact transient headless UI. D6'ssix helper tests leave actual launcher pilot open. D7/E3 natural HP entry is separate from four authored first slices. D4's final native adapters and temporal carry fix supersede the earlier missing-adapter/offline-policy assertion, but retain failed-full-plus-focused evidence and source-palette boundaries. Historical overlap is not by itself a merge conflict.\n\nThe final manifest/document links, no-dist checks and coordinator walkthroughs prove their stated documentation/branch scope, not a combined current build, adopted app or human taste. Cultivation-owned U1/U2/U4 remained delegated at this timeline; copied-test/API U3 differed from an A2 runtime regression. Old forwarding/merge decisions are not permission to send messages now. The later coordination-maintenance section releases its docs reservations, retires the one-realm/prestige sentence and preserves AD36; it adds no independent checklist or ban on appropriate tests. Keep exact source/input and outcome states, existing history and current PROJECT sequencing; no workers, worktrees, branches or primary source are changed by this review.",
+      "evidence": "Whole260-line batch plan,203-line parallel timeline and112-line whole-life checkpoint read including all late results/stops; no referenced runtime/private source/provider artifact re-exercised.",
+      "reopen": "Use the exact current source/task owner and separately authorized source/provider/runtime route before renewing any historical result, usage ceiling or worker state.",
+      "input_sha256": "6597c130425a7f3f710b33b3ce85691b7bba971600e0c9eec096916e8467cca4",
+      "input_lines": 203,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          203
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-whole-life-2026-11-01/CHECKPOINT.md",
+      "ids": [
+        "CP1–CP6",
+        "DL1–DL43",
+        "GP1–GP20",
+        "CT1–CT4",
+        "GI1–GI4",
+        "final stop/next receipt"
+      ],
+      "classification": "historical experiment/supervision/source checkpoint reviewed; supersession, denominator and proof limits reconciled",
+      "owners": [
+        "docs/gm/dispatch/lotm-whole-life-2026-11-01/CHECKPOINT.md"
+      ],
+      "disposition": "The final stop receipt supersedes intermediate repair-stop and earlier71percent steering notes:29 resumed jobs completed,736 of765 resized jobs remained, no active reader was recorded and the whole-novel objective was unfinished at the historical75percent included ceiling. This is a dated allowance observation, not a current allowance check or an instruction to dispatch J0030 now. Earlier295windows and later765smaller jobs cover the same horizon with retained exclusions, not two full passes. Additional6 repair slots were reserved and0used; two artifact rescues recovered existing notes without rereading raw source. Claimed response/context limits without telemetry remain instructional rather than measured enforcement.\n\nThe source arithmetic is coherent within its own units:1434indexed groups,65complete/1partial/1368untouched;5115/104855indexed paragraphs plus87unread paratext yields99827 full-horizon unread;134095/2735628indexed words plus2632extra yields2604165unread. Conservative cumulative source payload153550 is a different exposure measure and must not replace134095 indexed inspection.41sidecars include39qualified and2partial/contradicted;16640/16679historical situations remain individually unqualified.126new drafts and46boundary candidates are not automatically joined, deduplicated or promoted to the historical denominator. Five citation issues remain distinct from zero source-transport overlap/hash errors. Strict opening39 corrects unsafe337; metadata, bare locators and mapper joins do not qualify the remaining situations.\n\nPinned publisher label is not independent edition authentication; Chinese repeated/skipped chapter labels require edition-aware alignment, and a missing number does not prove missing prose. The sequel is separate. DL/GP/CT/GI contracts preserve actual producer, locality/stage, method/body/source/provider, consent/stock/time, partial settlement and task-return consequences; candidate shared seams and other-world gaps are proposals, not engine connection or gameplay proof. Current engine/journey proof established by this run remains0/16679. Three focused mapper tests and symbol/path/ID checks validate mapping behavior, not actual scenes, UI, source methods or long training. Parent-owned guide/rules remain distinct from this chat's proposed returns. Agelessness, later teacher/companion support and repeat-plan choices remain separately scoped; no forced scaling, automatic NPC death/forgetting or general credential expiry follows. The historical paid-reading references are reused evidence, not fresh paid calls or blanket source qualification. No private raw source, manifests, artifacts, helper, live quota or runtime was opened/run by this content review; final next-exact-work remains a locator for an appropriately authorized source task, not a blocker on this documentation reconciliation.",
+      "evidence": "Whole260-line batch plan,203-line parallel timeline and112-line whole-life checkpoint read including all late results/stops; no referenced runtime/private source/provider artifact re-exercised.",
+      "reopen": "Use the exact current source/task owner and separately authorized source/provider/runtime route before renewing any historical result, usage ceiling or worker state.",
+      "input_sha256": "1f2c3a29075b6d4d07da935da1b9d51fd96492f6ed5307575451f789ec266f31",
+      "input_lines": 112,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          112
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/batch-reading-2026-10-27/PLAN.md",
+      "heading": "## Content reconciliation B515: late results and exact evidence boundaries",
+      "body": "The opening proposal/no-live-call state and original R1 strict-schema risk are superseded by section6a's actual historical live rejections and measured results. Keep the chronology rather than saying nothing was submitted. Combined strict schema failed; census-only strict ran; scene-only strict also failed and prompt-mode high scenes produced a bounded gradeB. The sentence saying high effort has not been tried is stale beside its later high run, and the duplicated round3 tables describe the same experiments, not another paid sample. One shard is still n=1; proposed three-shard recall0.75 differs from the earlier0.9 switch criterion and is not a retroactive pass. The later reader-only exact new-entity measure gives12/27 low and21/27 medium; earlier0.63/0.89 and script-filled0.95/0.98 used different denominators/variants.119/126 row count is not exact-name recall0.778; scripted known-name rows are not fresh reader discoveries and can contain false hits. The comparator is agent output, not source ground truth. Name/schema/lint grade does not independently establish complete scenes, choices or correct great weights.\n\nRetain the cost correction: the original25k-output/0.014 two-pass estimate was superseded by about0.022 measured for the tested setting. The Sonnet collect was initially priced as Haiku and later corrected; round2's stated0.0236 increment cannot be treated as reconciled spend because its listed about0.04 Sonnet plus0.0112 census plus0.0034 scenes exceeds that increment. Exact provider usage receipts, not repeated rounded narrative totals or an estimate cap, would settle expenditure. The original claim that Console limits are a hard stop is explicitly corrected by6a's batch-overrun warning; max-usd checked estimated input, not a guaranteed actual-bill ceiling. All prices, model IDs, cache minima, schema limits and expiry terms are dated source captures, not current verified service guidance. No key, API, provider balance or live batch was inspected or run here.\n\nThe language/locator, part-aware chapter, whole-book glossary, source-edition, return-state and repair distinctions remain useful. Source in hand is not runtime readiness; schema-valid extraction is not actual reading or play qualification. The later31-shard/English/whole-series order and repair10percent change were proposals with their stated authorization boundaries, not today's PROJECT queue or a universal AU modification. Book4 and five-title acquisition gaps are dated findings, not freshly established chapter gaps. AU13 repair budgets, old go phrases, Keychain commands, models and script routes remain history. Current-source acquisition tools and exact coverage must govern any later acquisition; use full book titles rather than the ambiguous abbreviation in the archived text. No new source upload, paid call, credential read, source acquisition or reader dispatch follows from saving this reconciliation.",
+      "before_sha256": "feb5bc17cf6969fe38bc4a0ac146bc78805d114265fd530b638034322f07cc2c",
+      "after_sha256": "a6b0ca85d85d4ecdf95c3a0a21f70d92ca8a34578ae56b1b4768307da35caef0"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/README.md",
+      "heading": "## Content reconciliation B515: late results and exact evidence boundaries",
+      "body": "The complete multi-wave timeline ends with all supervised workers exited at04:37; earlier live tables, old PIDs, EPERM observations and last-message files do not establish any currently running process. Archived launch/resume/delegation and commit permissions are not current authorization. A1's alleged missing PLAY was later traced to hidden wrapper text after actual start, and C2 separates absent build features from reproduced failures. Dropping A3 avoided overlapping source readers; B2/B3 cards did not build worlds. Q3's initial uncommitted state was superseded by C1 commits/91focused proof, then Q4/Q5 and E1 final branch delivery. E1's2893suite/four-path/six-persistence receipt remains a frozen branch result, not a combined dirty-primary certification.\n\nC3 source fixes differ from its initial committed generated payload; the forward correction removed generated files without changing that runtime proof. D2's2878/2879 plus focused harness repair is not a green final full run. C4's assertion mapping and2877pass are its own inputs, not coverage of every later merged branch. D1's56/73 initial surfaces and16reachable residual cases do not close optional content whose manifest/files were absent. E4 closed bounded M10 tools while explicitly retaining the inherited lamplight excerpt assertion; saved-state Electron mirrors do not prove exact transient headless UI. D6'ssix helper tests leave actual launcher pilot open. D7/E3 natural HP entry is separate from four authored first slices. D4's final native adapters and temporal carry fix supersede the earlier missing-adapter/offline-policy assertion, but retain failed-full-plus-focused evidence and source-palette boundaries. Historical overlap is not by itself a merge conflict.\n\nThe final manifest/document links, no-dist checks and coordinator walkthroughs prove their stated documentation/branch scope, not a combined current build, adopted app or human taste. Cultivation-owned U1/U2/U4 remained delegated at this timeline; copied-test/API U3 differed from an A2 runtime regression. Old forwarding/merge decisions are not permission to send messages now. The later coordination-maintenance section releases its docs reservations, retires the one-realm/prestige sentence and preserves AD36; it adds no independent checklist or ban on appropriate tests. Keep exact source/input and outcome states, existing history and current PROJECT sequencing; no workers, worktrees, branches or primary source are changed by this review.",
+      "before_sha256": "6597c130425a7f3f710b33b3ce85691b7bba971600e0c9eec096916e8467cca4",
+      "after_sha256": "ae8ad9712f7a4abc1c7523e13d93e011a50cd50a8cacebdcfb4ceaa0a0a0a794"
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-whole-life-2026-11-01/CHECKPOINT.md",
+      "heading": "## Content reconciliation B515: late results and exact evidence boundaries",
+      "body": "The final stop receipt supersedes intermediate repair-stop and earlier71percent steering notes:29 resumed jobs completed,736 of765 resized jobs remained, no active reader was recorded and the whole-novel objective was unfinished at the historical75percent included ceiling. This is a dated allowance observation, not a current allowance check or an instruction to dispatch J0030 now. Earlier295windows and later765smaller jobs cover the same horizon with retained exclusions, not two full passes. Additional6 repair slots were reserved and0used; two artifact rescues recovered existing notes without rereading raw source. Claimed response/context limits without telemetry remain instructional rather than measured enforcement.\n\nThe source arithmetic is coherent within its own units:1434indexed groups,65complete/1partial/1368untouched;5115/104855indexed paragraphs plus87unread paratext yields99827 full-horizon unread;134095/2735628indexed words plus2632extra yields2604165unread. Conservative cumulative source payload153550 is a different exposure measure and must not replace134095 indexed inspection.41sidecars include39qualified and2partial/contradicted;16640/16679historical situations remain individually unqualified.126new drafts and46boundary candidates are not automatically joined, deduplicated or promoted to the historical denominator. Five citation issues remain distinct from zero source-transport overlap/hash errors. Strict opening39 corrects unsafe337; metadata, bare locators and mapper joins do not qualify the remaining situations.\n\nPinned publisher label is not independent edition authentication; Chinese repeated/skipped chapter labels require edition-aware alignment, and a missing number does not prove missing prose. The sequel is separate. DL/GP/CT/GI contracts preserve actual producer, locality/stage, method/body/source/provider, consent/stock/time, partial settlement and task-return consequences; candidate shared seams and other-world gaps are proposals, not engine connection or gameplay proof. Current engine/journey proof established by this run remains0/16679. Three focused mapper tests and symbol/path/ID checks validate mapping behavior, not actual scenes, UI, source methods or long training. Parent-owned guide/rules remain distinct from this chat's proposed returns. Agelessness, later teacher/companion support and repeat-plan choices remain separately scoped; no forced scaling, automatic NPC death/forgetting or general credential expiry follows. The historical paid-reading references are reused evidence, not fresh paid calls or blanket source qualification. No private raw source, manifests, artifacts, helper, live quota or runtime was opened/run by this content review; final next-exact-work remains a locator for an appropriately authorized source task, not a blocker on this documentation reconciliation.",
+      "before_sha256": "1f2c3a29075b6d4d07da935da1b9d51fd96492f6ed5307575451f789ec266f31",
+      "after_sha256": "d298ea8cfa4901e730f4b60362143a7d06429bb1fbd0efbb8a4ee9092795aeb3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 219
+}

@@ -1,0 +1,16 @@
+{
+  "command": "node check_doc_slips.mjs with explicit task filespec",
+  "exit": 1,
+  "stdout": "",
+  "stderr": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md:495: absolute rule word has no default, dial, exception, or reason in this row or paragraph\n",
+  "paths": [
+    "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+    "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+    "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "45a6c3567d5430c5983fcc89d9410c48e566df10a904d97491b716dda8a99bdc",
+  "scope": "Only filespec adapted; diagnostic logic unchanged, not shared-tree pass."
+}

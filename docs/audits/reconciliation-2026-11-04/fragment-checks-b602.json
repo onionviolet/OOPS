@@ -1,0 +1,17 @@
+{
+  "batches": "B600\u2013B602",
+  "new_local_heading_fragments": [
+    {
+      "source": "docs/research/rimworld/REPORT.md",
+      "target": "pass-2026-10-14-systems/REPORT.md#content-reconciliation-b600-complete-family-map-and-source-limits",
+      "exists": true
+    },
+    {
+      "source": "docs/RIVALS_IDENTITIES_AND_FATE.md",
+      "target": "worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md#content-reconciliation-b602-source-corrections-and-runtime-boundaries",
+      "exists": true
+    }
+  ],
+  "result": "PASS",
+  "scope": "New folds/amendments; heading existence not linked-body verification."
+}

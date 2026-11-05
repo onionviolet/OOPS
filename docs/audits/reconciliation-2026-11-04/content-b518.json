@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": "B518",
+  "title": "Full pre-consolidation initiation history and substantive changes retained in its live owner",
+  "at": "2026-11-05T09:28:05.221871+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/lotm-initiation-2026-10-15/PLAN_BEFORE_CONSOLIDATION_2026-10-15.md",
+      "ids": [
+        "LI1–LI3",
+        "LIQ1/F1",
+        "H1/H1a/H2–H7",
+        "D1–D5",
+        "operation states",
+        "LIP1–LIP5",
+        "LP1–LP5",
+        "IG1–IG4",
+        "local AR1–AR11",
+        "M1–M6/MX1–MX7/HG1–HG8/LW1–LW8"
+      ],
+      "classification": "complete superseded snapshot preserved; meaningful consolidated changes and later authority mapped to canonical owner",
+      "owners": [
+        "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md"
+      ],
+      "disposition": "The complete581-line pre-consolidation snapshot was read, including every LI/H/D/operation/LIP/LP/IG/local-AR/M/MX/HG/LW section and its own correction of the early severe-resolver overreach. Keep this historical supplier unchanged. It preserves the former sequence of risk interpretations, original six-unit draft and then-proposed compatibility wording; it does not restore planning-only scope, R4 ownership or runtime-absent claims after the live owner's Oct19 delivery. Its relative hrefs intentionally retain the former gm-file base and are historical locators, not working same-folder links or fresh source/transfer instructions. The canonical owner remains this file, with the later source/native/remainder updates and B517 full review.\n\nConsolidation made substantive clarifications, not mere relocation. S1–S5 freeze a useful second target and actual return-with-finding custody consumer; S3 pins finite prepared-dose prehistory without retaining/double-debiting consumed inputs; D3 explicitly states five-minute performed lesson and one-minute bounded use, with start-spend versus completion-learning semantics. D4's shared completion clock excludes a direct time setter; no importing a prior completion can award again. The compatibility language changes from preferred plan to resolved behavioral contract without blindly choosing schema12. UI/current ownership recovery uses the later R5 return rather than assuming the old R4 transfer is live. These differences do not themselves establish runtime behavior; the later engine/native entries and their input-specific receipts do that at their recorded scope. The archive's possible table/phase ambiguity is not authority to duplicate sources, inventory or resources.\n\nRetain the original useful ideas: committed ingestion distinct from unfinished teaching, canon-led hazards without invented percentages/catastrophe branches, limited observations distinct from safety/identity, actual teacher/body/sample support, institutional suppliers versus clubs/back rooms/remote exchange, private audiences, real offers versus promises/settlement and mundane space/literacy/availability/spendable-money details. Hosting is a recorded means-dependent user direction, while exact HG schema/two contacts/trust/terms/priority remain proposals; markets are not prerequisites for initiation. Local auditAR1–AR11 is a document-specific checklist, not the registered architecture rule family. Current AD42 removes mandatory human feel as a hard gate; current desktop scope retires1366as universal target; current PROJECT supersedes all old build-first instructions. Full old-draft review adds preservation and change-history coverage, not renewed source qualification, startup authorization, a new native wave or proof of its proposed APIs. No underlying EPUB, current source, prior private save, transfer file or browser was accessed.",
+      "evidence": "Whole581-line archive read in four bounded ranges; canonical698-line body freshly reviewed in B517. Raw snapshot stays unchanged, including its intentionally old relative-link base.",
+      "reopen": "Use canonical current native/phase owner and recorded implementation evidence, not the old draft, for any selected code/source or compatibility work.",
+      "input_sha256": "7eca700af866593eca27d3b331e366b04cb35cdaa9ee0677b4fed9ca420564a9",
+      "input_lines": 581,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          581
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+      "heading": "## Content reconciliation B518: complete pre-consolidation history",
+      "body": "The complete581-line pre-consolidation snapshot was read, including every LI/H/D/operation/LIP/LP/IG/local-AR/M/MX/HG/LW section and its own correction of the early severe-resolver overreach. Keep this historical supplier unchanged. It preserves the former sequence of risk interpretations, original six-unit draft and then-proposed compatibility wording; it does not restore planning-only scope, R4 ownership or runtime-absent claims after the live owner's Oct19 delivery. Its relative hrefs intentionally retain the former gm-file base and are historical locators, not working same-folder links or fresh source/transfer instructions. The canonical owner remains this file, with the later source/native/remainder updates and B517 full review.\n\nConsolidation made substantive clarifications, not mere relocation. S1–S5 freeze a useful second target and actual return-with-finding custody consumer; S3 pins finite prepared-dose prehistory without retaining/double-debiting consumed inputs; D3 explicitly states five-minute performed lesson and one-minute bounded use, with start-spend versus completion-learning semantics. D4's shared completion clock excludes a direct time setter; no importing a prior completion can award again. The compatibility language changes from preferred plan to resolved behavioral contract without blindly choosing schema12. UI/current ownership recovery uses the later R5 return rather than assuming the old R4 transfer is live. These differences do not themselves establish runtime behavior; the later engine/native entries and their input-specific receipts do that at their recorded scope. The archive's possible table/phase ambiguity is not authority to duplicate sources, inventory or resources.\n\nRetain the original useful ideas: committed ingestion distinct from unfinished teaching, canon-led hazards without invented percentages/catastrophe branches, limited observations distinct from safety/identity, actual teacher/body/sample support, institutional suppliers versus clubs/back rooms/remote exchange, private audiences, real offers versus promises/settlement and mundane space/literacy/availability/spendable-money details. Hosting is a recorded means-dependent user direction, while exact HG schema/two contacts/trust/terms/priority remain proposals; markets are not prerequisites for initiation. Local auditAR1–AR11 is a document-specific checklist, not the registered architecture rule family. Current AD42 removes mandatory human feel as a hard gate; current desktop scope retires1366as universal target; current PROJECT supersedes all old build-first instructions. Full old-draft review adds preservation and change-history coverage, not renewed source qualification, startup authorization, a new native wave or proof of its proposed APIs. No underlying EPUB, current source, prior private save, transfer file or browser was accessed.",
+      "before_sha256": "b35e805130b0dd8e17606e9d5ee5791db5b6c8a76dbd4e42c9b6df2caac5deac",
+      "after_sha256": "f69cbcc8f0b4a6b0104b6f0cff95fe04fb1a009c0f9b18113db7444bf95cfb62"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 213
+}

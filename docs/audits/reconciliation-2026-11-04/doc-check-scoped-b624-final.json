@@ -1,0 +1,21 @@
+{
+  "command": "same-rule docs checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "e00caeefa5c7b9a8ca620af139968384d74a0082381cbf146e3fed03ae0adbd8",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+    "docs/research/cult-of-the-lamb/REPORT.md",
+    "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+    "docs/research/factorio/REPORT.md",
+    "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+    "docs/research/oxygen-not-included/REPORT.md",
+    "docs/research/your-chronicle/pass-2026-10-14/IMPLEMENTATION_PACKETS.md",
+    "docs/research/your-chronicle/pass-2026-10-14/REPORT.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

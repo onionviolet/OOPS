@@ -1,0 +1,37 @@
+{
+  "batches": "B550\u2013B555",
+  "checked": [
+    {
+      "owner": "docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md",
+      "target": "../../PROJECT.md#current-focus",
+      "exists": true,
+      "fragment_found": true
+    },
+    {
+      "owner": "docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md",
+      "target": "../gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md#liq1-answer-canon-decides-2026-10-15",
+      "exists": true,
+      "fragment_found": true
+    },
+    {
+      "owner": "docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md",
+      "target": "../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#runtime-authorization-and-first-engine-slice-2026-10-19",
+      "exists": true,
+      "fragment_found": true
+    },
+    {
+      "owner": "docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md",
+      "target": "../../PROJECT.md#current-focus",
+      "exists": true,
+      "fragment_found": true
+    },
+    {
+      "owner": "docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md",
+      "target": "../gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md#liq1-answer-canon-decides-2026-10-15",
+      "exists": true,
+      "fragment_found": true
+    }
+  ],
+  "count": 5,
+  "scope": "New fold/banner fragment targets checked against current headings; no source/runtime proof."
+}

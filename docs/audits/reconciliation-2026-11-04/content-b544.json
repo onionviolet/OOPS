@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "batch": "B544",
+  "title": "World discovery, sealing and evidence carriers",
+  "at": "2026-11-05T10:20:47.846130+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "ids": [
+        "October10 discovery direction",
+        "secret anatomy and knowledge stages",
+        "sealed-secrets standard rule",
+        "P1–P5",
+        "OD13 base-cheat discovery"
+      ],
+      "classification": "full content review; accepted discovery/sealing separated from proposed stages, fairness and implementation",
+      "owners": [
+        "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md"
+      ],
+      "disposition": "F1: Full220-line content reviewed. The October10 user direction establishes in-play discovery and standard agent sealing; OD13 adds discovery of base-cheat powers. The anatomy, stage machine, minimum-route count, data-only architecture, notebook placement, fairness reviewer, debug switch, randomized-ID storage and suggested proof remain proposals. This document implements no discovery engine and its proposed separate reviewer does not dispatch an agent. Current accepted UI, source, entry, architecture and cheat owners decide their actual selected consumers.\n\nF2: Truth, surface, clue, attributed belief, evidence, action and payoff are useful separate concepts. A suspected reading can be false yet acted upon; detection, identification, understanding, certainty and practical ability need not form a compulsory linear unlock ladder. Effective extraordinary means may reveal a fact immediately under AD8/AD38. The two-route/default-threshold and payoff language should guide fair authored mysteries, not veto a single-means mystery, ambient world texture or a character who can bypass ordinary investigation. P1/P2 already preserve experiments and action before certainty. An unknown label must not invent a prohibition on an otherwise effective method.\n\nF3: Sealing protects surprise in agent/player-facing outputs, including counts, names, route labels, console/errors, exports, descriptions and diffs where they would reveal changed truth. Public source twists remain distinct from changed/randomized private truth. A sealed path convention is not encryption or access control, and a record ID can itself disclose meaning. Use neutral IDs/routes/status in public receipts; do not copy private truth or open previews. A proposed debug unseal control or own-save randomized ID is not evidence that either exists or authority to access private saves. No secret was unsealed by this review.\n\nF4: Discovery scope follows actual observer, life/body/mind carrier, world instance, revision and local time. Remembered player knowledge is not automatic character knowledge, while a genuinely carried memory/journal or faculty can provide a legitimate route without replaying a mandatory riddle. Rumors, stale observations, testimony, public disclosure and changing the cause are different. AD16 pauses inactive worlds by default; natural reveal and moving truths use their real owning clocks. A future source edition may qualify a claim without rerolling committed instance history.\n\nF5: Stable truth, reachable evidence, causal interventions, carried legacies and no accidental duplicate rewards are meaningful selected-slice checks. Randomized truth cannot reroll by ordinary reload; an explicit world-supported change/reset follows its declared contract. The old requirement that every old save begins unnoticed must be reconciled with AR6 and retained evidence rather than blindly erasing existing discovery. AD42 makes human review optional and AD43/AD36 determine relevant proof; the suggested mystery waits on current priority rather than creating another acceptance gate. This review preserves history/proposals and adds no gameplay, migration, native window, source acquisition or secret payload.",
+      "evidence": "Full220-line current document read in one untruncated bounded output; no sealed file, private save or external source opened.",
+      "reopen": "Only a selected mystery/cheat route or changed observer/carrier contract needs implementation and scoped native evidence.",
+      "input_sha256": "efc3da1075074fb9b6026023cf48e14dbb04f63fcf6233e993dae6071172c064",
+      "input_lines": 220,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          220
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "heading": "## Content reconciliation B544: discovery authority and proposed mechanisms",
+      "body": "F1: Full220-line content reviewed. The October10 user direction establishes in-play discovery and standard agent sealing; OD13 adds discovery of base-cheat powers. The anatomy, stage machine, minimum-route count, data-only architecture, notebook placement, fairness reviewer, debug switch, randomized-ID storage and suggested proof remain proposals. This document implements no discovery engine and its proposed separate reviewer does not dispatch an agent. Current accepted UI, source, entry, architecture and cheat owners decide their actual selected consumers.\n\nF2: Truth, surface, clue, attributed belief, evidence, action and payoff are useful separate concepts. A suspected reading can be false yet acted upon; detection, identification, understanding, certainty and practical ability need not form a compulsory linear unlock ladder. Effective extraordinary means may reveal a fact immediately under AD8/AD38. The two-route/default-threshold and payoff language should guide fair authored mysteries, not veto a single-means mystery, ambient world texture or a character who can bypass ordinary investigation. P1/P2 already preserve experiments and action before certainty. An unknown label must not invent a prohibition on an otherwise effective method.\n\nF3: Sealing protects surprise in agent/player-facing outputs, including counts, names, route labels, console/errors, exports, descriptions and diffs where they would reveal changed truth. Public source twists remain distinct from changed/randomized private truth. A sealed path convention is not encryption or access control, and a record ID can itself disclose meaning. Use neutral IDs/routes/status in public receipts; do not copy private truth or open previews. A proposed debug unseal control or own-save randomized ID is not evidence that either exists or authority to access private saves. No secret was unsealed by this review.\n\nF4: Discovery scope follows actual observer, life/body/mind carrier, world instance, revision and local time. Remembered player knowledge is not automatic character knowledge, while a genuinely carried memory/journal or faculty can provide a legitimate route without replaying a mandatory riddle. Rumors, stale observations, testimony, public disclosure and changing the cause are different. AD16 pauses inactive worlds by default; natural reveal and moving truths use their real owning clocks. A future source edition may qualify a claim without rerolling committed instance history.\n\nF5: Stable truth, reachable evidence, causal interventions, carried legacies and no accidental duplicate rewards are meaningful selected-slice checks. Randomized truth cannot reroll by ordinary reload; an explicit world-supported change/reset follows its declared contract. The old requirement that every old save begins unnoticed must be reconciled with AR6 and retained evidence rather than blindly erasing existing discovery. AD42 makes human review optional and AD43/AD36 determine relevant proof; the suggested mystery waits on current priority rather than creating another acceptance gate. This review preserves history/proposals and adds no gameplay, migration, native window, source acquisition or secret payload.",
+      "before_sha256": "efc3da1075074fb9b6026023cf48e14dbb04f63fcf6233e993dae6071172c064",
+      "after_sha256": "e6fb41cec18d2230df94e4daa968a75e5a3378f7939adea28e03641a28b8014f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 172,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "from": "Current accepted UI, source, entry, architecture and cheat owners",
+      "to": "Current governing UI, source, entry, architecture and cheat owners",
+      "reason": "Clarify governing-owner reference; no adoption claim."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "from": "e6fb41cec18d2230df94e4daa968a75e5a3378f7939adea28e03641a28b8014f",
+      "to": "2bc62288b724961213a520ed330e519cc4562f6f13734d7f50005e45d93429a6",
+      "reason": "Exact wording correction."
+    }
+  ]
+}

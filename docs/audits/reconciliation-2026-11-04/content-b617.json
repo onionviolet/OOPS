@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "batch": "B617",
+  "title": "Society branching coverage: request provenance and distinct social consumers",
+  "at": "2026-11-05T13:43:38.042506+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/COVERAGE.json",
+      "ids": [
+        "UVS01",
+        "UVS02",
+        "UVS03",
+        "UVS04",
+        "UVS05",
+        "UVS06",
+        "UVS07",
+        "UVS08",
+        "UVS09",
+        "UVS10",
+        "UVS11",
+        "UVS12",
+        "UVS13",
+        "UVS14",
+        "UVS15"
+      ],
+      "classification": "historical request/consumer coverage; current authority and scope correction",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/society/branching/REPORT.md"
+      ],
+      "disposition": "F1: Full724-line coverage-map content review reads every root field, all UVS01–UVS15 rows with original quoted requests, historical locators, source-owner claims, missing consumers, examples, dependencies, delivery scope and acceptance, plus all27inspected-input records. Compact lossless row groups were actually read. Original JSON bytes/schema are retained. Historical source locators/hashes/read reports do not renew source, runtime or every USER_VISION quote verification. Selected current USER_VISION headings independently retain personal-method/incomplete-transmission direction and preservation of vanilla; old549/771line offsets no longer locate them. The map-reported earlier family/genealogy direct-chat quotation remains attributed to that map’s provenance, not independently authenticated or inserted as a newly verified user quote.\n\nF2: Preserve UVS01learner-owned method, willing teaching, attribution and real paid NPC use; UVS02actual agreed terms, custody, finite payer budgets and closure across reconvergence; UVS03independent actors with means, travel, contact and known report/expiry; UVS04witness/jurisdiction-specific reputation without automatic kin guilt or universal moral meter; UVS05willing ready participants, actual bodies/sources/wounds/stock and paid rest. These are distinct consumers, not permission labels or new mandatory global frameworks. Their dated source subset claims require current producer/state/consumer checks if implementation is selected.\n\nF3: UVS06arc, career, retirement, succession and bodily death stay separate; competence does not silently age or kill someone. UVS07preserved vanilla does not restore the retired one-realm/prestige milestone. UVS08four worked groups do not replace the historical33parent/15strand/7ending proposal ledger, nor establish completion. Current PROJECT prioritizes Klein/HP and holds Frontier/Mistglass as test beds with no new depth; this map authorizes no society campaign dispatch. UVS09voice/known context differs from secret truth and actual commitment closure; UVS10kinship/upbringing/body/memory/property/romance eligibility stay independent, world-local and optional until selected. No fixed childhood wait or surname-derived power is adopted.\n\nF4: UVS11a paid inquiry/report supplies actual knowledge, not household rights, genealogy truth, appraised power or a new ending. UVS12cumulative arc/career/institution/retirement/departure outcomes differ from forced life/world endings or extraction; preserve actual choice and aftermath. UVS13eligible preparation and frozen weighted outcome differ from immutable ancestry/consent; preview/reload must not imply fresh outcomes or hidden resource advance, but the map does not verify current RNG/write atomicity. UVS14reuse existing typed ownership/causal primitives with actual terms/participants/evidence and an ending projection, rather than a parallel bag/clock/reward ledger; contrasting chronologies validate without flattening differences. UVS15motive, knowledge, means, access and history distinguish retaliation/reconciliation; source/body/identity changes need their actual mechanism. Exceptional superior powers remain possible within actual scope, not a universal ban.\n\nF5: Keep SB01open chronicle and SB02chaptered family career as original proposals; family/romance/party/law/generations are palettes, not new universal gates. All required/optional classifications belong to the dated selected planning pack, not present authorization. Current AD42makes human review optional; document graph/arithmetic/quote checks cannot stand in for current native/build/save behavior. Historical S2skill wave/current-owner labels are superseded by PROJECT. No novel body/source-code reread, runtime implementation/test/build/browser, new worker/acquisition, personal-save access, deletion/move, commit or push occurs.",
+      "evidence": "All724lines represented in complete compact root/row/input records actually read; selected current PROJECT and USER_VISION headings checked. No underlying source body reread or runtime proof.",
+      "reopen": "Retain historical proposals; selected future implementation needs current producer/state/consumer and source-qualified requests. No current Frontier expansion dispatch.",
+      "full": true,
+      "input_sha256": "1c86c760dc64936d3df0b5cf97241757e3c76989f23dc93f822056a6df7c1baa",
+      "input_lines": 724,
+      "ranges": [
+        [
+          1,
+          724
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+      "heading": "## Request-map content and current authority B617",
+      "body": "B617fully reviews every field of [COVERAGE.json](COVERAGE.json), UVS01–UVS15 and all27historical inspected inputs. Preserve their distinct teaching/ownership/paid-actor/knowledge/kinship/party/ending/causal/RNG/identity consumers, rather than collapsing them into a social score or new global framework. SB01/SB02remain original planning alternatives with actual means, consent, knowledge, retained costs and useful aftermath. A learner’s real procedure, a title, a source, property, family standing and memory remain different carriers. Career/retirement/succession do not force bodily death or a world reset.\n\nThe old source offsets, S2wave, required alternatives and33parent/15strand/7ending tally describe the2026-10-05planning pack. They establish no fresh source or delivery proof. Current [PROJECT](../../../../../../PROJECT.md) prioritizes Klein/HP and keeps Frontier/Mistglass as test beds with no new depth; this coverage map launches no campaign. Vanilla preservation stays useful, while the one-realm/prestige milestone is retired. Human review is optional under AD42; static graphs/arithmetic do not exercise native/save behavior. The map’s reported earlier direct-chat family quotation is preserved as reported provenance, without inventing an independently verified USER_VISION locator or acceptance.",
+      "before_sha256": "5936e0a008010c077669b061e040e548cd2151c07e4665b0ae64d2df29b57bea",
+      "after_sha256": "11fb895f438c9076abf48afebcab4ba775ca6dcace82da24b52fd448c4a3f63d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 71,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+      "from": "native/build/save/behavior and director gates remain distinct.",
+      "to": "native/build/save/behavior proof remains separate from static checks; human review is optional under AD42.",
+      "reason": "Apply current optional-human-review authority without changing historical source receipt."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+      "from": "11fb895f438c9076abf48afebcab4ba775ca6dcace82da24b52fd448c4a3f63d",
+      "to": "4607b96b22b0361bae0d5d2e0ca5856f6e75807e5a66e1d94c5c59ed13f1092d",
+      "reason": "Exact current-authority qualifier."
+    }
+  ]
+}

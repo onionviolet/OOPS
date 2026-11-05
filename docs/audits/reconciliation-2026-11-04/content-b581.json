@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "batch": "B581",
+  "title": "Panel absorption chronology and federated media intake ownership",
+  "at": "2026-11-05T11:33:06.984917+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/PANEL_DESIGN_ABSORPTION_2026-10-15.md",
+      "ids": [
+        "P23-1–5/G1–7/M1–5",
+        "T1/L1/SR1–4/N1–4"
+      ],
+      "classification": "full dated panel research and authorized later source/lab chronology",
+      "owners": [
+        "docs/research/PANEL_DESIGN_ABSORPTION_2026-10-15.md",
+        "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md"
+      ],
+      "disposition": "F1: Full actual228-line review includes P23-1–5, G1–7, M1–5, T1/L1, SR1–4, later C1 authorization and N1–4 normal-play versus seeded-lab observations. Early research-only/no-source-run status belongs to that earlier pass. Later ordinary source play and lab demonstrations supersede it only in their exact scopes. Store screenshots show pictured layouts; indexed Melvor/wiki results, API docs, pinned code and official articles are different evidence. No external source, private manifest, old port or worker was revalidated here.\n\nF2: Preserve stable player/work/log, adjacent task detail, named direct navigation, known-only search/recipe uses/notices and actual observer eligibility. Seven Local actions is not a global destination cap. Pins and inspectors alter presentation, not service reach or remote-operation authority. Compact and expanded forms share actual owner/commands while preserving selection, focus, filters and scroll. Inspect, leave, stop, cancel and commitment settlement differ; a historical back callback is a dated source observation, not proof current browsing cancels work. Stable tick rows, non-color feedback, reduced motion and truthful conditional ETA remain useful considerations.\n\nF3: SR4 records authorized native-shell refactoring, rather than a transplanted engine/DOM with foreign timers/saves. Later C1/V1/R2/R3 execution and B139 in [the foundation owner](../UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md) own integration evidence and limits. The old apothecary-first trial,1366target, queue holds, writer reservation, default choice and source-license observation are historical. Current desktop/laptop task viewport and AD42 optional human review apply. No human visual acceptance, changed current default, present source parity or fresh browser proof follows from this review.\n\nF4: Ordinary N1–N4 reports earned reveal, settings/home/reading and actual material-consuming craft. A seeded lab tests native renderers/commands after supplied prerequisites, not ordinary acquisition, every feature or YAIR integration. Proto23 immediate item/recipe action and repeated-tab close behavior need not be inherited with its appearance. Preserve independent design and provenance without converting missing upstream license metadata into a prohibition on authorized local inspection. No UI/runtime/save/source edits, visible window, new dispatch, deletion, commit or push occurred.",
+      "evidence": "Actual full1–228; foundation owner final30lines inspected for V1/R2/R3/B139 relationship.",
+      "reopen": "Use current shared UI owners and rebuilt target-viewport evidence for any actual implementation.",
+      "input_sha256": "d9c79fe046781a9076c85c26e148cf611b761a7e0e12b1aa361252e47ee1f8ee",
+      "input_lines": 228,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          228
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md",
+      "ids": [
+        "T1–T10/F14–F16/P1–P5/L1–L4/B1–B5/I1–I5"
+      ],
+      "classification": "full dated federation scout and later implementation-routing update",
+      "owners": [
+        "docs/research/SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md",
+        "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md"
+      ],
+      "disposition": "F1: Full actual218-line review includes T1–T10, F14–F16, P1–P5, L1–L4, B1–B5, I1–I5 and pinned-source/verification history. The opening2026-10-22 implementation update supersedes the earlier selected-stack uninstalled status and routes to its external implementation owner. This review does not independently verify that installed state or make every optional provider delivered. Preserve the scout's API composition, one planner/catalogue/job ledger, bounded provider adapters and separate upstream databases instead of a monolithic code merger.\n\nF2: One writer per concern remains useful: planner request/reservation, provider execution, immutable intake/promotion, reader progress and derived curation. Reconcile provider job IDs on restart; a retry is not a fresh acquisition. CLU's documented Komga-to-CLU relative-path progress mapping is not two-way identity sync. Reserve multi-issue packs once and map contents before new jobs. Account/provider limits are shared across adapters, while source-parallelism is neither RPS nor daily allowance. Metadata operations can have network/cache effects. A wrapper's sleep/archive controls do not prove extension-wide stop-on-rate-limit behavior.\n\nF3: Keep exact archive hashes, ordered page hashes, semantic edition/translation/continuity, fractional chapters/extras and observed coverage separate. Hash mismatch can be repackaging; title or perceptual match cannot authorize discarding a different edition. Validate archive/page decoding/order/placeholders and actual content range before promotion. Presence/header/metadata checks on72records/71paths/69PDFs do not certify full hashes, repaired extraction or reading. Scoped absence of CBZ/CBR or Suwayomi is dated and bounded, not present whole-device absence. Bibliographic candidates remain proposals, not downloads, purchases or verified gaps.\n\nF4: L4 routes derived OCR/vision to the existing source workflow with asset identity, transform coordinates, language and uncertainty. [The B580 OCR review](MANGA_OCR_AND_VISION_OPTIONS_2026-10-22.md#content-reconciliation-b580-pilot-limits-and-locator-identity) qualifies the later English pilot and locator stability. Source acquisition, validated file, extraction, actual reading and adaptation remain separate. Current tool registry/library/coverage/acquisition owners govern any later run; the scout's specific API routes, licenses, install gaps and network support were not rechecked. No services, configuration, catalogue, source file, job, transfer, spending, deletion, commit or push were changed.",
+      "evidence": "Actual full1–218; no external implementation owner or provider state newly inspected.",
+      "reopen": "Check current library/tool/acquisition owners only when a selected source gap requires execution.",
+      "input_sha256": "d0acf239af5aab67710e242f8d46747bea5edfa5797b245ac461843b03ceee1c",
+      "input_lines": 218,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          218
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/PANEL_DESIGN_ABSORPTION_2026-10-15.md",
+      "heading": "## Content reconciliation B581: reference, normal play and delivered shell",
+      "body": "F1: Full actual228-line review includes P23-1–5, G1–7, M1–5, T1/L1, SR1–4, later C1 authorization and N1–4 normal-play versus seeded-lab observations. Early research-only/no-source-run status belongs to that earlier pass. Later ordinary source play and lab demonstrations supersede it only in their exact scopes. Store screenshots show pictured layouts; indexed Melvor/wiki results, API docs, pinned code and official articles are different evidence. No external source, private manifest, old port or worker was revalidated here.\n\nF2: Preserve stable player/work/log, adjacent task detail, named direct navigation, known-only search/recipe uses/notices and actual observer eligibility. Seven Local actions is not a global destination cap. Pins and inspectors alter presentation, not service reach or remote-operation authority. Compact and expanded forms share actual owner/commands while preserving selection, focus, filters and scroll. Inspect, leave, stop, cancel and commitment settlement differ; a historical back callback is a dated source observation, not proof current browsing cancels work. Stable tick rows, non-color feedback, reduced motion and truthful conditional ETA remain useful considerations.\n\nF3: SR4 records authorized native-shell refactoring, rather than a transplanted engine/DOM with foreign timers/saves. Later C1/V1/R2/R3 execution and B139 in [the foundation owner](../UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md) own integration evidence and limits. The old apothecary-first trial,1366target, queue holds, writer reservation, default choice and source-license observation are historical. Current desktop/laptop task viewport and AD42 optional human review apply. No human visual acceptance, changed current default, present source parity or fresh browser proof follows from this review.\n\nF4: Ordinary N1–N4 reports earned reveal, settings/home/reading and actual material-consuming craft. A seeded lab tests native renderers/commands after supplied prerequisites, not ordinary acquisition, every feature or YAIR integration. Proto23 immediate item/recipe action and repeated-tab close behavior need not be inherited with its appearance. Preserve independent design and provenance without converting missing upstream license metadata into a prohibition on authorized local inspection. No UI/runtime/save/source edits, visible window, new dispatch, deletion, commit or push occurred.",
+      "before_sha256": "d9c79fe046781a9076c85c26e148cf611b761a7e0e12b1aa361252e47ee1f8ee",
+      "after_sha256": "794d3c4632f2504c625806395b7749cf597a6a0e8e3b5fb7055ec0afa45a37af"
+    },
+    {
+      "path": "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+      "heading": "## Panel absorption source chronology B581",
+      "body": "The full [panel-absorption B581 review](research/PANEL_DESIGN_ABSORPTION_2026-10-15.md#content-reconciliation-b581-reference-normal-play-and-delivered-shell) preserves stable work/log and known-only adjacent task detail, distinct inspect/leave/stop semantics and native owner reuse. It reconciles the early research pass with later C1 authorization and source normal-play versus seeded-lab observations. Existing V1/R2/R3/B139 owns delivered integration and limits; dated queue holds,1366target, source ports and writer reservations are not renewed. Reference screenshots, seeded source renderers and actual YAIR browser evidence remain distinct; no default or human acceptance is inferred.",
+      "before_sha256": "3dd52cb26faee4e6d47db77def30d154422feb064bab399ecbd873ac298ae2d7",
+      "after_sha256": "e35ed4cb02d4c0c986af5a67b0c37b1c6d20822f49a8382aa37b9db432b85d9e"
+    },
+    {
+      "path": "docs/research/SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md",
+      "heading": "## Content reconciliation B581: selected stack and acquisition boundaries",
+      "body": "F1: Full actual218-line review includes T1–T10, F14–F16, P1–P5, L1–L4, B1–B5, I1–I5 and pinned-source/verification history. The opening2026-10-22 implementation update supersedes the earlier selected-stack uninstalled status and routes to its external implementation owner. This review does not independently verify that installed state or make every optional provider delivered. Preserve the scout's API composition, one planner/catalogue/job ledger, bounded provider adapters and separate upstream databases instead of a monolithic code merger.\n\nF2: One writer per concern remains useful: planner request/reservation, provider execution, immutable intake/promotion, reader progress and derived curation. Reconcile provider job IDs on restart; a retry is not a fresh acquisition. CLU's documented Komga-to-CLU relative-path progress mapping is not two-way identity sync. Reserve multi-issue packs once and map contents before new jobs. Account/provider limits are shared across adapters, while source-parallelism is neither RPS nor daily allowance. Metadata operations can have network/cache effects. A wrapper's sleep/archive controls do not prove extension-wide stop-on-rate-limit behavior.\n\nF3: Keep exact archive hashes, ordered page hashes, semantic edition/translation/continuity, fractional chapters/extras and observed coverage separate. Hash mismatch can be repackaging; title or perceptual match cannot authorize discarding a different edition. Validate archive/page decoding/order/placeholders and actual content range before promotion. Presence/header/metadata checks on72records/71paths/69PDFs do not certify full hashes, repaired extraction or reading. Scoped absence of CBZ/CBR or Suwayomi is dated and bounded, not present whole-device absence. Bibliographic candidates remain proposals, not downloads, purchases or verified gaps.\n\nF4: L4 routes derived OCR/vision to the existing source workflow with asset identity, transform coordinates, language and uncertainty. [The B580 OCR review](MANGA_OCR_AND_VISION_OPTIONS_2026-10-22.md#content-reconciliation-b580-pilot-limits-and-locator-identity) qualifies the later English pilot and locator stability. Source acquisition, validated file, extraction, actual reading and adaptation remain separate. Current tool registry/library/coverage/acquisition owners govern any later run; the scout's specific API routes, licenses, install gaps and network support were not rechecked. No services, configuration, catalogue, source file, job, transfer, spending, deletion, commit or push were changed.",
+      "before_sha256": "d0acf239af5aab67710e242f8d46747bea5edfa5797b245ac461843b03ceee1c",
+      "after_sha256": "79323f34be2d4ec73e1502af0fe03e33132362b187ad2315884f4afce8d2bd5d"
+    },
+    {
+      "path": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+      "heading": "## Federated media scout reconciliation B581",
+      "body": "The full [media-scout B581 review](SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md#content-reconciliation-b581-selected-stack-and-acquisition-boundaries) preserves separate provider execution, planner reservation, immutable validated intake, derived curation and reader progress. Its opening selected-stack implementation routing supersedes the earlier absence claim within that stack only. Archive/page identity and actual observed coverage differ from title matches and catalogue labels; acquisition, OCR, reading and adaptation remain separate. B580 owns the later English OCR pilot limits. No current provider capability, installation, availability, quota or source-reading completeness was verified, and no transfer or worker was started.",
+      "before_sha256": "47fc30bea5d980176de0ac83f1a7323a975b0ef4f509980785918c6dbfb7aa6b",
+      "after_sha256": "6a612e80ce267aef8c1d14efc0c168e46752333be0eb2e64de7a9f625669be94"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 126,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B577, continuous execution 2026-11-05 |",
+      "to": "| B581, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "81f2a835460868e0aa39f7c7dc02f6f0d8b6bb05d6cc7fc284211457931cc12b",
+      "to": "83a2778c84952a26c6726b81bde7eaa3e1adef1deb884af18c01517893ead038",
+      "reason": "Exact task-owned checkpoint row."
+    }
+  ]
+}

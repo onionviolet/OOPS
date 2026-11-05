@@ -1,0 +1,21 @@
+{
+  "command": "node scripts/.reconcile-doc-slips-b568.mjs",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "paths": [
+    "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+    "docs/UI_RULES.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/UI_FEEDBACK_AUDIT_RECEIPT.md",
+    "docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md",
+    "docs/gm/dispatch/ui-coverage-2026-10-27/PLAN.md",
+    "docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md"
+  ],
+  "original_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "0890e86f92fc6c4f0020cd1cab6a52efbe0da63db932382c8ba7249736cb546c",
+  "scope": "Only filespec adapted; same diagnostic logic. Known earlier UI_RULES77 remains; not a clean whole-tree pass."
+}

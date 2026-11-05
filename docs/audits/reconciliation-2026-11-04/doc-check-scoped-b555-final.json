@@ -1,0 +1,23 @@
+{
+  "command": "node same checker with task-only filespec",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "PROJECT.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/PROJECT_LOG_2026-10-29.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3Z_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_PROGRESS_RECONCILIATION_2026-11-02.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_SITUATION_UI_COVERAGE.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/UTOPIA_ENGINE_UI_AUDIT.md",
+    "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged. Not a shared-tree pass.",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "f32168f2d56e9a780dbbf12135ad69af4659c84bf799bdb0e866df7922e0ab18"
+}

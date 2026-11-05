@@ -1,0 +1,41 @@
+--- docs/UI_DENSITY_NEXT_PARTS_CHATGPT_RESPONSE_2026-10-13.md part(a)
+
++++ docs/UI_DENSITY_NEXT_PARTS_PROMPT_RECONCILED_2026-10-13.md
+
+@@ -1,2 +1,17 @@
+
++<!-- Reconciled from UI_DENSITY_NEXT_PARTS_CHATGPT_RESPONSE_2026-10-13.md, part (a).
++Three local edits, everything else verbatim:
++R1 removed the reviewer's claim that this prompt is implementation authorization;
++R2 noted the PLAY blocker (A4.1) can be pulled forward;
++R3 added an honest fallback when real browser zoom cannot be driven. -->
++
+ # YAIRPG next UI pass: five bounded implementation slices
++
++> **Standing-direction reconciliation, 2026-10-13:** This finite pass is complete
++> per its [checkpoint](gm/dispatch/ui-density-slices-2026-10-13/CHECKPOINT.md).
++> The original criteria below are retained as historical task scope, not a new
++> assignment. Future reuse must follow the [standing UI priority](USER_VISION.md#standing-ui-priority-2026-10-13)
++> and [UI scope gates](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13).
++> Do not inherit 400×800/mobile optimization as required scope. Affected laptop
++> zoom and compatibility checks remain relevant; recorded narrow-screen proofs
++> stay valid for their original slice and do not establish product priority.
+ 
+@@ -10,3 +25,3 @@
+
+ 
+-This is implementation authorization for the five slices below, subject to the gates and exclusions in this prompt. Complete one slice at a time. A slice is not complete until its browser acceptance checks and relevant persistence checks have been exercised. Leave the game in a playable state after every slice before proceeding.
++This prompt does not itself authorize implementation. Begin only when Weibao launches it or gives standing authorization for this pass; then work within the gates and exclusions below. Complete one slice at a time. A slice is not complete until its browser acceptance checks and relevant persistence checks have been exercised. Leave the game in a playable state after every slice before proceeding.
+ 
+@@ -177,2 +192,4 @@
+
+ Do not reorder these merely for implementation convenience. If live architecture reveals a hard dependency that makes this order unsafe, stop only that dependency chain, document the concrete reason from source/runtime evidence, and perform any still-independent verification or work that remains safe. Do not silently merge several slices into an unreviewable redesign.
++
++Exception: the loading-screen part of A4 (A4.1, PLAY reachability and keyboard activation at zoom) does not depend on workspace geometry and blocks play entirely for affected players. Weibao may pull it forward as a standalone fix; if so, re-run A4.1 inside the final cumulative A4 gate.
+ 
+@@ -720,3 +737,3 @@
+
+ 
+-Do not claim real-zoom acceptance from emulation alone.
++Do not claim real-zoom acceptance from emulation alone. If the execution environment cannot drive real browser zoom (for example headless automation only), mark A4.1 and A4.2 real-zoom checks `implemented-unverified`, report the emulated results separately, and name the exact manual check for Weibao.
+ 

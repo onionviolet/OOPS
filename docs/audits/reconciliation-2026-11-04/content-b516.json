@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "batch": "B516",
+  "title": "High-power transaction closure, itch-wave input identities, acting navigation and complete lives queue",
+  "at": "2026-11-05T09:24:48.482053+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md",
+      "ids": [
+        "HTA1–HTA47",
+        "HTB1–HTB87",
+        "HTC1–HTC45",
+        "HTP45/HTP49/HTP53–54",
+        "WT1–WT10",
+        "H1/H2",
+        "D1/ParadiseF1/seen-list"
+      ],
+      "classification": "complete historical delivery/queue content; later corrections supersede stale states without renewing proof",
+      "owners": [
+        "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md"
+      ],
+      "disposition": "The opening early-consideration/no-code scope is historical: later relayed instructions authorized isolated H1/H2 pilots and technical integration. The dirty-tree NOT READY and home-owner approval statements were explicitly superseded; they are not present user gates or live reservations. Initial unwired modules and DEV-PATCHED H2 proof were implemented-unverified and are not the final true-route result. Later unpatched Goa entry, actual credentials and finite observer actions supplied native proof without an arbitrary high-tier unlock. The wait correction distinguishes ordinary three-year membership from a merit route after acting/digestion; three/two prototype days do not simulate all NPC waiting. Targeted LOTM locators were checked, while RI/A source labels retain their stated independent-check limits.\n\nH1's real defect was commit-time slice ordering: money/items could be serialized against stale placeClocks before the local slice updated. The nativePatch fix and throwing-commit regression protect the selected transaction, while the browser's later saveProgress alone does not prove commit-time envelope atomicity. Other-place dials and post-commit publish exposure remain separate gaps. H2 corrected inconsistent quoted/gated/spent stamina and local/world clock joins. The later paused-engine/no-watch control explains0→1→0 as ordinary regen and world+3/slice+2 as an extra background tick; it is stronger than the earlier tentative diagnosis. Unit-tested clock mismatch throws remain browser-unexercised. Zero-minute caller inventory is explicitly bounded.\n\nThe combined candidate first failed its layout surface contract, then passed2610/2610 after two entries were added; two full runs were justified by changed inputs. The integrator's2768/2768 and screenshots are attributed reports from another tree, not the coordinator's independent rerun. Goa's save policy was obeyed by returning to Village, saving/reloading/literal importing and re-entering; this proves that route, not saving inside Goa. The later seen-list defect was a visibility-gated render, not lost state; one-line fix and rebuilt re-entry proof are on the pilot combined candidate, not certified as applied to the final integration tree. Paradise F1 chart-context patch remained separately owned/unapplied here. Clock-panel wrap and browser fault injection remain unclosed. Authored dials, technical release, human taste and later integration are distinct under AD32/AD42. Old process commands and the recorded pkill violation are history, not instructions. Two malformed nested closure/manifest links are repaired to existing same-folder targets with original hrefs preserved in this batch; no source/artifact content or current behavior is newly verified.",
+      "evidence": "Whole149-line high-power record recovered in four bounded chunks after initial truncation; whole156-line itch,162-line guidance and150-line queue read. No runtime/source/private evidence rerun.",
+      "reopen": "Inspect exact current owner/input and named remaining consumer before integrating a patch or renewing any source/build/route claim.",
+      "input_sha256": "2c235a35589cddb646f4c59b2c932db4cc9eeb469203a7f15e22aac6887f6b32",
+      "input_lines": 149,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          149
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/itch-wave-2026-10-23/CHECKPOINT.md",
+      "ids": [
+        "wave1–3",
+        "G22/G24–G29/G62",
+        "OG1–OG13",
+        "D1–D2",
+        "final-tree pointer proof"
+      ],
+      "classification": "complete historical delivery/queue content; later corrections supersede stale states without renewing proof",
+      "owners": [
+        "docs/gm/dispatch/itch-wave-2026-10-23/CHECKPOINT.md"
+      ],
+      "disposition": "The timeline contains two2731-test combined gates with different bundle identities: the pre-D2 snapshot322ad4a2 and D2-applied53c77026 must not be mixed. Source branch/dirty counts do not identify a present build. The lineage1920 overlap/closed-browser observation, later apparent stall and final captured14/14serial runs are separate events. The later completed long journey explains that stall as slowness at those inputs; it does not turn every timeout into a nondefect or prescribe1200seconds universally. The original uncaptured stdout is not replaced by an inferred pass; the captured rerun is the receipt.\n\nHousehold panel source/test-only coverage was later extended to populated staff/watch/keyboard/pointer proof at1536/1920 and actual14/21px. It still lacked a real cost row, awakened-with-signs state and diagnosis of one transient summary-click timeout. Initial hit-target no-repro on the primary snapshot does not contradict later actual interception on integration-o-f-a: different box geometry made the full-width top handle overlap Bio. The candidate dividerSpan fix and Notebook route repair have their own input identity. Initial scan-only body buttons were later actually clicked on the final sorted-hash tree, after the integrator added the required Notebook surface contract;22focused tests and normal pointer journeys include Bio/Talk/Notebook/Practice/eat/Begin. One unstable Begin click still passed only on rerun with its cause uninvestigated. Focused final proof is not a fresh full suite on all final inputs.\n\nTooling OG1 decoder, OG3three-of-five and OG2 unmet proof are distinct from delivered gameplay. Reader-reported source passes and source-check counts do not establish every mechanism. The committed HEAD alone lacked an untracked progression_gates dependency at the dated gate, so neither a historical commit nor its uncommitted combined pass certifies clean-checkout reproducibility today. Wave3/D2 ownership, no-commit statements, patch-handoff instructions and shared-file warnings are historical; no worktree/source/app mutation follows. Preserve G/OG route statuses and unresolved source/tooling/cost/watch cases with actual owners. Human review is optional feedback under AD42, and the selected target evidence does not establish mobile or whole-interface completeness.",
+      "evidence": "Whole149-line high-power record recovered in four bounded chunks after initial truncation; whole156-line itch,162-line guidance and150-line queue read. No runtime/source/private evidence rerun.",
+      "reopen": "Inspect exact current owner/input and named remaining consumer before integrating a patch or renewing any source/build/route claim.",
+      "input_sha256": "2cd98a9b7a6c2314fe77b42cdcab52e9b77bb679bacd281d4c701792b7bb6457",
+      "input_lines": 156,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          156
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-acting-guidance-2026-10-25/CHECKPOINT.md",
+      "ids": [
+        "F1",
+        "D1",
+        "A1–A3",
+        "LTS11",
+        "final native/persistence/navigation/matrix"
+      ],
+      "classification": "complete historical delivery/queue content; later corrections supersede stale states without renewing proof",
+      "owners": [
+        "docs/gm/dispatch/lotm-acting-guidance-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "The delivered-local receipt supersedes the lower SOURCE READY/A1–A3 pending gate text. Exact source-ready hashes were reused after the coordinator supplied the frozen4db87189 bundle/HTML/input identity; this lane reused5focused tests and did not rerun a full suite. The selected join explains current acting consumption through known commands, not a new action, digestion law or progression store. Notebook text alone leaked unseen district variants; exact completion plus remembered notebook evidence distinguishes a known action. Pre-dose/unlearned/settled guidance is absent. Pending and cancelled readings countzero, completed countsone, repeatable and one-time actions preserve their existing behavior.\n\nFind is navigation with no gameplay delta: it focuses an existing action or offers its ordinary walk route rather than executing, paying, learning or moving. The final natural Seer journey includes recovery, resource refusal and six completed acts settling digestion/normal assessment; a separate earned Savant entry/study is the second consumer, not all pathways. Two earned pending/completed Save/reload/export/perturb/literal-import checkpoints retain the relevant state, with cancel/walk perturbations and navigation-only keyboard return separately exercised. Actual14/21px paragraphs/rows at1920/1536 and inspected screenshots establish the bounded service view, not mobile or every layout. A nonexistent Reports selector was a harness correction without source change. Preserve interrupted/no-retained evidence separately from the final complete new-origin run. No current source, old private export or browser was re-exercised here; normal-app adoption, commit and packaging remain distinct from dated local proof. Human review is optional under AD42.",
+      "evidence": "Whole149-line high-power record recovered in four bounded chunks after initial truncation; whole156-line itch,162-line guidance and150-line queue read. No runtime/source/private evidence rerun.",
+      "reopen": "Inspect exact current owner/input and named remaining consumer before integrating a patch or renewing any source/build/route claim.",
+      "input_sha256": "75ec725c7444d5656a6829c4807791396e1b1f323bbcfe723778689c5c9e4a6c",
+      "input_lines": 162,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          162
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md",
+      "ids": [
+        "Q1–Q6",
+        "B2",
+        "cause rows",
+        "W1–W4",
+        "Primordial completion",
+        "X3/F18/X4"
+      ],
+      "classification": "complete historical delivery/queue content; later corrections supersede stale states without renewing proof",
+      "owners": [
+        "docs/gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md"
+      ],
+      "disposition": "This is a chronological queue with later updates, not the current PROJECT build order or source status. Its opt-in single-path opening is superseded by its own Q1/Q2 history and later Q3–Q6 delivery records, ordinary entrance and current lead-life work. The explicit resolved F18/X4 ordinary-wait/merit clarification precedes a duplicated Open check and later unresolved status; those repeated lines do not reopen the resolved citation issue. X3 names the authored assessor stand-in, not a new mandatory wait. Existing B504/B506/B510 reviews retain the later pathways/primary migration/examination/ordinary-entry boundaries; this queue does not prove or undo them.\n\nKeep the useful per-life profile, district jurisdiction, actual role/clearance, escrow/verification and pathway consumer distinctions. Q4's proposed sealed-item handling gate is not proof the delivered role check had actual item custody. The clause requiring a world-wide characteristic ledger before more than two lives is an old engineering proposal, not a source law, player cap or required universal simulation under AD32/AD38/AD51. The later command factory/method order was this queue's local plan, not permission to restore an obsolete API or put all pathways through Seer's six acts. Cause mechanisms are not blanket allowed-outcome walls. Optional-state/schema advice requires current validator/compatibility review rather than guaranteeing any new optional field is safe.\n\nW1/W2 source reviews, W3/W4 readiness, failed ENOTFOUND restart and later source-gap closure retain distinct source/transport scopes; census-empty windows are not whole-source absence proofs. Current library/source acquisition uses named titles and actual coverage rather than the archived abbreviation/gap list. Primordial's later isolated credit-loop completion supersedes its earlier no-worker/build-next states, but repeatable mission/Repay/interest and truthful carry do not implement Merit Pool, same-body restart or talent settling. No current worker or budget is proved by these old tables. The viewport correction explicitly retires1366-as-current-floor in favor of1920/1536 actual14/21 evidence. Human review is optional under AD42; old packet acceptance and committer instructions create no new gate or commit authority. Preserve named deferred ideas without selecting them or reviving archived dispatches.",
+      "evidence": "Whole149-line high-power record recovered in four bounded chunks after initial truncation; whole156-line itch,162-line guidance and150-line queue read. No runtime/source/private evidence rerun.",
+      "reopen": "Inspect exact current owner/input and named remaining consumer before integrating a patch or renewing any source/build/route claim.",
+      "input_sha256": "fa4250d9e31570854ea24c83ecc1aeb9f06055e72adcd75d56069b32451cb81c",
+      "input_lines": 150,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          150
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md",
+      "heading": "## Content reconciliation B516: historical scope, actual consumers and later proof",
+      "body": "The opening early-consideration/no-code scope is historical: later relayed instructions authorized isolated H1/H2 pilots and technical integration. The dirty-tree NOT READY and home-owner approval statements were explicitly superseded; they are not present user gates or live reservations. Initial unwired modules and DEV-PATCHED H2 proof were implemented-unverified and are not the final true-route result. Later unpatched Goa entry, actual credentials and finite observer actions supplied native proof without an arbitrary high-tier unlock. The wait correction distinguishes ordinary three-year membership from a merit route after acting/digestion; three/two prototype days do not simulate all NPC waiting. Targeted LOTM locators were checked, while RI/A source labels retain their stated independent-check limits.\n\nH1's real defect was commit-time slice ordering: money/items could be serialized against stale placeClocks before the local slice updated. The nativePatch fix and throwing-commit regression protect the selected transaction, while the browser's later saveProgress alone does not prove commit-time envelope atomicity. Other-place dials and post-commit publish exposure remain separate gaps. H2 corrected inconsistent quoted/gated/spent stamina and local/world clock joins. The later paused-engine/no-watch control explains0→1→0 as ordinary regen and world+3/slice+2 as an extra background tick; it is stronger than the earlier tentative diagnosis. Unit-tested clock mismatch throws remain browser-unexercised. Zero-minute caller inventory is explicitly bounded.\n\nThe combined candidate first failed its layout surface contract, then passed2610/2610 after two entries were added; two full runs were justified by changed inputs. The integrator's2768/2768 and screenshots are attributed reports from another tree, not the coordinator's independent rerun. Goa's save policy was obeyed by returning to Village, saving/reloading/literal importing and re-entering; this proves that route, not saving inside Goa. The later seen-list defect was a visibility-gated render, not lost state; one-line fix and rebuilt re-entry proof are on the pilot combined candidate, not certified as applied to the final integration tree. Paradise F1 chart-context patch remained separately owned/unapplied here. Clock-panel wrap and browser fault injection remain unclosed. Authored dials, technical release, human taste and later integration are distinct under AD32/AD42. Old process commands and the recorded pkill violation are history, not instructions. Two malformed nested closure/manifest links are repaired to existing same-folder targets with original hrefs preserved in this batch; no source/artifact content or current behavior is newly verified.",
+      "before_sha256": "2c235a35589cddb646f4c59b2c932db4cc9eeb469203a7f15e22aac6887f6b32",
+      "after_sha256": "047b221892707b92834c6946a97c32d0977b43d994688945b5b38239317c1203"
+    },
+    {
+      "path": "docs/gm/dispatch/itch-wave-2026-10-23/CHECKPOINT.md",
+      "heading": "## Content reconciliation B516: historical scope, actual consumers and later proof",
+      "body": "The timeline contains two2731-test combined gates with different bundle identities: the pre-D2 snapshot322ad4a2 and D2-applied53c77026 must not be mixed. Source branch/dirty counts do not identify a present build. The lineage1920 overlap/closed-browser observation, later apparent stall and final captured14/14serial runs are separate events. The later completed long journey explains that stall as slowness at those inputs; it does not turn every timeout into a nondefect or prescribe1200seconds universally. The original uncaptured stdout is not replaced by an inferred pass; the captured rerun is the receipt.\n\nHousehold panel source/test-only coverage was later extended to populated staff/watch/keyboard/pointer proof at1536/1920 and actual14/21px. It still lacked a real cost row, awakened-with-signs state and diagnosis of one transient summary-click timeout. Initial hit-target no-repro on the primary snapshot does not contradict later actual interception on integration-o-f-a: different box geometry made the full-width top handle overlap Bio. The candidate dividerSpan fix and Notebook route repair have their own input identity. Initial scan-only body buttons were later actually clicked on the final sorted-hash tree, after the integrator added the required Notebook surface contract;22focused tests and normal pointer journeys include Bio/Talk/Notebook/Practice/eat/Begin. One unstable Begin click still passed only on rerun with its cause uninvestigated. Focused final proof is not a fresh full suite on all final inputs.\n\nTooling OG1 decoder, OG3three-of-five and OG2 unmet proof are distinct from delivered gameplay. Reader-reported source passes and source-check counts do not establish every mechanism. The committed HEAD alone lacked an untracked progression_gates dependency at the dated gate, so neither a historical commit nor its uncommitted combined pass certifies clean-checkout reproducibility today. Wave3/D2 ownership, no-commit statements, patch-handoff instructions and shared-file warnings are historical; no worktree/source/app mutation follows. Preserve G/OG route statuses and unresolved source/tooling/cost/watch cases with actual owners. Human review is optional feedback under AD42, and the selected target evidence does not establish mobile or whole-interface completeness.",
+      "before_sha256": "2cd98a9b7a6c2314fe77b42cdcab52e9b77bb679bacd281d4c701792b7bb6457",
+      "after_sha256": "8eaeef442f9fb70db001ae339f4629ca933332ad58aedb51ea901e8508256377"
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-acting-guidance-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B516: historical scope, actual consumers and later proof",
+      "body": "The delivered-local receipt supersedes the lower SOURCE READY/A1–A3 pending gate text. Exact source-ready hashes were reused after the coordinator supplied the frozen4db87189 bundle/HTML/input identity; this lane reused5focused tests and did not rerun a full suite. The selected join explains current acting consumption through known commands, not a new action, digestion law or progression store. Notebook text alone leaked unseen district variants; exact completion plus remembered notebook evidence distinguishes a known action. Pre-dose/unlearned/settled guidance is absent. Pending and cancelled readings countzero, completed countsone, repeatable and one-time actions preserve their existing behavior.\n\nFind is navigation with no gameplay delta: it focuses an existing action or offers its ordinary walk route rather than executing, paying, learning or moving. The final natural Seer journey includes recovery, resource refusal and six completed acts settling digestion/normal assessment; a separate earned Savant entry/study is the second consumer, not all pathways. Two earned pending/completed Save/reload/export/perturb/literal-import checkpoints retain the relevant state, with cancel/walk perturbations and navigation-only keyboard return separately exercised. Actual14/21px paragraphs/rows at1920/1536 and inspected screenshots establish the bounded service view, not mobile or every layout. A nonexistent Reports selector was a harness correction without source change. Preserve interrupted/no-retained evidence separately from the final complete new-origin run. No current source, old private export or browser was re-exercised here; normal-app adoption, commit and packaging remain distinct from dated local proof. Human review is optional under AD42.",
+      "before_sha256": "75ec725c7444d5656a6829c4807791396e1b1f323bbcfe723778689c5c9e4a6c",
+      "after_sha256": "cdbd0f514efbd8826d0855aae75318b6ca432d09fcf54257f5807f0e2805bd30"
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md",
+      "heading": "## Content reconciliation B516: historical scope, actual consumers and later proof",
+      "body": "This is a chronological queue with later updates, not the current PROJECT build order or source status. Its opt-in single-path opening is superseded by its own Q1/Q2 history and later Q3–Q6 delivery records, ordinary entrance and current lead-life work. The explicit resolved F18/X4 ordinary-wait/merit clarification precedes a duplicated Open check and later unresolved status; those repeated lines do not reopen the resolved citation issue. X3 names the authored assessor stand-in, not a new mandatory wait. Existing B504/B506/B510 reviews retain the later pathways/primary migration/examination/ordinary-entry boundaries; this queue does not prove or undo them.\n\nKeep the useful per-life profile, district jurisdiction, actual role/clearance, escrow/verification and pathway consumer distinctions. Q4's proposed sealed-item handling gate is not proof the delivered role check had actual item custody. The clause requiring a world-wide characteristic ledger before more than two lives is an old engineering proposal, not a source law, player cap or required universal simulation under AD32/AD38/AD51. The later command factory/method order was this queue's local plan, not permission to restore an obsolete API or put all pathways through Seer's six acts. Cause mechanisms are not blanket allowed-outcome walls. Optional-state/schema advice requires current validator/compatibility review rather than guaranteeing any new optional field is safe.\n\nW1/W2 source reviews, W3/W4 readiness, failed ENOTFOUND restart and later source-gap closure retain distinct source/transport scopes; census-empty windows are not whole-source absence proofs. Current library/source acquisition uses named titles and actual coverage rather than the archived abbreviation/gap list. Primordial's later isolated credit-loop completion supersedes its earlier no-worker/build-next states, but repeatable mission/Repay/interest and truthful carry do not implement Merit Pool, same-body restart or talent settling. No current worker or budget is proved by these old tables. The viewport correction explicitly retires1366-as-current-floor in favor of1920/1536 actual14/21 evidence. Human review is optional under AD42; old packet acceptance and committer instructions create no new gate or commit authority. Preserve named deferred ideas without selecting them or reviving archived dispatches.",
+      "before_sha256": "fa4250d9e31570854ea24c83ecc1aeb9f06055e72adcd75d56069b32451cb81c",
+      "after_sha256": "c234eeb926e68e6ddefa3cc824d5caccfd9e0bbc02027dd416d438562a02b163"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 215,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md",
+      "from": "(high-tier-power-2026-10-23/CLOSURE_BRIEF.md)",
+      "to": "(CLOSURE_BRIEF.md)",
+      "reason": "Resolve malformed repeated directory component to verified existing local target; original retained."
+    },
+    {
+      "path": "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md",
+      "from": "(high-tier-power-2026-10-23/evidence/MANIFEST.txt)",
+      "to": "(evidence/MANIFEST.txt)",
+      "reason": "Resolve malformed repeated directory component to verified existing local target; original retained."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/high-tier-power-2026-10-23/CHECKPOINT.md",
+      "from": "047b221892707b92834c6946a97c32d0977b43d994688945b5b38239317c1203",
+      "to": "d69c1c933737fc38ddc347f514d1f283e8863bb6c1cd9228bfe6062e6fa921b4",
+      "reason": "Exact two existing-href repairs, no linked-content credit."
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "batch": "B620",
+  "title": "Cyberpunk scout: adopted threat direction versus unselected source palettes",
+  "at": "2026-11-05T13:53:30.907773+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+      "ids": [
+        "CW1–CW37",
+        "G1–G15",
+        "five lives",
+        "12source rows"
+      ],
+      "classification": "complete source scout; later accepted direction separated from source/proposal claims",
+      "owners": [
+        "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "disposition": "F1: Full158-line cyberpunk world scout actualcontent reviewed, recovering initial truncated output with bounded1–45/46–100/101–158and141–158reads. All12source rows including listing-only hybrids, CW1–CW37palette, G1–G15engine-fit rows, fivecandidate lives, complete links/project-inputs and explicit unreadgaps were read. Every missing-engine statement was inferred without codeinspection in that originalpass; a grep hit/absence, summarizingfetch, searchsnippet, forumrule, blockedpage, recollection or listing does not become primary source/full-book/current engine evidence. No referenced web/PDF/rulebook page or new source body is opened here; historical observations stay historical, not present factual recommendations.\n\nF2: Later USER_VISION7242–7247records the user’s followup instruction and AD50adoption built on AD5/AD38/AD22/AD6; RLEE10–RLEE13are its detail, adjustable exact agent wording remains distinct. The scout’s no-user-entry scan/proposal-only threat classification is therefore dated and now points to that successor. This accepts the general means-based threat-as-lever direction, not the37cyberpunk examples, a selected new world, mandatory net/implants/debt systems or any current buildorder. Actual working exits are a floor, not a closedlist or guaranteed rescue; capabilities can exploit threats without invented balancing tax. ECR21stays a credit/debt rule, not universalpermission for every lethal outcome.\n\nF3: Keep capacity headroom, currentHumanity, maximumHumanity, Empathy, Essence/magicpotential, install origin/latercost, ongoing rejection-drug supply and existing bodycondition independent. The same body can host overlapping constraints without all values becoming onepool or mandatoryincompatibility. Shadowrunedition/RED/2020/2077patch/source-specific choices differ; exactmedicalware/therapy/grade/NET/reset/cost/heat/statcap claims are illustrative secondary evidence pending selected primaryquestion. DeusEx2000/HR, sourceplayerexceptions, novels/TV/franchisecontinuities must not blend. Price-tier convenience does not prove a live market, and an organ-economy claim is not everyworldeconomics.\n\nF4: A camera/record service is an actualobserver with coverage/reach/custody/timestamp/retention/inference limits, not automaticallyomniscient; occurrence, observation, report, identity attribution and response remain separate. A net can be a site/traversal layer with supported clocks/remote-body exposure rather than necessarily a new worldtype. Mindtakeover/command agency/bodycontrol differs from AD7wrongbelief; disclosure alone does not implement control continuity. An exact locally sourcedfouryearlifespan or statutorytwo-sleeve ban need not conflict with default/dial/reason framing; actual law/biology/exceptions can be modeled without inventing a new absolutism or deleting the number.\n\nF5: Preserve distinct fixer brokerage/actualcut and traceability, streetdoc parts/diagnosis/willingpatients/upkeep, netrunner actualaccess/time/bodyrisk, employeehousing/contract and nomad actualconvoy/route/vehicle loop. Thin nomadmechanics/source-level uncertainty remain explicit. Broker/reputation/ID/vehicle/memorymedia/remoteplace/genericmaking support need current producer/state/consumer checks before missing-system claims. No generalpublickarma, globalpoliceheat, magicalmedicalcertificate, obligatoryrentfor everylife, automaticgangretaliation, shortcampaign or forcedheir/sleeve continuation is adopted. Current PROJECTKlein/HPand Frontier/Mistglasshold govern. ActualAD50does not dispatch a world; sourcefacts and proposedadaptation exits remain separate. No current sourcecode/body/rulebookread, externalfetch, acquisition, worker, game/runtime/save/test/build/browser, deletion/move, commit/push occurs.",
+      "evidence": "All158lines actualread in bounded recovered outputs; current USER_VISION7242–7247, selected DOMAIN/RLEE and north-star variant checked. No external/source/rulebook/current-engine verification.",
+      "reopen": "Before a selected cyberpunk slice inspect exact current source consumer and edition-specific primary question. Preserve all proposals without new dispatch or deleting history.",
+      "full": true,
+      "input_sha256": "063f5d26f5397c90738e85aaf5a7a2cafc31f7c28a9e8458e75247ff67500a25",
+      "input_lines": 158,
+      "ranges": [
+        [
+          1,
+          158
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+      "heading": "## Content reconciliation B620: authority and source boundaries",
+      "body": "F1: Full158-line cyberpunk world scout actualcontent reviewed, recovering initial truncated output with bounded1–45/46–100/101–158and141–158reads. All12source rows including listing-only hybrids, CW1–CW37palette, G1–G15engine-fit rows, fivecandidate lives, complete links/project-inputs and explicit unreadgaps were read. Every missing-engine statement was inferred without codeinspection in that originalpass; a grep hit/absence, summarizingfetch, searchsnippet, forumrule, blockedpage, recollection or listing does not become primary source/full-book/current engine evidence. No referenced web/PDF/rulebook page or new source body is opened here; historical observations stay historical, not present factual recommendations.\n\nF2: Later USER_VISION7242–7247records the user’s followup instruction and AD50adoption built on AD5/AD38/AD22/AD6; RLEE10–RLEE13are its detail, adjustable exact agent wording remains distinct. The scout’s no-user-entry scan/proposal-only threat classification is therefore dated and now points to that successor. This accepts the general means-based threat-as-lever direction, not the37cyberpunk examples, a selected new world, mandatory net/implants/debt systems or any current buildorder. Actual working exits are a floor, not a closedlist or guaranteed rescue; capabilities can exploit threats without invented balancing tax. ECR21stays a credit/debt rule, not universalpermission for every lethal outcome.\n\nF3: Keep capacity headroom, currentHumanity, maximumHumanity, Empathy, Essence/magicpotential, install origin/latercost, ongoing rejection-drug supply and existing bodycondition independent. The same body can host overlapping constraints without all values becoming onepool or mandatoryincompatibility. Shadowrunedition/RED/2020/2077patch/source-specific choices differ; exactmedicalware/therapy/grade/NET/reset/cost/heat/statcap claims are illustrative secondary evidence pending selected primaryquestion. DeusEx2000/HR, sourceplayerexceptions, novels/TV/franchisecontinuities must not blend. Price-tier convenience does not prove a live market, and an organ-economy claim is not everyworldeconomics.\n\nF4: A camera/record service is an actualobserver with coverage/reach/custody/timestamp/retention/inference limits, not automaticallyomniscient; occurrence, observation, report, identity attribution and response remain separate. A net can be a site/traversal layer with supported clocks/remote-body exposure rather than necessarily a new worldtype. Mindtakeover/command agency/bodycontrol differs from AD7wrongbelief; disclosure alone does not implement control continuity. An exact locally sourcedfouryearlifespan or statutorytwo-sleeve ban need not conflict with default/dial/reason framing; actual law/biology/exceptions can be modeled without inventing a new absolutism or deleting the number.\n\nF5: Preserve distinct fixer brokerage/actualcut and traceability, streetdoc parts/diagnosis/willingpatients/upkeep, netrunner actualaccess/time/bodyrisk, employeehousing/contract and nomad actualconvoy/route/vehicle loop. Thin nomadmechanics/source-level uncertainty remain explicit. Broker/reputation/ID/vehicle/memorymedia/remoteplace/genericmaking support need current producer/state/consumer checks before missing-system claims. No generalpublickarma, globalpoliceheat, magicalmedicalcertificate, obligatoryrentfor everylife, automaticgangretaliation, shortcampaign or forcedheir/sleeve continuation is adopted. Current PROJECTKlein/HPand Frontier/Mistglasshold govern. ActualAD50does not dispatch a world; sourcefacts and proposedadaptation exits remain separate. No current sourcecode/body/rulebookread, externalfetch, acquisition, worker, game/runtime/save/test/build/browser, deletion/move, commit/push occurs.",
+      "before_sha256": "063f5d26f5397c90738e85aaf5a7a2cafc31f7c28a9e8458e75247ff67500a25",
+      "after_sha256": "8c75978cdb8faead7b42ba27b365648d5cc59fdd2bb37e2dc67c4c0f78730d40"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "heading": "## Content reconciliation B620: cyberpunk lives and AD50 scope",
+      "body": "B620fully reads the [cyberpunk world scout](research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md), all37CWpalette rows,15inferredengine gaps,12source rows and fivecandidate lives. Preserve the different economic/body/identity/net/role loops without turning secondary rule snippets or uninspected engine guesses into verified mechanics or a new implementation queue. Capacity, Humanity/Empathy, Essence/magic potential, installation cost and rejection support are different quantities; a camera has actual observation limits and a net can extend existing site/clock machinery.\n\nLater [user direction](USER_VISION.md#run-ending-threats-a-capable-character-can-use-2026-11-03) adopted the general threat-as-lever rule as AD50. That supersedes the scout’s earlier no-user-entry/proposal-only status for this idea; its particular37mechanisms, new cyberpunkworld and fivecareer defaults remain proposals. Means-based exits are a floor, not a list or guaranteed rescue, and successful exploitation need not acquire an invented balancing tax. Source rules about takeover/death/pursuit do not prove that those games provide the scout’s proposed exits or continuation. Wrongbelief, actual control loss, lawful identity, wealth and bodily continuity have separate consumers.\n\nKeep edition/patch/franchise differences, exact source-local clock/lifespan/number where supported, sourceplayerexceptions and unresolved rulebook/therapy/price/net/nomad gaps. Current PROJECTsets buildorder. No fresh source/PDF/webfetch, engine audit, acquisition or runtime operation occurred; this fold grants neither a selectedworld nor any code implementation.",
+      "before_sha256": "2478956ad67cc997a37862a4813e7d5deee208397795b424faeca4d88a9db136",
+      "after_sha256": "ce5a663a5ff9df8cd08136e32758cdf1140024eba92344515e4cf7dfde5b9270"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 65,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+      "from": "USER_VISION, WORLD_CARDS and IDEA_INDEX hold no cyberpunk entry, so this scout found no recorded Weibao direction on the world beyond that one variant line.",
+      "to": "At this scout’s initial scan, no cyberpunk entry was found in USER_VISION, WORLD_CARDS or IDEA_INDEX beyond that variant lead. Later USER_VISION’s run-ending-threat section records the followup direction and its AD50adoption; this does not select a cyberpunkworld.",
+      "reason": "Separate later user adoption, historical scan and proposed exits from actual source evidence."
+    },
+    {
+      "path": "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+      "from": "are source facts about announced, escapable pressure events.",
+      "to": "are secondary-reported source consequences; announcing pressure with usable exits is this scout’s proposed adaptation, not proof those sources supply every exit.",
+      "reason": "Separate later user adoption, historical scan and proposed exits from actual source evidence."
+    },
+    {
+      "path": "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+      "from": "Proposal only; rules context is RLEE10-RLEE13 in RELATIONSHIPS_AND_CANON_CONSIDERATIONS.",
+      "to": "The subsequent general threat-as-lever direction is accepted as AD50, with RLEE10–RLEE13as detail in RELATIONSHIPS_AND_CANON_CONSIDERATIONS; CW35–CW37specific adaptations remain proposals.",
+      "reason": "Separate later user adoption, historical scan and proposed exits from actual source evidence."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B619, continuous execution 2026-11-05 |",
+      "to": "| B620, continuous execution 2026-11-05 |",
+      "reason": "Advance current checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/CYBERPUNK_WORLD_SCOUT_2026-11-03.md",
+      "from": "8c75978cdb8faead7b42ba27b365648d5cc59fdd2bb37e2dc67c4c0f78730d40",
+      "to": "1ceb06e2924083bcfcf56aa43bb672c6e85b4d693d84277bf897c6b77d001ac2",
+      "reason": "Exact authority/evidence corrections."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "d76a1775468f1d3f156adc8c96fa011cfc5c24fd4d1edea68611fd0fbd60e5a7",
+      "to": "9abec234bd9bc69f773c8aea51dead2fa19d834079210dea86d0be39e4154053",
+      "reason": "B620pointer; no full register credit."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "bbed52466dc2b0b98c04a62cfc8b33d26c2281e4a56276dab0484dd6d223ba5c",
+      "ranges": [
+        [
+          7242,
+          7247
+        ]
+      ],
+      "scope": "Actual later user wording and recorded AD50adoption only."
+    },
+    {
+      "path": "docs/RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md",
+      "sha256": "1165dfc67cf613db9414def9e533bf1bcd680bc069f20552ff9245b40cfe17ba",
+      "ranges": [
+        [
+          828,
+          828
+        ]
+      ],
+      "scope": "Existing RLEEmeans/exit qualification."
+    },
+    {
+      "path": "docs/DOMAIN_RULES.md",
+      "sha256": "4465d40c978f6f3150704e9ff0f4340d77bef1a9c98659ce90c735af12b2a0f4",
+      "ranges": [
+        [
+          74,
+          74
+        ],
+        [
+          294,
+          298
+        ],
+        [
+          569,
+          569
+        ]
+      ],
+      "scope": "Selected medicine/debt/clarification rows."
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "ce5a663a5ff9df8cd08136e32758cdf1140024eba92344515e4cf7dfde5b9270",
+      "ranges": [
+        [
+          1622,
+          1636
+        ]
+      ],
+      "scope": "Existing tech-world variant only."
+    }
+  ]
+}

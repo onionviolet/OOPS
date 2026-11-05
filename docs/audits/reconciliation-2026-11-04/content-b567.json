@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "batch": "B567",
+  "title": "UI coverage and refactor plans: actual placements, historical execution and current rules",
+  "at": "2026-11-05T10:58:11.546970+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-coverage-2026-10-27/PLAN.md",
+      "ids": [
+        "M1–M18",
+        "K1–K8/PD1–PD5",
+        "B1–B5/T1–T4",
+        "UR76–UR82/UC-A/UC-L"
+      ],
+      "classification": "full historical UI plan review; placement ideas preserved and execution/evidence status qualified",
+      "owners": [
+        "docs/gm/dispatch/ui-coverage-2026-10-27/PLAN.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1: Actual full review covers all338 original lines, including M1–M18, K1–K8, PD1–PD5, B1–B5, T1–T4, the contract template, proposed UR76–UR82 and UC-A1–UC-A5/UC-L1–UC-L6. This dated plan proposes placement and useful projection shapes; it does not implement18 systems, seven tabs or any source/absence engine. Source headers and counts are attributed October27 observations, not a fresh census or current runtime proof.\n\nF2: Its opening/section8 awaiting-code wording predates current UI_RULES UR76–UR82, which remain proposed and in use as defaults under the October30 CHOICES record. That is neither unregistered nor blanket accepted standing rules. Current UR2/AD32 allows existing user direction to authorize an appropriate home; AD42 requires no separate human gate for an authorized slice. The18-row placement table and frozen20-route budget are historical proposals, not universal fit or new blockers. AD51 qualifies old mandatory-two-consumer prerequisites for shared software. Task-appropriate forms, world differences and later accepted prose-first direction govern selection.\n\nF3: Preserve choice, note, ledger, timeline, scene, list/inspector, chip and policy as a useful palette, not eight compulsory forms or a second settlement owner. A system's existence, attachment to a life and observer knowledge are distinct. Admission precedes counts, searches, folded +n labels, accessible text and other aggregate cues. Observer-safe names alone do not prove safe edges, hints or stock counts. Source provenance chips are optional author-facing overlays unless the character actually knows that information. Quiet cheat, mode/seat, unseen schedule and true relationship state cannot leak merely because the source row exists. Dev lenses can have separately authorized labelled scope and stay outside play; the player's overlay does not grant future facts.\n\nF4: M2/M3/M4/M7/M10/M14/M17 retain actual work clock, stop support, phase settlement, deliveries/obligations, absence policy, branch/carry and return owners. Note dismissal is not event settlement; arriving return text does not run unsupported offline work. A frozen world's wait message is valid only for that clock policy. Clearing a stopped job cannot blindly resume stale resources, and absence choices do not freeze unrelated causes. ACR1–ACR14 now qualify compressed orders/routines; a report shows actual work without promising wages, rent, a debt call-in or future availability. Closeness need not be one meter and source-specific lives need not all acquire a Village base shell.\n\nF5: Desktop1920/1800/1536 and actual14/21px proposals remain useful inspection cases. A1536 screenshot is not by itself proof of125% browser zoom, and nominal parent text21px is not proof all labels grew, as B565's gallery correction shows. Existing current UI rules choose target evidence; no mandatory all-size/state matrix follows from this old plan. A DOM truth-string test catches its fixture only, not every structural leak or pixel/readability/accessibility error. Contract registry and panel count checks are structure, not real suppliers, useful outputs or journeys. Historical four-state contracts, no-page-scroll checks and new screenshot scripts remain proposals unless their actual selected owners show delivery. No runtime, browser, image, source acquisition, persistence migration, worker, deletion, commit or push occurred.",
+      "evidence": "Actual full original content read, 1–338; current UR2/UR54/UR76–UR82 and full-UI reconciliation rows inspected. Linked source/runtime/screenshots not newly verified.",
+      "reopen": "Use current UI rules and current task owner for a selected supported slice; historical dispatch, promotion and release requests are not live instructions.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          338
+        ]
+      ],
+      "input_sha256": "0bae9fb5b8348c5fdb9f8dea64ecaebe319a5b49c0d80cb314ef89f6e380528d",
+      "input_lines": 338
+    },
+    {
+      "path": "docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md",
+      "ids": [
+        "R1–R5/MT-F1",
+        "L13/G14–G18",
+        "COV2–COV15/RC69",
+        "WS1–WS5 and gate history"
+      ],
+      "classification": "full historical UI plan review; placement ideas preserved and execution/evidence status qualified",
+      "owners": [
+        "docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1: Actual full review covers all156 original lines: R1–R5, representation queues, MT-F1, L13/G bridges, token and post-merge evidence, all COV/RC/WS rows and remaining status. Keep the timeline as history. Claimed integration commits, browser counts and tests are attributed receipts, not fresh current-source or installed-app verification. Old running sessions, frozen files, worktrees, merge order and weekly stop lines grant no current writer ownership, worker launch, budget, publication or app adoption.\n\nF2: R1's seat seam and migrated sites are a bounded read-model change, not global observer safety. R2 text/slots and R3 fixture figures differ from mounted native scenes; R5 adoption routine stops before swap and does not prove installation. The early MT-F1 walk defect has its own later restored-fix entry here, so it is not an untouched current blocker. Later8/8 proof-script reachability supersedes the early7/8 reached snapshot for that script set; it does not close every branch's native floor or wider gameplay. Keep encounter-card absence, talk interception, duplicate button, header date/weather and hint defects at their own dated status unless their later exact owners close them.\n\nF3: The initial4111/4116 with three reported failures and later4455/4476 numbers do not establish an all-green suite or explain every remaining status. Interrupted/full concurrency failures, mid-edit duplicate imports, rerun19/19 and one isolated6/6 are different checks on different inputs. Outside-file attribution/memory-pressure explanation is recorded inference, not proof every failure harmless. Focused62/62, build:figures and one fixture browser cannot substitute for the final integration gate. Historical nested slot wrapping is not today's npm-test command; current AGENTS/AD36 owns the limiter. Final full-suite and gallery-look lines separate technical proof from optional human feedback under AD42.\n\nF4: Keep L13/G14–G18 actual producer/bridge/consumer scopes: a pure adapter or gallery fixture does not establish registration, native mount, actual learn/knowledge feed or real era data. Facts guessed from dated sheets stay marked, and maps need actual route semantics rather than label-prefix inference. Token allowlist reduction, center width and circle-share measurements describe their precise snapshot, not usability or a universal shape rule. COV15's brewing-figure stand-in is not a learned-fact producer. Gallery-only paper skin, eight drafts and Luminous default are separate from a selected installed skin; current PROJECT/release owner governs later delivery.\n\nF5: WS1–WS5 retain the workshop catch-all finding, missing world identity, declared placement, actionable blocked reasons, actual counts and separated scene/status. The implemented panel-only allowlist explicitly does not close cross-panel placement; missing Your abilities/Elsewhere consumers remain named. Unknown or inadmissible actions must not leak through Not-yet counts. WS5's hover-only reasons are a dated proposal, not permission to hide an important current actionable reason from keyboard or visible UI under current UI_RULES. An absent source implementation is not a fictional learning lock. The old copied-doc paragraph script misfire is useful history, not a tool to rerun on shared code. No current source, bundle, route, installer, worker/message, commit, push or deletion was performed.",
+      "evidence": "Actual full original content read, 1–156; current UR2/UR54/UR76–UR82 and full-UI reconciliation rows inspected. Linked source/runtime/screenshots not newly verified.",
+      "reopen": "Use current UI rules and current task owner for a selected supported slice; historical dispatch, promotion and release requests are not live instructions.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          156
+        ]
+      ],
+      "input_sha256": "e71f362f5c93a1d0c576a25a7f495c7185aa33275257e93700c626da14045698",
+      "input_lines": 156
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-coverage-2026-10-27/PLAN.md",
+      "heading": "## Content reconciliation B567: coverage contracts and later rule status",
+      "body": "F1: Actual full review covers all338 original lines, including M1–M18, K1–K8, PD1–PD5, B1–B5, T1–T4, the contract template, proposed UR76–UR82 and UC-A1–UC-A5/UC-L1–UC-L6. This dated plan proposes placement and useful projection shapes; it does not implement18 systems, seven tabs or any source/absence engine. Source headers and counts are attributed October27 observations, not a fresh census or current runtime proof.\n\nF2: Its opening/section8 awaiting-code wording predates current UI_RULES UR76–UR82, which remain proposed and in use as defaults under the October30 CHOICES record. That is neither unregistered nor blanket accepted standing rules. Current UR2/AD32 allows existing user direction to authorize an appropriate home; AD42 requires no separate human gate for an authorized slice. The18-row placement table and frozen20-route budget are historical proposals, not universal fit or new blockers. AD51 qualifies old mandatory-two-consumer prerequisites for shared software. Task-appropriate forms, world differences and later accepted prose-first direction govern selection.\n\nF3: Preserve choice, note, ledger, timeline, scene, list/inspector, chip and policy as a useful palette, not eight compulsory forms or a second settlement owner. A system's existence, attachment to a life and observer knowledge are distinct. Admission precedes counts, searches, folded +n labels, accessible text and other aggregate cues. Observer-safe names alone do not prove safe edges, hints or stock counts. Source provenance chips are optional author-facing overlays unless the character actually knows that information. Quiet cheat, mode/seat, unseen schedule and true relationship state cannot leak merely because the source row exists. Dev lenses can have separately authorized labelled scope and stay outside play; the player's overlay does not grant future facts.\n\nF4: M2/M3/M4/M7/M10/M14/M17 retain actual work clock, stop support, phase settlement, deliveries/obligations, absence policy, branch/carry and return owners. Note dismissal is not event settlement; arriving return text does not run unsupported offline work. A frozen world's wait message is valid only for that clock policy. Clearing a stopped job cannot blindly resume stale resources, and absence choices do not freeze unrelated causes. ACR1–ACR14 now qualify compressed orders/routines; a report shows actual work without promising wages, rent, a debt call-in or future availability. Closeness need not be one meter and source-specific lives need not all acquire a Village base shell.\n\nF5: Desktop1920/1800/1536 and actual14/21px proposals remain useful inspection cases. A1536 screenshot is not by itself proof of125% browser zoom, and nominal parent text21px is not proof all labels grew, as B565's gallery correction shows. Existing current UI rules choose target evidence; no mandatory all-size/state matrix follows from this old plan. A DOM truth-string test catches its fixture only, not every structural leak or pixel/readability/accessibility error. Contract registry and panel count checks are structure, not real suppliers, useful outputs or journeys. Historical four-state contracts, no-page-scroll checks and new screenshot scripts remain proposals unless their actual selected owners show delivery. No runtime, browser, image, source acquisition, persistence migration, worker, deletion, commit or push occurred.",
+      "before_sha256": "0bae9fb5b8348c5fdb9f8dea64ecaebe319a5b49c0d80cb314ef89f6e380528d",
+      "after_sha256": "73f3d3646756ac7c58872c07f59be33ed9e7d3e1e2e8ad888ce6530eea50bdf6"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md",
+      "heading": "## Content reconciliation B567: refactor history and proof limits",
+      "body": "F1: Actual full review covers all156 original lines: R1–R5, representation queues, MT-F1, L13/G bridges, token and post-merge evidence, all COV/RC/WS rows and remaining status. Keep the timeline as history. Claimed integration commits, browser counts and tests are attributed receipts, not fresh current-source or installed-app verification. Old running sessions, frozen files, worktrees, merge order and weekly stop lines grant no current writer ownership, worker launch, budget, publication or app adoption.\n\nF2: R1's seat seam and migrated sites are a bounded read-model change, not global observer safety. R2 text/slots and R3 fixture figures differ from mounted native scenes; R5 adoption routine stops before swap and does not prove installation. The early MT-F1 walk defect has its own later restored-fix entry here, so it is not an untouched current blocker. Later8/8 proof-script reachability supersedes the early7/8 reached snapshot for that script set; it does not close every branch's native floor or wider gameplay. Keep encounter-card absence, talk interception, duplicate button, header date/weather and hint defects at their own dated status unless their later exact owners close them.\n\nF3: The initial4111/4116 with three reported failures and later4455/4476 numbers do not establish an all-green suite or explain every remaining status. Interrupted/full concurrency failures, mid-edit duplicate imports, rerun19/19 and one isolated6/6 are different checks on different inputs. Outside-file attribution/memory-pressure explanation is recorded inference, not proof every failure harmless. Focused62/62, build:figures and one fixture browser cannot substitute for the final integration gate. Historical nested slot wrapping is not today's npm-test command; current AGENTS/AD36 owns the limiter. Final full-suite and gallery-look lines separate technical proof from optional human feedback under AD42.\n\nF4: Keep L13/G14–G18 actual producer/bridge/consumer scopes: a pure adapter or gallery fixture does not establish registration, native mount, actual learn/knowledge feed or real era data. Facts guessed from dated sheets stay marked, and maps need actual route semantics rather than label-prefix inference. Token allowlist reduction, center width and circle-share measurements describe their precise snapshot, not usability or a universal shape rule. COV15's brewing-figure stand-in is not a learned-fact producer. Gallery-only paper skin, eight drafts and Luminous default are separate from a selected installed skin; current PROJECT/release owner governs later delivery.\n\nF5: WS1–WS5 retain the workshop catch-all finding, missing world identity, declared placement, actionable blocked reasons, actual counts and separated scene/status. The implemented panel-only allowlist explicitly does not close cross-panel placement; missing Your abilities/Elsewhere consumers remain named. Unknown or inadmissible actions must not leak through Not-yet counts. WS5's hover-only reasons are a dated proposal, not permission to hide an important current actionable reason from keyboard or visible UI under current UI_RULES. An absent source implementation is not a fictional learning lock. The old copied-doc paragraph script misfire is useful history, not a tool to rerun on shared code. No current source, bundle, route, installer, worker/message, commit, push or deletion was performed.",
+      "before_sha256": "e71f362f5c93a1d0c576a25a7f495c7185aa33275257e93700c626da14045698",
+      "after_sha256": "24627334fb82059884579518ac48ac318c29479eca3ab2efbee60902ab049317"
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## Coverage and refactor plan reconciliation B567",
+      "body": "The actual full [October27 coverage-plan review](gm/dispatch/ui-coverage-2026-10-27/PLAN.md#content-reconciliation-b567-coverage-contracts-and-later-rule-status) and [October29 refactor-plan review](gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md#content-reconciliation-b567-refactor-history-and-proof-limits) preserve M1–M18/K1–K8/PD1–PD5/T1–T4 and R1–R5/MT-F1/L13/G/COV/WS findings. Their early awaiting-UR76–UR82 labels predate this owner's proposed/in-use status; existing direction can already authorize a supported home under UR2/AD32, without a separate human gate under AD42. ACR1–ACR14 now own compressed routines/absence consequences. Historical route/tab counts and two-consumer requirements do not override current AD51 or task-specific forms.\n\nKeep real work/clock/settlement suppliers behind notes, return reports and ledgers; note dismissal does not settle a job and a frozen-world message does not enable offline simulation. Admit observer-safe rows before counting/filtering/accessible labels; a safe name renderer or one truth-string fixture is insufficient to prove every hint, edge and aggregate safe. Actual21px labels, fresh browser zoom and native mount need their own evidence; parent font settings, viewport arithmetic and gallery fixtures do not supply it. A pure bridge is not its reachable consumer. Preserve separate snapshot-specific focused tests, interrupted suites, subsequent narrow reruns and optional taste feedback rather than flattening them to pass/fail of today's UI. WS's panel-only allowlist, missing cross-panel homes and proposed hover-only blocker treatment retain their scope. No new UI rule, accepted code, runtime fix, current visual claim, worker or release action follows from these folds.",
+      "before_sha256": "bb799931dec4475fa5724ba40b7c718f38f44ce5e720430ed49071b226324805",
+      "after_sha256": "ed5cb48b191d614e8920277052e740714c2aedebaa5b04c71dcb593a4a88d894"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 155,
+  "post_record_amendments": [
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "No new UI rule, accepted code, runtime fix, current visual claim, worker or release action follows from these folds.",
+      "to": "These folds change no rule code or runtime and establish no current visual, worker or release state.",
+      "reason": "Clarify no-action/evidence statement after own line603 triggered acceptance-claim lint; no authority change."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "ed5cb48b191d614e8920277052e740714c2aedebaa5b04c71dcb593a4a88d894",
+      "to": "cff58807ea1e642a3461004809f0d1da49bac0694757ea16529d197d064ca7ac",
+      "reason": "Exact new-fold wording correction; retained initial failed docs output."
+    }
+  ]
+}

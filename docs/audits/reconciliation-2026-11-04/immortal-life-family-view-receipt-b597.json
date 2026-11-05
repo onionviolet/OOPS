@@ -1,0 +1,13 @@
+{
+  "source": "docs/research/immortal-life/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "91be19284bc0ea3e54f3e02ec316502283eceb4ee5818fbed05c2431e137b6ec",
+  "source_lines": 16138,
+  "view": "docs/audits/reconciliation-2026-11-04/immortal-life-family-lossless-view-b597.json",
+  "view_sha256": "81afb423ccc5a0d92e0c6fe6de6633528933364c7506f8d4bddc091cdf5f172e",
+  "roundtrip_equal": true,
+  "tables": 296,
+  "services": 203,
+  "family_blocks": 22,
+  "deep_systems": 15,
+  "scope": "Every header/deep/family/gap field and all 499 inventory rows read in six bounded outputs using explicit tuple schemas and verified exact source/id templates. Reconstruction checks representation, not source behavior."
+}

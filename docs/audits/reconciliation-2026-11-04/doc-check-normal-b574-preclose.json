@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md:477: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/gm/dispatch/village-loop-2026-10-27/GM_PLAN.md:447: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/gm/feature-wave/repositories/WORKPLAN.md:132: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "scope": "Current documentation/registered-owner checks after B569\u2013B574; no runtime proof."
+}

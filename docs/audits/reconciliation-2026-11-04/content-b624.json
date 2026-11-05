@@ -1,0 +1,340 @@
+{
+  "schema": 1,
+  "batch": "B624",
+  "title": "Factorio three maps: stable/experimental/native history and retort consumer chronology",
+  "at": "2026-11-05T14:04:30.589776+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/factorio/COVERAGE.json",
+      "ids": [
+        "FAC-01",
+        "FAC-02",
+        "FAC-03",
+        "FAC-04",
+        "FAC-05",
+        "FAC-06",
+        "FAC-07",
+        "FAC-08",
+        "FAC-09",
+        "FAC-10",
+        "FAC-11",
+        "FAC-12",
+        "FAC-13",
+        "FAC-14",
+        "173source/APIobjects",
+        "native followup"
+      ],
+      "classification": "full finite coverage map with versioned native followup; source/contract/proposal separation",
+      "owners": [
+        "docs/research/factorio/REPORT.md",
+        "docs/research/factorio/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Complete3050-line current COVERAGE.jsonactualcontent review uses reversiblefactoring:14completepathobjects,173distinctcomplete source/APIevidenceobjects, all root/check/install/nativefollowupfields,92repeatedstrings and7exactpathprefixes. Everydictionaryvalue,reference,property,range,hash,version,qualifier and explicitlimit was actuallyread in bounded outputs. Encode/decode equality proves no omitted values but does not by itself establish semantics. OriginalsJSONunchanged. Preservation51publicfiles/inventory327/1877installedtextfiles/25selectedinstalledfiles/14paths measure differentthings; not wholefile, wholeAPI, fullDLC or originalsource-semanticcompletion.\n\nF2: FAC01definition/runtime/migration/on_load/tick/time are distinct. FAC02actual materials/recipe/science/labtypedinputs/researchtrigger work differ. FAC03craftingstatus/progress/finishedproduct/outputspace/belttransport differ; FAC04energyreserve/flow/hotfluid/heat/powerconversion/emissionconsumer/nativeAI differ. FAC05logisticsrequest/targetedincoming/ownedstock/actualadmission and fullscheduleinterrupts vs simplifiedtables cannot conjure stock; native dispatch/path remains separately scoped. Contracts/sourcefield witnesses are historicalnotfresh nativebodyproof.\n\nF3: FAC06selectedqualityfunction/itemidentity/fluidexceptions: stable2.0.77has next_probability0.1and lacks experimentaltrainmultiplier/chain_probabilityfields; do not importrollingstockbenefits. FAC07stablequality/prototypesreversegeneration excludesmanycategories/namedrecipes, usesoriginalenergy_required/16without experimentalresultcountdivisor/floor, and exposesfractionalcounts without reconstructingnativehandling. FAC08stablealwaysfresh/resetfieldsareRecipePrototype, not perproduct; no stable spoil_weight/quality_affects_spoil_tickscontract. Eggexpiry/spatialexceptions matter; exactnativefreshnessaggregation/stackmerge remain historicallyunread in thisfinitepass, while subsequentnativeboundedreading has its own scope.\n\nF4: FAC09weakhalf-spoilednutrientrestart has singular organic-or-assemblingcategory vs experimentallist; richerfeed/nutrientburner/tower/spores/sciencetrigger remainactualselecteddependencies. FAC10moltenmetal/coproduct/foundry/lightning/regionalresourceorder differs from oretiers/fullmapecology. FAC11Aquilothermalflag/ongoingheat/importedholmium/fusioncoldcoolant→plasma→hotcoolant ports do notprove fullrecoveryloop/nativefreezethreshold. FAC12stableplatformdestructionattickend doesnotexposeexperimentaldie/destroyexception; draguseswidth not experimentalweight, no stablecoredefault_rocket_lift_weightclaim. Platform/cargo/fuel/weight/schedule/returnnativejourneys remain separatelyunproved.\n\nF5: FAC13stableper-productprobability/expectedvaluetooltip doesnotexpose experimentalsharedintervals or proveindependentnativecorrelations; experimental0.40nomatch is not installedbehavior. FAC14ramp/supportrange9/11/material/research/planner differ from universal16tileplacement; path/signal/terrainnativealgorithmremainsoutsidefinitepass. Keep all original useful regional/material/function/receiver/discovery/custody/expiry/heat lessons; no globalqualitytier/salvagepercent/chancemodel/mandatoryspoilingworld is adopted.\n\nF6: current_native_followup is a later October7historicalcheckpoint, not live worker/process proof. Its ARMinitial183199/183186C/13failures→guarded183188C/11failures/Heat1857, Intel182398/182329C/69failures, scalarrepair/ABI/type/CFG/globalownership/provenanceopenitems are differentfromfullsemantic/recompilableC++/enabledDLC. NativeREPORT’s laterreconciliationalreadydates old runningexporttable; do not restart historicalPID/session or obsoleteowner. Fourretortleaves/historicale77080593d4bsource-mapmatchare reportedlaterdelivery, not currentcombinedbuildorbehaviorproof. Thismapread doesnotreread generatedbodies/assembly, verifyliveinstall/repairprocess or requalify allnativeclaims.\n\nF7: FAC-P01retort’s proposal-only/notimplemented statement is superseded by the laterbounded source/native/UIreceipt. Preserve originalproposal and point to native/REPORTandusagecheckpoint with implemented-unverified/behavior/save/failure limits; currentfoundations/overlapneedrereadingbeforeclaiminggap. P02functionaltool/salvage/P03volatilelot/P04supplierroute/P05contextualmethod remainoriginalproposals unless laterowner records selection. No experimentalpolicy leaks into2.0.77or renewed sourceacquisition/reading. CurrentPROJECTKlein/HPno-newFrontierdepthandAD36/AD42/AD43governlaterwork; no mandatoryhumanacceptancegate invented. No sourcecode/nativebody/game/account/saveaccess,newrecoveryworker/build/test/browser,acquisition,deletion/move,commit/push.",
+      "evidence": "Allroot/14paths/173uniquecompleteevidenceobjects/92strings/7prefixes actuallyread; reversible decoder equality checked; no originalsourcebody/nativeprocess/runtime claim.",
+      "reopen": "For selectedsource/native/usework consult current owners and exactmissingABI/provenance/consumerquestion, not historical workerIDs or exportedcounts.",
+      "full": true,
+      "input_sha256": "078dbee233dc13d52962fa690188ab84071e832ec8b16856eac20502b47fb891",
+      "input_lines": 3050,
+      "ranges": [
+        [
+          1,
+          3050
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/research/factorio/COVERAGE.json",
+      "ids": [
+        "FAC-01",
+        "FAC-02",
+        "FAC-03",
+        "FAC-04",
+        "FAC-05",
+        "FAC-06",
+        "FAC-07",
+        "FAC-08",
+        "FAC-09",
+        "FAC-10",
+        "FAC-11",
+        "FAC-12",
+        "FAC-13",
+        "FAC-14",
+        "archived native followup"
+      ],
+      "classification": "full archived map reconstructed from freshly read identical semantic base plus complete reviewed differences",
+      "owners": [
+        "docs/research/factorio/REPORT.md",
+        "docs/research/factorio/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Complete3050-line current COVERAGE.jsonactualcontent review uses reversiblefactoring:14completepathobjects,173distinctcomplete source/APIevidenceobjects, all root/check/install/nativefollowupfields,92repeatedstrings and7exactpathprefixes. Everydictionaryvalue,reference,property,range,hash,version,qualifier and explicitlimit was actuallyread in bounded outputs. Encode/decode equality proves no omitted values but does not by itself establish semantics. OriginalsJSONunchanged. Preservation51publicfiles/inventory327/1877installedtextfiles/25selectedinstalledfiles/14paths measure differentthings; not wholefile, wholeAPI, fullDLC or originalsource-semanticcompletion.\n\nF2: FAC01definition/runtime/migration/on_load/tick/time are distinct. FAC02actual materials/recipe/science/labtypedinputs/researchtrigger work differ. FAC03craftingstatus/progress/finishedproduct/outputspace/belttransport differ; FAC04energyreserve/flow/hotfluid/heat/powerconversion/emissionconsumer/nativeAI differ. FAC05logisticsrequest/targetedincoming/ownedstock/actualadmission and fullscheduleinterrupts vs simplifiedtables cannot conjure stock; native dispatch/path remains separately scoped. Contracts/sourcefield witnesses are historicalnotfresh nativebodyproof.\n\nF3: FAC06selectedqualityfunction/itemidentity/fluidexceptions: stable2.0.77has next_probability0.1and lacks experimentaltrainmultiplier/chain_probabilityfields; do not importrollingstockbenefits. FAC07stablequality/prototypesreversegeneration excludesmanycategories/namedrecipes, usesoriginalenergy_required/16without experimentalresultcountdivisor/floor, and exposesfractionalcounts without reconstructingnativehandling. FAC08stablealwaysfresh/resetfieldsareRecipePrototype, not perproduct; no stable spoil_weight/quality_affects_spoil_tickscontract. Eggexpiry/spatialexceptions matter; exactnativefreshnessaggregation/stackmerge remain historicallyunread in thisfinitepass, while subsequentnativeboundedreading has its own scope.\n\nF4: FAC09weakhalf-spoilednutrientrestart has singular organic-or-assemblingcategory vs experimentallist; richerfeed/nutrientburner/tower/spores/sciencetrigger remainactualselecteddependencies. FAC10moltenmetal/coproduct/foundry/lightning/regionalresourceorder differs from oretiers/fullmapecology. FAC11Aquilothermalflag/ongoingheat/importedholmium/fusioncoldcoolant→plasma→hotcoolant ports do notprove fullrecoveryloop/nativefreezethreshold. FAC12stableplatformdestructionattickend doesnotexposeexperimentaldie/destroyexception; draguseswidth not experimentalweight, no stablecoredefault_rocket_lift_weightclaim. Platform/cargo/fuel/weight/schedule/returnnativejourneys remain separatelyunproved.\n\nF5: FAC13stableper-productprobability/expectedvaluetooltip doesnotexpose experimentalsharedintervals or proveindependentnativecorrelations; experimental0.40nomatch is not installedbehavior. FAC14ramp/supportrange9/11/material/research/planner differ from universal16tileplacement; path/signal/terrainnativealgorithmremainsoutsidefinitepass. Keep all original useful regional/material/function/receiver/discovery/custody/expiry/heat lessons; no globalqualitytier/salvagepercent/chancemodel/mandatoryspoilingworld is adopted.\n\nF6: current_native_followup is a later October7historicalcheckpoint, not live worker/process proof. Its ARMinitial183199/183186C/13failures→guarded183188C/11failures/Heat1857, Intel182398/182329C/69failures, scalarrepair/ABI/type/CFG/globalownership/provenanceopenitems are differentfromfullsemantic/recompilableC++/enabledDLC. NativeREPORT’s laterreconciliationalreadydates old runningexporttable; do not restart historicalPID/session or obsoleteowner. Fourretortleaves/historicale77080593d4bsource-mapmatchare reportedlaterdelivery, not currentcombinedbuildorbehaviorproof. Thismapread doesnotreread generatedbodies/assembly, verifyliveinstall/repairprocess or requalify allnativeclaims.\n\nF7: FAC-P01retort’s proposal-only/notimplemented statement is superseded by the laterbounded source/native/UIreceipt. Preserve originalproposal and point to native/REPORTandusagecheckpoint with implemented-unverified/behavior/save/failure limits; currentfoundations/overlapneedrereadingbeforeclaiminggap. P02functionaltool/salvage/P03volatilelot/P04supplierroute/P05contextualmethod remainoriginalproposals unless laterowner records selection. No experimentalpolicy leaks into2.0.77or renewed sourceacquisition/reading. CurrentPROJECTKlein/HPno-newFrontierdepthandAD36/AD42/AD43governlaterwork; no mandatoryhumanacceptancegate invented. No sourcecode/nativebody/game/account/saveaccess,newrecoveryworker/build/test/browser,acquisition,deletion/move,commit/push.\n\nArchive-specific disposition: All14path/source/APIobjects equal the freshly read canonical map. Complete field delta read and retained in this ledger; original progress/worker/date/gate differences remain historical. [[\"/current_native_followup/ARM_root_acquired\", \"Initial183,199/183,186C/13failures through1850; canonical flow/Heat delta through1857 acquired183,188C/11failures. Selected Heat physical storage views retain exact original bodies; unknown declaration/return/caller limits remain.\", \"183,199 unique functions / 183,186 latest C successes / 13 failures; all 178,879 callable candidates attempted; exact body/C/chunk/instruction bytes verified; 1,105 scalar-affected methods use qualified repair.\"], [\"/current_native_followup/Intel_state\", \"Initial stream closed through1824: 182,398 unique functions / 182,329 C successes / 69 failures. Current compressed corpus/input/inventory/candidate projection matches the durable full byte/C/ASM audit; final repair acquisition remains pending.\", \"Saved/reopened 182,398 functions / 9,869,783 instructions / 178,145 callables. Healthy full C/ASM export 41973 / PID46960 reports 168,900 closed rows, 168,835 C successes and 65 failures at 2026-10-07T14:04:07.321309Z; final corpus acquisition pending.\"], [\"/current_native_followup/crossarch_reader\", \"/root/factorio_crossarch_reader: new reader folder/private work only, no native process; packet acquisition pending.\", \"<absent>\"], [\"/current_native_followup/native_assignment\", \"native/ASSIGNMENT.md\", \"<absent>\"], [\"/current_native_followup/original_use\", \"Four exact retort leaves match live/current map and retained historical e77080593d4b build; implemented-unverified, behavior acceptance deferred. Independent shared tree changes are not a current matching combined build.\", \"Retort source/native/UI is acquired in e77080593d4b / 370-source build, implemented-unverified; gameplay/save/failure/browser/director checks deferred.\"], [\"/current_native_followup/required_gates\", \"Coherent hash/merge; Intel section; measured resource retries; exact global ownership; compact resume ledger and cross-architecture claim packet; final repaired corpus/provenance reconciliation.\", \"Full Intel stream, known Splitter/Inserter case closure, selected Heat physical ABI, faithful failure diagnosis/repair, instruction ownership and final immutable corpus/provenance/coverage audit.\"], [\"/current_native_followup/root_acceptance_writer\", \"/root/factorio_recovery_review\", \"/root/factorio_acceptance\"], [\"/current_native_followup/semantic_limit\", \"Whole machine attempts are distinct from complete semantic, CFG/type/ABI, enabled DLC or original buildable C++ recovery.\", \"Whole machine function attempts and retained files are not whole-source semantic reading, complete CFG/type/ABI proof or enabled DLC/entitlement coverage.\"], [\"/current_native_followup/sole_native_writer\", \"/root/factorio_native_continuation\", \"/root/factorio_native_finish3\"], [\"/current_native_followup/state\", \"Unfinished subsequent full both-architecture recovery/review and original use resumed; historical finite Lua/API snapshot remains separate.\", \"Active subsequent full both-architecture recovery and original use; historical finite Lua/API snapshot remains separate.\"], [\"/routing_updated_utc\", \"2026-10-07T18:41:06.434753+00:00\", \"2026-10-07T14:04:14.806358+00:00\"]]",
+      "evidence": "Freshly read entire canonicalbaseplus every archive replacement/absence; structural equality of path values confirms none omitted, not metadata-only routing or independent external-source reading.",
+      "reopen": "Keep this resume-history copy frozen; use incumbent native/usageowners for any authorized currentwork. No oldworker/processrestart.",
+      "full": true,
+      "read_mode": "lossless_fresh_shared_base_plus_complete_reviewed_archive_delta",
+      "input_sha256": "3d7b0007602a80650ab3747799e07784a1d55a4a3cc03173596b9b0d53e6d87b",
+      "input_lines": 3048,
+      "ranges": [
+        [
+          1,
+          3048
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/COVERAGE.json",
+      "ids": [
+        "FAC-01",
+        "FAC-02",
+        "FAC-03",
+        "FAC-04",
+        "FAC-05",
+        "FAC-06",
+        "FAC-07",
+        "FAC-08",
+        "FAC-09",
+        "FAC-10",
+        "FAC-11",
+        "FAC-12",
+        "FAC-13",
+        "FAC-14",
+        "archived native followup"
+      ],
+      "classification": "full archived map reconstructed from freshly read identical semantic base plus complete reviewed differences",
+      "owners": [
+        "docs/research/factorio/REPORT.md",
+        "docs/research/factorio/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Complete3050-line current COVERAGE.jsonactualcontent review uses reversiblefactoring:14completepathobjects,173distinctcomplete source/APIevidenceobjects, all root/check/install/nativefollowupfields,92repeatedstrings and7exactpathprefixes. Everydictionaryvalue,reference,property,range,hash,version,qualifier and explicitlimit was actuallyread in bounded outputs. Encode/decode equality proves no omitted values but does not by itself establish semantics. OriginalsJSONunchanged. Preservation51publicfiles/inventory327/1877installedtextfiles/25selectedinstalledfiles/14paths measure differentthings; not wholefile, wholeAPI, fullDLC or originalsource-semanticcompletion.\n\nF2: FAC01definition/runtime/migration/on_load/tick/time are distinct. FAC02actual materials/recipe/science/labtypedinputs/researchtrigger work differ. FAC03craftingstatus/progress/finishedproduct/outputspace/belttransport differ; FAC04energyreserve/flow/hotfluid/heat/powerconversion/emissionconsumer/nativeAI differ. FAC05logisticsrequest/targetedincoming/ownedstock/actualadmission and fullscheduleinterrupts vs simplifiedtables cannot conjure stock; native dispatch/path remains separately scoped. Contracts/sourcefield witnesses are historicalnotfresh nativebodyproof.\n\nF3: FAC06selectedqualityfunction/itemidentity/fluidexceptions: stable2.0.77has next_probability0.1and lacks experimentaltrainmultiplier/chain_probabilityfields; do not importrollingstockbenefits. FAC07stablequality/prototypesreversegeneration excludesmanycategories/namedrecipes, usesoriginalenergy_required/16without experimentalresultcountdivisor/floor, and exposesfractionalcounts without reconstructingnativehandling. FAC08stablealwaysfresh/resetfieldsareRecipePrototype, not perproduct; no stable spoil_weight/quality_affects_spoil_tickscontract. Eggexpiry/spatialexceptions matter; exactnativefreshnessaggregation/stackmerge remain historicallyunread in thisfinitepass, while subsequentnativeboundedreading has its own scope.\n\nF4: FAC09weakhalf-spoilednutrientrestart has singular organic-or-assemblingcategory vs experimentallist; richerfeed/nutrientburner/tower/spores/sciencetrigger remainactualselecteddependencies. FAC10moltenmetal/coproduct/foundry/lightning/regionalresourceorder differs from oretiers/fullmapecology. FAC11Aquilothermalflag/ongoingheat/importedholmium/fusioncoldcoolant→plasma→hotcoolant ports do notprove fullrecoveryloop/nativefreezethreshold. FAC12stableplatformdestructionattickend doesnotexposeexperimentaldie/destroyexception; draguseswidth not experimentalweight, no stablecoredefault_rocket_lift_weightclaim. Platform/cargo/fuel/weight/schedule/returnnativejourneys remain separatelyunproved.\n\nF5: FAC13stableper-productprobability/expectedvaluetooltip doesnotexpose experimentalsharedintervals or proveindependentnativecorrelations; experimental0.40nomatch is not installedbehavior. FAC14ramp/supportrange9/11/material/research/planner differ from universal16tileplacement; path/signal/terrainnativealgorithmremainsoutsidefinitepass. Keep all original useful regional/material/function/receiver/discovery/custody/expiry/heat lessons; no globalqualitytier/salvagepercent/chancemodel/mandatoryspoilingworld is adopted.\n\nF6: current_native_followup is a later October7historicalcheckpoint, not live worker/process proof. Its ARMinitial183199/183186C/13failures→guarded183188C/11failures/Heat1857, Intel182398/182329C/69failures, scalarrepair/ABI/type/CFG/globalownership/provenanceopenitems are differentfromfullsemantic/recompilableC++/enabledDLC. NativeREPORT’s laterreconciliationalreadydates old runningexporttable; do not restart historicalPID/session or obsoleteowner. Fourretortleaves/historicale77080593d4bsource-mapmatchare reportedlaterdelivery, not currentcombinedbuildorbehaviorproof. Thismapread doesnotreread generatedbodies/assembly, verifyliveinstall/repairprocess or requalify allnativeclaims.\n\nF7: FAC-P01retort’s proposal-only/notimplemented statement is superseded by the laterbounded source/native/UIreceipt. Preserve originalproposal and point to native/REPORTandusagecheckpoint with implemented-unverified/behavior/save/failure limits; currentfoundations/overlapneedrereadingbeforeclaiminggap. P02functionaltool/salvage/P03volatilelot/P04supplierroute/P05contextualmethod remainoriginalproposals unless laterowner records selection. No experimentalpolicy leaks into2.0.77or renewed sourceacquisition/reading. CurrentPROJECTKlein/HPno-newFrontierdepthandAD36/AD42/AD43governlaterwork; no mandatoryhumanacceptancegate invented. No sourcecode/nativebody/game/account/saveaccess,newrecoveryworker/build/test/browser,acquisition,deletion/move,commit/push.\n\nArchive-specific disposition: All14path/source/APIobjects equal the freshly read canonical map. Complete field delta read and retained in this ledger; original progress/worker/date/gate differences remain historical. [[\"/current_native_followup/ARM_root_acquired\", \"Initial183,199/183,186C/13failures through1850; canonical flow/Heat delta through1857 acquired183,188C/11failures. Selected Heat physical storage views retain exact original bodies; unknown declaration/return/caller limits remain.\", \"Initial183,199 unique/183,186C/13failures through1850; canonical delta through1853 acquired183,188C/11failures, with two repaired Splitters and six Inserter case closure. Full final audit remains open.\"], [\"/current_native_followup/crossarch_reader\", \"/root/factorio_crossarch_reader: new reader folder/private work only, no native process; packet acquisition pending.\", \"<absent>\"], [\"/current_native_followup/required_gates\", \"Coherent hash/merge; Intel section; measured resource retries; exact global ownership; compact resume ledger and cross-architecture claim packet; final repaired corpus/provenance reconciliation.\", \"Coherent hash/merge and selected Heat ABI repairs; Intel unwind edge; measured capacity retries; exact instruction ownership and final repaired corpus/provenance/reader reconciliation.\"], [\"/routing_updated_utc\", \"2026-10-07T18:41:06.434753+00:00\", \"2026-10-07T18:14:06.932521+00:00\"]]",
+      "evidence": "Freshly read entire canonicalbaseplus every archive replacement/absence; structural equality of path values confirms none omitted, not metadata-only routing or independent external-source reading.",
+      "reopen": "Keep this resume-history copy frozen; use incumbent native/usageowners for any authorized currentwork. No oldworker/processrestart.",
+      "full": true,
+      "read_mode": "lossless_fresh_shared_base_plus_complete_reviewed_archive_delta",
+      "input_sha256": "0ee695c6453f0ba76d134067097e790932011c26c5cb0e8b83d55729763457e4",
+      "input_lines": 3049,
+      "ranges": [
+        [
+          1,
+          3049
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "heading": "## Coverage-map and archive content reconciliation B624",
+      "body": "B624reviews every field of [COVERAGE.json](COVERAGE.json),14fullpathobjects and173uniquecompleteevidencerecords through a losslessprojection, with all92sharedstrings/sevenprefixes read and decoding equality checked. Allroot/version/check/nativefollowupfields were read too. Original JSONand two archivedresumecopies remain unchanged. Botharchiveshave identical14path/evidencecontent; their complete11daemon/fourHeatfielddeltas were read against thissamefullbase, preserving differentprogress/ownership/gates/date without treatingworkerIDsaslive.\n\nKeep stable2.0.77and experimental2.1.21separate: per-functionquality/fluidexceptions, stable0.1nextprobability/no trainbonuses; reverseeligibilityandenergy_required/16; recipe-levelfreshness/no stableingredientspoil_weight; singularnutrientbootstrapcategory; platformwidthdrag/destructioncontract; productprobabilitywithoutsharedinterval/nativecorrelationproof; ramp/supportrange9/11notuniversal16. Sourcefield/APIcontracts do not execute native solvers, sourcecensus, liveDLCorwholegame. Actualreceivers/fuel/material/site/clock/identity/expiry/custody carry useful behavior.\n\nThe October7nativefollowuprecords laterrecovery/Heat/ABI/Intel/provenance work; it neither erases the finiteLua/APIpass nor certifies wholeC++semantics. Earlierno-native-read limits apply to thatfirstpass. Subsequentretortsource/native/UIdelivery supersedes P01’s originalnotimplementedlabel; historicale77080593d4binputmatch is not currentcombinedbuild or passingnativejourney/save/failureproof. Existing native/usage owners retain the exactlimits. Otherfourpackets remain proposals with currentoverlapchecks needed. AD36/AD43andAD42optionalreview/currentPROJECTgovernselectedwork, no newrecoveryworker or Frontierexpansion occurs.",
+      "before_sha256": "0aa3a5ad7cdd54fb2566e4aaf2cb66f2b4d3f6a11c43d66cb87d2e269f5192c9",
+      "after_sha256": "79ce1b44d27a1325cb97d4dab01d16bce18fe09d6c2a4a2349ac3bfbf14b317a"
+    },
+    {
+      "path": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "heading": "## Source-map and later retort disposition B624",
+      "body": "B624reviews every field of [COVERAGE.json](COVERAGE.json),14fullpathobjects and173uniquecompleteevidencerecords through a losslessprojection, with all92sharedstrings/sevenprefixes read and decoding equality checked. Allroot/version/check/nativefollowupfields were read too. Original JSONand two archivedresumecopies remain unchanged. Botharchiveshave identical14path/evidencecontent; their complete11daemon/fourHeatfielddeltas were read against thissamefullbase, preserving differentprogress/ownership/gates/date without treatingworkerIDsaslive.\n\nKeep stable2.0.77and experimental2.1.21separate: per-functionquality/fluidexceptions, stable0.1nextprobability/no trainbonuses; reverseeligibilityandenergy_required/16; recipe-levelfreshness/no stableingredientspoil_weight; singularnutrientbootstrapcategory; platformwidthdrag/destructioncontract; productprobabilitywithoutsharedinterval/nativecorrelationproof; ramp/supportrange9/11notuniversal16. Sourcefield/APIcontracts do not execute native solvers, sourcecensus, liveDLCorwholegame. Actualreceivers/fuel/material/site/clock/identity/expiry/custody carry useful behavior.\n\nThe October7nativefollowuprecords laterrecovery/Heat/ABI/Intel/provenance work; it neither erases the finiteLua/APIpass nor certifies wholeC++semantics. Earlierno-native-read limits apply to thatfirstpass. Subsequentretortsource/native/UIdelivery supersedes P01’s originalnotimplementedlabel; historicale77080593d4binputmatch is not currentcombinedbuild or passingnativejourney/save/failureproof. Existing native/usage owners retain the exactlimits. Otherfourpackets remain proposals with currentoverlapchecks needed. AD36/AD43andAD42optionalreview/currentPROJECTgovernselectedwork, no newrecoveryworker or Frontierexpansion occurs.",
+      "before_sha256": "25444163bdeebf843eb9256222789f5f12fbfb8ccd35f1e35ba4dae6035b75b7",
+      "after_sha256": "ec5fd395742c325eeede0e089a8a7e1d585612186702eba334c78e8737585857"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 59,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "from": "Current continuation: the direct",
+      "to": "Latest recorded continuation, October7: the direct",
+      "reason": "Date frozen version/worker status and route obsolete no-consumer claim to actual later receipt."
+    },
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "from": "The official API index labels 2.1.21 experimental and 2.0.77 stable.",
+      "to": "At the recorded intake, the official API index labeled 2.1.21experimental and2.0.77stable; these are snapshot labels, not a fresh current-version lookup.",
+      "reason": "Date frozen version/worker status and route obsolete no-consumer claim to actual later receipt."
+    },
+    {
+      "path": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "from": "**Delivery state:** proposal-only; not implemented; later gameplay/save/failure acceptance deferred.",
+      "to": "**Delivery state, superseded by later receipt:** the original proposal was followed by bounded retort source/native/UI delivery in [the native dossier](native/REPORT.md) and [usage checkpoint](../../gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md). Historical matching build/source-map evidence remains implemented-unverified; gameplay/save/failure proof is not renewed here, and human review is optional under AD42.",
+      "reason": "Date frozen version/worker status and route obsolete no-consumer claim to actual later receipt."
+    },
+    {
+      "path": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "from": "Current deterministic stock-band projection is single-output. Receiver capacity and coproduct settlement need a qualified original adapter.",
+      "to": "The initial proposal described a single-output stock-band projection and proposed receiver/coproduct joins. The later retort receipt below supersedes that absence claim for its selected path; broader overlap/current-build verification remains with its owner.",
+      "reason": "Date frozen version/worker status and route obsolete no-consumer claim to actual later receipt."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B620, continuous execution 2026-11-05 |",
+      "to": "| B624, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "from": "79ce1b44d27a1325cb97d4dab01d16bce18fe09d6c2a4a2349ac3bfbf14b317a",
+      "to": "174eb7ca128ecb22e82eacd803cd364cd87a37523d424b92d7657cd2d977e0d8",
+      "reason": "Exact current-scope and consumer chronology corrections."
+    },
+    {
+      "path": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "from": "ec5fd395742c325eeede0e089a8a7e1d585612186702eba334c78e8737585857",
+      "to": "db434553ced42e8c00bdced955dde73ba4bc7fd36732b5874cbeb41b496634c6",
+      "reason": "Exact current-scope and consumer chronology corrections."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "9abec234bd9bc69f773c8aea51dead2fa19d834079210dea86d0be39e4154053",
+      "to": "708b3e8ce0e177b8482a016c48f38de99ae9c38296e6e8beb030ee06aa9505e6",
+      "reason": "Pointer through B624; no full-register review credit."
+    }
+  ],
+  "lossless_read_projection": {
+    "helper": "/tmp/reconcile-factorio-project.py",
+    "helper_sha256": "8772896d07f3a006dc360aac441ae24fa5901154f025c962a082f821e1a898a1",
+    "projection_sha256": "279f23891acdb839ea74ecb71d0b041b9feaae9d8bc8770468d08224ea8d0092",
+    "unique_evidence_objects": 173,
+    "shared_strings": 92,
+    "prefixes": 7,
+    "all_projected_values_read": true,
+    "decoded_equals_original": true,
+    "scope": "Identity checks accompany actualfullcontentreading; not new externalLua/API/nativebodyproof."
+  },
+  "archive_deltas": [
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/research/factorio/COVERAGE.json",
+      "base": "docs/research/factorio/COVERAGE.json",
+      "differences_from_current_to_archive": [
+        [
+          "/current_native_followup/ARM_root_acquired",
+          "Initial183,199/183,186C/13failures through1850; canonical flow/Heat delta through1857 acquired183,188C/11failures. Selected Heat physical storage views retain exact original bodies; unknown declaration/return/caller limits remain.",
+          "183,199 unique functions / 183,186 latest C successes / 13 failures; all 178,879 callable candidates attempted; exact body/C/chunk/instruction bytes verified; 1,105 scalar-affected methods use qualified repair."
+        ],
+        [
+          "/current_native_followup/Intel_state",
+          "Initial stream closed through1824: 182,398 unique functions / 182,329 C successes / 69 failures. Current compressed corpus/input/inventory/candidate projection matches the durable full byte/C/ASM audit; final repair acquisition remains pending.",
+          "Saved/reopened 182,398 functions / 9,869,783 instructions / 178,145 callables. Healthy full C/ASM export 41973 / PID46960 reports 168,900 closed rows, 168,835 C successes and 65 failures at 2026-10-07T14:04:07.321309Z; final corpus acquisition pending."
+        ],
+        [
+          "/current_native_followup/crossarch_reader",
+          "/root/factorio_crossarch_reader: new reader folder/private work only, no native process; packet acquisition pending.",
+          "<absent>"
+        ],
+        [
+          "/current_native_followup/native_assignment",
+          "native/ASSIGNMENT.md",
+          "<absent>"
+        ],
+        [
+          "/current_native_followup/original_use",
+          "Four exact retort leaves match live/current map and retained historical e77080593d4b build; implemented-unverified, behavior acceptance deferred. Independent shared tree changes are not a current matching combined build.",
+          "Retort source/native/UI is acquired in e77080593d4b / 370-source build, implemented-unverified; gameplay/save/failure/browser/director checks deferred."
+        ],
+        [
+          "/current_native_followup/required_gates",
+          "Coherent hash/merge; Intel section; measured resource retries; exact global ownership; compact resume ledger and cross-architecture claim packet; final repaired corpus/provenance reconciliation.",
+          "Full Intel stream, known Splitter/Inserter case closure, selected Heat physical ABI, faithful failure diagnosis/repair, instruction ownership and final immutable corpus/provenance/coverage audit."
+        ],
+        [
+          "/current_native_followup/root_acceptance_writer",
+          "/root/factorio_recovery_review",
+          "/root/factorio_acceptance"
+        ],
+        [
+          "/current_native_followup/semantic_limit",
+          "Whole machine attempts are distinct from complete semantic, CFG/type/ABI, enabled DLC or original buildable C++ recovery.",
+          "Whole machine function attempts and retained files are not whole-source semantic reading, complete CFG/type/ABI proof or enabled DLC/entitlement coverage."
+        ],
+        [
+          "/current_native_followup/sole_native_writer",
+          "/root/factorio_native_continuation",
+          "/root/factorio_native_finish3"
+        ],
+        [
+          "/current_native_followup/state",
+          "Unfinished subsequent full both-architecture recovery/review and original use resumed; historical finite Lua/API snapshot remains separate.",
+          "Active subsequent full both-architecture recovery and original use; historical finite Lua/API snapshot remains separate."
+        ],
+        [
+          "/routing_updated_utc",
+          "2026-10-07T18:41:06.434753+00:00",
+          "2026-10-07T14:04:14.806358+00:00"
+        ]
+      ],
+      "paths_equal": true
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/COVERAGE.json",
+      "base": "docs/research/factorio/COVERAGE.json",
+      "differences_from_current_to_archive": [
+        [
+          "/current_native_followup/ARM_root_acquired",
+          "Initial183,199/183,186C/13failures through1850; canonical flow/Heat delta through1857 acquired183,188C/11failures. Selected Heat physical storage views retain exact original bodies; unknown declaration/return/caller limits remain.",
+          "Initial183,199 unique/183,186C/13failures through1850; canonical delta through1853 acquired183,188C/11failures, with two repaired Splitters and six Inserter case closure. Full final audit remains open."
+        ],
+        [
+          "/current_native_followup/crossarch_reader",
+          "/root/factorio_crossarch_reader: new reader folder/private work only, no native process; packet acquisition pending.",
+          "<absent>"
+        ],
+        [
+          "/current_native_followup/required_gates",
+          "Coherent hash/merge; Intel section; measured resource retries; exact global ownership; compact resume ledger and cross-architecture claim packet; final repaired corpus/provenance reconciliation.",
+          "Coherent hash/merge and selected Heat ABI repairs; Intel unwind edge; measured capacity retries; exact instruction ownership and final repaired corpus/provenance/reader reconciliation."
+        ],
+        [
+          "/routing_updated_utc",
+          "2026-10-07T18:41:06.434753+00:00",
+          "2026-10-07T18:14:06.932521+00:00"
+        ]
+      ],
+      "paths_equal": true
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "sha256": "174eb7ca128ecb22e82eacd803cd364cd87a37523d424b92d7657cd2d977e0d8",
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "scope": "Selected recordedfollowup/version/method/pathsemantics."
+    },
+    {
+      "path": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+      "sha256": "db434553ced42e8c00bdced955dde73ba4bc7fd36732b5874cbeb41b496634c6",
+      "scope": "Entirefiveoriginalpacketsread; no new fullcandidateevent."
+    },
+    {
+      "path": "docs/research/factorio/native/REPORT.md",
+      "sha256": "e867cfcd349b2d8534b46a776dc70d0425512d0390dbc595f4b7a0683d8f45eb",
+      "ranges": [
+        [
+          1,
+          45
+        ],
+        [
+          55,
+          55
+        ]
+      ],
+      "scope": "Historicalnative/read/useclaims and laterdatingqualification, not rawbodyproof."
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "sha256": "ab86c13d4138bedcba5a9ff5efe3255b96d9873234509f14ed12913d9efa6c7b",
+      "ranges": [
+        [
+          13,
+          13
+        ]
+      ],
+      "scope": "Selectedretortreadback/currentcombinedbuildlimitation only."
+    }
+  ]
+}

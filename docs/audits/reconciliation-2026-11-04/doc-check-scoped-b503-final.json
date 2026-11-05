@@ -1,0 +1,33 @@
+{
+  "command": "node scripts/check_doc_slips.mjs with only filespec restricted to B498\u2013B503 folds and closeout owners",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/gm/dispatch/refinement-audits-2026-10-31/CHECKPOINT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3L_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3D_IMPLEMENTATION_RECEIPT.md",
+    "docs/gm/dispatch/lotm-q3-2026-10-25/CHECKPOINT.md",
+    "docs/CHEAT_LIBRARY.md",
+    "docs/research/JOJO_AUDIT_SCOPE_REFINEMENT_2026-10-11.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3O_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/ZLIBRARY_RESEARCH_TOOLKIT.md",
+    "docs/research/climb-mr2-playtest-2026-10-15/GAP_AUDIT.md",
+    "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+    "docs/research/repository-bank/README.md",
+    "docs/research/NARUTO_WITCH_HAT_FOUNDATION_STUDY_2026-11-04.md",
+    "docs/research/jojo-audit-2026-10-11/SOURCE_AUDIT.md",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3C_IMPLEMENTATION_RECEIPT.md",
+    "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-expanded.md",
+    "docs/research/MULTIVERSAL_GAMES_AND_RULEBOOK_GAPS_2026-10-14.md",
+    "docs/research/taiwu-ingredient-use-2026-10-15/REFERENCE_INDEX.md",
+    "docs/gm/dispatch/relationship-prereqs-2026-10-14/AUDIT.md",
+    "docs/gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/playtest-fixes-2026-10-25/CHECKPOINT.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "aae82027f15abacc395ff4c321b0e1d61a3cad52a5db58bd710031af10765edf",
+  "adaptation": "Only filespec changed; unchanged diagnostic rules. Scoped result is not shared-tree pass."
+}

@@ -1,0 +1,42 @@
+{
+  "source": "docs/research/warsim/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "64fe203f90d857f11459f16b6677d304cfb3db8f77b3a07d0d82db2310fcabca",
+  "source_lines": 12356,
+  "view": "docs/audits/reconciliation-2026-11-04/warsim-family-lossless-view-b590.json",
+  "view_sha256": "450e44850c323666a422863967df0f32f98b6004fe80999ea40627cfe72349de",
+  "roundtrip_equal": true,
+  "routing_blocks": 16,
+  "counts": {
+    "systems": 32,
+    "helpers": 143,
+    "tables": 255,
+    "prior_unread_rows": 28,
+    "owner_coverage_notes": 2
+  },
+  "statuses": {
+    "systems": {
+      "partial": 26,
+      "named_only": 5,
+      "partial_static_read": 1
+    },
+    "helpers": {
+      "named_only": 95,
+      "partial": 27,
+      "partial_static_read": 20,
+      "output_retained_selected_inspection_only": 1
+    },
+    "tables": {
+      "unread_semantics": 92,
+      "schema_partial": 98,
+      "excluded_mutable_or_settings": 27,
+      "static_text_read_runtime_link_unread": 38
+    }
+  },
+  "compared_older_table": "docs/research/warsim/TABLE_COVERAGE.md",
+  "older_table_sha256": "2b782825455e8664759f9db85bbf8a9b962d8f64f2cadf4f8b8e7500e0750017",
+  "path_difference": {
+    "only_in_older_table": [],
+    "only_in_family_map": []
+  },
+  "scope": "Actual full lossless-map content review. No source helper body, payload table, installed build, private state or runtime behavior reviewed by proxy."
+}

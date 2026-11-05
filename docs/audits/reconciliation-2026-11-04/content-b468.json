@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "batch": "B468",
+  "title": "Taiwu/Qud source coverage, G2 fixtures and procedural extras: four full small records",
+  "at": "2026-11-05T07:02:43.546688+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/TABLE_COVERAGE_DIGEST.md",
+      "ids": [
+        "9tables/Legacy0–748/Point0–7/Neili0–35/Page0–9/Creation0–14/State0–56/Goal0–275/Action0–388/Adventure0–92"
+      ],
+      "classification": "complete table/capture/fixture/procedural palette with exact semantic and runtime limits",
+      "owners": [
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/TABLE_COVERAGE_DIGEST.md"
+      ],
+      "disposition": "All25 lines and every table row were read against the deep report's remaining-gap table. Constructor boundaries, contiguous IDs and field distributions establish structural enumeration, not complete row meanings, live overrides or reachability. The749 legacy rows include negative/compensation costs; target-category counts overlap and cannot be summed as unique choices. The special-group arithmetic732+5+6+3+3=749 checks its partition, without identifying every group's effect. LegacyPointType's third values have no inferred field name/consumer here. The53 prior point sources do not exhaust all award callers. Ten page-dispatch rows are separate from34 referenced implementations; old955-technique/319-building counts remain reused evidence. WorldCreation/WorldState correct the guessed WorldSettings locator, not all world modifiers. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern a selected consumer. No private constructor, event script, code, runtime/mod state, source tool or personal save was newly read or executed. Preserve exact unresolved global awards, transfer listeners and selected event settlement rather than treating this digest as whole-game or adoption completion.",
+      "evidence": "Complete25/26/26/26-line inputs read. Relevant report tails were scoped followthrough only; private/raw source and saved-game artifacts not read or executed.",
+      "reopen": "Use named table/type/fixture/extra and actual consumer under current ownership; preserve unrun semantics and current-state uncertainty.",
+      "input_sha256": "af71be2d0b81ecd8c7ef652045347805902529897b75c5abe168301b715a82f4",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g2/fixture/README.md",
+      "ids": [
+        "retort/reserve/held/program/program3/program1log/mixed/mixed-nowood/retort-merchant"
+      ],
+      "classification": "complete table/capture/fixture/procedural palette with exact semantic and runtime limits",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g2/fixture/README.md"
+      ],
+      "disposition": "The complete26-line fixture record was reviewed with the G2 report's final verification/limits section. Nine fixtures disclose actual-model seed additions/removals, funded-pack shortages, retained earned household state and the moved merchant receiver. They are not natural acquisition, balance acceptance or played sale/rebuy/day-refresh proof. The merchant serialization/reimport check is SOURCE; native controls exercised with its result are seeded-native. A full archived export or `.txt` path is an artifact, not proof every later import comparison passed. Preserve stopped predecessor archives, the one-tick old mismatch and unasserted quota/debug images; later exact comparisons qualify only their named gates. The report's611 total includes32 focused tests, rather than643 disjoint tests. Its cancellation conditional preserves a completed program when another command's job is canceled, not a general rewrite or replay of old work. Current [PROJECT](../../../../../../../../PROJECT.md), AD32/AD36/AD43 and optional review govern later use. No archive, fixture file, generator, real model, native origin, private/personal save or runtime/test was opened or run here. Historical generate/import instructions grant no current execution or writer authority.",
+      "evidence": "Complete25/26/26/26-line inputs read. Relevant report tails were scoped followthrough only; private/raw source and saved-game artifacts not read or executed.",
+      "reopen": "Use named table/type/fixture/extra and actual consumer under current ownership; preserve unrun semantics and current-state uncertainty.",
+      "input_sha256": "a437504e72934434c57b4f210b9fa98d66bd8c630cdc66bed5abfdbdb8b055f3",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+      "ids": [
+        "X1–8/ranks7–14/F1–3;P1–4/D7–9"
+      ],
+      "classification": "complete table/capture/fixture/procedural palette with exact semantic and runtime limits",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md"
+      ],
+      "disposition": "The complete26-line extras palette was reviewed with P5's ranked/integration/delivery tail. All X1–X8 remain optional domains, not additional required scope or automatically dispatched implementation packets. Authored enemy builds, weather episodes, affixes, real-need jobs, cosmic effects, inherited faculties, attributed accounts and geometry need distinct actual readers and retained source/identity contracts. Counts/names or a stat roll alone do not prove functional variety. Strong numerical effects can still be useful; two counterable nonlethal loadouts are this local prototype, not a universal weakness, fairness or nonlethal requirement. Real unlimited or self-supplied means are possible under actual mechanisms, while one saved event must not duplicate settlement on preview/reload.\n\nP1–P4 integration, candidate ports, snapshot source lines and proposed1366/1600 evidence targets are dated. Current [PROJECT](../../../../../PROJECT.md), [UI rules](../../../../UI_RULES.md), AD36/AD43/AD51/AD52 govern selected work and current desktop proof. X8's explicit backburner instruction applied to this dispatch; the broader dungeon vision did not select generated geometry then, and this reconciliation selects none now. Weather need not impose starvation or chores; the user's comfortable-unfed direction and actual food owners remain. No existing unselected extra becomes a dependency for the selected five slices. No source, sealed S1 content, randomized output, game, test/build/browser or current geometry module was newly inspected.",
+      "evidence": "Complete25/26/26/26-line inputs read. Relevant report tails were scoped followthrough only; private/raw source and saved-game artifacts not read or executed.",
+      "reopen": "Use named table/type/fixture/extra and actual consumer under current ownership; preserve unrun semantics and current-state uncertainty.",
+      "input_sha256": "078b592855214c06d0e86169a6d1ab2b8f5ad25aad5ae0cd308aa6be26442d34",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-1/COVERAGE.md",
+      "ids": [
+        "403requests=388captures+15absent;388=350fresh+38reuse;105types/119readops;F6–9"
+      ],
+      "classification": "complete table/capture/fixture/procedural palette with exact semantic and runtime limits",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/depth-1/COVERAGE.md"
+      ],
+      "disposition": "All26 coverage lines were read with the depth report's F6–F9 and remaining questions. The arithmetic403=388+15 and388=350+38 describes this capture request, not independent semantic reviews or tests. Earlier128-class and cooking coverage overlap and are not additive. Complete nonempty class exports, all63 supplied cybernetic requests, automatic navigation and21 authored NPC fixture nodes are different evidence from selected printed windows and actual execution. Truncated windows were explicitly weaker; this reconciliation reads no captured class by proxy. The105-type/119-operation print ledger and EXPORTS.source_review are not complete current semantic verdicts.\n\nRetain the named unresolved consumers: final tags/masks, temporary-copy/equipment cleanup, effective rank, charge ordering, SunderMind/ForceBubble, social admission, gas/rifle/shield/phase and medical/turret/economy hooks. F9 separates authored possession, AI admission, generic execution and observed tactics. A captured class or declared faculty does not prove every NPC uses it. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern actual adoption; source-specific restrictions do not become universal YAIR balance laws. No original assembly, private source/receipt/navigation/NPC fixture, current retail/DLC/mod, native game, test/build/browser or personal save was newly accessed. Keep the exact source input and unread list instead of claiming all remaining systems understood.",
+      "evidence": "Complete25/26/26/26-line inputs read. Relevant report tails were scoped followthrough only; private/raw source and saved-game artifacts not read or executed.",
+      "reopen": "Use named table/type/fixture/extra and actual consumer under current ownership; preserve unrun semantics and current-state uncertainty.",
+      "input_sha256": "fcc5fd1b7dbcd5150149f674c4a83a3792b2f33dd67426a360cde6f7ce13b5db",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/TABLE_COVERAGE_DIGEST.md",
+      "heading": "## Content reconciliation B468: complete record and evidence-depth distinctions",
+      "body": "All25 lines and every table row were read against the deep report's remaining-gap table. Constructor boundaries, contiguous IDs and field distributions establish structural enumeration, not complete row meanings, live overrides or reachability. The749 legacy rows include negative/compensation costs; target-category counts overlap and cannot be summed as unique choices. The special-group arithmetic732+5+6+3+3=749 checks its partition, without identifying every group's effect. LegacyPointType's third values have no inferred field name/consumer here. The53 prior point sources do not exhaust all award callers. Ten page-dispatch rows are separate from34 referenced implementations; old955-technique/319-building counts remain reused evidence. WorldCreation/WorldState correct the guessed WorldSettings locator, not all world modifiers. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern a selected consumer. No private constructor, event script, code, runtime/mod state, source tool or personal save was newly read or executed. Preserve exact unresolved global awards, transfer listeners and selected event settlement rather than treating this digest as whole-game or adoption completion.",
+      "before_sha256": "af71be2d0b81ecd8c7ef652045347805902529897b75c5abe168301b715a82f4",
+      "after_sha256": "b676fac1ed036ef8058b80bccb52c7d2dc8293bd64757fb5f86cc3a9da6ec347"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g2/fixture/README.md",
+      "heading": "## Content reconciliation B468: complete record and evidence-depth distinctions",
+      "body": "The complete26-line fixture record was reviewed with the G2 report's final verification/limits section. Nine fixtures disclose actual-model seed additions/removals, funded-pack shortages, retained earned household state and the moved merchant receiver. They are not natural acquisition, balance acceptance or played sale/rebuy/day-refresh proof. The merchant serialization/reimport check is SOURCE; native controls exercised with its result are seeded-native. A full archived export or `.txt` path is an artifact, not proof every later import comparison passed. Preserve stopped predecessor archives, the one-tick old mismatch and unasserted quota/debug images; later exact comparisons qualify only their named gates. The report's611 total includes32 focused tests, rather than643 disjoint tests. Its cancellation conditional preserves a completed program when another command's job is canceled, not a general rewrite or replay of old work. Current [PROJECT](../../../../../../../../PROJECT.md), AD32/AD36/AD43 and optional review govern later use. No archive, fixture file, generator, real model, native origin, private/personal save or runtime/test was opened or run here. Historical generate/import instructions grant no current execution or writer authority.",
+      "before_sha256": "a437504e72934434c57b4f210b9fa98d66bd8c630cdc66bed5abfdbdb8b055f3",
+      "after_sha256": "15d0104caf735786436df5fc4810a4443da624820297afe5fd49e4d56cea3909"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+      "heading": "## Content reconciliation B468: complete record and evidence-depth distinctions",
+      "body": "The complete26-line extras palette was reviewed with P5's ranked/integration/delivery tail. All X1–X8 remain optional domains, not additional required scope or automatically dispatched implementation packets. Authored enemy builds, weather episodes, affixes, real-need jobs, cosmic effects, inherited faculties, attributed accounts and geometry need distinct actual readers and retained source/identity contracts. Counts/names or a stat roll alone do not prove functional variety. Strong numerical effects can still be useful; two counterable nonlethal loadouts are this local prototype, not a universal weakness, fairness or nonlethal requirement. Real unlimited or self-supplied means are possible under actual mechanisms, while one saved event must not duplicate settlement on preview/reload.\n\nP1–P4 integration, candidate ports, snapshot source lines and proposed1366/1600 evidence targets are dated. Current [PROJECT](../../../../../PROJECT.md), [UI rules](../../../../UI_RULES.md), AD36/AD43/AD51/AD52 govern selected work and current desktop proof. X8's explicit backburner instruction applied to this dispatch; the broader dungeon vision did not select generated geometry then, and this reconciliation selects none now. Weather need not impose starvation or chores; the user's comfortable-unfed direction and actual food owners remain. No existing unselected extra becomes a dependency for the selected five slices. No source, sealed S1 content, randomized output, game, test/build/browser or current geometry module was newly inspected.",
+      "before_sha256": "078b592855214c06d0e86169a6d1ab2b8f5ad25aad5ae0cd308aa6be26442d34",
+      "after_sha256": "61ad19883aaa98a1f4bf28cecb49d0f689ab05b95167963d93fcf4c14dd38f68"
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-1/COVERAGE.md",
+      "heading": "## Content reconciliation B468: complete record and evidence-depth distinctions",
+      "body": "All26 coverage lines were read with the depth report's F6–F9 and remaining questions. The arithmetic403=388+15 and388=350+38 describes this capture request, not independent semantic reviews or tests. Earlier128-class and cooking coverage overlap and are not additive. Complete nonempty class exports, all63 supplied cybernetic requests, automatic navigation and21 authored NPC fixture nodes are different evidence from selected printed windows and actual execution. Truncated windows were explicitly weaker; this reconciliation reads no captured class by proxy. The105-type/119-operation print ledger and EXPORTS.source_review are not complete current semantic verdicts.\n\nRetain the named unresolved consumers: final tags/masks, temporary-copy/equipment cleanup, effective rank, charge ordering, SunderMind/ForceBubble, social admission, gas/rifle/shield/phase and medical/turret/economy hooks. F9 separates authored possession, AI admission, generic execution and observed tactics. A captured class or declared faculty does not prove every NPC uses it. Current [PROJECT](../../../../PROJECT.md) and AD32/AD36 govern actual adoption; source-specific restrictions do not become universal YAIR balance laws. No original assembly, private source/receipt/navigation/NPC fixture, current retail/DLC/mod, native game, test/build/browser or personal save was newly accessed. Keep the exact source input and unread list instead of claiming all remaining systems understood.",
+      "before_sha256": "fcc5fd1b7dbcd5150149f674c4a83a3792b2f33dd67426a360cde6f7ce13b5db",
+      "after_sha256": "96417e1be0e7f72a64a99b68df4ed3ba2024888c44a4beaacddb9881ee9042e0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 361
+}

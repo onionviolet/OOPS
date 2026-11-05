@@ -1,0 +1,5632 @@
+{
+  "header": {
+    "scope": "61 named systems, 57 namespaces, 112 tables, prior UI/dependency rows and every prior checkpoint table row; duplicates across kinds deliberate",
+    "status": "PARTIAL",
+    "profiles": "base and each source-compatible no-deletion patch separately, not live selection",
+    "family_counts": {
+      "npc_ai": 15,
+      "economy": 9,
+      "companions": 5,
+      "social_institution": 29,
+      "power_action": 28,
+      "combat": 17,
+      "authoring_save": 68,
+      "knowledge": 18,
+      "body_emotion": 6,
+      "events_dialogue": 30,
+      "world_time": 14,
+      "production": 17,
+      "creation_body": 8,
+      "presentation": 39,
+      "dependency": 17
+    },
+    "status_counts": {
+      "prior_bounded": 57,
+      "deep_bounded": 42,
+      "inventoried_only": 56,
+      "module_partial": 106,
+      "dependency_unread": 17,
+      "zero_rows": 18,
+      "open_prior": 17,
+      "partly_closed": 6,
+      "source_closed": 1
+    },
+    "kind_counts": {
+      "system": 61,
+      "namespace": 57,
+      "table": 112,
+      "ui_namespace": 50,
+      "dependency": 16,
+      "prior_unread": 24
+    }
+  },
+  "routing": [
+    {
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25",
+        "P06"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P18",
+        "P02"
+      ],
+      "topic_owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K6",
+        "K3"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P09"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P06",
+        "P19"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K3",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P09",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K1",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22",
+        "P24"
+      ],
+      "topic_owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K11",
+        "K3"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P11"
+      ],
+      "topic_owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K6",
+        "K8"
+      ],
+      "synthesis_packets": [
+        "P17",
+        "P25"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K11",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21"
+      ],
+      "topic_owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": "No dedicated authored team-sport rules owner identified in checked palettes"
+    },
+    {
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P13",
+        "P10",
+        "P14"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K9",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K4",
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P15",
+        "P05"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P13",
+        "P10",
+        "P14"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": "No dedicated constellation/daily celestial rules owner identified in checked palettes"
+    },
+    {
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P21"
+      ],
+      "topic_owners": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [],
+      "synthesis_packets": [],
+      "topic_owners": [],
+      "owner_coverage": "not_applicable_dependency",
+      "specific_owner_gap": null
+    },
+    {
+      "world_core_kit": [
+        "K9",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "broad_topic_only",
+      "specific_owner_gap": "No dedicated authored team-sport rules owner identified in checked palettes"
+    }
+  ],
+  "dictionary": {
+    "prior_status": [
+      "This aspect pass, bounded coverage",
+      "Prior lane, bounded coverage",
+      "UNDOCUMENTED implementation; inventoried only",
+      "Partial",
+      "UNDOCUMENTED semantics; decoded rows retained",
+      "Prior dossier, bounded semantics",
+      "This pass, selected deeper-system semantics",
+      "Targeted storyline types or UNREAD implementation",
+      "Prior decompile; bounded reads",
+      "UI type list plus three targeted reads",
+      "UNREAD dependency internals",
+      "UNREAD inherited"
+    ],
+    "deep_section": [
+      null,
+      "DS03",
+      "DS13",
+      "DS10",
+      "DS09",
+      "DS11",
+      "DS15",
+      "DS05",
+      "DS14",
+      "DS12",
+      "DS08",
+      "DS02",
+      "DS04",
+      "DS07",
+      "DS06",
+      "DS01"
+    ],
+    "mapping_evidence": [
+      "inferred topic routing, not acceptance or runtime audit"
+    ]
+  },
+  "entries": [
+    {
+      "id": "system:AISystem",
+      "name": "AISystem",
+      "kind": "system",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.AI/AISystem.cs",
+      "size_signal": 805,
+      "details": {
+        "registered": true,
+        "root_save_order": 47
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 0,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:AllowanceSystem",
+      "name": "AllowanceSystem",
+      "kind": "system",
+      "family": "economy",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.Allowance/AllowanceSystem.cs",
+      "size_signal": 48,
+      "details": {
+        "registered": true,
+        "root_save_order": null
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:FamiliarSystem",
+      "name": "FamiliarSystem",
+      "kind": "system",
+      "family": "companions",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/FamiliarSystem.cs",
+      "size_signal": 182,
+      "details": {
+        "registered": true,
+        "root_save_order": 20
+      },
+      "routing_ref": 2,
+      "prior_status_ref": 2,
+      "deep_section_ref": 1,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:CompeteSystem",
+      "name": "CompeteSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/CompeteSystem.cs",
+      "size_signal": 370,
+      "details": {
+        "registered": true,
+        "root_save_order": 12
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 2,
+      "deep_section_ref": 2,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ChargeSystem",
+      "name": "ChargeSystem",
+      "kind": "system",
+      "family": "power_action",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ChargeSystem.cs",
+      "size_signal": 341,
+      "details": {
+        "registered": true,
+        "root_save_order": 8
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 2,
+      "deep_section_ref": 3,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:CombatSystem",
+      "name": "CombatSystem",
+      "kind": "system",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/CombatSystem.cs",
+      "size_signal": 441,
+      "details": {
+        "registered": true,
+        "root_save_order": 11
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:PurchaseSystem",
+      "name": "PurchaseSystem",
+      "kind": "system",
+      "family": "economy",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/PurchaseSystem.cs",
+      "size_signal": 236,
+      "details": {
+        "registered": true,
+        "root_save_order": 31
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 2,
+      "deep_section_ref": 4,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:FirstLevelSystem",
+      "name": "FirstLevelSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/FirstLevelSystem.cs",
+      "size_signal": 99,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 5,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ActionSystem",
+      "name": "ActionSystem",
+      "kind": "system",
+      "family": "power_action",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ActionSystem.cs",
+      "size_signal": 876,
+      "details": {
+        "registered": true,
+        "root_save_order": 2
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 2,
+      "deep_section_ref": 6,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:GiftSystem",
+      "name": "GiftSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/GiftSystem.cs",
+      "size_signal": 170,
+      "details": {
+        "registered": true,
+        "root_save_order": 23
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 2,
+      "deep_section_ref": 7,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ResearchSystem",
+      "name": "ResearchSystem",
+      "kind": "system",
+      "family": "knowledge",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ResearchSystem.cs",
+      "size_signal": 118,
+      "details": {
+        "registered": true,
+        "root_save_order": 41
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 0,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:StudySystem",
+      "name": "StudySystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/StudySystem.cs",
+      "size_signal": 259,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:StressSystem",
+      "name": "StressSystem",
+      "kind": "system",
+      "family": "body_emotion",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/StressSystem.cs",
+      "size_signal": 432,
+      "details": {
+        "registered": true,
+        "root_save_order": 34
+      },
+      "routing_ref": 8,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:InventorySystem",
+      "name": "InventorySystem",
+      "kind": "system",
+      "family": "economy",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/InventorySystem.cs",
+      "size_signal": 196,
+      "details": {
+        "registered": true,
+        "root_save_order": 26
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:EffectSystem",
+      "name": "EffectSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/EffectSystem.cs",
+      "size_signal": 130,
+      "details": {
+        "registered": true,
+        "root_save_order": 16
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 5,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:BlackmailSystem",
+      "name": "BlackmailSystem",
+      "kind": "system",
+      "family": "knowledge",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/BlackmailSystem.cs",
+      "size_signal": 65,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 2,
+      "deep_section_ref": 8,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:VendettaSystem",
+      "name": "VendettaSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/VendettaSystem.cs",
+      "size_signal": 220,
+      "details": {
+        "registered": true,
+        "root_save_order": 43
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 2,
+      "deep_section_ref": 9,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:PrerequisiteSystem",
+      "name": "PrerequisiteSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/PrerequisiteSystem.cs",
+      "size_signal": 99,
+      "details": {
+        "registered": true,
+        "root_save_order": 29
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:StatisticSystem",
+      "name": "StatisticSystem",
+      "kind": "system",
+      "family": "body_emotion",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/StatisticSystem.cs",
+      "size_signal": 121,
+      "details": {
+        "registered": true,
+        "root_save_order": 33
+      },
+      "routing_ref": 8,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:DeusExMachinaSystem",
+      "name": "DeusExMachinaSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/DeusExMachinaSystem.cs",
+      "size_signal": 129,
+      "details": {
+        "registered": true,
+        "root_save_order": 14
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 6,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:StorySystem",
+      "name": "StorySystem",
+      "kind": "system",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/StorySystem.cs",
+      "size_signal": 1284,
+      "details": {
+        "registered": true,
+        "root_save_order": 35
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:RimbalSystem",
+      "name": "RimbalSystem",
+      "kind": "system",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/RimbalSystem.cs",
+      "size_signal": 526,
+      "details": {
+        "registered": true,
+        "root_save_order": 38
+      },
+      "routing_ref": 10,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:WeatherSystem",
+      "name": "WeatherSystem",
+      "kind": "system",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/WeatherSystem.cs",
+      "size_signal": 124,
+      "details": {
+        "registered": true,
+        "root_save_order": 45
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 2,
+      "deep_section_ref": 10,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:EnchantSystem",
+      "name": "EnchantSystem",
+      "kind": "system",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/EnchantSystem.cs",
+      "size_signal": 867,
+      "details": {
+        "registered": true,
+        "root_save_order": 17
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 2,
+      "deep_section_ref": 11,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:DuelSystem",
+      "name": "DuelSystem",
+      "kind": "system",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/DuelSystem.cs",
+      "size_signal": 443,
+      "details": {
+        "registered": true,
+        "root_save_order": 15
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ResolvingSystem",
+      "name": "ResolvingSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/ResolvingSystem.cs",
+      "size_signal": 360,
+      "details": {
+        "registered": true,
+        "root_save_order": 46
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ReprimandSystem",
+      "name": "ReprimandSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ReprimandSystem.cs",
+      "size_signal": 523,
+      "details": {
+        "registered": true,
+        "root_save_order": 40
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ExamSystem",
+      "name": "ExamSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ExamSystem.cs",
+      "size_signal": 415,
+      "details": {
+        "registered": true,
+        "root_save_order": 19
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:CombatConditionSystem",
+      "name": "CombatConditionSystem",
+      "kind": "system",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/CombatConditionSystem.cs",
+      "size_signal": 113,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:SpellSystem",
+      "name": "SpellSystem",
+      "kind": "system",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/SpellSystem.cs",
+      "size_signal": 401,
+      "details": {
+        "registered": true,
+        "root_save_order": 32
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 0,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:BonusSystem",
+      "name": "BonusSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/BonusSystem.cs",
+      "size_signal": 180,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:FeedbackSystem",
+      "name": "FeedbackSystem",
+      "kind": "system",
+      "family": "events_dialogue",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/FeedbackSystem.cs",
+      "size_signal": 161,
+      "details": {
+        "registered": true,
+        "root_save_order": 22
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:InformationSystem",
+      "name": "InformationSystem",
+      "kind": "system",
+      "family": "knowledge",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/InformationSystem.cs",
+      "size_signal": 381,
+      "details": {
+        "registered": true,
+        "root_save_order": 25
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 0,
+      "deep_section_ref": 8,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:GameController",
+      "name": "GameController",
+      "kind": "system",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/GameController.cs",
+      "size_signal": 474,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 0,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:CharacterSystem",
+      "name": "CharacterSystem",
+      "kind": "system",
+      "family": "body_emotion",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/CharacterSystem.cs",
+      "size_signal": 480,
+      "details": {
+        "registered": true,
+        "root_save_order": 7
+      },
+      "routing_ref": 8,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:RelationshipSystem",
+      "name": "RelationshipSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/RelationshipSystem.cs",
+      "size_signal": 589,
+      "details": {
+        "registered": true,
+        "root_save_order": 39
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:RollSystem",
+      "name": "RollSystem",
+      "kind": "system",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/RollSystem.cs",
+      "size_signal": 1168,
+      "details": {
+        "registered": true,
+        "root_save_order": 42
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ControlSystem",
+      "name": "ControlSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/ControlSystem.cs",
+      "size_signal": 162,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:AbilitySystem",
+      "name": "AbilitySystem",
+      "kind": "system",
+      "family": "power_action",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/AbilitySystem.cs",
+      "size_signal": 227,
+      "details": {
+        "registered": true,
+        "root_save_order": 3
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 2,
+      "deep_section_ref": 5,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:VisitSystem",
+      "name": "VisitSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/VisitSystem.cs",
+      "size_signal": 300,
+      "details": {
+        "registered": true,
+        "root_save_order": 44
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ClazzSystem",
+      "name": "ClazzSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ClazzSystem.cs",
+      "size_signal": 267,
+      "details": {
+        "registered": true,
+        "root_save_order": 9
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:CharacterCreationSystem",
+      "name": "CharacterCreationSystem",
+      "kind": "system",
+      "family": "creation_body",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/CharacterCreationSystem.cs",
+      "size_signal": 420,
+      "details": {
+        "registered": true,
+        "root_save_order": 6
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 2,
+      "deep_section_ref": 12,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:SkillSystem",
+      "name": "SkillSystem",
+      "kind": "system",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/SkillSystem.cs",
+      "size_signal": 1238,
+      "details": {
+        "registered": true,
+        "root_save_order": 37
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:AstrologySystem",
+      "name": "AstrologySystem",
+      "kind": "system",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/AstrologySystem.cs",
+      "size_signal": 328,
+      "details": {
+        "registered": true,
+        "root_save_order": 5
+      },
+      "routing_ref": 14,
+      "prior_status_ref": 2,
+      "deep_section_ref": 13,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:BaseSystem",
+      "name": "BaseSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/BaseSystem.cs",
+      "size_signal": 34,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:InUseExistenceConditionDictionarySystem",
+      "name": "InUseExistenceConditionDictionarySystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/InUseExistenceConditionDictionarySystem.cs",
+      "size_signal": 27,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ContextStoreSystem",
+      "name": "ContextStoreSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ContextStoreSystem.cs",
+      "size_signal": 113,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 5,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:MediaSystem",
+      "name": "MediaSystem",
+      "kind": "system",
+      "family": "presentation",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/MediaSystem.cs",
+      "size_signal": 307,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 0,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:EmotionSystem",
+      "name": "EmotionSystem",
+      "kind": "system",
+      "family": "body_emotion",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/EmotionSystem.cs",
+      "size_signal": 148,
+      "details": {
+        "registered": true,
+        "root_save_order": 18
+      },
+      "routing_ref": 8,
+      "prior_status_ref": 2,
+      "deep_section_ref": 14,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ArtificingSystem",
+      "name": "ArtificingSystem",
+      "kind": "system",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/ArtificingSystem.cs",
+      "size_signal": 829,
+      "details": {
+        "registered": true,
+        "root_save_order": 4
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 2,
+      "deep_section_ref": 15,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:FavorSystem",
+      "name": "FavorSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/FavorSystem.cs",
+      "size_signal": 239,
+      "details": {
+        "registered": true,
+        "root_save_order": 21
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:GraduationSystem",
+      "name": "GraduationSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/GraduationSystem.cs",
+      "size_signal": 42,
+      "details": {
+        "registered": true,
+        "root_save_order": 24
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:PreventSystem",
+      "name": "PreventSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/PreventSystem.cs",
+      "size_signal": 151,
+      "details": {
+        "registered": true,
+        "root_save_order": 30
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:SystemObjects",
+      "name": "SystemObjects",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/SystemObjects.cs",
+      "size_signal": 138,
+      "details": {
+        "registered": true,
+        "root_save_order": 36
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:DateAndTimeSystem",
+      "name": "DateAndTimeSystem",
+      "kind": "system",
+      "family": "world_time",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/DateAndTimeSystem.cs",
+      "size_signal": 93,
+      "details": {
+        "registered": true,
+        "root_save_order": 13
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ExistenceConditionDictionarySystem",
+      "name": "ExistenceConditionDictionarySystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/ExistenceConditionDictionarySystem.cs",
+      "size_signal": 116,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:LockSystem",
+      "name": "LockSystem",
+      "kind": "system",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/LockSystem.cs",
+      "size_signal": 104,
+      "details": {
+        "registered": true,
+        "root_save_order": 27
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:MonsterSystem",
+      "name": "MonsterSystem",
+      "kind": "system",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "GameLogic.dll/Academagia.GameSystems/MonsterSystem.cs",
+      "size_signal": 129,
+      "details": {
+        "registered": true,
+        "root_save_order": 28
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 2,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:CliqueSystem",
+      "name": "CliqueSystem",
+      "kind": "system",
+      "family": "social_institution",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.GameSystems/CliqueSystem.cs",
+      "size_signal": 585,
+      "details": {
+        "registered": true,
+        "root_save_order": 10
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:IllegalSystem",
+      "name": "IllegalSystem",
+      "kind": "system",
+      "family": "economy",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.Inventory/IllegalSystem.cs",
+      "size_signal": 53,
+      "details": {
+        "registered": false,
+        "root_save_order": null
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "system:ActionScheduler",
+      "name": "ActionScheduler",
+      "kind": "system",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "GameLogic.dll/Academagia.Scheduler/ActionScheduler.cs",
+      "size_signal": 463,
+      "details": {
+        "registered": true,
+        "root_save_order": 1
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 1,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia",
+      "name": "GameLogic.dll/Academagia",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia",
+      "size_signal": 3,
+      "details": {
+        "files": 3
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.AI",
+      "name": "GameLogic.dll/Academagia.AI",
+      "kind": "namespace",
+      "family": "npc_ai",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.AI",
+      "size_signal": 31,
+      "details": {
+        "files": 28
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Ability",
+      "name": "GameLogic.dll/Academagia.Ability",
+      "kind": "namespace",
+      "family": "power_action",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Ability",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Allowance",
+      "name": "GameLogic.dll/Academagia.Allowance",
+      "kind": "namespace",
+      "family": "economy",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Allowance",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Astrology",
+      "name": "GameLogic.dll/Academagia.Astrology",
+      "kind": "namespace",
+      "family": "world_time",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Astrology",
+      "size_signal": 2,
+      "details": {
+        "files": 2
+      },
+      "routing_ref": 14,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.CombatAndDuel",
+      "name": "GameLogic.dll/Academagia.CombatAndDuel",
+      "kind": "namespace",
+      "family": "combat",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.CombatAndDuel",
+      "size_signal": 29,
+      "details": {
+        "files": 27
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Common",
+      "name": "GameLogic.dll/Academagia.Common",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Common",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.DateAndTime",
+      "name": "GameLogic.dll/Academagia.DateAndTime",
+      "kind": "namespace",
+      "family": "world_time",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.DateAndTime",
+      "size_signal": 9,
+      "details": {
+        "files": 9
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Effects",
+      "name": "GameLogic.dll/Academagia.Effects",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Effects",
+      "size_signal": 43,
+      "details": {
+        "files": 43
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Effects.Param",
+      "name": "GameLogic.dll/Academagia.Effects.Param",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Effects.Param",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Favor",
+      "name": "GameLogic.dll/Academagia.Favor",
+      "kind": "namespace",
+      "family": "social_institution",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Favor",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Feedback",
+      "name": "GameLogic.dll/Academagia.Feedback",
+      "kind": "namespace",
+      "family": "events_dialogue",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Feedback",
+      "size_signal": 95,
+      "details": {
+        "files": 94
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Game",
+      "name": "GameLogic.dll/Academagia.Game",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Game",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.GameSystems",
+      "name": "GameLogic.dll/Academagia.GameSystems",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.GameSystems",
+      "size_signal": 102,
+      "details": {
+        "files": 85
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Inventory",
+      "name": "GameLogic.dll/Academagia.Inventory",
+      "kind": "namespace",
+      "family": "economy",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Inventory",
+      "size_signal": 2,
+      "details": {
+        "files": 2
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Objects",
+      "name": "GameLogic.dll/Academagia.Objects",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Objects",
+      "size_signal": 2,
+      "details": {
+        "files": 2
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Prevent",
+      "name": "GameLogic.dll/Academagia.Prevent",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Prevent",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Reprimand",
+      "name": "GameLogic.dll/Academagia.Reprimand",
+      "kind": "namespace",
+      "family": "social_institution",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Reprimand",
+      "size_signal": 4,
+      "details": {
+        "files": 4
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Resolving",
+      "name": "GameLogic.dll/Academagia.Resolving",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Resolving",
+      "size_signal": 28,
+      "details": {
+        "files": 25
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Resolving.Constraints",
+      "name": "GameLogic.dll/Academagia.Resolving.Constraints",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Resolving.Constraints",
+      "size_signal": 26,
+      "details": {
+        "files": 26
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Resolving.Rules",
+      "name": "GameLogic.dll/Academagia.Resolving.Rules",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Resolving.Rules",
+      "size_signal": 4,
+      "details": {
+        "files": 4
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Resolving.Selectors",
+      "name": "GameLogic.dll/Academagia.Resolving.Selectors",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Resolving.Selectors",
+      "size_signal": 6,
+      "details": {
+        "files": 7
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Resolving.Strategy",
+      "name": "GameLogic.dll/Academagia.Resolving.Strategy",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Resolving.Strategy",
+      "size_signal": 11,
+      "details": {
+        "files": 9
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Rimbal",
+      "name": "GameLogic.dll/Academagia.Rimbal",
+      "kind": "namespace",
+      "family": "combat",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Rimbal",
+      "size_signal": 23,
+      "details": {
+        "files": 18
+      },
+      "routing_ref": 10,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Roll",
+      "name": "GameLogic.dll/Academagia.Roll",
+      "kind": "namespace",
+      "family": "power_action",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Roll",
+      "size_signal": 6,
+      "details": {
+        "files": 6
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Scheduler",
+      "name": "GameLogic.dll/Academagia.Scheduler",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Scheduler",
+      "size_signal": 7,
+      "details": {
+        "files": 7
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Statistic",
+      "name": "GameLogic.dll/Academagia.Statistic",
+      "kind": "namespace",
+      "family": "body_emotion",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Statistic",
+      "size_signal": 27,
+      "details": {
+        "files": 26
+      },
+      "routing_ref": 8,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Storage",
+      "name": "GameLogic.dll/Academagia.Storage",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Storage",
+      "size_signal": 29,
+      "details": {
+        "files": 21
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Story",
+      "name": "GameLogic.dll/Academagia.Story",
+      "kind": "namespace",
+      "family": "events_dialogue",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Story",
+      "size_signal": 3,
+      "details": {
+        "files": 3
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Vendetta",
+      "name": "GameLogic.dll/Academagia.Vendetta",
+      "kind": "namespace",
+      "family": "social_institution",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Vendetta",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Academagia.Wrappers",
+      "name": "GameLogic.dll/Academagia.Wrappers",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Academagia.Wrappers",
+      "size_signal": 61,
+      "details": {
+        "files": 57
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/ContentModel",
+      "name": "GameLogic.dll/ContentModel",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/ContentModel",
+      "size_signal": 9,
+      "details": {
+        "files": 7
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/Properties",
+      "name": "GameLogic.dll/Properties",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/Properties",
+      "size_signal": 0,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:GameLogic.dll/RepositoryCache",
+      "name": "GameLogic.dll/RepositoryCache",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "GameLogic.dll/RepositoryCache",
+      "size_signal": 7,
+      "details": {
+        "files": 7
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:ContentModel.dll/ContentModel",
+      "name": "ContentModel.dll/ContentModel",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "ContentModel.dll/ContentModel",
+      "size_signal": 188,
+      "details": {
+        "files": 179
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:ContentModel.dll/ContentModel.Common",
+      "name": "ContentModel.dll/ContentModel.Common",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "ContentModel.dll/ContentModel.Common",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:ContentModel.dll/Properties",
+      "name": "ContentModel.dll/Properties",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "ContentModel.dll/Properties",
+      "size_signal": 0,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Storage.dll/Properties",
+      "name": "Storage.dll/Properties",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Storage.dll/Properties",
+      "size_signal": 0,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Storage.dll/Storage",
+      "name": "Storage.dll/Storage",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Storage.dll/Storage",
+      "size_signal": 105,
+      "details": {
+        "files": 101
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Storage.dll/Storage.DB",
+      "name": "Storage.dll/Storage.DB",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Storage.dll/Storage.DB",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Storage.dll/Storage.Publish",
+      "name": "Storage.dll/Storage.Publish",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Storage.dll/Storage.Publish",
+      "size_signal": 9,
+      "details": {
+        "files": 7
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Academagia.Common",
+      "name": "Common.dll/Academagia.Common",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Academagia.Common",
+      "size_signal": 1,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Academagia.Common.Commands",
+      "name": "Common.dll/Academagia.Common.Commands",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Academagia.Common.Commands",
+      "size_signal": 12,
+      "details": {
+        "files": 11
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Academagia.Common.View",
+      "name": "Common.dll/Academagia.Common.View",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Academagia.Common.View",
+      "size_signal": 4,
+      "details": {
+        "files": 4
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Common",
+      "name": "Common.dll/Common",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Common",
+      "size_signal": 20,
+      "details": {
+        "files": 22
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Common.Collections",
+      "name": "Common.dll/Common.Collections",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Common.Collections",
+      "size_signal": 3,
+      "details": {
+        "files": 3
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Common.Logger",
+      "name": "Common.dll/Common.Logger",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Common.Logger",
+      "size_signal": 4,
+      "details": {
+        "files": 4
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Properties",
+      "name": "Common.dll/Properties",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Common.dll/Properties",
+      "size_signal": 0,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Common.dll/Steamworks",
+      "name": "Common.dll/Steamworks",
+      "kind": "namespace",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Common.dll/Steamworks",
+      "size_signal": 356,
+      "details": {
+        "files": 350
+      },
+      "routing_ref": 16,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.Core.dll/Academagia.Core",
+      "name": "Academagia.Core.dll/Academagia.Core",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.Core.dll/Academagia.Core",
+      "size_signal": 5,
+      "details": {
+        "files": 5
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.Core.dll/Academagia.Core.Adapters",
+      "name": "Academagia.Core.dll/Academagia.Core.Adapters",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.Core.dll/Academagia.Core.Adapters",
+      "size_signal": 5,
+      "details": {
+        "files": 5
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.Core.dll/Academagia.Core.Data",
+      "name": "Academagia.Core.dll/Academagia.Core.Data",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.Core.dll/Academagia.Core.Data",
+      "size_signal": 9,
+      "details": {
+        "files": 9
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.Core.dll/Academagia.Core.Interfaces",
+      "name": "Academagia.Core.dll/Academagia.Core.Interfaces",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.Core.dll/Academagia.Core.Interfaces",
+      "size_signal": 7,
+      "details": {
+        "files": 7
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.Core.dll/Properties",
+      "name": "Academagia.Core.dll/Properties",
+      "kind": "namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.Core.dll/Properties",
+      "size_signal": 0,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.exe/Academagia",
+      "name": "Academagia.exe/Academagia",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Academagia.exe/Academagia",
+      "size_signal": 3,
+      "details": {
+        "files": 3
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.exe/Academagia.Properties",
+      "name": "Academagia.exe/Academagia.Properties",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Academagia.exe/Academagia.Properties",
+      "size_signal": 2,
+      "details": {
+        "files": 2
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "namespace:Academagia.exe/Properties",
+      "name": "Academagia.exe/Properties",
+      "kind": "namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Academagia.exe/Properties",
+      "size_signal": 0,
+      "details": {
+        "files": 1
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 3,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Ability",
+      "name": "Ability",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Ability.cs",
+      "size_signal": 2753,
+      "details": {
+        "base": 2753,
+        "Content": 3288,
+        "Summer": 3288
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Action",
+      "name": "Action",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Action.cs",
+      "size_signal": 511,
+      "details": {
+        "base": 511,
+        "Content": 551,
+        "Summer": 552
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ActionType",
+      "name": "ActionType",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ActionType.cs",
+      "size_signal": 54,
+      "details": {
+        "base": 54,
+        "Content": 54,
+        "Summer": 54
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Adventure",
+      "name": "Adventure",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Adventure.cs",
+      "size_signal": 1555,
+      "details": {
+        "base": 1555,
+        "Content": 3022,
+        "Summer": 3030
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Affinity",
+      "name": "Affinity",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Affinity.cs",
+      "size_signal": 141,
+      "details": {
+        "base": 141,
+        "Content": 155,
+        "Summer": 155
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 11,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:AIEffect",
+      "name": "AIEffect",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/AIEffect.cs",
+      "size_signal": 3387,
+      "details": {
+        "base": 3387,
+        "Content": 3556,
+        "Summer": 3556
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:AIGoal",
+      "name": "AIGoal",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/AIGoal.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Article",
+      "name": "Article",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Article.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Attribute",
+      "name": "Attribute",
+      "kind": "table",
+      "family": "creation_body",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Attribute.cs",
+      "size_signal": 1470,
+      "details": {
+        "base": 1470,
+        "Content": 1540,
+        "Summer": 1540
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Background",
+      "name": "Background",
+      "kind": "table",
+      "family": "creation_body",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Background.cs",
+      "size_signal": 117,
+      "details": {
+        "base": 117,
+        "Content": 147,
+        "Summer": 147
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 4,
+      "deep_section_ref": 12,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:BackgroundType",
+      "name": "BackgroundType",
+      "kind": "table",
+      "family": "creation_body",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/BackgroundType.cs",
+      "size_signal": 9,
+      "details": {
+        "base": 9,
+        "Content": 9,
+        "Summer": 9
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 4,
+      "deep_section_ref": 12,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Benefit",
+      "name": "Benefit",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Benefit.cs",
+      "size_signal": 15231,
+      "details": {
+        "base": 15231,
+        "Content": 26053,
+        "Summer": 26269
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:BreedType",
+      "name": "BreedType",
+      "kind": "table",
+      "family": "companions",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/BreedType.cs",
+      "size_signal": 77,
+      "details": {
+        "base": 77,
+        "Content": 81,
+        "Summer": 81
+      },
+      "routing_ref": 2,
+      "prior_status_ref": 4,
+      "deep_section_ref": 1,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:CalendarEffect",
+      "name": "CalendarEffect",
+      "kind": "table",
+      "family": "world_time",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/CalendarEffect.cs",
+      "size_signal": 360,
+      "details": {
+        "base": 360,
+        "Content": 360,
+        "Summer": 360
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:CalendarWeather",
+      "name": "CalendarWeather",
+      "kind": "table",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/CalendarWeather.cs",
+      "size_signal": 360,
+      "details": {
+        "base": 360,
+        "Content": 360,
+        "Summer": 360
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 4,
+      "deep_section_ref": 10,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Catalog",
+      "name": "Catalog",
+      "kind": "table",
+      "family": "economy",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Catalog.cs",
+      "size_signal": 125,
+      "details": {
+        "base": 125,
+        "Content": 129,
+        "Summer": 129
+      },
+      "routing_ref": 1,
+      "prior_status_ref": 4,
+      "deep_section_ref": 4,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:CharacterSkill",
+      "name": "CharacterSkill",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/CharacterSkill.cs",
+      "size_signal": 1316,
+      "details": {
+        "base": 1316,
+        "Content": 1399,
+        "Summer": 1399
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Clazz",
+      "name": "Clazz",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Clazz.cs",
+      "size_signal": 17,
+      "details": {
+        "base": 17,
+        "Content": 17,
+        "Summer": 17
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ClazzPerk",
+      "name": "ClazzPerk",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ClazzPerk.cs",
+      "size_signal": 170,
+      "details": {
+        "base": 170,
+        "Content": 193,
+        "Summer": 193
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ClazzSkill",
+      "name": "ClazzSkill",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/ClazzSkill.cs",
+      "size_signal": 1192,
+      "details": {
+        "base": 1192,
+        "Content": 1192,
+        "Summer": 1192
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Clique",
+      "name": "Clique",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Clique.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:CliqueName",
+      "name": "CliqueName",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/CliqueName.cs",
+      "size_signal": 98,
+      "details": {
+        "base": 98,
+        "Content": 103,
+        "Summer": 103
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:College",
+      "name": "College",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/College.cs",
+      "size_signal": 7,
+      "details": {
+        "base": 7,
+        "Content": 7,
+        "Summer": 7
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:CompeteSkill",
+      "name": "CompeteSkill",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/CompeteSkill.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Complication",
+      "name": "Complication",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Complication.cs",
+      "size_signal": 1068,
+      "details": {
+        "base": 1068,
+        "Content": 1548,
+        "Summer": 1549
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ComplicationType",
+      "name": "ComplicationType",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ComplicationType.cs",
+      "size_signal": 114,
+      "details": {
+        "base": 114,
+        "Content": 114,
+        "Summer": 114
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Constellation",
+      "name": "Constellation",
+      "kind": "table",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Constellation.cs",
+      "size_signal": 39,
+      "details": {
+        "base": 39,
+        "Content": 39,
+        "Summer": 39
+      },
+      "routing_ref": 14,
+      "prior_status_ref": 4,
+      "deep_section_ref": 13,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ConstellationAbility",
+      "name": "ConstellationAbility",
+      "kind": "table",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/ConstellationAbility.cs",
+      "size_signal": 269,
+      "details": {
+        "base": 269,
+        "Content": 269,
+        "Summer": 269
+      },
+      "routing_ref": 14,
+      "prior_status_ref": 4,
+      "deep_section_ref": 13,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Continuance",
+      "name": "Continuance",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Continuance.cs",
+      "size_signal": 6567,
+      "details": {
+        "base": 6567,
+        "Content": 11708,
+        "Summer": 11749
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:DateAM",
+      "name": "DateAM",
+      "kind": "table",
+      "family": "world_time",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/DateAM.cs",
+      "size_signal": 360,
+      "details": {
+        "base": 360,
+        "Content": 360,
+        "Summer": 360
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Display",
+      "name": "Display",
+      "kind": "table",
+      "family": "presentation",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Display.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:DuelEffect",
+      "name": "DuelEffect",
+      "kind": "table",
+      "family": "combat",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/DuelEffect.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Effect",
+      "name": "Effect",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Effect.cs",
+      "size_signal": 47202,
+      "details": {
+        "base": 47202,
+        "Content": 65257,
+        "Summer": 65516
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:EffectCondition",
+      "name": "EffectCondition",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/EffectCondition.cs",
+      "size_signal": 59546,
+      "details": {
+        "base": 59546,
+        "Content": 79199,
+        "Summer": 79463
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Emotion",
+      "name": "Emotion",
+      "kind": "table",
+      "family": "body_emotion",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Emotion.cs",
+      "size_signal": 45,
+      "details": {
+        "base": 45,
+        "Content": 55,
+        "Summer": 55
+      },
+      "routing_ref": 8,
+      "prior_status_ref": 4,
+      "deep_section_ref": 14,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Enchantment",
+      "name": "Enchantment",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Enchantment.cs",
+      "size_signal": 9,
+      "details": {
+        "base": 9,
+        "Content": 9,
+        "Summer": 9
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 11,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:EnchantmentAbility",
+      "name": "EnchantmentAbility",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/EnchantmentAbility.cs",
+      "size_signal": 10,
+      "details": {
+        "base": 10,
+        "Content": 10,
+        "Summer": 10
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 11,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Exit",
+      "name": "Exit",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Exit.cs",
+      "size_signal": 7592,
+      "details": {
+        "base": 7592,
+        "Content": 12838,
+        "Summer": 12897
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Familiar",
+      "name": "Familiar",
+      "kind": "table",
+      "family": "companions",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Familiar.cs",
+      "size_signal": 111,
+      "details": {
+        "base": 111,
+        "Content": 117,
+        "Summer": 117
+      },
+      "routing_ref": 2,
+      "prior_status_ref": 4,
+      "deep_section_ref": 1,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:FamiliarType",
+      "name": "FamiliarType",
+      "kind": "table",
+      "family": "companions",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/FamiliarType.cs",
+      "size_signal": 26,
+      "details": {
+        "base": 26,
+        "Content": 29,
+        "Summer": 29
+      },
+      "routing_ref": 2,
+      "prior_status_ref": 4,
+      "deep_section_ref": 1,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:FavorEffect",
+      "name": "FavorEffect",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/FavorEffect.cs",
+      "size_signal": 47,
+      "details": {
+        "base": 47,
+        "Content": 47,
+        "Summer": 47
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ForceEffect",
+      "name": "ForceEffect",
+      "kind": "table",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ForceEffect.cs",
+      "size_signal": 12297,
+      "details": {
+        "base": 12297,
+        "Content": 13895,
+        "Summer": 13900
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:GambitEffect",
+      "name": "GambitEffect",
+      "kind": "table",
+      "family": "combat",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/GambitEffect.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Geas",
+      "name": "Geas",
+      "kind": "table",
+      "family": "combat",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Geas.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:GiftPreference",
+      "name": "GiftPreference",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/GiftPreference.cs",
+      "size_signal": 124,
+      "details": {
+        "base": 124,
+        "Content": 125,
+        "Summer": 125
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 7,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:GoalAIGoal",
+      "name": "GoalAIGoal",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/GoalAIGoal.cs",
+      "size_signal": 415,
+      "details": {
+        "base": 415,
+        "Content": 435,
+        "Summer": 435
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:GoalAITable",
+      "name": "GoalAITable",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/GoalAITable.cs",
+      "size_signal": 83,
+      "details": {
+        "base": 83,
+        "Content": 87,
+        "Summer": 87
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Ingredient",
+      "name": "Ingredient",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Ingredient.cs",
+      "size_signal": 1464,
+      "details": {
+        "base": 1464,
+        "Content": 1464,
+        "Summer": 1464
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 15,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Instructor",
+      "name": "Instructor",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Instructor.cs",
+      "size_signal": 21,
+      "details": {
+        "base": 21,
+        "Content": 21,
+        "Summer": 21
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:InterestsAITable",
+      "name": "InterestsAITable",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/InterestsAITable.cs",
+      "size_signal": 83,
+      "details": {
+        "base": 83,
+        "Content": 87,
+        "Summer": 87
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Investigation",
+      "name": "Investigation",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Investigation.cs",
+      "size_signal": 2251,
+      "details": {
+        "base": 2251,
+        "Content": 2826,
+        "Summer": 2828
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Investiture",
+      "name": "Investiture",
+      "kind": "table",
+      "family": "combat",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Investiture.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Item",
+      "name": "Item",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Item.cs",
+      "size_signal": 1265,
+      "details": {
+        "base": 1265,
+        "Content": 1475,
+        "Summer": 1475
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 15,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ItemAbility",
+      "name": "ItemAbility",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/ItemAbility.cs",
+      "size_signal": 1122,
+      "details": {
+        "base": 1122,
+        "Content": 1349,
+        "Summer": 1349
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 15,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ItemInstance",
+      "name": "ItemInstance",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/ItemInstance.cs",
+      "size_signal": 935,
+      "details": {
+        "base": 935,
+        "Content": 996,
+        "Summer": 997
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 15,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ItemType",
+      "name": "ItemType",
+      "kind": "table",
+      "family": "production",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ItemType.cs",
+      "size_signal": 113,
+      "details": {
+        "base": 113,
+        "Content": 114,
+        "Summer": 114
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Location",
+      "name": "Location",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Location.cs",
+      "size_signal": 452,
+      "details": {
+        "base": 452,
+        "Content": 547,
+        "Summer": 547
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:LocationType",
+      "name": "LocationType",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/LocationType.cs",
+      "size_signal": 10,
+      "details": {
+        "base": 10,
+        "Content": 10,
+        "Summer": 10
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Lore",
+      "name": "Lore",
+      "kind": "table",
+      "family": "knowledge",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Lore.cs",
+      "size_signal": 4113,
+      "details": {
+        "base": 4113,
+        "Content": 4748,
+        "Summer": 4748
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Memory",
+      "name": "Memory",
+      "kind": "table",
+      "family": "knowledge",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Memory.cs",
+      "size_signal": 1640,
+      "details": {
+        "base": 1640,
+        "Content": 2120,
+        "Summer": 2127
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Merit",
+      "name": "Merit",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Merit.cs",
+      "size_signal": 34,
+      "details": {
+        "base": 34,
+        "Content": 36,
+        "Summer": 36
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 5,
+      "deep_section_ref": 2,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Monster",
+      "name": "Monster",
+      "kind": "table",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Monster.cs",
+      "size_signal": 16,
+      "details": {
+        "base": 16,
+        "Content": 16,
+        "Summer": 16
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:MonsterSkill",
+      "name": "MonsterSkill",
+      "kind": "table",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/MonsterSkill.cs",
+      "size_signal": 91,
+      "details": {
+        "base": 91,
+        "Content": 91,
+        "Summer": 91
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:MonsterType",
+      "name": "MonsterType",
+      "kind": "table",
+      "family": "combat",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/MonsterType.cs",
+      "size_signal": 22,
+      "details": {
+        "base": 22,
+        "Content": 22,
+        "Summer": 22
+      },
+      "routing_ref": 5,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Music",
+      "name": "Music",
+      "kind": "table",
+      "family": "presentation",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Music.cs",
+      "size_signal": 12,
+      "details": {
+        "base": 12,
+        "Content": 12,
+        "Summer": 12
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:NamedText",
+      "name": "NamedText",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/NamedText.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:NewspaperIssue",
+      "name": "NewspaperIssue",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/NewspaperIssue.cs",
+      "size_signal": 20,
+      "details": {
+        "base": 20,
+        "Content": 20,
+        "Summer": 20
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Nickname",
+      "name": "Nickname",
+      "kind": "table",
+      "family": "creation_body",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Nickname.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:PersistEntityRef",
+      "name": "PersistEntityRef",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/PersistEntityRef.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:PersonalAITable",
+      "name": "PersonalAITable",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/PersonalAITable.cs",
+      "size_signal": 83,
+      "details": {
+        "base": 83,
+        "Content": 87,
+        "Summer": 87
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Personality",
+      "name": "Personality",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Personality.cs",
+      "size_signal": 85,
+      "details": {
+        "base": 85,
+        "Content": 89,
+        "Summer": 89
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:PersonalityPreference",
+      "name": "PersonalityPreference",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/PersonalityPreference.cs",
+      "size_signal": 813,
+      "details": {
+        "base": 813,
+        "Content": 823,
+        "Summer": 823
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Pheme",
+      "name": "Pheme",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Pheme.cs",
+      "size_signal": 629,
+      "details": {
+        "base": 629,
+        "Content": 664,
+        "Summer": 664
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:PhemeEffect",
+      "name": "PhemeEffect",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/PhemeEffect.cs",
+      "size_signal": 1201,
+      "details": {
+        "base": 1201,
+        "Content": 1286,
+        "Summer": 1286
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:PhemeSpellType",
+      "name": "PhemeSpellType",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/PhemeSpellType.cs",
+      "size_signal": 2156,
+      "details": {
+        "base": 2156,
+        "Content": 2229,
+        "Summer": 2229
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Player",
+      "name": "Player",
+      "kind": "table",
+      "family": "creation_body",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Player.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Portrait",
+      "name": "Portrait",
+      "kind": "table",
+      "family": "creation_body",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Portrait.cs",
+      "size_signal": 28,
+      "details": {
+        "base": 28,
+        "Content": 28,
+        "Summer": 28
+      },
+      "routing_ref": 13,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Prerequisite",
+      "name": "Prerequisite",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Prerequisite.cs",
+      "size_signal": 31050,
+      "details": {
+        "base": 31050,
+        "Content": 45554,
+        "Summer": 45678
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:PrerequisiteItem",
+      "name": "PrerequisiteItem",
+      "kind": "table",
+      "family": "production",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/PrerequisiteItem.cs",
+      "size_signal": 6784,
+      "details": {
+        "base": 6784,
+        "Content": 9659,
+        "Summer": 9758
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Recipe",
+      "name": "Recipe",
+      "kind": "table",
+      "family": "production",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/Recipe.cs",
+      "size_signal": 1265,
+      "details": {
+        "base": 1265,
+        "Content": 1475,
+        "Summer": 1475
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 4,
+      "deep_section_ref": 15,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ReferenceColumn",
+      "name": "ReferenceColumn",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ReferenceColumn.cs",
+      "size_signal": 257,
+      "details": {
+        "base": 257,
+        "Content": 276,
+        "Summer": 276
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:ReferenceTable",
+      "name": "ReferenceTable",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/ReferenceTable.cs",
+      "size_signal": 59,
+      "details": {
+        "base": 59,
+        "Content": 77,
+        "Summer": 77
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Region",
+      "name": "Region",
+      "kind": "table",
+      "family": "world_time",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Region.cs",
+      "size_signal": 5,
+      "details": {
+        "base": 5,
+        "Content": 5,
+        "Summer": 5
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RelationshipRumorDescription",
+      "name": "RelationshipRumorDescription",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/RelationshipRumorDescription.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Roll",
+      "name": "Roll",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Roll.cs",
+      "size_signal": 11338,
+      "details": {
+        "base": 11338,
+        "Content": 15034,
+        "Summer": 15059
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RollBonus",
+      "name": "RollBonus",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/RollBonus.cs",
+      "size_signal": 148,
+      "details": {
+        "base": 148,
+        "Content": 148,
+        "Summer": 148
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RollContext",
+      "name": "RollContext",
+      "kind": "table",
+      "family": "power_action",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/RollContext.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RollEffectRelation",
+      "name": "RollEffectRelation",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/RollEffectRelation.cs",
+      "size_signal": 1263,
+      "details": {
+        "base": 1263,
+        "Content": 1439,
+        "Summer": 1439
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RollInitiator",
+      "name": "RollInitiator",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/RollInitiator.cs",
+      "size_signal": 12740,
+      "details": {
+        "base": 12740,
+        "Content": 16445,
+        "Summer": 16470
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RollTarget",
+      "name": "RollTarget",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/RollTarget.cs",
+      "size_signal": 12740,
+      "details": {
+        "base": 12740,
+        "Content": 16445,
+        "Summer": 16470
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RumorDefaultDescription",
+      "name": "RumorDefaultDescription",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/RumorDefaultDescription.cs",
+      "size_signal": 1,
+      "details": {
+        "base": 1,
+        "Content": 1,
+        "Summer": 1
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:RumorDescription",
+      "name": "RumorDescription",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/RumorDescription.cs",
+      "size_signal": 2,
+      "details": {
+        "base": 2,
+        "Content": 2,
+        "Summer": 2
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:SelectionItem",
+      "name": "SelectionItem",
+      "kind": "table",
+      "family": "production",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/SelectionItem.cs",
+      "size_signal": 137310,
+      "details": {
+        "base": 137310,
+        "Content": 181523,
+        "Summer": 182257
+      },
+      "routing_ref": 12,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Skill",
+      "name": "Skill",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Skill.cs",
+      "size_signal": 364,
+      "details": {
+        "base": 364,
+        "Content": 386,
+        "Summer": 386
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:SkillLevelThreshold",
+      "name": "SkillLevelThreshold",
+      "kind": "table",
+      "family": "knowledge",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/SkillLevelThreshold.cs",
+      "size_signal": 6540,
+      "details": {
+        "base": 6540,
+        "Content": 7070,
+        "Summer": 7050
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:SkillPerk",
+      "name": "SkillPerk",
+      "kind": "table",
+      "family": "knowledge",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/SkillPerk.cs",
+      "size_signal": 6986,
+      "details": {
+        "base": 6986,
+        "Content": 7964,
+        "Summer": 7962
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:SkillRumorDescription",
+      "name": "SkillRumorDescription",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/SkillRumorDescription.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Sound",
+      "name": "Sound",
+      "kind": "table",
+      "family": "presentation",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Sound.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Spell",
+      "name": "Spell",
+      "kind": "table",
+      "family": "power_action",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Spell.cs",
+      "size_signal": 639,
+      "details": {
+        "base": 639,
+        "Content": 679,
+        "Summer": 679
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:SpellType",
+      "name": "SpellType",
+      "kind": "table",
+      "family": "power_action",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/SpellType.cs",
+      "size_signal": 714,
+      "details": {
+        "base": 714,
+        "Content": 753,
+        "Summer": 753
+      },
+      "routing_ref": 4,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Story",
+      "name": "Story",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "zero_rows",
+      "source": "ContentModel.dll/ContentModel/Story.cs",
+      "size_signal": 0,
+      "details": {
+        "base": 0,
+        "Content": 0,
+        "Summer": 0
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:StoryActor",
+      "name": "StoryActor",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/StoryActor.cs",
+      "size_signal": 3632,
+      "details": {
+        "base": 3632,
+        "Content": 6666,
+        "Summer": 6679
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:StoryActorLink",
+      "name": "StoryActorLink",
+      "kind": "table",
+      "family": "events_dialogue",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/StoryActorLink.cs",
+      "size_signal": 28779,
+      "details": {
+        "base": 28779,
+        "Content": 39738,
+        "Summer": 39849
+      },
+      "routing_ref": 9,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Student",
+      "name": "Student",
+      "kind": "table",
+      "family": "authoring_save",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Student.cs",
+      "size_signal": 83,
+      "details": {
+        "base": 83,
+        "Content": 87,
+        "Summer": 87
+      },
+      "routing_ref": 6,
+      "prior_status_ref": 5,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:StudiesAITable",
+      "name": "StudiesAITable",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/StudiesAITable.cs",
+      "size_signal": 84,
+      "details": {
+        "base": 84,
+        "Content": 88,
+        "Summer": 88
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Topic",
+      "name": "Topic",
+      "kind": "table",
+      "family": "knowledge",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/Topic.cs",
+      "size_signal": 290,
+      "details": {
+        "base": 290,
+        "Content": 321,
+        "Summer": 319
+      },
+      "routing_ref": 7,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:University",
+      "name": "University",
+      "kind": "table",
+      "family": "social_institution",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/University.cs",
+      "size_signal": 1,
+      "details": {
+        "base": 1,
+        "Content": 1,
+        "Summer": 1
+      },
+      "routing_ref": 3,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:VendettaAIGoal",
+      "name": "VendettaAIGoal",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/VendettaAIGoal.cs",
+      "size_signal": 199,
+      "details": {
+        "base": 199,
+        "Content": 204,
+        "Summer": 204
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:VendettaAITable",
+      "name": "VendettaAITable",
+      "kind": "table",
+      "family": "npc_ai",
+      "status": "prior_bounded",
+      "source": "ContentModel.dll/ContentModel/VendettaAITable.cs",
+      "size_signal": 83,
+      "details": {
+        "base": 83,
+        "Content": 87,
+        "Summer": 87
+      },
+      "routing_ref": 0,
+      "prior_status_ref": 6,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:Visualization",
+      "name": "Visualization",
+      "kind": "table",
+      "family": "presentation",
+      "status": "inventoried_only",
+      "source": "ContentModel.dll/ContentModel/Visualization.cs",
+      "size_signal": 1547,
+      "details": {
+        "base": 1547,
+        "Content": 1764,
+        "Summer": 1764
+      },
+      "routing_ref": 15,
+      "prior_status_ref": 4,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:WeatherType",
+      "name": "WeatherType",
+      "kind": "table",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/WeatherType.cs",
+      "size_signal": 10,
+      "details": {
+        "base": 10,
+        "Content": 10,
+        "Summer": 10
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 4,
+      "deep_section_ref": 10,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "table:WeatherTypeChance",
+      "name": "WeatherTypeChance",
+      "kind": "table",
+      "family": "world_time",
+      "status": "deep_bounded",
+      "source": "ContentModel.dll/ContentModel/WeatherTypeChance.cs",
+      "size_signal": 874,
+      "details": {
+        "base": 874,
+        "Content": 874,
+        "Summer": 874
+      },
+      "routing_ref": 11,
+      "prior_status_ref": 4,
+      "deep_section_ref": 10,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:<Module>",
+      "name": "<Module>",
+      "kind": "ui_namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "<Module>",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 6,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:<PrivateImplementationDetails>",
+      "name": "<PrivateImplementationDetails>",
+      "kind": "ui_namespace",
+      "family": "npc_ai",
+      "status": "module_partial",
+      "source": "<PrivateImplementationDetails>",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 0,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI",
+      "name": "Academagia.UI",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI",
+      "size_signal": 3,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Controls",
+      "name": "Academagia.UI.Controls",
+      "kind": "ui_namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Academagia.UI.Controls",
+      "size_signal": 25,
+      "details": null,
+      "routing_ref": 6,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Properties",
+      "name": "Academagia.UI.Properties",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Properties",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Utilities",
+      "name": "Academagia.UI.Utilities",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Utilities",
+      "size_signal": 15,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.ValueConverters",
+      "name": "Academagia.UI.ValueConverters",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.ValueConverters",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.ViewModels",
+      "name": "Academagia.UI.ViewModels",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.ViewModels",
+      "size_signal": 3,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views",
+      "name": "Academagia.UI.Views",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views",
+      "size_signal": 8,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Artificing",
+      "name": "Academagia.UI.Views.Artificing",
+      "kind": "ui_namespace",
+      "family": "production",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Artificing",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 12,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.ButtonsPanel",
+      "name": "Academagia.UI.Views.ButtonsPanel",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.ButtonsPanel",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Calendar",
+      "name": "Academagia.UI.Views.Calendar",
+      "kind": "ui_namespace",
+      "family": "world_time",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Calendar",
+      "size_signal": 9,
+      "details": null,
+      "routing_ref": 11,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.CharacterControlScheduler",
+      "name": "Academagia.UI.Views.CharacterControlScheduler",
+      "kind": "ui_namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.CharacterControlScheduler",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 6,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Clique",
+      "name": "Academagia.UI.Views.Clique",
+      "kind": "ui_namespace",
+      "family": "social_institution",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Clique",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 3,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Clock",
+      "name": "Academagia.UI.Views.Clock",
+      "kind": "ui_namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Clock",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 6,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Common",
+      "name": "Academagia.UI.Views.Common",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Common",
+      "size_signal": 22,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Common.DragManager",
+      "name": "Academagia.UI.Views.Common.DragManager",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Common.DragManager",
+      "size_signal": 6,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Confirmation",
+      "name": "Academagia.UI.Views.Confirmation",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Confirmation",
+      "size_signal": 11,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Display",
+      "name": "Academagia.UI.Views.Display",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Display",
+      "size_signal": 11,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Duel",
+      "name": "Academagia.UI.Views.Duel",
+      "kind": "ui_namespace",
+      "family": "combat",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Duel",
+      "size_signal": 9,
+      "details": null,
+      "routing_ref": 5,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Enchant",
+      "name": "Academagia.UI.Views.Enchant",
+      "kind": "ui_namespace",
+      "family": "production",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Enchant",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 12,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.EntityInformation",
+      "name": "Academagia.UI.Views.EntityInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.EntityInformation",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Familar",
+      "name": "Academagia.UI.Views.Familar",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Familar",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Feedback",
+      "name": "Academagia.UI.Views.Feedback",
+      "kind": "ui_namespace",
+      "family": "events_dialogue",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Feedback",
+      "size_signal": 5,
+      "details": null,
+      "routing_ref": 9,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information",
+      "name": "Academagia.UI.Views.Information",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.ActionEntityBaseInformation",
+      "name": "Academagia.UI.Views.Information.ActionEntityBaseInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.ActionEntityBaseInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.CharacterInformation",
+      "name": "Academagia.UI.Views.Information.CharacterInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.CharacterInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.EmotionInformation",
+      "name": "Academagia.UI.Views.Information.EmotionInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.EmotionInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.InstructorInformation",
+      "name": "Academagia.UI.Views.Information.InstructorInformation",
+      "kind": "ui_namespace",
+      "family": "social_institution",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.InstructorInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 3,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.ItemInformation",
+      "name": "Academagia.UI.Views.Information.ItemInformation",
+      "kind": "ui_namespace",
+      "family": "production",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.ItemInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 12,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.LocationInformation",
+      "name": "Academagia.UI.Views.Information.LocationInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.LocationInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.MonsterInformation",
+      "name": "Academagia.UI.Views.Information.MonsterInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.MonsterInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.PhemeInformation",
+      "name": "Academagia.UI.Views.Information.PhemeInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.PhemeInformation",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Information.SkillInformation",
+      "name": "Academagia.UI.Views.Information.SkillInformation",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Information.SkillInformation",
+      "size_signal": 3,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Inventory",
+      "name": "Academagia.UI.Views.Inventory",
+      "kind": "ui_namespace",
+      "family": "economy",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Inventory",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 1,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.LeftPanel",
+      "name": "Academagia.UI.Views.LeftPanel",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.LeftPanel",
+      "size_signal": 8,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.LocationInventory",
+      "name": "Academagia.UI.Views.LocationInventory",
+      "kind": "ui_namespace",
+      "family": "economy",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.LocationInventory",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 1,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Lore",
+      "name": "Academagia.UI.Views.Lore",
+      "kind": "ui_namespace",
+      "family": "knowledge",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Lore",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 7,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Menu",
+      "name": "Academagia.UI.Views.Menu",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Menu",
+      "size_signal": 4,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Portrait",
+      "name": "Academagia.UI.Views.Portrait",
+      "kind": "ui_namespace",
+      "family": "creation_body",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Portrait",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 13,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Relations",
+      "name": "Academagia.UI.Views.Relations",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Relations",
+      "size_signal": 7,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.RightPanel",
+      "name": "Academagia.UI.Views.RightPanel",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.RightPanel",
+      "size_signal": 3,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Rimbal",
+      "name": "Academagia.UI.Views.Rimbal",
+      "kind": "ui_namespace",
+      "family": "combat",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Rimbal",
+      "size_signal": 13,
+      "details": null,
+      "routing_ref": 10,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Scheduler",
+      "name": "Academagia.UI.Views.Scheduler",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Scheduler",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Shop",
+      "name": "Academagia.UI.Views.Shop",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Shop",
+      "size_signal": 2,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Storyline",
+      "name": "Academagia.UI.Views.Storyline",
+      "kind": "ui_namespace",
+      "family": "events_dialogue",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Storyline",
+      "size_signal": 14,
+      "details": null,
+      "routing_ref": 9,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Storyline.HtmlToXaml",
+      "name": "Academagia.UI.Views.Storyline.HtmlToXaml",
+      "kind": "ui_namespace",
+      "family": "events_dialogue",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Storyline.HtmlToXaml",
+      "size_signal": 7,
+      "details": null,
+      "routing_ref": 9,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Windows",
+      "name": "Academagia.UI.Views.Windows",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Windows",
+      "size_signal": 5,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:Academagia.UI.Views.Wizard",
+      "name": "Academagia.UI.Views.Wizard",
+      "kind": "ui_namespace",
+      "family": "presentation",
+      "status": "module_partial",
+      "source": "Academagia.UI.Views.Wizard",
+      "size_signal": 7,
+      "details": null,
+      "routing_ref": 15,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "ui_namespace:XamlGeneratedNamespace",
+      "name": "XamlGeneratedNamespace",
+      "kind": "ui_namespace",
+      "family": "authoring_save",
+      "status": "module_partial",
+      "source": "XamlGeneratedNamespace",
+      "size_signal": 1,
+      "details": null,
+      "routing_ref": 6,
+      "prior_status_ref": 7,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:Academagia.Core.dll",
+      "name": "Academagia.Core.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Academagia.Core.dll",
+      "size_signal": 20480,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 8,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:Academagia.UI.dll",
+      "name": "Academagia.UI.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Academagia.UI.dll",
+      "size_signal": 39060480,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 9,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:Castle.DynamicProxy.dll",
+      "name": "Castle.DynamicProxy.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Castle.DynamicProxy.dll",
+      "size_signal": 77824,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:Common.dll",
+      "name": "Common.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Common.dll",
+      "size_signal": 310784,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 8,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:ContentModel.dll",
+      "name": "ContentModel.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "ContentModel.dll",
+      "size_signal": 310784,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 8,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:FirebirdSql.Data.FirebirdClient.dll",
+      "name": "FirebirdSql.Data.FirebirdClient.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "FirebirdSql.Data.FirebirdClient.dll",
+      "size_signal": 692224,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:FontLibrary.dll",
+      "name": "FontLibrary.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "FontLibrary.dll",
+      "size_signal": 451584,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:GameLogic.dll",
+      "name": "GameLogic.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "GameLogic.dll",
+      "size_signal": 834048,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 8,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:Iesi.Collections.dll",
+      "name": "Iesi.Collections.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Iesi.Collections.dll",
+      "size_signal": 32768,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:NHibernate.dll",
+      "name": "NHibernate.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "NHibernate.dll",
+      "size_signal": 1085440,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:NVorbis.OpenTKSupport.dll",
+      "name": "NVorbis.OpenTKSupport.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "NVorbis.OpenTKSupport.dll",
+      "size_signal": 14848,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:NVorbis.dll",
+      "name": "NVorbis.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "NVorbis.dll",
+      "size_signal": 68608,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:OpenTK.dll",
+      "name": "OpenTK.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "OpenTK.dll",
+      "size_signal": 3996160,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:Storage.dll",
+      "name": "Storage.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "Storage.dll",
+      "size_signal": 863232,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 8,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:System.Linq.Dynamic.dll",
+      "name": "System.Linq.Dynamic.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "System.Linq.Dynamic.dll",
+      "size_signal": 47616,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "dependency:log4net.dll",
+      "name": "log4net.dll",
+      "kind": "dependency",
+      "family": "dependency",
+      "status": "dependency_unread",
+      "source": "log4net.dll",
+      "size_signal": 270336,
+      "details": null,
+      "routing_ref": 16,
+      "prior_status_ref": 10,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Per-line speakers, barks, small talk and rumor generation",
+      "name": "aspects-2026-10-14/Per-line speakers, barks, small talk and rumor generation",
+      "kind": "prior_unread",
+      "family": "social_institution",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Story anchors are contextual mentions, not speaker IDs. Full text now retained privately. Resume from corpora plus StoryActorLink, character text helpers, rumor-description tables and UI feedback renderers; do not fabricate attribution",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 3,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Native UI layout, keyboard/accessibility behavior and first-run creation flow",
+      "name": "aspects-2026-10-14/Native UI layout, keyboard/accessibility behavior and first-run creation flow",
+      "kind": "prior_unread",
+      "family": "presentation",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Three story UI types source-read; rest listed only. COMMON forbids game launch. UI-types list and MainWindow source route further passive work; native behavior needs a separately authorized lane",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 15,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Complete historical save migrations and actual corruption/recovery",
+      "name": "aspects-2026-10-14/Complete historical save migrations and actual corruption/recovery",
+      "kind": "prior_unread",
+      "family": "authoring_save",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Version gates/read paths traced but no saves/cache opened or executable run. Follow RepositorySerializer, GameInfo, CustomSerializer, each system LoadFromStreamMore and fixture-only future execution authorization",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 6,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Full combat/duel/Rimbal, crafting/enchantment, gifts/affinities, astrology and merit/vendetta formulas",
+      "name": "aspects-2026-10-14/Full combat/duel/Rimbal, crafting/enchantment, gifts/affinities, astrology and merit/vendetta formulas",
+      "kind": "prior_unread",
+      "family": "production",
+      "status": "partly_closed",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "All listed/table-counted; only chosen deep paths read. Exact class/table rows and source line signals in SYSTEM_INVENTORY name remaining work",
+      "disposition": "DS01/02/05/07/10/12/13 trace craft/enchant/gift/affinity/astrology/charge/merit/vendetta; full combat/duel/Rimbal remain unread",
+      "routing_ref": 17,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Complete newspaper delivery/actual article content",
+      "name": "aspects-2026-10-14/Complete newspaper delivery/actual article content",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Article and NamedText have zero rows; NewspaperIssue has 20. Schema presence does not prove active articles. Resume issue lists and their UI/runtime consumers",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Every dynamic selection expression and dependency implementation",
+      "name": "aspects-2026-10-14/Every dynamic selection expression and dependency implementation",
+      "kind": "prior_unread",
+      "family": "authoring_save",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "XML paths/dynamic-LINQ route identified; no expression-language or third-party-wide audit. ResolveStrategyEx, constraints/rules and installed-module appendix give boundaries",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 6,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Prior adventure narrative/crosswalk and other-named clubs",
+      "name": "aspects-2026-10-14/Prior adventure narrative/crosswalk and other-named clubs",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "This pass reused mechanical maps and preserved text; it does not close earlier semantic/wiki gaps. Prior pass CHECKPOINT remains the owner",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:aspects-2026-10-14/Live selected mod/cache and all gameplay",
+      "name": "aspects-2026-10-14/Live selected mod/cache and all gameplay",
+      "kind": "prior_unread",
+      "family": "authoring_save",
+      "status": "open_prior",
+      "source": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Source-compatible unions reused, no player state or live cache. COMMON prohibits launch, save/cache generation and bottle changes",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 6,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Runtime-selected patch and actual merge/cache behavior",
+      "name": "decompile-2026-10-14/Runtime-selected patch and actual merge/cache behavior",
+      "kind": "prior_unread",
+      "family": "authoring_save",
+      "status": "partly_closed",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "No game/cache was run or user saves opened. `CustomSerializer.GetDeletedObjects` casts to string[] despite shipped List<Guid>. Both count interpretations retained. Runtime investigation needs a separately authorized isolated execution lane; do not launch under this checkpoint.",
+      "disposition": "Prior adventure PATCH_MERGING closes source merge algorithm; actual selected cache/profile remains prohibited",
+      "routing_ref": 6,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Wiki 258-page mapping and all reachable adventure branches",
+      "name": "decompile-2026-10-14/Wiki 258-page mapping and all reachable adventure branches",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Thousands of nodes decoded, but not every prerequisite, actor selection and narrative branch read. Start with root-to-continuance graph and a wiki page-ID mapping; presence is not reachability.",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Every club entrance, membership, reward and exit path",
+      "name": "decompile-2026-10-14/Every club entrance, membership, reward and exit path",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "partly_closed",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Clubs are authored graphs, no Club table. Bookworms root comparator/value and references read; full selection-path semantics and downstream gates unread. See merged JSON and SelectionItem resolver.",
+      "disposition": "Prior adventure pass closes named club mechanical graphs; other-named groups and full native reachability still open",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Every per-college merit ladder and special relationship cap",
+      "name": "decompile-2026-10-14/Every per-college merit ladder and special relationship cap",
+      "kind": "prior_unread",
+      "family": "social_institution",
+      "status": "partly_closed",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Threshold value range and default pair bounds read; full reward selection and any +12 authored effect unread. Read Merit prerequisites and ReferenceTable paths.",
+      "disposition": "DS13/MERIT_MATRIX close shared award algorithm and full static gate census; special +12 relationship effect still unread",
+      "routing_ref": 3,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Exact vendetta entry rules",
+      "name": "decompile-2026-10-14/Exact vendetta entry rules",
+      "kind": "prior_unread",
+      "family": "social_institution",
+      "status": "source_closed",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Clique/social formulas read, Rival/RivalsObserver surveyed, but duel entry effects and personality AI tables not fully traced.",
+      "disposition": "DS12 closes Declare Vendetta authored entry and direct method distinction; full duel math remains separate",
+      "routing_ref": 3,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Full spell/pheme/duel math and creation/familiar UI",
+      "name": "decompile-2026-10-14/Full spell/pheme/duel math and creation/familiar UI",
+      "kind": "prior_unread",
+      "family": "companions",
+      "status": "partly_closed",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Schema/counts and story skill contribution read; all component difficulty, bond bonuses and creation-point UI paths not audited. UI.dll only type-listed. Half-Bond statement not adopted.",
+      "disposition": "DS03/04 close non-UI familiar/creation source paths and DS02 enchantment; native creation UI and full combat remain unread",
+      "routing_ref": 2,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/All unrelated engine/content types",
+      "name": "decompile-2026-10-14/All unrelated engine/content types",
+      "kind": "prior_unread",
+      "family": "authoring_save",
+      "status": "partly_closed",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "112 types decoded, six assemblies extracted; AI, economy, combat, research, mod editor and third-party dependency implementations outside the four core questions were not fully read.",
+      "disposition": "Fifteen bounded flows now documented; named-only system/table/helper rows remain individually inventoried",
+      "routing_ref": 6,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Public runnable BCS editor package",
+      "name": "decompile-2026-10-14/Public runnable BCS editor package",
+      "kind": "prior_unread",
+      "family": "authoring_save",
+      "status": "open_prior",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Primary forum patch context found; editor not acquired. Not needed for the binary/formula answers.",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 6,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:decompile-2026-10-14/Gameplay and YAIRPG acceptance",
+      "name": "decompile-2026-10-14/Gameplay and YAIRPG acceptance",
+      "kind": "prior_unread",
+      "family": "npc_ai",
+      "status": "open_prior",
+      "source": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Source/data audit only. No gameplay, rebuilt browser, persistence or director acceptance proof. Proposals remain unaccepted.",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 0,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/All non-club narrative scenes and choice intentions",
+      "name": "pass-2026-10-14-adventures/All non-club narrative scenes and choice intentions",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Mechanics are exhaustive, but manual prose paraphrases outside the two named club chains are not completed. Generic choice skill/ID is not a narrative interpretation | ROOTS_*.md and prior content.json / patch modified.json/new.json. Compare each node's text privately, write original brief scene/intent summaries without prose dumps",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/Clubs with different authoring names",
+      "name": "pass-2026-10-14-adventures/Clubs with different authoring names",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Title census covers only Bookworms and Rimbal Supporters; other societies, teams and groups may be embedded in personal or general adventures | Own `extract/club-candidates.json`, prior Adventure/Ability/Action/Lore records. Classify candidates before declaring a whole institution census",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/258-page wiki crosswalk",
+      "name": "pass-2026-10-14-adventures/258-page wiki crosswalk",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Community page count has not been mapped to shipped roots, aliases, variants or absent entries | Prior web REPORT/FINDINGS and complete root IDs. Acquire catalogue through a permitted public route, map identifiers with ambiguity labels",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/Actual runtime cache/profile and playable reachability",
+      "name": "pass-2026-10-14-adventures/Actual runtime cache/profile and playable reachability",
+      "kind": "prior_unread",
+      "family": "power_action",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "COMMON forbids launching, cache generation and saves/bottles. Source/data findings do not establish selected profile or player state | PATCH_MERGING source trace and map hashes. A separate authorized isolated execution lane would own any runtime experiment; do not run it under this checkpoint",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 4,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/Combined Content + Summer profile",
+      "name": "pass-2026-10-14-adventures/Combined Content + Summer profile",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Both selected orders are source-described; only each patch separately over base was structurally mapped | MemoryDB.Create and own map_content.py. Passively reconstruct ordered combined profiles if this distinct question is assigned",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/Dynamic resolver semantics beyond mapped mechanical paths",
+      "name": "pass-2026-10-14-adventures/Dynamic resolver semantics beyond mapped mechanical paths",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Actor modes, gates and conditions are retained, but every possible dynamic entity binding and expression has not been evaluated | SelectionItemHelper, resolving strategies, prerequisite/effect wrappers; ledger pathCodes and actor selections",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    },
+    {
+      "id": "prior_unread:pass-2026-10-14-adventures/Prior lane's unrelated unread tasks",
+      "name": "pass-2026-10-14-adventures/Prior lane's unrelated unread tasks",
+      "kind": "prior_unread",
+      "family": "events_dialogue",
+      "status": "open_prior",
+      "source": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "size_signal": null,
+      "details": "Merit ladders, vendetta, all spells/duels/creation UI, editor acquisition remain outside this lane's three questions | Prior CHECKPOINT. Do not mark these closed because this pass adds adventure maps",
+      "disposition": "Open; exact earlier scope and resume surface retained in details",
+      "routing_ref": 9,
+      "prior_status_ref": 11,
+      "deep_section_ref": 0,
+      "mapping_evidence_ref": 0
+    }
+  ]
+}

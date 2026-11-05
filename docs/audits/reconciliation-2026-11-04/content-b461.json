@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "batch": "B461",
+  "title": "Historical research prompts and proposed queue: later routing and depth distinctions",
+  "at": "2026-11-05T06:48:36.394416+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/game-research-wave-2026-10-14/lanes/adoption-reaudit.prompt.md",
+      "ids": [
+        "adoption1–4;REPORT/LEDGER/UNPARK/CHECKPOINT"
+      ],
+      "classification": "complete historical research dispatch or queue draft with later owner routing",
+      "owners": [
+        "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+        "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+        "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md"
+      ],
+      "disposition": "The adoption-reaudit and coverage-refresh lane prompts were read completely. They assigned a dated read-only review, not current execution. Re-auditing parked/rejected/not-applicable ideas preserves possibilities without adopting the ranked unpark packets. A0001–A0597 are reference representations, not unique implemented features; the existing B212 corrections retain weak semantic joins and repeated-entry disagreement. Proto23/fork/Air exclusions were scope routing to a separate audit, not permanent rejection. Current [PROJECT](../../../PROJECT.md) and actual consumer authority govern any selected work. No new scan, adoption rescore, worker, download or implementation follows from reading a historical prompt (AD32/AD36/AD51).",
+      "evidence": "Complete12-line prompt bodies and100-line queue draft read. Coverage report1–64/tail and adoption801–end, active queue1–26 checked as scoped later-owner context, not newly credited as full reads.",
+      "reopen": "Use exact current checkpoint/unread question and actual queue/tool owners for selected work; no prompt replay or stale draft replacement.",
+      "input_sha256": "02909aa577e0fc87e224652b4e77f53729513213889f9bbc14207e77c22cee52",
+      "input_lines": 12,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/game-research-wave-2026-10-14/lanes/coverage-refresh.prompt.md",
+      "ids": [
+        "coverage1–4;REPORT/CHECKPOINT;inventoryandqueueproposal"
+      ],
+      "classification": "complete historical research dispatch or queue draft with later owner routing",
+      "owners": [
+        "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+        "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+        "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md"
+      ],
+      "disposition": "This complete100-line draft is the coverage-refresh output requested by its12-line lane prompt. It records dated manifest/path/tool observations, dispatched and gated lanes, bounded dossier depth and candidate questions. Neither StateFlags, a directory, an app bundle nor a research report establishes entitlement, usable payload, running worker or complete gameplay/source knowledge. Preserve separate named gaps and the distinction between finite delivery and a deeper follow-up; do not rerun acquisition or device inventory merely to reconcile this saved draft.\n\nThe active [acquisition queue](../FUTURE_ACQUISITION_QUEUE_2026-10-13.md) already carries later routing and [tool registry](../../TOOL_REGISTRY.md) guidance. Its AQ1/AQ2 note later bounded deliveries beyond several initial gates. This draft is historical proposal text, not a replacement to apply now. Its copied relative links assume the parent research directory: resolve game dossiers from docs/research and dispatch records from docs/gm rather than interpreting a broken draft-relative URL as absent evidence. The actual [refresh report](REPORT.md) and its B211 correction own the census and dates. Old one-realm/prestige language is retired under current [PROJECT](../../../PROJECT.md); proposals select no gameplay or purchase. No current installation, entitlement, tool version, availability, license, source payload or remote state was verified here.",
+      "evidence": "Complete12-line prompt bodies and100-line queue draft read. Coverage report1–64/tail and adoption801–end, active queue1–26 checked as scoped later-owner context, not newly credited as full reads.",
+      "reopen": "Use exact current checkpoint/unread question and actual queue/tool owners for selected work; no prompt replay or stale draft replacement.",
+      "input_sha256": "3e1ae30ae55bc9ef28c20b611b906c05563302802a612913654eb06a5ba6c8a3",
+      "input_lines": 12,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+      "ids": [
+        "11game-manifestrows;18wavelanes;15dossierrows;9candidaterows"
+      ],
+      "classification": "complete historical research dispatch or queue draft with later owner routing",
+      "owners": [
+        "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+        "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+        "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md"
+      ],
+      "disposition": "This complete100-line draft is the coverage-refresh output requested by its12-line lane prompt. It records dated manifest/path/tool observations, dispatched and gated lanes, bounded dossier depth and candidate questions. Neither StateFlags, a directory, an app bundle nor a research report establishes entitlement, usable payload, running worker or complete gameplay/source knowledge. Preserve separate named gaps and the distinction between finite delivery and a deeper follow-up; do not rerun acquisition or device inventory merely to reconcile this saved draft.\n\nThe active [acquisition queue](../FUTURE_ACQUISITION_QUEUE_2026-10-13.md) already carries later routing and [tool registry](../../TOOL_REGISTRY.md) guidance. Its AQ1/AQ2 note later bounded deliveries beyond several initial gates. This draft is historical proposal text, not a replacement to apply now. Its copied relative links assume the parent research directory: resolve game dossiers from docs/research and dispatch records from docs/gm rather than interpreting a broken draft-relative URL as absent evidence. The actual [refresh report](REPORT.md) and its B211 correction own the census and dates. Old one-realm/prestige language is retired under current [PROJECT](../../../PROJECT.md); proposals select no gameplay or purchase. No current installation, entitlement, tool version, availability, license, source payload or remote state was verified here.",
+      "evidence": "Complete12-line prompt bodies and100-line queue draft read. Coverage report1–64/tail and adoption801–end, active queue1–26 checked as scoped later-owner context, not newly credited as full reads.",
+      "reopen": "Use exact current checkpoint/unread question and actual queue/tool owners for selected work; no prompt replay or stale draft replacement.",
+      "input_sha256": "24ddbdfe59488a9dd926feb2bfa8de39cb621ffdc51083ba34391dd0a9c1660d",
+      "input_lines": 100,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B461: dispatch scope and unpark authority",
+      "body": "The adoption-reaudit and coverage-refresh lane prompts were read completely. They assigned a dated read-only review, not current execution. Re-auditing parked/rejected/not-applicable ideas preserves possibilities without adopting the ranked unpark packets. A0001–A0597 are reference representations, not unique implemented features; the existing B212 corrections retain weak semantic joins and repeated-entry disagreement. Proto23/fork/Air exclusions were scope routing to a separate audit, not permanent rejection. Current [PROJECT](../../../PROJECT.md) and actual consumer authority govern any selected work. No new scan, adoption rescore, worker, download or implementation follows from reading a historical prompt (AD32/AD36/AD51).",
+      "before_sha256": "12d87ad9f088df7291ffe5f0b2d277fdd73efdd25932977d9bce56525d7417c1",
+      "after_sha256": "dd589b86a037509e8726c967599db73621df31a3c0ac4028816b397372edf4fc"
+    },
+    {
+      "path": "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+      "heading": "## Content reconciliation B461: complete proposed queue and live owner routing",
+      "body": "This complete100-line draft is the coverage-refresh output requested by its12-line lane prompt. It records dated manifest/path/tool observations, dispatched and gated lanes, bounded dossier depth and candidate questions. Neither StateFlags, a directory, an app bundle nor a research report establishes entitlement, usable payload, running worker or complete gameplay/source knowledge. Preserve separate named gaps and the distinction between finite delivery and a deeper follow-up; do not rerun acquisition or device inventory merely to reconcile this saved draft.\n\nThe active [acquisition queue](../FUTURE_ACQUISITION_QUEUE_2026-10-13.md) already carries later routing and [tool registry](../../TOOL_REGISTRY.md) guidance. Its AQ1/AQ2 note later bounded deliveries beyond several initial gates. This draft is historical proposal text, not a replacement to apply now. Its copied relative links assume the parent research directory: resolve game dossiers from docs/research and dispatch records from docs/gm rather than interpreting a broken draft-relative URL as absent evidence. The actual [refresh report](REPORT.md) and its B211 correction own the census and dates. Old one-realm/prestige language is retired under current [PROJECT](../../../PROJECT.md); proposals select no gameplay or purchase. No current installation, entitlement, tool version, availability, license, source payload or remote state was verified here.",
+      "before_sha256": "24ddbdfe59488a9dd926feb2bfa8de39cb621ffdc51083ba34391dd0a9c1660d",
+      "after_sha256": "79975ec85e56eddcc6b73319b932d0b98e54c4c5741392b0c43c340bc00a224e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 390,
+  "review_field_amendments": [
+    {
+      "path": "docs/research/coverage-refresh-2026-10-14/QUEUE_PROPOSED.md",
+      "field": "ids",
+      "old": "11game-manifestrows;18wavelanes;16dossierrows;9candidaterows",
+      "new": "11game-manifestrows;18wavelanes;15dossierrows;9candidaterows",
+      "reason": "Correct manual count: fifteen existing-dossier table rows. Full draft body already read; no additional review inferred."
+    }
+  ]
+}

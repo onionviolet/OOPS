@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "batch": "B506",
+  "title": "Full D4/G1 delivery history and complete cheat family dispositions",
+  "at": "2026-11-05T08:58:55.389220+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/cheats-2026-10-25/CHECKPOINT.md",
+      "ids": [
+        "D4.1",
+        "D4.2",
+        "G1",
+        "RF1",
+        "F5–F6",
+        "temporal carrier",
+        "M4"
+      ],
+      "classification": "historical delivered adapters reconciled with retained source-policy variants and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/cheats-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "D4.1/D4.2 and the same-session G1 ending supersede the earlier initial one-card and missing-adapter statuses. Eleven bounded status rows do not implement 326 independent powers: source rows include aliases, grades, policies and simulator variants. The historical final source head is cefddc42, with branch-only commits and no primary adoption. The original full run remained 2890/2894 with four D4 integration failures; focused 25-test repairs, later 150-test affected sets and 25 temporal tests are separate evidence, not an all-green final full suite. Recorded browser journeys include fixture-established milestones/test hooks, actual native settlement and literal import/heir/return transactions; they do not prove natural discovery or human pacing. RF1 learns witnessed openings for a paid rematch, not temporal rewind. Pattern Book retains readable designs and reconstructs through actual crafting without copying skill/material truth. Compact nominates counted stock under debt-first estate law rather than duplicating generic inheritance. Furnace's F6 corrects the false missing-offline-policy claim: OD4/TBANK already govern chosen routines. Thirty-minute click chunks retain the unused bank; this does not create a universal cap, helper or fuel rule. A real locked-skill native completion failure required the prepared-unlock seam and durable publication, not just a harness fix. Freshness reads retained timestamps on comparable clocks, not current truth. The final temporal defect and repair matter: later designs and already-spent bank follow the continuing self while restored local charges/assignment follow native snapshot policy, with a new arrival wall anchor to prevent double credit. Preserve the exact overlap handoff at integration, particularly primary continuation/heir/combat/publication changes. These historical source/build/browser claims were not rerun here. Combined candidate full proof and natural pacing remain separately open; human review is optional under AD42, not an automatic completion blocker.",
+      "evidence": "Whole 205-line checkpoint and 405-line family map read; truncated family-header output recovered at lines24–48. Linked runtime/manifests/browser artifacts not re-exercised.",
+      "reopen": "Reopen the exact source row or combined integration candidate when new current-source and native consumer evidence is available.",
+      "input_sha256": "f2a092fed22406268e46c222b7d5be4038a9bd8d5ed86cf31b73d31ca5aeb90c",
+      "input_lines": 205,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          205
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheats-2026-10-25/FAMILY_RECONCILIATION.md",
+      "ids": [
+        "F01–F13",
+        "326 literal inventory rows",
+        "seven original PC cards",
+        "B1–B4"
+      ],
+      "classification": "historical delivered adapters reconciled with retained source-policy variants and proof gaps",
+      "owners": [
+        "docs/gm/dispatch/cheats-2026-10-25/FAMILY_RECONCILIATION.md"
+      ],
+      "disposition": "All thirteen family descriptions, 326 literal inventory rows, seven remaining original-card rows and B1–B4 authority boundaries were read. The literal table is the row accounting surface; family-header cross-references can name several related mechanisms without granting multiple independent implementations. In particular IM20 is grouped across F02/F03/F04/F06/F07, while CLF48/153/154 and SH12/16/17 illustrate why broad family headers cannot replace the literal row's resolution. F01 observation, F02 keyed random decisions, F03 finite routines and F04 chosen-away work retain different consumers. F05 return/carry, F06 reconstruction, F07 estate/property, F08 body learning, F09 recognition/rewards, F10 actual actors, F11 space/custody, F12 effects and F13 models each retain their own mechanisms. Actual actors are not controllable summons; seeded peeks are not prophecy; learned blueprints are not duplication; existing continuation is not a declared-area anchor. The closing claim that native adapters were delivered has a bounded interpretation: CW-G-227 is still literally labelled buildable and can reuse Patient Furnace only for the same supported chosen routine; it is not proof that every Melvor-like activity now works away. CW-G-206/228 still need their specific learned action/input/stop consumer, and CW-G-231's cross-task/rebirth automation exceeds the finite carcass routine. The seven original PC gaps remain distinct: area/outside-time anchor, undiscovered seed chart, prestige selection, accumulated body/skill carry, patron-directed incidents, separate playable selves, and deed-to-reward mapping. Existing world archive/kin memory is acknowledged without claiming the full World Deeds reward loop. Paused K3/K5 proposals and unselected source powers are retained as useful ideas, not discarded or made new required gates. AD32/AD38 preserve per-world mechanism selection; “larger-policy proposal” is classification of unselected behavior, not an allowed-outcome list or mandatory weakness/cost. Read the final checkpoint alongside this map for its failed-full-plus-focused-repair boundary. No source text, current runtime or private save was checked by this map review.",
+      "evidence": "Whole 205-line checkpoint and 405-line family map read; truncated family-header output recovered at lines24–48. Linked runtime/manifests/browser artifacts not re-exercised.",
+      "reopen": "Reopen the exact source row or combined integration candidate when new current-source and native consumer evidence is available.",
+      "input_sha256": "74a2795e8451df98176e2bf88c62b62baf4b8938435a62cd66df290df3f4d23a",
+      "input_lines": 405,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          405
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/cheats-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B506: bounded native delivery and remaining variants",
+      "body": "D4.1/D4.2 and the same-session G1 ending supersede the earlier initial one-card and missing-adapter statuses. Eleven bounded status rows do not implement 326 independent powers: source rows include aliases, grades, policies and simulator variants. The historical final source head is cefddc42, with branch-only commits and no primary adoption. The original full run remained 2890/2894 with four D4 integration failures; focused 25-test repairs, later 150-test affected sets and 25 temporal tests are separate evidence, not an all-green final full suite. Recorded browser journeys include fixture-established milestones/test hooks, actual native settlement and literal import/heir/return transactions; they do not prove natural discovery or human pacing. RF1 learns witnessed openings for a paid rematch, not temporal rewind. Pattern Book retains readable designs and reconstructs through actual crafting without copying skill/material truth. Compact nominates counted stock under debt-first estate law rather than duplicating generic inheritance. Furnace's F6 corrects the false missing-offline-policy claim: OD4/TBANK already govern chosen routines. Thirty-minute click chunks retain the unused bank; this does not create a universal cap, helper or fuel rule. A real locked-skill native completion failure required the prepared-unlock seam and durable publication, not just a harness fix. Freshness reads retained timestamps on comparable clocks, not current truth. The final temporal defect and repair matter: later designs and already-spent bank follow the continuing self while restored local charges/assignment follow native snapshot policy, with a new arrival wall anchor to prevent double credit. Preserve the exact overlap handoff at integration, particularly primary continuation/heir/combat/publication changes. These historical source/build/browser claims were not rerun here. Combined candidate full proof and natural pacing remain separately open; human review is optional under AD42, not an automatic completion blocker.",
+      "before_sha256": "f2a092fed22406268e46c222b7d5be4038a9bd8d5ed86cf31b73d31ca5aeb90c",
+      "after_sha256": "e1224b3f8d25650afe64d2d566260a3a06dfea91bb0338c037f9a874eb918b5c"
+    },
+    {
+      "path": "docs/gm/dispatch/cheats-2026-10-25/FAMILY_RECONCILIATION.md",
+      "heading": "## Content reconciliation B506: bounded native delivery and remaining variants",
+      "body": "All thirteen family descriptions, 326 literal inventory rows, seven remaining original-card rows and B1–B4 authority boundaries were read. The literal table is the row accounting surface; family-header cross-references can name several related mechanisms without granting multiple independent implementations. In particular IM20 is grouped across F02/F03/F04/F06/F07, while CLF48/153/154 and SH12/16/17 illustrate why broad family headers cannot replace the literal row's resolution. F01 observation, F02 keyed random decisions, F03 finite routines and F04 chosen-away work retain different consumers. F05 return/carry, F06 reconstruction, F07 estate/property, F08 body learning, F09 recognition/rewards, F10 actual actors, F11 space/custody, F12 effects and F13 models each retain their own mechanisms. Actual actors are not controllable summons; seeded peeks are not prophecy; learned blueprints are not duplication; existing continuation is not a declared-area anchor. The closing claim that native adapters were delivered has a bounded interpretation: CW-G-227 is still literally labelled buildable and can reuse Patient Furnace only for the same supported chosen routine; it is not proof that every Melvor-like activity now works away. CW-G-206/228 still need their specific learned action/input/stop consumer, and CW-G-231's cross-task/rebirth automation exceeds the finite carcass routine. The seven original PC gaps remain distinct: area/outside-time anchor, undiscovered seed chart, prestige selection, accumulated body/skill carry, patron-directed incidents, separate playable selves, and deed-to-reward mapping. Existing world archive/kin memory is acknowledged without claiming the full World Deeds reward loop. Paused K3/K5 proposals and unselected source powers are retained as useful ideas, not discarded or made new required gates. AD32/AD38 preserve per-world mechanism selection; “larger-policy proposal” is classification of unselected behavior, not an allowed-outcome list or mandatory weakness/cost. Read the final checkpoint alongside this map for its failed-full-plus-focused-repair boundary. No source text, current runtime or private save was checked by this map review.",
+      "before_sha256": "74a2795e8451df98176e2bf88c62b62baf4b8938435a62cd66df290df3f4d23a",
+      "after_sha256": "0401eccd42825646b9cd0918bc19614053e53e145bb08fa3601802ae170d7ffc"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 239
+}

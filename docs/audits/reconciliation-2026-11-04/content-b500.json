@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "batch": "B500",
+  "title": "Bounded JoJo scope, observed brewing, toolkit live gates and corrected demo-follow-up gaps",
+  "at": "2026-11-05T08:37:54.714565+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/JOJO_AUDIT_SCOPE_REFINEMENT_2026-10-11.md",
+      "ids": [
+        "F1",
+        "P1–P5",
+        "A1–A5"
+      ],
+      "classification": "research scope / watch-only mechanism / historical tooling gate / qualified follow-up audit",
+      "owners": [
+        "docs/research/JOJO_AUDIT_SCOPE_REFINEMENT_2026-10-11.md"
+      ],
+      "disposition": "Full F1/P1–P5/A1–A5 research-scope review under AD32/AD36/AD38/AD43. Later follow-up authorizes audit execution; the linked report owns actual coverage, findings and proposals, not this scope alone. Four earlier bounded official-anime references mean the old only-blocked-wiki description was incomplete. Fresh2026-10-11 Josuke/Rohan official-page summaries are adaptation baselines, not manga scenes or exhaustive repair/command/activation/expiry proof; Hand/stopped-time anchors were reused rather than rechecked. The wiki remains blocked_no_revision and S24 remains open at this record's scope.\n\nOne-Stand/shared-damage/visibility/range assumptions are questions with exceptions, not mandatory weakness puzzles. Preserve innate acquisition/control/evolution/transfer/death, non-Stand bodily systems, everyday livelihoods, private versus observed knowledge, actual contact/order/time kinds and part/continuity/ordinary-start possibilities. Strong powers can replace work or simply overpower a target without a required mundane counter. The five acceptance fixtures specify hidden-rule knowledge, differing durable responses, object/service custody, evidence-limited automation and persistence; none ran here and they do not select a JoJo campaign. This full scope review inspects no new official page/wiki/manga/anime or linked audit report and dispatches no reading/runtime/native work.",
+      "evidence": "Fresh complete content read of all four files and every table/update/ending; no linked source/web/runtime/private artifact read by implication.",
+      "reopen": "Retain exact current owner/source/consumer questions; selected actual work, not historic pending/delegation paragraphs, governs follow-up.",
+      "input_sha256": "5c1b948efbd3fae25d7587efcc7d702951fc3210977fa9d729facde790f16f2a",
+      "input_lines": 90,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          90
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3O_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "KJ3O/kjw5",
+        "ten intents/Q1–Q9",
+        "watch-only B7",
+        "802 ceiling"
+      ],
+      "classification": "research scope / watch-only mechanism / historical tooling gate / qualified follow-up audit",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3O_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Historical11-act watch-only brewing window under AD36/AD42/AD43/AD49. Preserve all ten intent rows/Q1–Q9 corrections and actor/withholding tables. A minted minimal alchemy room works in the recorded route, while anchorOnly alternative was not tested. The cup is potion.made knowledge/fact with no actual inventory holder. Old Neil performs every brew step; Klein watches. No lead bench, recipe, ingredient stock or brew verb exists from these notes, and B1 ingestion/source/pool is explicitly absent until the next window. A true knowledge of ingredients does not grant execution or ingestion. Sequence choice name is first told in answer, private reasons remain undisclosed.\n\nEight-pound outfit debit2722−1920=802 is native accounting, but remains an upper bound inherited from unknown earlier debits and above the separate272 pooled bound. Source payer is unstated; charging the sole tracked purse at price disclosure is an authored abstraction of the earlier purchase, not a newly proven payment day or reconstructed complete household wealth. Unpriced fare/allowance/salary/materials are not numerical zero-cost source facts. The1260-minute fill corrects the brief's assumed780 and10:36 versus18:36, not a full civil-time calibration. All later duration values remain labelled fill.\n\nOne seeded KJ3N run on pinned B9 source plus scratch pack, literal import, zero-ingestion/pool/item assertions and selected leak checks support that bounded window, not a fresh campaign, current repo pack or built brewing engine. No14/21 captures, civil-clock, full suite or new build were run by that lane. Format trims and preflight are not semantic/source proof; the output schema/cup marker has an intended next consumer but no claim it was exercised in this receipt. Full public receipt read adds no new chapter/pack/source/browser/private-save inspection or human acceptance.",
+      "evidence": "Fresh complete content read of all four files and every table/update/ending; no linked source/web/runtime/private artifact read by implication.",
+      "reopen": "Retain exact current owner/source/consumer questions; selected actual work, not historic pending/delegation paragraphs, governs follow-up.",
+      "input_sha256": "79f38235b8463a9a75b3e4fb93db76fdd86a0d26c7481f0d8e300d78b2093bfa",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ZLIBRARY_RESEARCH_TOOLKIT.md",
+      "ids": [
+        "O1–O5",
+        "F1–F3/D1/R1",
+        "0.3 live/local gates"
+      ],
+      "classification": "research scope / watch-only mechanism / historical tooling gate / qualified follow-up audit",
+      "owners": [
+        "docs/research/ZLIBRARY_RESEARCH_TOOLKIT.md"
+      ],
+      "disposition": "Historical toolkit setup/0.3 upgrade under AD32/AD35/AD36. O1–O5 separate structured failure recovery, literal local search/bounded hash-cited reads, edition comparison/EPUB lookup, paragraph/spine parsing and verified nonoverwriting receipts. Ten-tool upgrade/276 offline cases and installed-entrypoint fixture workflow supersede initial six-tool/256-case setup for that version; counts are not added. EPUB file lookup differs from Calibre DB/PDF access. Version1 receipts remain original; v2 verification uses a new edition destination. Extraction/spine/member/hash checks still do not establish semantic reading or every publisher variant.\n\nInitial9050 proxy failure/no Tor process is earlier than the isolated19050 Tor bootstrap/live anonymous search/12-field metadata gate, which was stopped afterward. Those are different execution states, not a current running listener or an active service claim. Prepared app registration is not verified registration. The exact fork commit/push and isolated environment installation are historical observations, not current remote/installed revision proof. Retained MIT attribution and Rookslog-inspired standard-library parsing differ from importing an entire converter/RAG pipeline. Literal full-text-search naming versus actual ordinary search stays version-qualified, not a newly queried service claim.\n\nThe remaining authenticated acquisition/cache gate is this0.3 handoff's then boundary. The later fully read Bookworm report (B491) records one selected edition/session's real desktop acquisition/cache/quota/preparation, without establishing this original environment, every edition, long recovery or app registration. Do not keep the broad ability wholly unverified merely because this older toolkit stops earlier, and do not promote one later source acquisition to whole-library reading. Source acquisition must use current tool/library owners when actually selected. This full report read opens no fork code, current MCP/proxy/account status, book prose, Calibre DB or save and authorizes no fetch/install/login/worker.",
+      "evidence": "Fresh complete content read of all four files and every table/update/ending; no linked source/web/runtime/private artifact read by implication.",
+      "reopen": "Retain exact current owner/source/consumer questions; selected actual work, not historic pending/delegation paragraphs, governs follow-up.",
+      "input_sha256": "a731c92cd3dbed796f6b584206802072ee7eae5fbad436f8245ea64c350a26d7",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/climb-mr2-playtest-2026-10-15/GAP_AUDIT.md",
+      "ids": [
+        "E1–E4",
+        "G1–G7",
+        "F8",
+        "O1–O4"
+      ],
+      "classification": "research scope / watch-only mechanism / historical tooling gate / qualified follow-up audit",
+      "owners": [
+        "docs/research/climb-mr2-playtest-2026-10-15/GAP_AUDIT.md"
+      ],
+      "disposition": "Full E1–E4/G1–G7/F8/O1–O4 gap-audit review under AD32/AD36/AD42/AD43 and current lead-first direction. Preserve the original result: no new runtime defect established, several apparent gaps already have suppliers, and combined ordinary play/reference completeness were missing. Four discovery-policy checks do not prove every UI announcement. D1's final appended browser result supersedes its stale opening pending/proposal state; it still differs from natural acquisition/ordinary pacing and separate-profile proof. Existing routine/job ownership and knowledge/practice/execution distinctions call for adapters/consumer evidence, not duplicate engines.\n\nCurrent note replaces removed fa09_routines paths with routine_jobs/trial_routine coverage; the historical31-pass command remains its actual past input, not an executable current full suite. Later Climb source correction broadens First Blood to first enemy kill, while the1000-kill Training Sword alone is dummy-specific. Preserve those different reward triggers rather than infer a new bug from the played dummy. Native source registration and demo-reachable-unplayed content differ from retail/full-game/native operation. MR2 export/import was not captured; older displayed counters are not a proven lost reward or permission to resume a blocked UI action.\n\nF8's2x/5x paid acceleration, retirement balance and48-hour processing-input cap are historical static source observations, not played catch-up accuracy or YAIR defaults. Actual absence, bank balance, simulated time and clock/choice boundary must not credit the same interval twice. Existing TBANK/OD4/OD15 direction and later actual Furnace adapter evidence are separate from this older proposed audit; exact rate/cap/retirement/offline semantics remain with their native owners. A greater batch may increase per-click throughput while raising refill/resource cost; real quotes and outcomes decide sustained gain. Clues can support existing alternate routes without a compulsory global curriculum.\n\nThe ranked Village G1 journey, G2/G3 recovery and G4–G7 donor questions are proposals at this time, not current blockers to Klein-first work or a requirement to run all audits. Old1366 target/human balance gate is historical; current desktop matrix and optional AD42 review govern. O1–O4 retain concrete capacity/cost, NPC-clue, meaningful-decision pacing and evidence-layer ideas. One demo run does not establish population-level fun or prove waiting inherently undesirable. Full file/tables/updated notes were read without new source code, game/demo/browser, screenshots, log, private save or test execution; no new runtime/worker/trial dispatch follows.",
+      "evidence": "Fresh complete content read of all four files and every table/update/ending; no linked source/web/runtime/private artifact read by implication.",
+      "reopen": "Retain exact current owner/source/consumer questions; selected actual work, not historic pending/delegation paragraphs, governs follow-up.",
+      "input_sha256": "ed2e1e3267ebb2c5e6a4657a800dfd38f5c1651b2b64d9fa2be9753ce4dbdf2a",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/JOJO_AUDIT_SCOPE_REFINEMENT_2026-10-11.md",
+      "heading": "## Content reconciliation B500: source limits and actual executed scope",
+      "body": "Full F1/P1–P5/A1–A5 research-scope review under AD32/AD36/AD38/AD43. Later follow-up authorizes audit execution; the linked report owns actual coverage, findings and proposals, not this scope alone. Four earlier bounded official-anime references mean the old only-blocked-wiki description was incomplete. Fresh2026-10-11 Josuke/Rohan official-page summaries are adaptation baselines, not manga scenes or exhaustive repair/command/activation/expiry proof; Hand/stopped-time anchors were reused rather than rechecked. The wiki remains blocked_no_revision and S24 remains open at this record's scope.\n\nOne-Stand/shared-damage/visibility/range assumptions are questions with exceptions, not mandatory weakness puzzles. Preserve innate acquisition/control/evolution/transfer/death, non-Stand bodily systems, everyday livelihoods, private versus observed knowledge, actual contact/order/time kinds and part/continuity/ordinary-start possibilities. Strong powers can replace work or simply overpower a target without a required mundane counter. The five acceptance fixtures specify hidden-rule knowledge, differing durable responses, object/service custody, evidence-limited automation and persistence; none ran here and they do not select a JoJo campaign. This full scope review inspects no new official page/wiki/manga/anime or linked audit report and dispatches no reading/runtime/native work.",
+      "before_sha256": "5c1b948efbd3fae25d7587efcc7d702951fc3210977fa9d729facde790f16f2a",
+      "after_sha256": "da5e2df3cfe2f535685ef92644bf5b3e9f069070898ec5f05315f7f1f1874440"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3O_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Content reconciliation B500: source limits and actual executed scope",
+      "body": "Historical11-act watch-only brewing window under AD36/AD42/AD43/AD49. Preserve all ten intent rows/Q1–Q9 corrections and actor/withholding tables. A minted minimal alchemy room works in the recorded route, while anchorOnly alternative was not tested. The cup is potion.made knowledge/fact with no actual inventory holder. Old Neil performs every brew step; Klein watches. No lead bench, recipe, ingredient stock or brew verb exists from these notes, and B1 ingestion/source/pool is explicitly absent until the next window. A true knowledge of ingredients does not grant execution or ingestion. Sequence choice name is first told in answer, private reasons remain undisclosed.\n\nEight-pound outfit debit2722−1920=802 is native accounting, but remains an upper bound inherited from unknown earlier debits and above the separate272 pooled bound. Source payer is unstated; charging the sole tracked purse at price disclosure is an authored abstraction of the earlier purchase, not a newly proven payment day or reconstructed complete household wealth. Unpriced fare/allowance/salary/materials are not numerical zero-cost source facts. The1260-minute fill corrects the brief's assumed780 and10:36 versus18:36, not a full civil-time calibration. All later duration values remain labelled fill.\n\nOne seeded KJ3N run on pinned B9 source plus scratch pack, literal import, zero-ingestion/pool/item assertions and selected leak checks support that bounded window, not a fresh campaign, current repo pack or built brewing engine. No14/21 captures, civil-clock, full suite or new build were run by that lane. Format trims and preflight are not semantic/source proof; the output schema/cup marker has an intended next consumer but no claim it was exercised in this receipt. Full public receipt read adds no new chapter/pack/source/browser/private-save inspection or human acceptance.",
+      "before_sha256": "79f38235b8463a9a75b3e4fb93db76fdd86a0d26c7481f0d8e300d78b2093bfa",
+      "after_sha256": "ffd19e0e1cdaaad45a4828f6b396e167cd17803d605308f43686982d82321057"
+    },
+    {
+      "path": "docs/research/ZLIBRARY_RESEARCH_TOOLKIT.md",
+      "heading": "## Content reconciliation B500: source limits and actual executed scope",
+      "body": "Historical toolkit setup/0.3 upgrade under AD32/AD35/AD36. O1–O5 separate structured failure recovery, literal local search/bounded hash-cited reads, edition comparison/EPUB lookup, paragraph/spine parsing and verified nonoverwriting receipts. Ten-tool upgrade/276 offline cases and installed-entrypoint fixture workflow supersede initial six-tool/256-case setup for that version; counts are not added. EPUB file lookup differs from Calibre DB/PDF access. Version1 receipts remain original; v2 verification uses a new edition destination. Extraction/spine/member/hash checks still do not establish semantic reading or every publisher variant.\n\nInitial9050 proxy failure/no Tor process is earlier than the isolated19050 Tor bootstrap/live anonymous search/12-field metadata gate, which was stopped afterward. Those are different execution states, not a current running listener or an active service claim. Prepared app registration is not verified registration. The exact fork commit/push and isolated environment installation are historical observations, not current remote/installed revision proof. Retained MIT attribution and Rookslog-inspired standard-library parsing differ from importing an entire converter/RAG pipeline. Literal full-text-search naming versus actual ordinary search stays version-qualified, not a newly queried service claim.\n\nThe remaining authenticated acquisition/cache gate is this0.3 handoff's then boundary. The later fully read Bookworm report (B491) records one selected edition/session's real desktop acquisition/cache/quota/preparation, without establishing this original environment, every edition, long recovery or app registration. Do not keep the broad ability wholly unverified merely because this older toolkit stops earlier, and do not promote one later source acquisition to whole-library reading. Source acquisition must use current tool/library owners when actually selected. This full report read opens no fork code, current MCP/proxy/account status, book prose, Calibre DB or save and authorizes no fetch/install/login/worker.",
+      "before_sha256": "a731c92cd3dbed796f6b584206802072ee7eae5fbad436f8245ea64c350a26d7",
+      "after_sha256": "0b26ab9cde0deb507e2d52923bf9cb4d298af0a75ba3d05f3f8056558ac7fac1"
+    },
+    {
+      "path": "docs/research/climb-mr2-playtest-2026-10-15/GAP_AUDIT.md",
+      "heading": "## Content reconciliation B500: source limits and actual executed scope",
+      "body": "Full E1–E4/G1–G7/F8/O1–O4 gap-audit review under AD32/AD36/AD42/AD43 and current lead-first direction. Preserve the original result: no new runtime defect established, several apparent gaps already have suppliers, and combined ordinary play/reference completeness were missing. Four discovery-policy checks do not prove every UI announcement. D1's final appended browser result supersedes its stale opening pending/proposal state; it still differs from natural acquisition/ordinary pacing and separate-profile proof. Existing routine/job ownership and knowledge/practice/execution distinctions call for adapters/consumer evidence, not duplicate engines.\n\nCurrent note replaces removed fa09_routines paths with routine_jobs/trial_routine coverage; the historical31-pass command remains its actual past input, not an executable current full suite. Later Climb source correction broadens First Blood to first enemy kill, while the1000-kill Training Sword alone is dummy-specific. Preserve those different reward triggers rather than infer a new bug from the played dummy. Native source registration and demo-reachable-unplayed content differ from retail/full-game/native operation. MR2 export/import was not captured; older displayed counters are not a proven lost reward or permission to resume a blocked UI action.\n\nF8's2x/5x paid acceleration, retirement balance and48-hour processing-input cap are historical static source observations, not played catch-up accuracy or YAIR defaults. Actual absence, bank balance, simulated time and clock/choice boundary must not credit the same interval twice. Existing TBANK/OD4/OD15 direction and later actual Furnace adapter evidence are separate from this older proposed audit; exact rate/cap/retirement/offline semantics remain with their native owners. A greater batch may increase per-click throughput while raising refill/resource cost; real quotes and outcomes decide sustained gain. Clues can support existing alternate routes without a compulsory global curriculum.\n\nThe ranked Village G1 journey, G2/G3 recovery and G4–G7 donor questions are proposals at this time, not current blockers to Klein-first work or a requirement to run all audits. Old1366 target/human balance gate is historical; current desktop matrix and optional AD42 review govern. O1–O4 retain concrete capacity/cost, NPC-clue, meaningful-decision pacing and evidence-layer ideas. One demo run does not establish population-level fun or prove waiting inherently undesirable. Full file/tables/updated notes were read without new source code, game/demo/browser, screenshots, log, private save or test execution; no new runtime/worker/trial dispatch follows.",
+      "before_sha256": "ed2e1e3267ebb2c5e6a4657a800dfd38f5c1651b2b64d9fa2be9753ce4dbdf2a",
+      "after_sha256": "1c6e9714ea94718a661f98b615fa45ede0d5555126b3cbf3015f2382a055506f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 259
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "batch": "B543",
+  "title": "Ideas inventory final census and cumulative content completion",
+  "at": "2026-11-05T10:19:56.800039+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "ids": [
+        "46-owner census",
+        "audit/review source-by-source dispositions",
+        "deduplication D1–D4",
+        "D5.1",
+        "historical checks and input identities",
+        "B534–B542 cumulative ranges"
+      ],
+      "classification": "full cumulative actual content review of inventory; historical extraction versus independently reviewed supplier coverage retained",
+      "owners": [
+        "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md"
+      ],
+      "disposition": "F1: Full cumulative content review is now complete for this inventory itself. B534–B542 actually read original1–950; B543 read original951–1169 and all current appended notes1170–1304. The original1169-line prefix SHA256 is88a34d28b83d8ec341069996f6fb8e60e7d3113d4db1a5defa94e4c5a49de419, identical to B534 input. Each earlier range retains its own ledger. Full status means every inventory row and caveat was read, not every linked source body, every cited code or fresh gameplay revalidation.\n\nF2: The46-file/32187-line/6214-coded-row/403-action-row census is historical extraction evidence. Zero explicit action-heading hits do not imply no useful ideas. Reading the audit/review source-by-source dispositions establishes their crosswalk content, not semantic review of every supplier. Keep indexed versus extracted, owner-routed, history/evidence and superseded distinctions. Current project inventory independently tracks actual reads of those suppliers. Headings, file counts, deterministic row collapse and links alone cannot satisfy that obligation.\n\nF3: Specific remaining distinctions are useful: tag registry open is visibility rather than unfinished implementation; the old MQ_B hover/pin recommendation has later current UR43 direction; a source-reader census or unverified formula is an investigation rather than a selected feature. Repeatable audits and playbooks are procedures. Old feasibility/risk/primitive catalogs are proposal evidence under current cheat/engine owners. Gear, progression and body compatibility statements need the current accepted owner and exact source. A source-depth partial is not a selected runtime gap; acquisition and purchase leads grant no acquisition authority. Current tool registry supersedes dated launch/tool assumptions.\n\nF4: History stays preserved: C2 startup, R51 and selected runtime fixes are not reopened from old snapshots; a branch-specific fix does not prove primary integration. Old initial launch-menu candidate was superseded by restoration, whereas separately recorded shield/visual findings retain their own owner scope. A passing isolated RG5 does not cure a historical suite flake, and an old flake does not establish present failure. Failed isolated test runs do not establish dead tests or authorize deletion. Measurements of duplicate code do not authorize bulk removal. Current model/host/source direction supersedes old wording only at the actual changed scope; source-secret limits remain explicit without copying truth.\n\nF5: Generated local-churn drafts remain leads, with selected DWF87–DWF94 survivors routed by their triage. Generic discarded repetitions should not become new required features, while original ideas/history remain available. Copied task packets, sessions and human-feedback gates are source history, not current commands or a reason to stop authorized reconciliation. AD42 qualifies mandatory human acceptance wording; agent proof, packaging, installation, commit and human review remain distinct.\n\nF6: Preserve D1–D4 code ownership, source-local qualification, selected-slice proof and nonoverlap. ACCOUNT constraints apply to the relevant consumer rather than hundreds of automatic tickets. D5.1 usefully distinguishes missing mechanics from missing demonstrations. Its lane assignments and next-build ranking are dated snapshots, not live leases. The source SHA table binds the October25 spot-check inputs only and does not prove present files unchanged. Historical doc/rule/zero-loss checks remain dated evidence. No runtime build, gameplay suite, browser, release, save migration, source acquisition, deletion, relocation, commit or push was performed by this cumulative review. Continue the wider intake; do not declare the project complete from this finished crosswalk.",
+      "evidence": "Actual original951–1169 and appended1170–1304 read untruncated in bounded calls. B534–B542 actual ranges cover1–950 without gaps. Original1169-line prefix hash matches B534 exactly:88a34d28b83d8ec341069996f6fb8e60e7d3113d4db1a5defa94e4c5a49de419. No linked-leaf full review or current runtime claim.",
+      "reopen": "Only new changes or a selected exact owner/source issue reopen this inventory; continue remaining intake and partial Technology owner.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1304
+        ]
+      ],
+      "input_sha256": "f3f21da245798bf760a2ed539e1546520cd1d23f9deaf08aa59dd32dff7570f3",
+      "input_lines": 1304
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "heading": "## Content reconciliation B543: cumulative full review and census limits",
+      "body": "F1: Full cumulative content review is now complete for this inventory itself. B534–B542 actually read original1–950; B543 read original951–1169 and all current appended notes1170–1304. The original1169-line prefix SHA256 is88a34d28b83d8ec341069996f6fb8e60e7d3113d4db1a5defa94e4c5a49de419, identical to B534 input. Each earlier range retains its own ledger. Full status means every inventory row and caveat was read, not every linked source body, every cited code or fresh gameplay revalidation.\n\nF2: The46-file/32187-line/6214-coded-row/403-action-row census is historical extraction evidence. Zero explicit action-heading hits do not imply no useful ideas. Reading the audit/review source-by-source dispositions establishes their crosswalk content, not semantic review of every supplier. Keep indexed versus extracted, owner-routed, history/evidence and superseded distinctions. Current project inventory independently tracks actual reads of those suppliers. Headings, file counts, deterministic row collapse and links alone cannot satisfy that obligation.\n\nF3: Specific remaining distinctions are useful: tag registry open is visibility rather than unfinished implementation; the old MQ_B hover/pin recommendation has later current UR43 direction; a source-reader census or unverified formula is an investigation rather than a selected feature. Repeatable audits and playbooks are procedures. Old feasibility/risk/primitive catalogs are proposal evidence under current cheat/engine owners. Gear, progression and body compatibility statements need the current accepted owner and exact source. A source-depth partial is not a selected runtime gap; acquisition and purchase leads grant no acquisition authority. Current tool registry supersedes dated launch/tool assumptions.\n\nF4: History stays preserved: C2 startup, R51 and selected runtime fixes are not reopened from old snapshots; a branch-specific fix does not prove primary integration. Old initial launch-menu candidate was superseded by restoration, whereas separately recorded shield/visual findings retain their own owner scope. A passing isolated RG5 does not cure a historical suite flake, and an old flake does not establish present failure. Failed isolated test runs do not establish dead tests or authorize deletion. Measurements of duplicate code do not authorize bulk removal. Current model/host/source direction supersedes old wording only at the actual changed scope; source-secret limits remain explicit without copying truth.\n\nF5: Generated local-churn drafts remain leads, with selected DWF87–DWF94 survivors routed by their triage. Generic discarded repetitions should not become new required features, while original ideas/history remain available. Copied task packets, sessions and human-feedback gates are source history, not current commands or a reason to stop authorized reconciliation. AD42 qualifies mandatory human acceptance wording; agent proof, packaging, installation, commit and human review remain distinct.\n\nF6: Preserve D1–D4 code ownership, source-local qualification, selected-slice proof and nonoverlap. ACCOUNT constraints apply to the relevant consumer rather than hundreds of automatic tickets. D5.1 usefully distinguishes missing mechanics from missing demonstrations. Its lane assignments and next-build ranking are dated snapshots, not live leases. The source SHA table binds the October25 spot-check inputs only and does not prove present files unchanged. Historical doc/rule/zero-loss checks remain dated evidence. No runtime build, gameplay suite, browser, release, save migration, source acquisition, deletion, relocation, commit or push was performed by this cumulative review. Continue the wider intake; do not declare the project complete from this finished crosswalk.",
+      "before_sha256": "f3f21da245798bf760a2ed539e1546520cd1d23f9deaf08aa59dd32dff7570f3",
+      "after_sha256": "1d7a6918cde92ef650570d85046745eb1e407c07553dfa57af3a5b504ed16819"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 173,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "from": "statements need the current accepted owner and exact source.",
+      "to": "statements need the current governing owner and exact source.",
+      "reason": "Clarify task wording flagged by document authority lint; no changed source conclusion."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+      "from": "79d0fdbe4ed3b93664b16d6a3a9bc1a615b736d9f2316760db6703f62ecf9401",
+      "to": "9978107766da3fcc6df6b06eab1e1b748aa4babce37dbc92e6fdb3008e5c465e",
+      "reason": "Exact recorded task-wording correction."
+    }
+  ]
+}

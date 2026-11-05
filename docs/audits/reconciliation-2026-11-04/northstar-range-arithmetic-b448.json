@@ -1,0 +1,66 @@
+{
+  "source": "docs/LIFE_SIM_NORTH_STAR.md",
+  "section": "Primordial Saint Sect targeted audit",
+  "claimed_approximate_chapters": 120,
+  "listed_ranges": [
+    [
+      100,
+      135
+    ],
+    [
+      154,
+      166
+    ],
+    [
+      226,
+      232
+    ],
+    [
+      348,
+      352
+    ],
+    [
+      405,
+      410
+    ],
+    [
+      573,
+      580
+    ],
+    [
+      660,
+      700
+    ],
+    [
+      981,
+      993
+    ],
+    [
+      1138,
+      1148
+    ],
+    [
+      1183,
+      1190
+    ],
+    [
+      1230,
+      1237
+    ],
+    [
+      1303,
+      1306
+    ],
+    [
+      1334,
+      1343
+    ],
+    [
+      1415,
+      1441
+    ]
+  ],
+  "inclusive_span_sum": 197,
+  "unique_chapter_numbers_in_list": 197,
+  "scope": "Arithmetic over listed ranges only; does not establish actual chapter reading or primary-source qualification."
+}

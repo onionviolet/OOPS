@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "batch": "B614",
+  "title": "Causal narrative workflow and implementation palette: actual owners and dated proposals",
+  "at": "2026-11-05T13:29:07.794035+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "W5",
+        "OD7",
+        "OD8"
+      ],
+      "classification": "causal writing workflow, later world-correction authority and obsolete milestone",
+      "owners": [
+        "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md"
+      ],
+      "disposition": "F1: Full actual review covers157input lines, F1–F5/R1–R5, the entire original Grey Weir demonstration/D1–D4, inputs/role/source/continuity rubric and W1–W5/OD8/detail-review addenda. Oversized combined output was recovered with complete tail reading before full credit. USER_VISION3661–3698explicitly records OD7/OD8: natural course unless changed, authored plots/simulation by mode, truth/knowledge/view separate and actual world correction mechanisms possible. The narrative guide restates those ideas; its workflow/rubric/sample scene remains proposed. It selects no permanent worker, AI provider, runtime generator, new world or infinite simulation.\n\nF2: Preserve one finite premise/current-situation unit, actor competence/resources/private aims/non-player ties, observed source voice versus original examples, information channel and actual state-consumer intent. Literal-self premise does not authorize invented biography or outside expertise. The demonstration is wholly authored public content, not a selected world/source law or a hidden designer truth. Controlled experiment/quiet employment/cooperation/departure are compatible alternatives, contingent on real tools, knowledge, agreement and funds, rather than mandatory catastrophe or loyalty grind. Prose can describe intended consequence without implementing body/stock/knowledge/permission.\n\nF3: W1baseline, W2disturbance, W3propagation, W4playablebeat and W5aftermath keep occurrence/discovery, attempt/result, source/counterfactual and observer/author truth distinct. When a necessary cause disappears, its dependent beat changes; independent plans continue. OD8’s later correction makes world-supported fate/heavenlywill restoration possible with actual reach/cost/means, not a blanket ban on replacement or a universal self-correcting canon. Repeatability remains chance/means-qualified. Selected clocks do not advance because chat is silent or a browser is closed.\n\nF4: Save exact premise/revision, material commitments, participants, knowledge channels, superseded history and next eligible situation in existing world/timeline owners; a synopsis alone cannot rewrite a promise. Avoid a duplicate universal lore/event registry or compulsory five-role hierarchy. Rubric0–2and a proposed first unit are comparison aids, not product approval or extra universal gates. Current PROJECT retires the old one-realm/prestige line; canon-first/current selected sequence remains. Human taste review is optional under AD42, with actual world selection and implementation authority separate. No new writing assignment, worker, source reading/acquisition, gameplay/build/browser/save or human acceptance proof occurs.",
+      "evidence": "All157lines read, recovered combined-output truncation; exact USER_VISION3661–3698direction and timeline1–15support scoped authority, no raw source/world build.",
+      "reopen": "Selected authoring can use existing W1–W5/world owner, with source/current causality and actual effects; proposals alone authorize no runtime.",
+      "full": true,
+      "input_sha256": "23195aa341683b753e3a8a4f9a4bdd10d9c3d7c6e589237a5320e1f59cdf8ca5",
+      "input_lines": 157,
+      "ranges": [
+        [
+          1,
+          157
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "ids": [
+        "IMC1",
+        "IMC2",
+        "IMC3",
+        "IMC4",
+        "IMC5",
+        "IMC6",
+        "IMC7",
+        "IMC8",
+        "IMC9",
+        "IMC10",
+        "IMC11",
+        "IMC12",
+        "IMS1",
+        "IMS2",
+        "IMS3",
+        "IMS4",
+        "IMS5",
+        "IMS6",
+        "IMS7",
+        "IMS8",
+        "IMS9",
+        "IMS10",
+        "IMS11",
+        "IMJ1",
+        "IMJ2",
+        "IMJ3",
+        "IMJ4",
+        "IMJ5",
+        "IMJ6",
+        "IMJ7",
+        "IMJ8",
+        "IMA1",
+        "IMA2",
+        "IMA3",
+        "IMA4",
+        "IMA5",
+        "IMA6",
+        "IMA7",
+        "IMA8",
+        "IMV1",
+        "IMV2",
+        "IMV3",
+        "IMV4",
+        "IMV5",
+        "IMV6",
+        "IMV7",
+        "IMB1",
+        "IMB2",
+        "IMB3",
+        "IMB4",
+        "IMB5",
+        "IMB6",
+        "IMB7",
+        "IMR1",
+        "IMR2",
+        "IMR3",
+        "IMR4",
+        "IMR5",
+        "IMR6",
+        "IMX1",
+        "IMX2",
+        "IMX3",
+        "IMX4",
+        "IMX5",
+        "IMX6",
+        "IMD1",
+        "IMD2",
+        "IMD3",
+        "IMD4",
+        "IMD5"
+      ],
+      "classification": "historical implementation proposals, actual receipt/store semantics and shared-design scope",
+      "owners": [
+        "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+        "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+        "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md"
+      ],
+      "disposition": "F1: Full actual review covers180input lines, all70coded rows: IMC1–12, IMS1–11, IMJ1–8, IMA1–8, IMV1–7, IMB1–7, IMR1–6, IMX1–6 and IMD1–5, with every prose hazard/compatibility/architecture/fixture/performance/ownership/optional-choice paragraph. Initial combined and later tail truncation was recovered in bounded complete ranges. All code locators/bundle/save-fixture bytes/lane reservations and measured facts are the October14dirty-tree snapshot, not current implementation, live workers or new test/performance proof. The historical external-storage reference is not current device/browser quota authority; no browser/personal-save/source-fixture access occurs here.\n\nF2: Current selected source371–386still deduplicates relationship delivery by cause+actor+target+axis while trimming recent memories to32; same-axis components under one cause need intended aggregation/versioned component receipt, while a genuinely later occurrence can have a new cause. That receipt map is not a universal event log. Current save_files239–270still has4MiBapplication budget, UTF8and estimatedUTF16measurements and other-key accounting; this is selected source evidence, not an executed quota/loader/rollback test. File bytes, decoded data, origin occupancy, backup/dev keys, saved truth and rendered projections differ. Old fixture/bundle timings cannot supply current p95, long-campaign distribution or a fresh native journey.\n\nF3: Preserve directed bond, actual received report, region/institution audience, value judgement, condition, source-specific corruption, current body chronology, residence right, inventory and explicit accepted obligation as distinct facts. Logs/cursors/rendered lines do not create remembered contact, claim truth, actual stock or agreement. Compaction must preserve reader-needed unsettled terms and replay identity; memory eviction alone cannot erase obligations or permit duplicate delivery. Borrowed source meanings and existing legacy semantics need an explicit selected compatibility policy, with AR6’s recorded reset/drop option distinct from round-tripping new state. The eleven optional schema/store sketches are proposals, not a requirement to build competing owners.\n\nF4: Shared abstraction no longer waits for two implemented consumers: AD51/AR12allow reasonable whole-known-source design, and AR11uses a different second case to validate/revise the seam. Retire IMJ8’s implicit two-consumer prerequisite. One selected reader can reuse a thin existing owner; no rewrite, TS/ECS/backend/event-bus conversion or full social platform is required. Age/body/appearance eligibility remains the owning direction; cosmetic labels/unknown chronology do not invent permission, and ordinary friendship/care remain useful. Frozen absence, active idle, offline and local elapsed contact need their actual policies and cannot share one inferred wall clock.\n\nF5: Byte/cast/line/time/row targets in IMB and IMS are explicitly engineering review proposals, not measured success, fixed friend/discovery caps or new import rejection rules. Admission/quote/revalidation, resource settlement, durable publish and observer-safe projection need the actual selected consumers. Optional signal failure cannot undo an earned lesson; source/differential/clock/interruption/import/quota scenarios remain useful when relevant, not a universal expansion of every task’s test gates. IMDfile/API/test names and SSB1/2→3ordering are historical proposals; current PROJECT governs work and ownership. Dated lane/process records grant no live reservation or mandatory permission exchange today.\n\nF6: IMX1already maps OA18to accepted occurrences; OA23already qualifies cause descriptors. OA19’s one-cause-log shorthand and OA22’s one-claim-object shorthand are narrowed in their existing owner: audience-qualified delivered accounts can share causal IDs without making economic unique claims a universal news store. Keep part32navigation and part40implementation proposals linked, without duplicating rules or selecting new runtime. Retire old one-realm milestone and make human fiction review optional under AD42, without changing the fixed body-age content boundary. Source-edit/focusedcheck/build/earneddesktop/persistence/human stages remain separate. No runtime implementation, source acquisition, worker, new test/build/browser/save, schema migration, deletion/move, commit or push occurs.",
+      "evidence": "All180lines/70rows read in bounded ranges including recovered tail. Current selected effect and save-budget code read, not broad runtime validation.",
+      "reopen": "Inspect actual producer/state/consumer and selected compatibility before any authorized implementation; retain source/test/browser/persistence proof scopes.",
+      "full": true,
+      "input_sha256": "5ad5a06258a1f500f9a1e5370eb744c604962cca66a932923aaaa4e01c88d8c1",
+      "input_lines": 180,
+      "ranges": [
+        [
+          1,
+          180
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+      "heading": "## Content reconciliation B614: causal writing and continuation",
+      "body": "F1: Full actual review covers157input lines, F1–F5/R1–R5, the entire original Grey Weir demonstration/D1–D4, inputs/role/source/continuity rubric and W1–W5/OD8/detail-review addenda. Oversized combined output was recovered with complete tail reading before full credit. USER_VISION3661–3698explicitly records OD7/OD8: natural course unless changed, authored plots/simulation by mode, truth/knowledge/view separate and actual world correction mechanisms possible. The narrative guide restates those ideas; its workflow/rubric/sample scene remains proposed. It selects no permanent worker, AI provider, runtime generator, new world or infinite simulation.\n\nF2: Preserve one finite premise/current-situation unit, actor competence/resources/private aims/non-player ties, observed source voice versus original examples, information channel and actual state-consumer intent. Literal-self premise does not authorize invented biography or outside expertise. The demonstration is wholly authored public content, not a selected world/source law or a hidden designer truth. Controlled experiment/quiet employment/cooperation/departure are compatible alternatives, contingent on real tools, knowledge, agreement and funds, rather than mandatory catastrophe or loyalty grind. Prose can describe intended consequence without implementing body/stock/knowledge/permission.\n\nF3: W1baseline, W2disturbance, W3propagation, W4playablebeat and W5aftermath keep occurrence/discovery, attempt/result, source/counterfactual and observer/author truth distinct. When a necessary cause disappears, its dependent beat changes; independent plans continue. OD8’s later correction makes world-supported fate/heavenlywill restoration possible with actual reach/cost/means, not a blanket ban on replacement or a universal self-correcting canon. Repeatability remains chance/means-qualified. Selected clocks do not advance because chat is silent or a browser is closed.\n\nF4: Save exact premise/revision, material commitments, participants, knowledge channels, superseded history and next eligible situation in existing world/timeline owners; a synopsis alone cannot rewrite a promise. Avoid a duplicate universal lore/event registry or compulsory five-role hierarchy. Rubric0–2and a proposed first unit are comparison aids, not product approval or extra universal gates. Current PROJECT retires the old one-realm/prestige line; canon-first/current selected sequence remains. Human taste review is optional under AD42, with actual world selection and implementation authority separate. No new writing assignment, worker, source reading/acquisition, gameplay/build/browser/save or human acceptance proof occurs.",
+      "before_sha256": "23195aa341683b753e3a8a4f9a4bdd10d9c3d7c6e589237a5320e1f59cdf8ca5",
+      "after_sha256": "1a198c95519b2858fa04f44f182da205a1c4da5beb75ff56d10e66a997d7c0b9"
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "heading": "## Narrative-author workflow reconciliation B614",
+      "body": "The [narrative workflow](worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md#content-reconciliation-b614-causal-writing-and-continuation) is fully reviewed through W1–W5and its OD8correction. It carries the recorded OD7/OD8direction rather than a new canon policy: source baseline/changed cause/eligible propagation/playable beat/durable aftermath, with observer knowledge separate. Remove an invalidated beat for its causes, while retaining a world’s actual correcting power and independent actors’ plans. The Grey Weir scene and rubric are original proposals, not a selected world or implemented state. Exact commitments/source labels and next-scene state stay in existing owners; no permanent writer hierarchy, runtime AI, universal event registry or human review gate follows under AD42.",
+      "before_sha256": "1b001342770096779aef73c04af2cfd7225a934958f5671220b330a22263b531",
+      "after_sha256": "c2f24a2d77ca1bb19f52d9606be2dc3071f3765dd2e1db34bf136ef445335ae5"
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "heading": "## Content reconciliation B614: historical seams and current owner boundaries",
+      "body": "F1: Full actual review covers180input lines, all70coded rows: IMC1–12, IMS1–11, IMJ1–8, IMA1–8, IMV1–7, IMB1–7, IMR1–6, IMX1–6 and IMD1–5, with every prose hazard/compatibility/architecture/fixture/performance/ownership/optional-choice paragraph. Initial combined and later tail truncation was recovered in bounded complete ranges. All code locators/bundle/save-fixture bytes/lane reservations and measured facts are the October14dirty-tree snapshot, not current implementation, live workers or new test/performance proof. The historical external-storage reference is not current device/browser quota authority; no browser/personal-save/source-fixture access occurs here.\n\nF2: Current selected source371–386still deduplicates relationship delivery by cause+actor+target+axis while trimming recent memories to32; same-axis components under one cause need intended aggregation/versioned component receipt, while a genuinely later occurrence can have a new cause. That receipt map is not a universal event log. Current save_files239–270still has4MiBapplication budget, UTF8and estimatedUTF16measurements and other-key accounting; this is selected source evidence, not an executed quota/loader/rollback test. File bytes, decoded data, origin occupancy, backup/dev keys, saved truth and rendered projections differ. Old fixture/bundle timings cannot supply current p95, long-campaign distribution or a fresh native journey.\n\nF3: Preserve directed bond, actual received report, region/institution audience, value judgement, condition, source-specific corruption, current body chronology, residence right, inventory and explicit accepted obligation as distinct facts. Logs/cursors/rendered lines do not create remembered contact, claim truth, actual stock or agreement. Compaction must preserve reader-needed unsettled terms and replay identity; memory eviction alone cannot erase obligations or permit duplicate delivery. Borrowed source meanings and existing legacy semantics need an explicit selected compatibility policy, with AR6’s recorded reset/drop option distinct from round-tripping new state. The eleven optional schema/store sketches are proposals, not a requirement to build competing owners.\n\nF4: Shared abstraction no longer waits for two implemented consumers: AD51/AR12allow reasonable whole-known-source design, and AR11uses a different second case to validate/revise the seam. Retire IMJ8’s implicit two-consumer prerequisite. One selected reader can reuse a thin existing owner; no rewrite, TS/ECS/backend/event-bus conversion or full social platform is required. Age/body/appearance eligibility remains the owning direction; cosmetic labels/unknown chronology do not invent permission, and ordinary friendship/care remain useful. Frozen absence, active idle, offline and local elapsed contact need their actual policies and cannot share one inferred wall clock.\n\nF5: Byte/cast/line/time/row targets in IMB and IMS are explicitly engineering review proposals, not measured success, fixed friend/discovery caps or new import rejection rules. Admission/quote/revalidation, resource settlement, durable publish and observer-safe projection need the actual selected consumers. Optional signal failure cannot undo an earned lesson; source/differential/clock/interruption/import/quota scenarios remain useful when relevant, not a universal expansion of every task’s test gates. IMDfile/API/test names and SSB1/2→3ordering are historical proposals; current PROJECT governs work and ownership. Dated lane/process records grant no live reservation or mandatory permission exchange today.\n\nF6: IMX1already maps OA18to accepted occurrences; OA23already qualifies cause descriptors. OA19’s one-cause-log shorthand and OA22’s one-claim-object shorthand are narrowed in their existing owner: audience-qualified delivered accounts can share causal IDs without making economic unique claims a universal news store. Keep part32navigation and part40implementation proposals linked, without duplicating rules or selecting new runtime. Retire old one-realm milestone and make human fiction review optional under AD42, without changing the fixed body-age content boundary. Source-edit/focusedcheck/build/earneddesktop/persistence/human stages remain separate. No runtime implementation, source acquisition, worker, new test/build/browser/save, schema migration, deletion/move, commit or push occurs.",
+      "before_sha256": "5ad5a06258a1f500f9a1e5370eb744c604962cca66a932923aaaa4e01c88d8c1",
+      "after_sha256": "320f6b314f3aab352c01dc6516fbecfb5aa028d4066e6efaf94dd457ae813eae"
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+      "heading": "## Implementation-palette scope reconciliation B614",
+      "body": "The [implementation palette](40_IMPLEMENTATION_CONSIDERATIONS.md#content-reconciliation-b614-historical-seams-and-current-owner-boundaries) is fully reviewed across all70IMrows. Keep logs as projections, actual completed occurrence/replay identity as the relevant supplier, and audience-qualified delivered knowledge separate from unique economic claims. A later genuine act can count without duplicating the same cause. Current selected source still shows32recent relationship memories plus longer cause receipts; trimming the former does not prove safe deletion of the latter or of unsettled reader-needed terms. Historical byte/workload goals and SSBfile sketches remain proposals, not runtime proof/current dispatch. AD51permits a reasonable shared design before a second case validates it; current PROJECT retires the old milestone, and human fiction review is optional under AD42.",
+      "before_sha256": "257efce011d55b3ab0b980d4c5e8ea5cf4443ecc8be1e19ecac966f7e5452a0b",
+      "after_sha256": "5b79446219db9b4384f6426c4d010201a2a413803b5acf43fb2011f6eb9a1d42"
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+      "heading": "## Shared occurrence and report-owner reconciliation B614",
+      "body": "The [part40review](40_IMPLEMENTATION_CONSIDERATIONS.md#content-reconciliation-b614-historical-seams-and-current-owner-boundaries) qualifies OA19/OA22alongside existing OA18/OA23corrections. Shared causal identifiers need not be a universal occurrence database, and a settled unique reward claim is not a rumor/news report. Preserve actual producer, recipient delivery, attribution/basis/correction and affected reader; audience judgement can disagree with author truth. Current selected source cause receipts deduplicate relationship delivery, with recent memories separately bounded. Useful shared descriptors are proposed where needed under AD51/AR11/AR12, rather than new mandatory schemas or two-consumer-before-design gates.",
+      "before_sha256": "04e4b3f31cddd9fba8eca895f771e284b17229e537c89ea6c8f41a5fc9b5829a",
+      "after_sha256": "2c8f09e2723d7df1481cfb1287e5031e76b009dfdda4ab4c3418c3f763dcf6ee"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 75,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+      "from": "Canon-first world order and the one-realm/one-prestige milestone remain intact.",
+      "to": "Current PROJECT governs canon-first ordering and retires the one-realm/one-prestige milestone.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+      "from": "Human review selects, revises or rejects tone, premise and desired pursuit; passing this rubric does not accept the world.",
+      "to": "Optional human review under AD42can select, revise or reject tone, premise and desired pursuit; rubric scores do not select a world or prove gameplay.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "First milestone remains one realm and one prestige layer.",
+      "to": "Current PROJECT retires the one-realm/one-prestige first-milestone gate.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "or generalize manifests after two distinct consumers.",
+      "to": "or design a reasonable shared manifest from whole known sources under AD51/AR12, then validate or revise it with a second distinct case under AR11.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "Human fiction/layout gate remains separate.",
+      "to": "Human fiction/layout review remains optional and separate under AD42.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "Treat PROJECT entry as dated evidence and latest checkpoint as live execution routing, without rewriting either.",
+      "to": "Treat the R14/R15mismatch as dated history; current PROJECT/USER_VISIONgovern priorities, and a current live task record governs execution. Do not elevate an old checkpoint into current direction.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+      "from": "The one-realm/one-prestige milestone and held Soldier's Life work remain as owned in PROJECT.",
+      "to": "Current PROJECT retires the one-realm/one-prestige milestone; the Soldier kit retains its paused runtime scope.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+      "from": "Neighborhood, institution and fame as separate audiences over one cause log.",
+      "to": "Neighborhood, institution and fame as separate audiences over actual caused and delivered accounts; shared IDs do not require a universal cause log.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+      "from": "One claim object with source, delay and accuracy, used by gossip, news and rumor.",
+      "to": "A report descriptor with source, recipient, delay and basis can serve gossip/news/rumor; economic unique claims retain their separate owner.",
+      "reason": "Reconcile actual current authority/supplier semantics and retain exact original."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "explicit accepted obligation",
+      "to": "explicitly agreed obligation",
+      "reason": "Clarify in-world obligation agreement rather than product-adoption wording."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B611, continuous execution 2026-11-05 |",
+      "to": "| B614, continuous execution 2026-11-05 |",
+      "reason": "Advance existing current checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md",
+      "from": "1a198c95519b2858fa04f44f182da205a1c4da5beb75ff56d10e66a997d7c0b9",
+      "to": "92e68a80f5f9b943a3086ccf3c2e655dbdbd8aecdd3e96a0cae9d791317a3b93",
+      "reason": "Exact inline corrections."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "320f6b314f3aab352c01dc6516fbecfb5aa028d4066e6efaf94dd457ae813eae",
+      "to": "59d5f71a95fb345d561bcd03c2be4b3f334ec3c3f0a594d12e54bc52ad4d794c",
+      "reason": "Exact inline corrections."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+      "from": "5b79446219db9b4384f6426c4d010201a2a413803b5acf43fb2011f6eb9a1d42",
+      "to": "15b19a93b12b251d05185cda8fee2f257bf12297ffbb7a01b2c2fdfb6ed015a8",
+      "reason": "Exact inline corrections."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+      "from": "2c8f09e2723d7df1481cfb1287e5031e76b009dfdda4ab4c3418c3f763dcf6ee",
+      "to": "44b029902e4826fc8cafbbca25d82fedb7663d82d907fec7f122eef925248127",
+      "reason": "Exact inline corrections."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/40_IMPLEMENTATION_CONSIDERATIONS.md",
+      "from": "59d5f71a95fb345d561bcd03c2be4b3f334ec3c3f0a594d12e54bc52ad4d794c",
+      "to": "e4aa0bcfa5bd66dffb6d0aac1ca936914b7f4febdc6fa6a416434d0ffa333e4d",
+      "reason": "Precise docs-lint wording qualifier."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "1a8ec48346b634b5691ffe2466545da41d32b4472f954f6d8827931711bafb97",
+      "to": "50e19058dad1a4db86ba535cee7a232af872c6a1c9b7f8b7de8270908e8cc33c",
+      "reason": "B614pointer; no full register credit."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "5d8fe4cbdce73a42a0163f1483b74732abe6a9bfe234c387b54e51064e8a4186",
+      "ranges": [
+        [
+          371,
+          386
+        ]
+      ],
+      "scope": "Selected relationship receipt/memory writer."
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "70d1ef3f7e8fbc2561df294a38a1ca5c4d539930b53d6e5fdd7e62271713b1aa",
+      "ranges": [
+        [
+          239,
+          270
+        ]
+      ],
+      "scope": "Selected budget/bytecount/guard; no executed storage."
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "bbed52466dc2b0b98c04a62cfc8b33d26c2281e4a56276dab0484dd6d223ba5c",
+      "ranges": [
+        [
+          3661,
+          3698
+        ]
+      ],
+      "scope": "Actual OD7/OD8direction, not full owner re-review."
+    },
+    {
+      "path": "docs/ARCHITECTURE_RULES.md",
+      "sha256": "5b1548e56d68caf6223b060ef2326c0dba4ade48e2e9abca203a7f26466f5308",
+      "ranges": [
+        [
+          48,
+          49
+        ]
+      ],
+      "scope": "AR11/AR12only."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md",
+      "sha256": "44b029902e4826fc8cafbbca25d82fedb7663d82d907fec7f122eef925248127",
+      "ranges": [
+        [
+          41,
+          58
+        ]
+      ],
+      "scope": "Selected OA17–24join rows."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md",
+      "sha256": "15b19a93b12b251d05185cda8fee2f257bf12297ffbb7a01b2c2fdfb6ed015a8",
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "scope": "Selected navigation/authority rows."
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "sha256": "c2f24a2d77ca1bb19f52d9606be2dc3071f3765dd2e1db34bf136ef445335ae5",
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "scope": "Selected correction mechanism owner."
+    }
+  ]
+}

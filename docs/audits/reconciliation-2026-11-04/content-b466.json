@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "batch": "B466",
+  "title": "Social, character-sheet, crafting fixtures and quiet continuation: exact evidence scopes and band rationale correction",
+  "at": "2026-11-05T06:57:00.915256+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+      "ids": [
+        "CC-P01/02/03/05;CC-P04excluded;sourceaudit7concerns"
+      ],
+      "classification": "complete source/fixture/projection/continuation evidence record with explicit native and current-state limits",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+        "docs/representations/CHARACTER_SHEET.md",
+        "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+        "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md"
+      ],
+      "disposition": "All17 audit lines were read alongside the later social checkpoint. CC-P01/P02/P03/P05 require actual earlier meetings/reports, optional branch choice, separate agreement, real bodies/contact/stock/time and the existing native hosts. Source review repaired specific imports, controls, support, disclosure and recap ordering; cold imports and declarative registry validity do not establish native execution. The child/source-writer release is historical, not a live ownership grant. Keep eight commands/two finite plans distinct from general social simulation or CC-P04 personal Ink support. Canceling future steps does not erase accepted current work, stamina already reserved is not billed again, received player knowledge differs from private NPC memory, and a recollection is not learned faculty. Current [PROJECT](../../../../PROJECT.md), [UI rules](../../../UI_RULES.md) and AD36/AD43 govern selected proof; AD42 makes director review optional. The exact native mount/discovery, shared publication/refund, import/cursor, focus and unchanged-opening gaps remain recorded at their dated inputs. No source body, private actor state, DOM, runtime command or test was newly exercised here.",
+      "evidence": "Complete17/20/429/22/21-line inputs read. Character owner ranges1–28,29–63,64–94,95–210,211–336,337–429 fully covered. Social/crafting checkpoints and quiet report tail were scoped followthrough; linked code/images/JSON/runtime evidence not inspected.",
+      "reopen": "Preserve exact fixture/source/read-route scope and later corrections; inspect actual changed consumer before renewed behavior claim.",
+      "input_sha256": "fef1f9546c607f62e7cac3c3a29ff3131d2484765a46a9a6f2c3d0f7be685c01",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/representations/evidence/character-sheet/README.md",
+      "ids": [
+        "8capturefiles;galleryvsfresh-elder;bundle520554e2261f"
+      ],
+      "classification": "complete source/fixture/projection/continuation evidence record with explicit native and current-state limits",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+        "docs/representations/CHARACTER_SHEET.md",
+        "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+        "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md"
+      ],
+      "disposition": "The complete429-line owner and20-line evidence README were read, including CS1–CS9/CS6a–k, both design rounds, all21 review topics, WA50's mapping, the ladder contract and three later slice receipts. Gallery read toggles, one earned elder route and later own/opponent/People slices are distinct evidence windows. The initial bundle prefix does not cover later header wording or follow-up builds. Eight listed captures are not proof of every read, accessibility behavior, multi-seat app lifecycle or current main. The initial missing self/opponent/person-line integration is qualified by later named slices, while bio/abilities, an actual second opponent read, stored observation history and the blocked people_browser harness remain separately open.\n\n**CS6b correction.** Original rationale: “A band is floored to its width (38 at width 5 reads ‘35 to 39’), so a band's midpoint never equals the truth.” The final implication is mathematically false: true37 also lies in35–39 and equals its midpoint. Fixed bands avoid centering every interval on the input; they do not guarantee the midpoint differs or prevent all possible inference. The live sentence is corrected without changing a band algorithm, API, runtime or test. No current implementation defect is inferred from this prose error.\n\nThe AP ladder, rank ceiling, schema/channel filters, merge priority and blanket guessed-divination policy are proposed means definitions. Actual reliable divination or a faculty that exceeds a ceiling follows its own supported mechanism; reliability is not universally capped by its label. Player native stats remain exact under AD8, while undiscovered hidden layers and other people's unknowns follow actual observer means. “Between you” is observer memory, not omniscient history. Exact values require a real source; guessed/stale/unknown should retain their basis, and hidden counts, foreign IDs or a scoped header must not leak unread truth. A midpoint or generic rank is not a universal power comparison across worlds.\n\nThe source's general-knowledge game comparisons are attributed unverified references, not fresh research. Pure rows and schema fields do not prove all later-volume mechanisms work without new code. Figure slots, optional composition, pop-outs, one-row animation, themed grids and suggested read notices are local UI choices; current [UI rules](../UI_RULES.md), [PROJECT](../../PROJECT.md), AD36/AD43 and AD42 govern actual selected work. Inspection itself need not have a cost if the means does not. Storing current reads, historical read times, world truth at chapter, player perception and a derived display are different owners. No source code, image, browser, test, source book, app install or personal save was newly inspected by this full-document review.",
+      "evidence": "Complete17/20/429/22/21-line inputs read. Character owner ranges1–28,29–63,64–94,95–210,211–336,337–429 fully covered. Social/crafting checkpoints and quiet report tail were scoped followthrough; linked code/images/JSON/runtime evidence not inspected.",
+      "reopen": "Preserve exact fixture/source/read-route scope and later corrections; inspect actual changed consumer before renewed behavior claim.",
+      "input_sha256": "f8dd81ce2af4c4684686213ffb9fbf292cdb9e1e4eb4f7c123ea1ddb8a67a567",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/representations/CHARACTER_SHEET.md",
+      "ids": [
+        "CS1–9/CS6a–k;round2topics1–21;WA50;followups1/3/4"
+      ],
+      "classification": "complete source/fixture/projection/continuation evidence record with explicit native and current-state limits",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+        "docs/representations/CHARACTER_SHEET.md",
+        "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+        "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md"
+      ],
+      "disposition": "The complete429-line owner and20-line evidence README were read, including CS1–CS9/CS6a–k, both design rounds, all21 review topics, WA50's mapping, the ladder contract and three later slice receipts. Gallery read toggles, one earned elder route and later own/opponent/People slices are distinct evidence windows. The initial bundle prefix does not cover later header wording or follow-up builds. Eight listed captures are not proof of every read, accessibility behavior, multi-seat app lifecycle or current main. The initial missing self/opponent/person-line integration is qualified by later named slices, while bio/abilities, an actual second opponent read, stored observation history and the blocked people_browser harness remain separately open.\n\n**CS6b correction.** Original rationale: “A band is floored to its width (38 at width 5 reads ‘35 to 39’), so a band's midpoint never equals the truth.” The final implication is mathematically false: true37 also lies in35–39 and equals its midpoint. Fixed bands avoid centering every interval on the input; they do not guarantee the midpoint differs or prevent all possible inference. The live sentence is corrected without changing a band algorithm, API, runtime or test. No current implementation defect is inferred from this prose error.\n\nThe AP ladder, rank ceiling, schema/channel filters, merge priority and blanket guessed-divination policy are proposed means definitions. Actual reliable divination or a faculty that exceeds a ceiling follows its own supported mechanism; reliability is not universally capped by its label. Player native stats remain exact under AD8, while undiscovered hidden layers and other people's unknowns follow actual observer means. “Between you” is observer memory, not omniscient history. Exact values require a real source; guessed/stale/unknown should retain their basis, and hidden counts, foreign IDs or a scoped header must not leak unread truth. A midpoint or generic rank is not a universal power comparison across worlds.\n\nThe source's general-knowledge game comparisons are attributed unverified references, not fresh research. Pure rows and schema fields do not prove all later-volume mechanisms work without new code. Figure slots, optional composition, pop-outs, one-row animation, themed grids and suggested read notices are local UI choices; current [UI rules](../UI_RULES.md), [PROJECT](../../PROJECT.md), AD36/AD43 and AD42 govern actual selected work. Inspection itself need not have a cost if the means does not. Storing current reads, historical read times, world truth at chapter, player perception and a derived display are different owners. No source code, image, browser, test, source book, app install or personal save was newly inspected by this full-document review.",
+      "evidence": "Complete17/20/429/22/21-line inputs read. Character owner ranges1–28,29–63,64–94,95–210,211–336,337–429 fully covered. Social/crafting checkpoints and quiet report tail were scoped followthrough; linked code/images/JSON/runtime evidence not inspected.",
+      "reopen": "Preserve exact fixture/source/read-route scope and later corrections; inspect actual changed consumer before renewed behavior claim.",
+      "input_sha256": "efa2cbcfeb9242b1def469f5224abc7cdce55941172ad64d34c7c55e617c604f",
+      "input_lines": 429,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          429
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+      "ids": [
+        "craft_none/craft_ready;oneavailabilityedit;4freshloads;bundle0219035cdbca2bee"
+      ],
+      "classification": "complete source/fixture/projection/continuation evidence record with explicit native and current-state limits",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+        "docs/representations/CHARACTER_SHEET.md",
+        "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+        "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md"
+      ],
+      "disposition": "The complete22-line fixture README was reviewed against the later crafting checkpoint/B87 correction. The recipe declares one direct availability edit substituting for an Infested-field clear, then actual teaching, equipment and gathering controls. This is a generated crafting-state route, not an earned natural combat clear or proof of opening-to-crafting balance. The two saved files, byte sizes, seven stations, known/unknown ingredients and30% attempt preview describe the recorded bundle; four fresh-context loads with zero page errors establish only that fixture loading slice. Rebuilding or serving commands here were not executed by this reconciliation. Later [checkpoint](../../CHECKPOINT.md) and its research-map correction qualify old equipment-receipt gaps; the fixture record does not prove today's source absence or UI geometry. Current [UI rules](../../../../../UI_RULES.md), [PROJECT](../../../../../../PROJECT.md) and AD36/AD43 govern selected checks. Preserve the explicit save edit and actual UI steps; no personal save, fixture payload, browser, source or test was opened.",
+      "evidence": "Complete17/20/429/22/21-line inputs read. Character owner ranges1–28,29–63,64–94,95–210,211–336,337–429 fully covered. Social/crafting checkpoints and quiet report tail were scoped followthrough; linked code/images/JSON/runtime evidence not inspected.",
+      "reopen": "Preserve exact fixture/source/read-route scope and later corrections; inspect actual changed consumer before renewed behavior claim.",
+      "input_sha256": "7c87baf4ad4134de7592b53cf52337b5ba061be5ecc932cdd0362c2fd57d6342",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md",
+      "ids": [
+        "D28;76tests74pass2baseline;37browserassertions;4routes"
+      ],
+      "classification": "complete source/fixture/projection/continuation evidence record with explicit native and current-state limits",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+        "docs/representations/CHARACTER_SHEET.md",
+        "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+        "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md"
+      ],
+      "disposition": "All21 lines were read with the report's explicit limits and release section. D28 reciprocal connection, the quiet faculty, paused A/B routes, optional repeat and import publication fix are bounded recorded delivery, not a general world/death/copy/portable-storage engine. The76-test result is74 passing plus two independently reproduced baseline failures, separate from37 browser assertions/four context-isolated routes. Preserve both rather than relabeling this a wholly green suite. Adult-human body/selected-mastery, Frontier-only and compatible-history constraints remain actual adapter scope at those inputs, not permanent design impossibilities. A normal-timer loop does not imply terminal rescue or all death immunity. Histories were not silently pruned; a rejected guarded transition retained the prior life.\n\nThe old preview server/owner release and adjacent shell-integration suggestion are history, not current verified process state or a new wave. Current [PROJECT](../../../../PROJECT.md), [UI rules](../../../UI_RULES.md) and AD36/AD43 govern relevant changed-input proof. Under AD42 the report's “remaining authoritative human gate” is optional review, not a technical blocker or a reason to revoke bounded agent evidence. Current broad worlds and lead-life work do not become restricted to this adapter. No source, report-linked JSON, candidate bundle, test/browser, stored life or private content was newly exercised here.",
+      "evidence": "Complete17/20/429/22/21-line inputs read. Character owner ranges1–28,29–63,64–94,95–210,211–336,337–429 fully covered. Social/crafting checkpoints and quiet report tail were scoped followthrough; linked code/images/JSON/runtime evidence not inspected.",
+      "reopen": "Preserve exact fixture/source/read-route scope and later corrections; inspect actual changed consumer before renewed behavior claim.",
+      "input_sha256": "fc77f8a5cf4cecbbf641a759a1b886f2aa45b945fb564d549f48b86aaa045256",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+      "heading": "## Content reconciliation B466: source review and native evidence boundary",
+      "body": "All17 audit lines were read alongside the later social checkpoint. CC-P01/P02/P03/P05 require actual earlier meetings/reports, optional branch choice, separate agreement, real bodies/contact/stock/time and the existing native hosts. Source review repaired specific imports, controls, support, disclosure and recap ordering; cold imports and declarative registry validity do not establish native execution. The child/source-writer release is historical, not a live ownership grant. Keep eight commands/two finite plans distinct from general social simulation or CC-P04 personal Ink support. Canceling future steps does not erase accepted current work, stamina already reserved is not billed again, received player knowledge differs from private NPC memory, and a recollection is not learned faculty. Current [PROJECT](../../../../PROJECT.md), [UI rules](../../../UI_RULES.md) and AD36/AD43 govern selected proof; AD42 makes director review optional. The exact native mount/discovery, shared publication/refund, import/cursor, focus and unchanged-opening gaps remain recorded at their dated inputs. No source body, private actor state, DOM, runtime command or test was newly exercised here.",
+      "before_sha256": "fef1f9546c607f62e7cac3c3a29ff3131d2484765a46a9a6f2c3d0f7be685c01",
+      "after_sha256": "fce00d873243da009656a67758b1aebd7c7ab86161766f468306490084595d99"
+    },
+    {
+      "path": "docs/representations/CHARACTER_SHEET.md",
+      "heading": "## Content reconciliation B466: full sheet/evidence review and band correction",
+      "body": "The complete433-line owner and20-line evidence README were read, including CS1–CS9/CS6a–k, both design rounds, all21 review topics, WA50's mapping, the ladder contract and three later slice receipts. Gallery read toggles, one earned elder route and later own/opponent/People slices are distinct evidence windows. The initial bundle prefix does not cover later header wording or follow-up builds. Eight listed captures are not proof of every read, accessibility behavior, multi-seat app lifecycle or current main. The initial missing self/opponent/person-line integration is qualified by later named slices, while bio/abilities, an actual second opponent read, stored observation history and the blocked people_browser harness remain separately open.\n\n**CS6b correction.** Original rationale: “A band is floored to its width (38 at width 5 reads ‘35 to 39’), so a band's midpoint never equals the truth.” The final implication is mathematically false: true37 also lies in35–39 and equals its midpoint. Fixed bands avoid centering every interval on the input; they do not guarantee the midpoint differs or prevent all possible inference. The live sentence is corrected without changing a band algorithm, API, runtime or test. No current implementation defect is inferred from this prose error.\n\nThe AP ladder, rank ceiling, schema/channel filters, merge priority and blanket guessed-divination policy are proposed means definitions. Actual reliable divination or a faculty that exceeds a ceiling follows its own supported mechanism; reliability is not universally capped by its label. Player native stats remain exact under AD8, while undiscovered hidden layers and other people's unknowns follow actual observer means. “Between you” is observer memory, not omniscient history. Exact values require a real source; guessed/stale/unknown should retain their basis, and hidden counts, foreign IDs or a scoped header must not leak unread truth. A midpoint or generic rank is not a universal power comparison across worlds.\n\nThe source's general-knowledge game comparisons are attributed unverified references, not fresh research. Pure rows and schema fields do not prove all later-volume mechanisms work without new code. Figure slots, optional composition, pop-outs, one-row animation, themed grids and suggested read notices are local UI choices; current [UI rules](../UI_RULES.md), [PROJECT](../../PROJECT.md), AD36/AD43 and AD42 govern actual selected work. Inspection itself need not have a cost if the means does not. Storing current reads, historical read times, world truth at chapter, player perception and a derived display are different owners. No source code, image, browser, test, source book, app install or personal save was newly inspected by this full-document review.",
+      "before_sha256": "efa2cbcfeb9242b1def469f5224abc7cdce55941172ad64d34c7c55e617c604f",
+      "after_sha256": "25d75155002c9051264a036dbc5e2a66ac096758544b8c92fd9c2d5b2f92c4f4"
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+      "heading": "## Content reconciliation B466: declared fixture and later crafting evidence",
+      "body": "The complete22-line fixture README was reviewed against the later crafting checkpoint/B87 correction. The recipe declares one direct availability edit substituting for an Infested-field clear, then actual teaching, equipment and gathering controls. This is a generated crafting-state route, not an earned natural combat clear or proof of opening-to-crafting balance. The two saved files, byte sizes, seven stations, known/unknown ingredients and30% attempt preview describe the recorded bundle; four fresh-context loads with zero page errors establish only that fixture loading slice. Rebuilding or serving commands here were not executed by this reconciliation. Later [checkpoint](../../CHECKPOINT.md) and its research-map correction qualify old equipment-receipt gaps; the fixture record does not prove today's source absence or UI geometry. Current [UI rules](../../../../../UI_RULES.md), [PROJECT](../../../../../../PROJECT.md) and AD36/AD43 govern selected checks. Preserve the explicit save edit and actual UI steps; no personal save, fixture payload, browser, source or test was opened.",
+      "before_sha256": "7c87baf4ad4134de7592b53cf52337b5ba061be5ecc932cdd0362c2fd57d6342",
+      "after_sha256": "7f7081971710e0a1af77044e42e4ef98acb2578441a85a418b8603c9bbe23771"
+    },
+    {
+      "path": "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md",
+      "heading": "## Content reconciliation B466: bounded reciprocal proof and current gate",
+      "body": "All21 lines were read with the report's explicit limits and release section. D28 reciprocal connection, the quiet faculty, paused A/B routes, optional repeat and import publication fix are bounded recorded delivery, not a general world/death/copy/portable-storage engine. The76-test result is74 passing plus two independently reproduced baseline failures, separate from37 browser assertions/four context-isolated routes. Preserve both rather than relabeling this a wholly green suite. Adult-human body/selected-mastery, Frontier-only and compatible-history constraints remain actual adapter scope at those inputs, not permanent design impossibilities. A normal-timer loop does not imply terminal rescue or all death immunity. Histories were not silently pruned; a rejected guarded transition retained the prior life.\n\nThe old preview server/owner release and adjacent shell-integration suggestion are history, not current verified process state or a new wave. Current [PROJECT](../../../../PROJECT.md), [UI rules](../../../UI_RULES.md) and AD36/AD43 govern relevant changed-input proof. Under AD42 the report's “remaining authoritative human gate” is optional review, not a technical blocker or a reason to revoke bounded agent evidence. Current broad worlds and lead-life work do not become restricted to this adapter. No source, report-linked JSON, candidate bundle, test/browser, stored life or private content was newly exercised here.",
+      "before_sha256": "fc77f8a5cf4cecbbf641a759a1b886f2aa45b945fb564d549f48b86aaa045256",
+      "after_sha256": "a6adf6997f96aa54f4c035a3a72f8987128ffbd330f39905877f35fbefc063e6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 370,
+  "post_record_amendments": [
+    {
+      "path": "docs/representations/CHARACTER_SHEET.md",
+      "from": "A band is floored to its width (38 at width 5 reads \"35 to 39\"), so a band's midpoint never equals the truth.",
+      "to": "A band is floored to its width (38 at width 5 reads \"35 to 39\"); the interval is fixed rather than centered on the input. Its midpoint can equal the true value.",
+      "reason": "Correct false CS6b midpoint rationale; true37 in35–39 equals midpoint37. Original quotation preserved in B466 fold. Documentation only."
+    },
+    {
+      "path": "docs/representations/CHARACTER_SHEET.md",
+      "from": "The complete433-line owner",
+      "to": "The complete429-line owner",
+      "reason": "Correct manual line total to the actual pre-fold input count429 already captured by the recorder; complete read covered EOF."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/representations/CHARACTER_SHEET.md",
+      "from": "25d75155002c9051264a036dbc5e2a66ac096758544b8c92fd9c2d5b2f92c4f4",
+      "to": "6a761b8219185be6da16cc017648e17c90fb7555d2bf7bbdd587bfc6ea0cdfca",
+      "reason": "Live CS6b mathematical correction after input capture; no runtime change."
+    },
+    {
+      "path": "docs/representations/CHARACTER_SHEET.md",
+      "from": "6a761b8219185be6da16cc017648e17c90fb7555d2bf7bbdd587bfc6ea0cdfca",
+      "to": "107e77bd27e50de0146744dd3b5bc7a5d2a727797b8cebfe54089cdca8eeabe0",
+      "reason": "Correct manual line total to the actual pre-fold input count429 already captured by the recorder; complete read covered EOF."
+    }
+  ]
+}

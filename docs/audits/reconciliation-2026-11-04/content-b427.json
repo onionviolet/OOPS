@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "batch": "B427",
+  "title": "Six complete source-union and memory/crowd receipts: history retention and later proof",
+  "at": "2026-11-05T05:31:58.597941+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/M1_CHECKPOINT.md",
+      "ids": [
+        "schema1.4 union;missing3backups;seven-stagepipeline"
+      ],
+      "classification": "complete historical source-union/tooling receipt",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The union preserves silent fields, older-only people and provenance rather than deleting older schema detail. Seventy-two current people files have69backups; three missing backups retain current rows and remain an explicit history gap. Added700routine slots/1,022reaction entries do not add recurrence-bearing rows (190unchanged). Census normalized-name unions retain seven ambiguous matches separately. Selected134people/539lead scenes differ from older107/369because inputs drifted, not solely because of union logic. Seven-stage success is local records-ready tooling, not qualified paragraphs, pack regeneration or gameplay. The older six-stage test was initially not run; M2 subsequently updates/tests pipeline order.",
+      "evidence": "Complete actual receipt read, including all tables, gaps and later wave/addendum. Current systems-design tail inspected only as owner context, not a full-file/source/runtime review. No reading jobs, corpus writes, source qualification, runtime or browser execution.",
+      "reopen": "Preserve missing history, exact input/consumer denominators and actual later supersession; use current implementation and bounded failing route before any future action.",
+      "input_sha256": "779cefe3e02c5e8740c8df1ecd2ee473093bb2290fdec501899fa704c40d4f82",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/M2_CHECKPOINT.md",
+      "ids": [
+        "all-row-kind provenance;102missingMoLpeoplebackups;fitnessdenominators"
+      ],
+      "classification": "complete historical source-union/tooling receipt",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Generic kind union searches newest-to-oldest schema folders, fills silent fields and preserves older-only exact/normalized identities with field provenance; people retain their slot-level M1 merge rather than pretending all kinds use the same algorithm. LOTM69/72people backups and MoL4/106leave three and102missing histories, even when the five other kinds have complete backup sets. Row-kind counts, unique identity additions and fields filled are distinct totals. Before/after consumer fitness includes snapshot drift and changed denominators; it is not isolated causal improvement or whole-source fidelity. Four focused union/pipeline tests close M1's old stage-test gap at that later input. The two records-ready pipelines do not establish private-pack adoption or runtime behavior.",
+      "evidence": "Complete actual receipt read, including all tables, gaps and later wave/addendum. Current systems-design tail inspected only as owner context, not a full-file/source/runtime review. No reading jobs, corpus writes, source qualification, runtime or browser execution.",
+      "reopen": "Preserve missing history, exact input/consumer denominators and actual later supersession; use current implementation and bounded failing route before any future action.",
+      "input_sha256": "231b364fb4eeabbedfdffb737f9606ecf1e4fa2e3e9604b89147e472eb5a7e3c",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/M3_CHECKPOINT.md",
+      "ids": [
+        "712shards;crossvolumeorder;fullpostprocessingblocked;54retrycandidates"
+      ],
+      "classification": "complete historical source-union/tooling receipt",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Cross-volume merge correctly orders locator volume and preserves shared registry IDs without automatic same-name joins. The712shards/4,899scenes/12,294registry IDs describe merged records, not full qualification. Of1,213label collisions887remain for review. The requested whole-range pipeline stops at the same-volume crosswalk guard; the alternate seven-stage pass uses a volume1slice for downstream crosswalk/worksheets and cannot stand in for whole-book postprocessing. M4 subsequently fixes that boundary. The47partial-census/sevenparse-failure retry list is historical missing evidence, not current acquisition/spending authority. Twenty locator samples and three synthetic tests do not certify all rows or actor identities; timing metadata is not necessarily an executable schedule. Memory measurement was unavailable, not zero.",
+      "evidence": "Complete actual receipt read, including all tables, gaps and later wave/addendum. Current systems-design tail inspected only as owner context, not a full-file/source/runtime review. No reading jobs, corpus writes, source qualification, runtime or browser execution.",
+      "reopen": "Preserve missing history, exact input/consumer denominators and actual later supersession; use current implementation and bounded failing route before any future action.",
+      "input_sha256": "fb90ac80e69b181d4f7a796cf8b4ecf283bd338656e9fdd5fcd5aa40f61ad4ee",
+      "input_lines": 41,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/M4_CHECKPOINT.md",
+      "ids": [
+        "crossvolumerange;3444selectedscenes;346personarows;706unreviewedlinks"
+      ],
+      "classification": "complete historical source-union/tooling receipt",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Volume-aware compareLocators removes the prior same-volume endpoint restriction and completes seven-stage whole-book tooling, superseding M3's postprocessing blocker. Three baseline rows without parseable locators remain omitted. The3,444selected rows comprise3,098baseline plus346evidence-linked persona rows;70persona IDs and706unreviewed candidate links are not confirmed identity reveals or per-step actors. Worksheet first-locator assignment avoids file double counting, but6,284files/21,672rows are authoring output, not qualified lives. Source timing counts (502involume1) differ from M2fitness requiring registered places. Twenty-six focused tests plus the dated712shard run establish range/worksheet tooling;203MB/18.55sare whole-run measurements with peak memory unavailable, not per-volume rates or browser proof.",
+      "evidence": "Complete actual receipt read, including all tables, gaps and later wave/addendum. Current systems-design tail inspected only as owner context, not a full-file/source/runtime review. No reading jobs, corpus writes, source qualification, runtime or browser execution.",
+      "reopen": "Preserve missing history, exact input/consumer denominators and actual later supersession; use current implementation and bounded failing route before any future action.",
+      "input_sha256": "bdd08b0b769b6e20df0baf15b0360e7a70fe57c4d401fca72a093b25ee5c43f2",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR4_CHECKPOINT.md",
+      "ids": [
+        "silence probability/memory;wave2supersedesinitiallimits;45daycrash"
+      ],
+      "classification": "complete memory/crowd implementation receipt with late wave and fight-hook evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "The initial silence-only browser floor is superseded in wave2 by shown severity/loyalty/debt/claim lines and threat/oath/cover-story routes. Derived severity and loyalty tables retain world defaults and evidence-based guess/test status; schema2is written only for actual silence/claim data so untouched schema1saves remain unchanged. Claims beside facts are epistemic accounts, distinct from ownership claim effects. Silence uses stable holder/topic/listener/30day keys and reasons, not a universal chance cap or promise guarantee. Browser day1–7and one-seed route outcomes do not establish45day behavior: long fast-forward still crashes. Forty-two of60versus16of60is the synthetic multi-root comparison, not the one-seed Chrome result. Wave2commands and displayed debt do not prove debt-driven action, revenge goals, authority timing or delayed discovery. Focused/native memory persistence passes coexist with failed/queued full suites; exclusion by inspection is not clean-tree causal proof. Later MR5 closes a specific fight memory hook, not all fight/silence integration.",
+      "evidence": "Complete actual receipt read, including all tables, gaps and later wave/addendum. Current systems-design tail inspected only as owner context, not a full-file/source/runtime review. No reading jobs, corpus writes, source qualification, runtime or browser execution.",
+      "reopen": "Preserve missing history, exact input/consumer denominators and actual later supersession; use current implementation and bounded failing route before any future action.",
+      "input_sha256": "d17c6d19251960befe1c1fabc8b9aa07af180fa979a0e35149ad4e26ca4183b3",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MR5_CHECKPOINT.md",
+      "ids": [
+        "derivedcrowds;conservedheads;fighttempoowner;perstrikecapandmissingview"
+      ],
+      "classification": "complete memory/crowd implementation receipt with late wave and fight-hook evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+      ],
+      "disposition": "Crowds remain derived counts with named-cast subtraction, world-swappable density/roles and keyed reactions conserving heads. Promotion IDs are independent of other heads/play order; persisted witness episodes and group impressions use memory owners. The same pre-scene save yields the same witness/count across fresh origins, whereas different life seeds may legitimately differ. Initial village browser/save/import evidence does not implement testimony commands, helping/fetching/authority arrival or shields. The final addendum explicitly supersedes the prepared native_battle patch: the actual fight hook lands in tempo_fight and a real road contest writes witness/group/fighter memories, preserved after literal import. It still lacks a road witness screen and writes one episode per damaging strike (26retainedwithin40cap); later folding is a proposal, not lossless-history proof or permission to discard useful detail. Failed fullsuite4519pass/14fail remains failed despite86focused passes and inspected unrelated paths. Preserve both initial bounds and later actual hook owner.",
+      "evidence": "Complete actual receipt read, including all tables, gaps and later wave/addendum. Current systems-design tail inspected only as owner context, not a full-file/source/runtime review. No reading jobs, corpus writes, source qualification, runtime or browser execution.",
+      "reopen": "Preserve missing history, exact input/consumer denominators and actual later supersession; use current implementation and bounded failing route before any future action.",
+      "input_sha256": "1ce23746b82e0d8ffcae26a5163cf9d092fbf7e0449ff03aa4dd16e84a060bc9",
+      "input_lines": 41,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B427: source-union and whole-book tooling boundaries",
+      "body": "Four complete merge/crosswalk receipts preserve useful source history without equating records-ready output to source qualification or playable coverage.\n\n**M1:** The union preserves silent fields, older-only people and provenance rather than deleting older schema detail. Seventy-two current people files have69backups; three missing backups retain current rows and remain an explicit history gap. Added700routine slots/1,022reaction entries do not add recurrence-bearing rows (190unchanged). Census normalized-name unions retain seven ambiguous matches separately. Selected134people/539lead scenes differ from older107/369because inputs drifted, not solely because of union logic. Seven-stage success is local records-ready tooling, not qualified paragraphs, pack regeneration or gameplay. The older six-stage test was initially not run; M2 subsequently updates/tests pipeline order.\n\n**M2:** Generic kind union searches newest-to-oldest schema folders, fills silent fields and preserves older-only exact/normalized identities with field provenance; people retain their slot-level M1 merge rather than pretending all kinds use the same algorithm. LOTM69/72people backups and MoL4/106leave three and102missing histories, even when the five other kinds have complete backup sets. Row-kind counts, unique identity additions and fields filled are distinct totals. Before/after consumer fitness includes snapshot drift and changed denominators; it is not isolated causal improvement or whole-source fidelity. Four focused union/pipeline tests close M1's old stage-test gap at that later input. The two records-ready pipelines do not establish private-pack adoption or runtime behavior.\n\n**M3:** Cross-volume merge correctly orders locator volume and preserves shared registry IDs without automatic same-name joins. The712shards/4,899scenes/12,294registry IDs describe merged records, not full qualification. Of1,213label collisions887remain for review. The requested whole-range pipeline stops at the same-volume crosswalk guard; the alternate seven-stage pass uses a volume1slice for downstream crosswalk/worksheets and cannot stand in for whole-book postprocessing. M4 subsequently fixes that boundary. The47partial-census/sevenparse-failure retry list is historical missing evidence, not current acquisition/spending authority. Twenty locator samples and three synthetic tests do not certify all rows or actor identities; timing metadata is not necessarily an executable schedule. Memory measurement was unavailable, not zero.\n\n**M4:** Volume-aware compareLocators removes the prior same-volume endpoint restriction and completes seven-stage whole-book tooling, superseding M3's postprocessing blocker. Three baseline rows without parseable locators remain omitted. The3,444selected rows comprise3,098baseline plus346evidence-linked persona rows;70persona IDs and706unreviewed candidate links are not confirmed identity reveals or per-step actors. Worksheet first-locator assignment avoids file double counting, but6,284files/21,672rows are authoring output, not qualified lives. Source timing counts (502involume1) differ from M2fitness requiring registered places. Twenty-six focused tests plus the dated712shard run establish range/worksheet tooling;203MB/18.55sare whole-run measurements with peak memory unavailable, not per-volume rates or browser proof.\n\nNo source rerun, acquisition, paid retry, identity merge or pack change is selected.",
+      "before_sha256": "833c7a298ef2a4a788afe4e008e3842026a2840d5c236467fa5e0f5128688cf5",
+      "after_sha256": "faee3e9db301ed8f019f35d033a16b69f529b218cf89306be57a01add5333387"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "heading": "## Content reconciliation B427: memory and crowd receipt supersession",
+      "body": "Scoped evidence maintenance of the existing memory/crowd design owner; this append is not a complete reread of the systems design or a new accepted rule.\n\n**MR4:** The initial silence-only browser floor is superseded in wave2 by shown severity/loyalty/debt/claim lines and threat/oath/cover-story routes. Derived severity and loyalty tables retain world defaults and evidence-based guess/test status; schema2is written only for actual silence/claim data so untouched schema1saves remain unchanged. Claims beside facts are epistemic accounts, distinct from ownership claim effects. Silence uses stable holder/topic/listener/30day keys and reasons, not a universal chance cap or promise guarantee. Browser day1–7and one-seed route outcomes do not establish45day behavior: long fast-forward still crashes. Forty-two of60versus16of60is the synthetic multi-root comparison, not the one-seed Chrome result. Wave2commands and displayed debt do not prove debt-driven action, revenge goals, authority timing or delayed discovery. Focused/native memory persistence passes coexist with failed/queued full suites; exclusion by inspection is not clean-tree causal proof. Later MR5 closes a specific fight memory hook, not all fight/silence integration.\n\n**MR5:** Crowds remain derived counts with named-cast subtraction, world-swappable density/roles and keyed reactions conserving heads. Promotion IDs are independent of other heads/play order; persisted witness episodes and group impressions use memory owners. The same pre-scene save yields the same witness/count across fresh origins, whereas different life seeds may legitimately differ. Initial village browser/save/import evidence does not implement testimony commands, helping/fetching/authority arrival or shields. The final addendum explicitly supersedes the prepared native_battle patch: the actual fight hook lands in tempo_fight and a real road contest writes witness/group/fighter memories, preserved after literal import. It still lacks a road witness screen and writes one episode per damaging strike (26retainedwithin40cap); later folding is a proposal, not lossless-history proof or permission to discard useful detail. Failed fullsuite4519pass/14fail remains failed despite86focused passes and inspected unrelated paths. Preserve both initial bounds and later actual hook owner.\n\nThe later calibration-domain table describes harness/strain coverage, so its documented-only relationship/crowd rows do not negate these narrow historical village/fight browser routes. Conversely those routes do not supply a domain calibration harness, every world or present-checkout verification. Preserve this distinction and the dated failures; no new gameplay, population policy or memory truncation decision is made here.",
+      "before_sha256": "12f6798f9c18c4f92bb1679ecf663293d20e2be96e69ad62e216afafde9eb57a",
+      "after_sha256": "aebd465bc2006acd61fb14aa8aa7236d53b543a5e48d455a14e1ee39037883ec"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 440,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "from": "or a new accepted rule.",
+      "to": "or a new design rule.",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md",
+      "from": "8f6113947159e6e2bd055ed359e7da1ba877a994d3da0515108fb916f4752812",
+      "to": "2a3c80cfe473a452039671fad842f9bd628b5ca132b00f42d104b5cb24a16ae4",
+      "reason": "Clarify ordinary evidence wording flagged as an authority claim by documentation lint; preserve actual meaning and original text."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "batch": "B589",
+  "title": "Taiwu native family map: every config/domain/module/system record and owner block",
+  "at": "2026-11-05T11:52:03.071250+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_MAP.json",
+      "ids": [
+        "T001–T306/D01–D21/M01–M17/S01–S15",
+        "all31owner mapping blocks and header/status/prior/evidence values"
+      ],
+      "classification": "full actual JSON-map review using verified lossless factoring; source semantic reading not expanded",
+      "owners": [
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md"
+      ],
+      "disposition": "F1: Full actual content review covers the10909-line JSON via its header/status semantics, all31distinct owner blocks, common evidence/prior values and every T001–T306/D01–D21/M01–M17/S01–S15 record in bounded losslessly factored output. Reconstructing the view equals the original parsed JSON, and the source SHA remains c390065fcd29280dd9e11810ba5bb9bd440cc930c453367d81f889466ea68c31. The [round-trip receipt](../../../audits/reconciliation-2026-11-04/taiwu-family-view-receipt-b589.json) and [lossless reading view](../../../audits/reconciliation-2026-11-04/taiwu-family-lossless-view-b589.json) preserve this route. No source JSON bytes/schema were changed. This reads the map's actual contents, not the mapped private source classes or configs.\n\nF2:359records equal306config tables+21domains+17backend modules+15selected systems. Status72selected-mechanism-partial+247inventoried-unread+31previously-documented-partial+9module-partial also sums359. These counts describe different record kinds, not359mechanics or72complete systems. T rows have48selected links and258without a new trace, matching B588's readable index, while some of those258retain prior partial status rather than literal inventoried_unread. Domain-level coverage and selected-system records intentionally overlap their table entries; do not add them as independent source breadth.\n\nF3: Read every owner mapping as an inferred candidate home: all blocks explicitly say owner presence is not implementation. A dedicated_owner=true flag may name a broad palette and does not certify an implemented exact handler, accepted source semantics or complete schema. false flags on minigames, destiny/support metadata, population and artifact lifecycle are bounded failure-to-locate statements, not no-project-owner proofs. S03population routed to body/generation under a world-simulation family is an especially broad suggested home requiring reconciliation with actual people/world/clock consumers when selected. Keep that caveat rather than allocate a new population framework from a map entry. D09CombatSkill as knowledge differs from T072CombatSkill config categorized combat; record kind/purpose explains why shared names need not share one category or owner.\n\nF4: D01–D21 top_level_class_signal values are inventory signals, not semantic feature counts or every method read.1490SpecialEffect/316Combat/169Character classes do not imply those complete systems are qualified. M01–M17 assembly names and statuses separate planning/archive/common/secret/serializer partial bodies from unread combat-animation/chicken/cricket/math/reflection/structure/utilities. Generic module source strings, prior SYSTEM_INVENTORY Config pointers and SYSTEMS S-section references are not current execution or newly read downstream files. The sole common evidence_basis itself restricts mechanism evidence to the cited SYSTEMS scope.\n\nF5: Preserve S01genome versus S02pregnancy/social parenthood, S03population/protected actors, S04committed manufacturing, S05repair/salvage, S06paid commissions, S07targeted contamination/treatment, S08instant/timed effect, S09party identity/plans, S10jurisdiction/sentence, S11allowance/treasury rights, S12stock/caravan arrival, S13knowledge/turn/witness, S14artifact-holder lifecycle and S15purpose-specific routes. Their K/P arrays are possible crosswalks, not full behavioral contracts or new accepted mandates. General production knowledge does not supply actual workers/rights, supply, lifecycle, social parenthood, arbitrary inheritance, prior observer knowledge or paid repeated outcomes. A selected future consumer uses existing source-qualified world and native owners under AD36/AD38/AD42/AD43/AD51/AD52.\n\nF6: B588's FAMILY_INDEX-only scope is now followed by this separate actual JSON review; its earlier statement that the map remained unread is historical. Keep all source-family IDs, original mappings, source statuses and unread-source limits. No source extractor, game, ILSpy, library/network, personal save, runtime/UI/build/test, worker, migration, deletion, relocation, commit or push was run. No claim is made that every map destination currently exists or each upstream source remains available; selected exact owner routing belongs to a current consumer check.",
+      "evidence": "Actual original1–110 plus full lossless factored content: all31owner blocks/header/prior/evidence and359record vectors in three bounded outputs. Roundtrip equality and unchanged source hash recorded in taiwu-family-view-receipt-b589.json.",
+      "reopen": "Select current actual consumer to qualify broad owner inference/source bodies; no unearned downstream source credit.",
+      "full": true,
+      "input_sha256": "c390065fcd29280dd9e11810ba5bb9bd440cc930c453367d81f889466ea68c31",
+      "input_lines": 10909,
+      "ranges": [
+        [
+          1,
+          10909
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "heading": "## Content reconciliation B589: separate native JSON map fully reviewed",
+      "body": "F1: Full actual content review covers the10909-line JSON via its header/status semantics, all31distinct owner blocks, common evidence/prior values and every T001–T306/D01–D21/M01–M17/S01–S15 record in bounded losslessly factored output. Reconstructing the view equals the original parsed JSON, and the source SHA remains c390065fcd29280dd9e11810ba5bb9bd440cc930c453367d81f889466ea68c31. The [round-trip receipt](../../../audits/reconciliation-2026-11-04/taiwu-family-view-receipt-b589.json) and [lossless reading view](../../../audits/reconciliation-2026-11-04/taiwu-family-lossless-view-b589.json) preserve this route. No source JSON bytes/schema were changed. This reads the map's actual contents, not the mapped private source classes or configs.\n\nF2:359records equal306config tables+21domains+17backend modules+15selected systems. Status72selected-mechanism-partial+247inventoried-unread+31previously-documented-partial+9module-partial also sums359. These counts describe different record kinds, not359mechanics or72complete systems. T rows have48selected links and258without a new trace, matching B588's readable index, while some of those258retain prior partial status rather than literal inventoried_unread. Domain-level coverage and selected-system records intentionally overlap their table entries; do not add them as independent source breadth.\n\nF3: Read every owner mapping as an inferred candidate home: all blocks explicitly say owner presence is not implementation. A dedicated_owner=true flag may name a broad palette and does not certify an implemented exact handler, accepted source semantics or complete schema. false flags on minigames, destiny/support metadata, population and artifact lifecycle are bounded failure-to-locate statements, not no-project-owner proofs. S03population routed to body/generation under a world-simulation family is an especially broad suggested home requiring reconciliation with actual people/world/clock consumers when selected. Keep that caveat rather than allocate a new population framework from a map entry. D09CombatSkill as knowledge differs from T072CombatSkill config categorized combat; record kind/purpose explains why shared names need not share one category or owner.\n\nF4: D01–D21 top_level_class_signal values are inventory signals, not semantic feature counts or every method read.1490SpecialEffect/316Combat/169Character classes do not imply those complete systems are qualified. M01–M17 assembly names and statuses separate planning/archive/common/secret/serializer partial bodies from unread combat-animation/chicken/cricket/math/reflection/structure/utilities. Generic module source strings, prior SYSTEM_INVENTORY Config pointers and SYSTEMS S-section references are not current execution or newly read downstream files. The sole common evidence_basis itself restricts mechanism evidence to the cited SYSTEMS scope.\n\nF5: Preserve S01genome versus S02pregnancy/social parenthood, S03population/protected actors, S04committed manufacturing, S05repair/salvage, S06paid commissions, S07targeted contamination/treatment, S08instant/timed effect, S09party identity/plans, S10jurisdiction/sentence, S11allowance/treasury rights, S12stock/caravan arrival, S13knowledge/turn/witness, S14artifact-holder lifecycle and S15purpose-specific routes. Their K/P arrays are possible crosswalks, not full behavioral contracts or new accepted mandates. General production knowledge does not supply actual workers/rights, supply, lifecycle, social parenthood, arbitrary inheritance, prior observer knowledge or paid repeated outcomes. A selected future consumer uses existing source-qualified world and native owners under AD36/AD38/AD42/AD43/AD51/AD52.\n\nF6: B588's FAMILY_INDEX-only scope is now followed by this separate actual JSON review; its earlier statement that the map remained unread is historical. Keep all source-family IDs, original mappings, source statuses and unread-source limits. No source extractor, game, ILSpy, library/network, personal save, runtime/UI/build/test, worker, migration, deletion, relocation, commit or push was run. No claim is made that every map destination currently exists or each upstream source remains available; selected exact owner routing belongs to a current consumer check.",
+      "before_sha256": "8944aa0b0d5f4fef5db7bb37a0fff9b0635159e0e7a15fd53a18dd16cf668ee7",
+      "after_sha256": "37e4e275557099f938762faa46076c4c915ffb1f1149181769b3b2d264907a4f"
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md",
+      "heading": "## Native family-map completion B589",
+      "body": "The complete [B589 native-map review](FAMILY_INDEX.md#content-reconciliation-b589-separate-native-json-map-fully-reviewed) reads all359records T001–T306/D01–D21/M01–M17/S01–S15, all31owner blocks and status/source values through an exactly reconstructable lossless view. Counts306+21+17+15 and72selected/247unread/31prior-partial/9module-partial are record/status accounting, not gameplay completeness or independent mechanism counts.48config trace links match B588; domain/system records overlap them. Broad dedicated-owner flags, S03body/generation routing, record-kind CombatSkill categories and top-level-class signals require actual current consumer judgment. Existing original map bytes remain unchanged; no mapped source class/config, private artifact, native game or runtime was newly verified. Earlier map-unread wording is now superseded only for this map review, leaving underlying source limits intact.",
+      "before_sha256": "28eaacef5f638163f69f8d2dd45d3e1f79750313a56b01c59a6cf90dd233055e",
+      "after_sha256": "85d4ace342828e822962bd00bf2dad80395dfebfa8b6b909b749d4f018b6341e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 111,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "from": "accepted source semantics",
+      "to": "source-qualified semantics",
+      "reason": "Clarify the exact scope of selection/source evidence in own new fold."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B585, continuous execution 2026-11-05 |",
+      "to": "| B589, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+      "from": "37e4e275557099f938762faa46076c4c915ffb1f1149181769b3b2d264907a4f",
+      "to": "e5c1230dde4bfbda9cbb91571b44fa7cc927f5f6b6cad0930579e4acd1562abd",
+      "reason": "Clarify own fold terminology; initial lint result retained."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "c5534abc6627170b6aa8846d37a6c14c9e893eafcfbf8d23fc540d13e4844a69",
+      "to": "02d782042151de2dd0119f5bbe52f268495fdd85e68ca24a8d842a25c3a87dd5",
+      "reason": "Exact task-owned checkpoint row."
+    }
+  ]
+}

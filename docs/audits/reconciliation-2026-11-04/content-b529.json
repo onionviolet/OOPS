@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "batch": "B529",
+  "title": "Provider-credit chronology and browser capability evidence",
+  "at": "2026-11-05T09:50:49.953185+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/tools/DSH_CREDIT_PLAN_2026-10-25.md",
+      "ids": [
+        "F1–F4",
+        "D1–D5",
+        "A1",
+        "O1–O8"
+      ],
+      "classification": "dated setup/research plan with explicit correction and unmeasured platform limits",
+      "owners": [
+        "docs/tools/DSH_CREDIT_PLAN_2026-10-25.md"
+      ],
+      "disposition": "The leading October25 setup/correction supersedes the initial read-only/not-authenticated assessment and November1 expiry assumption. It reports November10 UTC grant expiry versus November1 monthly counter reset,99.93 remaining then, matched credited organization and bounded fixtures; none is a current balance, model catalog, effective setting or present spending authority. Provider setup and source-reader handoff do not implement YAIRPG or dispatch a bulk wave. The old six-day14.29/16.67 pace is explicitly obsolete. D2 outcome allocations and D3 model envelopes each describe the same100 total, not200; actual remaining balance, in-flight children/retries/compaction and Console reconciliation matter. dsh-usage excludes children/unreported charges and is not a hard dollar cap; goal rounds are not currency limits. The6preset export errors reproduced on pre-change config and are not established new regressions; Opus listed/selectable is not an exercised generation. O1–O8 are optional opportunities requiring owner triage, not jobs, publication or messages. Preserve useful reusable evidence without rereading ranges or consuming credit merely to exhaust it. All historical provider/model prices, effort support and expiry/setup claims need live verification only when a separately authorized use requires them.",
+      "evidence": "Actual whole-file content read: DSH105 lines; platform1–95,96–188. Existing engine AD39/ER routing inspected B528. No Console, provider/configuration, credential, external-link, browser-version or liveness checks performed.",
+      "reopen": "Refresh the exact account/provider or browser capability only for a selected authorized task; retain original dated setup and research as history without treating them as current authority.",
+      "input_sha256": "e00e1c1be090f1bafb1f2c6aa858be8c7a3722c2614fcdc997b898e42fe5e520",
+      "input_lines": 105,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/BROWSER_PLATFORM_BEHAVIOR_2026-10-14.md",
+      "ids": [
+        "ER10-F1–F15",
+        "ER10-C1–C6",
+        "ER10-R1–R9",
+        "ER10-A1–A5",
+        "ER10-N1",
+        "S1–S34"
+      ],
+      "classification": "dated setup/research plan with explicit correction and unmeasured platform limits",
+      "owners": [
+        "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "ER10-F1–F15, C1–C6, R1–R9, A1–A5 and N1 are dated source research with no measured browser timing, retention, eviction or gameplay run. Capability, browser/OS version, normal/private or installed mode, returned permission result and actual policy are distinct evidence. Preserve engine-specific unknowns and contradictions rather than applying Chromium timer or lock rules to Safari/Firefox/Edge. The report qualifies Safari use-day interaction versus calendar-day absence and records persistence/ITP contrary evidence; a closed unmerged proposal is not a shipped fix. Numeric quota ceilings are not reserved free bytes; localStorage differs from origin IDB/OPFS, which does not bypass eviction. Lock queries may affect cached holders in the documented historical Chromium implementation, so a probe is not automatically harmless observation. One held lock does not prove every legacy mutation guarded or real duplicate-writer loss. Lifecycle save/reacquire, monotonic awake versus capped absence, hidden visual cleanup, stable causal IDs and optional bounded codec are consumer proposals, not a selected offline policy. Cross-engine pow/Intl differences are possible, not measured outcomes here; platform availability/versions require fresh checks before adoption. Current AD39 and desktop targets supersede old host/viewport assumptions; no runtime, storage, browser or power policy changed.",
+      "evidence": "Actual whole-file content read: DSH105 lines; platform1–95,96–188. Existing engine AD39/ER routing inspected B528. No Console, provider/configuration, credential, external-link, browser-version or liveness checks performed.",
+      "reopen": "Refresh the exact account/provider or browser capability only for a selected authorized task; retain original dated setup and research as history without treating them as current authority.",
+      "input_sha256": "b463fb43ae028f5a70e690876caabe72a0fe330686e2689c00ddc6a57088783e",
+      "input_lines": 188,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          188
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/tools/DSH_CREDIT_PLAN_2026-10-25.md",
+      "heading": "## Content reconciliation B529: setup supersession and budget scope",
+      "body": "The leading October25 setup/correction supersedes the initial read-only/not-authenticated assessment and November1 expiry assumption. It reports November10 UTC grant expiry versus November1 monthly counter reset,99.93 remaining then, matched credited organization and bounded fixtures; none is a current balance, model catalog, effective setting or present spending authority. Provider setup and source-reader handoff do not implement YAIRPG or dispatch a bulk wave. The old six-day14.29/16.67 pace is explicitly obsolete. D2 outcome allocations and D3 model envelopes each describe the same100 total, not200; actual remaining balance, in-flight children/retries/compaction and Console reconciliation matter. dsh-usage excludes children/unreported charges and is not a hard dollar cap; goal rounds are not currency limits. The6preset export errors reproduced on pre-change config and are not established new regressions; Opus listed/selectable is not an exercised generation. O1–O8 are optional opportunities requiring owner triage, not jobs, publication or messages. Preserve useful reusable evidence without rereading ranges or consuming credit merely to exhaust it. All historical provider/model prices, effort support and expiry/setup claims need live verification only when a separately authorized use requires them.\n\nThis content review inspected this document only. No account, billing, credential, configuration or provider job was accessed or changed.",
+      "before_sha256": "e00e1c1be090f1bafb1f2c6aa858be8c7a3722c2614fcdc997b898e42fe5e520",
+      "after_sha256": "6e5edbb25346cfb5465338230d6f5cd39e9d10e2c10ef5eb1f5d663a292ae2c7"
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B529: ER10 platform research boundaries",
+      "body": "ER10-F1–F15, C1–C6, R1–R9, A1–A5 and N1 are dated source research with no measured browser timing, retention, eviction or gameplay run. Capability, browser/OS version, normal/private or installed mode, returned permission result and actual policy are distinct evidence. Preserve engine-specific unknowns and contradictions rather than applying Chromium timer or lock rules to Safari/Firefox/Edge. The report qualifies Safari use-day interaction versus calendar-day absence and records persistence/ITP contrary evidence; a closed unmerged proposal is not a shipped fix. Numeric quota ceilings are not reserved free bytes; localStorage differs from origin IDB/OPFS, which does not bypass eviction. Lock queries may affect cached holders in the documented historical Chromium implementation, so a probe is not automatically harmless observation. One held lock does not prove every legacy mutation guarded or real duplicate-writer loss. Lifecycle save/reacquire, monotonic awake versus capped absence, hidden visual cleanup, stable causal IDs and optional bounded codec are consumer proposals, not a selected offline policy. Cross-engine pow/Intl differences are possible, not measured outcomes here; platform availability/versions require fresh checks before adoption. Current AD39 and desktop targets supersede old host/viewport assumptions; no runtime, storage, browser or power policy changed.",
+      "before_sha256": "9193f381301b591360a60416dce9933ff1ff1db268323bccd1292636d4505e26",
+      "after_sha256": "4a9b865f1c6345c5c0822ead7fd4d516066cb3706ead0679ca462899af99cb17"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 179
+}

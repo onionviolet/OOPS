@@ -1,0 +1,21 @@
+{
+  "scope": "Unchanged checker rules, task-path filespec only",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "4ebd5ec32c83a72d23d9aa8724f47debc68425145d434bd12d839fa4528a2c6e",
+  "paths": [
+    "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+    "docs/TIMELINES_AND_DIVERGENCE.md",
+    "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md",
+    "docs/research/LIVING_BESIDE_PROTAGONISTS_2026-10-10.md",
+    "docs/research/MANGA_OCR_AND_VISION_OPTIONS_2026-10-22.md",
+    "docs/research/PANEL_DESIGN_ABSORPTION_2026-10-15.md",
+    "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+    "docs/research/SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": ""
+}

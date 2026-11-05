@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "batch": "B587",
+  "title": "Qud integration chronology and every class-index evidence row",
+  "at": "2026-11-05T11:48:12.267721+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "ids": [
+        "G1–G7/R1–R6/B1–B2",
+        "candidate/peer/closure decisions and final proof gaps"
+      ],
+      "classification": "full historical integration/closure receipt with later scope superseding opening",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+        "docs/research/qud-systems-audit-2026-10-15/REPORT.md"
+      ],
+      "disposition": "F1: Full actual148-line review includes G1–G7 inventory, R1–R6, order/gates, successor, candidate conflicts/files/tests/gaps, peer offers and later closure decisions/full-app/gates/remainder. The opening plan-only/nothing-merged and pre-combination statements are historical: this same document later records a built isolated candidate and closure combining D1, R3 and the narrowly released estate label. D3 remained unselected. It does not establish current primary integration, present worktree availability, installed state, commit or push. Old sessions/PIDs/writer reservations are not live ownership or an instruction to resume them.\n\nF2: Preserve exact ownership during integration: HEAD's deriveWorldHistory versus consumer additions, native crafting-depth state plus reference routes, description clauses plus retained heirloom history, and unioned actual native ports. Generated dist/index outputs are rebuilt rather than copied as source. Literal added-line searches and byte-identical new files are preservation checks, not semantic equivalence of merged callers. Historical untracked progression_gates and ignored achievements packaging problems remain receipt gaps at that candidate identity; they are not fresh current-tree diagnoses or authorization to stage another writer's files.\n\nF3: Initial2716/2718 full run and focused UI repairs stay distinct from closure's later2729/2729 full run. The initial rules failure and later pass-with-untracked-warning remain explicit. Later G2 lesson/rank, G3 exact request/custody/reclaim/delivery, G4 multi-supplier copy/dismiss/expiry and G5 mural full-app routes supersede earlier missing-render/component-only attempts within their stated paths. Canonical-equal Save/reload/Export/literal Import is attributed to those changed states/origins, not every world, source or future build. Overwritten G3 receipt JSON cannot be cited as still containing G3 evidence; the text routes to retained screenshots instead.\n\nF4: Closure leaves actual normal-click obstruction at1536×864 after resize; dispatched click or Enter demonstrates an alternate route, not successful pointer reachability. Preserve that failure instead of treating a browser-flow PASS as all-input acceptance. G1 attribute owner and G7 four named unclosed mechanisms remain outside this narrow closeout. G4's minimal copy content, installed-source removal refusal and returned held log are source/custody constraints of the tested proof, not a universal rule that every duplicate source must keep the original installed. Actual source suppliers, lifetimes and compatibility decide broader support.\n\nF5: Owner-doc proposals and the earlier six-step gate order are not new authority to grow PROJECT, allocate accepted AD lines or commit now. Current short-summary/registered-rule/AD36/AD42/AD43/AD51 and shared-checkout practice govern selected updates. The optional check:rule-behavior absence is not a missing universal gate. Human review is optional, current target viewport owns UI proof and runtime source/native/persistence proof remains input-specific. No lane patch, private source/save, current worker/worktree, old artifact, test/build/browser, stage, merge, deletion, commit or push was executed by B587.",
+      "evidence": "Actual full1–148; dense combined-output clipping recovered119–134 and130–148.",
+      "reopen": "For an actual current integration task inspect live owner/source and exact candidate inputs; do not rerun historical session commands.",
+      "input_sha256": "1dd4202eca518e92754da1bcc08e2c3c546530b22d9e32ae9fcf6479147199ed",
+      "input_lines": 148,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          148
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/SOURCE_INDEX.md",
+      "ids": [
+        "all128class rows/status/windows",
+        "all archive/table/provenance/reused-owner sections"
+      ],
+      "classification": "full source-index review only; private class bodies retain claimed prior read scope",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/SOURCE_INDEX.md",
+        "docs/research/qud-systems-audit-2026-10-15/REPORT.md"
+      ],
+      "disposition": "F1: Full actual162-line review includes every table/archive row, all128class entries with semantic status/windows, source/version/provenance history and reused-owner limits. Its counts35full+60selected+33navigation sum128, but the current review reads this index, not those128class bodies or any private XML/export/assembly. A complete class export is distinct from complete semantic reading; selected inclusive windows, declaration locators and overlapping discovery indexes do not certify every branch, source method or runtime path. Source labels keep their original captured-input identity.\n\nF2: Preserve the supplied Qud2.0.211.56/assembly hash pin as the research source claim, not current installed verification. The absent old5437-file path, reused repass/targeted exports, wrong-name requests, reconstructed early metadata and overwritten pre-epoch receipt lists remain provenance limits. Later epoch receipts and current output hashes can identify available bytes without recreating lost original receipt chronology. Merely finding a source path does not prove it was newly exported or independently read. None of these private artifacts was reopened here.\n\nF3: Table scopes differ:21skills/123children preserve XML order and repeated class IDs;132mutation records do not decode every implementation;5205blueprints from14XMLs are raw structures without executed inheritance/mixin baking.91cybernetic candidates and964tinker descendants include abstract/unbuildable cases, not actual eligible item/recipe counts. Static achievement initializers are not personal unlock state. Exact literal tokens are not proof all strings reach public UI, and normalized derived parses are distinct from retained original bytes. The unread/unknown table is still needed rather than inferred complete from the export count.\n\nF4: Class entries retain full/window/navigation distinctions across achievement, history/journal/name, UI/menu, bodies/mutations/skills/cybernetic suppliers, conversation/ritual/reputation, dynamic quest/custody, relic/description, tinker and zone/game/save families. UI row/selection/evaluator/native commit are not interchangeable. One source class being full-read does not qualify every related callback/consumer or a whole skill/mutation family. Previously read ingredient/cooking/UI/body/liquid owners keep their own exact version/native limits; a source pointer does not count as a renewed leaf read. No new extraction, source acquisition, binary execution, private export modification, source-body qualification or gameplay evidence follows.",
+      "evidence": "Actual full1–162; combined-output clipping at boundary recovered1–20; every class row read.",
+      "reopen": "Reopen a named source consumer or provenance gap only when selected; index status never substitutes for its body.",
+      "input_sha256": "daef8a534d63eaaff876aa51b860d63a56ba2b25a3a0dc966342ade78d4ef8d2",
+      "input_lines": 162,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          162
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "heading": "## Content reconciliation B587: candidate closure and remaining real gaps",
+      "body": "F1: Full actual148-line review includes G1–G7 inventory, R1–R6, order/gates, successor, candidate conflicts/files/tests/gaps, peer offers and later closure decisions/full-app/gates/remainder. The opening plan-only/nothing-merged and pre-combination statements are historical: this same document later records a built isolated candidate and closure combining D1, R3 and the narrowly released estate label. D3 remained unselected. It does not establish current primary integration, present worktree availability, installed state, commit or push. Old sessions/PIDs/writer reservations are not live ownership or an instruction to resume them.\n\nF2: Preserve exact ownership during integration: HEAD's deriveWorldHistory versus consumer additions, native crafting-depth state plus reference routes, description clauses plus retained heirloom history, and unioned actual native ports. Generated dist/index outputs are rebuilt rather than copied as source. Literal added-line searches and byte-identical new files are preservation checks, not semantic equivalence of merged callers. Historical untracked progression_gates and ignored achievements packaging problems remain receipt gaps at that candidate identity; they are not fresh current-tree diagnoses or authorization to stage another writer's files.\n\nF3: Initial2716/2718 full run and focused UI repairs stay distinct from closure's later2729/2729 full run. The initial rules failure and later pass-with-untracked-warning remain explicit. Later G2 lesson/rank, G3 exact request/custody/reclaim/delivery, G4 multi-supplier copy/dismiss/expiry and G5 mural full-app routes supersede earlier missing-render/component-only attempts within their stated paths. Canonical-equal Save/reload/Export/literal Import is attributed to those changed states/origins, not every world, source or future build. Overwritten G3 receipt JSON cannot be cited as still containing G3 evidence; the text routes to retained screenshots instead.\n\nF4: Closure leaves actual normal-click obstruction at1536×864 after resize; dispatched click or Enter demonstrates an alternate route, not successful pointer reachability. Preserve that failure instead of treating a browser-flow PASS as all-input acceptance. G1 attribute owner and G7 four named unclosed mechanisms remain outside this narrow closeout. G4's minimal copy content, installed-source removal refusal and returned held log are source/custody constraints of the tested proof, not a universal rule that every duplicate source must keep the original installed. Actual source suppliers, lifetimes and compatibility decide broader support.\n\nF5: Owner-doc proposals and the earlier six-step gate order are not new authority to grow PROJECT, allocate accepted AD lines or commit now. Current short-summary/registered-rule/AD36/AD42/AD43/AD51 and shared-checkout practice govern selected updates. The optional check:rule-behavior absence is not a missing universal gate. Human review is optional, current target viewport owns UI proof and runtime source/native/persistence proof remains input-specific. No lane patch, private source/save, current worker/worktree, old artifact, test/build/browser, stage, merge, deletion, commit or push was executed by B587.",
+      "before_sha256": "1dd4202eca518e92754da1bcc08e2c3c546530b22d9e32ae9fcf6479147199ed",
+      "after_sha256": "51077dd86aa184a4d955e117723fe1cb9213600108d76c8aaa6e457f28a95e56"
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/SOURCE_INDEX.md",
+      "heading": "## Content reconciliation B587: complete index and source-read boundaries",
+      "body": "F1: Full actual162-line review includes every table/archive row, all128class entries with semantic status/windows, source/version/provenance history and reused-owner limits. Its counts35full+60selected+33navigation sum128, but the current review reads this index, not those128class bodies or any private XML/export/assembly. A complete class export is distinct from complete semantic reading; selected inclusive windows, declaration locators and overlapping discovery indexes do not certify every branch, source method or runtime path. Source labels keep their original captured-input identity.\n\nF2: Preserve the supplied Qud2.0.211.56/assembly hash pin as the research source claim, not current installed verification. The absent old5437-file path, reused repass/targeted exports, wrong-name requests, reconstructed early metadata and overwritten pre-epoch receipt lists remain provenance limits. Later epoch receipts and current output hashes can identify available bytes without recreating lost original receipt chronology. Merely finding a source path does not prove it was newly exported or independently read. None of these private artifacts was reopened here.\n\nF3: Table scopes differ:21skills/123children preserve XML order and repeated class IDs;132mutation records do not decode every implementation;5205blueprints from14XMLs are raw structures without executed inheritance/mixin baking.91cybernetic candidates and964tinker descendants include abstract/unbuildable cases, not actual eligible item/recipe counts. Static achievement initializers are not personal unlock state. Exact literal tokens are not proof all strings reach public UI, and normalized derived parses are distinct from retained original bytes. The unread/unknown table is still needed rather than inferred complete from the export count.\n\nF4: Class entries retain full/window/navigation distinctions across achievement, history/journal/name, UI/menu, bodies/mutations/skills/cybernetic suppliers, conversation/ritual/reputation, dynamic quest/custody, relic/description, tinker and zone/game/save families. UI row/selection/evaluator/native commit are not interchangeable. One source class being full-read does not qualify every related callback/consumer or a whole skill/mutation family. Previously read ingredient/cooking/UI/body/liquid owners keep their own exact version/native limits; a source pointer does not count as a renewed leaf read. No new extraction, source acquisition, binary execution, private export modification, source-body qualification or gameplay evidence follows.",
+      "before_sha256": "daef8a534d63eaaff876aa51b860d63a56ba2b25a3a0dc966342ade78d4ef8d2",
+      "after_sha256": "3e3d335ead507c1c8f9fd351f23bccb58d808b4835f3c397423b4f1642415576"
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/REPORT.md",
+      "heading": "## Qud source-index and integration chronology B587",
+      "body": "Full B587 reviews of the [merge/closure plan](MERGE_PLAN_2026-10-23.md#content-reconciliation-b587-candidate-closure-and-remaining-real-gaps) and [source index](SOURCE_INDEX.md#content-reconciliation-b587-complete-index-and-source-read-boundaries) preserve their distinct proof layers. Later isolated closure combines G1–G7 plus D1/R3/narrow estate label and records2729/2729 after the earlier2716/2718 candidate. D3 stays unselected; normal-click obstruction after1536resize, ignored achievements packaging, attribute-owner/G7 gaps and overwritten G3 receipt JSON remain explicit. This is not present primary integration or fresh browser proof. All128source-index rows were read here, while35full/60window/33navigation are attributed prior private-source statuses, not newly qualified bodies. Raw XML/ancestor counts do not establish semantic recipes/eligibility; retained hashes, lost early epoch chronology and normalized parses remain separate. Current AD36/AD42/AD43/AD51 and existing owners control any later work; no source extraction, integration, gate rerun, worker or commit follows.",
+      "before_sha256": "3245a1ad9303089a8a569dab051ca179f42ed6510c57c7c4322c5c5d300451da",
+      "after_sha256": "7d772c225f5cd2673a52b36fec3df459f80e1f0c7a673c92a069eac1929fb102"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 114,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "from": "# Qud parity lanes G1-G7: merge plan (2026-10-23)\n",
+      "to": "# Qud parity lanes G1-G7: merge plan (2026-10-23)\n\nCurrent reading, B587: the initial nothing-merged stage below is superseded by this document’s later isolated candidate/closure sections, not proof of current primary integration. Final source/test/browser scopes and remaining click/packaging gaps stay distinct. [Full reconciliation](#content-reconciliation-b587-candidate-closure-and-remaining-real-gaps).\n",
+      "reason": "Route historical opening to actually reviewed later direction/closure while preserving text."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+      "from": "51077dd86aa184a4d955e117723fe1cb9213600108d76c8aaa6e457f28a95e56",
+      "to": "0562c7157cca8c28637ef159626a8499111549406bec53b66936718334670a17",
+      "reason": "Scoped current-reading banner."
+    }
+  ]
+}

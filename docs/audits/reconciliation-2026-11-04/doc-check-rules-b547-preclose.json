@@ -1,0 +1,5 @@
+{
+  "command": "npm run check:rules",
+  "exit_code": 0,
+  "stdout": "Rules index check: 31 register rows, 52 AD codes, 1058 relative links\nPASS (0 warnings)\nPASS (25 receipts checked, 317 explicit legacy paths skipped, 0 problems)\nPASS direction sync\n"
+}

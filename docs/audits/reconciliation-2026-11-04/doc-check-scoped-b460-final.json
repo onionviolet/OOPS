@@ -1,0 +1,18 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "d33301e42d268a45fafc06e34b7016e433e6489f5c35ebe2d5e0d95539ef1b31",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md",
+    "docs/research/SIMULATION_AND_NPC_ARCHITECTURE_2026-10-14.md",
+    "docs/reviews/PLAYTEST_SWEEP_2026-10-25.md",
+    "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not a shared-tree pass."
+}

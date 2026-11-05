@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "batch": "B421",
+  "title": "Be-seat stage history and complete cast-data/queue receipt",
+  "at": "2026-11-05T05:18:32.088804+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/B1_CHECKPOINT.md",
+      "ids": [
+        "history probe/resumes2–4;BF1–BF4;seven seat gaps"
+      ],
+      "classification": "complete historical cast-data/be-seat implementation receipt with actual stages and source limits",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The history-count stop is explicitly superseded by coordinator clarification, followed by source-located candidate memories and three relations. Opening memories, a later act of recall and paragraph-linked prior events are not automatically the same knowledge. The one-penny purse remains a labelled unverified fill: seeing a coin before payment does not establish the whole purse or debts, and a room object does not prove carried ownership. The producer-only schedule guard does not prove a single body; later round2 maps lead identity to the native player and removes its separate NPC actor. Detached fresh-life publication differs from ordinary crossing/import probe, with precise guard/failure forwarding and preservation of the prior save. Round3’s reported browser bundle does not certify round4’s new kit/perspective/autosave patch. Registered fixtures, built scratch composition and unapplied shared hunks retain different states; native combat stats, dated workroom tags, actual possessions and broad shell proof stay scoped. Seven L5r seat gaps require real replay rescoring, not automatic completion from a be-seat label. The later handoff records further integration history but this receipt supplies no fresh current be-route or full-book proof.",
+      "evidence": "Complete actual checkpoint body read including B1 reverse-ordered rounds and historical stop, L3 full rejected-input tables and entire M1 queue. B421 separately checks document-row counts, not underlying source.",
+      "reopen": "Use current owning route, source/pack and exact consumer evidence; keep unverified fills, source bindings and remaining gameplay floor scopes explicit.",
+      "input_sha256": "3602b2cf705981709fc3b8940afe3adf25fdb29845e68586d3bfbeeae2e4b7c5",
+      "input_lines": 399,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          399
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L3_CHECKPOINT.md",
+      "ids": [
+        "8principals/12recurring/16roles;77schedules/84beats;108M1queue"
+      ],
+      "classification": "complete historical cast-data/be-seat implementation receipt with actual stages and source limits",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "All data/label/timing/alias/rejection rows and the108-row queue were read. The actual principal beat counts sum84; queue Markdown counts are recorded separately without source/runtime credit. Present-plus-partial ranking does not place an absent person in a room; empty knowledge/relation/aim lists mean no selected verified input, not known absence. Twenty unresolved anchor addresses and38 undated forward anchors are lint references, not travel nodes or dated facts. Irregular[1,7] eligibility plus a missing window fact does not authorize all beats on day1. Source-confirmed content labels and unknown timing labels are separate. Rejected worksheet claims preserve wrong actor/place/time/aim/observer inferences instead of being repaired from memory. Event-marker effects do not execute spending, body movement or knowledge acquisition. The original public source-data placement is later corrected by L3m/L4c under the user’s keep-history decision; this data-only receipt is not current canon-publication or installed-state authority.",
+      "evidence": "Complete actual checkpoint body read including B1 reverse-ordered rounds and historical stop, L3 full rejected-input tables and entire M1 queue. B421 separately checks document-row counts, not underlying source.",
+      "reopen": "Use current owning route, source/pack and exact consumer evidence; keep unverified fills, source bindings and remaining gameplay floor scopes explicit.",
+      "input_sha256": "88b47d50be5d8530ae6a933aa3a805ede7e569fc455579e456ad4f359787f692",
+      "input_lines": 242,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          242
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/L3M_CHECKPOINT.md",
+      "ids": [
+        "single L4c evidence owner"
+      ],
+      "classification": "complete historical cast-data/be-seat implementation receipt with actual stages and source limits",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "This is a pointer to L4c’s actual private-pack migration/validation and its then-open browser/name-sweep gaps, not an independent second migration. Later L4c/L4d coordinator closures retain their own input identities and scopes. No history rewrite, private pack mutation, current ownership check or runtime verification follows from rereading the pointer.",
+      "evidence": "Complete actual checkpoint body read including B1 reverse-ordered rounds and historical stop, L3 full rejected-input tables and entire M1 queue. B421 separately checks document-row counts, not underlying source.",
+      "reopen": "Use current owning route, source/pack and exact consumer evidence; keep unverified fills, source bindings and remaining gameplay floor scopes explicit.",
+      "input_sha256": "6361191f110b8c63f9acbfb9fc3c5887563c407c7569cf635ba3097f181967c1",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_CARD.md",
+      "heading": "## Content reconciliation B421: be-seat history and cast-data source boundaries",
+      "body": "Three additional complete receipts were reviewed; private source, pack state and test execution were not reopened.\n\n**B1_CHECKPOINT:** The history-count stop is explicitly superseded by coordinator clarification, followed by source-located candidate memories and three relations. Opening memories, a later act of recall and paragraph-linked prior events are not automatically the same knowledge. The one-penny purse remains a labelled unverified fill: seeing a coin before payment does not establish the whole purse or debts, and a room object does not prove carried ownership. The producer-only schedule guard does not prove a single body; later round2 maps lead identity to the native player and removes its separate NPC actor. Detached fresh-life publication differs from ordinary crossing/import probe, with precise guard/failure forwarding and preservation of the prior save. Round3’s reported browser bundle does not certify round4’s new kit/perspective/autosave patch. Registered fixtures, built scratch composition and unapplied shared hunks retain different states; native combat stats, dated workroom tags, actual possessions and broad shell proof stay scoped. Seven L5r seat gaps require real replay rescoring, not automatic completion from a be-seat label. The later handoff records further integration history but this receipt supplies no fresh current be-route or full-book proof.\n\n**L3_CHECKPOINT:** All data/label/timing/alias/rejection rows and the108-row queue were read. The actual principal beat counts sum84; queue Markdown counts are recorded separately without source/runtime credit. Present-plus-partial ranking does not place an absent person in a room; empty knowledge/relation/aim lists mean no selected verified input, not known absence. Twenty unresolved anchor addresses and38 undated forward anchors are lint references, not travel nodes or dated facts. Irregular[1,7] eligibility plus a missing window fact does not authorize all beats on day1. Source-confirmed content labels and unknown timing labels are separate. Rejected worksheet claims preserve wrong actor/place/time/aim/observer inferences instead of being repaired from memory. Event-marker effects do not execute spending, body movement or knowledge acquisition. The original public source-data placement is later corrected by L3m/L4c under the user’s keep-history decision; this data-only receipt is not current canon-publication or installed-state authority.\n\n**L3M_CHECKPOINT:** This is a pointer to L4c’s actual private-pack migration/validation and its then-open browser/name-sweep gaps, not an independent second migration. Later L4c/L4d coordinator closures retain their own input identities and scopes. No history rewrite, private pack mutation, current ownership check or runtime verification follows from rereading the pointer.\n\nUse these as dated implementation/coverage evidence alongside B420’s historical card routing. The source-data and generated-row preparation stages are useful without certifying an earned native journey. Current developer-route priority and actual later route evidence remain with PROJECT and its linked delivery owners.",
+      "before_sha256": "a574be72ca3dcea7baceabdecb771034a1b090c86fd2d1801b0945c175745d0a",
+      "after_sha256": "bd0297fe219fe4c410c653405fdf22fa07377e8e7e0e7367da4a24a63528bb9b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 472,
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "63f97940484251a29885d941efab63875068cdcaab21f3ac6e9d8bbb353b9c29",
+      "to": "a871417a2be5cbb1e72e9844a7a09e168c85f8e181fd0f42de5e0ae20007c19f",
+      "reason": "Advance existing active reconciliation pointer to B421; full remaining scope unchanged."
+    }
+  ]
+}

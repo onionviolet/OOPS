@@ -1,0 +1,6 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "diagnostics": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md:1236: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md:1272: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md:1298: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md:1313: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/worlds/WORLD_SECRETS_AND_DISCOVERY.md:225: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+  "scope": "Observed initial normal check output before exact task-wording corrections; external UI_RULES untouched."
+}

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "batch": "B568",
+  "title": "Sonnet wave history: extraction versus qualification and actual partial wiring",
+  "at": "2026-11-05T10:59:15.876401+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md",
+      "ids": [
+        "L0–L14/L-A",
+        "WB1–WB9",
+        "O1–O4",
+        "whole-book walk/stop rules/all ledger rows"
+      ],
+      "classification": "full dispatch-history content review; source extraction and bounded wiring evidence separated",
+      "owners": [
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md"
+      ],
+      "disposition": "F1: Actual full review covers all264 original lines: L0–L14/L-A, WB1–WB9, O1–O4 character-sheet alternatives, whole-book walk, stop rules and every ledger row through L4 volume3. It is a dispatch/evidence history, not a current execution queue. Current PROJECT/READING_STATUS and the later campaign, source-qualification and workflow owners govern selected work. No linked private packs, raw source, scripts, branches, receipts, native saves or artifacts were newly inspected or run in this review.\n\nF2: Opening38%/26%, subscription/API statements, reset date, pilot cost estimates, global lane counts and later90% stop line are historical samples or assumptions, not current availability, free-cost guarantees or renewed authorization. The initial nothing-launched status is superseded within the document by the October30 go/overlap changes. L1/L3 were dropped, L6 reused an existing owner, and L-A took over a stopped line; do not launch them again from the earlier pilot list. Explicit source-private boundary remains useful. Historical claim Codex cannot write.git is not a current tool capability assertion. No old worker, successor, message, merge, commission, paid API run or push instruction is executed.\n\nF3: All8 volumes read/merged here means the recorded extraction/grade/family pipeline, not paragraph-qualified whole-book mechanics or game absorption. WB2's mechanism-family labels, WB4's existing GM register and WB6's source-path order remain useful, without granting later uncertain source rows factual authority. B553's later qualification receipt keeps extracted16679 steps, source-qualified subset and established engine journeys separate; B565 preserves original-versus-later count scope. Grade-C lint repair or classify-all-IDs does not prove source accuracy, corrected names, literal mechanisms, chronological windows or complete alternative-life play. WA48 top-down pressure is compatible with bounded early consumers and local refactor; no new all-book reading prerequisite follows.\n\nF4: L8's tiered dated sheet alternative preserves meaningful principals, recurring bands and crowd scope. Current/as-of chapter knowledge, guessed values, believed/gated fields, power source, items, currency and actual calibration remain separate. A locator's existence (including15/713 thinned from a bundle),25/45-field spot checks with weak citations and derived300/310-sheet counts do not certify all facts or gameplay actors. Four synthetic versus two pilot tests and skipped tests keep their actual coverage. L11's repeated duplicated ledger fragment is retained history, not two independent slices/tests. Authored fares/hours stay marked inference; no extra certainty from an engine column. COI may inform seam shape without backfilling LOTM-era facts or names; a later era of one setting is not itself proof of portable second-world semantics.\n\nF5: Original unwired statuses must be read alongside later sw-wire rows and current workflow. Data rows and a locator proxy lowering191/132/87 to153/89/37 do not demonstrate consumed gameplay. L9 harm wiring, L4 divination, L14 optional events, L8 sheet read-side, L11 journeys and L10 ceiling/blocker read-side have distinct progress and missing consumers: no pack no-op, absent actual news, no object-contact grant, no route hazard application, no potion/drink promotion. Two scripted floor scenarios at1920 with13/10 steps and Export/reload/Import are attributed historical proof of exactly those scenarios, not every new city, ability, death, ritual or today's browser. Later L4 volume3 row tests12/13 are not a green suite. Shared-tree4114/4119 and timeout/retry evidence remain non-green in their stated scopes; missing historical statuses are not silently reconstructed.\n\nF6: Preserve the bridge/state-owner separation from the UI wave and existing gap/idea homes; no second ledger, ability table or full NPC-life simulation is created. Build actual cause/owner/consumer and world differences under AD38/AD51, and retain current AD16/AD36/AD42/AD43 proof boundaries. The old limiter and model roles are historical: today's instructions govern tests and writers. Useful harm/advancement/region/persona/calendar/schedule and character ideas stay under original codes with named later qualification and implementation gaps. No gameplay, source expansion/acquisition, native UI, worker, spending, migration, deletion, commit or push occurred.",
+      "evidence": "Actual original1–264 read in untruncated1–140 and141–264; current PROJECT/variance direction and existing workflow118–128 read. No new linked code, source or artifacts verified.",
+      "reopen": "Use current campaign/reading/engine owners for a selected slice; retain exact historical qualification gaps, not active staffing or spending.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          264
+        ]
+      ],
+      "input_sha256": "1ea58d3c6b02a9bb8cdaf396e077eefc133fed4a76bffd5cad0de1a66682e0f9",
+      "input_lines": 264
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md",
+      "heading": "## Content reconciliation B568: whole book extraction and wiring history",
+      "body": "F1: Actual full review covers all264 original lines: L0–L14/L-A, WB1–WB9, O1–O4 character-sheet alternatives, whole-book walk, stop rules and every ledger row through L4 volume3. It is a dispatch/evidence history, not a current execution queue. Current PROJECT/READING_STATUS and the later campaign, source-qualification and workflow owners govern selected work. No linked private packs, raw source, scripts, branches, receipts, native saves or artifacts were newly inspected or run in this review.\n\nF2: Opening38%/26%, subscription/API statements, reset date, pilot cost estimates, global lane counts and later90% stop line are historical samples or assumptions, not current availability, free-cost guarantees or renewed authorization. The initial nothing-launched status is superseded within the document by the October30 go/overlap changes. L1/L3 were dropped, L6 reused an existing owner, and L-A took over a stopped line; do not launch them again from the earlier pilot list. Explicit source-private boundary remains useful. Historical claim Codex cannot write.git is not a current tool capability assertion. No old worker, successor, message, merge, commission, paid API run or push instruction is executed.\n\nF3: All8 volumes read/merged here means the recorded extraction/grade/family pipeline, not paragraph-qualified whole-book mechanics or game absorption. WB2's mechanism-family labels, WB4's existing GM register and WB6's source-path order remain useful, without granting later uncertain source rows factual authority. B553's later qualification receipt keeps extracted16679 steps, source-qualified subset and established engine journeys separate; B565 preserves original-versus-later count scope. Grade-C lint repair or classify-all-IDs does not prove source accuracy, corrected names, literal mechanisms, chronological windows or complete alternative-life play. WA48 top-down pressure is compatible with bounded early consumers and local refactor; no new all-book reading prerequisite follows.\n\nF4: L8's tiered dated sheet alternative preserves meaningful principals, recurring bands and crowd scope. Current/as-of chapter knowledge, guessed values, believed/gated fields, power source, items, currency and actual calibration remain separate. A locator's existence (including15/713 thinned from a bundle),25/45-field spot checks with weak citations and derived300/310-sheet counts do not certify all facts or gameplay actors. Four synthetic versus two pilot tests and skipped tests keep their actual coverage. L11's repeated duplicated ledger fragment is retained history, not two independent slices/tests. Authored fares/hours stay marked inference; no extra certainty from an engine column. COI may inform seam shape without backfilling LOTM-era facts or names; a later era of one setting is not itself proof of portable second-world semantics.\n\nF5: Original unwired statuses must be read alongside later sw-wire rows and current workflow. Data rows and a locator proxy lowering191/132/87 to153/89/37 do not demonstrate consumed gameplay. L9 harm wiring, L4 divination, L14 optional events, L8 sheet read-side, L11 journeys and L10 ceiling/blocker read-side have distinct progress and missing consumers: no pack no-op, absent actual news, no object-contact grant, no route hazard application, no potion/drink promotion. Two scripted floor scenarios at1920 with13/10 steps and Export/reload/Import are attributed historical proof of exactly those scenarios, not every new city, ability, death, ritual or today's browser. Later L4 volume3 row tests12/13 are not a green suite. Shared-tree4114/4119 and timeout/retry evidence remain non-green in their stated scopes; missing historical statuses are not silently reconstructed.\n\nF6: Preserve the bridge/state-owner separation from the UI wave and existing gap/idea homes; no second ledger, ability table or full NPC-life simulation is created. Build actual cause/owner/consumer and world differences under AD38/AD51, and retain current AD16/AD36/AD42/AD43 proof boundaries. The old limiter and model roles are historical: today's instructions govern tests and writers. Useful harm/advancement/region/persona/calendar/schedule and character ideas stay under original codes with named later qualification and implementation gaps. No gameplay, source expansion/acquisition, native UI, worker, spending, migration, deletion, commit or push occurred.",
+      "before_sha256": "1ea58d3c6b02a9bb8cdaf396e077eefc133fed4a76bffd5cad0de1a66682e0f9",
+      "after_sha256": "513b0b5edd94b4e1be356a7b58c694226753e11ebba36ae6f3ec4e91f9d3620b"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+      "heading": "## Whole-book dispatch evidence reconciliation B568",
+      "body": "The [Sonnet-wave plan B568 review](../sonnet-wave-2026-10-30/PLAN.md#content-reconciliation-b568-whole-book-extraction-and-wiring-history) reads its full L0–L14/WB1–WB9/O1–O4 and chronological ledger. Its all-volumes read/merged and classify-all-ID statements describe extraction and family routing; later source-qualified coverage retains its own smaller scope. Locator existence, source counts and a decreased uncovered-row proxy do not establish paragraph truth or a consumed mechanism. Read original unwired claims beside its later sw-wire entries: harm, divination, optional events, sheet read-side, travel legs and advancement blockers progressed separately, while no object contacts, no news, no hazards and no promotion remained named limitations at that snapshot. Two floor-script passes establish their dated scenarios only. Current PROJECT, exact later campaign/qualification receipts and this workflow govern new work; historical models, usage ceilings and dispatch/merge/message requests are not a live queue. Preserve useful later-source schema pressure and local differences without a fresh all-book prerequisite or new runtime claim.",
+      "before_sha256": "cccc2e4c4a8b90a52677e55a519d6308da51b2e890cadd2df94772e4686c063f",
+      "after_sha256": "a31759da2c16d6524b20bab9e5dfa032e6b38f365de15801b450782fdbcd1b20"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 154,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B561, continuous execution 2026-11-05 |",
+      "to": "| B568, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "23a04586f46e5f881c5d963ebc7df11f7cb084e1067c27cf59d572d7b70019ac",
+      "to": "83041d79221a930a94e3d986f17d713a094a2fc7f75a2c404b26557b2ad2e6ef",
+      "reason": "Exact task-owned checkpoint hunk."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "batches": [
+    "B478",
+    "B479"
+  ],
+  "new_local_heading_fragments": 0,
+  "missing": [],
+  "scope": "New fold links use file targets; verifier checks their presence."
+}

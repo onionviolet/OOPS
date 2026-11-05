@@ -1,0 +1,22 @@
+{
+  "command": "node scripts/.reconcile-doc-slips-b577.mjs",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+    "docs/gm/world-implementation/frontier-runtime/COVERAGE.md",
+    "docs/research/AUDIT_CANDIDATES_2026-10-10.md",
+    "docs/research/CODEBASE_STRUCTURE_AND_BUNDLE_AUDIT_2026-10-14.md",
+    "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "docs/research/DECOMP_REFIT_2026-10-22.md",
+    "docs/research/RUNTIME_HOTSPOT_AUDIT_2026-10-14.md",
+    "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md"
+  ],
+  "original_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "5f9fbe3b4d8430ca3144fc327727b4b5b7b2cf5d6ebd702bdcdf1547f3b30046",
+  "scope": "Only task path filespec adapted; same diagnostic rules, separate from whole-tree state."
+}

@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "batch": "B519",
+  "title": "Captured speed comparison, bounded extracted-game coverage and complete UI micro/reference findings",
+  "at": "2026-11-05T09:30:18.974422+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/daniel29348679__m5pro-llm-bench__speed-readme.md",
+      "ids": [
+        "nine leaderboard rows",
+        "three-scenario protocol",
+        "oMLX12samples",
+        "MTP retest",
+        "historical suite"
+      ],
+      "classification": "complete captured benchmark/extraction/UI audit; methods and unresolved claims retained without proxy runtime proof",
+      "owners": [
+        "docs/research/local-ai-2026-10-14/round2/REPORT.md"
+      ],
+      "disposition": "The complete captured M5Pro/64GB speed README is throughput evidence from its creator, not a benchmark on this user's present local artifacts. Its nine-row ranking averages short/long/11k server-reported decode rates and retains the latest successful run per model; failed/older runs are not an operational reliability denominator. Different runtimes, versions, packaging, quantization and MTP make Qwen33.81versus22.99 a practical tested-pair result rather than a clean runtime-only comparison. The external250.9MB drafter/block3 differs from Ollama's inline head, and target16.68GB disk size does not measure total RAM/working set. Advertised262144context differs from measured16384cap/roughly11kinput. First cold prefill/TTFT368.32tokens/s/30.18seconds differ from warmed prefix-cache samples; two later xlong prompts reused10240tokens, five short outputs stopped at146tokens and other cases hit generation caps. Twelve successful samples and53.7percent drafted-token acceptance do not establish semantic quality or long-campaign consistency. Draft8 slowed the tested older GGUF models relative to4, not every future MTP model or configuration. AC high-power/sleep-prevention settings are test conditions, not energy measurements or authority to change this Mac. The older Ollama0.21suite is a separate historical comparison; MLX-prefill and quant-size findings do not transfer universally. Owner O1–O11 choices and UNVERIFIED lineage remain unchanged; no current local speed/energy ranking, download, model load, browser fetch or benchmark was performed. Raw card and its maintenance instructions remain source material, not directions to edit the external leaderboard.",
+      "evidence": "Whole115-line speed card,109-line Planescape map,121-line micro-feel audit and107-line screenshot-reference report read. Micro-feel missing middle recovered at28–75; referenced raw/runtime/image artifacts not opened.",
+      "reopen": "Inspect the exact selected artifact, source range, native consumer or measured UI state before renewing throughput, source or gameplay claims.",
+      "input_sha256": "0161e32985886779033027a0c6529fd9184ec5c8e9461ad12b68369b86015646",
+      "input_lines": 115,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          115
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/planescape-torment/COVERAGE.md",
+      "ids": [
+        "machine extraction",
+        "semantic resource ledger",
+        "unread/opaque",
+        "eight proposals/25touches"
+      ],
+      "classification": "complete captured benchmark/extraction/UI audit; methods and unresolved claims retained without proxy runtime proof",
+      "owners": [
+        "docs/research/planescape-torment/COVERAGE.md"
+      ],
+      "disposition": "The complete coverage map keeps machine extraction separate from semantic reading:106854strings,854dialogs/16201states/46393transitions,2222compiled streams,89IDS,146tables,730item descriptions and286INI are retained inventories, not all read/effects decoded or executable behavior. Only the named node/range subjects were inspected semantically; BSPHERE and DFINNOTE are complete bounded interactions, not the entire surrounding game. Initial BCS/IDS type mistakes and the discarded misidentified GAM are corrected/discarded provenance, not valid source evidence. Header/hash/bounds/transition checks and selected cross-resource tracing do not prove every branch reachable, initialized flags, native opcode semantics, item effects or once-only correctness. The map explicitly leaves CRE/ARE/SPL, most resources, native UI/audio/visuals/executable, full alignment classification and save formats unqualified. Manual statements, format documentation and current installed-build behavior have different scopes; the EE spawn-group caveat is not a measured build25492483 bug. Offered recovery services and testimony do not establish actual honesty/effect. Eight proposals and25small touches are saved design output, not gameplay implementation. Old installed/retained/uninstall comments are dated asset state and user-owned choices, not a fresh install inventory or deletion instruction. No parser/native run, private raw slice, full source/resource, user save or current filesystem installation was reopened by this review; future selected work uses FINDINGS's exact consumers and source tiers.",
+      "evidence": "Whole115-line speed card,109-line Planescape map,121-line micro-feel audit and107-line screenshot-reference report read. Micro-feel missing middle recovered at28–75; referenced raw/runtime/image artifacts not opened.",
+      "reopen": "Inspect the exact selected artifact, source range, native consumer or measured UI state before renewing throughput, source or gameplay claims.",
+      "input_sha256": "5a895e15f33844f4c7468e71de8ce27fbc67d7599c20c47c6c119a0302bf42ad",
+      "input_lines": 109,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          109
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/UI_MICRO_FEEL_AUDIT_2026-10-14.md",
+      "ids": [
+        "ER11-F1–F11",
+        "ER11-P1–P8",
+        "ER11-N1–N20",
+        "ER11-A1–A9",
+        "ER11-L1–L3",
+        "ER11-R1–R5"
+      ],
+      "classification": "complete captured benchmark/extraction/UI audit; methods and unresolved claims retained without proxy runtime proof",
+      "owners": [
+        "docs/research/UI_MICRO_FEEL_AUDIT_2026-10-14.md"
+      ],
+      "disposition": "All121dense lines were read, recovering the initially truncated protection/numeric tables. The frozen ER11 candidate is not the changing shared source:16mapped files differed at close and later panels were READ-only. Eleven findings keep measured versus inferred reach:312layouts/736style recalculations and aggregate layout/task times do not attribute every event to the250mschain, measure input latency or establish a slow-frame threshold. Normal numeral settings do not prove glyph jitter in every font; tabular digits do not prevent extra-digit/sign/unit width changes. The component double-click invoked a handler twice, not a demonstrated native paid double-spend or replay of one transactionID. A second distinct request can legitimately perform another operation; any gesture policy must preserve explicit batches and normal repeat intent. Existing keyed inventory/pack rows, trade clearing, current quotes, busy guards, repair revalidation and log anchoring prevent a blanket all-controls/all-logs defect claim.\n\nThe extracted unchanged expo function demonstrated sign/exponent errors on exact small/signed inputs, and reading/work/export formatting has bounded grammar/zero/padding cases. Twenty formatter families include presentation and economic rounding, which must not be merged blindly: rounding prices/temperature changes values before display, unlike locale/grouping/tabular style. Raw interpolation and honest probability rounding are separate from guaranteed success. Trusted authored coin/brmarkup differs from variable player/save text at HTML sinks; source risk is not a measured script exploit or data loss. Isolating a renderer is not permission to swallow simulation/save failures and continue partial mechanics. Hidden motion risks differ from actual cadence; rAF-gated weather is not demonstrated60Hzhidden rendering. Asset URL inventory covers discovered runtime families, not every file or network fetch; served13MBsource map is not an automatic normal-play download or proof of public deployment exposure. Cache/header/map publication policy remains a selected deployment question, not new mandatory hardening.\n\nR1–R5 are proposed slices with unrun native/pointer/hidden/fault/cache/late-source checks, not completed fixes or current priorities. Source-map501entries reconciled464local plus37dependency embeddings at the historical candidate; this proves input matching then, not latest-tree behavior. Candidate fixture focus/selection findings required visible/eligible hosts and do not prove every long-campaign scroll/hover route. The1366target is historical; current desktop/UI direction governs future proof. No build, Node gameplay suite, browser or deployment was rerun here; retain the actual source/measurement and consumer limits without treating later code absence as current.",
+      "evidence": "Whole115-line speed card,109-line Planescape map,121-line micro-feel audit and107-line screenshot-reference report read. Micro-feel missing middle recovered at28–75; referenced raw/runtime/image artifacts not opened.",
+      "reopen": "Inspect the exact selected artifact, source range, native consumer or measured UI state before renewing throughput, source or gameplay claims.",
+      "input_sha256": "ff667874290a11027db97ab19b9330419dfa63a8ff23bdc38b474456b56d50d3",
+      "input_lines": 121,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          121
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/PROTOLIKE_UI_REFERENCES_2026-10-24.md",
+      "ids": [
+        "F1–F7",
+        "cultivation card sketch",
+        "not done"
+      ],
+      "classification": "complete captured benchmark/extraction/UI audit; methods and unresolved claims retained without proxy runtime proof",
+      "owners": [
+        "docs/research/PROTOLIKE_UI_REFERENCES_2026-10-24.md"
+      ],
+      "disposition": "All107lines retain screenshot-derived inspiration, not shipped donor behavior or implemented OOPS UI. The old git-ls-remote/content-empty observation dates the captured repository state; the uncited experimental Discord card lacks author/channel/date, so it cannot be attributed as a current shipped feature. Purpose/governing factors/selected method/stage progress is a useful card hierarchy. Actual field/tutor/body/location conditions come from execution owners; stages appear when the world has them, and knowledge disclosure differs from existence. The sketch's866/25000, names, quantities and appointments are illustrative, not a new stage model or current field state. The Oct24 no-stage claim is a source snapshot, not today's root model inventory.\n\nF3's compact job/cancel row can reuse real jobs without building a separate timer store. F4's first-try reward is a proposed gameplay discovery loop, not merely a cheap cosmetic hover and not authority to add one-time grants; item perishability needs its actual cause. F5 production pressure/volume/power/readouts and batch verbs require real consumers, and a displayed9873years estimate does not establish an accurate time engine or desired pacing. F6 part-making/finishing/role chips are adaptable forms under MR11/AD38 rather than exclusive item categories. F7's skill rows and worn-container capacities retain later application status; screenshot geometry is not native custody/capacity support. Desktop current scope, accessibility and accurate known blockers govern any selected card. No screenshot artifact was newly inspected, Discord source recovered, repository queried or UI/runtime changed in this pass. Preserve useful structural patterns and provenance gaps without treating reference approval as implementation or all-world art direction.",
+      "evidence": "Whole115-line speed card,109-line Planescape map,121-line micro-feel audit and107-line screenshot-reference report read. Micro-feel missing middle recovered at28–75; referenced raw/runtime/image artifacts not opened.",
+      "reopen": "Inspect the exact selected artifact, source range, native consumer or measured UI state before renewing throughput, source or gameplay claims.",
+      "input_sha256": "0ffe1bfa5f149eabd7417125bb8791e86641574c73ceb0971cf084d5399eb9ab",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+      "heading": "## Content reconciliation B519: daniel29348679__m5pro-llm-bench__speed-readme",
+      "body": "The complete captured M5Pro/64GB speed README is throughput evidence from its creator, not a benchmark on this user's present local artifacts. Its nine-row ranking averages short/long/11k server-reported decode rates and retains the latest successful run per model; failed/older runs are not an operational reliability denominator. Different runtimes, versions, packaging, quantization and MTP make Qwen33.81versus22.99 a practical tested-pair result rather than a clean runtime-only comparison. The external250.9MB drafter/block3 differs from Ollama's inline head, and target16.68GB disk size does not measure total RAM/working set. Advertised262144context differs from measured16384cap/roughly11kinput. First cold prefill/TTFT368.32tokens/s/30.18seconds differ from warmed prefix-cache samples; two later xlong prompts reused10240tokens, five short outputs stopped at146tokens and other cases hit generation caps. Twelve successful samples and53.7percent drafted-token acceptance do not establish semantic quality or long-campaign consistency. Draft8 slowed the tested older GGUF models relative to4, not every future MTP model or configuration. AC high-power/sleep-prevention settings are test conditions, not energy measurements or authority to change this Mac. The older Ollama0.21suite is a separate historical comparison; MLX-prefill and quant-size findings do not transfer universally. Owner O1–O11 choices and UNVERIFIED lineage remain unchanged; no current local speed/energy ranking, download, model load, browser fetch or benchmark was performed. Raw card and its maintenance instructions remain source material, not directions to edit the external leaderboard.",
+      "before_sha256": "9ebcd8ce8c6f9cd401585d442d8b2042a90bec31cc9e1f11d25df9bcfd36695b",
+      "after_sha256": "69c2b5e9360b7925ecff21e81de3560d4fa9325e7ccf00daee10d07cd1ac2345"
+    },
+    {
+      "path": "docs/research/planescape-torment/COVERAGE.md",
+      "heading": "## Content reconciliation B519: COVERAGE",
+      "body": "The complete coverage map keeps machine extraction separate from semantic reading:106854strings,854dialogs/16201states/46393transitions,2222compiled streams,89IDS,146tables,730item descriptions and286INI are retained inventories, not all read/effects decoded or executable behavior. Only the named node/range subjects were inspected semantically; BSPHERE and DFINNOTE are complete bounded interactions, not the entire surrounding game. Initial BCS/IDS type mistakes and the discarded misidentified GAM are corrected/discarded provenance, not valid source evidence. Header/hash/bounds/transition checks and selected cross-resource tracing do not prove every branch reachable, initialized flags, native opcode semantics, item effects or once-only correctness. The map explicitly leaves CRE/ARE/SPL, most resources, native UI/audio/visuals/executable, full alignment classification and save formats unqualified. Manual statements, format documentation and current installed-build behavior have different scopes; the EE spawn-group caveat is not a measured build25492483 bug. Offered recovery services and testimony do not establish actual honesty/effect. Eight proposals and25small touches are saved design output, not gameplay implementation. Old installed/retained/uninstall comments are dated asset state and user-owned choices, not a fresh install inventory or deletion instruction. No parser/native run, private raw slice, full source/resource, user save or current filesystem installation was reopened by this review; future selected work uses FINDINGS's exact consumers and source tiers.",
+      "before_sha256": "5a895e15f33844f4c7468e71de8ce27fbc67d7599c20c47c6c119a0302bf42ad",
+      "after_sha256": "fd5252d9ca527a6a3792ceabd478f6af38f95ab7a239b086df1c720c054f0aa9"
+    },
+    {
+      "path": "docs/research/UI_MICRO_FEEL_AUDIT_2026-10-14.md",
+      "heading": "## Content reconciliation B519: UI_MICRO_FEEL_AUDIT_2026-10-14",
+      "body": "All121dense lines were read, recovering the initially truncated protection/numeric tables. The frozen ER11 candidate is not the changing shared source:16mapped files differed at close and later panels were READ-only. Eleven findings keep measured versus inferred reach:312layouts/736style recalculations and aggregate layout/task times do not attribute every event to the250mschain, measure input latency or establish a slow-frame threshold. Normal numeral settings do not prove glyph jitter in every font; tabular digits do not prevent extra-digit/sign/unit width changes. The component double-click invoked a handler twice, not a demonstrated native paid double-spend or replay of one transactionID. A second distinct request can legitimately perform another operation; any gesture policy must preserve explicit batches and normal repeat intent. Existing keyed inventory/pack rows, trade clearing, current quotes, busy guards, repair revalidation and log anchoring prevent a blanket all-controls/all-logs defect claim.\n\nThe extracted unchanged expo function demonstrated sign/exponent errors on exact small/signed inputs, and reading/work/export formatting has bounded grammar/zero/padding cases. Twenty formatter families include presentation and economic rounding, which must not be merged blindly: rounding prices/temperature changes values before display, unlike locale/grouping/tabular style. Raw interpolation and honest probability rounding are separate from guaranteed success. Trusted authored coin/brmarkup differs from variable player/save text at HTML sinks; source risk is not a measured script exploit or data loss. Isolating a renderer is not permission to swallow simulation/save failures and continue partial mechanics. Hidden motion risks differ from actual cadence; rAF-gated weather is not demonstrated60Hzhidden rendering. Asset URL inventory covers discovered runtime families, not every file or network fetch; served13MBsource map is not an automatic normal-play download or proof of public deployment exposure. Cache/header/map publication policy remains a selected deployment question, not new mandatory hardening.\n\nR1–R5 are proposed slices with unrun native/pointer/hidden/fault/cache/late-source checks, not completed fixes or current priorities. Source-map501entries reconciled464local plus37dependency embeddings at the historical candidate; this proves input matching then, not latest-tree behavior. Candidate fixture focus/selection findings required visible/eligible hosts and do not prove every long-campaign scroll/hover route. The1366target is historical; current desktop/UI direction governs future proof. No build, Node gameplay suite, browser or deployment was rerun here; retain the actual source/measurement and consumer limits without treating later code absence as current.",
+      "before_sha256": "ff667874290a11027db97ab19b9330419dfa63a8ff23bdc38b474456b56d50d3",
+      "after_sha256": "472c2abb6d919efa3e7fdf23f88ce2268e168d438f47e87b49cf4bfe9b0b862b"
+    },
+    {
+      "path": "docs/research/PROTOLIKE_UI_REFERENCES_2026-10-24.md",
+      "heading": "## Content reconciliation B519: PROTOLIKE_UI_REFERENCES_2026-10-24",
+      "body": "All107lines retain screenshot-derived inspiration, not shipped donor behavior or implemented OOPS UI. The old git-ls-remote/content-empty observation dates the captured repository state; the uncited experimental Discord card lacks author/channel/date, so it cannot be attributed as a current shipped feature. Purpose/governing factors/selected method/stage progress is a useful card hierarchy. Actual field/tutor/body/location conditions come from execution owners; stages appear when the world has them, and knowledge disclosure differs from existence. The sketch's866/25000, names, quantities and appointments are illustrative, not a new stage model or current field state. The Oct24 no-stage claim is a source snapshot, not today's root model inventory.\n\nF3's compact job/cancel row can reuse real jobs without building a separate timer store. F4's first-try reward is a proposed gameplay discovery loop, not merely a cheap cosmetic hover and not authority to add one-time grants; item perishability needs its actual cause. F5 production pressure/volume/power/readouts and batch verbs require real consumers, and a displayed9873years estimate does not establish an accurate time engine or desired pacing. F6 part-making/finishing/role chips are adaptable forms under MR11/AD38 rather than exclusive item categories. F7's skill rows and worn-container capacities retain later application status; screenshot geometry is not native custody/capacity support. Desktop current scope, accessibility and accurate known blockers govern any selected card. No screenshot artifact was newly inspected, Discord source recovered, repository queried or UI/runtime changed in this pass. Preserve useful structural patterns and provenance gaps without treating reference approval as implementation or all-world art direction.",
+      "before_sha256": "0ffe1bfa5f149eabd7417125bb8791e86641574c73ceb0971cf084d5399eb9ab",
+      "after_sha256": "90113673c6651de6b6d221faefa979cf21517a5cdddff3dcac79c574c19702ce"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 209
+}

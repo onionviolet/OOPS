@@ -1,0 +1,11 @@
+{
+  "source": "docs/research/hyperrogue/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "607c51ad2a25292dc6dab24d112f36f77689ba602adb9d55d476af5a01081b64",
+  "source_lines": 9834,
+  "view": "docs/audits/reconciliation-2026-11-04/hyperrogue-family-lossless-view-b595.json",
+  "view_sha256": "79c166afb22313cc3f11b0f822d032f1edf2e18cd282ed4baea717433af0ece9",
+  "roundtrip_equal": true,
+  "records": 289,
+  "routing_blocks": 32,
+  "scope": "All header/dictionaries/routing blocks and 289 residual records read in six bounded outputs. Transformation integrity is separate from semantic review and does not prove any referenced source body or runtime."
+}

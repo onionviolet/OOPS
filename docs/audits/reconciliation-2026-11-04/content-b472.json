@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "batch": "B472",
+  "title": "DLC gates, cross-craft map, specimen processing and item families: complete consumer review",
+  "at": "2026-11-05T07:14:20.076127+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/hearts-of-iron-iv/DLC_COVERAGE.md",
+      "ids": [
+        "16literalDLCnames;wrapper/module/history/MIOgates;2ZIPs"
+      ],
+      "classification": "complete DLC/crafting/specimen/item scope owner with actual consumer and evidence boundaries",
+      "owners": [
+        "docs/research/hearts-of-iron-iv/DLC_COVERAGE.md"
+      ],
+      "disposition": "All28 lines and sixteen DLC rows were reviewed with the report's H-C6 limit. Comment-stripped literal has_dlc occurrences include negations and repeated tests; they are not unique features, enabled purchases, campaigns or ownership. Scripted wrappers, starting-history alternatives and manufacturer exclusions can gate behavior without another literal occurrence. Shared-script rules, descriptor locations, integrated metadata and two ZIPs lacking rule-text members are different packaging facts. A descriptor's physical path does not prove its active mount or engine treatment. Neither the census nor plaintext presence establishes arbitrary DLC/mod removal from a saved game. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern selected pattern use. No current depot, entitlement, archive, source script, installation, native game or save was inspected; this is complete reading of the saved gate record, not renewed HoI4 source/runtime coverage.",
+      "evidence": "Complete28/30/31/31-line inputs read. HoI4/Items/C4 later sections inspected as scoped context only; original source, runtime and private saves not read by proxy.",
+      "reopen": "Use named gate/detail/specimen/item function and actual current owner/consumer; preserve unrun behavior and local prototype policies.",
+      "input_sha256": "9a1c2f7f37c840e0a4e8bcc14bc1866ff01beba00310bd16d47e64608f2bee9e",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/COVERAGE.md",
+      "ids": [
+        "PC23–26/F1–7/G4E1–5/G4L1/3/4/J1/SF1–8;C1–4"
+      ],
+      "classification": "complete DLC/crafting/specimen/item scope owner with actual consumer and evidence boundaries",
+      "owners": [
+        "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/COVERAGE.md"
+      ],
+      "disposition": "All30 lines and every selected-detail row were reviewed against C4's final planning/dependency section. Preserve the actual joins: retained product reaches two consumers; topical/contact/ink/quench/packing routes need their own readers; partial cohorts retain meaningful histories; method access differs from durable learning; assay/sample/certification differs from hidden function; delivery/title/condition differs from possession; off-spec output is relative to a recipient. Preview, refusal and price cannot become hidden-property oracles. Sampling removes actual stock; a ledger residue is not automatically recoverable inventory.\n\nC4's later entry still records planning-only with no C1–C3 playable release at that snapshot. The dispatch map is not implementation credit, and old live lock holders/preparing statements are not current process evidence. A source/generator contract, native adapter, source-qualified law and actual paid/failed journey remain separate gates. Dependency-owned does not erase a selected missing result, but these dependencies do not activate every unselected world or new framework. A free recovery or genuine creation faculty can work through its actual means; the local salvage/no-free-restoration examples guard this retained stock, not a global ban on powerful restoration or useful repeated production. Current [PROJECT](../../../../../../PROJECT.md), [making rules](../../../../../MAKING_RULES.md), AD36/AD43/AD51 govern selected work. No C1–C4 source, lock, product, native route, test/build/browser or personal save was newly exercised.",
+      "evidence": "Complete28/30/31/31-line inputs read. HoI4/Items/C4 later sections inspected as scoped context only; original source, runtime and private saves not read by proxy.",
+      "reopen": "Use named gate/detail/specimen/item function and actual current owner/consumer; preserve unrun behavior and local prototype policies.",
+      "input_sha256": "3099d661af00b11ac0e56c66f1355a3d1e5ef5b04a94288281872c894749c5ac",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/specimen-processing-2026-10-20/CHECKPOINT.md",
+      "ids": [
+        "exactspecimenkey/FIFO;agevsstrikecompleteness;completionclock;19focus/2333full;partialUI"
+      ],
+      "classification": "complete DLC/crafting/specimen/item scope owner with actual consumer and evidence boundaries",
+      "owners": [
+        "docs/gm/dispatch/specimen-processing-2026-10-20/CHECKPOINT.md"
+      ],
+      "disposition": "The complete31-line checkpoint was read. Exact manual specimen identity/stale-key revalidation, original birth clock versus strike completeness, FIFO automation and long-tick completion receipts are distinct intended invariants. The recorded19 focused and2333 full tests, isolated build, shared Git-aware rules check and partial UI inspection establish their own named slices. They do not replace the explicitly uncompleted acquisition→exact choice→processing→recipe journey or pending/finished native file roundtrips. Imported same-species fixtures at a location where the contextual panel is hidden and a separate dev-hook native acquisition run cannot be combined into an earned completed process. General spoilage, storage, preservation chemistry and anatomy remain outside that scope.\n\nPreserve original boundary/routing and the missing laptop/14px/21px checks without claiming today's feature is broken or fully unimplemented. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), [UI rules](../../../UI_RULES.md), AD36/AD43 and AD42 optional human review govern selected verification. Historical sole-writer/clean paths/branch/source sizes are dated; no source custody or gameplay authorization follows from this review. No actual specimen, fixture save, source, build, test, browser or personal data was newly inspected or changed.",
+      "evidence": "Complete28/30/31/31-line inputs read. HoI4/Items/C4 later sections inspected as scoped context only; original source, runtime and private saves not read by proxy.",
+      "reopen": "Use named gate/detail/specimen/item function and actual current owner/consumer; preserve unrun behavior and local prototype policies.",
+      "input_sha256": "269dcf803b6d22002203e6d9319f7ad4b3d3abffac216d77880417cb656fdde1",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/ITEM_FAMILY_COVERAGE.md",
+      "ids": [
+        "5overlappingfamilies/IT01–13;IT11carriers/IT12activation/IT13containmentaccess"
+      ],
+      "classification": "complete DLC/crafting/specimen/item scope owner with actual consumer and evidence boundaries",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/items/ITEM_FAMILY_COVERAGE.md"
+      ],
+      "disposition": "All31 lines were reviewed with the Items revision4 checkpoint. Pills/preparations, artifacts/equipment, consumables/deployables, tools/containers and resource/knowledge/access/living stock overlap by function, not five compulsory tabs or exhaustive classes. Retain temporary effects, resource restoration, permanent body change, learned information, source acquisition, installed objects and institutional rights as separate owners. A held book/key/document, an attuned object, a current permission and actual control/fuel are different relations. Real bottle contents, unique specimens and durable effect carriers need their own identity rather than a used flag.\n\nPositive native timed effects, recipes, Book progress and equipment were source observations at that date; they do not prove every active artifact, thrown mixture, spatial container or permanent change. Ordinary content can reuse a qualified existing primitive; novelty of a noun does not require a new engine. Strong simple artifacts and benign repeated doses remain possible without universal poison, slot, tier or upkeep penalties. Same stock must not be accidentally duplicated, while a source-supported creation/restoration mechanism can legitimately supply new material. Item functions/known quality/portability and target/custody/current support need the actual selected reader, not a rarity label.\n\nThe held runtime assignment and parent-review queue are October4 history. Later [coordination README](../../README.md) records broader source/build deliveries, still separate from behavior evidence. Current [PROJECT](../../../../../PROJECT.md), [making rules](../../../../MAKING_RULES.md), AD36/AD43/AD51 govern selected work. No old source line, RI/book dossier, item class, current registry, runtime, test/build/browser or save was newly inspected. Future example cases remain ideas, not new all-family gates or fresh implemented-state assertions.",
+      "evidence": "Complete28/30/31/31-line inputs read. HoI4/Items/C4 later sections inspected as scoped context only; original source, runtime and private saves not read by proxy.",
+      "reopen": "Use named gate/detail/specimen/item function and actual current owner/consumer; preserve unrun behavior and local prototype policies.",
+      "input_sha256": "02cd3a449432187da78fe31d9f3db22023c0ab32ec258ca39da4686f9709a0de",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/hearts-of-iron-iv/DLC_COVERAGE.md",
+      "heading": "## Content reconciliation B472: complete scope and consumer evidence",
+      "body": "All28 lines and sixteen DLC rows were reviewed with the report's H-C6 limit. Comment-stripped literal has_dlc occurrences include negations and repeated tests; they are not unique features, enabled purchases, campaigns or ownership. Scripted wrappers, starting-history alternatives and manufacturer exclusions can gate behavior without another literal occurrence. Shared-script rules, descriptor locations, integrated metadata and two ZIPs lacking rule-text members are different packaging facts. A descriptor's physical path does not prove its active mount or engine treatment. Neither the census nor plaintext presence establishes arbitrary DLC/mod removal from a saved game. Current [PROJECT](../../../PROJECT.md) and AD32/AD36 govern selected pattern use. No current depot, entitlement, archive, source script, installation, native game or save was inspected; this is complete reading of the saved gate record, not renewed HoI4 source/runtime coverage.",
+      "before_sha256": "9a1c2f7f37c840e0a4e8bcc14bc1866ff01beba00310bd16d47e64608f2bee9e",
+      "after_sha256": "0a76b42d5c826b8b6260339e3113ff69e7ee0d23db4a436393c3eff493280673"
+    },
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/COVERAGE.md",
+      "heading": "## Content reconciliation B472: complete scope and consumer evidence",
+      "body": "All30 lines and every selected-detail row were reviewed against C4's final planning/dependency section. Preserve the actual joins: retained product reaches two consumers; topical/contact/ink/quench/packing routes need their own readers; partial cohorts retain meaningful histories; method access differs from durable learning; assay/sample/certification differs from hidden function; delivery/title/condition differs from possession; off-spec output is relative to a recipient. Preview, refusal and price cannot become hidden-property oracles. Sampling removes actual stock; a ledger residue is not automatically recoverable inventory.\n\nC4's later entry still records planning-only with no C1–C3 playable release at that snapshot. The dispatch map is not implementation credit, and old live lock holders/preparing statements are not current process evidence. A source/generator contract, native adapter, source-qualified law and actual paid/failed journey remain separate gates. Dependency-owned does not erase a selected missing result, but these dependencies do not activate every unselected world or new framework. A free recovery or genuine creation faculty can work through its actual means; the local salvage/no-free-restoration examples guard this retained stock, not a global ban on powerful restoration or useful repeated production. Current [PROJECT](../../../../../../PROJECT.md), [making rules](../../../../../MAKING_RULES.md), AD36/AD43/AD51 govern selected work. No C1–C4 source, lock, product, native route, test/build/browser or personal save was newly exercised.",
+      "before_sha256": "3099d661af00b11ac0e56c66f1355a3d1e5ef5b04a94288281872c894749c5ac",
+      "after_sha256": "11b980e344f772e6523637da29d00155fae74011208a14a7189e020c33f1e3ff"
+    },
+    {
+      "path": "docs/gm/dispatch/specimen-processing-2026-10-20/CHECKPOINT.md",
+      "heading": "## Content reconciliation B472: complete scope and consumer evidence",
+      "body": "The complete31-line checkpoint was read. Exact manual specimen identity/stale-key revalidation, original birth clock versus strike completeness, FIFO automation and long-tick completion receipts are distinct intended invariants. The recorded19 focused and2333 full tests, isolated build, shared Git-aware rules check and partial UI inspection establish their own named slices. They do not replace the explicitly uncompleted acquisition→exact choice→processing→recipe journey or pending/finished native file roundtrips. Imported same-species fixtures at a location where the contextual panel is hidden and a separate dev-hook native acquisition run cannot be combined into an earned completed process. General spoilage, storage, preservation chemistry and anatomy remain outside that scope.\n\nPreserve original boundary/routing and the missing laptop/14px/21px checks without claiming today's feature is broken or fully unimplemented. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), [UI rules](../../../UI_RULES.md), AD36/AD43 and AD42 optional human review govern selected verification. Historical sole-writer/clean paths/branch/source sizes are dated; no source custody or gameplay authorization follows from this review. No actual specimen, fixture save, source, build, test, browser or personal data was newly inspected or changed.",
+      "before_sha256": "269dcf803b6d22002203e6d9319f7ad4b3d3abffac216d77880417cb656fdde1",
+      "after_sha256": "42bc2f018dc26cca9f3e5b20176d29a9d3d34d8f88af495ecc96d3c69254d506"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/ITEM_FAMILY_COVERAGE.md",
+      "heading": "## Content reconciliation B472: complete scope and consumer evidence",
+      "body": "All31 lines were reviewed with the Items revision4 checkpoint. Pills/preparations, artifacts/equipment, consumables/deployables, tools/containers and resource/knowledge/access/living stock overlap by function, not five compulsory tabs or exhaustive classes. Retain temporary effects, resource restoration, permanent body change, learned information, source acquisition, installed objects and institutional rights as separate owners. A held book/key/document, an attuned object, a current permission and actual control/fuel are different relations. Real bottle contents, unique specimens and durable effect carriers need their own identity rather than a used flag.\n\nPositive native timed effects, recipes, Book progress and equipment were source observations at that date; they do not prove every active artifact, thrown mixture, spatial container or permanent change. Ordinary content can reuse a qualified existing primitive; novelty of a noun does not require a new engine. Strong simple artifacts and benign repeated doses remain possible without universal poison, slot, tier or upkeep penalties. Same stock must not be accidentally duplicated, while a source-supported creation/restoration mechanism can legitimately supply new material. Item functions/known quality/portability and target/custody/current support need the actual selected reader, not a rarity label.\n\nThe held runtime assignment and parent-review queue are October4 history. Later [coordination README](../../README.md) records broader source/build deliveries, still separate from behavior evidence. Current [PROJECT](../../../../../PROJECT.md), [making rules](../../../../MAKING_RULES.md), AD36/AD43/AD51 govern selected work. No old source line, RI/book dossier, item class, current registry, runtime, test/build/browser or save was newly inspected. Future example cases remain ideas, not new all-family gates or fresh implemented-state assertions.",
+      "before_sha256": "02cd3a449432187da78fe31d9f3db22023c0ab32ec258ca39da4686f9709a0de",
+      "after_sha256": "c42ce5da88695d1848a2c2ac1d3b808e2d0f8be8b573bbfc95d079d59e4ba5c4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 345
+}

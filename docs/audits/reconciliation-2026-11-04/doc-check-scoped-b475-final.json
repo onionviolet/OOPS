@@ -1,0 +1,27 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 1,
+  "stdout": "",
+  "stderr": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md:497: absolute rule word has no default, dial, exception, or reason in this row or paragraph\n",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "a06ef593b2f1aa974f5c2270a32f55517f8d5898855ebfee3dc78428ed182c40",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/dose-mechanism-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g10/README.md",
+    "docs/gm/dispatch/lotm-pathway-gen-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/lotm-q5-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/other-systems-depth-2026-10-26/learning/CANDIDATE_COVERAGE.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/connected-making/implementation/COVERAGE.md",
+    "docs/gm/dispatch/pc-groups-2026-10-26/cross-craft-connections/implementation/COVERAGE.md",
+    "docs/gm/dispatch/register-gaps-2026-10-25/CHECKPOINT.md",
+    "docs/gm/dispatch/specimen-processing-2026-10-20/CHECKPOINT.md",
+    "docs/gm/world-implementation/second-pass/README.md",
+    "docs/gm/world-implementation/second-pass/items/ITEM_FAMILY_COVERAGE.md",
+    "docs/research/hearts-of-iron-iv/DLC_COVERAGE.md",
+    "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.md",
+    "docs/research/procedural-materials-2026-10-13/README.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not a shared-tree pass."
+}

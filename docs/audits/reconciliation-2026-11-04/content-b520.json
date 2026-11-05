@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "batch": "B520",
+  "title": "Full acquisition chronology, weak community evidence and exact unread-growth code mapping",
+  "at": "2026-11-05T09:32:36.932144+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_RECEIPT_2026-10-26.md",
+      "ids": [
+        "F1–F5",
+        "V1–V4",
+        "D1–D4",
+        "Z1–Z13"
+      ],
+      "classification": "complete historical acquisition/community/reading survey; provenance, stop direction and source-code crosswalk retained",
+      "owners": [
+        "docs/research/SOURCE_ACQUISITION_RECEIPT_2026-10-26.md"
+      ],
+      "disposition": "The full115-line chronology separates initial no-download/quota stop from later completed Bookworm browser acquisition and two dated RR continuation days. Bookworm's later11verified/prepared/indexed Part5volumes2–12 closes the initial22/33holding gap at that receipt, not all auxiliary material, all prose or every edition/chapter. The initial1366catalogue refresh (55newly indexed) is indexing, not1366downloads; initial35asset CRC/hash checks and133/130reuse counts precede later144/141. Browser volume6 first attempted before automatic verification, then continued after success; no duplicate book transfer is claimed. Exact archive/title/hash checks do not independently authenticate publisher completeness or semantic correctness.\n\nZ1–Z13 add28files, then25, then5 under their separate authorizations and status evidence. Bioshifter deduplication is not a new distinct title, and the first28/30limit was assumed rather than re-read. The last5run had an actual dated25/30→30/30account observation; neither is a current allowance. Z3's Log Horizon6–11download preceded the user's instruction that it was not useful: the later stop overrides the earlier “later Log Horizon remains” queue, so do not resume that series from this receipt. Rounded book counts and uncertain Mana Mirror numbering require actual edition/chapter mapping; Path of Ascension9not appearing in a query is not proven absent prose or a current acquisition gap. Unmatched works and latest-number claims are dated search results, not live publication endpoints. “All chapters” on a capture is a recorded edition claim rather than whole-source reading. RR58filechecks establish archive/job-hash integrity for those deliveries, while preparation, catalogue-review and semantic reading were explicitly not run for those later groups. Preserve provider/browser provenance separately rather than relabelling historical transfers. No key/account/source library/file archive was opened, download repeated or acquisition source queried here. Future gap work follows current exact coverage and existing acquisition owners, without treating old stop/search/cap instructions as live authority.",
+      "evidence": "Whole115-line acquisition,111-line community scout and113-line unread audit read without truncation. Selected root skill crosswalk560–615inspected; no live account/source/provider/runtime accessed.",
+      "reopen": "Use current exact edition/coverage, primary source and owner before acquiring, adapting or claiming a current delivery; preserve dated user stops and proposal status.",
+      "input_sha256": "0ab4f9011abc6f8fd7be6e45aa34c6e99ffbf076e1ae8b35e9c2a01b5bd7b87a",
+      "input_lines": 115,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          115
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md",
+      "ids": [
+        "themes2a–2c",
+        "five-game table",
+        "tabletop pain points",
+        "implications1–9",
+        "coverage gaps"
+      ],
+      "classification": "complete historical acquisition/community/reading survey; provenance, stop direction and source-code crosswalk retained",
+      "owners": [
+        "docs/research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md"
+      ],
+      "disposition": "All111lines were read. This source explicitly read no Reddit thread in full; most items are search snippets, mirror failures, Steam/press/blog summaries and a single full Idlepunk page. “Shown” in the implications table therefore means an attributed report at that tier, not independently observed rules, representative player demand or live gameplay. Empty subreddit searches do not prove no community discussion. Ratings/wishlists and relative dates are dated, small/unequal samples; a related-games rating does not supply DataPunk mechanics, and unreleased pages have no player reception. The source cannot justify a ranked “best five”, a consensus or a current market-size result. No new website/thread/rulebook or installed game was checked here.\n\nKeep the useful questions: gradual versus binary implant consequences, meaningful reversible swaps, hacking with suitable time/attention, varied gigs, actual local economy, crime/response and downtime. Contradictory hacking/police/therapy opinions span patches, editions and preferences and should remain attributed, not reconciled into invented facts. RED/2020Humanity, ShadowrunEssence and individual video-game systems are different mechanisms; secondary2/4cost numbers and therapy/cap claims need the selected edition's primary source. A proposed consequence should have a local mechanism rather than exist because an anonymous commenter wanted it.\n\nThe nine implications are agent proposals, not accepted defaults or implementation gaps. Strong body costs, ceiling loss, psychosis, automatic social penalties, police heat and income-scaled mandatory scarcity are not universal needs under AD5/AD22/AD32/AD38. Money can become abundant through effective means without forced rent/maintenance inflation. Short1–2hourruns reflect a tiny Idlepunk response, not the user's campaign target: current AD52 explicitly welcomes long play and separates convenience from total length. A queued hacking job is one form; AD46 permits other fitting forms and real source-specific decisions. Pressure events need actual causes/knowledge/escape/settlement where selected, not blanket immunity or punishment. Preserve body/economy/social/hacking ideas and provenance gaps in this owner and the sibling world scout without treating their named fit/inference as source-qualified canonical rules or a new build order. Optional genre models remain available.",
+      "evidence": "Whole115-line acquisition,111-line community scout and113-line unread audit read without truncation. Selected root skill crosswalk560–615inspected; no live account/source/provider/runtime accessed.",
+      "reopen": "Use current exact edition/coverage, primary source and owner before acquiring, adapting or claiming a current delivery; preserve dated user stops and proposal status.",
+      "input_sha256": "65927dfb48c6c3cc0789ca6a8796b41522e8f26ece4f9e8e0f562c8624d1c18f",
+      "input_lines": 111,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          111
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/skill-growth-2026-10-10/UNREAD_AUDIT.md",
+      "ids": [
+        "37numbered source rows",
+        "localG23–G31",
+        "localL11–L15",
+        "five near-misses",
+        "top8+alternates"
+      ],
+      "classification": "complete historical acquisition/community/reading survey; provenance, stop direction and source-code crosswalk retained",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md"
+      ],
+      "disposition": "The whole113-line unread audit, all37numbered rows, nine proposed growth models, five level meanings, near-misses/subtleties and ranked eight/alternates were read. Preserve source-local codes with this audit's name: its G23/24/25/26/27/28/29/30/31 map to root G33/34/35/36/37/31/38/39/40; localL11–L15 map to rootL19–L23. The current root560–615crosswalk and tables were inspected, preventing collision with its different G23harvest/G24banking/etc. This does not grant fresh full-root review or reopen source browsing.\n\n“Unread” is a historical catalogue filter of fav/follow tags, not proof of the user's actual reading or present preferences; readlater-only entries are explicitly retained.1156taggedworks and roughly500blurbs are discovery coverage, not1156semantic source reads. READ here means keyword-matched early paragraphs, not whole chapters; the Mark of the Fool row says chapters2–4 despite the generic1–3method shorthand, so preserve the specific row's broader boundary without inventing a complete fourth-chapter read. Prologue/glossary, blurb, memory and mixed labels remain separate. The stated23checkedworks is the author's report, not a new source-receipt audit. Later Kindle/stub/current availability, ratings and follower counts were not reverified.\n\nUseful mechanisms remain distinct: upward descendant→ancestor feedback, office-held power versus holder tenure, diegetic reset, domain-split faculty, practice-unlocked attributes, narrative role/tropes, single-channel growth, deferred commitment and completed delegation. Their particular caps,100returns, weaker predictions, school norms, one seat, death reset and impediments are source-specific claims or suggested adaptations, not universal rules or required balancing. Gifted's potential-percent interpretation is explicitly the protagonist's unconfirmed guess. Distant trap credit is not arbitrary global kill credit; a paid guild lesson does not become owned faculty merely through a title. Similar skill-milestone names do not prove a native adapter is already implemented or make one the cheapest slice. Root/current PROJECT and AD32/AD38/AD51/AD52 govern later selection, allowing strong useful ordinary skills, coherent body/function/knowledge carriers and long play. The top-eight ranking is a dated design recommendation, not a current reader queue or personal book recommendation. All source-prose, quoted/cited pages and runtime behaviors retain their original bounded support; none was freshly accessed here.",
+      "evidence": "Whole115-line acquisition,111-line community scout and113-line unread audit read without truncation. Selected root skill crosswalk560–615inspected; no live account/source/provider/runtime accessed.",
+      "reopen": "Use current exact edition/coverage, primary source and owner before acquiring, adapting or claiming a current delivery; preserve dated user stops and proposal status.",
+      "input_sha256": "f9535016814bc05ac725a88e470f3d5173a627b1940f1071f49488435afa0ba8",
+      "input_lines": 113,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          113
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/SOURCE_ACQUISITION_RECEIPT_2026-10-26.md",
+      "heading": "## Content reconciliation B520: SOURCE_ACQUISITION_RECEIPT_2026-10-26",
+      "body": "The full115-line chronology separates initial no-download/quota stop from later completed Bookworm browser acquisition and two dated RR continuation days. Bookworm's later11verified/prepared/indexed Part5volumes2–12 closes the initial22/33holding gap at that receipt, not all auxiliary material, all prose or every edition/chapter. The initial1366catalogue refresh (55newly indexed) is indexing, not1366downloads; initial35asset CRC/hash checks and133/130reuse counts precede later144/141. Browser volume6 first attempted before automatic verification, then continued after success; no duplicate book transfer is claimed. Exact archive/title/hash checks do not independently authenticate publisher completeness or semantic correctness.\n\nZ1–Z13 add28files, then25, then5 under their separate authorizations and status evidence. Bioshifter deduplication is not a new distinct title, and the first28/30limit was assumed rather than re-read. The last5run had an actual dated25/30→30/30account observation; neither is a current allowance. Z3's Log Horizon6–11download preceded the user's instruction that it was not useful: the later stop overrides the earlier “later Log Horizon remains” queue, so do not resume that series from this receipt. Rounded book counts and uncertain Mana Mirror numbering require actual edition/chapter mapping; Path of Ascension9not appearing in a query is not proven absent prose or a current acquisition gap. Unmatched works and latest-number claims are dated search results, not live publication endpoints. “All chapters” on a capture is a recorded edition claim rather than whole-source reading. RR58filechecks establish archive/job-hash integrity for those deliveries, while preparation, catalogue-review and semantic reading were explicitly not run for those later groups. Preserve provider/browser provenance separately rather than relabelling historical transfers. No key/account/source library/file archive was opened, download repeated or acquisition source queried here. Future gap work follows current exact coverage and existing acquisition owners, without treating old stop/search/cap instructions as live authority.",
+      "before_sha256": "0ab4f9011abc6f8fd7be6e45aa34c6e99ffbf076e1ae8b35e9c2a01b5bd7b87a",
+      "after_sha256": "06780eab7ec901323ddb0394ade2d2fa6678fa4fa3323e17746183e0ff40f79c"
+    },
+    {
+      "path": "docs/research/CYBERPUNK_COMMUNITY_SCOUT_2026-11-03.md",
+      "heading": "## Content reconciliation B520: CYBERPUNK_COMMUNITY_SCOUT_2026-11-03",
+      "body": "All111lines were read. This source explicitly read no Reddit thread in full; most items are search snippets, mirror failures, Steam/press/blog summaries and a single full Idlepunk page. “Shown” in the implications table therefore means an attributed report at that tier, not independently observed rules, representative player demand or live gameplay. Empty subreddit searches do not prove no community discussion. Ratings/wishlists and relative dates are dated, small/unequal samples; a related-games rating does not supply DataPunk mechanics, and unreleased pages have no player reception. The source cannot justify a ranked “best five”, a consensus or a current market-size result. No new website/thread/rulebook or installed game was checked here.\n\nKeep the useful questions: gradual versus binary implant consequences, meaningful reversible swaps, hacking with suitable time/attention, varied gigs, actual local economy, crime/response and downtime. Contradictory hacking/police/therapy opinions span patches, editions and preferences and should remain attributed, not reconciled into invented facts. RED/2020Humanity, ShadowrunEssence and individual video-game systems are different mechanisms; secondary2/4cost numbers and therapy/cap claims need the selected edition's primary source. A proposed consequence should have a local mechanism rather than exist because an anonymous commenter wanted it.\n\nThe nine implications are agent proposals, not accepted defaults or implementation gaps. Strong body costs, ceiling loss, psychosis, automatic social penalties, police heat and income-scaled mandatory scarcity are not universal needs under AD5/AD22/AD32/AD38. Money can become abundant through effective means without forced rent/maintenance inflation. Short1–2hourruns reflect a tiny Idlepunk response, not the user's campaign target: current AD52 explicitly welcomes long play and separates convenience from total length. A queued hacking job is one form; AD46 permits other fitting forms and real source-specific decisions. Pressure events need actual causes/knowledge/escape/settlement where selected, not blanket immunity or punishment. Preserve body/economy/social/hacking ideas and provenance gaps in this owner and the sibling world scout without treating their named fit/inference as source-qualified canonical rules or a new build order. Optional genre models remain available.",
+      "before_sha256": "65927dfb48c6c3cc0789ca6a8796b41522e8f26ece4f9e8e0f562c8624d1c18f",
+      "after_sha256": "bb7616bfb3fae30e0c9c9fbaf240fe7a8a773385c5f552ee2bbed9a7d1827733"
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "heading": "## Content reconciliation B520: UNREAD_AUDIT",
+      "body": "The whole113-line unread audit, all37numbered rows, nine proposed growth models, five level meanings, near-misses/subtleties and ranked eight/alternates were read. Preserve source-local codes with this audit's name: its G23/24/25/26/27/28/29/30/31 map to root G33/34/35/36/37/31/38/39/40; localL11–L15 map to rootL19–L23. The current root560–615crosswalk and tables were inspected, preventing collision with its different G23harvest/G24banking/etc. This does not grant fresh full-root review or reopen source browsing.\n\n“Unread” is a historical catalogue filter of fav/follow tags, not proof of the user's actual reading or present preferences; readlater-only entries are explicitly retained.1156taggedworks and roughly500blurbs are discovery coverage, not1156semantic source reads. READ here means keyword-matched early paragraphs, not whole chapters; the Mark of the Fool row says chapters2–4 despite the generic1–3method shorthand, so preserve the specific row's broader boundary without inventing a complete fourth-chapter read. Prologue/glossary, blurb, memory and mixed labels remain separate. The stated23checkedworks is the author's report, not a new source-receipt audit. Later Kindle/stub/current availability, ratings and follower counts were not reverified.\n\nUseful mechanisms remain distinct: upward descendant→ancestor feedback, office-held power versus holder tenure, diegetic reset, domain-split faculty, practice-unlocked attributes, narrative role/tropes, single-channel growth, deferred commitment and completed delegation. Their particular caps,100returns, weaker predictions, school norms, one seat, death reset and impediments are source-specific claims or suggested adaptations, not universal rules or required balancing. Gifted's potential-percent interpretation is explicitly the protagonist's unconfirmed guess. Distant trap credit is not arbitrary global kill credit; a paid guild lesson does not become owned faculty merely through a title. Similar skill-milestone names do not prove a native adapter is already implemented or make one the cheapest slice. Root/current PROJECT and AD32/AD38/AD51/AD52 govern later selection, allowing strong useful ordinary skills, coherent body/function/knowledge carriers and long play. The top-eight ranking is a dated design recommendation, not a current reader queue or personal book recommendation. All source-prose, quoted/cited pages and runtime behaviors retain their original bounded support; none was freshly accessed here.",
+      "before_sha256": "7da82b906a2a4fc1238b1fe73d5292bdbcfcf3ffd6ded107153f05a902df5f74",
+      "after_sha256": "f2fe395413cdcc3e10a85e0348cbe1567b1a3852f3f10ca223bfa1a5e683eae3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 206
+}

@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "batch": "B528",
+  "title": "Vivid flow palette and runtime correctness/tooling audit qualifications",
+  "at": "2026-11-05T09:50:04.358371+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/proto23/VIVID_AND_UI_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "ids": [
+        "V1–V29",
+        "CRL7",
+        "CRL9–CRL12",
+        "CRL15–CRL26",
+        "CRJ1",
+        "CRJ5–CRJ7"
+      ],
+      "classification": "dated proposal/audit palette with later authority or implementation qualification",
+      "owners": [
+        "docs/research/proto23/VIVID_AND_UI_FLOW_CONSIDERATIONS_2026-10-13.md"
+      ],
+      "disposition": "V1–V29 preserve the user's interest in Vivid framing and Proto23 discovery/flow as a palette, not implementation proof or a replacement look owner. Fresh-browser default versus stored preference, category versus rarity, semantic colors plus non-hue cues, world/time accents, reduced motion and optional sound remain useful separately. Post-settlement anchored deltas, read-respecting logs, once-per-discovery markers and stable panel/focus/scroll positions must not change gameplay or replay on reload. Compression retains different tools/outcomes/thresholds/stop reasons and separates historical event preview from opening the current subject. Corc tooltip chronology remains unresolved, not a rejected-final design claim. Tiny spatial scenes, slip/response/landing and actor reactions can use real state without a new physics/map/companion engine or a hidden reaction-time demand. The later round explicitly retires the old 1366 viewport gate for current desktop targets; saved ACT NOW means documentation, not delivered effects or defaults.",
+      "evidence": "Actual complete reads: Vivid111 lines; micro1–90 then recovered91–161 after outer truncation, with final tail confirmation; stack recovered1–45,46–90,91–162 after outer truncation. Root engine matching ER3/ER9/MC35–37/AD39 rows inspected only. No external API browsing, installed-state verification, code fixes or rerun of historical probes.",
+      "reopen": "Select a named current consumer and inspect current code/source generation before implementing or benchmarking; qualify source-local codes and use current desktop, AD39, persistence and world-policy owners.",
+      "input_sha256": "bb418596d22706f8f3291e230d3e51784d28e9af187b25d4fbdf3d6af6417d35",
+      "input_lines": 111,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          111
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/MICRO_CORRECTNESS_AUDIT_2026-10-14.md",
+      "ids": [
+        "ER9-F1–F14",
+        "ER9-M1–M5",
+        "ER9-R1–R10",
+        "ER9-C1–C8",
+        "ER9-A1–A5",
+        "Lane E"
+      ],
+      "classification": "dated proposal/audit palette with later authority or implementation qualification",
+      "owners": [
+        "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "ER9-F1–F14, M1–M5, R1–R10, C1–C8 and A1–A5 retain synthetic source findings distinct from ordinary runtime reachability. Pre-stringify nonfinite/DTO loss, post-durable render failure and asynchronous import overlap are conditional risks, not proven current save corruption or double reward. Intended integer uniformity requires a caller policy before changing the measured round-based distribution. Local-life jump versus split difference was documented observation-based policy, not owed backpay; scheduler partition comparison must resubmit unspent time and match changing contexts. Tiny fullness drift, locale sort differences and formatter mutation do not establish actual current downstream wrong outcomes or justify an engine rewrite. The 63 literal Math.random sites are 24 cosmetic,36 gameplay and3 injectable defaults at that snapshot, not63 unconditional draws. Later Lane E reports seeded gameplay migration and a throwing combat-math default; preserve that supersession instead of treating the opening RNG inventory as current. Its lazy stream compatibility and canonical replay claim remain attributed lane evidence, not a freshly run whole-game replay here. Important code collision: ER9-local proposed MC35=integer distribution, MC36=commit phase versus notification failure, MC37=mutating read-only helpers. Root-palette MC35=retcon integrity, MC36=instance ID drift and MC37=crossover double apply. Cite ER9-A2/A3/A5 or qualified ER9-local names rather than silently aliasing these unrelated root codes. No registered code is added or renumbered by this reconciliation.",
+      "evidence": "Actual complete reads: Vivid111 lines; micro1–90 then recovered91–161 after outer truncation, with final tail confirmation; stack recovered1–45,46–90,91–162 after outer truncation. Root engine matching ER3/ER9/MC35–37/AD39 rows inspected only. No external API browsing, installed-state verification, code fixes or rerun of historical probes.",
+      "reopen": "Select a named current consumer and inspect current code/source generation before implementing or benchmarking; qualify source-local codes and use current desktop, AD39, persistence and world-policy owners.",
+      "input_sha256": "8a719a7db901366cdc567a587e2a417888562957c38dab8581fb0ae106bae132",
+      "input_lines": 161,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          161
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/TECH_STACK_OPTIONS_2026-10-14.md",
+      "ids": [
+        "ER3-F1–F6",
+        "ER3-T1–T16",
+        "ER3-N1–N5",
+        "ER3-A1–A5"
+      ],
+      "classification": "dated proposal/audit palette with later authority or implementation qualification",
+      "owners": [
+        "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "ER3-T1–T16 and N1–N5 are dated options with inferred costs, not benchmarks, installed capability or current package specifications. AD39 supersedes its no-host-selected conclusion with Electron plus web; the Tauri/PWA comparisons remain useful historical tradeoffs. Runtime transpilation is distinct from checking; include is not an import firewall. Browser context isolation is distinct from frozen served bytes; same-context same-origin tabs exercise shared writer exclusion. Async storage must await actual commit before publication, and OPFS plus IndexedDB do not become one transaction. Worker/shell/throttling settings cannot guarantee sleep/exit execution or choose offline policy. Cosmetic signals/templates/islands must consume published projections without a second gameplay store; WASM and shared buffers require measured kernel/copy benefit. Compression is a codec/compatibility choice, not semantic durability; origin persistence is not backup. Exact bounded integers, decimal economics and approximate extreme magnitudes remain distinct domains. Steam release, host QA and real migration proofs stay separate; no new dependencies, external research, installation or benchmark is authorized by preserving this palette.",
+      "evidence": "Actual complete reads: Vivid111 lines; micro1–90 then recovered91–161 after outer truncation, with final tail confirmation; stack recovered1–45,46–90,91–162 after outer truncation. Root engine matching ER3/ER9/MC35–37/AD39 rows inspected only. No external API browsing, installed-state verification, code fixes or rerun of historical probes.",
+      "reopen": "Select a named current consumer and inspect current code/source generation before implementing or benchmarking; qualify source-local codes and use current desktop, AD39, persistence and world-policy owners.",
+      "input_sha256": "b1764ccb0180b61f515be26d57a4310704d54655fc658f51cffe783a0cb72a54",
+      "input_lines": 162,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          162
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/proto23/VIVID_AND_UI_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "heading": "## Content reconciliation B528: useful flow ideas and current gates",
+      "body": "V1–V29 preserve the user's interest in Vivid framing and Proto23 discovery/flow as a palette, not implementation proof or a replacement look owner. Fresh-browser default versus stored preference, category versus rarity, semantic colors plus non-hue cues, world/time accents, reduced motion and optional sound remain useful separately. Post-settlement anchored deltas, read-respecting logs, once-per-discovery markers and stable panel/focus/scroll positions must not change gameplay or replay on reload. Compression retains different tools/outcomes/thresholds/stop reasons and separates historical event preview from opening the current subject. Corc tooltip chronology remains unresolved, not a rejected-final design claim. Tiny spatial scenes, slip/response/landing and actor reactions can use real state without a new physics/map/companion engine or a hidden reaction-time demand. The later round explicitly retires the old 1366 viewport gate for current desktop targets; saved ACT NOW means documentation, not delivered effects or defaults.\n\nDESIGN, UI_RULES and the current thematic UI owner govern any selected implementation. Preserve the palettes and source chronology; no new visual default or runtime effect was delivered by this content review.",
+      "before_sha256": "bb418596d22706f8f3291e230d3e51784d28e9af187b25d4fbdf3d6af6417d35",
+      "after_sha256": "e7cf82ce0f3db337b20ebe80480f897bf10b38e76412dcdc4ede0c9516332a3d"
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B528: ER9 evidence, code collisions and ER3 options",
+      "body": "F1: ER9-F1–F14, M1–M5, R1–R10, C1–C8 and A1–A5 retain synthetic source findings distinct from ordinary runtime reachability. Pre-stringify nonfinite/DTO loss, post-durable render failure and asynchronous import overlap are conditional risks, not proven current save corruption or double reward. Intended integer uniformity requires a caller policy before changing the measured round-based distribution. Local-life jump versus split difference was documented observation-based policy, not owed backpay; scheduler partition comparison must resubmit unspent time and match changing contexts. Tiny fullness drift, locale sort differences and formatter mutation do not establish actual current downstream wrong outcomes or justify an engine rewrite. The 63 literal Math.random sites are 24 cosmetic,36 gameplay and3 injectable defaults at that snapshot, not63 unconditional draws. Later Lane E reports seeded gameplay migration and a throwing combat-math default; preserve that supersession instead of treating the opening RNG inventory as current. Its lazy stream compatibility and canonical replay claim remain attributed lane evidence, not a freshly run whole-game replay here.\n\nF2: Important code collision: ER9-local proposed MC35=integer distribution, MC36=commit phase versus notification failure, MC37=mutating read-only helpers. Root-palette MC35=retcon integrity, MC36=instance ID drift and MC37=crossover double apply. Cite ER9-A2/A3/A5 or qualified ER9-local names rather than silently aliasing these unrelated root codes. No registered code is added or renumbered by this reconciliation.\n\nF3: ER3-T1–T16 and N1–N5 are dated options with inferred costs, not benchmarks, installed capability or current package specifications. AD39 supersedes its no-host-selected conclusion with Electron plus web; the Tauri/PWA comparisons remain useful historical tradeoffs. Runtime transpilation is distinct from checking; include is not an import firewall. Browser context isolation is distinct from frozen served bytes; same-context same-origin tabs exercise shared writer exclusion. Async storage must await actual commit before publication, and OPFS plus IndexedDB do not become one transaction. Worker/shell/throttling settings cannot guarantee sleep/exit execution or choose offline policy. Cosmetic signals/templates/islands must consume published projections without a second gameplay store; WASM and shared buffers require measured kernel/copy benefit. Compression is a codec/compatibility choice, not semantic durability; origin persistence is not backup. Exact bounded integers, decimal economics and approximate extreme magnitudes remain distinct domains. Steam release, host QA and real migration proofs stay separate; no new dependencies, external research, installation or benchmark is authorized by preserving this palette.",
+      "before_sha256": "10bfa1e385d61233b8c45a880d290ce42a5ab7740a65160d72563ef8df5fa15e",
+      "after_sha256": "9193f381301b591360a60416dce9933ff1ff1db268323bccd1292636d4505e26"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 181
+}

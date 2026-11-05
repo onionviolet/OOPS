@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "batch": "B423",
+  "title": "Three complete scale receipts: final paired metrics and later behavior repairs",
+  "at": "2026-11-05T05:23:24.501187+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P6_CHECKPOINT.md",
+      "ids": [
+        "tiers/role-boundary behavior;179bodies×372samples;pairedratios"
+      ],
+      "classification": "complete cast-scale performance receipt with actual late metrics, representation and behavior corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "Pack records and enrolled bodies differ because aliases/historical references do not create duplicate people. Most of180 role records have no schedule; only15 have actual rows. Compiled schedules retain recurrence/precedence/expiry semantics while non-consuming due checks preserve rejected-plan same-clock retries. Role physical repair moves to its authored boundary; principal/recurring behavior and actual observed/work/native-bound role contexts retain their existing paths. This is an explicit checked role policy, not a general removal of saved bodies, knowledge or action eligibility. Earlier contended candidate/live ratios2.09/2.19 miss the1.5 target. Final alternating frozen-input samples after the competing matrix exits give1.104minute/1.076wait and close the Node relative target; they do not close Chrome/natural pacing. Final47-test and two-pack exact state/save differentials,179-role actual body samples and scheduler matrix have distinct scopes; a later2pass/1skip invocation does not erase the earlier explicit-baseline4/4 result. Prepared main/domain joins and combined browser/source/pack adoption remain historical owner work.",
+      "evidence": "Complete actual file read including all initial/final tables, paired samples, scopes and P8 resumes1–3. No current source/pack/profile/Chrome or synthetic fixture execution; reported metrics remain dated evidence.",
+      "reopen": "Follow current owning sources and chosen invariant before any later optimization; retain exact source/consumer/browser/current-input gaps rather than extrapolating old ratios.",
+      "input_sha256": "a481eef5803a6b9b89e7be880a5421fcc2b34c780c4cbff2e765fb0a7d7aeaad",
+      "input_lines": 174,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          174
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P7_CHECKPOINT.md",
+      "ids": [
+        "all-actor read cost;body-vitals probes;1.028/1.101Node ratios"
+      ],
+      "classification": "complete cast-scale performance receipt with actual late metrics, representation and behavior corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The opening investigating label is superseded by the final implemented-below-floor release. It corrects the brief’s stale premise: P6 already suppresses idle remote-role full facts/contexts, so adding a second role cache would target reads not being made. Remaining all-body vitals-presence scans and repeated normalization/dictionary copying are distinct costs. Reuse stays within existing state/revision/read-frame lifetime, mutations invalidate or bypass it and supplied staged vitals retain precedence; maps are caller-owned rather than sparse authoritative state. Cheap role probes fall891to473 per role, not zero actor work or constant-time whole-game simulation. Final paired Node ratios1.028minute/1.101wait and exact state/save/role-context checks qualify the frozen slice; noisy before-candidate timing does not imply negative actor cost. The pre-P6 baseline skip and unrelated concurrently edited topic dependency remain explicit. Browser, installed app and whole-current-tree equivalence are not established.",
+      "evidence": "Complete actual file read including all initial/final tables, paired samples, scopes and P8 resumes1–3. No current source/pack/profile/Chrome or synthetic fixture execution; reported metrics remain dated evidence.",
+      "reopen": "Follow current owning sources and chosen invariant before any later optimization; retain exact source/consumer/browser/current-input gaps rather than extrapolating old ratios.",
+      "input_sha256": "376d0265a41e6a6d9cdde6d6c5d83a6bd7ddfaa2f9443b7b74ce560ec383efb6",
+      "input_lines": 126,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          126
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P8_CHECKPOINT.md",
+      "ids": [
+        "123540walkdefs;256compatibilitycutoff;lazybody/place;resumes1–3"
+      ],
+      "classification": "complete cast-scale performance receipt with actual late metrics, representation and behavior corrections",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md"
+      ],
+      "disposition": "The measured eager all-pair walk generation is replaced by on-demand command definitions with actual registry validation and saved-job reconstruction. Large-pack bodies materialize through actual scheduled projection/work references; the seated lead remains the player. The256-person eager/lazy cutoff is an implementation compatibility default, not product scope or schema authority. Small-pack exact state/save parity differs from whole-book sampled actor/location and active-walk restore evidence;1500definitions/1516places do not imply complete lives, source qualification or all native bodies. Original Node scale/load target differs from the later coordinator Chrome wait miss (1.85×), be-start failure and pack rollback. Resume1 shares a read-only journey context and admits all616offers in Node; its interrupted baseline has no completed before timing or independent Chrome-crash cause. Resume2 explicitly supersedes all-remote-offer requirements with actual-origin/local-or-pending journeys and acts, preserving real preview/reason/canon/transaction checks. Exact60-minute state/save parity and independent1.151× Node ratio do not measure Chrome detached-entry/peak memory or prove its stall repaired. Resume3 then restores known/met people’s away topics and disabled reasons, while unknown people remain gated and journeys/acts retain local-or-pending scope. The24pass/1fail CN11 run is blocked at loopback startup after source/build correction; separate four-fixture Node load checks do not replace complete Chrome assertions. Prior browser31-minutes/20-seconds evidence belongs to the earlier candidate, not the changed topic version. Preserve every old failure, rebase, compatibility boundary, skip and pending rebuilt route.",
+      "evidence": "Complete actual file read including all initial/final tables, paired samples, scopes and P8 resumes1–3. No current source/pack/profile/Chrome or synthetic fixture execution; reported metrics remain dated evidence.",
+      "reopen": "Follow current owning sources and chosen invariant before any later optimization; retain exact source/consumer/browser/current-input gaps rather than extrapolating old ratios.",
+      "input_sha256": "94ff66de4176bea7125e0ea3b97c4e7e999b6b93e242fe59c8616c3b5e08359d",
+      "input_lines": 233,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          233
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+      "heading": "## Content reconciliation B423: actual scale results and late regression corrections",
+      "body": "Three complete scale receipts were read through their final release/resume boundaries. Their initial statuses, differing input packs and timing phases are retained instead of collapsed into one performance claim.\n\n**P6:** Pack records and enrolled bodies differ because aliases/historical references do not create duplicate people. Most of180 role records have no schedule; only15 have actual rows. Compiled schedules retain recurrence/precedence/expiry semantics while non-consuming due checks preserve rejected-plan same-clock retries. Role physical repair moves to its authored boundary; principal/recurring behavior and actual observed/work/native-bound role contexts retain their existing paths. This is an explicit checked role policy, not a general removal of saved bodies, knowledge or action eligibility. Earlier contended candidate/live ratios2.09/2.19 miss the1.5 target. Final alternating frozen-input samples after the competing matrix exits give1.104minute/1.076wait and close the Node relative target; they do not close Chrome/natural pacing. Final47-test and two-pack exact state/save differentials,179-role actual body samples and scheduler matrix have distinct scopes; a later2pass/1skip invocation does not erase the earlier explicit-baseline4/4 result. Prepared main/domain joins and combined browser/source/pack adoption remain historical owner work.\n\n**P7:** The opening investigating label is superseded by the final implemented-below-floor release. It corrects the brief’s stale premise: P6 already suppresses idle remote-role full facts/contexts, so adding a second role cache would target reads not being made. Remaining all-body vitals-presence scans and repeated normalization/dictionary copying are distinct costs. Reuse stays within existing state/revision/read-frame lifetime, mutations invalidate or bypass it and supplied staged vitals retain precedence; maps are caller-owned rather than sparse authoritative state. Cheap role probes fall891to473 per role, not zero actor work or constant-time whole-game simulation. Final paired Node ratios1.028minute/1.101wait and exact state/save/role-context checks qualify the frozen slice; noisy before-candidate timing does not imply negative actor cost. The pre-P6 baseline skip and unrelated concurrently edited topic dependency remain explicit. Browser, installed app and whole-current-tree equivalence are not established.\n\n**P8:** The measured eager all-pair walk generation is replaced by on-demand command definitions with actual registry validation and saved-job reconstruction. Large-pack bodies materialize through actual scheduled projection/work references; the seated lead remains the player. The256-person eager/lazy cutoff is an implementation compatibility default, not product scope or schema authority. Small-pack exact state/save parity differs from whole-book sampled actor/location and active-walk restore evidence;1500definitions/1516places do not imply complete lives, source qualification or all native bodies. Original Node scale/load target differs from the later coordinator Chrome wait miss (1.85×), be-start failure and pack rollback. Resume1 shares a read-only journey context and admits all616offers in Node; its interrupted baseline has no completed before timing or independent Chrome-crash cause. Resume2 explicitly supersedes all-remote-offer requirements with actual-origin/local-or-pending journeys and acts, preserving real preview/reason/canon/transaction checks. Exact60-minute state/save parity and independent1.151× Node ratio do not measure Chrome detached-entry/peak memory or prove its stall repaired. Resume3 then restores known/met people’s away topics and disabled reasons, while unknown people remain gated and journeys/acts retain local-or-pending scope. The24pass/1fail CN11 run is blocked at loopback startup after source/build correction; separate four-fixture Node load checks do not replace complete Chrome assertions. Prior browser31-minutes/20-seconds evidence belongs to the earlier candidate, not the changed topic version. Preserve every old failure, rebase, compatibility boundary, skip and pending rebuilt route.\n\nDerived indexes, read frames, lazy definitions, body materialization and UI offer projection have separate contracts. Preserve physical/knowledge/cost/support/save behavior at the actual owner; optimize the measured work without silently hiding a known disabled action or removing a needed controller boundary. Node diagnostics, exact frozen differentials, check-time builds, browser route proof and installed application state stay separate. This reconciliation selects no runtime work, pack swap, new reader, deletion, commit or push.",
+      "before_sha256": "c3d3d62eeaf25c192167c78a4eba28f215e240c6acbf37fe054028b7999f4399",
+      "after_sha256": "478481f5df9277701f7a22fe820365951e215d361fb990ee3f00809aa7b788e7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 463,
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "a871417a2be5cbb1e72e9844a7a09e168c85f8e181fd0f42de5e0ae20007c19f",
+      "to": "ead23336d4433f074d437df605f5bfc9b6d61ff65655e68e55b2a3cd04116eca",
+      "reason": "Advance existing active reconciliation pointer to B423; full remaining scope unchanged."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "source": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_MAP.json",
+  "source_sha256": "c390065fcd29280dd9e11810ba5bb9bd440cc930c453367d81f889466ea68c31",
+  "source_lines": 10909,
+  "view": "docs/audits/reconciliation-2026-11-04/taiwu-family-lossless-view-b589.json",
+  "view_sha256": "3858ea5e935a0c04a16be326c2dc1a4482ebbc6a3ee58ba861c0dc2efeb702d0",
+  "roundtrip_equal": true,
+  "kind_counts": {
+    "config_table": 306,
+    "domain": 21,
+    "backend_module": 17,
+    "deep_system": 15
+  },
+  "status_counts": {
+    "selected_mechanism_partial": 72,
+    "inventoried_unread": 247,
+    "previously_documented_partial": 31,
+    "inventoried_module_partial": 9
+  },
+  "owner_blocks": 31,
+  "review_scope": "Actual all31owner blocks, common header/evidence/prior values and all359records read from losslessly factored bounded output; source semantic bodies not read."
+}

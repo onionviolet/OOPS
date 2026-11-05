@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "batch": "B476",
+  "title": "Destination depth, native craft RNG, gate inputs and R1 tooling: complete evidence review",
+  "at": "2026-11-05T07:22:21.274704+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/proto23/DEPTH_AUDIT.md",
+      "ids": [
+        "9destinations;Frontier684+30expansion/61native28+24+9;Proto23source/ORIGINALpacket"
+      ],
+      "classification": "complete depth/RNG/input/tooling evidence record with actual consumer and later-state boundaries",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/proto23/DEPTH_AUDIT.md"
+      ],
+      "disposition": "The complete37-line depth audit was read with its source/depth checkpoint. Counts are player simulation definitions and explicit location strings, excluding NPC jobs, field-care, enrollment/cancel, dialogue and encounter responses. They are neither independent quests, accessible places, authored arcs nor hours of play. Frontier's28+24+9=61 native declaration partition includes locked content. Repeated services still require actual stock, demand and supported clocks; lack of an unlimited funded loop is not a design prohibition. Broader versus pocket depth is a structural inference at the captured inputs, not natural reachability or pacing proof.\n\nPreserve source/player distinctions: the supplied-MTL Goa setting is novel-presented, not an independently complete franchise adaptation; the visitor retains its own body. Cyoria's visitor does not automatically receive the protagonist's mana/body/loop. Frontier is the preserved expanded branch dimension, not an additional pristine counterpart. Proto23's pinned HTML, six-path tree and no-license/null metadata were bounded source observations; no current license grant/absence or full-game parity follows. Original guest cottage, identities, costs, stock and native consequences are labeled adaptation, with incidental food text not establishing a village proper name. Current [PROJECT](../../../../PROJECT.md), [world pass rules](../../../WORLD_PASS_RULES.md), AD36/AD43 and actual world owners govern selected followthrough. No source site/HTML, native registry, private dossier, runtime/test/build/browser or current installation was newly opened. Historical source-only release does not negate later scoped integration or authorize resuming a wave.",
+      "evidence": "Complete37/39/39/39-line bodies read; Proto23/progression checkpoint tails and R1 publication scope were later context, not fresh source/runtime proof. No original private artifacts or code executed.",
+      "reopen": "Recover named original claim/consumer and current owning evidence before implementation or publication status; preserve original hashes, failed checks and unmeasured outcomes.",
+      "input_sha256": "8367fa7bb1b8df31b20525182e94d685905ae40fc895d1d0b0c55f531e4b3179",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/HORIZON_RECONCILIATION_CRAFT_RNG.md",
+      "ids": [
+        "D1/F1–5/U03–04/X17/I04/K03/G3;Q4atomiccraft;9inputbindings"
+      ],
+      "classification": "complete depth/RNG/input/tooling evidence record with actual consumer and later-state boundaries",
+      "owners": [
+        "docs/gm/dispatch/foundation-completion-2026-10-12/HORIZON_RECONCILIATION_CRAFT_RNG.md"
+      ],
+      "disposition": "All39 lines and nine input bindings were read. The finite gate distinguishes project-owned random streams/committed outcomes from upstream Math.random, whose hidden generator state this project neither stores nor restores. A deterministic chance/quality modifier and a ledger sequence are not a new RNG owner. The inspected selected native craft path staged item/XP/ledger effects with rollback; the record does not promise identical uncommitted quality on retry. Successfully stored output stays exact; a rejected attempt can consume platform entropy while restoring owned data. This is a scoped source/application conclusion, not a global exception to save integrity or permission for preview draws.\n\nF5's publication/rollback description and Q4's remaining actual failed-write→retry→native roundtrip gate were source reasoning and an unrun request at this snapshot. Do not mark that journey passed from this document or revive it as today's blanket blocker without its later owner evidence. A future selected same-outcome retry, replay, luck/fate or durable craft-draw contract needs its own actual stream/result mechanism. Current [PROJECT](../../../../PROJECT.md), [architecture rules](../../../ARCHITECTURE_RULES.md), AD22/AD36/AD43 govern the selected consumer. No original source body, current platform state, random draw, native craft, test/build/browser or personal save was inspected or executed. Historical hashes and source routing remain history, not a broad current RNG audit.",
+      "evidence": "Complete37/39/39/39-line bodies read; Proto23/progression checkpoint tails and R1 publication scope were later context, not fresh source/runtime proof. No original private artifacts or code executed.",
+      "reopen": "Recover named original claim/consumer and current owning evidence before implementation or publication status; preserve original hashes, failed checks and unmeasured outcomes.",
+      "input_sha256": "deff869c14151269ae78459550e83bf595b22482c810ebc4d85fd0c726c4f9ce",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/progression-gates-2026-10-23/D1_INPUT_RECEIPT.md",
+      "ids": [
+        "GAPF1/GTL2/3/6;13files/7tracked6new;HERB_LESSON_GATE/importclosure"
+      ],
+      "classification": "complete depth/RNG/input/tooling evidence record with actual consumer and later-state boundaries",
+      "owners": [
+        "docs/gm/dispatch/progression-gates-2026-10-23/D1_INPUT_RECEIPT.md"
+      ],
+      "disposition": "All39 lines were reviewed with the progression checkpoint's later integration/release entries. This input manifest describes the exact dirty/untracked primary closure at its frozen HEAD, including indirect registry projection and the reveal-chain lesson gate. An importer or hash does not prove consumer behavior. Seven tracked dirty files as gate hunks and six then-untracked whole files differ from unrelated owner patches; the two grown doc hashes intentionally differ from an older checkpoint. Preserve these original bytes and exclusions rather than copying a historical whole dirty file or assuming all future hunks still belong to D1.\n\nThe later checkpoint records D1/D3/Paradise source landing via an O/F/A integration candidate, qualifying the receipt's untracked/missing-dependency status. It explicitly does not verify receiver combined gates or push. Worktree release by one owner does not release D2 or establish a currently idle process. The reproduce command and archived-path instructions are history, not an assignment to apply patches or retire worktrees now. Current [PROJECT](../../../../PROJECT.md), [progression rules](../../../PROGRESSION_GATE_RULES.md), AD32/AD36/AD51 govern a selected seam. No source file, patch package, branch/ref, build, suite, browser, user save or live worker was newly verified.",
+      "evidence": "Complete37/39/39/39-line bodies read; Proto23/progression checkpoint tails and R1 publication scope were later context, not fresh source/runtime proof. No original private artifacts or code executed.",
+      "reopen": "Recover named original claim/consumer and current owning evidence before implementation or publication status; preserve original hashes, failed checks and unmeasured outcomes.",
+      "input_sha256": "b6965629e7703e971bc0d4f1639c100283cd3e38c9f196bfe1398738b835c50b",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/r1-follow-through-2026-10-26/RECEIPT.md",
+      "ids": [
+        "Q14/IPC66/Q18C1/Q11IPC80/F1–3;8sync4correction;619/116/137/30/334"
+      ],
+      "classification": "complete depth/RNG/input/tooling evidence record with actual consumer and later-state boundaries",
+      "owners": [
+        "docs/gm/dispatch/r1-follow-through-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "The complete39-line receipt was read with the full short publication-scope record. The generator-managed agreement repair preserves host text and static loading routes;15552 fewer repo bytes is not measured tokenizer/cache saving, fresh-session behavior or model compliance. This already-loaded chat could retain an older injected snapshot. Eight sync and four correction regressions establish bounded tooling invariants, not precision/recall or a demonstrated reduction in repeated corrections, elapsed delivery or verification cost. The older395 detector count stays unverified. No matched completed before/after deliveries means outcome improvement remains unknown.\n\nNested619 rows,116 bullets/137 occurrences,30 cards and334 locators are distinct denominators. Nine spot checks qualify stale labels; metadata/card/hash coverage is not current runtime or whole-source evidence. Retained Q/P ideas remain unselected. Original receipt failure on another chat's missing fence, own scoped checks and later3226-test dirty-tree pre-commit run retain their separate scope; none is a clean export, browser release or installed app proof.\n\nPUBLICATION states authorization and pre-commit evidence, while actual branch/remote publication was to be established by reported hashes elsewhere. This reconciliation did not inspect that remote/chat evidence. Repo pointer publication differs from canonical vault/home changes remaining local; no vault publish or new preference edit is selected. Current [PROJECT](../../../../PROJECT.md), the existing preference generator, AD32/AD36 and native owner routing govern current work. Unapplied owner hunks remain proposals for hunk integration, not proof the shared queues/direction changed. No vault/home instruction file, private backup/raw log, sync/correction tool, remote, test/build/browser or personal save was newly accessed or run; no commit, push, rollback or publication occurred.",
+      "evidence": "Complete37/39/39/39-line bodies read; Proto23/progression checkpoint tails and R1 publication scope were later context, not fresh source/runtime proof. No original private artifacts or code executed.",
+      "reopen": "Recover named original claim/consumer and current owning evidence before implementation or publication status; preserve original hashes, failed checks and unmeasured outcomes.",
+      "input_sha256": "ea6198c010e238830bcf7053670e286b92fa38a99acb49d00c49c423f08dd16b",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/proto23/DEPTH_AUDIT.md",
+      "heading": "## Content reconciliation B476: complete record and current evidence boundary",
+      "body": "The complete37-line depth audit was read with its source/depth checkpoint. Counts are player simulation definitions and explicit location strings, excluding NPC jobs, field-care, enrollment/cancel, dialogue and encounter responses. They are neither independent quests, accessible places, authored arcs nor hours of play. Frontier's28+24+9=61 native declaration partition includes locked content. Repeated services still require actual stock, demand and supported clocks; lack of an unlimited funded loop is not a design prohibition. Broader versus pocket depth is a structural inference at the captured inputs, not natural reachability or pacing proof.\n\nPreserve source/player distinctions: the supplied-MTL Goa setting is novel-presented, not an independently complete franchise adaptation; the visitor retains its own body. Cyoria's visitor does not automatically receive the protagonist's mana/body/loop. Frontier is the preserved expanded branch dimension, not an additional pristine counterpart. Proto23's pinned HTML, six-path tree and no-license/null metadata were bounded source observations; no current license grant/absence or full-game parity follows. Original guest cottage, identities, costs, stock and native consequences are labeled adaptation, with incidental food text not establishing a village proper name. Current [PROJECT](../../../../PROJECT.md), [world pass rules](../../../WORLD_PASS_RULES.md), AD36/AD43 and actual world owners govern selected followthrough. No source site/HTML, native registry, private dossier, runtime/test/build/browser or current installation was newly opened. Historical source-only release does not negate later scoped integration or authorize resuming a wave.",
+      "before_sha256": "8367fa7bb1b8df31b20525182e94d685905ae40fc895d1d0b0c55f531e4b3179",
+      "after_sha256": "8ac7e342e98d451b42fbdc1d4b19975849b73694ef16ae931aa21d3b01d8353f"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/HORIZON_RECONCILIATION_CRAFT_RNG.md",
+      "heading": "## Content reconciliation B476: complete record and current evidence boundary",
+      "body": "All39 lines and nine input bindings were read. The finite gate distinguishes project-owned random streams/committed outcomes from upstream Math.random, whose hidden generator state this project neither stores nor restores. A deterministic chance/quality modifier and a ledger sequence are not a new RNG owner. The inspected selected native craft path staged item/XP/ledger effects with rollback; the record does not promise identical uncommitted quality on retry. Successfully stored output stays exact; a rejected attempt can consume platform entropy while restoring owned data. This is a scoped source/application conclusion, not a global exception to save integrity or permission for preview draws.\n\nF5's publication/rollback description and Q4's remaining actual failed-write→retry→native roundtrip gate were source reasoning and an unrun request at this snapshot. Do not mark that journey passed from this document or revive it as today's blanket blocker without its later owner evidence. A future selected same-outcome retry, replay, luck/fate or durable craft-draw contract needs its own actual stream/result mechanism. Current [PROJECT](../../../../PROJECT.md), [architecture rules](../../../ARCHITECTURE_RULES.md), AD22/AD36/AD43 govern the selected consumer. No original source body, current platform state, random draw, native craft, test/build/browser or personal save was inspected or executed. Historical hashes and source routing remain history, not a broad current RNG audit.",
+      "before_sha256": "deff869c14151269ae78459550e83bf595b22482c810ebc4d85fd0c726c4f9ce",
+      "after_sha256": "a60b887e080f070f3893b53c585366e2ce734533f1a2e975fc742e41f4286c53"
+    },
+    {
+      "path": "docs/gm/dispatch/progression-gates-2026-10-23/D1_INPUT_RECEIPT.md",
+      "heading": "## Content reconciliation B476: complete record and current evidence boundary",
+      "body": "All39 lines were reviewed with the progression checkpoint's later integration/release entries. This input manifest describes the exact dirty/untracked primary closure at its frozen HEAD, including indirect registry projection and the reveal-chain lesson gate. An importer or hash does not prove consumer behavior. Seven tracked dirty files as gate hunks and six then-untracked whole files differ from unrelated owner patches; the two grown doc hashes intentionally differ from an older checkpoint. Preserve these original bytes and exclusions rather than copying a historical whole dirty file or assuming all future hunks still belong to D1.\n\nThe later checkpoint records D1/D3/Paradise source landing via an O/F/A integration candidate, qualifying the receipt's untracked/missing-dependency status. It explicitly does not verify receiver combined gates or push. Worktree release by one owner does not release D2 or establish a currently idle process. The reproduce command and archived-path instructions are history, not an assignment to apply patches or retire worktrees now. Current [PROJECT](../../../../PROJECT.md), [progression rules](../../../PROGRESSION_GATE_RULES.md), AD32/AD36/AD51 govern a selected seam. No source file, patch package, branch/ref, build, suite, browser, user save or live worker was newly verified.",
+      "before_sha256": "b6965629e7703e971bc0d4f1639c100283cd3e38c9f196bfe1398738b835c50b",
+      "after_sha256": "859dee2b6fb69d744a1ade9b3714f86a8da44cb34a5a0559452c614473580806"
+    },
+    {
+      "path": "docs/gm/dispatch/r1-follow-through-2026-10-26/RECEIPT.md",
+      "heading": "## Content reconciliation B476: complete record and current evidence boundary",
+      "body": "The complete39-line receipt was read with the full short publication-scope record. The generator-managed agreement repair preserves host text and static loading routes;15552 fewer repo bytes is not measured tokenizer/cache saving, fresh-session behavior or model compliance. This already-loaded chat could retain an older injected snapshot. Eight sync and four correction regressions establish bounded tooling invariants, not precision/recall or a demonstrated reduction in repeated corrections, elapsed delivery or verification cost. The older395 detector count stays unverified. No matched completed before/after deliveries means outcome improvement remains unknown.\n\nNested619 rows,116 bullets/137 occurrences,30 cards and334 locators are distinct denominators. Nine spot checks qualify stale labels; metadata/card/hash coverage is not current runtime or whole-source evidence. Retained Q/P ideas remain unselected. Original receipt failure on another chat's missing fence, own scoped checks and later3226-test dirty-tree pre-commit run retain their separate scope; none is a clean export, browser release or installed app proof.\n\nPUBLICATION states authorization and pre-commit evidence, while actual branch/remote publication was to be established by reported hashes elsewhere. This reconciliation did not inspect that remote/chat evidence. Repo pointer publication differs from canonical vault/home changes remaining local; no vault publish or new preference edit is selected. Current [PROJECT](../../../../PROJECT.md), the existing preference generator, AD32/AD36 and native owner routing govern current work. Unapplied owner hunks remain proposals for hunk integration, not proof the shared queues/direction changed. No vault/home instruction file, private backup/raw log, sync/correction tool, remote, test/build/browser or personal save was newly accessed or run; no commit, push, rollback or publication occurred.",
+      "before_sha256": "ea6198c010e238830bcf7053670e286b92fa38a99acb49d00c49c423f08dd16b",
+      "after_sha256": "97c31fb19ccdca845934c9e2bcfaf7ba764b35963c6972f48a763f30fde9bb45"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 331
+}

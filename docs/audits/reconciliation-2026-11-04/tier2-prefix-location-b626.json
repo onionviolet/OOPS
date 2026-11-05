@@ -1,0 +1,195 @@
+{
+  "correction": "Original exact-key query used12character prefixes as full hashes; those false negatives are discarded. This prefix lookup is authoritative for this selected metadata/location check.",
+  "rows": [
+    {
+      "receipt": 1,
+      "series": "tensura",
+      "vol": "1",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "2ae93cac5b98",
+      "matched_sha": "2ae93cac5b982895d078f7b1cb5f94e10d0e132ef94fb489a39310aca71caf58",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 1",
+      "on_disk": true
+    },
+    {
+      "receipt": 2,
+      "series": "rezero_arc3",
+      "vol": "1",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 3,
+      "series": "coi_zh",
+      "vol": "1",
+      "ok": true,
+      "status": "deduplicated",
+      "sha_prefix": "f76f8c412e2f",
+      "matched_sha": "f76f8c412e2f18cf3ce0177c99064231cbafd2ae31394bbf6cdd39a86a5e2b37",
+      "matched_title": "宿命之环",
+      "on_disk": true
+    },
+    {
+      "receipt": 4,
+      "series": "fake",
+      "vol": "4",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "da9c9271f111",
+      "matched_sha": "da9c9271f111c71179ceed02d6b62f12b4f094e65399d19af014e2e58598a533",
+      "matched_title": "Fate/Strange Fake 4",
+      "on_disk": true
+    },
+    {
+      "receipt": 5,
+      "series": "fake",
+      "vol": "5",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "a9322b3ed55c",
+      "matched_sha": "a9322b3ed55c0fdea9d2935c305858e6a7e410fa137ff826a469fc62362e8ee6",
+      "matched_title": "Fate/Strange Fake 5",
+      "on_disk": true
+    },
+    {
+      "receipt": 6,
+      "series": "tensura",
+      "vol": "2",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "ad8148553e9d",
+      "matched_sha": "ad8148553e9d9ffbcfa07363ee2c68d51ec19221781661e93273581410d6de47",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 02",
+      "on_disk": true
+    },
+    {
+      "receipt": 7,
+      "series": "tensura",
+      "vol": "3",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "4bcb68aab360",
+      "matched_sha": "4bcb68aab36030b48cc3382dbb6450a60b435f399d9a9f7a7f9aa5637fc639ca",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 03",
+      "on_disk": true
+    },
+    {
+      "receipt": 8,
+      "series": "tensura",
+      "vol": "5",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "2e4a8001aaea",
+      "matched_sha": "2e4a8001aaeae185e7512a6006086f4beb8b5b7f13583773884f8fdad1f9305e",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 5",
+      "on_disk": true
+    },
+    {
+      "receipt": 9,
+      "series": "tensura",
+      "vol": "7",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "356cd2dbd323",
+      "matched_sha": "356cd2dbd3235d4502b530d4c9027c6307842b920312916c2a0dccf96e63ac76",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 07",
+      "on_disk": true
+    },
+    {
+      "receipt": 10,
+      "series": "tensura",
+      "vol": "9",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 11,
+      "series": "tensura",
+      "vol": "10",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "378e47589f91",
+      "matched_sha": "378e47589f913a76ac8b18e0d951caeeafbb071d79c3cc29430f12e7ccaf68ec",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 10",
+      "on_disk": true
+    },
+    {
+      "receipt": 12,
+      "series": "tensura",
+      "vol": "11",
+      "ok": true,
+      "status": "downloaded",
+      "sha_prefix": "8ca6ddb221d6",
+      "matched_sha": "8ca6ddb221d6aced0fc1675f97e15f3f82e22036b9e89d33f998b09b3af0451a",
+      "matched_title": "That Time I Got Reincarnated as a Slime, Vol. 11",
+      "on_disk": true
+    },
+    {
+      "receipt": 13,
+      "series": "tensura",
+      "vol": "12",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 14,
+      "series": "tensura",
+      "vol": "13",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 15,
+      "series": "tensura",
+      "vol": "14",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 16,
+      "series": "tensura",
+      "vol": "15",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 17,
+      "series": "tensura",
+      "vol": "17",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    },
+    {
+      "receipt": 18,
+      "series": "tensura",
+      "vol": "18",
+      "ok": false,
+      "status": null,
+      "sha_prefix": "",
+      "matches": 0,
+      "failure_recorded": true
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "batch": "B407",
+  "title": "Five source maps, connected reports and a later native checkpoint",
+  "at": "2026-11-05T04:54:05.720394+00:00",
+  "head": "2caf5a85e6dcc171d106f61617327a84bca020cc",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/citizen-sleeper/COVERAGE.json",
+      "ids": [
+        "F1–F18; six assigned lenses"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/citizen-sleeper/REPORT.md"
+      ],
+      "disposition": "Bodily condition, food, dice capacity, broken skills, medical access and corporate claims remain separate. Action clocks and cycle clocks have different causes. The 1,398 indexed Ink roots and bounded text windows do not establish complete story or executable graphs. Scene decoding failed and SERIALIZED_TEXT.json failed to write with Errno28; neither is recovered evidence. Exact dice odds, numerical transitions, save RNG and offline policy remain unknown.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "6a7bf05b2a383ed04c603be47bee16b0376bae9079beba85ad955f2e52c7c133",
+      "input_lines": 92,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          92
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/citizen-sleeper/REPORT.md",
+      "ids": [
+        "F1–F18; six assigned lenses"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/citizen-sleeper/REPORT.md"
+      ],
+      "disposition": "Bodily condition, food, dice capacity, broken skills, medical access and corporate claims remain separate. Action clocks and cycle clocks have different causes. The 1,398 indexed Ink roots and bounded text windows do not establish complete story or executable graphs. Scene decoding failed and SERIALIZED_TEXT.json failed to write with Errno28; neither is recovered evidence. Exact dice odds, numerical transitions, save RNG and offline policy remain unknown.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "0cfffc9aa0abfcfbc1076886677713f3b930ff3bf216b689739d92ad5380677d",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/citizen-sleeper-2/COVERAGE.json",
+      "ids": [
+        "F1–F20; contract/crew/stress contrast"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/citizen-sleeper-2/REPORT.md"
+      ],
+      "disposition": "Crew relationships, contract supply, personal stress, damaged dice and difficulty-specific recovery remain useful independent ideas. The 1,596 indexed Ink roots, selected narrative windows and 55 guide records do not prove the executable numerical graph. Conflicting permanent-glitch messages retain unresolved active binding. No successful first-game scene decoder can be inherited as sequel coverage, and no offline work or save/RNG qualification follows.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "dbe83f3a7693b9fd0f13028f0b10cba2dd92f77320afb122e74d41568a45c6e7",
+      "input_lines": 80,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/citizen-sleeper-2/REPORT.md",
+      "ids": [
+        "F1–F20; contract/crew/stress contrast"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/citizen-sleeper-2/REPORT.md"
+      ],
+      "disposition": "Crew relationships, contract supply, personal stress, damaged dice and difficulty-specific recovery remain useful independent ideas. The 1,596 indexed Ink roots, selected narrative windows and 55 guide records do not prove the executable numerical graph. Conflicting permanent-glitch messages retain unresolved active binding. No successful first-game scene decoder can be inherited as sequel coverage, and no offline work or save/RNG qualification follows.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "5933e61f8999aa8f7c0f5ec44041f25529e146100a62ba5dc469ec131c5fb423",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/sucker-for-love-crush-landing/COVERAGE.json",
+      "ids": [
+        "F1–F7; 17 selected instruction bodies"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/sucker-for-love-crush-landing/REPORT.md"
+      ],
+      "disposition": "All 4,034 unique instruction bodies were decoded across 752,914 boundaries without unresolved references or invalid branch boundaries. Manual consequential review covered 17 selected code bodies, not every branch or dialogue route. Typed memories, separately retained endings and preparation callbacks remain optional original proposals. Unused Break-subopcode semantics, native VN dispatch/extensions, localization, reachability and runtime persistence remain unqualified. The later dated verified removal receipt supersedes the earlier unverified request within this historical dossier; neither is a fresh installation check.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "e5020a3291e93b5d357c9594a04f1eabe40b6d59b2e379730827d51e3e82e3fb",
+      "input_lines": 64,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/sucker-for-love-crush-landing/REPORT.md",
+      "ids": [
+        "F1–F7; 17 selected instruction bodies"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/sucker-for-love-crush-landing/REPORT.md"
+      ],
+      "disposition": "All 4,034 unique instruction bodies were decoded across 752,914 boundaries without unresolved references or invalid branch boundaries. Manual consequential review covered 17 selected code bodies, not every branch or dialogue route. Typed memories, separately retained endings and preparation callbacks remain optional original proposals. Unused Break-subopcode semantics, native VN dispatch/extensions, localization, reachability and runtime persistence remain unqualified. The later dated verified removal receipt supersedes the earlier unverified request within this historical dossier; neither is a fresh installation check.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "8d817f90d8d98ae48aaa5548a4a3524cf4ca5b85146ae587a3345d40f16c6f78",
+      "input_lines": 75,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/the-lands-of-eldyn/COVERAGE.json",
+      "ids": [
+        "F1–F5; wrapper-only scope"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/the-lands-of-eldyn/REPORT.md"
+      ],
+      "disposition": "Eleven app-owned wrapper entries and retained raw hashes support shell navigation/session observations. Source maps lack embedded sources; remote gameplay, territory, armies, economy, relationships and server persistence were not recovered. The five proposals and 22 touches are original YAIR options, not observed Eldyn mechanics. Historical DNS failure does not prove permanent shutdown. The uninstall request remains historically unverified and grants no fresh action authority.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "05c37eab41fef9fb83e375b2df475804d88bf148d442649841f23b5d7080eac4",
+      "input_lines": 89,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          89
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/the-lands-of-eldyn/REPORT.md",
+      "ids": [
+        "F1–F5; wrapper-only scope"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/the-lands-of-eldyn/REPORT.md"
+      ],
+      "disposition": "Eleven app-owned wrapper entries and retained raw hashes support shell navigation/session observations. Source maps lack embedded sources; remote gameplay, territory, armies, economy, relationships and server persistence were not recovered. The five proposals and 22 touches are original YAIR options, not observed Eldyn mechanics. Historical DNS failure does not prove permanent shutdown. The uninstall request remains historically unverified and grants no fresh action authority.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "98304542ab78fbd1c2a2bb7251ce17624c45042b3f76fca62687305e5f4c1040",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/COVERAGE.json",
+      "ids": [
+        "ARM/x86 candidate union; scalar repair; canonical flow/Heat updates"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/factorio/native/REPORT.md"
+      ],
+      "disposition": "The October 7 coverage map and report predate the later checkpoint: the checkpoint records closed initial exports for both architectures (ARM 183,199 unique / 183,186 C / 13 failures; Intel 182,398 / 182,329 C / 69 failures), then canonical ARM flow refresh to 183,188 C / 11 failures. Preserve the old map/table as historical snapshots rather than silently treating their running-export status as live. The checkpoint also reports a later decoded union of 9,231,272; its ownership reconciliation and further Heat/hash/ABI/Intel work remain scoped open work, not a completed semantic audit. No old process/session ID is checked or resumed here. Candidate coverage, retained bytes, decoded addresses, generated C, bounded semantic claims and playable retort acceptance remain distinct. Scalar finite-case qualification does not establish NaN/FPCR/signed-zero fidelity; neither initial exports nor later repairs imply whole-game semantic coverage.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "6b91271bacc5681c2665789678a46e4fd5ba4fad83f65d2ee5d637ca031e1dd6",
+      "input_lines": 118,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          118
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/REPORT.md",
+      "ids": [
+        "ARM/x86 candidate union; scalar repair; canonical flow/Heat updates"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/factorio/native/REPORT.md"
+      ],
+      "disposition": "The October 7 coverage map and report predate the later checkpoint: the checkpoint records closed initial exports for both architectures (ARM 183,199 unique / 183,186 C / 13 failures; Intel 182,398 / 182,329 C / 69 failures), then canonical ARM flow refresh to 183,188 C / 11 failures. Preserve the old map/table as historical snapshots rather than silently treating their running-export status as live. The checkpoint also reports a later decoded union of 9,231,272; its ownership reconciliation and further Heat/hash/ABI/Intel work remain scoped open work, not a completed semantic audit. No old process/session ID is checked or resumed here. Candidate coverage, retained bytes, decoded addresses, generated C, bounded semantic claims and playable retort acceptance remain distinct. Scalar finite-case qualification does not establish NaN/FPCR/signed-zero fidelity; neither initial exports nor later repairs imply whole-game semantic coverage.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "111169f1c72d127eac8e09a909acda0464b4f892aea98ea803aede31ec104c9b",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/CHECKPOINT.md",
+      "ids": [
+        "ARM/x86 candidate union; scalar repair; canonical flow/Heat updates"
+      ],
+      "classification": "bounded source evidence and historical coverage reconciliation",
+      "owners": [
+        "docs/research/factorio/native/REPORT.md"
+      ],
+      "disposition": "The October 7 coverage map and report predate the later checkpoint: the checkpoint records closed initial exports for both architectures (ARM 183,199 unique / 183,186 C / 13 failures; Intel 182,398 / 182,329 C / 69 failures), then canonical ARM flow refresh to 183,188 C / 11 failures. Preserve the old map/table as historical snapshots rather than silently treating their running-export status as live. The checkpoint also reports a later decoded union of 9,231,272; its ownership reconciliation and further Heat/hash/ABI/Intel work remain scoped open work, not a completed semantic audit. No old process/session ID is checked or resumed here. Candidate coverage, retained bytes, decoded addresses, generated C, bounded semantic claims and playable retort acceptance remain distinct. Scalar finite-case qualification does not establish NaN/FPCR/signed-zero fidelity; neither initial exports nor later repairs imply whole-game semantic coverage.",
+      "evidence": "Complete actual file content read; source claims compared between the map and connected report/checkpoint. No new source extraction, runtime or installed-state verification.",
+      "reopen": "Reopen only for selected evidence recovery or an authorized implementation; retain unread source and acceptance gaps.",
+      "input_sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/citizen-sleeper/REPORT.md",
+      "heading": "## Content reconciliation B407: actual read coverage and historical evidence",
+      "body": "Bodily condition, food, dice capacity, broken skills, medical access and corporate claims remain separate. Action clocks and cycle clocks have different causes. The 1,398 indexed Ink roots and bounded text windows do not establish complete story or executable graphs. Scene decoding failed and SERIALIZED_TEXT.json failed to write with Errno28; neither is recovered evidence. Exact dice odds, numerical transitions, save RNG and offline policy remain unknown.\n\nThis reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.",
+      "before_sha256": "0cfffc9aa0abfcfbc1076886677713f3b930ff3bf216b689739d92ad5380677d",
+      "after_sha256": "048dc7f23967504dfe80baa29d60b1ecc9fa61cea6667c8a9364387997d4577d"
+    },
+    {
+      "path": "docs/research/citizen-sleeper-2/REPORT.md",
+      "heading": "## Content reconciliation B407: actual read coverage and historical evidence",
+      "body": "Crew relationships, contract supply, personal stress, damaged dice and difficulty-specific recovery remain useful independent ideas. The 1,596 indexed Ink roots, selected narrative windows and 55 guide records do not prove the executable numerical graph. Conflicting permanent-glitch messages retain unresolved active binding. No successful first-game scene decoder can be inherited as sequel coverage, and no offline work or save/RNG qualification follows.\n\nThis reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.",
+      "before_sha256": "5933e61f8999aa8f7c0f5ec44041f25529e146100a62ba5dc469ec131c5fb423",
+      "after_sha256": "2bfa667c0661fa85e904a741d669d21486ddba101ff426ced6b866c0b333b603"
+    },
+    {
+      "path": "docs/research/sucker-for-love-crush-landing/REPORT.md",
+      "heading": "## Content reconciliation B407: actual read coverage and historical evidence",
+      "body": "All 4,034 unique instruction bodies were decoded across 752,914 boundaries without unresolved references or invalid branch boundaries. Manual consequential review covered 17 selected code bodies, not every branch or dialogue route. Typed memories, separately retained endings and preparation callbacks remain optional original proposals. Unused Break-subopcode semantics, native VN dispatch/extensions, localization, reachability and runtime persistence remain unqualified. The later dated verified removal receipt supersedes the earlier unverified request within this historical dossier; neither is a fresh installation check.\n\nThis reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.",
+      "before_sha256": "8d817f90d8d98ae48aaa5548a4a3524cf4ca5b85146ae587a3345d40f16c6f78",
+      "after_sha256": "23b850c37244d120c637d27898fb563feef41949d6587d2e579bae6f7e03f469"
+    },
+    {
+      "path": "docs/research/the-lands-of-eldyn/REPORT.md",
+      "heading": "## Content reconciliation B407: actual read coverage and historical evidence",
+      "body": "Eleven app-owned wrapper entries and retained raw hashes support shell navigation/session observations. Source maps lack embedded sources; remote gameplay, territory, armies, economy, relationships and server persistence were not recovered. The five proposals and 22 touches are original YAIR options, not observed Eldyn mechanics. Historical DNS failure does not prove permanent shutdown. The uninstall request remains historically unverified and grants no fresh action authority.\n\nThis reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.",
+      "before_sha256": "98304542ab78fbd1c2a2bb7251ce17624c45042b3f76fca62687305e5f4c1040",
+      "after_sha256": "613067b3a07172ed63f3643a5c7dd810c2a7adb86c318f0eacbb0b1a2d62d978"
+    },
+    {
+      "path": "docs/research/factorio/native/REPORT.md",
+      "heading": "## Content reconciliation B407: actual read coverage and historical evidence",
+      "body": "The October 7 coverage map and report predate the later checkpoint: the checkpoint records closed initial exports for both architectures (ARM 183,199 unique / 183,186 C / 13 failures; Intel 182,398 / 182,329 C / 69 failures), then canonical ARM flow refresh to 183,188 C / 11 failures. Preserve the old map/table as historical snapshots rather than silently treating their running-export status as live. The checkpoint also reports a later decoded union of 9,231,272; its ownership reconciliation and further Heat/hash/ABI/Intel work remain scoped open work, not a completed semantic audit. No old process/session ID is checked or resumed here. Candidate coverage, retained bytes, decoded addresses, generated C, bounded semantic claims and playable retort acceptance remain distinct. Scalar finite-case qualification does not establish NaN/FPCR/signed-zero fidelity; neither initial exports nor later repairs imply whole-game semantic coverage.\n\nThis reconciliation reads the retained dossier only. It performs no game launch, source recovery, remote request, install change or gameplay acceptance. Historical uninstall/job statements are not renewed instructions.",
+      "before_sha256": "111169f1c72d127eac8e09a909acda0464b4f892aea98ea803aede31ec104c9b",
+      "after_sha256": "e867cfcd349b2d8534b46a776dc70d0425512d0390dbc595f4b7a0683d8f45eb"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 542
+}

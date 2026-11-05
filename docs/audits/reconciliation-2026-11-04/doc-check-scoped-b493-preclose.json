@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/gm/dispatch/pc-groups-2026-10-26/README.md",
+    "docs/gm/dispatch/world-pack-loader-2026-10-16/CHECKPOINT.md",
+    "docs/gm/dispatch/tool-crack-2026-10-25/RECEIPT.md",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+    "docs/CHEAT_COSMOLOGY.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "fdc7ee8643b87e35eaaaf0dbad30e763d09c7cda097c2c4296b26a2895e8bde5",
+  "adaptation": "Only filespec changed; unchanged diagnostic rules, no shared-tree pass."
+}

@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "batch": "B473",
+  "title": "Dose process, nine learning candidates and system crosswalk: exact useful consumers and limits",
+  "at": "2026-11-05T07:15:36.489571+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/dose-mechanism-2026-10-25/CHECKPOINT.md",
+      "ids": [
+        "DWF101–102;43rows23brewable20inspect;109ingredients/158commands;37baseline143focus3173full"
+      ],
+      "classification": "complete bounded dose delivery, learning-consumer search or system-router checkpoint",
+      "owners": [
+        "docs/gm/dispatch/dose-mechanism-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "All32 lines were reviewed. Shared process readiness/gaps/ledger, HP formula/state, unchanged shipped LOTM command definitions and the larger ingredient/formula bench have separate evidence. A product-agnostic envelope is not one potion behavior. The43 rows,109 ingredients and158 generated commands include inspect-only, priced and acquisition branches; neither totals nor golden definitions establish all dose functions. The recorded browser flows cover CC, pre-change compatibility and one other brew/hold/sell route at the stated desktop/text sizes. HP has engine/fixture evidence only. Focused143 checks and3173 full tests are not additive independent coverage.\n\nRetain concrete authored local policies: premium, stock count, revision-scoped seeding, no restock, docks formula desk and unmapped issued-dose envelope. Inspect-only high-sequence rows, absent alternate main-material OR selection and drink-not-written states were this snapshot's scope, not a current global source/runtime inventory. A formula row or warning does not implement ingestion, ritual, actor faculty or outcome. Preserve source rule versus authored price/time/lots and the changed shared home_school inputs in the build. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), [UI rules](../../../UI_RULES.md), AD36/AD43 and optional review govern later claims. No formula corpus, fixture, current source, browser, build, test or save was newly opened or executed.",
+      "evidence": "All32/33/33 pre-fold lines read, including complete tables and explicit proof gaps. No linked source/fixture/chat/raw evidence read by proxy or runtime executed.",
+      "reopen": "Use named current product/learning consumer/register seam and exact owning evidence; keep old negative findings, prototype policies and release status dated.",
+      "input_sha256": "87f0afef6c2594c856d41fc690e8c48becfca68450e320bade3ee2dc616c9601",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/other-systems-depth-2026-10-26/learning/CANDIDATE_COVERAGE.md",
+      "ids": [
+        "LC1–9;existing/owned/unselected/notready;058f066b86c6priorproof"
+      ],
+      "classification": "complete bounded dose delivery, learning-consumer search or system-router checkpoint",
+      "owners": [
+        "docs/gm/dispatch/other-systems-depth-2026-10-26/learning/CANDIDATE_COVERAGE.md"
+      ],
+      "disposition": "All33 lines and LC1–LC9 were read. This is a bounded dependency-ready-consumer search under its original brief, not a new implemented lesson or a proof no future learning opportunity exists. LC1/3/6/7 describe existing consumers at that snapshot; LC2/5/8 and further degrees identify then-assigned work. LC4 lacked a grounded external feather use; LC9 had acquisition/prices/lending but no ready execution/body/world learner. Adding an invented target and calling it discovered integration would change scope. Holding a primer, gathering lore, practicing competence and actually using it remain different states.\n\nKeep source-qualified identity/control and authorship boundaries. A rare acquired beginning does not grant that faculty to a whole species; a method learned in one world does not silently create another consumer. Conversely, an exercise can be useful practice without a compulsory coin/task payout, and future authorized original scenes can supply new consumers honestly. The negative result limits the selected brief, not world possibility. Historical active chat/dirty source/release claims are not live worker or file-custody evidence. The old Cyoria bundle remains pinned and does not certify subsequent lore changes. Current [PROJECT](../../../../../PROJECT.md), [lead-life rules](../../../../LEAD_LIFE_RULES.md), AD32/AD36/AD43/AD51 govern a selected current seam. No original source, pack, book, chat, native route, test/build/browser or personal save was newly inspected. This review does not replay the old search or implement LC4/LC9.",
+      "evidence": "All32/33/33 pre-fold lines read, including complete tables and explicit proof gaps. No linked source/fixture/chat/raw evidence read by proxy or runtime executed.",
+      "reopen": "Use named current product/learning consumer/register seam and exact owning evidence; keep old negative findings, prototype policies and release status dated.",
+      "input_sha256": "d241adad25176ddb50fe546e35f4ff362aa873ce5a9a67deda6c436ca6b20e84",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/register-gaps-2026-10-25/CHECKPOINT.md",
+      "ids": [
+        "E2/MAW-X8–9;MIE-G1–14/PROGRESSION:G1–14;E2.1"
+      ],
+      "classification": "complete bounded dose delivery, learning-consumer search or system-router checkpoint",
+      "owners": [
+        "docs/gm/dispatch/register-gaps-2026-10-25/CHECKPOINT.md"
+      ],
+      "disposition": "The complete33-line checkpoint was reviewed as a documentation/mapping delivery. Authoritative module names, degrees, consumers, examples and source hashes establish the inspected source/router window, not implemented gameplay or demonstrated absorption. Combat math/settlement, resident/helper lifecycles, site domains/geography and browser-local layout/gameplay saves stay distinct owners. A new register row cannot create a missing consumer or make grep/export listings runtime proof.\n\nThe recorded primary overlap and hunk-only integration instruction preserve concurrent D5 work. Branch/master equality and the final commit-only/no-master-push command were historical lane boundaries, not current write/commit authorization or a report that the changes are integrated now. Current [systems register](../../../SYSTEMS_REGISTER.md), [map](../../../systems/COMBAT_PEOPLE_SITES_UI.md), [PROJECT](../../../../PROJECT.md) and AD32/AD36/AD51 govern current routing; this review does not add another register or copy the old dirty owner wholesale. The old22-register/41-AD/125-link checks are tied to that delivery, with no runtime/build/browser performed. No original source hash, branch merge, module, game, user save or live process was newly checked.",
+      "evidence": "All32/33/33 pre-fold lines read, including complete tables and explicit proof gaps. No linked source/fixture/chat/raw evidence read by proxy or runtime executed.",
+      "reopen": "Use named current product/learning consumer/register seam and exact owning evidence; keep old negative findings, prototype policies and release status dated.",
+      "input_sha256": "20c1f68063b45cdf8d759325a4243eca196694c170c940ce193f583fcce6f856",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/dose-mechanism-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B473: complete record and current owner boundaries",
+      "body": "All32 lines were reviewed. Shared process readiness/gaps/ledger, HP formula/state, unchanged shipped LOTM command definitions and the larger ingredient/formula bench have separate evidence. A product-agnostic envelope is not one potion behavior. The43 rows,109 ingredients and158 generated commands include inspect-only, priced and acquisition branches; neither totals nor golden definitions establish all dose functions. The recorded browser flows cover CC, pre-change compatibility and one other brew/hold/sell route at the stated desktop/text sizes. HP has engine/fixture evidence only. Focused143 checks and3173 full tests are not additive independent coverage.\n\nRetain concrete authored local policies: premium, stock count, revision-scoped seeding, no restock, docks formula desk and unmapped issued-dose envelope. Inspect-only high-sequence rows, absent alternate main-material OR selection and drink-not-written states were this snapshot's scope, not a current global source/runtime inventory. A formula row or warning does not implement ingestion, ritual, actor faculty or outcome. Preserve source rule versus authored price/time/lots and the changed shared home_school inputs in the build. Current [PROJECT](../../../../PROJECT.md), [making rules](../../../MAKING_RULES.md), [UI rules](../../../UI_RULES.md), AD36/AD43 and optional review govern later claims. No formula corpus, fixture, current source, browser, build, test or save was newly opened or executed.",
+      "before_sha256": "87f0afef6c2594c856d41fc690e8c48becfca68450e320bade3ee2dc616c9601",
+      "after_sha256": "2aca8c6702841c97577ea80b5b61ac199ccc752e4679d15e2315b3903580f6bf"
+    },
+    {
+      "path": "docs/gm/dispatch/other-systems-depth-2026-10-26/learning/CANDIDATE_COVERAGE.md",
+      "heading": "## Content reconciliation B473: complete record and current owner boundaries",
+      "body": "All33 lines and LC1–LC9 were read. This is a bounded dependency-ready-consumer search under its original brief, not a new implemented lesson or a proof no future learning opportunity exists. LC1/3/6/7 describe existing consumers at that snapshot; LC2/5/8 and further degrees identify then-assigned work. LC4 lacked a grounded external feather use; LC9 had acquisition/prices/lending but no ready execution/body/world learner. Adding an invented target and calling it discovered integration would change scope. Holding a primer, gathering lore, practicing competence and actually using it remain different states.\n\nKeep source-qualified identity/control and authorship boundaries. A rare acquired beginning does not grant that faculty to a whole species; a method learned in one world does not silently create another consumer. Conversely, an exercise can be useful practice without a compulsory coin/task payout, and future authorized original scenes can supply new consumers honestly. The negative result limits the selected brief, not world possibility. Historical active chat/dirty source/release claims are not live worker or file-custody evidence. The old Cyoria bundle remains pinned and does not certify subsequent lore changes. Current [PROJECT](../../../../../PROJECT.md), [lead-life rules](../../../../LEAD_LIFE_RULES.md), AD32/AD36/AD43/AD51 govern a selected current seam. No original source, pack, book, chat, native route, test/build/browser or personal save was newly inspected. This review does not replay the old search or implement LC4/LC9.",
+      "before_sha256": "d241adad25176ddb50fe546e35f4ff362aa873ce5a9a67deda6c436ca6b20e84",
+      "after_sha256": "5c50b38f1f9c250b8c0fb9e1227a92183b0cb6bed8f2bb557cfa51bfb3ccea55"
+    },
+    {
+      "path": "docs/gm/dispatch/register-gaps-2026-10-25/CHECKPOINT.md",
+      "heading": "## Content reconciliation B473: complete record and current owner boundaries",
+      "body": "The complete33-line checkpoint was reviewed as a documentation/mapping delivery. Authoritative module names, degrees, consumers, examples and source hashes establish the inspected source/router window, not implemented gameplay or demonstrated absorption. Combat math/settlement, resident/helper lifecycles, site domains/geography and browser-local layout/gameplay saves stay distinct owners. A new register row cannot create a missing consumer or make grep/export listings runtime proof.\n\nThe recorded primary overlap and hunk-only integration instruction preserve concurrent D5 work. Branch/master equality and the final commit-only/no-master-push command were historical lane boundaries, not current write/commit authorization or a report that the changes are integrated now. Current [systems register](../../../SYSTEMS_REGISTER.md), [map](../../../systems/COMBAT_PEOPLE_SITES_UI.md), [PROJECT](../../../../PROJECT.md) and AD32/AD36/AD51 govern current routing; this review does not add another register or copy the old dirty owner wholesale. The old22-register/41-AD/125-link checks are tied to that delivery, with no runtime/build/browser performed. No original source hash, branch merge, module, game, user save or live process was newly checked.",
+      "before_sha256": "20c1f68063b45cdf8d759325a4243eca196694c170c940ce193f583fcce6f856",
+      "after_sha256": "2dfd5bfdb7ddaeb06b47e18b34e04a7f97b069f74926b2e42cd96ef05aa18168"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 342
+}

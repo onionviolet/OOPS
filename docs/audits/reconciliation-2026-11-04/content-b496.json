@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "batch": "B496",
+  "title": "Ration/search evidence, ten continuing livelihoods, canon population defaults and the dawn workaround",
+  "at": "2026-11-05T08:21:06.978294+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3U_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "KJ3U/kjw11",
+        "Q1–Q7",
+        "M1–M3",
+        "16-act search"
+      ],
+      "classification": "bounded story evidence / retained economic palette / generator proposal qualifiers / known clock gap",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3U_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Historical16-act search continuation under AD36/AD42/AD43. Preserve Q1–Q7, actor-per-verb and all withheld/later-reader rows. Source-issued/consumed/priced ration supports the selected native7-pence debit798→791; unmodeled other costs make791 an upper bound, not a complete source purse. Gun prices, hire rates, fares and commission terms are knowledge/facts here, not paid contracts, timed hired-carriage settlement or stock. Signed/held-copy facts and found floors do not instantiate a contract item or physical building. No new block place was minted; the player remains at the carriage place even while search notes refer to floors.\n\nB5 dowsing is a free authored act with method facts, not an actual B5 method object; M1 commission, M2 time-hire and M3 medium-assisted dowsing remain proposals. One floor3 Spirit Vision tap is an actual metered use with3/0→2/1 pool/strain, not a whole unseen aura model. Leonard's two sequential visits/placed arrival and preflight correction supply this route, while the next window still needs to place him after floor3 departure. No fallback cut was needed; that means the16-intent window passed, not every requested mechanism was implemented.\n\nOne334.2-second run has three boots/one import plus per-act checkpoints; RESUME batching was available but unused. Final literal import followed by reload covers its actual ending state and retained earlier-window facts. It does not prove14/21 visual layout, civil clock, fresh entry, all disclosure or a new runtime build. A listed before-commit rules command is not an explicit result. B10 bundle/scratch-pack identity differs from current shared source. Leak assertions are selected-window/new-key sentinels rather than every possible observation. Current full-public-receipt review reads no private source/pack/seed/runtime/captures or actual personal save.",
+      "evidence": "Fresh full content read of all four files. P7 G8 first paragraph was centrally truncated and recovered57–68 explicitly. Economy owner inspected64–84 only; no fresh full-owner credit. No linked private/source/runtime body credited.",
+      "reopen": "Preserve distinct source, actor, consumer and exact proof gap; selected current priorities govern future implementation rather than old dispatch text.",
+      "input_sha256": "1a1be1929e7baf55ef865f71da31acfc9aa34000a1551a57627214fa332497a9",
+      "input_lines": 82,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          82
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/minigames-2026-10-11/IDEAS_AT_DISPATCH.md",
+      "ids": [
+        "MG01–MG10",
+        "workshop/room proposal"
+      ],
+      "classification": "bounded story evidence / retained economic palette / generator proposal qualifiers / known clock gap",
+      "owners": [
+        "docs/gm/dispatch/minigames-2026-10-11/IDEAS_AT_DISPATCH.md",
+        "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md"
+      ],
+      "disposition": "Full MG01–MG10 economic/management palette under AD5/AD31/AD32/AD38. Preserve the user's named investing/property interest separately from the proposed detailed loops. These can be ongoing livelihoods, not a universal quick minigame format or selected first implementation. Each world supplies actual institutions; no bank/stock market/deed/tenant-law prerequisite is imposed everywhere. MG01 distinguishes loan, equity, future-goods purchase and patronage; those create different actual rights/settlements. Real interventions can improve enterprise inputs. Supported foresight can be accurate without an arbitrary market exception; speculative reports do not expose hidden future outcomes by default.\n\nMG02 separates ownership, occupancy, alteration and leasing, actual occupants/rooms/facilities, repair and choice of use. A home can be valuable with no rent; complaints/arrears need real causes rather than mandatory owner punishment. A deed's local institutional scope differs from physical carriage or a mechanism that genuinely carries jurisdiction/property. Heirs receive actual surviving rights, not automatically the same person/skill/self. MG03–MG10 retain shops/inns, appraisal/auction, caravan/shipping, farming/care, workshop capacity, lending/mutual aid, festivals/programs and collections/restoration with each actor/stock/history/delivery/delegation consumer. Do not collapse all into an interest timer or duplicate distributable payout.\n\nThe connected workshop/neighbor-room candidate is a proposal with pass/repair/fund/use/lease/lodging alternatives, not a required Frontier start or all-city simulation. Stock/cash reserves, mandates and escalation are actual delegation terms rather than NPC autonomy disappearing into an automation flag. Source of return, committed versus liquid holdings, own versus others' knowledge, clock/away policy and once-per-operation settlement remain exact gaps before any selected implementation. Proposed browser/persistence checks were not run. Useful specific interactions are folded into the existing economy/property owner with original IDs and backlink; this detailed source palette remains. No acquisition, real financial recommendation, gameplay feature, worker or new runtime authority follows from this review.",
+      "evidence": "Fresh full content read of all four files. P7 G8 first paragraph was centrally truncated and recovered57–68 explicitly. Economy owner inspected64–84 only; no fresh full-owner credit. No linked private/source/runtime body credited.",
+      "reopen": "Preserve distinct source, actor, consumer and exact proof gap; selected current priorities govern future implementation rather than old dispatch text.",
+      "input_sha256": "c2b0d7f5d5abcd8d9d6e10dd545e9f8fe0904c05a7ccb56d00ea1959d014e6e9",
+      "input_lines": 83,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          83
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/GUIDELINES.md",
+      "ids": [
+        "G1–G10",
+        "source labels/quality",
+        "population/alias/overlay"
+      ],
+      "classification": "bounded story evidence / retained economic palette / generator proposal qualifiers / known clock gap",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p7/GUIDELINES.md"
+      ],
+      "disposition": "Full G1–G10 proposal review under AD5/AD8/AD22/AD32/AD36/AD38/AD42/AD43/AD51. Preserve authored canonical/reserved identities versus generated background people, individually essential unnamed roles, stable identity across encounters, promoted person history, and same-name disambiguation. Alias/catalog normalization is an authoring comparison, not a second actor or player disclosure. Curated culture/era/reading/source status and kind/capability/role/knowledge stay separate; a protagonist sample is not a demographic census, and a surname/grade/license does not grant practical means. Explicit source/acquisition history matters more than a global power number. Common name reuse is possible without silently replacing an established person.\n\nEarly one-realm/one-prestige implementation boundary and1366/1600 target guidance are superseded by current scope/desktop direction. The no-randomization/explicit-AU clauses are generation defaults protecting authored identity, not metaphysical impossibility or a requirement for creative-director permission whenever an actual in-world mechanism can produce a new relative, transferable role, special power or changed history. Canon baseline, authored overlay, causal divergence and explicit exceptional means keep their distinct source/actor implications; source-qualified genuinely unique conditions still matter. NPC leveling cannot be fabricated from player level, but real adaptive actors/mechanisms can respond to observed means. Every actor-in-one-instance phrasing describes this proposal's ordinary identity model, not a ban on supported multi-body/cross-world consciousness.\n\nKeep actual household, duty, issuer/jurisdiction, stock/custody and relationship owners. Background generation does not mint merchandise from personal equipment, earn a salary or convey private plans because a title matches. Current evidence, attributed testimony, self-knowledge and author truth differ; visible clues need real reach/false-positive scope. Known trait counts, error strings, sorting/filters/CSS/ID structure can leak even without displaying an answer. Public franchise twists and sealed changed truths have different boundaries. A new grammar line cannot silently manufacture a canonical person/receipt. Keyed overlay replacement is distinct from appending rosters; saved names do not auto-reroll on reload/catalog revision.\n\nSource labels and source quality are two axes: a secondary wiki assertion is not shown-primary, an author synopsis is not a population census, and a fan-world premise does not update the franchise baseline. The fixed examples/profile lists are not a complete reservation dictionary. Human fiction review is optional AD42, while actual saved useful interactions and changed later responses remain named proposed runtime evidence, not checks performed here or a new all-world gate. Full reading includes G8's previously truncated first paragraph recovered explicitly; no linked profiles/JSON/source books, hidden name maps or runtime tests were read/run. No population, grammar pack, start or world implementation is added.",
+      "evidence": "Fresh full content read of all four files. P7 G8 first paragraph was centrally truncated and recovered57–68 explicitly. Economy owner inspected64–84 only; no fresh full-owner credit. No linked private/source/runtime body credited.",
+      "reopen": "Preserve distinct source, actor, consumer and exact proof gap; selected current priorities govern future implementation rather than old dispatch text.",
+      "input_sha256": "4a9091b2705a8c7884d221f4d5206193da7b7bb0a9f4c1dbf22fd7c8e88ee78d",
+      "input_lines": 83,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          83
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3M_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "KJ3M/kjw3",
+        "C1–C6",
+        "eight intent rows",
+        "short dawn workaround"
+      ],
+      "classification": "bounded story evidence / retained economic palette / generator proposal qualifiers / known clock gap",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3M_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Historical15-act household/dream continuation under AD36/AD42/AD43. Preserve all eight intent/act mappings, C1–C6 corrections, monetary source anchors and withheld-recipient rows. Fifteen acts across partial chapters are action inventory, not a clean source denominator. The existing corridor is reused; bakery and chores can remain notes without new place/verbs. Actual known keys are not interchangeable with facts, and an unrevealed chosen path must not be named by future Sequence keys before the later answer. Actor-per-verb notes describe player participation versus observed non-player actions, not a general engine in which actors have no autonomous capabilities.\n\nOnly two priced goods are debited:2744−6−7=2731. Unpriced produce/bakery/drinks and assumed note source remain unmodeled, so2731 is an upper bound, not a precise recovered purse. Pocket carrier36-pence notes/coppers and full balance are separate scopes. Cooking/aiming/dream warning/fate/relationship notes do not become actual firearm/food/contract/occult engines from a fact label. The stated empty chamber was private; older recipient knowledge cannot be inferred from narration or leak-regex pass. B1 gating remains a mechanism dependency at this receipt's time, not a source-law inability.\n\nThe final dawn act was shortened360→120→20 after reservation refusals; that is a disclosed workaround with undiagnosed cause, not a repaired clock/constraint defect. The final state is short of Sunday morning, and a later window's planned fill does not prove calendar correctness here. Earlier20-minute acceptance does not justify discarding protected actual appointments/resources. Source durations are labelled fill. Third-attempt native success, final literal import and selected new-key leak checks retain their input/pinned-bundle scopes; no14/21 captures, civil clock, full earlier-chain replay or fresh ordinary entry was verified.\n\nThe phrase below the human gate does not create a required human blocker under AD42. Human play is optional; missing source/consumer/clock evidence remains distinct. The final short run is not equivalent to two earlier failing long-night attempts and does not prove every admitted duration. Old next-window/source/model instructions and proof-path IDs remain history. This complete receipt review reads neither private source, current pack/source nor browser/save artifacts and adds no actual clock, installation or gameplay proof.",
+      "evidence": "Fresh full content read of all four files. P7 G8 first paragraph was centrally truncated and recovered57–68 explicitly. Economy owner inspected64–84 only; no fresh full-owner credit. No linked private/source/runtime body credited.",
+      "reopen": "Preserve distinct source, actor, consumer and exact proof gap; selected current priorities govern future implementation rather than old dispatch text.",
+      "input_sha256": "ffad755f6a9cd3d194ca5aec5036e19af7da18878d975f2a240f51f2f0109fde",
+      "input_lines": 83,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          83
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3U_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Content reconciliation B496: actual consumer and retained proposal scope",
+      "body": "Historical16-act search continuation under AD36/AD42/AD43. Preserve Q1–Q7, actor-per-verb and all withheld/later-reader rows. Source-issued/consumed/priced ration supports the selected native7-pence debit798→791; unmodeled other costs make791 an upper bound, not a complete source purse. Gun prices, hire rates, fares and commission terms are knowledge/facts here, not paid contracts, timed hired-carriage settlement or stock. Signed/held-copy facts and found floors do not instantiate a contract item or physical building. No new block place was minted; the player remains at the carriage place even while search notes refer to floors.\n\nB5 dowsing is a free authored act with method facts, not an actual B5 method object; M1 commission, M2 time-hire and M3 medium-assisted dowsing remain proposals. One floor3 Spirit Vision tap is an actual metered use with3/0→2/1 pool/strain, not a whole unseen aura model. Leonard's two sequential visits/placed arrival and preflight correction supply this route, while the next window still needs to place him after floor3 departure. No fallback cut was needed; that means the16-intent window passed, not every requested mechanism was implemented.\n\nOne334.2-second run has three boots/one import plus per-act checkpoints; RESUME batching was available but unused. Final literal import followed by reload covers its actual ending state and retained earlier-window facts. It does not prove14/21 visual layout, civil clock, fresh entry, all disclosure or a new runtime build. A listed before-commit rules command is not an explicit result. B10 bundle/scratch-pack identity differs from current shared source. Leak assertions are selected-window/new-key sentinels rather than every possible observation. Current full-public-receipt review reads no private source/pack/seed/runtime/captures or actual personal save.",
+      "before_sha256": "1a1be1929e7baf55ef865f71da31acfc9aa34000a1551a57627214fa332497a9",
+      "after_sha256": "2f6238e1c3c0877c1600531cd18b8fb8b368638714f50f57dc97537984436996"
+    },
+    {
+      "path": "docs/gm/dispatch/minigames-2026-10-11/IDEAS_AT_DISPATCH.md",
+      "heading": "## Content reconciliation B496: actual consumer and retained proposal scope",
+      "body": "Full MG01–MG10 economic/management palette under AD5/AD31/AD32/AD38. Preserve the user's named investing/property interest separately from the proposed detailed loops. These can be ongoing livelihoods, not a universal quick minigame format or selected first implementation. Each world supplies actual institutions; no bank/stock market/deed/tenant-law prerequisite is imposed everywhere. MG01 distinguishes loan, equity, future-goods purchase and patronage; those create different actual rights/settlements. Real interventions can improve enterprise inputs. Supported foresight can be accurate without an arbitrary market exception; speculative reports do not expose hidden future outcomes by default.\n\nMG02 separates ownership, occupancy, alteration and leasing, actual occupants/rooms/facilities, repair and choice of use. A home can be valuable with no rent; complaints/arrears need real causes rather than mandatory owner punishment. A deed's local institutional scope differs from physical carriage or a mechanism that genuinely carries jurisdiction/property. Heirs receive actual surviving rights, not automatically the same person/skill/self. MG03–MG10 retain shops/inns, appraisal/auction, caravan/shipping, farming/care, workshop capacity, lending/mutual aid, festivals/programs and collections/restoration with each actor/stock/history/delivery/delegation consumer. Do not collapse all into an interest timer or duplicate distributable payout.\n\nThe connected workshop/neighbor-room candidate is a proposal with pass/repair/fund/use/lease/lodging alternatives, not a required Frontier start or all-city simulation. Stock/cash reserves, mandates and escalation are actual delegation terms rather than NPC autonomy disappearing into an automation flag. Source of return, committed versus liquid holdings, own versus others' knowledge, clock/away policy and once-per-operation settlement remain exact gaps before any selected implementation. Proposed browser/persistence checks were not run. Useful specific interactions are folded into the existing economy/property owner with original IDs and backlink; this detailed source palette remains. No acquisition, real financial recommendation, gameplay feature, worker or new runtime authority follows from this review.",
+      "before_sha256": "c2b0d7f5d5abcd8d9d6e10dd545e9f8fe0904c05a7ccb56d00ea1959d014e6e9",
+      "after_sha256": "c9f9d8cb60979f602be7922714c294ce854f2c4e7d3ca960dfa02f2e80b7f226"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/GUIDELINES.md",
+      "heading": "## Content reconciliation B496: actual consumer and retained proposal scope",
+      "body": "Full G1–G10 proposal review under AD5/AD8/AD22/AD32/AD36/AD38/AD42/AD43/AD51. Preserve authored canonical/reserved identities versus generated background people, individually essential unnamed roles, stable identity across encounters, promoted person history, and same-name disambiguation. Alias/catalog normalization is an authoring comparison, not a second actor or player disclosure. Curated culture/era/reading/source status and kind/capability/role/knowledge stay separate; a protagonist sample is not a demographic census, and a surname/grade/license does not grant practical means. Explicit source/acquisition history matters more than a global power number. Common name reuse is possible without silently replacing an established person.\n\nEarly one-realm/one-prestige implementation boundary and1366/1600 target guidance are superseded by current scope/desktop direction. The no-randomization/explicit-AU clauses are generation defaults protecting authored identity, not metaphysical impossibility or a requirement for creative-director permission whenever an actual in-world mechanism can produce a new relative, transferable role, special power or changed history. Canon baseline, authored overlay, causal divergence and explicit exceptional means keep their distinct source/actor implications; source-qualified genuinely unique conditions still matter. NPC leveling cannot be fabricated from player level, but real adaptive actors/mechanisms can respond to observed means. Every actor-in-one-instance phrasing describes this proposal's ordinary identity model, not a ban on supported multi-body/cross-world consciousness.\n\nKeep actual household, duty, issuer/jurisdiction, stock/custody and relationship owners. Background generation does not mint merchandise from personal equipment, earn a salary or convey private plans because a title matches. Current evidence, attributed testimony, self-knowledge and author truth differ; visible clues need real reach/false-positive scope. Known trait counts, error strings, sorting/filters/CSS/ID structure can leak even without displaying an answer. Public franchise twists and sealed changed truths have different boundaries. A new grammar line cannot silently manufacture a canonical person/receipt. Keyed overlay replacement is distinct from appending rosters; saved names do not auto-reroll on reload/catalog revision.\n\nSource labels and source quality are two axes: a secondary wiki assertion is not shown-primary, an author synopsis is not a population census, and a fan-world premise does not update the franchise baseline. The fixed examples/profile lists are not a complete reservation dictionary. Human fiction review is optional AD42, while actual saved useful interactions and changed later responses remain named proposed runtime evidence, not checks performed here or a new all-world gate. Full reading includes G8's previously truncated first paragraph recovered explicitly; no linked profiles/JSON/source books, hidden name maps or runtime tests were read/run. No population, grammar pack, start or world implementation is added.",
+      "before_sha256": "4a9091b2705a8c7884d221f4d5206193da7b7bb0a9f4c1dbf22fd7c8e88ee78d",
+      "after_sha256": "d881223a6772014c0aaec6f32943948ca23d4edde4feb6078aac7f08e9c19eff"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3M_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Content reconciliation B496: actual consumer and retained proposal scope",
+      "body": "Historical15-act household/dream continuation under AD36/AD42/AD43. Preserve all eight intent/act mappings, C1–C6 corrections, monetary source anchors and withheld-recipient rows. Fifteen acts across partial chapters are action inventory, not a clean source denominator. The existing corridor is reused; bakery and chores can remain notes without new place/verbs. Actual known keys are not interchangeable with facts, and an unrevealed chosen path must not be named by future Sequence keys before the later answer. Actor-per-verb notes describe player participation versus observed non-player actions, not a general engine in which actors have no autonomous capabilities.\n\nOnly two priced goods are debited:2744−6−7=2731. Unpriced produce/bakery/drinks and assumed note source remain unmodeled, so2731 is an upper bound, not a precise recovered purse. Pocket carrier36-pence notes/coppers and full balance are separate scopes. Cooking/aiming/dream warning/fate/relationship notes do not become actual firearm/food/contract/occult engines from a fact label. The stated empty chamber was private; older recipient knowledge cannot be inferred from narration or leak-regex pass. B1 gating remains a mechanism dependency at this receipt's time, not a source-law inability.\n\nThe final dawn act was shortened360→120→20 after reservation refusals; that is a disclosed workaround with undiagnosed cause, not a repaired clock/constraint defect. The final state is short of Sunday morning, and a later window's planned fill does not prove calendar correctness here. Earlier20-minute acceptance does not justify discarding protected actual appointments/resources. Source durations are labelled fill. Third-attempt native success, final literal import and selected new-key leak checks retain their input/pinned-bundle scopes; no14/21 captures, civil clock, full earlier-chain replay or fresh ordinary entry was verified.\n\nThe phrase below the human gate does not create a required human blocker under AD42. Human play is optional; missing source/consumer/clock evidence remains distinct. The final short run is not equivalent to two earlier failing long-night attempts and does not prove every admitted duration. Old next-window/source/model instructions and proof-path IDs remain history. This complete receipt review reads neither private source, current pack/source nor browser/save artifacts and adds no actual clock, installation or gameplay proof.",
+      "before_sha256": "ffad755f6a9cd3d194ca5aec5036e19af7da18878d975f2a240f51f2f0109fde",
+      "after_sha256": "01ba26e8513c6742661bbc7c7156e2f594c6677f4e9dba52d7529d51a7548ba9"
+    },
+    {
+      "path": "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Content reconciliation B496: MG01–MG10 continuing livelihoods and property choices",
+      "body": "Proposed MG01–MG10 interactions from the fully read [dispatch palette](gm/dispatch/minigames-2026-10-11/IDEAS_AT_DISPATCH.md), retained under AD5/AD31/AD32/AD38. Named investing/property interest is user direction; detailed implementations and the workshop/room first slice remain proposals, not runtime delivery or a required Frontier host.\n\nMG01 separates loan/equity/future goods/patronage and allows actual repair/logistics/teaching/foresight to change outcomes. MG02 makes property a used place with actual people, facilities and distinct ownership/occupancy/alteration/lease rights; no universal arrears/maintenance punishment or rent requirement follows. Liquid money, stock, promises, accounts, rights and real distributable returns stay separate. A home may be useful without revenue; counterpart/heir identity and local deed authority follow real world mechanisms.\n\nMG03 shop/inn stock and remembered customers; MG04 appraisal/auction evidence and bid limits; MG05 cargo/route/capacity/delivery; MG06 seasonal farming/care and storage; MG07 commissions sharing real stock/tools/capacity; MG08 lending/mutual aid and negotiated terms; MG09 event programs/attendance; MG10 restoration/collections/provenance each offers a distinct continuing livelihood. Their trained clerk, caretaker, bidder, caravan leader, farmhand, foreman, steward, organizer and conservator operate within actual mandate/means rather than silently duplicating funds or discarding others' choices. Banks, shares and tenant law are local possibilities, not prerequisites for all worlds.\n\nReopen a selected existing enterprise/occupant/stock/clock/settlement consumer when useful. The palette retains proposed fund/pass, actual contribution, settlement, room use, delegation and persistence checks; none was run by saving it. This fold adds no financial advice, source-world canon, new simulation owner or universally demanded whole-city economy.",
+      "before_sha256": "39492adc00e2fc1ed14f7413ba521f6340286fe7f204a6c6671061cebacf6121",
+      "after_sha256": "92d75115e376803b996bfd66d6c4210f82c94840d276a46cc9cdebb8397f0384"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 271
+}

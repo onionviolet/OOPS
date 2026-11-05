@@ -1,0 +1,23 @@
+{
+  "scope": "Unchanged checker rules; task-path filespec only.",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "e1b25d2872406a6620fa00bd02b5e2fa04a5099c476816896483447cb1c7c30c",
+  "paths": [
+    "docs/LIFE_SIM_NORTH_STAR.md",
+    "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+    "docs/research/qud-systems-audit-2026-10-15/MERGE_PLAN_2026-10-23.md",
+    "docs/research/qud-systems-audit-2026-10-15/REPORT.md",
+    "docs/research/qud-systems-audit-2026-10-15/SOURCE_INDEX.md",
+    "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/FAMILY_INDEX.md",
+    "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/REPORT.md",
+    "docs/research/warsim/REPORT.md",
+    "docs/research/warsim/TABLE_COVERAGE.md",
+    "docs/reviews/CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": ""
+}

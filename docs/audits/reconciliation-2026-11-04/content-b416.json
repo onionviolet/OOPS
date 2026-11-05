@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "batch": "B416",
+  "title": "Six cast mechanism contracts and their later fixture/integration histories",
+  "at": "2026-11-05T05:07:41.968109+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF_DIVINATION_CHECKPOINT.md",
+      "ids": [
+        "DV1/MF1-L4; ordered source-pinned query"
+      ],
+      "classification": "mechanism contract and historical integration/fixture evidence reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The original contract freezes a source-pinned signal in a native timed job, with separate stage, signal, interpreted belief and phase-dependent consumer. It performs no keyed/ordinal draw, forecasting or contested answer. Interpretation does not mutate world truth or deliver another observer’s knowledge. Original required payment/full chain is later relaxed by AD2 (reviewed in B415); that removes an authoring constraint without inventing means/contact, signal or physical effects. The five synthetic tests/disposable patch/save cycles are historical mechanism evidence, not natural source acquisition, current shared integration or1920×1080 layout proof. Prepared joins, raw scanner failures and fixture fixes remain visible.",
+      "evidence": "All contract tables, examples, proof floors, check rows, hashes and later resumes read. This is retained dossier review, not source-code/runtime or private content re-verification.",
+      "reopen": "Follow current live source and later owning receipts before acting; preserve named acquisition, effect-consumer, source-row and rebuilt desktop gaps.",
+      "input_sha256": "af47394b196c881167296ff56bf7e0cdc60aaf7f4d0cb72611ccde3efd87b291",
+      "input_lines": 165,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          165
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF_MAKING_CHECKPOINT.md",
+      "ids": [
+        "MK1/MF1-L3; batch preparation/use"
+      ],
+      "classification": "mechanism contract and historical integration/fixture evidence reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Recipe recognition, instruction, actual conserved inputs/catalysts, resolved product identity, held batch, separate consumption and real downstream effect differ. One item denotes a resolved whole batch, not a guessed portion count. External consumers must reserve the exact item; an object/owner-needed fact cannot substitute for nutrition or functional use. Atomic preparation refunds reserved ingredients on cancellation while retaining elapsed time; committed multi-stage matter/spoilage/resume needs the actual craft owner. Generated frozen product/law persistence remains a named integration seam. AD2’s later document/preparation fragments extend this fixed-batch shape without qualifying downstream delivery or full physical production. Initial fixture key/template errors and disposable-build-only evidence stay scoped.",
+      "evidence": "All contract tables, examples, proof floors, check rows, hashes and later resumes read. This is retained dossier review, not source-code/runtime or private content re-verification.",
+      "reopen": "Follow current live source and later owning receipts before acting; preserve named acquisition, effect-consumer, source-row and rebuilt desktop gaps.",
+      "input_sha256": "850fbeefc1d06a40a34ef6a070ecef7ae2dcdce5a03ab5afb71185e98f08c6ca",
+      "input_lines": 156,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          156
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF_INFERENCE_CHECKPOINT.md",
+      "ids": [
+        "KN1/MF1-L5; evidence/belief/intention"
+      ],
+      "classification": "mechanism contract and historical integration/fixture evidence reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The original complete chain uses exact held observer evidence; reading/testimony need actual access/comprehension or received records. Belief, considering, active, postponed and cancelled intention have distinct phase gates. A native topic consumes the belief/intention in synthetic tests, but thought does not act, transmit knowledge, restore memory or grant fluency. AD2 later permits source-supported single fragments; do not retain the original complete-chain requirement as today’s authoring gate. The original unapplied patch/fixture description remains historical rather than proof of current integration. Five headless/native/save tests, differential input identities and corrected fixture failures do not establish source-row or desktop play.",
+      "evidence": "All contract tables, examples, proof floors, check rows, hashes and later resumes read. This is retained dossier review, not source-code/runtime or private content re-verification.",
+      "reopen": "Follow current live source and later owning receipts before acting; preserve named acquisition, effect-consumer, source-row and rebuilt desktop gaps.",
+      "input_sha256": "6c80526cb6109af3176de7546ffd17204190318603efd86dea1e0a0f53a78427",
+      "input_lines": 183,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF_EXCHANGE_CHECKPOINT.md",
+      "ids": [
+        "CU1/MF1-L2; grouped quote/tender/change/wear"
+      ],
+      "classification": "mechanism contract and historical integration/fixture evidence reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Seller stock and buyer tender reserve as escrow; settlement delivers goods/change together, while cancel/lost support returns exact reservations. Known group total need not imply line prices. Null total emits no executable purchase, null denominations are not zero, numeric tender/change is not a banknote inventory or NPC purse. Wear uses full native item identity/quality and returns the previous slot item. The original scoped lack of a household-stash port is not engine-wide absence. Resume1 rebases on KN1 and qualifies prepared/live-source fixture branches in disposable trees; the later body receipt records further shared integration/fixture repair. Neither receipt supplies a current integration check, natural stocked route or desktop gameplay proof.",
+      "evidence": "All contract tables, examples, proof floors, check rows, hashes and later resumes read. This is retained dossier review, not source-code/runtime or private content re-verification.",
+      "reopen": "Follow current live source and later owning receipts before acting; preserve named acquisition, effect-consumer, source-row and rebuilt desktop gaps.",
+      "input_sha256": "b9a0f21b44bf320e9661767e8e8d347c10220ccb59da2bb7063157da6d3392d9",
+      "input_lines": 179,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          179
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF_BODY_CHECKPOINT.md",
+      "ids": [
+        "BD1/MF1-L7; native sleep/wake and meals"
+      ],
+      "classification": "mechanism contract and historical integration/fixture evidence reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "Native sleeping state and physiological recovery differ from H2 awake facts. Real participants, known resource stock and reservation conserve actual consumption; unknown portions stay null, not free-food claims or guessed splits. Unknown ordinary care/meal time can settle immediately without fabricated elapsed time, while timed sleep needs a supported positive interval. Owner-needed facts do not grant nutrition, recovery, dreams or other-body effects. Resume1 supersedes the opening unapplied-patch status: it records live BD1/CU1 joins, patch-free fixtures and repaired disposable-output symlinks/stale CU1 patch failures. Its16/16 synthetic/headless result still leaves the rebuilt desktop route open. This dossier review does not rerun those fixtures or enforce food maintenance as a new project rule.",
+      "evidence": "All contract tables, examples, proof floors, check rows, hashes and later resumes read. This is retained dossier review, not source-code/runtime or private content re-verification.",
+      "reopen": "Follow current live source and later owning receipts before acting; preserve named acquisition, effect-consumer, source-row and rebuilt desktop gaps.",
+      "input_sha256": "04dd4552a14d36723bbd4bc8f4466a5ea50a7fedbd7700ec99dbf3e155eae60b",
+      "input_lines": 216,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          216
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/MF_ABILITY_CHECKPOINT.md",
+      "ids": [
+        "AB1/MF1-L8; deterministic authored moves"
+      ],
+      "classification": "mechanism contract and historical integration/fixture evidence reconciliation",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md"
+      ],
+      "disposition": "The adapter admits authored ordered moves through actual held-source/control/target/counter support and native job effects. It creates no separate saved battle or random draw. Once-per-authored episode settlement is integrity policy, not a universal limit on legitimate repeated practice. Unknown cost remains disclosed, known costs still charge, and owner-needed effects record missing behavior rather than wounds, training, ammunition, relocation or delivered messages. Native travel correctly rejected an unsupported relocation; the replacement release consumer tests a different explicitly bounded outcome. Resume1 supersedes patch-applying fixture behavior: absent live joins skip the native fixture, partial joins fail, complete live joins exercise retained assertions. Shared run15passed/1skipped differs from patched-copy16/16. No current source rows, live joins, earned route or desktop proof is inferred from either historical result.",
+      "evidence": "All contract tables, examples, proof floors, check rows, hashes and later resumes read. This is retained dossier review, not source-code/runtime or private content re-verification.",
+      "reopen": "Follow current live source and later owning receipts before acting; preserve named acquisition, effect-consumer, source-row and rebuilt desktop gaps.",
+      "input_sha256": "60b795f503139e3fd44957ad8640d0658a51a23a2d25ead952887fe60914e421",
+      "input_lines": 240,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          240
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/CAST_LIVES_PLAN_2026-10-28.md",
+      "heading": "## Content reconciliation B416: mechanism contracts, support and proof floors",
+      "body": "Six complete mechanism contract receipts were read, including later rebases and fixture changes. The plan remains a partially reviewed owner; this fold is scoped to those receipts.\n\n**MF_DIVINATION:** The original contract freezes a source-pinned signal in a native timed job, with separate stage, signal, interpreted belief and phase-dependent consumer. It performs no keyed/ordinal draw, forecasting or contested answer. Interpretation does not mutate world truth or deliver another observer’s knowledge. Original required payment/full chain is later relaxed by AD2 (reviewed in B415); that removes an authoring constraint without inventing means/contact, signal or physical effects. The five synthetic tests/disposable patch/save cycles are historical mechanism evidence, not natural source acquisition, current shared integration or1920×1080 layout proof. Prepared joins, raw scanner failures and fixture fixes remain visible.\n\n**MF_MAKING:** Recipe recognition, instruction, actual conserved inputs/catalysts, resolved product identity, held batch, separate consumption and real downstream effect differ. One item denotes a resolved whole batch, not a guessed portion count. External consumers must reserve the exact item; an object/owner-needed fact cannot substitute for nutrition or functional use. Atomic preparation refunds reserved ingredients on cancellation while retaining elapsed time; committed multi-stage matter/spoilage/resume needs the actual craft owner. Generated frozen product/law persistence remains a named integration seam. AD2’s later document/preparation fragments extend this fixed-batch shape without qualifying downstream delivery or full physical production. Initial fixture key/template errors and disposable-build-only evidence stay scoped.\n\n**MF_INFERENCE:** The original complete chain uses exact held observer evidence; reading/testimony need actual access/comprehension or received records. Belief, considering, active, postponed and cancelled intention have distinct phase gates. A native topic consumes the belief/intention in synthetic tests, but thought does not act, transmit knowledge, restore memory or grant fluency. AD2 later permits source-supported single fragments; do not retain the original complete-chain requirement as today’s authoring gate. The original unapplied patch/fixture description remains historical rather than proof of current integration. Five headless/native/save tests, differential input identities and corrected fixture failures do not establish source-row or desktop play.\n\n**MF_EXCHANGE:** Seller stock and buyer tender reserve as escrow; settlement delivers goods/change together, while cancel/lost support returns exact reservations. Known group total need not imply line prices. Null total emits no executable purchase, null denominations are not zero, numeric tender/change is not a banknote inventory or NPC purse. Wear uses full native item identity/quality and returns the previous slot item. The original scoped lack of a household-stash port is not engine-wide absence. Resume1 rebases on KN1 and qualifies prepared/live-source fixture branches in disposable trees; the later body receipt records further shared integration/fixture repair. Neither receipt supplies a current integration check, natural stocked route or desktop gameplay proof.\n\n**MF_BODY:** Native sleeping state and physiological recovery differ from H2 awake facts. Real participants, known resource stock and reservation conserve actual consumption; unknown portions stay null, not free-food claims or guessed splits. Unknown ordinary care/meal time can settle immediately without fabricated elapsed time, while timed sleep needs a supported positive interval. Owner-needed facts do not grant nutrition, recovery, dreams or other-body effects. Resume1 supersedes the opening unapplied-patch status: it records live BD1/CU1 joins, patch-free fixtures and repaired disposable-output symlinks/stale CU1 patch failures. Its16/16 synthetic/headless result still leaves the rebuilt desktop route open. This dossier review does not rerun those fixtures or enforce food maintenance as a new project rule.\n\n**MF_ABILITY:** The adapter admits authored ordered moves through actual held-source/control/target/counter support and native job effects. It creates no separate saved battle or random draw. Once-per-authored episode settlement is integrity policy, not a universal limit on legitimate repeated practice. Unknown cost remains disclosed, known costs still charge, and owner-needed effects record missing behavior rather than wounds, training, ammunition, relocation or delivered messages. Native travel correctly rejected an unsupported relocation; the replacement release consumer tests a different explicitly bounded outcome. Resume1 supersedes patch-applying fixture behavior: absent live joins skip the native fixture, partial joins fail, complete live joins exercise retained assertions. Shared run15passed/1skipped differs from patched-copy16/16. No current source rows, live joins, earned route or desktop proof is inferred from either historical result.\n\nGeneric schema words, the snapshot’s private-row counts, prepared patch readiness, disposable integration, native/headless evidence and actual source-row/desktop coverage remain different claims. Current AD42 makes human review optional. This reconciliation applies no old patch, invents no source content or stock and restarts no worker; dated requests to apply, commit or run gates retain their original execution context.",
+      "before_sha256": "695cc5552ada23f5d98008a1b95215570db27a4a6f236c7587f7307ffe2102a2",
+      "after_sha256": "4913512e7080c2c868629ae3c8d276e8e1630444c0a5bd3146bf864f31d41085"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 488
+}

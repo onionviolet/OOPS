@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "batch": "B621",
+  "title": "Your Chronicle second-pass map: bounded records and distinct reset carriers",
+  "at": "2026-11-05T13:56:12.865162+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/COVERAGE.json",
+      "ids": [
+        "12table paths",
+        "136record-IDpairs",
+        "17prior-tablecomparisons",
+        "P1–P7"
+      ],
+      "classification": "full source-selection map; record versus inventory and historical evidence boundaries",
+      "owners": [
+        "docs/research/your-chronicle/pass-2026-10-14/REPORT.md",
+        "docs/research/your-chronicle/pass-2026-10-14/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "F1: Every field of782-line COVERAGE.json actually read via complete compact root and three four-table groups: statusPARTIAL/build25001959/fourinputhashes,17prior decoded-table comparisons, all12table paths/assets/pathIDs/hashes/inventory-row counts and136selected csv_record/id pairs, missingnativecorpus and runtimefalse. Selected lengths12/5/22/11/9/2/3/14/10/20/4/24sum136; inventories sum3046. Selectedrecord reading is136, not3046fullrecords or whole12tables. Full Greed22and restrictiontranslation9coexist with partial other tables;206inheritance-flag census in supporting digest is not206full effect reads. Hash parity compares historical selected inputs, not restorednative bodies, callbacks, currentinstall/freshness or semantic source rereading.\n\nF2: Read existing full report/packets/carryoverdigest as supporting content. Twelve paths span food effects, twoselectedcombatskills, Greed, Akashicunlockrows, Priderestrictiondescriptions, cookingactions, potion/fishingloops,14mentorconversationrecords,10retainedresources,20Priderows,4inheritedbooks and24Helpsections. Preserve tenbalanceexceptions including negative marks and distinct Save/SaveR, classaccess/proficiency/lifetimecompletions, currentSatiety/Desire/maxcapacity, Envyinvestment/currentroutinelevel, Alchemyscore/transmutation/allowance, Tarotidentity/orientation and activequest/temporaryeffect. Flags/data/Help/priornative statements differ from actual live consumers. PathID/CSVrow is locator, not a current callback trace.\n\nF3: Sevenlatefamilies means sixsin-themed+Alchemy; AHAextendsSloth. Differentdenominators22Greedrows/Help20,21routines/threegroupsofseven,nineWrathpersonalities/ally,88Priderows/eightChronicles,fourmentorbooks cannot be summed as independent systems or proven simultaneousunlock route. Releasecode for Wrath/Alchemy unread. PrideSpecificRewardNum55/555parser remains unknown; no literal55-clear or silentfive-clear claim. Source cap/Ruby/finiteunlocksettings are local observations, not project laws or source purchase authority.\n\nF4: Fourlife-local mentorpaths and inherited900Inspiration/Rank60books with laterRank65/70recognition make alternatives potentially accumulable, not an actual completedfour-life/minimumlife proof. Love spends/capacity, actualskill11Stamina/interval/attribute/formationconditions and CollectionvsLuck have distinct consumers; no fresh damage/drop/stacking/proficiency or currentYAIRsource claim. Threequeues/manualvsAHAallocation/actionofflineflag/decay and squadopportunity/staminacost remain useful with unreaddispatch/timeacquisition/transactionalreplay/nativequestpersistence explicitly retained.\n\nF5: Preserve P1resetpreview/P2learnedalternatives/P3independentplans/P4competingsinks/P5voluntarynextlifeconstraint/P6awaywork/P7durablecapacity as unselected proposals under current owners. No extra prestige layer, obligatoryfood, universalpartyexclusivity, genericchallengereset or new sourceworld is selected. Report’s one-realm/one-prestige milestone is retired under currentPROJECT; native existing saved semantics/optionalprestige survive. HumanreviewoptionalAD42corrects packet’s mandatorydirectorwording; currentAD36/AD43define selectedruntime evidence. PARTIALexternalresearch is not a blocker to full review of this map. No game/install/account/save/sourcebodyaccess, recoveryworker/acquisition, implementation/test/build/browser, deletion/move, commit/push occurs.",
+      "evidence": "Complete compact JSON fields/records actually read, arithmetic checked; existing report/packets/carryoverdigest read as supporting semantics. No external table/nativebody/currentinstallation/runtime proof.",
+      "reopen": "For selected research reuse existing pins/notes and inspect exact missing callback; for selected YAIRslice use current owners. No automatic corpus recovery or game launch.",
+      "full": true,
+      "input_sha256": "90f196c72ec447f253a5848511779a8250cb6d5430e5c1ed979e2bacc52864e7",
+      "input_lines": 782,
+      "ranges": [
+        [
+          1,
+          782
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/REPORT.md",
+      "heading": "## Coverage-map content reconciliation B621",
+      "body": "B621reads every field and record of [the coverage map](COVERAGE.json): fourhistoricalinputhashes/17prior-tablecomparisons,12tables and136selected CSVrecord-IDpairs out of3046inventoryrows. Greed22and restrictiontranslation9are full selected-table counts; other tables remain bounded. Build/hashparity does not restore missingnativecorpus, prove currentinstallation, read callbacks or execute a route. StatusPARTIALstays accurate for underlyingresearch; fullmapreview is distinct.\n\nPreserve the carrier/reset split,10balanceexceptions, inheritedaccessvsproficiency, Envycapacityvsprogress, Alchemyscore/allowance, activequests/temporaryeffects, manual/AHAallocation and offlineeligibility. Sevenlatefamilies and22Greed/21routines/88Pride/fourbooks measure differentthings. Pride55/555parser and Wrath/Alchemyreleasecode remain unread. Fourmentorlessons can accumulate by authoredinheritance but no actualfour-life/minimumlife proof was performed.\n\nP1–P7remain useful unselected originalreuse proposals with currentowner checks needed. The retired one-realm/prestige milestone is not restored; humanreviewoptionalAD42and currentAD36/AD43govern selectedruntime evidence. No new sourcebody/readcredit for the136externalrows, recovery/acquisition, sourcecode/runtime/save/test/build/browser operation occurs.",
+      "before_sha256": "ed5a5afb650556eac3d2a851e2d7bc5ad2bdd8eb3e087f48b76ce3f40d2011c9",
+      "after_sha256": "319f32650e219b887d2da2771ff1f101a629e798fd254c8616620a4eb9d677ab"
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "heading": "## Current scope and evidence reconciliation B621",
+      "body": "B621reads every field and record of [the coverage map](COVERAGE.json): fourhistoricalinputhashes/17prior-tablecomparisons,12tables and136selected CSVrecord-IDpairs out of3046inventoryrows. Greed22and restrictiontranslation9are full selected-table counts; other tables remain bounded. Build/hashparity does not restore missingnativecorpus, prove currentinstallation, read callbacks or execute a route. StatusPARTIALstays accurate for underlyingresearch; fullmapreview is distinct.\n\nPreserve the carrier/reset split,10balanceexceptions, inheritedaccessvsproficiency, Envycapacityvsprogress, Alchemyscore/allowance, activequests/temporaryeffects, manual/AHAallocation and offlineeligibility. Sevenlatefamilies and22Greed/21routines/88Pride/fourbooks measure differentthings. Pride55/555parser and Wrath/Alchemyreleasecode remain unread. Fourmentorlessons can accumulate by authoredinheritance but no actualfour-life/minimumlife proof was performed.\n\nP1–P7remain useful unselected originalreuse proposals with currentowner checks needed. The retired one-realm/prestige milestone is not restored; humanreviewoptionalAD42and currentAD36/AD43govern selectedruntime evidence. No new sourcebody/readcredit for the136externalrows, recovery/acquisition, sourcecode/runtime/save/test/build/browser operation occurs.",
+      "before_sha256": "852d3b2729dee0cc85cf32dd2a5ec8303f182e383a1f85519a0cf0abf0d10053",
+      "after_sha256": "597d133d2806eddd63417027770568a203cc0829ad72ce93d992f8e76159fbee"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 64,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/REPORT.md",
+      "from": "within the existing one-prestige milestone",
+      "to": "without adding a new prestige layer",
+      "reason": "Apply retired milestone/current optional-review authority, retaining exact old wording."
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/REPORT.md",
+      "from": "Keep the familiar opening, one realm/one prestige milestone, flexible carry dials,",
+      "to": "Keep the familiar opening, existing optional prestige, flexible carry dials,",
+      "reason": "Apply retired milestone/current optional-review authority, retaining exact old wording."
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "from": "or director acceptance.",
+      "to": "under current AD43; human review is optional under AD42.",
+      "reason": "Apply retired milestone/current optional-review authority, retaining exact old wording."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/REPORT.md",
+      "from": "319f32650e219b887d2da2771ff1f101a629e798fd254c8616620a4eb9d677ab",
+      "to": "e4569b7b00882fc0da845d4e82ffddb5712d9bd070d64d2975cfeb96accbe98d",
+      "reason": "Precise current-scope qualifiers."
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "from": "597d133d2806eddd63417027770568a203cc0829ad72ce93d992f8e76159fbee",
+      "to": "e93f8acd6df6269e8f456ea6b04c9b5ff86d91aac254e94c0575a8a502e8d43d",
+      "reason": "Precise current-scope qualifiers."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/REPORT.md",
+      "sha256": "e4569b7b00882fc0da845d4e82ffddb5712d9bd070d64d2975cfeb96accbe98d",
+      "scope": "Complete displayed original supporting text, not a new candidate-review event."
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/IMPLEMENTATION_PACKETS.md",
+      "sha256": "e93f8acd6df6269e8f456ea6b04c9b5ff86d91aac254e94c0575a8a502e8d43d",
+      "scope": "Complete displayed original supporting text, not a new candidate-review event."
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/CARRYOVER_AND_UNLOCKS.md",
+      "sha256": "5090af0de41c3c22dcc98ca85d8f950c0fdadce1bebdec6b2f3668a6f4932895",
+      "scope": "Complete displayed original supporting text, not a new candidate-review event."
+    }
+  ]
+}

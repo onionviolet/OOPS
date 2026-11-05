@@ -1,0 +1,19 @@
+{
+  "command": "node check_doc_slips.mjs with explicit task filespec",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "paths": [
+    "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+    "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md",
+    "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/research/local-ai-2026-10-14/REPORT.md",
+    "docs/research/proto23/xeus24-mod-2026-10-10/XEUS24_MOD_AUDIT_2026-10-10.md",
+    "docs/research/protolike-deep-2026-10-22/REPORT.md"
+  ],
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "d1064162b40cd95c71985db22e92574b9edc6a9d8aaeb2b6dac427a9d50fca7d",
+  "scope": "Only filespec adapted; diagnostic logic unchanged, not a shared-tree pass."
+}

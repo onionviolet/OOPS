@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "batch": "B507",
+  "title": "UI delivery boundaries, historical density method and all thirteen book-wave rounds",
+  "at": "2026-11-05T09:00:58.500823+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/broader-ui-follow-through-2026-10-26/CHECKPOINT.md",
+      "ids": [
+        "D1–D4",
+        "breadth map",
+        "final frozen revision",
+        "family-specific coverage"
+      ],
+      "classification": "chronological UI scope and evidence reconciled; proposed schemas and untested states preserved",
+      "owners": [
+        "docs/gm/dispatch/broader-ui-follow-through-2026-10-26/CHECKPOINT.md"
+      ],
+      "disposition": "The final delivered snapshot 1e3c228b supersedes intermediate frozen roots and the earlier control-state-only Reports evidence. Reports had a real CSS precedence defect: toggles changed but rows stayed visible. Skills had a real collapsed-group/empty-search counting defect. Their runtime repairs differ from selector/driver and route-assumption harness corrections. The final preview close restores carried-row focus without reopening the popover. Source-row return, local More actions, preview versus selection, pinned subject, empty slots, skill search/clear/group restoration, recipe success/refusal and Reports recovery/history identity have bounded historical proof. Final six desktop/text cases at 1920/1800/1536 and measured 14/21px plus six native edge journeys share the final frozen bundle, followed by an identical post-proof rebuild. Nineteen focused tests do not establish a full-suite pass. The fixture explicitly supplies meat, unlocks and XP; no natural progression claim follows. Nearby selection/conversation and training/settings draft-discard do not cover departed people, inaccessible stock, expired conditions, live Apply/reset/import, long batch automation or all book/private menus. UIS12 report grammar and repeat merging remain open. Some large-text floor header truncation remained despite page-bound proof. Unchanged persistence schema requires no invented additional save gate; disposable native saves differ from a new persistence feature. Proposed PROJECT/register hunks were not writes or adopted direction. Nine reservations were released, generated primary outputs and unrelated dirt preserved, and no app adoption/commit was claimed. AD42 keeps optional human taste review separate from agent verification. No current build or screenshot was exercised by this review.",
+      "evidence": "Whole 183-line follow-through, 183-line reusable prompt and 229-line thirteen-round plan read. Only selected owner introductions inspected; no fresh UI/source/research proof.",
+      "reopen": "Use current source ownership and exact selected view/state before extending a remaining UI feature or renewing historical browser claims.",
+      "input_sha256": "7d0c750d6048eae4a17197e7fb40d19cb3a6685fe647008db6ec306f4d6bac52",
+      "input_lines": 183,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/UI_DENSITY_AUDIT_PROMPT.md",
+      "ids": [
+        "S1–S5",
+        "T1–T7",
+        "M1–M8",
+        "Parts A–C",
+        "five output groups"
+      ],
+      "classification": "chronological UI scope and evidence reconciled; proposed schemas and untested states preserved",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md"
+      ],
+      "disposition": "The reusable Oct13 prompt is historical audit input, not an instruction to launch another browser/research wave. S1–S5 were preliminary 1024x768 observations, including 143/610 local-action height and 459 DOM buttons; they are not current measurements or proof of visible/focus/performance cost. Its paired original/current T1–T7 states and M1–M8 metrics remain useful methods: next decisions, scroll owners, content/chrome ratios, prose, routine effort, stability and empty space. Count meaningful visible actions and inspect actual focus/accessibility rather than equating hidden DOM count with burden. A stale tracked bundle and mutable shared output cannot certify current source; historical upstream e3356432 and source paths need fresh identity before any later comparison. The prompt's narrow/mobile and 1366/1440 targets remain historical scope; current desktop/laptop priority governs selected work, with actual text-size proof rather than a zoom label alone. Its reference-game list is a candidate research set, not proof those UIs were played or a required exhaustive research gate. Preserve progressive disclosure, attached decision facts, logs, long-list controls and alternatives where useful; AD5 does not require building every layout as a selectable preset. Report/evidence/proposals/limits are distinct artifacts, and writing the prompt proves none was delivered. No original prompt text was changed; this fold establishes its use and limits without rerunning it.",
+      "evidence": "Whole 183-line follow-through, 183-line reusable prompt and 229-line thirteen-round plan read. Only selected owner introductions inspected; no fresh UI/source/research proof.",
+      "reopen": "Use current source ownership and exact selected view/state before extending a remaining UI feature or renewing historical browser claims.",
+      "input_sha256": "8c9a7ab91bddb3b522dc15b41ecf2b1a179eb9e866b528255762e87cacdb13e1",
+      "input_lines": 183,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/book-ui-wave-2026-10-30/PLAN.md",
+      "ids": [
+        "Rounds1–13",
+        "P1–P6",
+        "G1–G7",
+        "R1–R7",
+        "F1–F6"
+      ],
+      "classification": "chronological UI scope and evidence reconciled; proposed schemas and untested states preserved",
+      "owners": [
+        "docs/gm/dispatch/book-ui-wave-2026-10-30/PLAN.md"
+      ],
+      "disposition": "All thirteen rounds preserve chronological user requests separately from agent proposals and dated worker status. The later Round13 request to start the card/ladder separately supersedes Round12's waiting note within that scope; it does not prove implementation, integration or a new permanent release order. Original 60/70/85/90 usage thresholds, browser-pool observations, session IDs and lane/worktree assignments are historical, not authority to launch workers or clean current worktrees. Merged 28/294 COI shards and non-lead tags are bounded reading metadata, not whole-book qualification. Preserve the user direction for multiple per-world progression forms, branching/mixing mechanisms and valid no-path powers; a shape name accepted by a ladder-only validator was an identified implementation gap. The generic graph/layout, ratchet and particular seven-family requirement schema remain proposals rather than new universal architecture. Method/material/readiness/procedure/token/standing/condition can organize a selected read model, with provenance, known routes, partial failure and ignored advice, while AR3/AD38 keep facts in their real owners and routes governed by mechanisms. A title or scarce-token label does not universally imply one holder. Hands-on/abstract making remains a dial with unfolding, not mandatory grind. Form alternatives, focus/hover/pin/compare and a world-neutral card do not prove host consumption. Private official art and reference imagery remain provenance-qualified inputs under CLR3; 19 cards, three absent cards, 118 gallery images and 157 illustrated chapters describe that edition, not all pathway knowledge or current runtime coverage. Round11 high-rank/wiki/adaptation statements remain source claims needing exact readings before mechanics; a wiki capture or fan map is not geography proof. Discovery-gated public glyph and private-art rendering, current viewport proof and readable body type retain their separate checks. The reference-imagery seven rules were explicitly proposed, not new UR codes. Long-term pathway switching and ordinary beside-lead lives stay distinct from the lead developer route. A source notice saying one path per life needs its mechanism/default interpretation, not a universal ban. Proposed taste checks cannot silently become required human acceptance under AD42. This plan does not certify those lanes landed, delete stale branches, establish a general engine prerequisite, or reactivate archived dispatches.",
+      "evidence": "Whole 183-line follow-through, 183-line reusable prompt and 229-line thirteen-round plan read. Only selected owner introductions inspected; no fresh UI/source/research proof.",
+      "reopen": "Use current source ownership and exact selected view/state before extending a remaining UI feature or renewing historical browser claims.",
+      "input_sha256": "80049ff5ac8710efb8b7237692f64df9f41a18002c05deeed07c5ab6bd340fcc",
+      "input_lines": 229,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          229
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/broader-ui-follow-through-2026-10-26/CHECKPOINT.md",
+      "heading": "## Content reconciliation B507: broader-ui-follow-through-2026-10-26",
+      "body": "The final delivered snapshot 1e3c228b supersedes intermediate frozen roots and the earlier control-state-only Reports evidence. Reports had a real CSS precedence defect: toggles changed but rows stayed visible. Skills had a real collapsed-group/empty-search counting defect. Their runtime repairs differ from selector/driver and route-assumption harness corrections. The final preview close restores carried-row focus without reopening the popover. Source-row return, local More actions, preview versus selection, pinned subject, empty slots, skill search/clear/group restoration, recipe success/refusal and Reports recovery/history identity have bounded historical proof. Final six desktop/text cases at 1920/1800/1536 and measured 14/21px plus six native edge journeys share the final frozen bundle, followed by an identical post-proof rebuild. Nineteen focused tests do not establish a full-suite pass. The fixture explicitly supplies meat, unlocks and XP; no natural progression claim follows. Nearby selection/conversation and training/settings draft-discard do not cover departed people, inaccessible stock, expired conditions, live Apply/reset/import, long batch automation or all book/private menus. UIS12 report grammar and repeat merging remain open. Some large-text floor header truncation remained despite page-bound proof. Unchanged persistence schema requires no invented additional save gate; disposable native saves differ from a new persistence feature. Proposed PROJECT/register hunks were not writes or adopted direction. Nine reservations were released, generated primary outputs and unrelated dirt preserved, and no app adoption/commit was claimed. AD42 keeps optional human taste review separate from agent verification. No current build or screenshot was exercised by this review.",
+      "before_sha256": "7d0c750d6048eae4a17197e7fb40d19cb3a6685fe647008db6ec306f4d6bac52",
+      "after_sha256": "6e7f7e7861b60c385a4421d587281b545b551ceb0426051cb3d0608fecd36e58"
+    },
+    {
+      "path": "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+      "heading": "## Content reconciliation B507: gm",
+      "body": "The reusable Oct13 prompt is historical audit input, not an instruction to launch another browser/research wave. S1–S5 were preliminary 1024x768 observations, including 143/610 local-action height and 459 DOM buttons; they are not current measurements or proof of visible/focus/performance cost. Its paired original/current T1–T7 states and M1–M8 metrics remain useful methods: next decisions, scroll owners, content/chrome ratios, prose, routine effort, stability and empty space. Count meaningful visible actions and inspect actual focus/accessibility rather than equating hidden DOM count with burden. A stale tracked bundle and mutable shared output cannot certify current source; historical upstream e3356432 and source paths need fresh identity before any later comparison. The prompt's narrow/mobile and 1366/1440 targets remain historical scope; current desktop/laptop priority governs selected work, with actual text-size proof rather than a zoom label alone. Its reference-game list is a candidate research set, not proof those UIs were played or a required exhaustive research gate. Preserve progressive disclosure, attached decision facts, logs, long-list controls and alternatives where useful; AD5 does not require building every layout as a selectable preset. Report/evidence/proposals/limits are distinct artifacts, and writing the prompt proves none was delivered. No original prompt text was changed; this fold establishes its use and limits without rerunning it.",
+      "before_sha256": "7d1bde019719265f6c4247837b79bbc77b80b5638f91ac8e699354d327c53a01",
+      "after_sha256": "346d1be8941e367260d3658c886d4938b5c0fbeeb3e27c320915451c35b7dd98"
+    },
+    {
+      "path": "docs/gm/dispatch/book-ui-wave-2026-10-30/PLAN.md",
+      "heading": "## Content reconciliation B507: book-ui-wave-2026-10-30",
+      "body": "All thirteen rounds preserve chronological user requests separately from agent proposals and dated worker status. The later Round13 request to start the card/ladder separately supersedes Round12's waiting note within that scope; it does not prove implementation, integration or a new permanent release order. Original 60/70/85/90 usage thresholds, browser-pool observations, session IDs and lane/worktree assignments are historical, not authority to launch workers or clean current worktrees. Merged 28/294 COI shards and non-lead tags are bounded reading metadata, not whole-book qualification. Preserve the user direction for multiple per-world progression forms, branching/mixing mechanisms and valid no-path powers; a shape name accepted by a ladder-only validator was an identified implementation gap. The generic graph/layout, ratchet and particular seven-family requirement schema remain proposals rather than new universal architecture. Method/material/readiness/procedure/token/standing/condition can organize a selected read model, with provenance, known routes, partial failure and ignored advice, while AR3/AD38 keep facts in their real owners and routes governed by mechanisms. A title or scarce-token label does not universally imply one holder. Hands-on/abstract making remains a dial with unfolding, not mandatory grind. Form alternatives, focus/hover/pin/compare and a world-neutral card do not prove host consumption. Private official art and reference imagery remain provenance-qualified inputs under CLR3; 19 cards, three absent cards, 118 gallery images and 157 illustrated chapters describe that edition, not all pathway knowledge or current runtime coverage. Round11 high-rank/wiki/adaptation statements remain source claims needing exact readings before mechanics; a wiki capture or fan map is not geography proof. Discovery-gated public glyph and private-art rendering, current viewport proof and readable body type retain their separate checks. The reference-imagery seven rules were explicitly proposed, not new UR codes. Long-term pathway switching and ordinary beside-lead lives stay distinct from the lead developer route. A source notice saying one path per life needs its mechanism/default interpretation, not a universal ban. Proposed taste checks cannot silently become required human acceptance under AD42. This plan does not certify those lanes landed, delete stale branches, establish a general engine prerequisite, or reactivate archived dispatches.",
+      "before_sha256": "80049ff5ac8710efb8b7237692f64df9f41a18002c05deeed07c5ab6bd340fcc",
+      "after_sha256": "f030423f5a123bae4aa6f5d3595f6c3d90d374948d81d25f9d0df3f6f5eb930e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 236
+}

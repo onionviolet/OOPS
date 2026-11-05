@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "batch": "B459",
+  "title": "Complete ER8 simulation/NPC survey, policy boundaries and phased trials",
+  "at": "2026-11-05T06:43:33.914345+00:00",
+  "head": "2ddf2f0ea4b7d5eb10d7fc3a947d76da2739f748",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/SIMULATION_AND_NPC_ARCHITECTURE_2026-10-14.md",
+      "ids": [
+        "ER8-F1–9/S1–13/S5a/C1/P1–10/L1–4/A1–5/Q1–4;AI1–9"
+      ],
+      "classification": "complete dated review/research owner with retained evidence and proposal boundaries",
+      "owners": [
+        "docs/research/SIMULATION_AND_NPC_ARCHITECTURE_2026-10-14.md",
+        "PROJECT.md",
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full275-line review covers all ER8 findings, thirteen comparator mechanisms plus S5a, pinned Ensemble inspection, ten proposal rows, four LOD tiers, five ranked trials and four open questions. READ means the original author inspected source; STATED means the cited account asserted it; INFERRED fit/complexity is not a benchmark. This reconciliation did not reread external papers, code or websites and makes no new release/license/performance claims.\n\nPreserve the useful policy/executor/director/history separation: schedules or utility propose a registered command; jobs, reservations, actual means and staged publication own execution; a director selects eligible content without inventing resources or forced scaling; generated past is committed separately from live outcomes. Existing keyed actor, people, inventory, custody, clocks and knowledge owners remain authoritative. The illustrative agents/claims/director schema and hybrid policy are unselected proposals, not implementation or a second database mandate. Fixed-priority controllers and finite procedures remain suitable where they suffice.\n\nLOD detail and eligible elapsed time are independent. Named debts, witnesses, claims, bodies and spent stock survive promotion/demotion; unsupported batching cannot reroll known facts or advance a frozen branch. The 512-boundary remainder requires caller handling. Derived queues must preserve phase/tie order and authoritative jobs; asymptotic selection savings do not remove projection, validation, cloning, storage or UI costs. Planner observations differ from internal truth legality: failed previews, candidate counts and traces must not disclose a hidden fact. Understanding is not truth probability, unknown differs from false, and rumor requires an actual channel. Compact prose is not permission to lose unresolved obligations or exact history used by gameplay.\n\nIts October14 one-realm/prestige language, 1366×768 trial viewport and current-at-the-time source line references are historical. Use current [PROJECT](../../PROJECT.md), [architecture rules](../ARCHITECTURE_RULES.md), [UI rules](../UI_RULES.md) and selected world clock/consumer owners. AD51 permits the first useful shared seam; no broad AI rewrite or city simulation is required. Body-specific needs, paid work, consent and cancellation are the selected actors' mechanisms rather than universal compulsory taxes on every faculty. Old saves gain no invented elapsed need decay, possessions or household history. AD36/AD43 and optional human review apply to later implementation. Reopen a named ER8 trial only for a concrete authorized consumer; no runtime, benchmark, migration, package, source acquisition or personal-save operation was performed here.",
+      "evidence": "All275 pre-fold lines read in complete consecutive slices; linked source bodies and historical checks not rerun.",
+      "reopen": "Use a named finding or trial for a selected current consumer with current ownership and input-bound proof; keep historical receipts and proposals.",
+      "input_sha256": "d7c3d4315de9cebfc9c5b7b765fabd44bc88b92c5c4ef2dba1e93a617a9c6ff7",
+      "input_lines": 275,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          275
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/SIMULATION_AND_NPC_ARCHITECTURE_2026-10-14.md",
+      "heading": "## Content reconciliation B459: complete review and later authority routing",
+      "body": "Full275-line review covers all ER8 findings, thirteen comparator mechanisms plus S5a, pinned Ensemble inspection, ten proposal rows, four LOD tiers, five ranked trials and four open questions. READ means the original author inspected source; STATED means the cited account asserted it; INFERRED fit/complexity is not a benchmark. This reconciliation did not reread external papers, code or websites and makes no new release/license/performance claims.\n\nPreserve the useful policy/executor/director/history separation: schedules or utility propose a registered command; jobs, reservations, actual means and staged publication own execution; a director selects eligible content without inventing resources or forced scaling; generated past is committed separately from live outcomes. Existing keyed actor, people, inventory, custody, clocks and knowledge owners remain authoritative. The illustrative agents/claims/director schema and hybrid policy are unselected proposals, not implementation or a second database mandate. Fixed-priority controllers and finite procedures remain suitable where they suffice.\n\nLOD detail and eligible elapsed time are independent. Named debts, witnesses, claims, bodies and spent stock survive promotion/demotion; unsupported batching cannot reroll known facts or advance a frozen branch. The 512-boundary remainder requires caller handling. Derived queues must preserve phase/tie order and authoritative jobs; asymptotic selection savings do not remove projection, validation, cloning, storage or UI costs. Planner observations differ from internal truth legality: failed previews, candidate counts and traces must not disclose a hidden fact. Understanding is not truth probability, unknown differs from false, and rumor requires an actual channel. Compact prose is not permission to lose unresolved obligations or exact history used by gameplay.\n\nIts October14 one-realm/prestige language, 1366×768 trial viewport and current-at-the-time source line references are historical. Use current [PROJECT](../../PROJECT.md), [architecture rules](../ARCHITECTURE_RULES.md), [UI rules](../UI_RULES.md) and selected world clock/consumer owners. AD51 permits the first useful shared seam; no broad AI rewrite or city simulation is required. Body-specific needs, paid work, consent and cancellation are the selected actors' mechanisms rather than universal compulsory taxes on every faculty. Old saves gain no invented elapsed need decay, possessions or household history. AD36/AD43 and optional human review apply to later implementation. Reopen a named ER8 trial only for a concrete authorized consumer; no runtime, benchmark, migration, package, source acquisition or personal-save operation was performed here.",
+      "before_sha256": "d7c3d4315de9cebfc9c5b7b765fabd44bc88b92c5c4ef2dba1e93a617a9c6ff7",
+      "after_sha256": "4ebf7d89a8f7d97a6ae28ddd1cf1042c961a0b37c7ea8b0b8384ea6d4eb0a618"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 398
+}

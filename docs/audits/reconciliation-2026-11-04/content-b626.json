@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "batch": "B626",
+  "title": "Full library index: current summaries, mixed receipts and Unicode lookup false negatives",
+  "at": "2026-11-05T14:18:50.468932+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "ids": [
+        "prime bindings",
+        "all dated rounds",
+        "S1–S10",
+        "RTOC893",
+        "RA1–RA5",
+        "IF1–IF7",
+        "BC1–BC10",
+        "wiki/rulebook rounds",
+        "November4 rounds"
+      ],
+      "classification": "full live-owner reconciliation with preserved historical receipts and selected current metadata/location evidence",
+      "owners": [
+        "docs/research/LIBRARY_INDEX.md"
+      ],
+      "disposition": "F1: Entire 1,060-line current library index reviewed, including all prime/batch/five-title bindings, every dated acquisition and repair/route receipt, current/pending tables, S1–S10 captures, RTOC alignment, 41-file and 21-file RR rounds, slow followups, Riordan/Wildbow, ReZero side routes, BC1–BC10, compilation scan, wiki/rulebook data and both November4 rounds. All intervening ranges were actually read; B625’s captured library hash still matches before this full review. This resolves the index’s prior concurrent-input drift at this input, not other owners’ drift. Original receipt dates, source hashes and historical instructions remain; no acquisition or library mutation occurs.\n\nF2: Current routing cannot treat early partial holdings as a live queue. Later records close Tree8, Randidly13/through15, Forge3, Azarinth7, Threadbare4–6, Path9, HWFWM13, DCCC8, Dragoneye15/through16, Meadowreach5–8, Strixhaven and many rulebook/media candidates. Preserve source-specific endpoints rather than infer every later publication is held. WanderingInn through19 includes two web compilations/repaired derivatives and four split editions, not 23 independent main installments or confirmed retail equivalence. Singer’s Yonder files do not prove current retail/Ghostsong coverage; LastTide measured172 versus171metadata differs. Wrong-author LesserKindred is not Kirstein3; Gods current retail numbering differs from2020web volumes.\n\nF3: Capture and reading are separate. S1–S8 total1360publicTOC entries, Memories210 and Immovable263/323 describe their pinned captures; new commands did not resume any old process. RTOC893identities split645mappedheld+248new (238continuation+10gaps); normalized640reader entries are not sitecutoff640, bundled Q&A/repeated142/combined807+808 require exact mapping. Three unavailable image bytes remain external, not offlinecomplete. ReZeroArc6’s91 and Arc7’s116 replace earlier partial/gap records; deleted subsets remain only historical receipt locators. Arc2captured1–49 is not certified end of arc; WNIF routes, Academy and LNEx/shortstories differ. Broad source availability or registration does not imply authenticated translation or completed source reading.\n\nF4: Selected read-only current checks found232Calibre/3422SourceLibrary asset records; generated catalogue headers remain232/3415 snapshots and were not regenerated. library_coverage.py was run for six named queries; it reads container titles, not narrative bodies. Meadowreach has eight matching on-disk EPUB records; Soldier’s Life has six own-series1–6 records including4 plus three unrelated Bookworm matches; do not count fuzzy hits as nine Soldier books. ShadowSlave’s current5matching records show range1–3000 with volume11title numbers2888/2889 unaccounted, not proof missing narrative text or a whole volume. EnglishCOIhas two matching1–1190title sequences and older1–1180with title1026unaccounted; chapter-number labels across editions are not text equivalence or final-story counts. No current website/retail-release or private prose reading claim.\n\nF5: A real lookup defect changed the next action: literal Chinese title returned zero because library_coverage.py matches raw JSON metadata, whose title is Unicode-escaped. Exact selected receipt prefix f76f8c412e2f uniquely resolves a registered on-disk 宿命之环 asset; decoded title matches, raw literal does not, escaped sequence does. The first lookup also wrongly treated12-character receipt prefixes as full hashes; those false negatives are discarded and corrected transparently. Do not use a zero non-Latin query as physical absence. No acquisition is needed merely to fill the stale ChineseCOIpending row. Current location and registered hash do not rehash bytes or prove full text/edition completeness.\n\nF6: Tier2BC9’s35planned files have18recorded receipt outcomes:9downloaded,1deduplicated,8failed. Correct prefix lookup uniquely matches all10success hashes to current registered assets with existing locations: Tensura1/2/3/5/7/10/11, FateStrangeFake4/5 and ChineseCOI. The original all-not-held/current-in-progress label is false as a whole; no liveworker or remaining-request completion is inferred. Failures do not prove permanent/source absence or forbid later independent receipts. WrapperTrue versus nested acquire.ok, download locks, partial files, invalidcopy retries, container/reader repairs and duplication cleanup retain exact scope, with no cleanup repeated.\n\nF7: The wiki scan’s no-archive/any-host-Chrome generalizations are limited by that dated search and untested hosts; route success is not universal permission/access. License/free/PDF-header/clone/content-read states differ; pending free-wave wording must not launch alreadyrecorded fetches. Source-specific license claims remain dated, not renewed legal guidance. Later source preparation and Klein receipt supersede the EnglishLOTMno-private-copy assumption for the bounded extraction; private whole-corpus preparation and publisher authenticity are not newly certified. Current reading/run owners and explicit authorization govern paid runs, budgets, actors and acquisition. No source prose, PDF/novel/manga body reading, registry mutation, tool fix, new transport, worker, download, build/runtime/browser, deletion/move, commit/push.",
+      "evidence": "Every1060inputlines actualread; selected live read-only database/count/container-title queries and18Tier2outcomes/prefix-location matches inspected. No source-body/container-integrity/wholelibrary audit inferred.",
+      "reopen": "Use current exact source keys and decoded metadata when a title query fails, and actual coverage/run owners before a selected acquisition or paid reading. Preserve old receipts without restarting workers.",
+      "full": true,
+      "input_sha256": "d1769db51e53eb34873930237b18fccdc7c639462edaf3ac4073045059920a5b",
+      "input_lines": 1060,
+      "ranges": [
+        [
+          1,
+          1060
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "heading": "## Content reconciliation B626: current routing and dated holdings",
+      "body": "This full review covers the complete 1,060-line input, including the newer November4 receipts. The dated sections remain acquisition history; their old “not held,” “still missing,” “running” and quota statements do not override later receipts or prove a current process. Keep one current holdings answer here and exact reading/spending state in the source/run owners.\n\nSelected read-only checks found 232 Calibre records and 3,422 Source Library assets. The generated catalogues are cached snapshots, with the Source Library header still at 3,415; they were not regenerated. Six named coverage queries inspected registered metadata, existing locations and container titles only. Meadowreach has eight matching on-disk files. Soldier’s Life includes a managed book4 EPUB, so the old “MOBI only” binding is stale; three Bookworm substring matches are unrelated. Shadow Slave’s volume11 title scan leaves2888–2889 unaccounted, while the overall compilation ranges reach3000. This does not prove missing story text. English COI editions have different numbered-title sequences; do not merge their counts into one authenticated edition.\n\nThe Chinese-title query exposed a lookup limitation: raw JSON stores the title with Unicode escapes, so a literal 宿命之环 search returned zero despite a registered on-disk asset. The Tier2 receipt’s prefix `f76f8c412e2f` uniquely matches that asset and its decoded title. Use exact source keys/hash prefixes and decoded metadata to resolve such a result; zero raw-metadata matches are not library absence. My first exact-key check also used shortened prefixes as complete hashes; its false negatives were corrected before any holdings edit. No source bytes were changed or reacquired.\n\nBC9 is a mixed partial receipt, not 35 completed acquisitions and not wholly unheld:18outcomes contain9downloads,1deduplication and8failures. All10success prefixes uniquely match current registered assets with existing locations: Tensura1/2/3/5/7/10/11, Fate/StrangeFake4/5 and ChineseCOI. No current worker, completion of the remaining planned requests, byte-level rehash, CRC or full-text proof follows. Current ChineseCOI registration supersedes its pending download row; original English/Chinese/retail/web scopes remain distinct.\n\nLater receipts supersede early Tree8, Randidly13, HWFWM13, Carl8, Dragoneye15, Meadowreach5–8, Strixhaven and media/rulebook gaps. Keep the unresolved publication/edition questions separate. RTOC’s893mappedidentities/248newentries, ReZero’s repaired arcs and IF-versus-LN boundaries, WanderingInn’s raw versus repaired/retail editions, Singer companions and untranslated/offline media retain their specific limits. Historical duplicate deletion and explicit transport exceptions grant no new action here.\n\nLater [KJ2 preparation](../gm/dispatch/refinement-audits-2026-10-31/KJ2_SOURCE_PREPARATION.md) records a bounded prepared English extraction, superseding the early no-private-copy assumption. The current campaign receipt supplies its own source window; this review reads no novel prose and authenticates no whole edition. Wiki hits, direct-browser success on one host, license snippets, valid containers, source hashes and structural checks remain different from source reading and runtime proof. Current [source tools](SOURCE_ACQUISITION_TOOLS.md), [reading workflow](BATCH_READING_WORKFLOW.md), exact receipts and selected run authorization govern any future action.",
+      "before_sha256": "d1769db51e53eb34873930237b18fccdc7c639462edaf3ac4073045059920a5b",
+      "after_sha256": "cd9022a60a501a57c8119bfe559a372943c9cc9fa9e6ddac7f1d957a90b3a318"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 56,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "2026-10-28. **The main source of truth for \"do we have this book, and what is missing?\"**",
+      "to": "Current routing, reconciled2026-11-05; the dated sections preserve their original receipt scope. **The main source of truth for recorded holdings and source coverage.**",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "(232 books) and the Source Library at `~/.local/share/source-platform` ([SOURCE_LIBRARY_CATALOGUE](SOURCE_LIBRARY_CATALOGUE.md), about 1,890 assets, mostly tabletop rulebooks).",
+      "to": "and the Source Library at `~/.local/share/source-platform` ([SOURCE_LIBRARY_CATALOGUE](SOURCE_LIBRARY_CATALOGUE.md)). Their generated counts are snapshots; use read-only current metadata and the exact source receipts when selecting work.",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Not imported to Calibre or a private copy yet",
+      "to": "Calibre import is not established here; later KJ2_SOURCE_PREPARATION records a bounded prepared English extraction, so the old no-private-copy status is superseded for that scope",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Chinese text not yet downloaded, see pending.",
+      "to": "Chinese 宿命之环 is now confirmed registered with an existing location by exact receipt prefix `f76f8c412e2f` (B626); edition completeness was not reread. The early pending search is historical.",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "book 4 only as a `.mobi` in `~/Downloads` (converted copy in the private folder)",
+      "to": "the original book4 MOBI/reader binding is historical; the current selected Source Library check also finds managed EPUBs1–6 including4",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "`asl1`-`asl6`. Books 7+ not on disk",
+      "to": "`asl1`-`asl6`. The selected current registered matches cover1–6; this is not a current publication or whole-machine absence check for7+",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Books 1-7 (7 via Anna's Archive) | Book 8 (Z-Library only; not on Anna's partner servers yet)",
+      "to": "Books1–8 recorded by the later October31 continuation receipt | Earlier book8 gap closed; later publications not assessed here",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Books 1-12 (7-12 via Anna's Archive; 8 was missing from Z-Library) | Book 13 (Z-Library only)",
+      "to": "Books1–15 recorded by the later October31 continuation receipt | Earlier book13 gap closed; later publications not assessed here",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Still Z-Library only: Tree of Aeons 8, Azarinth Healer 7, Threadbare Volume 4, Path of Ascension 9.",
+      "to": "Historical route note superseded by later receipts: Tree8, Azarinth7, Threadbare4–6 and Path9 are recorded as held. Do not repeat those old pending requests.",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Download one full edition on request (prefer 校对版全本) and register it as a `zh` book; the English `coi` stays as the cross-check",
+      "to": "Superseded pending action: B626uniquely resolves receipt prefix `f76f8c412e2f` to registered 宿命之环 with an existing location. Do not reacquire from a zero literal-title match; completeness/translation comparison remains unverified here",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Compare chapter counts before spending anything; the set may be the same translation",
+      "to": "Use the prime EnglishCOI row and later compilation coverage first; the older Calibre1026/title gap is not a new volume-acquisition request, and edition/text equivalence remains separate",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "None through 3000; only the two volume-11 chapters are unaccounted for",
+      "to": "The selected ranges reach3000, but volume11title numbers2888–2889 are unaccounted; this is a container-title question, not a confirmed missing story segment or entire volume",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "**in progress, not yet held**",
+      "to": "**historical mixed partial receipts; see B626 reconciliation**",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "No archive copy exists for:",
+      "to": "No matching archive copy was found in that dated search for:",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "The Chrome API route that worked for LOTM works for any of them; pick which ones.",
+      "to": "The Chrome API route worked for LOTM. Other hosts need their own exact access/permission evidence; do not infer universal availability or begin another capture from this list.",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Choose rulebooks to buy; the free ones are fetched, and the free next wave above waits on your yes.",
+      "to": "Choose any further purchases explicitly; the two free waves already have their dated fetched/not-fetched rows above. This historical list does not launch another wave.",
+      "reason": "Apply later actual receipt/current selected metadata evidence while preserving exact historical wording in this ledger."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "exist only as Chinese editions on Z-Library",
+      "to": "surfaced as Chinese-edition candidates in that dated search",
+      "reason": "Clarify bounded source/metadata statements and avoid misleading universal wording."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "Receipts are the only completion record:",
+      "to": "Use actual receipts for recorded outcomes:",
+      "reason": "Clarify bounded source/metadata statements and avoid misleading universal wording."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "| A Soldier's Life (Always RollsAOne / Erick Thiemke) | en | Calibre 55, 56, 57, 58, 112; the original book4 MOBI/reader binding is historical; the current selected Source Library check also finds managed EPUBs1–6 including4 | 1-384 (books 1-6) | `asl1`-`asl6`. The selected current registered matches cover1–6; this is not a current publication or whole-machine absence check for7+ |",
+      "to": "| A Soldier's Life (Always RollsAOne / Erick Thiemke) | en | Calibre 55, 56, 57, 58, 112; the original book4 MOBI/reader binding is historical; the current selected Source Library check also finds managed EPUBs1–6 including4 | 1-384 (books 1-6) | `asl1`-`asl6`. The selected current registered matches cover1–6; this is not a current publication or whole-machine absence check for7+ | <!-- slip-ok: Named author attribution and bounded metadata/location observation, not a gameplay absolute. -->",
+      "reason": "Always RollsAOne is the author name, not a universal gameplay rule."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "cd9022a60a501a57c8119bfe559a372943c9cc9fa9e6ddac7f1d957a90b3a318",
+      "to": "556983475b77d77c6ef0325a628813a784eaeb25958813c4d032d16789005c52",
+      "reason": "Focused current-summary/pending/lookup corrections after full review."
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "from": "ab018376ce1ca0ab6ff3c8fa444d76ffd2423c376efaee44d7b93cbf7d50570e",
+      "to": "dc472288b9cc64e3f32b00246335f5f50b83915ead4e6232e3b5d3b30f202d3d",
+      "reason": "Precise own-path document check clarification."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "path": "docs/research/novels/tier2-2026-11-03/receipts.jsonl",
+      "sha256": "d9bd32ca7010b34554de4b9a136d4939f14c893b64f2ff1332309039fae8404e",
+      "scope": "18selected status/series/volume/hash-prefix outcomes; errors/source payloads not a complete semantic review."
+    },
+    {
+      "path": "scripts/library_coverage.py",
+      "sha256": "3ead875f75746603e380fc0cd71a9719cf150462cc0de2d563a474003bf81dbe",
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "scope": "Read-only query/container-title behavior, not code modification."
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ2_SOURCE_PREPARATION.md",
+      "sha256": "9812d6478cab7069b0c3aa7d1d8a37e6b99f693b432f0c055a9b1864501cecdc",
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "scope": "Bounded extraction status; no source prose read by proxy."
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AE_IMPLEMENTATION_RECEIPT.md",
+      "sha256": "3969f50ab25278e81ebddcb604778f53aa46f5d4645b2d3bca0a19bfe968b89d",
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "scope": "Selected current campaign/source endpoint, not renewed runtime proof."
+    }
+  ],
+  "selected_database_check": {
+    "calibre_books": 232,
+    "source_assets": 3422,
+    "generated_source_catalogue_header": 3415,
+    "tier2_downloaded": 9,
+    "tier2_deduplicated": 1,
+    "tier2_failed": 8,
+    "tier2_success_prefixes_unique_and_location_exists": 10,
+    "chinese_literal_raw_metadata_match": false,
+    "chinese_escaped_raw_metadata_match": true,
+    "chinese_decoded_title": "宿命之环",
+    "limits": "Current selected metadata and location existence/container titles only; no byte rehash or full story authenticity."
+  },
+  "tier2_check_artifact": "docs/audits/reconciliation-2026-11-04/tier2-prefix-location-b626.json"
+}

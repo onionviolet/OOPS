@@ -1,0 +1,5980 @@
+{
+  "header": {
+    "scope": "Every row in all three pre-existing inventories, deduplicated by kind/name, plus fifteen new bounded runtime routes. Definition families are authoring taxonomies, not independent complete game systems.",
+    "snapshot": "1.7.4979 rev109 (earlier inventory counts remain version-labeled)",
+    "owner_status": "All mapping is PROPOSAL; owner existence is not implementation. owner_gap means no specific semantic owner located, not proof none exists."
+  },
+  "routing": [
+    {
+      "family": "save and clocks",
+      "kit": [
+        "K18",
+        "K26",
+        "K33"
+      ],
+      "packets": [
+        "P05",
+        "P13",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "owners": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topic_palettes": [
+        "profile/branch clocks"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "engine infrastructure",
+      "kit": [
+        "K18",
+        "K34"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topic_palettes": [
+        "performance/support"
+      ],
+      "owner_gap": true
+    },
+    {
+      "family": "body",
+      "kit": [
+        "K2",
+        "K3",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P15"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topic_palettes": [
+        "G17",
+        "G18",
+        "G21",
+        "G31",
+        "G37"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "social",
+      "kit": [
+        "K6",
+        "K20",
+        "K24",
+        "K31"
+      ],
+      "packets": [
+        "P06",
+        "P12",
+        "P15",
+        "P19"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "topic_palettes": [
+        "G40",
+        "G64",
+        "G65"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "events and dialogue",
+      "kit": [
+        "K6",
+        "K11",
+        "K12",
+        "K23",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "topic_palettes": [
+        "causal-event-graph",
+        "storylet-deck"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "production and AI",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K26"
+      ],
+      "packets": [
+        "P01",
+        "P02",
+        "P06",
+        "P08",
+        "P25"
+      ],
+      "owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "topic_palettes": [
+        "ML1-ML9",
+        "TL3"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "economy",
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P07",
+        "P18"
+      ],
+      "owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "topic_palettes": [
+        "ML2",
+        "ML8"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "knowledge",
+      "kit": [
+        "K3",
+        "K11",
+        "K13"
+      ],
+      "packets": [
+        "P03",
+        "P09",
+        "P11",
+        "P20"
+      ],
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md"
+      ],
+      "topic_palettes": [
+        "TL1",
+        "TL2",
+        "G59"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "powers and combat",
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P14",
+        "P17"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topic_palettes": [
+        "G11",
+        "G43"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "UI and feedback",
+      "kit": [
+        "K14",
+        "K19",
+        "K20",
+        "K30"
+      ],
+      "packets": [
+        "P01",
+        "P20",
+        "P21"
+      ],
+      "owners": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "desktop-first"
+      ],
+      "owner_gap": true
+    },
+    {
+      "family": "UI and feedback",
+      "kit": [
+        "K14",
+        "K19",
+        "K20",
+        "K30"
+      ],
+      "packets": [
+        "P01",
+        "P20",
+        "P21"
+      ],
+      "owners": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "desktop-first"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "content authoring",
+      "kit": [
+        "K1",
+        "K2",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "GR1-GR17"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "world simulation",
+      "kit": [
+        "K2",
+        "K5",
+        "K25",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P05",
+        "P13",
+        "P14",
+        "P15"
+      ],
+      "owners": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "topic_palettes": [
+        "GR1-GR17",
+        "G43",
+        "ML7"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "institutions",
+      "kit": [
+        "K7",
+        "K21",
+        "K24"
+      ],
+      "packets": [
+        "P04",
+        "P07",
+        "P12"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "institution/services",
+        "G27",
+        "G64"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "companions",
+      "kit": [
+        "K6",
+        "K13",
+        "K26"
+      ],
+      "packets": [
+        "P03",
+        "P06",
+        "P25"
+      ],
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "A2",
+        "C3",
+        "D1"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "world simulation",
+      "kit": [
+        "K2",
+        "K5",
+        "K25",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P05",
+        "P13",
+        "P14",
+        "P15"
+      ],
+      "owners": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "topic_palettes": [
+        "GR1-GR17",
+        "G43",
+        "ML7"
+      ],
+      "owner_gap": true
+    },
+    {
+      "family": "body",
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P15",
+        "P17"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "G17",
+        "G22",
+        "G37",
+        "G60"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "body",
+      "kit": [
+        "K8",
+        "K11",
+        "K22",
+        "K26"
+      ],
+      "packets": [
+        "P03",
+        "P04",
+        "P13"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "topic_palettes": [
+        "G31/HI2/HI4",
+        "G37"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "body",
+      "kit": [
+        "K3",
+        "K8",
+        "K22",
+        "K26"
+      ],
+      "packets": [
+        "P04",
+        "P08",
+        "P13",
+        "P17"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "G36",
+        "G56",
+        "G68"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "social",
+      "kit": [
+        "K6",
+        "K8",
+        "K22",
+        "K24"
+      ],
+      "packets": [
+        "P06",
+        "P12",
+        "P15",
+        "P19"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "topic_palettes": [
+        "G27",
+        "G40",
+        "G61",
+        "G64"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "social",
+      "kit": [
+        "K6",
+        "K22",
+        "K26",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P13",
+        "P25"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topic_palettes": [
+        "G44",
+        "G65"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "companions",
+      "kit": [
+        "K3",
+        "K6",
+        "K13",
+        "K15",
+        "K26"
+      ],
+      "packets": [
+        "P03",
+        "P04",
+        "P06",
+        "P25"
+      ],
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/worlds/NONHUMAN_BONDS_AND_PARTIES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "Companions A2/C3/C10/D1",
+        "G59"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "institutions",
+      "kit": [
+        "K6",
+        "K7",
+        "K8",
+        "K15",
+        "K24"
+      ],
+      "packets": [
+        "P04",
+        "P07",
+        "P13",
+        "P18"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "Institutions/services",
+        "Technology TL4"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "powers",
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K15",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P05",
+        "P17"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topic_palettes": [
+        "G11/G32/G43",
+        "Power resource/control"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "economy",
+      "kit": [
+        "K7",
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P07",
+        "P18"
+      ],
+      "owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "Production ML8",
+        "Technology TL5"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "world simulation",
+      "kit": [
+        "K5",
+        "K6",
+        "K8",
+        "K26",
+        "K28"
+      ],
+      "packets": [
+        "P06",
+        "P08",
+        "P13",
+        "P18"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topic_palettes": [
+        "Companions A3/G",
+        "Production ML8"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "institutions",
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K24",
+        "K29"
+      ],
+      "packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "Institution rights/law",
+        "G64"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "world simulation",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P08",
+        "P13",
+        "P14"
+      ],
+      "owners": [
+        "docs/GATHERING_AND_RESOURCE_USES.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "Production ML1/ML2/ML7",
+        "G43"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "production",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "packets": [
+        "P02",
+        "P04",
+        "P08",
+        "P17"
+      ],
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "TL3/TL4",
+        "Production ML5/ML6/ML8"
+      ],
+      "owner_gap": true
+    },
+    {
+      "family": "content authoring",
+      "kit": [
+        "K1",
+        "K2",
+        "K18",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "GR1-GR17",
+        "Typed content overlays"
+      ],
+      "owner_gap": false
+    },
+    {
+      "family": "events and dialogue",
+      "kit": [
+        "K6",
+        "K11",
+        "K12",
+        "K18",
+        "K23",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P16",
+        "P19",
+        "P20",
+        "P24"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "Causal event graph",
+        "Generated story content"
+      ],
+      "owner_gap": false
+    }
+  ],
+  "dictionary": {
+    "inventory_kind": [
+      "runtime",
+      "definition",
+      "namespace",
+      "code-family",
+      "new-runtime-route"
+    ],
+    "mapping_evidence": [
+      "inferred routing; no runtime coverage claim",
+      "inferred routing"
+    ],
+    "prior_doc": [
+      null,
+      "../pass-2026-10-14-deep/WORK_AND_PRODUCTION.md",
+      "../aspects-2026-10-14/ASPECTS.md",
+      "../REPORT.md",
+      "../pass-2026-10-14-deep/BIOTECH.md",
+      "../pass-2026-10-14-deep/STORYTELLER.md",
+      "../aspects-2026-10-14/DEEPER_SYSTEMS.md",
+      "../pass-2026-10-14-deep/ANOMALY.md",
+      "../pass-2026-10-14-deep/IDEOLOGY.md",
+      "../pass-2026-10-14-deep/ODYSSEY.md",
+      "../feature-pass-2026-10-14/RESEARCH_LEARNING_AND_BODY.md"
+    ],
+    "status": [
+      "prior-partial",
+      "partial-selected-consumers",
+      "indexed-only",
+      "deep-selected-static"
+    ],
+    "remaining": [
+      "See retained prior_rows documentation column; broad runtime row still has unread consumers",
+      "Only named/censused; consumer semantics unread",
+      "Whole family consumers and effective active definitions unverified",
+      "See SYSTEMS.md section and CHECKPOINT U table"
+    ],
+    "owner_gap_reason": [
+      "No specific YAIRPG owner located for donor engine detail; broad engine/UI owner is routing only"
+    ]
+  },
+  "prior_paths": [
+    "docs/research/rimworld/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+    "docs/research/rimworld/feature-pass-2026-10-14/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+    "docs/research/rimworld/pass-2026-10-14-deep/aspects-2026-10-14/SYSTEM_INVENTORY.md"
+  ],
+  "prior_sections": [
+    "Runtime subsystems",
+    "Complete discovered Def-family inventory",
+    "Complete raw definition-tag census",
+    "Complete raw family catalogue",
+    "Gameplay class namespaces",
+    "Code family size signals",
+    "System inventory"
+  ],
+  "column_patch_values": [
+    "UNDOCUMENTED in this lane; raw inventory only",
+    "UNREAD consumers here; raw indexed; consult prior inventory",
+    "Selected consumers documented: WORK_AND_PRODUCTION.md",
+    "Selected consumers documented: ODYSSEY.md",
+    "F5 sampled",
+    "A10 sampled",
+    "Selected consumers documented: ANOMALY.md",
+    "F5/BD",
+    "Selected consumers documented: BIOTECH.md",
+    "F5/F6 sampled",
+    "Selected consumers documented: STORYTELLER.md",
+    "A01/F6 sampled",
+    "Selected consumers documented: IDEOLOGY.md",
+    "F4/P03",
+    "F2/P02",
+    "F3/RT",
+    "A01 structure only",
+    "F4 sampled",
+    "F2/F6 sampled",
+    "F1/F2 sampled"
+  ],
+  "encoding": {
+    "columns": [
+      "name",
+      "routing_ref",
+      "inventory_kind_ref",
+      "mapping_evidence_ref",
+      "status_ref",
+      "remaining_ref",
+      "new_deep_sections",
+      "extras"
+    ],
+    "id_default": "inventory_kind:name, with route: prefix for kind4; extras.id overrides",
+    "base_columns": "[name]+extras.base_tail when present",
+    "prior": "extras.prior=[template_ref,lines]. Template tuple [path_ref,section_ref,column_length,column_patches] combines corresponding line. Rebuild columns from base, apply patch strings.",
+    "counts": "extras.counts=[path_shape_ref,values]. base_count means int(base_columns[1]) for every listed path; otherwise explicit numeric list. Missing extras means original field absent.",
+    "other_fields": "Other extras restore exact field names and refs from first lossless view; dictionary and routing as printed."
+  },
+  "prior_templates": [
+    [
+      [
+        0,
+        0,
+        4,
+        {}
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 2
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 3
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 4
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 5
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 6
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 7
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 8
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 9
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 10
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 11
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 12
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 13
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 8
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 0
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 8
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 14
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 2
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 15
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 6
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 16
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 17
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 18
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 1
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        4,
+        {}
+      ],
+      [
+        1,
+        2,
+        4,
+        {
+          "3": 19
+        }
+      ],
+      [
+        2,
+        3,
+        4,
+        {
+          "3": 2
+        }
+      ]
+    ],
+    [
+      [
+        0,
+        4,
+        3,
+        {}
+      ]
+    ],
+    [
+      [
+        0,
+        5,
+        3,
+        {}
+      ]
+    ],
+    [
+      [
+        1,
+        6,
+        4,
+        {}
+      ]
+    ],
+    [
+      [
+        2,
+        6,
+        3,
+        {}
+      ]
+    ]
+  ],
+  "count_shapes": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "systems": [
+    [
+      "Host and Unity compatibility",
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Root/game update and world init",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Ticks and distributed work",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Serialization/write recovery",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Version and content compatibility",
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Mod/XML load and authoring",
+      1,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S14"
+      ],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Generated social exchange",
+      2,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Directed social memory/opinion",
+      3,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Grammar and procedural text",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Explicit choice/negotiation",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Play log and retained attribution",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Quest signals/lifecycle",
+      4,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S15"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Delayed incidents/retry",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Storyteller selection",
+      4,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "NPC jobs/think trees/toils",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Group/lord AI",
+      1,
+      0,
+      0,
+      2,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Pathfinding/spatial search",
+      1,
+      0,
+      0,
+      2,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Desktop windows/tabs/hotkeys",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Bill/stock target interface",
+      5,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Balance/quality/stat/RNG",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Adaptive teaching and tutorials",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Trade/gifts/standing",
+      6,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S09",
+        "S11"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Research/history/factions",
+      7,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Calendar and autosave",
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DLC domain consumers",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "AbilityCategoryDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "AbilityDef",
+      8,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S08"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "AbilityGroupDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "AnimationDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "AnomalyPlaystyleDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ApparelLayerDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BabyPlayDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BackStoryDef",
+      3,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BackstoryDef",
+      3,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BeardDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BillRepeatModeDef",
+      5,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 1
+      }
+    ],
+    [
+      "BillStoreModeDef",
+      5,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 1
+      }
+    ],
+    [
+      "BiomeDef",
+      12,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S10",
+        "S12"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BodyDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S01"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BodyPartDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S01"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BodyPartGroupDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S01"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BodyPartTagDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S01"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BodyTypeDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BossDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "BossgroupDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ChemicalDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S03"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ClamorDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ColorDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ComplexLayoutDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ComplexThreatDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ConceptDef",
+      10,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 2
+      }
+    ],
+    [
+      "CreepJoinerAggressiveDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "CreepJoinerBenefitDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "CreepJoinerDownsideDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "CreepJoinerFormKindDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "CreepjoinerRejectionDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "CultureDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DamageArmorCategoryDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DamageDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DebugTabMenuDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DesignationCategoryDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DesignationDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DesignatorDropdownGroupDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DifficultyDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DrawStyleCategoryDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "DrawStyleDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "DrugPolicyDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S03"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DutyDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "EffecterDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "EntityCategoryDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "EntityCodexEntryDef",
+      7,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ExpansionDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ExpectationDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "FactionDef",
+      13,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S10",
+        "S11"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "FeatureDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "FleckDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "FleshTypeDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "FurDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GameConditionDef",
+      12,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 3
+      }
+    ],
+    [
+      "GameSetupStepDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GatheringDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GauranlenTreeModeDef",
+      14,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GenStepDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GeneCategoryDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GeneDef",
+      2,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 4
+      }
+    ],
+    [
+      "GeneTemplateDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GeneratedLocationDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GlobalWorldDrawLayerDef",
+      15,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "GoodwillSituationDef",
+      13,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S11"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GraphicStateDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "GravshipComponentTypeDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HairDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HeadTypeDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HediffDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S01",
+        "S02",
+        "S03",
+        "S08"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HediffGiverSetDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HibernatableStateDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HistoryAutoRecorderDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HistoryAutoRecorderGroupDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "HistoryEventDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IdeoColorDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IdeoFoundationDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IdeoIconDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IdeoPresetCategoryDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IdeoPresetDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IdeoStoryPatternDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ImpactSoundTypeDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ImplementOwnerTypeDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IncidentCategoryDef",
+      4,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 5
+      }
+    ],
+    [
+      "IncidentDef",
+      4,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 5
+      }
+    ],
+    [
+      "IncidentTargetTagDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "InfectionPathwayDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "InspirationDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "InstructionDef",
+      10,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 2
+      }
+    ],
+    [
+      "InteractionDef",
+      4,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S04"
+      ],
+      {
+        "prior_doc_ref": 6
+      }
+    ],
+    [
+      "InventoryStockGroupDef",
+      6,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "IssueDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "JobDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "JoyGiverDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "JoyKindDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "KeyBindingCategoryDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "KeyBindingDef",
+      10,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 2
+      }
+    ],
+    [
+      "KnowledgeCategoryDef",
+      7,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 7
+      }
+    ],
+    [
+      "LandingOutcomeDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "LandmarkDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "LayoutDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "LayoutRoomDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "LearningDesireDef",
+      2,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 4
+      }
+    ],
+    [
+      "LetterDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "LifeStageDef",
+      2,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 4
+      }
+    ],
+    [
+      "LogEntryDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MainButtonDef",
+      10,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 2
+      }
+    ],
+    [
+      "ManeuverDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MapGeneratorDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MapMeshFlagDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "MaterialDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MechWeightClassDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MechWorkModeDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MeditationFocusDef",
+      8,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S08"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MemeDef",
+      13,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 8
+      }
+    ],
+    [
+      "MemeGroupDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MentalBreakDef",
+      3,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S05"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MentalFitDef",
+      3,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MentalStateDef",
+      3,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S05"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MessageTypeDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MonolithLevelDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MusicSequenceDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MusicTransitionDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MutantDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "NeedDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "NegativeFishingOutcomeDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "OptionCategoryDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "OrbitalDebrisDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "OrderedTakeGroupDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PathGridDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnCapacityDef",
+      2,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S01"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnColumnDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnGroupKindDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnKindDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnRelationDef",
+      3,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S04"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnRenderNodeTagDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnRenderTreeDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnTableDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PawnsArrivalModeDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PitGateIncidentDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PlaceDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PlanetLayerDef",
+      12,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 9
+      }
+    ],
+    [
+      "PlanetLayerSettingsDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PreceptDef",
+      13,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 8
+      }
+    ],
+    [
+      "PrefabDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PrisonerInteractionModeDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_BloodRain",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_Brainwipe",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_Chronophagy",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_ImbueDeathRefusal",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_NeurosisPulse",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_Philophagy",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_PleasurePulse",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_Psychophagy",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SkipAbduction",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SkipAbductionPlayer",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SummonAnimals",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SummonFleshbeasts",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SummonFleshbeastsPlayer",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SummonPitGate",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_SummonShamblers",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualDef_VoidProvocation",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualRoleDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "PsychicRitualRoleDef_DeathRefusalTarget",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "QuestScriptDef",
+      4,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S15"
+      ],
+      {
+        "prior_doc_ref": 6
+      }
+    ],
+    [
+      "RaidAgeRestrictionDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RaidStrategyDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RecipeDef",
+      11,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 1
+      }
+    ],
+    [
+      "RecordDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RenderSkipFlagDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "ResearchProjectDef",
+      7,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 10
+      }
+    ],
+    [
+      "ResearchProjectTagDef",
+      7,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ResearchTabDef",
+      7,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ReservationLayerDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RitualAttachableOutcomeEffectDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RitualBehaviorDef",
+      13,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 8
+      }
+    ],
+    [
+      "RitualObligationTargetFilterDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RitualOutcomeEffectDef",
+      13,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 8
+      }
+    ],
+    [
+      "RitualPatternDef",
+      13,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 8
+      }
+    ],
+    [
+      "RitualTargetFilterDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RitualVisualEffectDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RiverDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoadDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoadPathingDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoadWorldLayerDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoofDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomPartDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomPart_BarricadeDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomPart_CrateDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomPart_GestationTankDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomPart_ThingDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomRoleDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoomStatDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoyalTitleDef",
+      13,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S07"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RoyalTitlePermitDef",
+      13,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S07"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RuleDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RulePackDef",
+      4,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 6
+      }
+    ],
+    [
+      "ScatterableDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ScenPartDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ScenarioDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ShaderDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "ShaderTypeDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "ShipJobDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SitePartDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SketchResolverDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SkillDef",
+      7,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 10
+      }
+    ],
+    [
+      "SlaveInteractionModeDef",
+      13,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SongDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SoundDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SpecialThingFilterDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StatCategoryDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StatDef",
+      11,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 3
+      }
+    ],
+    [
+      "StorytellerDef",
+      4,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 5
+      }
+    ],
+    [
+      "StructureLayoutDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StructureStructureLayoutDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StuffAppearanceDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StuffCategoryDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StyleCategoryDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "StyleItemCategoryDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "SubcameraDef",
+      9,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "SurgeryOutcomeEffectDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TaleDef",
+      4,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TattooDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TerrainAffordanceDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TerrainDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TerrainTemplateDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ThingCategoryDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ThingDef",
+      11,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S09",
+        "S12",
+        "S13"
+      ],
+      {
+        "prior_doc_ref": 3
+      }
+    ],
+    [
+      "ThingSetMakerDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ThingStyleDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ThinkTreeDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ThoughtDef",
+      3,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S04",
+        "S05"
+      ],
+      {
+        "prior_doc_ref": 3
+      }
+    ],
+    [
+      "TileMutatorDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TimeAssignmentDef",
+      0,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TipSetDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ToolCapacityDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TraderKindDef",
+      6,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S09"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TrainabilityDef",
+      14,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S06"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TrainableDef",
+      14,
+      1,
+      0,
+      1,
+      2,
+      [
+        "S06"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TraitDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TransferableSorterDef",
+      10,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "TransportShipDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WeaponCategoryDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WeaponClassDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WeaponClassPairDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WeaponTraitDef",
+      8,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WeatherDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WorkGiverDef",
+      5,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 1
+      }
+    ],
+    [
+      "WorkGiverEquivalenceGroupDef",
+      5,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WorkTypeDef",
+      5,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 1
+      }
+    ],
+    [
+      "WorldGenStepDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WorldObjectDef",
+      12,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "XenotypeDef",
+      2,
+      1,
+      0,
+      0,
+      2,
+      [],
+      {
+        "prior_doc_ref": 4
+      }
+    ],
+    [
+      "XenotypeIconDef",
+      2,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "jobDef",
+      11,
+      1,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "DelaunatorSharp",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Ionic.Crc",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Ionic.Zlib",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "KTrie",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "LudeonTK",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "RimWorld",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "RimWorld.BaseGen",
+      12,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RimWorld.IO",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "RimWorld.Planet",
+      12,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RimWorld.QuestGen",
+      4,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RimWorld.SketchGen",
+      12,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "RimWorld.Utility",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Unity.Collections",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Verse",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Verse.AI",
+      5,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Verse.AI.Group",
+      5,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Verse.Grammar",
+      4,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Verse.Noise",
+      12,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Verse.Profile",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Verse.ProfilerUI",
+      10,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Verse.Sound",
+      10,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Verse.Steam",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Verse.Utility",
+      1,
+      2,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "QuestPart_",
+      4,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "QuestNode_",
+      4,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "JobDriver_",
+      5,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "WorkGiver_",
+      5,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "ThinkNode_",
+      5,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Hediff",
+      2,
+      3,
+      0,
+      1,
+      1,
+      [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Gene_",
+      2,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Comp",
+      1,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "IncidentWorker_",
+      5,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "MainTabWindow_",
+      1,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Dialog_",
+      1,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "LordJob_",
+      5,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "LordToil_",
+      1,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "StatPart_",
+      1,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Ability",
+      8,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "GameCondition_",
+      12,
+      3,
+      0,
+      2,
+      1,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Work admission and jobs",
+      5,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Bills and hauling",
+      5,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Skills and learning",
+      7,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Research",
+      7,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Body render and genetics",
+      2,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Scribe save",
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Content loader",
+      11,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S14"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Storyteller/environment",
+      4,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Social log and memory",
+      4,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Unity gameplay export",
+      11,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Moving colony and infrastructure",
+      12,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Layer/environment/travel",
+      12,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Genes and offspring",
+      2,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Childhood, learning and age",
+      2,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Belief, office and ritual",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Subject study/knowledge/containment",
+      7,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Work scheduling and execution",
+      5,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Production and stock policy",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Event pacing",
+      1,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Ticks/time/calendar",
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Saves/migrations/autosave",
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Social grammar/faction conversation",
+      4,
+      0,
+      0,
+      0,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Quests/letters/journals",
+      4,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S15"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Engine host/content loader/mod patches",
+      11,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S14"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Combat/body/medicine/equipment",
+      8,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S01",
+        "S02"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Royalty, titles, psycasts, permits",
+      13,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S07",
+        "S08"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Faction economy, trade, diplomacy",
+      13,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S09",
+        "S11"
+      ],
+      {
+        "prior_doc_ref": 0
+      }
+    ],
+    [
+      "Map/world generation, pathfinding, ecology",
+      1,
+      0,
+      0,
+      1,
+      0,
+      [
+        "S12"
+      ],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Rendering/audio/input/accessibility",
+      1,
+      0,
+      0,
+      2,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Other DLC/mech/psychic-rutual/ending systems",
+      1,
+      0,
+      0,
+      2,
+      0,
+      [],
+      {
+        "prior_doc_ref": 0,
+        "owner_gap_reason_ref": 0
+      }
+    ],
+    [
+      "Body parts become usable capacities",
+      16,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S01"
+      ],
+      {
+        "source_types": [
+          "Verse.PawnCapacityUtility",
+          "RimWorld.PawnCapacityWorker_Manipulation",
+          "RimWorld.PawnCapacityWorker_Moving",
+          "Verse.HediffSet",
+          "Verse.Hediff",
+          "Verse.Pawn_HealthTracker"
+        ]
+      }
+    ],
+    [
+      "Treatment, disease severity and acquired immunity",
+      17,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S02"
+      ],
+      {
+        "source_types": [
+          "RimWorld.TendUtility",
+          "Verse.ImmunityRecord",
+          "Verse.ImmunityHandler",
+          "Verse.HediffComp_Immunizable",
+          "Verse.HediffComp_TendDuration",
+          "Verse.Pawn_HealthTracker"
+        ]
+      }
+    ],
+    [
+      "Substances, tolerance, dependency and use policy",
+      18,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S03"
+      ],
+      {
+        "source_types": [
+          "RimWorld.CompDrug",
+          "RimWorld.Hediff_Addiction",
+          "RimWorld.DrugStatsUtility",
+          "RimWorld.Need_Chemical",
+          "RimWorld.IngestionOutcomeDoer_GiveHediff",
+          "RimWorld.Pawn_DrugPolicyTracker"
+        ]
+      }
+    ],
+    [
+      "Relationships, romance and family references",
+      19,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S04"
+      ],
+      {
+        "source_types": [
+          "RimWorld.InteractionWorker_RomanceAttempt",
+          "RimWorld.LovePartnerRelationUtility",
+          "RimWorld.Pawn_RelationsTracker"
+        ]
+      }
+    ],
+    [
+      "Mood pressure, break selection and recovery",
+      20,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S05"
+      ],
+      {
+        "source_types": [
+          "Verse.AI.MentalBreaker",
+          "Verse.AI.MentalStateHandler"
+        ]
+      }
+    ],
+    [
+      "Companion training, retained learning and command means",
+      21,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S06"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Pawn_TrainingTracker",
+          "RimWorld.TrainableDef",
+          "RimWorld.TrainableUtility",
+          "RimWorld.WorkGiver_Train",
+          "RimWorld.JobDriver_Train",
+          "RimWorld.Toils_Interpersonal"
+        ]
+      }
+    ],
+    [
+      "Titles, favor and faction service permits",
+      22,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S07"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Pawn_RoyaltyTracker",
+          "RimWorld.FactionPermit",
+          "RimWorld.RoyalTitlePermitDef",
+          "RimWorld.RoyalTitlePermitWorker",
+          "RimWorld.RoyalTitlePermitWorker_CallAid"
+        ]
+      }
+    ],
+    [
+      "Learned powers, focus, heat and casting effects",
+      23,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S08"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Pawn_PsychicEntropyTracker",
+          "RimWorld.Psycast",
+          "RimWorld.Ability",
+          "Verse.Hediff_Psylink"
+        ]
+      }
+    ],
+    [
+      "Trade quotes, settlement stock and restocking",
+      24,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S09"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Tradeable",
+          "RimWorld.TradeUtility",
+          "RimWorld.TradeDeal",
+          "RimWorld.Planet.Settlement_TraderTracker"
+        ]
+      }
+    ],
+    [
+      "Caravan logistics, needs and conditional passive foraging",
+      25,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S10"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Planet.Caravan_NeedsTracker",
+          "RimWorld.Planet.Caravan_ForageTracker",
+          "RimWorld.Planet.ForagedFoodPerDayCalculator",
+          "RimWorld.Planet.Caravan_PathFollower"
+        ]
+      }
+    ],
+    [
+      "Diplomacy uses goodwill, situations and relation hysteresis",
+      26,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S11"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Faction",
+          "RimWorld.FactionRelation",
+          "RimWorld.GoodwillSituationManager"
+        ]
+      }
+    ],
+    [
+      "Cultivation, harvest yield and ecological admission",
+      27,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S12"
+      ],
+      {
+        "source_types": [
+          "RimWorld.Plant",
+          "RimWorld.PlantProperties",
+          "RimWorld.PlantUtility",
+          "RimWorld.WildPlantSpawner"
+        ]
+      }
+    ],
+    [
+      "Infrastructure power separates output, stored reserve and service",
+      28,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S13"
+      ],
+      {
+        "source_types": [
+          "RimWorld.PowerNet",
+          "RimWorld.CompPowerTrader",
+          "RimWorld.CompPowerBattery",
+          "RimWorld.CompPower"
+        ]
+      }
+    ],
+    [
+      "Content patches, inheritance and resolved definitions",
+      29,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S14"
+      ],
+      {
+        "source_types": [
+          "Verse.LoadedModManager",
+          "Verse.XmlInheritance",
+          "Verse.PatchOperationSequence",
+          "Verse.PatchOperationConditional",
+          "Verse.DirectXmlLoader"
+        ]
+      }
+    ],
+    [
+      "Quest generation compiles choices into saved runtime parts",
+      30,
+      4,
+      1,
+      3,
+      3,
+      [
+        "S15"
+      ],
+      {
+        "source_types": [
+          "RimWorld.QuestGen.QuestGen",
+          "RimWorld.QuestGen.Slate",
+          "RimWorld.QuestGen.QuestNode_Sequence",
+          "RimWorld.QuestGen.QuestNode_RandomNode",
+          "RimWorld.QuestGen.QuestNode_Delay",
+          "RimWorld.QuestGen.QuestNode_End",
+          "RimWorld.QuestScriptDef"
+        ]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "batch": "B513",
+  "title": "Outbound/sent UI prompt content, exact duplicate payload and measurable-target ambiguities",
+  "at": "2026-11-05T09:14:27.949741+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_OUTBOUND_2026-10-13.md",
+      "ids": [
+        "Parts1–2",
+        "F1–F9",
+        "A1–A5",
+        "T1–T6",
+        "backlog and verification"
+      ],
+      "classification": "archived equal prompt payloads; actual design content and ambiguous targets reconciled without executing",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md"
+      ],
+      "disposition": "Both complete outbound and sent packets were read (248 and239 lines), and Part1 onward is byte-identical after removing the local handling header. Keep both originals: outbound preserves preparation/context, sent preserves the recorded payload. Equality does not independently verify actual transmission or reviewer output, and this pass does not credit the response or reconciled successor body as read. The outer prompt explicitly requests prompt review and forbids execution/dispatch of inner imperatives; the local note independently says implementation is not authorized by the packet. “Selected work” is expressly recommendations, not adopted decisions under AD32. Archived branch, source paths, ports and scratch-worktree instructions are historical data, not current assignments.\n\nF1–F9 retain the dated dd3efe33/451be34e measured state and e3356432/25afe1a8 comparisons. They do not describe current Proto23/shell source by default. The useful problems are decision-space allocation, ordering of native versus expansion controls, combat/log adjacency, chrome/focus burden, accessible start/zoom, status language, trade comparison and saved layout continuity. Preserve source-inferred sleep/chest ordering separately from browser-observed rows. The text lists Move/Craft/Talk/Merchant/Findwork/Train/Gather/food-use, eight labels, while A1 says seven actions; the selected meaningful-action set needs an explicit current definition rather than a silent counter target. First action at Tab68 alongside “after70chrome stops” likewise needs the actual measurement definitions, not inference from the draft alone. Busy/trade/crafting requirements inside A1 overlap A3/A5 consumers; changing center height alone cannot prove those routes.\n\nA1–A5's one-line place disclosure, compact time/work, edit-only handles, combat/log placement, startup zoom and player language remain useful design alternatives with separate consumers. Exact143px/830px,6.8percent chrome,25Tabs, five recipes/log lines and three narrow controls are proposed/dated targets, not universal taste rules or proof of playable behavior. Current desktop/laptop scope governs later selection; the archived400px/mobile work does not become a new release gate. Real browser zoom and reduced CSS viewport are different tests. Layout keys/localStorage and game saves are separate stores: a literal game import alone cannot demonstrate saved layout migration. A first-run choice cannot silently reset a customized layout. Rebuild/source identity, focus/order, unchanged native commands and before/after measurements remain actual requirements for any claim, not proof they ran here.\n\nT6 is explicitly a progressed fixture with29stacks,5000money/unlocks/skillXP, not a naturally played progression. The original-loader Meditation workaround is historical comparator scope, not a ban on native Meditation or a new game defect diagnosis. Retain backlog Classic fidelity, checkbox/tooltip/aria-live/log history/empty-list/context grouping as ideas without declaring them required current work. AD42 supersedes the proposed mandatory human layout-feel gate; current AD36 controls focused/full verification stages. Later UI receipts and current owners, rather than these prepared prompts, establish delivery. No raw packet text was changed, no prompt was sent again, and no source, browser, layout or personal save was touched.",
+      "evidence": "Both complete bodies read in two bounded ranges each; Part1 onward equality checked after reading. Reviewer response/reconciled successor not read by proxy.",
+      "reopen": "For later UI claims inspect the current owner and actual named state/viewport/store; use separate evidence for transmission, adoption and delivery.",
+      "input_sha256": "1550fb454f180f14810eb786b1b36bc4270ba39009467e62e3b43c9ae9edc658",
+      "input_lines": 248,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          248
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_SENT_2026-10-13.md",
+      "ids": [
+        "Parts1–2",
+        "F1–F9",
+        "A1–A5",
+        "T1–T6",
+        "backlog and verification"
+      ],
+      "classification": "archived equal prompt payloads; actual design content and ambiguous targets reconciled without executing",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md"
+      ],
+      "disposition": "Both complete outbound and sent packets were read (248 and239 lines), and Part1 onward is byte-identical after removing the local handling header. Keep both originals: outbound preserves preparation/context, sent preserves the recorded payload. Equality does not independently verify actual transmission or reviewer output, and this pass does not credit the response or reconciled successor body as read. The outer prompt explicitly requests prompt review and forbids execution/dispatch of inner imperatives; the local note independently says implementation is not authorized by the packet. “Selected work” is expressly recommendations, not adopted decisions under AD32. Archived branch, source paths, ports and scratch-worktree instructions are historical data, not current assignments.\n\nF1–F9 retain the dated dd3efe33/451be34e measured state and e3356432/25afe1a8 comparisons. They do not describe current Proto23/shell source by default. The useful problems are decision-space allocation, ordering of native versus expansion controls, combat/log adjacency, chrome/focus burden, accessible start/zoom, status language, trade comparison and saved layout continuity. Preserve source-inferred sleep/chest ordering separately from browser-observed rows. The text lists Move/Craft/Talk/Merchant/Findwork/Train/Gather/food-use, eight labels, while A1 says seven actions; the selected meaningful-action set needs an explicit current definition rather than a silent counter target. First action at Tab68 alongside “after70chrome stops” likewise needs the actual measurement definitions, not inference from the draft alone. Busy/trade/crafting requirements inside A1 overlap A3/A5 consumers; changing center height alone cannot prove those routes.\n\nA1–A5's one-line place disclosure, compact time/work, edit-only handles, combat/log placement, startup zoom and player language remain useful design alternatives with separate consumers. Exact143px/830px,6.8percent chrome,25Tabs, five recipes/log lines and three narrow controls are proposed/dated targets, not universal taste rules or proof of playable behavior. Current desktop/laptop scope governs later selection; the archived400px/mobile work does not become a new release gate. Real browser zoom and reduced CSS viewport are different tests. Layout keys/localStorage and game saves are separate stores: a literal game import alone cannot demonstrate saved layout migration. A first-run choice cannot silently reset a customized layout. Rebuild/source identity, focus/order, unchanged native commands and before/after measurements remain actual requirements for any claim, not proof they ran here.\n\nT6 is explicitly a progressed fixture with29stacks,5000money/unlocks/skillXP, not a naturally played progression. The original-loader Meditation workaround is historical comparator scope, not a ban on native Meditation or a new game defect diagnosis. Retain backlog Classic fidelity, checkbox/tooltip/aria-live/log history/empty-list/context grouping as ideas without declaring them required current work. AD42 supersedes the proposed mandatory human layout-feel gate; current AD36 controls focused/full verification stages. Later UI receipts and current owners, rather than these prepared prompts, establish delivery. No raw packet text was changed, no prompt was sent again, and no source, browser, layout or personal save was touched.",
+      "evidence": "Both complete bodies read in two bounded ranges each; Part1 onward equality checked after reading. Reviewer response/reconciled successor not read by proxy.",
+      "reopen": "For later UI claims inspect the current owner and actual named state/viewport/store; use separate evidence for transmission, adoption and delivery.",
+      "input_sha256": "384fc0688e633bd9c01cff601fedb3d9e86fedefdce16e8d2f42598ef08203dd",
+      "input_lines": 239,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          239
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+      "heading": "## Content reconciliation B513: complete outbound and sent work-prompt inputs",
+      "body": "Both complete outbound and sent packets were read (248 and239 lines), and Part1 onward is byte-identical after removing the local handling header. Keep both originals: outbound preserves preparation/context, sent preserves the recorded payload. Equality does not independently verify actual transmission or reviewer output, and this pass does not credit the response or reconciled successor body as read. The outer prompt explicitly requests prompt review and forbids execution/dispatch of inner imperatives; the local note independently says implementation is not authorized by the packet. “Selected work” is expressly recommendations, not adopted decisions under AD32. Archived branch, source paths, ports and scratch-worktree instructions are historical data, not current assignments.\n\nF1–F9 retain the dated dd3efe33/451be34e measured state and e3356432/25afe1a8 comparisons. They do not describe current Proto23/shell source by default. The useful problems are decision-space allocation, ordering of native versus expansion controls, combat/log adjacency, chrome/focus burden, accessible start/zoom, status language, trade comparison and saved layout continuity. Preserve source-inferred sleep/chest ordering separately from browser-observed rows. The text lists Move/Craft/Talk/Merchant/Findwork/Train/Gather/food-use, eight labels, while A1 says seven actions; the selected meaningful-action set needs an explicit current definition rather than a silent counter target. First action at Tab68 alongside “after70chrome stops” likewise needs the actual measurement definitions, not inference from the draft alone. Busy/trade/crafting requirements inside A1 overlap A3/A5 consumers; changing center height alone cannot prove those routes.\n\nA1–A5's one-line place disclosure, compact time/work, edit-only handles, combat/log placement, startup zoom and player language remain useful design alternatives with separate consumers. Exact143px/830px,6.8percent chrome,25Tabs, five recipes/log lines and three narrow controls are proposed/dated targets, not universal taste rules or proof of playable behavior. Current desktop/laptop scope governs later selection; the archived400px/mobile work does not become a new release gate. Real browser zoom and reduced CSS viewport are different tests. Layout keys/localStorage and game saves are separate stores: a literal game import alone cannot demonstrate saved layout migration. A first-run choice cannot silently reset a customized layout. Rebuild/source identity, focus/order, unchanged native commands and before/after measurements remain actual requirements for any claim, not proof they ran here.\n\nT6 is explicitly a progressed fixture with29stacks,5000money/unlocks/skillXP, not a naturally played progression. The original-loader Meditation workaround is historical comparator scope, not a ban on native Meditation or a new game defect diagnosis. Retain backlog Classic fidelity, checkbox/tooltip/aria-live/log history/empty-list/context grouping as ideas without declaring them required current work. AD42 supersedes the proposed mandatory human layout-feel gate; current AD36 controls focused/full verification stages. Later UI receipts and current owners, rather than these prepared prompts, establish delivery. No raw packet text was changed, no prompt was sent again, and no source, browser, layout or personal save was touched.",
+      "before_sha256": "346d1be8941e367260d3658c886d4938b5c0fbeeb3e27c320915451c35b7dd98",
+      "after_sha256": "ddc47d9b3b70fa2059899e706300e7b8496ccdbd1a1b7542f3ecbd250d1f2743"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 224
+}

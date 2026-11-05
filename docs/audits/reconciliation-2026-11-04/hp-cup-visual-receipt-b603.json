@@ -1,0 +1,27 @@
+{
+  "source_manifest": "docs/research/novels/harry-potter/source-preparation-2026-10-11/manifest.json",
+  "pdf_sha256": "9db33901964c71cb58c90d65b50ac6af719e3ad8f9e65d25818343b14331b7d4",
+  "screen": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "PDF screening failed (RuntimeError): code=7: cannot find object in xref (43524 0 R)\nNo clean result is claimed.\n"
+  },
+  "clean_claim": false,
+  "fallback": "Original pages rendered and visually read, no extracted PDF text consumed",
+  "pdf_pages": [
+    246,
+    247,
+    248
+  ],
+  "printed_pages": [
+    245,
+    246,
+    247
+  ],
+  "render_sha256": {
+    "246": "2282b33fc8194265558324cef38f430eccd1e431477d589e87d35c712a3a3981",
+    "247": "5da68f2aaa76403ba53cd52dd4f3f716764b5675edeb6bd1f7c2da7a94fb3af3",
+    "248": "20b56092230c23fa0788a0baccc3fc147c9814ddd9dbc8592afcb8216bc30ea9"
+  },
+  "scope": "Provisional banner/standings versus later awards/final decoration only; not whole-book semantics or clean PDF."
+}

@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "batch": "B501",
+  "title": "Converter evidence, complete repository-bank map, bounded foundation studies and representative JoJo source cases",
+  "at": "2026-11-05T08:41:03.281609+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/darrellbest__Hemmingway-1-Heretic__README.md",
+      "ids": [
+        "O9",
+        "100-prompt/KL comparison",
+        "two40-problem samples",
+        "formats/LoRA/ARA"
+      ],
+      "classification": "source-card claims / retained acquisition map / bounded primary-study evidence / representative adaptation audit",
+      "owners": [
+        "docs/research/local-ai-2026-10-14/round2/REPORT.md"
+      ],
+      "disposition": "Captured O9 modification-control evidence under AD32. The full [Hemmingway Heretic card](sources/darrellbest__Hemmingway-1-Heretic__README.md) was read: frontmatter, five format repositories, refusal/KL/math tables, LoRA test, conversion/ablation recipe, usage and license/credits. Reported0/100 versus98/100 refusals measures that creator's marker-based sample, not broad reliability, writing quality or unconditional compliance. KL0.083 is a first-token harmless-prompt comparison, not a full response/semantic preservation guarantee. Two40-problem math sets and31 shared MATH successes show the reported finite sample; the creator's no-measurable-loss wording is not an independent equivalence study or proof of retained long-form writing/tool correctness.\n\nA40-step LoRA loss drop, adapter reload and well-formed tool-call output are different from correct unseen tool arguments/results, durable task success or local fine-tuning readiness. Grafted/restored vision layout, unchanged tower/embeddings/mtp and60 changed projections are creator-reported artifact identities, not locally checked byte/logit equivalence or newly qualified multimodal performance. Architecture class names and family tags alone do not prove exact upstream checkpoint/template. VL/text/GGUF/FP8/NVFP4 are separate artifacts, not interchangeable endpoint support on this Mac. Published35/27GB format sizes are not total resident/runtime costs.\n\nCC-BY-NC metadata and Altworld/converter credit remain provenance; a derivative cannot inherit a base benchmark score merely from lineage or erase upstream terms through format conversion. Commercial-use/contact text is a captured license statement, not legal clearance or a request to contact/send. O9 remains a parked control for a demonstrated refusal/breadth gap, not an automatically better replacement for the base. No live web, graph, weights/config, model endpoint, benchmark, acquisition or training run occurs here. Source card stays unchanged; the research owner receives a scoped note, not fresh full-owner credit.",
+      "evidence": "Fresh full content read. Study/JoJo centrally truncated; study53–61 and60–end plus JoJo1–23 and23–33 explicitly recovered. O9 owner receives scoped note without full-owner credit. No linked raw/primary/runtime bodies credited.",
+      "reopen": "Retain exact source medium/edition, acquisition-versus-reading and missing consumer/proof. Current selected task governs execution, not old helper or trial instructions.",
+      "input_sha256": "c998a33c89220ea5c70ba5521d6d835062294605ecd497a1100f43b2b0a58407",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/repository-bank/README.md",
+      "ids": [
+        "30 mirror rows",
+        "five hypotheses",
+        "four later repository rows",
+        "nine references"
+      ],
+      "classification": "source-card claims / retained acquisition map / bounded primary-study evidence / representative adaptation audit",
+      "owners": [
+        "docs/research/repository-bank/README.md"
+      ],
+      "disposition": "Full repository-bank/reference map review under AD32/AD35/AD36. Read all30 pinned partial-mirror rows, five starting hypotheses, four later noted repository rows and nine related works. Thirty successful mirror collections do not establish full offline copies, every branch, every seed or semantic/gameplay review. Evolve/DFHack/FrogComposband/YarnBound/inkjs have explicit missing/moved seed paths; a partial path absence is not a missing project. Default-head/tree/selected blob pins and device-local cache keys separate portable inventory from actual cache location. Old collect helper preserves pins and is not a current refresh command; no clone/fetch/helper was executed here.\n\nKeep actual source distinctions: original/development YAIR, Arcanum lineages, Lloyd/Omsi loops, current C# OpenNefia versus archived Lua, official Yarn core versus third-party ISC JS YarnBound, Ink compiler versus inkjs runtime, DFHack tool versus DF game, and nine commercial/tabletop/reference works versus open-source repositories. Possession does not prove observation-based power acquisition; source-rendered line numbers need actual-source locators. Hypotheses about item interaction, mastery, bodies, agendas, retained campaigns and automation are research inputs, not accepted systems or confirmed at every collected head.\n\nLater Immortality Idle, Modding Tree/Prestige Tree/Profectus, KoLmafia and CivIdle entries are noted research, not bank mirrors/SOURCES rows until actually collected. Exact revisions/license observations belong to those lanes and are not current availability/deployment clearance. A repository URL under Proto23 points to YAIR inspiration context, not a complete recovered Proto23 source tree. Existing GM absorption/report/coverage owns semantic uptake; the bank only owns acquisition/provenance. Old role assignments are not live writers. This complete index review inspects no mirror/blob/SOURCES/cache JSON/linked report, installs/runs nothing and adds no new source or runtime proof.",
+      "evidence": "Fresh full content read. Study/JoJo centrally truncated; study53–61 and60–end plus JoJo1–23 and23–33 explicitly recovered. O9 owner receives scoped note without full-owner credit. No linked raw/primary/runtime bodies credited.",
+      "reopen": "Retain exact source medium/edition, acquisition-versus-reading and missing consumer/proof. Current selected task governs execution, not old helper or trial instructions.",
+      "input_sha256": "19f05002d489cf181f2f0a944a41d44e5648e017cadab813fa10b4b7f99105ba",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/NARUTO_WITCH_HAT_FOUNDATION_STUDY_2026-11-04.md",
+      "ids": [
+        "NR1–NR5",
+        "WH1–WH6",
+        "FN1–FN6",
+        "exposure accounting"
+      ],
+      "classification": "source-card claims / retained acquisition map / bounded primary-study evidence / representative adaptation audit",
+      "owners": [
+        "docs/research/NARUTO_WITCH_HAT_FOUNDATION_STUDY_2026-11-04.md"
+      ],
+      "disposition": "Full bounded source-study/FN uptake review under AD32/AD36/AD43/AD51. Preserve source availability correction: a later live connector found held Witch Hat volume1 despite an earlier bounded text-index miss. That is the original study's observation, not today's catalogue probe or whole-edition qualification. Forty-nine selected Witch Hat image-OCR records and36 Naruto OCR pages are not whole chapters/volumes or visually verified diagram/panel/speaker geometry. Member indices differ from printed pages; English scan/translation/copyright provenance remains qualified. Automated OCR of more pages is not semantic reading coverage.\n\nNR1–NR5 separate reserve/control/exercise progress, bodily faculty versus observed technique, attributed social response, organ transplantation versus abstract teaching/ownership, and clone reserve/helper/return knowledge. The selected transplantation windows do not cover complete surgery/later costs/compatibility; clone merge/fatigue timing remains unread. Four-locus lineage model is an incumbent original profile, not qualified Naruto genetics or ancestry purity. WH1–WH6 distinguish copied design/executed unknown effect, sigil/sign/ring activation, drawing/tools/material versus semantic structure, mark durability versus lasting output, institutional belief/prohibition versus capability, teach-back versus competence, and unknown geometry at the damaged artifact. No universal neatness/size/power formula, inverse spell or full glyph evaluator follows from OCR.\n\nFN1–FN6 refine acquisition provenance/carrier/learning, reserve/control readers, physical/authored inscription/activation, observation/understanding/diagnosis, institutional access versus capacity, and distributed payer/support/report return. Their Klein/Harry receivers are proposed existing-consumer constraints, not new Naruto/Witch Hat campaigns or a mandate to interrupt current restoration work. Structured construction is a proposed first prototype; linear rune strips are not already a spatial spell evaluator, and freehand remains a fitting later option. Source-arrival/ability/patient/body/observer owners keep their own mechanisms.\n\nThe2129+2802=4931 counted OCR units and3000 web reservation yield7931 planning units, not exact aggregate exposure proof under8000. The original official web response lacked a pre-count; preserving the uncertainty/stopping further expansion is honest, not retroactive cap compliance. Duplicate image-reference cleanup preserves early caches. Four source hashes and107 link targets verify metadata/input scope, not source-law correctness or gameplay. Full report read recovered FN1–FN6/end after output truncation; actual OCR/raw book/images/official page/linked plans/code were not opened here. No new primary exposure, source acquisition, gameplay, test or worker is added.",
+      "evidence": "Fresh full content read. Study/JoJo centrally truncated; study53–61 and60–end plus JoJo1–23 and23–33 explicitly recovered. O9 owner receives scoped note without full-owner credit. No linked raw/primary/runtime bodies credited.",
+      "reopen": "Retain exact source medium/edition, acquisition-versus-reading and missing consumer/proof. Current selected task governs execution, not old helper or trial instructions.",
+      "input_sha256": "7fde4d3f7b3e30649bbf6af05a2a3b0d06f829cea44df6709d97e9ec9d1472b1",
+      "input_lines": 92,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          92
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/jojo-audit-2026-10-11/SOURCE_AUDIT.md",
+      "ids": [
+        "JS01–JS16",
+        "F1–F5",
+        "Parts1–9 coverage boundaries"
+      ],
+      "classification": "source-card claims / retained acquisition map / bounded primary-study evidence / representative adaptation audit",
+      "owners": [
+        "docs/research/jojo-audit-2026-10-11/SOURCE_AUDIT.md"
+      ],
+      "disposition": "Full16-row representative JoJo source audit under AD32/AD36/AD38/AD43. Preserve A-stated official adaptation summaries versus U boundaries: no episode viewing, manga chapter read or every-Stand/series coverage. JS01 named transfer differs from training; JS02 delivery/opponent history/practice differs from universal Hamon vulnerability; JS03 misidentified manifestation/unknown user separates belief/identity. JS04 remembered sword supports an object/history case, not permanent transfer/recall proof. JS05 investigatory trap/message and more than one stopped-time actor do not specify global clocks/durations/projectiles. JS06 restoration exceptions and JS07 reading/manipulation have different eligible targets and unresolved activation/retention. JS08 removed-space destination is unknown even to the holder, not automatically annihilation or inventory.\n\nJS09 food delivery/service and colony forms do not prove all-disease cure, complete restaurant economics or multiple independent sources. JS10 form/self-awareness/distance is local, not a global range-power law. JS11 discovering body-part creation is new application, not copying the opponent's source. JS12 post-user-death movement response disconfirms generic holder-death cleanup but leaves target/expiry details unknown. JS13 component access/historical replay does not decode erased time or guarantee foresight. JS14 pendant awakening is an actual acquisition case with incomplete eligibility; JS15 memory DISC custody does not explain the named enemy's memory limit. JS16 acceleration/time-stop/new-world/disc sequence retains unknown clock, identity, fate and retention boundaries instead of becoming a save-slot reset.\n\nF1–F5 propose holder/manifestation/controller/effect lifetime, actual target/custody transformation, observer evidence, acquisition/current access/trained application and selected event/clock rules. Those are receiver questions, not a new universal ability engine or accepted spell taxonomy. A direct faithful adapter needs its actual scene, while an explicitly original variant can choose its own mechanism without pretending source qualification. Ordinary work, starts/institutions/economy and changed causal history remain unsampled; one restaurant or16 rows is not a city/campaign denominator. The historical official anime index note does not certify today's release/availability; Parts7–9 remain unaudited here rather than declared absent/unadapted. Full report/coverage/closing text was read, recovering method/JS01 after truncation; no fresh portal/episode/manga/private/source/runtime inspection or gameplay test occurred. Retain the exact named gaps, not franchise memory as verified canon.",
+      "evidence": "Fresh full content read. Study/JoJo centrally truncated; study53–61 and60–end plus JoJo1–23 and23–33 explicitly recovered. O9 owner receives scoped note without full-owner credit. No linked raw/primary/runtime bodies credited.",
+      "reopen": "Retain exact source medium/edition, acquisition-versus-reading and missing consumer/proof. Current selected task governs execution, not old helper or trial instructions.",
+      "input_sha256": "8a1db82961420325932a73fe6e54f68731da5f76cb7a8f91b2a361238e409036",
+      "input_lines": 93,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          93
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/REPORT.md",
+      "heading": "## Content reconciliation B501: captured O9 modification evidence",
+      "body": "Captured O9 modification-control evidence under AD32. The full [Hemmingway Heretic card](sources/darrellbest__Hemmingway-1-Heretic__README.md) was read: frontmatter, five format repositories, refusal/KL/math tables, LoRA test, conversion/ablation recipe, usage and license/credits. Reported0/100 versus98/100 refusals measures that creator's marker-based sample, not broad reliability, writing quality or unconditional compliance. KL0.083 is a first-token harmless-prompt comparison, not a full response/semantic preservation guarantee. Two40-problem math sets and31 shared MATH successes show the reported finite sample; the creator's no-measurable-loss wording is not an independent equivalence study or proof of retained long-form writing/tool correctness.\n\nA40-step LoRA loss drop, adapter reload and well-formed tool-call output are different from correct unseen tool arguments/results, durable task success or local fine-tuning readiness. Grafted/restored vision layout, unchanged tower/embeddings/mtp and60 changed projections are creator-reported artifact identities, not locally checked byte/logit equivalence or newly qualified multimodal performance. Architecture class names and family tags alone do not prove exact upstream checkpoint/template. VL/text/GGUF/FP8/NVFP4 are separate artifacts, not interchangeable endpoint support on this Mac. Published35/27GB format sizes are not total resident/runtime costs.\n\nCC-BY-NC metadata and Altworld/converter credit remain provenance; a derivative cannot inherit a base benchmark score merely from lineage or erase upstream terms through format conversion. Commercial-use/contact text is a captured license statement, not legal clearance or a request to contact/send. O9 remains a parked control for a demonstrated refusal/breadth gap, not an automatically better replacement for the base. No live web, graph, weights/config, model endpoint, benchmark, acquisition or training run occurs here. Source card stays unchanged; the research owner receives a scoped note, not fresh full-owner credit.",
+      "before_sha256": "2af4008263e7d3814d97bc4485f41a255cb3e4b1de6c18eafa94b91a0203fad3",
+      "after_sha256": "141d00c82110165b499347af2257e4b8ada18b85d60a1cb765b24eea27f681ee"
+    },
+    {
+      "path": "docs/research/repository-bank/README.md",
+      "heading": "## Content reconciliation B501: repository and reference acquisition map",
+      "body": "Full repository-bank/reference map review under AD32/AD35/AD36. Read all30 pinned partial-mirror rows, five starting hypotheses, four later noted repository rows and nine related works. Thirty successful mirror collections do not establish full offline copies, every branch, every seed or semantic/gameplay review. Evolve/DFHack/FrogComposband/YarnBound/inkjs have explicit missing/moved seed paths; a partial path absence is not a missing project. Default-head/tree/selected blob pins and device-local cache keys separate portable inventory from actual cache location. Old collect helper preserves pins and is not a current refresh command; no clone/fetch/helper was executed here.\n\nKeep actual source distinctions: original/development YAIR, Arcanum lineages, Lloyd/Omsi loops, current C# OpenNefia versus archived Lua, official Yarn core versus third-party ISC JS YarnBound, Ink compiler versus inkjs runtime, DFHack tool versus DF game, and nine commercial/tabletop/reference works versus open-source repositories. Possession does not prove observation-based power acquisition; source-rendered line numbers need actual-source locators. Hypotheses about item interaction, mastery, bodies, agendas, retained campaigns and automation are research inputs, not accepted systems or confirmed at every collected head.\n\nLater Immortality Idle, Modding Tree/Prestige Tree/Profectus, KoLmafia and CivIdle entries are noted research, not bank mirrors/SOURCES rows until actually collected. Exact revisions/license observations belong to those lanes and are not current availability/deployment clearance. A repository URL under Proto23 points to YAIR inspiration context, not a complete recovered Proto23 source tree. Existing GM absorption/report/coverage owns semantic uptake; the bank only owns acquisition/provenance. Old role assignments are not live writers. This complete index review inspects no mirror/blob/SOURCES/cache JSON/linked report, installs/runs nothing and adds no new source or runtime proof.",
+      "before_sha256": "19f05002d489cf181f2f0a944a41d44e5648e017cadab813fa10b4b7f99105ba",
+      "after_sha256": "6b1aed49f463ad79ad6eebb9bf55f0beee7f48898f34138517b85a756310bc87"
+    },
+    {
+      "path": "docs/research/NARUTO_WITCH_HAT_FOUNDATION_STUDY_2026-11-04.md",
+      "heading": "## Content reconciliation B501: bounded primary windows and foundation uptake",
+      "body": "Full bounded source-study/FN uptake review under AD32/AD36/AD43/AD51. Preserve source availability correction: a later live connector found held Witch Hat volume1 despite an earlier bounded text-index miss. That is the original study's observation, not today's catalogue probe or whole-edition qualification. Forty-nine selected Witch Hat image-OCR records and36 Naruto OCR pages are not whole chapters/volumes or visually verified diagram/panel/speaker geometry. Member indices differ from printed pages; English scan/translation/copyright provenance remains qualified. Automated OCR of more pages is not semantic reading coverage.\n\nNR1–NR5 separate reserve/control/exercise progress, bodily faculty versus observed technique, attributed social response, organ transplantation versus abstract teaching/ownership, and clone reserve/helper/return knowledge. The selected transplantation windows do not cover complete surgery/later costs/compatibility; clone merge/fatigue timing remains unread. Four-locus lineage model is an incumbent original profile, not qualified Naruto genetics or ancestry purity. WH1–WH6 distinguish copied design/executed unknown effect, sigil/sign/ring activation, drawing/tools/material versus semantic structure, mark durability versus lasting output, institutional belief/prohibition versus capability, teach-back versus competence, and unknown geometry at the damaged artifact. No universal neatness/size/power formula, inverse spell or full glyph evaluator follows from OCR.\n\nFN1–FN6 refine acquisition provenance/carrier/learning, reserve/control readers, physical/authored inscription/activation, observation/understanding/diagnosis, institutional access versus capacity, and distributed payer/support/report return. Their Klein/Harry receivers are proposed existing-consumer constraints, not new Naruto/Witch Hat campaigns or a mandate to interrupt current restoration work. Structured construction is a proposed first prototype; linear rune strips are not already a spatial spell evaluator, and freehand remains a fitting later option. Source-arrival/ability/patient/body/observer owners keep their own mechanisms.\n\nThe2129+2802=4931 counted OCR units and3000 web reservation yield7931 planning units, not exact aggregate exposure proof under8000. The original official web response lacked a pre-count; preserving the uncertainty/stopping further expansion is honest, not retroactive cap compliance. Duplicate image-reference cleanup preserves early caches. Four source hashes and107 link targets verify metadata/input scope, not source-law correctness or gameplay. Full report read recovered FN1–FN6/end after output truncation; actual OCR/raw book/images/official page/linked plans/code were not opened here. No new primary exposure, source acquisition, gameplay, test or worker is added.",
+      "before_sha256": "7fde4d3f7b3e30649bbf6af05a2a3b0d06f829cea44df6709d97e9ec9d1472b1",
+      "after_sha256": "15151ac340466b6e37e15f713112217c489969573185d6fddd2cc473206e476c"
+    },
+    {
+      "path": "docs/research/jojo-audit-2026-10-11/SOURCE_AUDIT.md",
+      "heading": "## Content reconciliation B501: complete representative source-audit boundary",
+      "body": "Full16-row representative JoJo source audit under AD32/AD36/AD38/AD43. Preserve A-stated official adaptation summaries versus U boundaries: no episode viewing, manga chapter read or every-Stand/series coverage. JS01 named transfer differs from training; JS02 delivery/opponent history/practice differs from universal Hamon vulnerability; JS03 misidentified manifestation/unknown user separates belief/identity. JS04 remembered sword supports an object/history case, not permanent transfer/recall proof. JS05 investigatory trap/message and more than one stopped-time actor do not specify global clocks/durations/projectiles. JS06 restoration exceptions and JS07 reading/manipulation have different eligible targets and unresolved activation/retention. JS08 removed-space destination is unknown even to the holder, not automatically annihilation or inventory.\n\nJS09 food delivery/service and colony forms do not prove all-disease cure, complete restaurant economics or multiple independent sources. JS10 form/self-awareness/distance is local, not a global range-power law. JS11 discovering body-part creation is new application, not copying the opponent's source. JS12 post-user-death movement response disconfirms generic holder-death cleanup but leaves target/expiry details unknown. JS13 component access/historical replay does not decode erased time or guarantee foresight. JS14 pendant awakening is an actual acquisition case with incomplete eligibility; JS15 memory DISC custody does not explain the named enemy's memory limit. JS16 acceleration/time-stop/new-world/disc sequence retains unknown clock, identity, fate and retention boundaries instead of becoming a save-slot reset.\n\nF1–F5 propose holder/manifestation/controller/effect lifetime, actual target/custody transformation, observer evidence, acquisition/current access/trained application and selected event/clock rules. Those are receiver questions, not a new universal ability engine or accepted spell taxonomy. A direct faithful adapter needs its actual scene, while an explicitly original variant can choose its own mechanism without pretending source qualification. Ordinary work, starts/institutions/economy and changed causal history remain unsampled; one restaurant or16 rows is not a city/campaign denominator. The historical official anime index note does not certify today's release/availability; Parts7–9 remain unaudited here rather than declared absent/unadapted. Full report/coverage/closing text was read, recovering method/JS01 after truncation; no fresh portal/episode/manga/private/source/runtime inspection or gameplay test occurred. Retain the exact named gaps, not franchise memory as verified canon.",
+      "before_sha256": "8a1db82961420325932a73fe6e54f68731da5f76cb7a8f91b2a361238e409036",
+      "after_sha256": "1fccbe725ec2c62b45b8c863acb51af1f0a7398a86382308fc079c34150c1de1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 255,
+  "post_record_amendments": [
+    {
+      "path": "docs/research/jojo-audit-2026-10-11/SOURCE_AUDIT.md",
+      "from": "or accepted spell taxonomy",
+      "to": "or a required spell taxonomy",
+      "reason": "Clarify proposal status in own paragraph after doc lint; original failed check preserved."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/research/jojo-audit-2026-10-11/SOURCE_AUDIT.md",
+      "from": "1fccbe725ec2c62b45b8c863acb51af1f0a7398a86382308fc079c34150c1de1",
+      "to": "571cbe1a6fc3948ba4d83b4ea2d2c565d5247b5da3cb9ff212593ef516240f82",
+      "reason": "Clarify proposal status in own paragraph after doc lint; original failed check preserved."
+    }
+  ]
+}

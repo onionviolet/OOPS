@@ -1,0 +1,26 @@
+{
+  "command": "node temporary scoped copy of scripts/check_doc_slips.mjs",
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_sha256": "a5cbc6c05f74840b80887ffb975418dd71f2319719fd65ba3416aea5629ed41f",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/crafting-screen-2026-10-13/checks/fixtures/README.md",
+    "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md",
+    "docs/gm/dispatch/rules-consideration-2026-10-26/dispatch/README.md",
+    "docs/gm/home-social-base-2026-10-07/social/SOURCE_AUDIT.md",
+    "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+    "docs/gm/world-implementation/README.md",
+    "docs/gm/world-implementation/abilities/COVERAGE.md",
+    "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+    "docs/gm/world-implementation/second-pass/timelines/branching/FRONTIER_RECONCILIATION.md",
+    "docs/representations/CHARACTER_SHEET.md",
+    "docs/research/academagia/aspects-2026-10-14/PRIVATE_REFERENCE_INDEX.md",
+    "docs/research/procedural-materials-2026-10-13/deep/README.md",
+    "docs/research/warsim/aspects-2026-10-14/PRIVATE_REFERENCE_INDEX.md"
+  ],
+  "adaptation": "Only filespec changed; diagnostic rules unchanged; not shared-tree pass."
+}

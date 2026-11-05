@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "owner": "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+      "target": "docs/research/PREMISE_HOOK_AUDIT_2026-10-14.md",
+      "fragment": "content-reconciliation-b582-grammar-and-current-probe-boundaries",
+      "exists": true
+    },
+    {
+      "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "target": "docs/research/PREMISE_HOOK_AUDIT_2026-10-14.md",
+      "fragment": "content-reconciliation-b582-grammar-and-current-probe-boundaries",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/PREMISE_HOOK_AUDIT_2026-10-14.md",
+      "target": "docs/research/PREMISE_HOOK_AUDIT_2026-10-14.md",
+      "fragment": "content-reconciliation-b582-grammar-and-current-probe-boundaries",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/cross-game-synthesis-2026-10-14/PACKETS.md",
+      "target": "docs/research/cross-game-synthesis-2026-10-14/../feature-game-scout-2026-10-14/FOLD_PROPOSAL.md",
+      "fragment": "content-reconciliation-b583-later-authorized-folds-and-donor-limits",
+      "exists": true
+    },
+    {
+      "owner": "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+      "target": "docs/research/feature-game-scout-2026-10-14/FOLD_PROPOSAL.md",
+      "fragment": "content-reconciliation-b583-later-authorized-folds-and-donor-limits",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/multiworld-synthesis-2026-10-14/REPORT.md",
+      "target": "docs/research/multiworld-synthesis-2026-10-14/AUDIT.md",
+      "fragment": "content-reconciliation-b583-all-seventy-checks-and-later-authority",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/feature-game-scout-2026-10-14/FOLD_PROPOSAL.md",
+      "target": "docs/research/feature-game-scout-2026-10-14/FOLD_PROPOSAL.md",
+      "fragment": "content-reconciliation-b583-later-authorized-folds-and-donor-limits",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-report.md",
+      "target": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-recovered-response.md",
+      "fragment": "content-reconciliation-b584-recovered-text-and-source-qualified-questions",
+      "exists": true
+    },
+    {
+      "owner": "docs/RESEARCH_CULTIVATION_PATHS.md",
+      "target": "docs/research/ROBLOX_ANIME_SCOUT_2026-10-26.md",
+      "fragment": "content-reconciliation-b584-broader-screen-and-mechanism-boundaries",
+      "exists": true
+    },
+    {
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "target": "docs/research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md",
+      "fragment": "content-reconciliation-b585-complete-palette-and-selected-owner-semantics",
+      "exists": true
+    },
+    {
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "target": "docs/research/proto23/FEATURE_AUDIT_SIDE_BY_SIDE_2026-10-20.md",
+      "fragment": "content-reconciliation-b585-every-feature-row-and-evidence-boundary",
+      "exists": true
+    },
+    {
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "target": "docs/research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md",
+      "fragment": "content-reconciliation-b585-complete-palette-and-selected-owner-semantics",
+      "exists": true
+    },
+    {
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "target": "docs/research/proto23/FEATURE_AUDIT_SIDE_BY_SIDE_2026-10-20.md",
+      "fragment": "content-reconciliation-b585-every-feature-row-and-evidence-boundary",
+      "exists": true
+    }
+  ],
+  "missing": []
+}

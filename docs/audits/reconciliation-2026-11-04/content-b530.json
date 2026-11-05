@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B530",
+  "title": "Acquisition queue, timeout chronology and harvested-source reuse",
+  "at": "2026-11-05T09:51:58.645157+00:00",
+  "head": "be24c225c00cf8c583bf7773ee124d354b91e88b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md",
+      "ids": [
+        "AQ1–AQ4",
+        "SM5–SM9",
+        "historical ranks"
+      ],
+      "classification": "dated acquisition queue/receipt; later holdings supersession and useful provenance retained",
+      "owners": [
+        "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md"
+      ],
+      "disposition": "The queue preserves chronology, not current entitlement/tool installation. Later AQ routing and registry notes supersede the original none-owned/no-dotnet snapshot and buy recommendations for the six subsequently owned titles; Wolf Hall is specifically owned/source-read as Ren'Py rather than the old speculative Unity route. The completed Kingdom of Loathing, Discworld MUD, Super Robot Wars, Modding Tree and cultivation-idler dossiers are finite passes, not full-source completion. Existing owned local read-only mechanic passes were standing scope, but this documentation task launches none. Missing source/library metadata does not establish missing content, and old unapplied QUEUE_EDITS.patch is a proposal. Media titles/editions/availability and rankings remain historical candidates; game-original adaptation data is not automatically novel canon. Use current registry scoped doctor and actual chapter coverage before a selected route; no download, purchase, install or reacquisition follows from a queue row.",
+      "evidence": "Entire actual reads: future queue1–90,91–161; acquisition receipt1–90,91–165; harvest1–95,96–183. Later October27 receipt actual content was reviewed B520; no live library/catalogue/provider/file validation or PDF extraction here.",
+      "reopen": "For a selected authorized source task, use current library/chapter coverage and exact edition-bound reading owner before further search, extraction or acquisition; do not reactivate historical retry commands.",
+      "input_sha256": "346367e5cfd7d66be299f46a6560cf07c792b86e92b4136404a0b043d56cb0cb",
+      "input_lines": 161,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          161
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/BOOK_ACQUISITION_RECEIPT_2026-10-24.md",
+      "ids": [
+        "24-title table",
+        "Re:Zero addendum",
+        "timeout diagnosis",
+        "October24/25 updates"
+      ],
+      "classification": "dated acquisition queue/receipt; later holdings supersession and useful provenance retained",
+      "owners": [
+        "docs/research/BOOK_ACQUISITION_RECEIPT_2026-10-24.md"
+      ],
+      "disposition": "The leading acquisition-only/no absorption status governs all listed files, including PDFs whose header/page counts are structural checks, not content review. Planescape95 pages is flagged partial, not the full set. Initial server-side cache speculation was superseded by the local90-second expect_download and150-second outer caps, then the successful6-minute Log Horizon5 test; the shared download lease and initially untested fix remain part of chronology. A600-second stall does not alone prove a remote server cause. Later October25 delivered Log Horizon5/NGNL4/Slime16 supersede earlier failures only for those assets; October25 harvest further reports Cradle11–12 and Log Horizon3–4 completion. Re:Zero TOC matching/redirect differences are dated count/coverage checks, not chapters read or current publication completeness. Review-renamed interrupted jobs are historical operations, not permission to clear refusals or retry today. The later user direction recorded in the reviewed October27 acquisition receipt that Log Horizon is not useful and should not be continued supersedes this file's earlier retry priority. Current LIBRARY_INDEX and chapter coverage own present holdings; preserve this receipt and its failed attempts without treating old gaps as new download orders.",
+      "evidence": "Entire actual reads: future queue1–90,91–161; acquisition receipt1–90,91–165; harvest1–95,96–183. Later October27 receipt actual content was reviewed B520; no live library/catalogue/provider/file validation or PDF extraction here.",
+      "reopen": "For a selected authorized source task, use current library/chapter coverage and exact edition-bound reading owner before further search, extraction or acquisition; do not reactivate historical retry commands.",
+      "input_sha256": "5b1b6858c66d6d387b250ca03708e79d63bb682099eefea5a5245b82c9191599",
+      "input_lines": 165,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          165
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/SOURCE_HARVEST_2026-10-25.md",
+      "ids": [
+        "H-R1–H-R24",
+        "H-G1–H-G4",
+        "LH1–LH18"
+      ],
+      "classification": "dated acquisition queue/receipt; later holdings supersession and useful provenance retained",
+      "owners": [
+        "docs/research/SOURCE_HARVEST_2026-10-25.md"
+      ],
+      "disposition": "H-R1–H-R24 and H-G1–H-G4 distinguish69 ranked rows,61 baseline hashes, expanded40 hashes/39 preparations,87 reuse candidates/133 distinct sources and130 preparations. Those overlapping dimensions are not additive unique-book totals. Thirty actual downloads include27 follow-ups; a quota-stopped request is not a31st delivery or pending transfer. Archive/metadata/heading scan proves neither semantic read nor full-publication coverage. Primordial Saint Sect alias recovery and four original-language gap companions do not stitch translations; Bookworm33-main-volume map excludes fanbooks/short stories. The later October27 acquisition receipt reviewed in B520 supersedes this then22-held/11-missing snapshot with completion of the main volumes, without erasing the real prior quota stop. Current chapter/source owners govern freshness. Reuse bound reading packets for Skill Eater and the exact Godclads/Wish/You Are Summoned editions; do not infer personal reading or alias unrelated technique-girls/Naruto works. Native app success after connector failure, actual file verification despite loading screen and rejected Spanish/duplicate saves preserve route outcomes, not current UI/account readiness. No source prose, catalogue, book, PDF or private payload was opened in this review.",
+      "evidence": "Entire actual reads: future queue1–90,91–161; acquisition receipt1–90,91–165; harvest1–95,96–183. Later October27 receipt actual content was reviewed B520; no live library/catalogue/provider/file validation or PDF extraction here.",
+      "reopen": "For a selected authorized source task, use current library/chapter coverage and exact edition-bound reading owner before further search, extraction or acquisition; do not reactivate historical retry commands.",
+      "input_sha256": "1e567ab718eed41acd2cb2841ed9c8ed5b09e98b4c71e48ab660b44d88c39a57",
+      "input_lines": 183,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          183
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md",
+      "heading": "## Content reconciliation B530: historical routing and later coverage",
+      "body": "The queue preserves chronology, not current entitlement/tool installation. Later AQ routing and registry notes supersede the original none-owned/no-dotnet snapshot and buy recommendations for the six subsequently owned titles; Wolf Hall is specifically owned/source-read as Ren'Py rather than the old speculative Unity route. The completed Kingdom of Loathing, Discworld MUD, Super Robot Wars, Modding Tree and cultivation-idler dossiers are finite passes, not full-source completion. Existing owned local read-only mechanic passes were standing scope, but this documentation task launches none. Missing source/library metadata does not establish missing content, and old unapplied QUEUE_EDITS.patch is a proposal. Media titles/editions/availability and rankings remain historical candidates; game-original adaptation data is not automatically novel canon. Use current registry scoped doctor and actual chapter coverage before a selected route; no download, purchase, install or reacquisition follows from a queue row.\n\nRetain the original queue, attempts and addenda as history. This documentation pass changes no source files, holdings, extraction, reading progress, account state or acquisition jobs.",
+      "before_sha256": "346367e5cfd7d66be299f46a6560cf07c792b86e92b4136404a0b043d56cb0cb",
+      "after_sha256": "1e208efb9e4dc41b91cc64b5624e36a81ae683304649d13e59f2d12e3dfca428"
+    },
+    {
+      "path": "docs/research/BOOK_ACQUISITION_RECEIPT_2026-10-24.md",
+      "heading": "## Content reconciliation B530: historical routing and later coverage",
+      "body": "The leading acquisition-only/no absorption status governs all listed files, including PDFs whose header/page counts are structural checks, not content review. Planescape95 pages is flagged partial, not the full set. Initial server-side cache speculation was superseded by the local90-second expect_download and150-second outer caps, then the successful6-minute Log Horizon5 test; the shared download lease and initially untested fix remain part of chronology. A600-second stall does not alone prove a remote server cause. Later October25 delivered Log Horizon5/NGNL4/Slime16 supersede earlier failures only for those assets; October25 harvest further reports Cradle11–12 and Log Horizon3–4 completion. Re:Zero TOC matching/redirect differences are dated count/coverage checks, not chapters read or current publication completeness. Review-renamed interrupted jobs are historical operations, not permission to clear refusals or retry today. The later user direction recorded in the reviewed October27 acquisition receipt that Log Horizon is not useful and should not be continued supersedes this file's earlier retry priority. Current LIBRARY_INDEX and chapter coverage own present holdings; preserve this receipt and its failed attempts without treating old gaps as new download orders.\n\nRetain the original queue, attempts and addenda as history. This documentation pass changes no source files, holdings, extraction, reading progress, account state or acquisition jobs.",
+      "before_sha256": "5b1b6858c66d6d387b250ca03708e79d63bb682099eefea5a5245b82c9191599",
+      "after_sha256": "2480eec566668cd4dbe6e4fae81565799b02d840609881563e5ad64e71b2022d"
+    },
+    {
+      "path": "docs/research/SOURCE_HARVEST_2026-10-25.md",
+      "heading": "## Content reconciliation B530: historical routing and later coverage",
+      "body": "H-R1–H-R24 and H-G1–H-G4 distinguish69 ranked rows,61 baseline hashes, expanded40 hashes/39 preparations,87 reuse candidates/133 distinct sources and130 preparations. Those overlapping dimensions are not additive unique-book totals. Thirty actual downloads include27 follow-ups; a quota-stopped request is not a31st delivery or pending transfer. Archive/metadata/heading scan proves neither semantic read nor full-publication coverage. Primordial Saint Sect alias recovery and four original-language gap companions do not stitch translations; Bookworm33-main-volume map excludes fanbooks/short stories. The later October27 acquisition receipt reviewed in B520 supersedes this then22-held/11-missing snapshot with completion of the main volumes, without erasing the real prior quota stop. Current chapter/source owners govern freshness. Reuse bound reading packets for Skill Eater and the exact Godclads/Wish/You Are Summoned editions; do not infer personal reading or alias unrelated technique-girls/Naruto works. Native app success after connector failure, actual file verification despite loading screen and rejected Spanish/duplicate saves preserve route outcomes, not current UI/account readiness. No source prose, catalogue, book, PDF or private payload was opened in this review.\n\nRetain the original queue, attempts and addenda as history. This documentation pass changes no source files, holdings, extraction, reading progress, account state or acquisition jobs.",
+      "before_sha256": "1e567ab718eed41acd2cb2841ed9c8ed5b09e98b4c71e48ab660b44d88c39a57",
+      "after_sha256": "61e5fd566d701579e7c84331be9ac542211278dee7b15b378626406c6ad16329"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 176,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B521, continuous execution 2026-11-05 |",
+      "to": "| B530, continuous execution 2026-11-05 |",
+      "reason": "Advance task-owned continuous checkpoint row."
+    }
+  ],
+  "closeout_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "d5bba9c1688601b26da8483d02364d637c31a061e1a76197a8ac5db4b1b189ad",
+      "to": "92256da98987efb805e521d28bffd7808affb7c2522fa122c8b8fd3cb62910dd",
+      "reason": "Exact task-owned register advancement."
+    }
+  ]
+}

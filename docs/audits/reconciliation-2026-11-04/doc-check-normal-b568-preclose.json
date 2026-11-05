@@ -1,0 +1,7 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "stdout": "> check:docs\n> node scripts/check_doc_slips.mjs\n",
+  "stderr": "docs/UI_RULES.md:77: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/UI_RULES.md:603: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "scope": "Recorded actual tool output before correcting this task new-fold wording at603; pre-existing77 retained."
+}

@@ -1,0 +1,25 @@
+{
+  "command": "same-rule docs checker with task filespec",
+  "source_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "adapted_sha256": "d851141c387175457cb1c0d612735c5a5346b6fc8500302955937e84ba57b25f",
+  "paths": [
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+    "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+    "docs/research/novels/full-book/regressors-tale/WORLD.md",
+    "docs/research/novels/primordial-saint-sect-2026-10-10/SCOUT.md",
+    "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+    "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+    "docs/worlds/REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md",
+    "docs/worlds/paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md",
+    "docs/worlds/paradise-hub/DERIVED_WORLD_INSTITUTIONS_AND_HUNTER_BENEFITS_2026-10-23.md",
+    "docs/worlds/paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/primordial-saint-sect.md",
+    "docs/worlds/world-core-kit-2026-10-14/cards/regressors-tale.md"
+  ],
+  "exit": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "scope": "Filespec-only adaptation; not shared-tree pass."
+}

@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "owner": "docs/research/warsim/TABLE_COVERAGE.md",
+      "target": "docs/research/warsim/pass-2026-10-14-systems/REPORT.md",
+      "fragment": "content-reconciliation-b590-full-native-family-map-and-parent-gaps",
+      "exists": true
+    },
+    {
+      "owner": "docs/research/warsim/REPORT.md",
+      "target": "docs/research/warsim/pass-2026-10-14-systems/REPORT.md",
+      "fragment": "content-reconciliation-b590-full-native-family-map-and-parent-gaps",
+      "exists": true
+    },
+    {
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "target": "docs/research/naev/pass-2026-10-14-systems/REPORT.md",
+      "fragment": "content-reconciliation-b592-complete-map-and-residual-source-scope",
+      "exists": true
+    }
+  ],
+  "missing": []
+}

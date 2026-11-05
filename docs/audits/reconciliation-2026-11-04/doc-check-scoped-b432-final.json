@@ -1,0 +1,19 @@
+{
+  "command": "node temporary same-rule checker with filespec restricted to B430\u2013B432 task edits",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": "",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "scoped_checker_sha256": "2a3d2ce5ed2c9a92e92d99cbf2583d841bca304ac3c7141b821386c8b5d8eed7",
+  "paths": [
+    "docs/DIRECTION_SUMMARY.md",
+    "docs/OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md",
+    "docs/OVERARCHING_DESIGN_METHOD_PROMPT_2026-10-15.md",
+    "docs/PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md",
+    "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+    "docs/gm/WRITEUP_REGISTER.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+    "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_LIFE_SYSTEMS_DESIGN.md"
+  ],
+  "adaptation": "Exactly one filespec replacement, all diagnostic rules unchanged. No repository checker edit. Scoped result does not establish shared-tree lint pass."
+}
