@@ -111,6 +111,8 @@ test('live integration crosses native UI and real save validator in a disposable
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
   await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
+ const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:60000,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
+ // Check production architecture before adding fixture-only exports.
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`\nexport {whenCastLoaded as kn1CastReady} from './book_world_lotm_cast_days.js';\nexport const kn1EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\nexport const kn1Validate=save=>validateSaveEnvelope(save,game_version);\nexport const kn1Act=id=>{domainRegistry.refresh();document.querySelector('[data-lotm="'+id+'"]').onclick();};\n`);
  const evidence={label:'I',locator:'fixture p1'},people=['lead','relative'].map(id=>({id:`fixture.person.${id}`,indexId:`fixture.person.${id}`,name:id,tier:'principal',relations:[],knows:[],wants:[],...evidence}));
@@ -129,7 +131,6 @@ test('live integration crosses native UI and real save validator in a disposable
  await writeFile(join(dir,'private_packs/lotm-cast/cast.json'),JSON.stringify(pack));
  await exec('npm',['run','build'],{cwd:dir,env:{...process.env,BUILD_OUT:join(dir,'candidate')},timeout:60000,maxBuffer:1024*1024});
  const {createHash}=await import('node:crypto');t.diagnostic('Disposable integrated build SHA-256: '+createHash('sha256').update(await readFile(join(dir,'candidate/dist/bundle.js'))).digest('hex'));
- const arch=await exec('npm',['run','check:arch'],{cwd:dir,timeout:60000,maxBuffer:1024*1024});t.diagnostic(arch.stdout.trim());
  await exec(process.execPath,['--test',join(dir,'tests/perspective_controls.test.js')],{cwd:dir,timeout:30000,maxBuffer:1024*1024});
  const worker=join(dir,'kn1-save-worker.mjs');
  await writeFile(worker,`

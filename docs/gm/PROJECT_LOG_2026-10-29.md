@@ -2358,3 +2358,8 @@ The Klein line now names the KJ3AD endpoint (Tuesday 9 p.m. at the flat after th
 ## 2026-11-04: PROJECT.md endpoint line replaced (kjw21)
 
 The Klein line now names the KJ3AE endpoint (Wednesday 8 p.m. on Daffodil Street after the night above the grey fog and the underground market, English v1 ch67 P001 through ch69 P082; 19 acts, 33 slices, 515 stages; native on the master bundle `4c9c0c2b`, purse 684, pool 3/0). KJ3AD keeps the Beyonder records and the Theosophy Order. Agent-verified, not human-reviewed.
+
+
+## 2026-11-04 release reconciliation
+
+The release pass replaces PROJECT’s stale L2b and publication summaries. Previous wording: “Existing combat L2b remains below floor in its own queue.” The November 4 closure receipt supersedes this for its named health-publication fixture, with broader combat and legacy limits retained. Previous release paragraph: “Published master is `5dcd2240c` (Luminous Gothic default); the normal app serves frozen `v0.6-e7f0aa4029ca` ([adoption receipt](dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md)). Work since then is local until Weibao says to push.” Live origin was `aef3cb1f8`; Weibao requested “reconcile-project and push?” in this chat. [Release record](../audits/RELEASE_RECONCILIATION_2026-11-04.md) owns validation, exclusions and publication results. No installed-app claim follows.

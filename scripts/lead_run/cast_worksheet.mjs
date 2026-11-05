@@ -1,6 +1,6 @@
 // L2b / CL94. Private, local worksheet generator; source rows stay verbatim.
 // node scripts/lead_run/cast_worksheet.mjs <mergedDir> --crosswalk <file> --world lotm|mol --from <locator> --to <locator> --out <privateDir>/cast-worksheets/
-import {readFileSync, mkdirSync, writeFileSync, realpathSync} from 'node:fs';
+import {readFileSync, mkdirSync, writeFileSync, realpathSync, existsSync} from 'node:fs';
 import {resolve, relative, basename} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
@@ -163,6 +163,8 @@ export function run(argv) {
     const merged = argv[0];
     const value = key => { const index = argv.indexOf(key); return index < 0 ? null : argv[index + 1]; };
     if (!merged) throw new Error('Expected merged directory');
+    const novelsPath = resolve(fileURLToPath(new URL('../../docs/research/novels/', import.meta.url)));
+    if (!existsSync(novelsPath)) throw new Error('Merged input must be under a novel private directory; local novels root is unavailable');
     const actual = realpathSync(merged);
     const novelsRoot = realpathSync(resolve(fileURLToPath(new URL('../../docs/research/novels/', import.meta.url))));
     const rel = relative(novelsRoot, actual);

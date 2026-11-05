@@ -1,0 +1,72 @@
+{
+  "base_commit": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "scope": "Selected release inputs, not whole dirty checkout or collection reconciliation",
+  "checks": [
+    {
+      "check": "build",
+      "exit": 0
+    },
+    {
+      "check": "arch",
+      "exit": 0
+    },
+    {
+      "check": "rules",
+      "exit": 0
+    },
+    {
+      "check": "tests",
+      "exit": 0
+    }
+  ],
+  "suite": {
+    "tests": 5155,
+    "passed": 5138,
+    "skipped": 17,
+    "failed": 0,
+    "cancelled": 0
+  },
+  "browser": {
+    "route": "synthetic cast fixture with the real armory/Old Neil ids; one-click note; UI fetch, read, refusal, save, reload, Export, Import",
+    "viewport": "1920x1080",
+    "bundleHash": "f2204a458c5f9b31e525c51ba1703bac3cec20097c8ce78c69f714f2ea39f817",
+    "checks": [
+      "no records block without the note",
+      "armory shows the sealed-records block with Old Neil bound",
+      "pages need the stack before fetch",
+      "fetch brings the stack: Seer page ready",
+      "Sequence 6 page is withheld",
+      "withheld page states the clearance reason",
+      "Seer page read once and stays read",
+      "withheld page still withheld, no time charged to it",
+      "refused page cannot be started",
+      "read fact and knowledge recorded",
+      "reload retains read pages",
+      "import retains read pages",
+      "imported panel shows the page read",
+      "no browser errors"
+    ],
+    "errors": []
+  },
+  "unshipped_dependencies": [
+    "shared node_modules",
+    "local private fonts for final strict browser run"
+  ],
+  "inputs": {
+    "scripts/lead_run/cast_worksheet.mjs": "15eb13d0181bc5793e75a44a1298bede2072da3c3574937250882eb754e5e72c",
+    "scripts/lead_run/build_crosswalk.mjs": "5c267406f7b584aa8f4059fd74ad1f23641720d209dda3471b8808c3c9656c61",
+    "tests/cast_ability_adapter.test.js": "1f05f78186d887b55f90f27b12f105b4a0b753e451194f01c284d4261adedad2",
+    "tests/cast_divination_adapter.test.js": "e2a084b3caa506e20a1851e622b5148d782b9f390d49ed160a3014b02e23695b",
+    "tests/cast_inference_adapter.test.js": "d239d13858c2cf75f87a5c2c8c6470af3a6715a571d959f737307422feeac27e",
+    "src/perspective_controls.js": "22b90d888aec7a8eceff43f6d672a4fd51674a2aae3b0c0f7541956648cc7b2a",
+    "PROJECT.md": "9d6f8c169c8b846bb24576db5ec0d910cd34a3dbc03833853a509e36fed92a65",
+    "docs/gm/PROJECT_LOG_2026-10-29.md": "64d1aa7429e5a930152ac27e3f1b9c2ed8fdc3f22e3e978c0e3c065eac080172",
+    "index.html": "af30c09cb14fe0c2c7f1cc1c49c3c95165f28617501f18c80bc814790c738348",
+    "dist/bundle.js": "f2204a458c5f9b31e525c51ba1703bac3cec20097c8ce78c69f714f2ea39f817",
+    "dist/bundle.js.map": "3622617af2db0faed5bba00bd6d53b6d9e5f9c457ccc4872de6c22b0c72eb871",
+    "dist/INKJS_NOTICE.txt": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+    "dist/INKJS_AUTHORS.txt": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014",
+    "tests/lotm_records_browser.mjs": "45937950d8e771716db5f39f766b0c13e220119f37c3010735e5208813b19ed5"
+  },
+  "evidence": "private/release-reconciliation-2026-11-04 (local only)"
+}

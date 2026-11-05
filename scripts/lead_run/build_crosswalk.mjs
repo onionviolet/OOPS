@@ -4,7 +4,7 @@
 // Writes crosswalk.json and consumer_fitness.json beside the private merged inputs.
 // Review shape: {entities:{indexId:runtimeId|new:id|skip:reason}, places:{text:registryPlaceId}}.
 // Uncertain identities receive distinct deterministic proposals, never fuzzy matches.
-import {readFileSync, writeFileSync, realpathSync} from 'node:fs';
+import {readFileSync, writeFileSync, realpathSync, existsSync} from 'node:fs';
 import {resolve, relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
@@ -331,6 +331,8 @@ export function run(argv) {
     const dir = argv[0], flag = name => { const i = argv.indexOf(name); return i < 0 ? null : argv[i + 1]; };
     if (!dir) throw new Error('Expected merged directory');
     // Private inputs and outputs only. realpath prevents symlink escapes from a private directory.
+    const novelsPath = resolve(fileURLToPath(new URL('../../docs/research/novels/', import.meta.url)));
+    if (!existsSync(novelsPath)) throw new Error('Output must be under a novel private directory; local novels root is unavailable');
     const actual = realpathSync(dir), root = realpathSync(resolve(fileURLToPath(new URL('../../docs/research/novels/', import.meta.url))));
     const rel = relative(root, actual);
     if (rel.startsWith('..') || !rel.split(/[\\/]/).includes('private')) throw new Error('Output must be under a novel private directory');

@@ -62,7 +62,7 @@ try{
  ok('reload retains read pages',digest(await snap())===before&&(await rows())[N+'seer-line']==='read');
  const dl=p().waitForEvent('download');await p().locator('#save_to_file_button').click();const file=join(out,'records-export.txt');await(await dl).saveAs(file);
  await p().evaluate(()=>localStorage.clear());await p().reload();await play();
- await p().locator('#saved_file_input').setInputFiles(file);await p().waitForTimeout(1500);await play();await show();await play();
+ const imported=p().waitForEvent('domcontentloaded',{timeout:45000});await p().locator('#saved_file_input').setInputFiles(file);await imported;await play();await show();await play();
  ok('import retains read pages',digest(await snap())===before);
  await show();ok('imported panel shows the page read',(await rows())[N+'seer-line']==='read');
  await p().screenshot({path:join(out,'after-import-1920.png')});
