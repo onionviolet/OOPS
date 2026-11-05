@@ -72,6 +72,53 @@ Default creative review: prefer details particular to the subject and source, ve
 
 Source context and the exact adoption map live in [UI audit round 29](audits/UI_DESIGN_CORE_AUDIT.md#round-29-2026-11-04-adopted-ui-prose-defaults-and-character-separation), reusing the held Proto23/YAIR/Discord findings and qualified online guidance. A Reddit preference, old developer draft or external guideline is not a universal rule. AD36/AD43 remain the verification policy, not a new checklist or conformance target.
 
+## Task layers and long-running work, 2026-11-04
+
+Accepted application of UR41–43/46/49/52/57/61/63/70–74 and MR18/29, from
+[Weibao's instruction](USER_VISION.md#task-appropriate-ui-layers-and-crafting-follow-through-2026-11-04).
+These defaults apply to crafting, trade, services, research, travel, projects
+and other tasks; they do not impose one form or new mechanics.
+
+- **Choose the task layer before choosing fields (UR41–43/71).** Browse,
+  inspect/compare, configure/review, commit, running work/settlement and reference
+  are roles, not compulsory pages. Combine them for a short task. Keep the
+  current commitment's known decision facts together: purpose, relevant effects,
+  exact means, cost, uncertainty and output. Special calculations and long
+  history use a labelled path. Dial by frequency, stakes and space; fewer rows
+  do not justify repeated inspection to make one decision.
+- **Keep display depth, execution depth and knowledge separate (UR42/72,
+  MR18/31).** More detail need not switch quick work into guided/deep execution,
+  and no disclosure level grants unknown facts. Reuse authoritative observer
+  projections across surfaces; shared controls/meaning do not require identical
+  layouts or one resolver. Patterns, parts, composition and alteration show the
+  relations their actual mechanisms consume. World/task differences explain
+  the form; a familiar skin cannot substitute for usable composition.
+- **Condense repetition, not meaningful distinctions (UR46/64/71/74).** Keep
+  exact selected holdings, comparison baseline, units and relevant ranges.
+  Consolidate repeated costs and omit inapplicable filler; distinguish unknown
+  from unavailable and not applicable. A forecast, a starting acknowledgement
+  and a settled receipt are different claims. Reuse the result's actual supplier,
+  including supported bonuses, rather than duplicating its formulas in UI.
+- **Long work keeps its identity and terms (UR52/53/61/63).** A routine or
+  project shows actual stage/remaining work, held versus spent means, useful
+  output and the owner's stop/interruption/collection terms where relevant.
+  Closing inspection does not cancel work. Preserve selection, draft, focus and
+  return across navigation and refresh; requote changed conditions before a
+  consequential command. Attempts differ from successes and useful outputs;
+  remaining time alone supplies no completion percentage. Saved intent, active
+  work and historical results retain their actual, separately stated lifetimes.
+  Dial by the operation's real lifecycle, not a universal refund/resume policy.
+- **Check a representative different consumer (UR49/57, AD36).** When changing
+  a shared projection or interaction, choose relevant cases by actual model and
+  task differences: fixed result, configurable parts, unknown experiment, staged
+  or altered-object work. Exercise the selected decision through changed state
+  and return. One screenshot or renderer test does not certify all consumers;
+  a narrow change does not require an all-world matrix.
+
+Crafting examples and source/adoption boundaries live in the
+[comparison round 2](reviews/crafting-reference-2026-11-04/REPORT.md#round-2-source-adoption-ui-layers-and-other-making-2026-11-04),
+with current implementation evidence in its [checkpoint](gm/dispatch/crafting-layers-2026-11-04/CHECKPOINT.md).
+
 ## Descriptions explain the experience and effect, 2026-10-25
 
 Weibao requested rules for more narrative UI descriptions, especially traits,
@@ -547,3 +594,10 @@ The pathway card is a world-neutral read/render model with a real LOTM host-view
 The checkpoint's floor labels are transposed: under [GROUND_RULES](GROUND_RULES.md#delivery-floor-flr1-flr6-accepted-as-ad43), FLR2 is Route, FLR3 Shown and FLR4 Used. Its own missing host mount/game-shell route/duplicate plan and linear-only graph limits remain explicit historical scope. The4728total/4720pass/5fail leaves three statuses unspecified in that paragraph; do not silently invent TODO/skipped values or treat the suite as all green. Seven card tests are within the17focused post-fix total, not24independent checks. The four remaining “environmental” failure explanations are explicitly inference there. A targeted current name search did not establish every indirect mount or present route; old no-mount text alone cannot prove current absence.
 
 The original-trial receipt names a rebuilt bundle, fresh Beginning route, actual result consumer and save/reload/Export/Import. Preserve that finite authored original mode rather than call it a source-canon whole-life path. Its pre-edit MCP walk and reported post-edit desktop run remain separate evidence. The full suite was still running at the report timestamp and is not a live process or a pass now. WCO1carry-list/crossings-view remains separately unproved by that receipt, with observed unwanted centre auto-switch and duplicate generic refusal. Neither a successful ladder nor an unwired carry projection proves the other. Current AD36/AD42/AD43, actual file ownership and selected route govern further work; no runtime/UI change, host patch, build, test or new acceptance gate was selected.
+
+
+## Coverage and refactor plan reconciliation B567
+
+The actual full [October27 coverage-plan review](gm/dispatch/ui-coverage-2026-10-27/PLAN.md#content-reconciliation-b567-coverage-contracts-and-later-rule-status) and [October29 refactor-plan review](gm/dispatch/ui-refactor-wave-2026-10-29/PLAN.md#content-reconciliation-b567-refactor-history-and-proof-limits) preserve M1–M18/K1–K8/PD1–PD5/T1–T4 and R1–R5/MT-F1/L13/G/COV/WS findings. Their early awaiting-UR76–UR82 labels predate this owner's proposed/in-use status; existing direction can already authorize a supported home under UR2/AD32, without a separate human gate under AD42. ACR1–ACR14 now own compressed routines/absence consequences. Historical route/tab counts and two-consumer requirements do not override current AD51 or task-specific forms.
+
+Keep real work/clock/settlement suppliers behind notes, return reports and ledgers; note dismissal does not settle a job and a frozen-world message does not enable offline simulation. Admit observer-safe rows before counting/filtering/accessible labels; a safe name renderer or one truth-string fixture is insufficient to prove every hint, edge and aggregate safe. Actual21px labels, fresh browser zoom and native mount need their own evidence; parent font settings, viewport arithmetic and gallery fixtures do not supply it. A pure bridge is not its reachable consumer. Preserve separate snapshot-specific focused tests, interrupted suites, subsequent narrow reruns and optional taste feedback rather than flattening them to pass/fail of today's UI. WS's panel-only allowlist, missing cross-panel homes and proposed hover-only blocker treatment retain their scope. These folds change no rule code or runtime and establish no current visual, worker or release state.

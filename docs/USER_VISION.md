@@ -7327,3 +7327,14 @@ Follow-up:
 > button feedback, interaction and more? similar stuff?
 
 Default: prose can stand on its own. Distinctive UI starts with usable actions, state, progress where its meaning is supported, button feedback and interaction. A prose vignette is optional when deliberately useful, not a requirement to make each passage look different. Retire the current “From the ritual” treatment in this slice. Keep creative prose and characters’ established traits/voices. This refines existing AD40/DSG5 and does not prohibit diagrams, decorative pleasure or a better justified world-specific treatment.
+
+
+## Task-appropriate UI layers and crafting follow-through, 2026-11-04
+
+Weibao:
+
+> Update the UI rules accordingly, then improve the crafting UI for the different types using what we already have from Proto23 and YAIR. Keep the layers appropriate to each craft.
+
+> consider rules for long term stuff that pplies to others too
+
+Direction: apply the preceding comparison's layered-task guidance through the existing UI rules and making owners. Browsing, inspection/comparison, setup, commitment, actual work/results and reference are task roles that may share a pane; display detail, quick/guided/deep execution and observer knowledge remain distinct. Reuse existing source-informed result suppliers and commands, with different compositions for fixed products, parts, experiments, staged work and alteration. Generalize useful lifecycle rules to longer tasks and other domains without inventing one universal layout, cancellation policy or new making engine. [UI application](UI_RULES.md#task-layers-and-long-running-work-2026-11-04); [implementation/checks](gm/dispatch/crafting-layers-2026-11-04/CHECKPOINT.md).

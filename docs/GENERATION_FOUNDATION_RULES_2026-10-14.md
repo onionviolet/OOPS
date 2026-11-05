@@ -386,3 +386,8 @@ GX1-GX4 complete documentation, not gameplay. GX5 records a bounded earned appea
 ## Static census evidence application B156, 2026-11-04
 
 The entire [October 26 generator census](reviews/GENERATOR_CENSUS_2026-10-26.md) was read. Its eight rows are named-export/name-co-occurrence signals on the recorded hash, with explicit exclusions. A reader=yes is not a call graph or native consumer, and seed-sweep/golden/save=yes is not an executed passing result. A no cell can reflect detector shape or naming rather than an absent test. Preserve this distinction when applying GR12/GR16 and AD36; strict detector mode is optional, not a new universal gate. Inspect the selected real generator/caller and meaningful invariant before adding or repeating checks.
+
+
+## Premise provenance and unknown-axis reconciliation B582
+
+The full [premise audit B582 review](research/PREMISE_HOOK_AUDIT_2026-10-14.md#content-reconciliation-b582-grammar-and-current-probe-boundaries) follows actual resolver/probe/main seams. Addressed axis draws and public-text premise layers exist; selected() clones module state rather than trusting DOM JSON. The probe still emits full provenance into dataset.startResolved, and main writes every layer ID to the beginning milestone. Preserve that conditional disclosure gap before adding sealed content, without claiming the existing public text layers contain a shipped secret. GR3/GW5 commits detail once used by a cause, not necessarily only on reveal. Existing source/local clock and actual observer knowledge govern tells and irony; one similarity/exposure score, mandatory substitute payoff or all-save plaintext prohibition is not selected.

@@ -686,7 +686,7 @@ Private deep dives:
 - **SN, 聖女幫我模擬修仙:** `docs/research/novels/shengnvbangwomonixiuxian/DEEP_DIVE_2026-10-10.md`.
   All 264 chapters read except three lost to bad mirrors.
 - **FR, 凡人：從極陰島開始的修仙模擬器:** `docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md`.
-  Only the free 44 of 184 chapters exist on any mirror.
+  The held44of184chapters came from the dated tried-mirror capture; this does not establish current global availability.
 
 **New values on existing axes**
 
@@ -876,3 +876,8 @@ A real fork must isolate all relevant authoritative owners, context/callback ref
 Retain useful ownership/equipping, cursed-control, biological versus copied talent, mood trigger, observer perception and old-rule/new-rule distinctions. Grade, rarity, strength, usefulness and body fit are independent. A trait’s plain text, rule-backed scope and actual mechanism need not collapse into tag matching; a name or source list is not a functioning consumer. Descendants do not automatically inherit a fantasy trait algorithm or copied personal identity. Personal mood/drift examples concern the fictional character’s supported life rather than inferred facts about Weibao. Fixed innate/world limits describe ordinary mechanisms and can have actual stronger exceptions without a mandatory price tax.
 
 **Execution:** preserve the actual chosen cycle/attempt and affected history; retrying one command is not another deliberate run. Heir succession, checkpoint rewind, reciprocal paused-life resume and backup restore remain distinct, and a lossy life record cannot reconstruct executable state. Offline dream/refill/settlement needs the actual selected clock/means/bank policy, not independent credit for each frozen life. A boundary/worker budget protects responsiveness while retaining exact unspent work; it does not delete earned simulation time or justify runaway live mutation. The first Village dream, new optional state shape, SA schema and broad family mappings remain proposals under current priorities/AD51. No new simulator, forecast, source read, native replay, source acquisition, schema, reward, clock, build or gameplay test was performed here.
+
+
+## FR institution and run-state reconciliation B608
+
+The [Fanren simulator institution pass](worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b608-real-run-transactions-and-later-corrections) adds REAL/SIM context and later source-review corrections to FR/SA6/SA8/SA9/SA13/SA16/SA19. Separate start/draw/claim/extra-pick charges, listed and actually received stock, run-local price/age/cap and real cooldown/stabilization. Its later review confirms a2000reward-fee line while the separate1000line remains ambiguous;500/470/750are distinct cap states.25town years and a different40year ordeal are different runs. A particular misfire is context-dependent, not every pick’s required hidden cost. Canon-scheduled forecasts remain source/knowledge-qualified and do not freeze the playable world. The44chapter mirror boundary is a dated supplied-source limit, not proof of current all-mirror availability. No raw body or current runtime was newly verified, and this reference does not launch acquisition or implementation.

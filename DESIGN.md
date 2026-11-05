@@ -42,6 +42,8 @@ proposed) records their application; UI_RULES owns the interaction requirements.
 
 Descriptions inside any of these follow UR70-UR75 (meaning first, numbers second).
 
+The accepted [task-layer application](docs/UI_RULES.md#task-layers-and-long-running-work-2026-11-04) keeps disclosure, execution depth and knowledge separate. Shared identity/controls support different task forms: a fixed-result summary, configurable assembly comparison, experimental notebook or ongoing-work review. Long work retains its actual identity, terms and return context; these roles need not become separate pages.
+
 ## The per-world contract
 
 Each world chooses its own systems and their UI (**accepted**, AD46); Weibao asked

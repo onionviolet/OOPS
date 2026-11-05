@@ -247,3 +247,10 @@ audit. Edit shared docs from disk, hunk only. Do not commit unless asked.
 - Finish with: what you saved, where, the top five core aspects, open
   questions, and which Codex lanes (if any) would be useful next. Do not
   dispatch them.
+
+
+## Content reconciliation B431: workflow scope and actual review boundaries
+
+QW1–QW7 and the question-triage refinement preserve the actual latest user correction, distinguish narrow yes from adjacent proposals, resolve straightforward reversible details and ask only consequential preferences. The at-most-one question ceiling is not an obligation to ask each turn, and ODnumeric order is not mandatory. Exact quotes/owners, point-of-use summary correction and preservation of dated reasoning are useful reconciliation practice; an audit allegation does not broadly retire unrelated direction. The M1–M9discovery method combines inventory/drift/quote mining with journey/stress/retrofit-cost review; reference surveys and external critique need a named uncertainty. Its proposed two-of-four core scoring, pillar draft, W/P/O/Nlabels and seven-section done check remain an historical audit method, not newly binding product rules or evidence the audit was executed now. Old exclusive chat scopes/model delegation/source/commit commands are history; current owner and user authority decide writes. No full north-star/core-audit/source review follows from their listing. The current full-content intake may read large owners in bounded ranges; historical headings-first guidance for a discovery audit does not substitute metadata for this explicitly requested complete review.
+
+This preserves the useful discussion/discovery workflow. It neither reruns the original audit nor creates a decision registry, worker, interview or implementation gate.

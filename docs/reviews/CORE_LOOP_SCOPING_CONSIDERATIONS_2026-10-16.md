@@ -1,5 +1,7 @@
 # Core loop scoping considerations, 2026-10-16
 
+Current reading, B586: the pursuit-shape proposal and optional heir framing remain useful. The old first-realm/prestige/making-first plan is historical under current PROJECT; no new approval or milestone gate is needed. [Full content reconciliation](#content-reconciliation-b586-pursuit-shape-and-superseded-milestone).
+
 **Planning only. Every recommendation, option, slice and code below is a Claude
 proposal, not an accepted decision.** Accepted direction is cited by its owner
 code (AD, D2/D3, CX) and is not restated as new authority. No runtime change and
@@ -310,3 +312,18 @@ recap after a real absence shows routines and discoveries.
 - First prestige trigger beyond the two in code: recommendation is death
   without an heir (memories and base cheat carry), because it exercises the
   generic carriers and makes heirs an add-on rather than the frame.
+
+
+## Content reconciliation B586: pursuit shape and superseded milestone
+
+F1: Full actual312-line review covers CL1–CL3, CL10–CL17, every CL20/CL30 finding/candidate, CL40–CL64, CL70–CL107 and final questions. Preserve the user's correction that heirs need not define the core. CL1's choose pursuit→act/routine→learn/gain→new choice is a useful organizing proposal, not a universal authored formula or selected core-loop decision. A quiet meaningful scene or self-chosen pursuit need not grant an upgrade or a new consequential choice at every timescale. Discovery can coexist with numbers, mastery, comfort, stories and relationships rather than making all other motives inferior.
+
+F2: The old first-realm/first-prestige/day-loop/making-first/away-before-M3 plan is superseded by current PROJECT and later scope direction. Current Klein-first/HP-alongside and Frontier/Mistglass test-bed roles do not wait for a new prestige trigger, full Village day, generic fresh-life operation, broad absence framework or human playtest. CL20's dated search-agent source report and largest-gap assessment are not current proof that away time, book-world entry, discoveries, makers or continuation are absent. Current AD33's later work-on-it direction qualifies the older global deferrals. No new product priority or draft D2b approval is inferred.
+
+F3: Timescale rows retain useful distinct decisions: current action, routine stop, away recap, project/career, local life and across-world journey. Actual shared clock and source/observer history govern each; more activities do not prove meaningful depth, and fewer clicks need not remove choice. CL64's solved-becomes-routine is one route, not a mandatory prior manual repetition or proof routine work always uncovers a discovery. AD52 allows compressing an understood operation while keeping actual costs, consequences, uncertainty and important decisions. AD16/AD17/AD18 distinguish supported routine work, unused-time bank and known-only recap; no synthetic success or knowledge can fill idle time merely for engagement.
+
+F4: CL41's one generic fresh-life operation is a proposal too broad to merge every listed case. Heir/independent new life, physical rewind, regression, same-self crossing, archive, parallel fresh version and endless current life have different world/body/knowledge/custody/history and commitment semantics. Across-life and across-world carry differ; a source can have no universal prestige currency, and death is not compulsory. Resetting local inventory/standing is not an automatic cost of crossing. Body, soul, source, local law, retained records and actual means decide continuation. A record-only archive is not a resumable body, and a baseline new run does not overwrite the paused prior life.
+
+F5: CL51–CL54's shared verbs/log/pack-fields/card are authoring options, not proof every world fits data alone or every pursuit needs a common routine engine. Existing native/domain commands, current registry and actual source mechanism are the starting owners; a narrow new handler may be needed. Being the character versus guiding another changes knowledge/control and actual actor authority, not merely cosmetic moment-loop wording. Stronger means can retire ordinary friction without mandatory new demands. World-specific lead-pursuit examples need not establish one compulsory main quest, same loops or identical clocks.
+
+F6: CL80–CL107's completed documentation, constraints, model levels and questions are historical plans, not worker dispatch or approvals now owed. Current AD36/AD42/AD43/AD51 governs selected tests, optional human review, floor and shared first seams. Closed-tab behavior claims still need an actual relevant absence route, but this is not a universal full-repo gate for unrelated slices. Old1366target, mandatory migration/card-review, one-prestige completion and question order remain preserved as dated proposals. No source/test/browser/build, actual away run, source acquisition, personal save, worker, deletion, commit or push occurred.

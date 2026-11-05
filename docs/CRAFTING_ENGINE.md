@@ -16,20 +16,22 @@ reuses `gen_kit.js` draws and `tag_store.js` tags. It adds no second RNG or tag 
 
 ## Crafting UI layers and source follow-through, 2026-11-04
 
-Proposal palette from Weibao's reference comparison and more-to-consider request:
+Source comparison and retained broader palette from Weibao's reference and more-to-consider request:
 [comparison round 2](reviews/crafting-reference-2026-11-04/REPORT.md#round-2-source-adoption-ui-layers-and-other-making-2026-11-04).
-ACT NOW completed: traced pinned Proto23, local upstream YAIR and current native
-consumers, correcting the consumable-only framing. ACCOUNT FOR NOW: F6–F12/P5–P8
+The [authorized implementation](gm/dispatch/crafting-layers-2026-11-04/CHECKPOINT.md)
+adopts the [task-layer UI defaults](UI_RULES.md#task-layers-and-long-running-work-2026-11-04)
+and extends existing result suppliers, native material/part inspection and experiment/work views.
+ACCOUNT FOR NOW: F6–F12/P5–P8
 separate task/disclosure, observer knowledge, quick/guided/deep execution and
 domain/projection/renderer layers under MR11/18/29/31 and UR41–43/49/57/71/74.
-The newer fixed-item detail does not cover native component/equipment pickers;
-existing projections, known-recipe links and exact selection should be extended
-where useful. Pattern, assembly, experiment, staged work and alteration have
+Fixed items show their existing known meaning/effects; component/equipment pickers
+retain native setup/commit controls beside stable result inspection. Pattern,
+assembly, experiment, staged work and alteration have
 different decision facts and actual cancellation terms, not one mandatory form.
-LATER candidates, capability/effort and done checks are in that round: first a
-fixed-result summary, then a distinct assembly consumer when selected; broader
-editors and planning reopen on a concrete consumer. No runtime/rule adoption,
-new priority or fresh all-crafting browser proof is implied by this palette.
+Broader editors and planning remain palette candidates, with capability/effort,
+done checks and concrete-consumer reopen triggers in that round. The checkpoint
+owns selected rebuilt evidence; this does not certify every making world or
+promote the rest of the palette into required work.
 
 ## Modules
 
